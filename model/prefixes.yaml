@@ -1,0 +1,18 @@
+id: https://ccdh.org/model/prefixes
+name: prefixes
+title: URI Prefixes used by the CCDH Model
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  ccdh: https://ccdh.org/
+  specimen: https://ccdh.org/specimen/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  ADM: https://ccdh.org/models/ADM/
+  FHIR: http://hl7.org/fhir/
+  BRIDG: https://fill.me.in/BRIDG/
+
+default_prefix: biolinkml
+
+imports:
+  - biolinkml:types

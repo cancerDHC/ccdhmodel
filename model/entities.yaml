@@ -1,0 +1,54 @@
+id: https://ccdh.org/model/entities
+name: entities
+title: CDM Data Type Object References
+description: >-
+  This sheet holds descriptions of objects referenced as the Data Type of a field in the Biospecimen CDM, and likely to
+  be represented as Entities/Classes/Resources in our final model, but which are out of scope to fully define in the
+  current phase of work. We will record these candidate Entities/Classes/Resources here, and document their proposed
+  use and requirements to support Biospecimen representation. Requiremetns accrued as we model additional subdomains
+  will inform if and how these entties are represented in our model.
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  ccdh: https://ccdh.org/
+
+default_prefix: ccdh
+
+imports:
+  - prefixes
+  - biolinkml:types
+
+
+classes:
+  Entity:
+    description: Any resource that has its own identifier
+    slot_usage:
+      id:
+        range: uriorcurie
+        identifier: True
+
+  Organization:
+    is_a: Entity
+    mappings:
+      - FHIR:Organization
+      - BRIDG:Organization
+
+  DocumentReference:
+    is_a: Entity
+    mappings:
+      - FHIR:DocumentReference
+
+  ConditionDiagnosis:
+    is_a: Entity
+    mappings:
+      - FHIR:Condition
+
+  Visit:
+    is_a: Entity
+    mappings:
+      - FHIR:Encounter
+
+  Project:
+    is_a: Entity
+    mappings:
+      - BRIDG:Project

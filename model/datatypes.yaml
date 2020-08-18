@@ -1,0 +1,15 @@
+id: https://ccdh.org/model/datatypes
+name: datatypes
+title: Data Types used by the CCDH model
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  types: https://ccdh.org/datatypes/
+
+default_prefix: types
+
+imports:
+  - biolinkml:types
+
+types:
+  literal:

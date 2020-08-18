@@ -1,0 +1,30 @@
+id: https://ccdh.org/model/specimen
+name: specimen
+title: TCCM URI Prefixes
+description: >-
+  Any material sample taken from a biological entity (living or dead), or taken from a physical object or the
+  environment. (Adapted from FHIR) Specimens are usually collected as an example of their kind, often for use in some
+  investigation.
+comments:
+  - In our first pass we are defining a single 'Specimen' type to cover ADM Sample, Portion, Aliquot, Analyte, and Slide.
+  - The enum/value set for the 'type' field will include terms to distinguish between these types of specimens, e.g. 'original', 'portion', 'pool', 'analyte', 'aliquot', 'slide'.
+  - ADM properties across these source entities will be aggregated and merged into this single CDM Specimen entity.
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+prefixes:
+  specimen: https://ccdh.org/specimen/
+
+imports:
+  - prefixes
+  - entities
+
+default_prefix: specimen
+
+mappings:
+  - ADM:Sample
+  - FHIR:Specimen
+  - BRIDG:BiologicalSpecimen
+
+
+
+classes:
