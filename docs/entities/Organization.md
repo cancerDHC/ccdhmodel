@@ -13,13 +13,17 @@ URI: [ccdh:Organization](https://ccdh.org/Organization)
 
  *  is_a: [Entity](Entity.md) - Any resource that has its own identifier
 
+## Referenced by class
+
+
 ## Attributes
 
 
-### Inherited from Entity:
+### Own
 
- * [Entity➞id](Entity_id.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](types/Uriorcurie.md)
+ * [Organization➞id](Organization_id.md)  <sub>REQ</sub>
+    * Description: Organization id
+    * range: [Literal](types/Literal.md)
 
 ## Other properties
 

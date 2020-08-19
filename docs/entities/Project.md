@@ -18,8 +18,8 @@ URI: [ccdh:Project](https://ccdh.org/Project)
 
 ### Inherited from Entity:
 
- * [Entity➞id](Entity_id.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](types/Uriorcurie.md)
+ * [id](id.md)  <sub>REQ</sub>
+    * range: [Literal](types/Literal.md)
 
 ## Other properties
 

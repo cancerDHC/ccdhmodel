@@ -1,22 +1,22 @@
 
-# Type: Entity_id
+# Type: id
 
 
 
 
-URI: [ccdh:Entity_id](https://ccdh.org/Entity_id)
+URI: [ccdh:id](https://ccdh.org/id)
 
 
 ## Domain and Range
 
-[Entity](Entity.md) ->  <sub>REQ</sub> [Uriorcurie](types/Uriorcurie.md)
+None ->  <sub>REQ</sub> [Literal](types/Literal.md)
 
 ## Parents
 
- *  is_a: [id](id.md)
 
 ## Children
 
+ *  [Organization➞id](Organization_id.md)
 
 ## Used by
 

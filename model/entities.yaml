@@ -17,15 +17,22 @@ default_prefix: ccdh
 imports:
   - prefixes
   - biolinkml:types
+  - datatypes
+
+
+slots:
+  id:
+    range: literal
+    key: True
+    required: true
+    multivalued: false
 
 
 classes:
   Entity:
     description: Any resource that has its own identifier
-    slot_usage:
-      id:
-        range: uriorcurie
-        identifier: True
+    slots:
+      - id
 
   Organization:
     is_a: Entity

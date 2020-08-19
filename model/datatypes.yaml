@@ -4,6 +4,7 @@ title: Data Types used by the CCDH model
 license: https://creativecommons.org/publicdomain/zero/1.0/
 
 prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
   types: https://ccdh.org/datatypes/
 
 default_prefix: types
@@ -13,3 +14,14 @@ imports:
 
 types:
   literal:
+    typeof: string
+
+classes:
+  Coding:
+
+  Quantity:
+
+  Identifier:
+
+
+

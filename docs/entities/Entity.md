@@ -25,5 +25,5 @@ URI: [ccdh:Entity](https://ccdh.org/Entity)
 
 ### Own
 
- * [Entity➞id](Entity_id.md)  <sub>REQ</sub>
-    * range: [Uriorcurie](types/Uriorcurie.md)
+ * [id](id.md)  <sub>REQ</sub>
+    * range: [Literal](types/Literal.md)

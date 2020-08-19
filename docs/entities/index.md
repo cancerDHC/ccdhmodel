@@ -7,12 +7,15 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
 
 ### Classes
 
+ * [Coding](Coding.md)
  * [Entity](Entity.md) - Any resource that has its own identifier
     * [ConditionDiagnosis](ConditionDiagnosis.md)
     * [DocumentReference](DocumentReference.md)
     * [Organization](Organization.md)
     * [Project](Project.md)
     * [Visit](Visit.md)
+ * [Identifier](Identifier.md)
+ * [Quantity](Quantity.md)
 
 ### Mixins
 
@@ -20,7 +23,7 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
 ### Slots
 
  * [id](id.md)
-    * [Entity➞id](Entity_id.md)
+    * [Organization➞id](Organization_id.md) - Organization id
 
 ### Types
 
@@ -48,6 +51,7 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
  * [Double](types/Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
  * [Float](types/Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
  * [Integer](types/Integer.md)  (**int**)  - An integer
+ * [Literal](types/Literal.md)  ([String](types/String.md)) 
  * [Ncname](types/Ncname.md)  (**NCName**)  - Prefix part of CURIE
  * [Nodeidentifier](types/Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
  * [Objectidentifier](types/Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.

@@ -1,5 +1,5 @@
 # Auto generated from specimen.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-18 11:33
+# Generation date: 2020-08-19 10:25
 # Schema: specimen
 #
 # id: https://ccdh.org/model/specimen
@@ -22,7 +22,9 @@ else:
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-
+from datatypes import Literal
+from entities import Entity, Id, Organization
+from includes.types import String
 
 metamodel_version = "1.5.3"
 
@@ -30,6 +32,7 @@ metamodel_version = "1.5.3"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
 SPECIMEN = CurieNamespace('specimen', 'https://ccdh.org/specimen/')
 DEFAULT_ = SPECIMEN
 
@@ -37,8 +40,27 @@ DEFAULT_ = SPECIMEN
 # Types
 
 # Class references
+class SpecimenId(Literal):
+    pass
 
 
+@dataclass
+class Specimen(Entity):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = SPECIMEN.Specimen
+    class_class_curie: ClassVar[str] = "specimen:Specimen"
+    class_name: ClassVar[str] = "Specimen"
+    class_model_uri: ClassVar[URIRef] = SPECIMEN.Specimen
+
+    id: Union[str, SpecimenId] = None
+
+    def __post_init__(self, **kwargs: Dict[str, Any]):
+        if self.id is None:
+            raise ValueError(f"id must be supplied")
+        if not isinstance(self.id, SpecimenId):
+            self.id = SpecimenId(self.id)
+        super().__post_init__(**kwargs)
 
 
 
@@ -46,4 +68,8 @@ DEFAULT_ = SPECIMEN
 class slots:
     pass
 
+slots.Specimen_id = Slot(uri=SPECIMEN.id, name="Specimen_id", curie=SPECIMEN.curie('id'),
+                      model_uri=SPECIMEN.Specimen_id, domain=Specimen, range=Union[str, SpecimenId])
 
+slots.Organization_id = Slot(uri=SPECIMEN.id, name="Organization_id", curie=SPECIMEN.curie('id'),
+                      model_uri=SPECIMEN.Organization_id, domain=Organization, range=Union[str, OrganizationId])

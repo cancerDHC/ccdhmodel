@@ -39,10 +39,10 @@
 <polygon fill='white' points='157.5,-1 157.5,-37 256.5,-37 256.5,-1 157.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='207' y='-15.3'>Organization</text>
 </g><g class='node' id='node4'><title>Entity</title>
-<polygon fill='white' points='159,-129 159,-165 255,-165 255,-129 159,-129' stroke='black'/>
+<polygon fill='white' points='158.5,-129 158.5,-165 255.5,-165 255.5,-129 158.5,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='207' y='-152.3'>Entity</text>
-<polyline fill='none' points='159,-147 255,-147 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='207' y='-134.3'>id:uriorcurie</text>
+<polyline fill='none' points='158.5,-147 255.5,-147 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='207' y='-134.3'>id(pk):literal</text>
 </g><g class='edge' id='edge1'><title>Entity-&gt;Visit</title>
 <path d='M173.789,-122.752C138.328,-97.9299 82.9818,-59.1873 51.3531,-37.0472' fill='none' stroke='black'/>
 <polygon fill='none' points='172.15,-125.877 182.349,-128.744 176.164,-120.142 172.15,-125.877' stroke='black'/>

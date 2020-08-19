@@ -1,5 +1,5 @@
 # Auto generated from entities.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-18 11:33
+# Generation date: 2020-08-19 10:24
 # Schema: entities
 #
 # id: https://ccdh.org/model/entities
@@ -25,8 +25,8 @@ else:
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from biolinkml.utils.metamodelcore import URIorCURIE
-from includes.types import Uriorcurie
+from datatypes import Literal
+from includes.types import String
 
 metamodel_version = "1.5.3"
 
@@ -43,27 +43,27 @@ DEFAULT_ = CCDH
 # Types
 
 # Class references
-class EntityId(URIorCURIE):
+class EntityId(Literal):
     pass
 
 
-class OrganizationId(EntityId):
+class OrganizationId(Literal):
     pass
 
 
-class DocumentReferenceId(EntityId):
+class DocumentReferenceId(Literal):
     pass
 
 
-class ConditionDiagnosisId(EntityId):
+class ConditionDiagnosisId(Literal):
     pass
 
 
-class VisitId(EntityId):
+class VisitId(Literal):
     pass
 
 
-class ProjectId(EntityId):
+class ProjectId(Literal):
     pass
 
 
@@ -192,5 +192,5 @@ class slots:
 slots.id = Slot(uri=CCDH.id, name="id", curie=CCDH.curie('id'),
                       model_uri=CCDH.id, domain=None, range=URIRef)
 
-slots.Entity_id = Slot(uri=CCDH.id, name="Entity_id", curie=CCDH.curie('id'),
-                      model_uri=CCDH.Entity_id, domain=Entity, range=Union[str, EntityId])
+slots.Organization_id = Slot(uri=CCDH.id, name="Organization_id", curie=CCDH.curie('id'),
+                      model_uri=CCDH.Organization_id, domain=Organization, range=Union[str, OrganizationId])
