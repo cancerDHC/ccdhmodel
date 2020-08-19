@@ -62,3 +62,14 @@ classes:
           - HTAN:Biospecimen.HTAN_BIOSPECIMEN_ID
 
 
+      associated_project:
+        description: The Project associated with the specimen.
+        range: Project
+        multivalued: false
+
+      derived_from_specimen:
+        range: Specimen
+        multivalued: true
+
+      derived_from_subject:
+        range: PatientOrBiologicalyDerivedMaterial

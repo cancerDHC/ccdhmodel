@@ -1,5 +1,5 @@
 # Auto generated from prefixes.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-19 10:24
+# Generation date: 2020-08-19 10:41
 # Schema: prefixes
 #
 # id: https://ccdh.org/model/prefixes

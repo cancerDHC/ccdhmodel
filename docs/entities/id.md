@@ -16,7 +16,6 @@ None ->  <sub>REQ</sub> [Literal](types/Literal.md)
 
 ## Children
 
- *  [Organization➞id](Organization_id.md)
 
 ## Used by
 

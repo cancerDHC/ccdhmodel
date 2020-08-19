@@ -59,3 +59,11 @@ classes:
     is_a: Entity
     mappings:
       - BRIDG:Project
+
+  PatientOrBiologicalyDerivedMaterial:
+
+  Patient:
+    is_a: PatientOrBiologicalyDerivedMaterial
+
+  BiologicallyDerivedMaterial:
+    is_a: PatientOrBiologicalyDerivedMaterial

@@ -15,6 +15,9 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
     * [Project](Project.md)
     * [Visit](Visit.md)
  * [Identifier](Identifier.md)
+ * [PatientOrBiologicallyDerivedMaterial](PatientOrBiologicallyDerivedMaterial.md)
+    * [BiologicallyDerivedMaterial](BiologicallyDerivedMaterial.md)
+    * [Patient](Patient.md)
  * [Quantity](Quantity.md)
 
 ### Mixins
@@ -23,7 +26,6 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
 ### Slots
 
  * [id](id.md)
-    * [Organization➞id](Organization_id.md) - Organization id
 
 ### Types
 

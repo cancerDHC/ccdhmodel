@@ -1,5 +1,5 @@
 # Auto generated from entities.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-19 10:24
+# Generation date: 2020-08-19 10:41
 # Schema: entities
 #
 # id: https://ccdh.org/model/entities
@@ -184,6 +184,33 @@ class Project(Entity):
         super().__post_init__(**kwargs)
 
 
+class PatientOrBiologicallyDerivedMaterial(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicallyDerivedMaterial
+    class_class_curie: ClassVar[str] = "ccdh:PatientOrBiologicallyDerivedMaterial"
+    class_name: ClassVar[str] = "PatientOrBiologicallyDerivedMaterial"
+    class_model_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicallyDerivedMaterial
+
+
+class Patient(PatientOrBiologicallyDerivedMaterial):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.Patient
+    class_class_curie: ClassVar[str] = "ccdh:Patient"
+    class_name: ClassVar[str] = "Patient"
+    class_model_uri: ClassVar[URIRef] = CCDH.Patient
+
+
+class BiologicallyDerivedMaterial(PatientOrBiologicallyDerivedMaterial):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.BiologicallyDerivedMaterial
+    class_class_curie: ClassVar[str] = "ccdh:BiologicallyDerivedMaterial"
+    class_name: ClassVar[str] = "BiologicallyDerivedMaterial"
+    class_model_uri: ClassVar[URIRef] = CCDH.BiologicallyDerivedMaterial
+
+
 
 # Slots
 class slots:
@@ -191,6 +218,3 @@ class slots:
 
 slots.id = Slot(uri=CCDH.id, name="id", curie=CCDH.curie('id'),
                       model_uri=CCDH.id, domain=None, range=URIRef)
-
-slots.Organization_id = Slot(uri=CCDH.id, name="Organization_id", curie=CCDH.curie('id'),
-                      model_uri=CCDH.Organization_id, domain=Organization, range=Union[str, OrganizationId])
