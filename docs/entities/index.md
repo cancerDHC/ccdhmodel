@@ -15,7 +15,7 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
     * [Project](Project.md)
     * [Visit](Visit.md)
  * [Identifier](Identifier.md)
- * [PatientOrBiologicallyDerivedMaterial](PatientOrBiologicallyDerivedMaterial.md)
+ * [PatientOrBiologicalyDerivedMaterial](PatientOrBiologicalyDerivedMaterial.md)
     * [BiologicallyDerivedMaterial](BiologicallyDerivedMaterial.md)
     * [Patient](Patient.md)
  * [Quantity](Quantity.md)

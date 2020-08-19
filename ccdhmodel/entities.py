@@ -1,5 +1,5 @@
 # Auto generated from entities.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-19 10:41
+# Generation date: 2020-08-19 12:36
 # Schema: entities
 #
 # id: https://ccdh.org/model/entities
@@ -184,16 +184,16 @@ class Project(Entity):
         super().__post_init__(**kwargs)
 
 
-class PatientOrBiologicallyDerivedMaterial(YAMLRoot):
+class PatientOrBiologicalyDerivedMaterial(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicallyDerivedMaterial
-    class_class_curie: ClassVar[str] = "ccdh:PatientOrBiologicallyDerivedMaterial"
-    class_name: ClassVar[str] = "PatientOrBiologicallyDerivedMaterial"
-    class_model_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicallyDerivedMaterial
+    class_class_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicalyDerivedMaterial
+    class_class_curie: ClassVar[str] = "ccdh:PatientOrBiologicalyDerivedMaterial"
+    class_name: ClassVar[str] = "PatientOrBiologicalyDerivedMaterial"
+    class_model_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicalyDerivedMaterial
 
 
-class Patient(PatientOrBiologicallyDerivedMaterial):
+class Patient(PatientOrBiologicalyDerivedMaterial):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CCDH.Patient
@@ -202,7 +202,7 @@ class Patient(PatientOrBiologicallyDerivedMaterial):
     class_model_uri: ClassVar[URIRef] = CCDH.Patient
 
 
-class BiologicallyDerivedMaterial(PatientOrBiologicallyDerivedMaterial):
+class BiologicallyDerivedMaterial(PatientOrBiologicalyDerivedMaterial):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CCDH.BiologicallyDerivedMaterial
