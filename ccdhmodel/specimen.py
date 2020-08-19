@@ -1,5 +1,5 @@
 # Auto generated from specimen.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-19 12:36
+# Generation date: 2020-08-19 14:32
 # Schema: specimen
 #
 # id: https://ccdh.org/model/specimen
@@ -22,7 +22,7 @@ else:
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from datatypes import Literal
+from datatypes import Identifier, Literal
 from entities import Entity, Id, PatientOrBiologicalyDerivedMaterial, Project
 from includes.types import String
 
@@ -32,6 +32,10 @@ metamodel_version = "1.5.3"
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+ADM = CurieNamespace('ADM', 'https://ccdh.org/models/ADM/')
+FHIR = CurieNamespace('FHIR', 'http://hl7.org/fhir/')
+GDC = CurieNamespace('GDC', 'http://fill.me.in/GDC')
+PDC = CurieNamespace('PDC', 'http://fill.me.in/PDC')
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
 SPECIMEN = CurieNamespace('specimen', 'https://ccdh.org/specimen/')
 DEFAULT_ = SPECIMEN
@@ -54,6 +58,7 @@ class Specimen(Entity):
     class_model_uri: ClassVar[URIRef] = SPECIMEN.Specimen
 
     id: Union[str, SpecimenId] = None
+    identifier: List[Union[dict, Identifier]] = empty_list()
     associated_project: Optional[Union[dict, Project]] = None
     derived_from_specimen: Dict[Union[str, SpecimenId], Union[dict, "Specimen"]] = empty_dict()
     derived_from_subject: Optional[Union[dict, PatientOrBiologicalyDerivedMaterial]] = None
@@ -63,6 +68,9 @@ class Specimen(Entity):
             raise ValueError(f"id must be supplied")
         if not isinstance(self.id, SpecimenId):
             self.id = SpecimenId(self.id)
+        self.identifier = [Identifier(*e) for e in self.identifier.items()] if isinstance(self.identifier, dict) \
+                           else [v if isinstance(v, Identifier) else Identifier(**v)
+                                 for v in ([self.identifier] if isinstance(self.identifier, str) else self.identifier)]
         if self.associated_project is not None and not isinstance(self.associated_project, Project):
             self.associated_project = Project(**self.associated_project)
         for k, v in self.derived_from_specimen.items():
@@ -78,6 +86,9 @@ class Specimen(Entity):
 class slots:
     pass
 
+slots.identifier = Slot(uri=SPECIMEN.identifier, name="identifier", curie=SPECIMEN.curie('identifier'),
+                      model_uri=SPECIMEN.identifier, domain=None, range=List[Union[dict, Identifier]], mappings = [ADM["Sample.sample_submitter_id"], ADM["Sample.gdc_sample_id"], ADM["Portion.submitter_id"], ADM["Analyte.analyte_submitter_id"], GDC["Sample.submitter_id"], GDC["Analyte.submitter_id"], PDC["Sample.sample_submitter_id"], PDC["Analyte.analyte_submitter_id"], FHIR["Specimen.identifier"]])
+
 slots.associated_project = Slot(uri=SPECIMEN.associated_project, name="associated_project", curie=SPECIMEN.curie('associated_project'),
                       model_uri=SPECIMEN.associated_project, domain=None, range=Optional[Union[dict, Project]])
 
@@ -89,6 +100,9 @@ slots.derived_from_subject = Slot(uri=SPECIMEN.derived_from_subject, name="deriv
 
 slots.Specimen_id = Slot(uri=SPECIMEN.id, name="Specimen_id", curie=SPECIMEN.curie('id'),
                       model_uri=SPECIMEN.Specimen_id, domain=Specimen, range=Union[str, SpecimenId])
+
+slots.Specimen_identifier = Slot(uri=SPECIMEN.identifier, name="Specimen_identifier", curie=SPECIMEN.curie('identifier'),
+                      model_uri=SPECIMEN.Specimen_identifier, domain=Specimen, range=List[Union[dict, Identifier]])
 
 slots.Specimen_associated_project = Slot(uri=SPECIMEN.associated_project, name="Specimen_associated_project", curie=SPECIMEN.curie('associated_project'),
                       model_uri=SPECIMEN.Specimen_associated_project, domain=Specimen, range=Optional[Union[dict, Project]])
