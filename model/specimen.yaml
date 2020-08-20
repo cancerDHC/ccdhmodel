@@ -100,10 +100,78 @@ classes:
           - ->
             DJ - Need to find a way to represent the conditional mapping to FHIR identifier
 
+      description:
+        description: ->
+          A free text field to capture additional information or explanation about the specimen.
+        range: literal
+        required: false
+        multivalued: false
+        mappings:
+          - ADM:Sample.comment
+          - ICDC:Sample.comment
+          - FHIR:specimen.note
+        notes:
+          - ->
+            "FHIR provides a 'description' field on many resources (e.g. BodyStructure), that takes a string.  But it
+            is not offered on Specimen for some reason). Instead, Specimen has a note field that takes a complex
+            Annotation data type, that allows you to capture by whom and when the comment was made.
+
+      specimen_type:
+        description: ->
+          The high-level type of the specimen, based on its how it has been derived from the original extracted
+          sample.
+        range: Coding
+        required: false
+        multivalued: true
+        examples:
+          - value: Initial Sample
+          - value: Portion; Aliquot
+          - value: Analyte, Pool
+        comments:
+          - ->
+            This attribute is specific to Specimens of type 'analyte' or 'aliquot'
+            (specifically, an aliquot of an analyte).
+
+
+      analyte_type:
+        description: ->
+          When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte
+          represents (e.g. DNA, RNA)
+        range: Coding
+        examples:
+          - value: DNA; FFPE DNA
+          - value: GenomePlex (Rubicon) Amplified DNA
+          - value: Repli-G (Qiagen) DNA
+          - value: RNA
+          - value: FFPE RNA
+        comments:
+          - ->
+            This attribute is specific to Specimens of type 'analyte' or 'aliquot' (specifically, an aliquot of
+            an analyte).
+
       associated_project:
         description: The Project associated with the specimen.
         range: Project
         multivalued: false
+
+      provided_by:
+        description: The organization/center that provided the specimen.
+        range: Organization
+
+      source_material_type:
+        description: ->
+          The general kind of material from which the specimen was derived, indicating the physical nature of
+          the source material.
+        range: Coding
+        multivalued: false
+        examples:
+          - value: Tissue
+          - value: Blood
+          - value: Tumor Aspirate
+          - value: Cell Line
+          - value: Expanded Next Generation Cancer Model
+          - value: Pleural Effusion
+          - value: Xenograft Tissue
 
       derived_from_specimen:
         range: Specimen
