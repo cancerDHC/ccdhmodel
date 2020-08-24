@@ -7,7 +7,10 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
 
 ### Classes
 
+ * [BiologicallyDerivedProduct](BiologicallyDerivedProduct.md)
+ * [BodyStructure](BodyStructure.md)
  * [Coding](Coding.md)
+ * [DataContainer](DataContainer.md)
  * [Entity](Entity.md) - Any resource that has its own identifier
     * [ConditionDiagnosis](ConditionDiagnosis.md)
     * [DocumentReference](DocumentReference.md)
@@ -15,10 +18,16 @@ This sheet holds descriptions of objects referenced as the Data Type of a field 
     * [Project](Project.md)
     * [Visit](Visit.md)
  * [Identifier](Identifier.md)
- * [PatientOrBiologicalyDerivedMaterial](PatientOrBiologicalyDerivedMaterial.md)
+ * [PatientOrBiologicallyDerivedMaterial](PatientOrBiologicallyDerivedMaterial.md)
     * [BiologicallyDerivedMaterial](BiologicallyDerivedMaterial.md)
     * [Patient](Patient.md)
  * [Quantity](Quantity.md)
+ * [Relationship](Relationship.md)
+ * [SpecimenContainer](SpecimenContainer.md)
+ * [SpecimenCreationActivity](SpecimenCreationActivity.md)
+ * [SpecimenProcessingActivity](SpecimenProcessingActivity.md)
+ * [SpecimenStorageActivity](SpecimenStorageActivity.md)
+ * [SpecimenTransportActvity](SpecimenTransportActvity.md)
 
 ### Mixins
 

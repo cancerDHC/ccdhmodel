@@ -9,7 +9,7 @@ URI: [specimen:Specimen_derived_from_subject](https://ccdh.org/specimen/Specimen
 
 ## Domain and Range
 
-[Specimen](Specimen.md) ->  <sub>OPT</sub> [PatientOrBiologicalyDerivedMaterial](PatientOrBiologicalyDerivedMaterial.md)
+[Specimen](Specimen.md) ->  <sub>OPT</sub> [PatientOrBiologicallyDerivedMaterial](PatientOrBiologicallyDerivedMaterial.md)
 
 ## Parents
 

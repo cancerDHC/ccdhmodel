@@ -11,7 +11,7 @@ URI: [specimen:Patient](https://ccdh.org/specimen/Patient)
 
 ## Parents
 
- *  is_a: [PatientOrBiologicalyDerivedMaterial](PatientOrBiologicalyDerivedMaterial.md)
+ *  is_a: [PatientOrBiologicallyDerivedMaterial](PatientOrBiologicallyDerivedMaterial.md)
 
 ## Attributes
 

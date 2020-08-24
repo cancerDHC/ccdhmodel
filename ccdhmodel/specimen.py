@@ -1,5 +1,5 @@
 # Auto generated from specimen.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-24 01:59
+# Generation date: 2020-08-24 13:05
 # Schema: specimen
 #
 # id: https://ccdh.org/model/specimen
@@ -23,7 +23,7 @@ from biolinkml.utils.formatutils import camelcase, underscore, sfx
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
 from datatypes import Coding, Identifier, Literal
-from entities import Entity, Id, Organization, PatientOrBiologicalyDerivedMaterial, Project
+from entities import Entity, Id, Organization, PatientOrBiologicallyDerivedMaterial, Project
 from includes.types import String
 
 metamodel_version = "1.5.3"
@@ -67,7 +67,7 @@ class Specimen(Entity):
     provided_by: Optional[Union[dict, Organization]] = None
     source_material_type: Optional[Union[dict, Coding]] = None
     derived_from_specimen: Dict[Union[str, SpecimenId], Union[dict, "Specimen"]] = empty_dict()
-    derived_from_subject: Optional[Union[dict, PatientOrBiologicalyDerivedMaterial]] = None
+    derived_from_subject: Optional[Union[dict, PatientOrBiologicallyDerivedMaterial]] = None
 
     def __post_init__(self, **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -93,8 +93,8 @@ class Specimen(Entity):
         for k, v in self.derived_from_specimen.items():
             if not isinstance(v, Specimen):
                 self.derived_from_specimen[k] = Specimen(id=k, **({} if v is None else v))
-        if self.derived_from_subject is not None and not isinstance(self.derived_from_subject, PatientOrBiologicalyDerivedMaterial):
-            self.derived_from_subject = PatientOrBiologicalyDerivedMaterial()
+        if self.derived_from_subject is not None and not isinstance(self.derived_from_subject, PatientOrBiologicallyDerivedMaterial):
+            self.derived_from_subject = PatientOrBiologicallyDerivedMaterial()
         super().__post_init__(**kwargs)
 
 
@@ -128,7 +128,7 @@ slots.derived_from_specimen = Slot(uri=SPECIMEN.derived_from_specimen, name="der
                       model_uri=SPECIMEN.derived_from_specimen, domain=None, range=Dict[Union[str, SpecimenId], Union[dict, Specimen]])
 
 slots.derived_from_subject = Slot(uri=SPECIMEN.derived_from_subject, name="derived_from_subject", curie=SPECIMEN.curie('derived_from_subject'),
-                      model_uri=SPECIMEN.derived_from_subject, domain=None, range=Optional[Union[dict, PatientOrBiologicalyDerivedMaterial]])
+                      model_uri=SPECIMEN.derived_from_subject, domain=None, range=Optional[Union[dict, PatientOrBiologicallyDerivedMaterial]])
 
 slots.Specimen_id = Slot(uri=SPECIMEN.id, name="Specimen_id", curie=SPECIMEN.curie('id'),
                       model_uri=SPECIMEN.Specimen_id, domain=Specimen, range=Union[str, SpecimenId])
@@ -158,4 +158,4 @@ slots.Specimen_derived_from_specimen = Slot(uri=SPECIMEN.derived_from_specimen, 
                       model_uri=SPECIMEN.Specimen_derived_from_specimen, domain=Specimen, range=Dict[Union[str, SpecimenId], Union[dict, "Specimen"]])
 
 slots.Specimen_derived_from_subject = Slot(uri=SPECIMEN.derived_from_subject, name="Specimen_derived_from_subject", curie=SPECIMEN.curie('derived_from_subject'),
-                      model_uri=SPECIMEN.Specimen_derived_from_subject, domain=Specimen, range=Optional[Union[dict, PatientOrBiologicalyDerivedMaterial]])
+                      model_uri=SPECIMEN.Specimen_derived_from_subject, domain=Specimen, range=Optional[Union[dict, PatientOrBiologicallyDerivedMaterial]])

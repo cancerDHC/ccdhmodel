@@ -32,7 +32,7 @@ URI: [specimen:Specimen](https://ccdh.org/specimen/Specimen)
  * [Specimen➞derived_from_specimen](Specimen_derived_from_specimen.md)  <sub>0..*</sub>
     * range: [Specimen](Specimen.md)
  * [Specimen➞derived_from_subject](Specimen_derived_from_subject.md)  <sub>OPT</sub>
-    * range: [PatientOrBiologicalyDerivedMaterial](PatientOrBiologicalyDerivedMaterial.md)
+    * range: [PatientOrBiologicallyDerivedMaterial](PatientOrBiologicallyDerivedMaterial.md)
  * [Specimen➞description](Specimen_description.md)  <sub>OPT</sub>
     * Description: A free text field to capture additional information or explanation about the specimen.
     * range: [Literal](types/Literal.md)

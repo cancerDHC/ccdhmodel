@@ -11,7 +11,7 @@ URI: [ccdh:BiologicallyDerivedMaterial](https://ccdh.org/BiologicallyDerivedMate
 
 ## Parents
 
- *  is_a: [PatientOrBiologicalyDerivedMaterial](PatientOrBiologicalyDerivedMaterial.md)
+ *  is_a: [PatientOrBiologicallyDerivedMaterial](PatientOrBiologicallyDerivedMaterial.md)
 
 ## Attributes
 

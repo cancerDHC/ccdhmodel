@@ -1,5 +1,5 @@
 # Auto generated from entities.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-24 01:59
+# Generation date: 2020-08-24 13:05
 # Schema: entities
 #
 # id: https://ccdh.org/model/entities
@@ -184,16 +184,16 @@ class Project(Entity):
         super().__post_init__(**kwargs)
 
 
-class PatientOrBiologicalyDerivedMaterial(YAMLRoot):
+class PatientOrBiologicallyDerivedMaterial(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicalyDerivedMaterial
-    class_class_curie: ClassVar[str] = "ccdh:PatientOrBiologicalyDerivedMaterial"
-    class_name: ClassVar[str] = "PatientOrBiologicalyDerivedMaterial"
-    class_model_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicalyDerivedMaterial
+    class_class_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicallyDerivedMaterial
+    class_class_curie: ClassVar[str] = "ccdh:PatientOrBiologicallyDerivedMaterial"
+    class_name: ClassVar[str] = "PatientOrBiologicallyDerivedMaterial"
+    class_model_uri: ClassVar[URIRef] = CCDH.PatientOrBiologicallyDerivedMaterial
 
 
-class Patient(PatientOrBiologicalyDerivedMaterial):
+class Patient(PatientOrBiologicallyDerivedMaterial):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CCDH.Patient
@@ -202,13 +202,94 @@ class Patient(PatientOrBiologicalyDerivedMaterial):
     class_model_uri: ClassVar[URIRef] = CCDH.Patient
 
 
-class BiologicallyDerivedMaterial(PatientOrBiologicalyDerivedMaterial):
+class BiologicallyDerivedMaterial(PatientOrBiologicallyDerivedMaterial):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CCDH.BiologicallyDerivedMaterial
     class_class_curie: ClassVar[str] = "ccdh:BiologicallyDerivedMaterial"
     class_name: ClassVar[str] = "BiologicallyDerivedMaterial"
     class_model_uri: ClassVar[URIRef] = CCDH.BiologicallyDerivedMaterial
+
+
+class BiologicallyDerivedProduct(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.BiologicallyDerivedProduct
+    class_class_curie: ClassVar[str] = "ccdh:BiologicallyDerivedProduct"
+    class_name: ClassVar[str] = "BiologicallyDerivedProduct"
+    class_model_uri: ClassVar[URIRef] = CCDH.BiologicallyDerivedProduct
+
+
+class SpecimenCreationActivity(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.SpecimenCreationActivity
+    class_class_curie: ClassVar[str] = "ccdh:SpecimenCreationActivity"
+    class_name: ClassVar[str] = "SpecimenCreationActivity"
+    class_model_uri: ClassVar[URIRef] = CCDH.SpecimenCreationActivity
+
+
+class SpecimenProcessingActivity(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.SpecimenProcessingActivity
+    class_class_curie: ClassVar[str] = "ccdh:SpecimenProcessingActivity"
+    class_name: ClassVar[str] = "SpecimenProcessingActivity"
+    class_model_uri: ClassVar[URIRef] = CCDH.SpecimenProcessingActivity
+
+
+class SpecimenStorageActivity(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.SpecimenStorageActivity
+    class_class_curie: ClassVar[str] = "ccdh:SpecimenStorageActivity"
+    class_name: ClassVar[str] = "SpecimenStorageActivity"
+    class_model_uri: ClassVar[URIRef] = CCDH.SpecimenStorageActivity
+
+
+class SpecimenTransportActvity(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.SpecimenTransportActvity
+    class_class_curie: ClassVar[str] = "ccdh:SpecimenTransportActvity"
+    class_name: ClassVar[str] = "SpecimenTransportActvity"
+    class_model_uri: ClassVar[URIRef] = CCDH.SpecimenTransportActvity
+
+
+class DataContainer(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.DataContainer
+    class_class_curie: ClassVar[str] = "ccdh:DataContainer"
+    class_name: ClassVar[str] = "DataContainer"
+    class_model_uri: ClassVar[URIRef] = CCDH.DataContainer
+
+
+class SpecimenContainer(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.SpecimenContainer
+    class_class_curie: ClassVar[str] = "ccdh:SpecimenContainer"
+    class_name: ClassVar[str] = "SpecimenContainer"
+    class_model_uri: ClassVar[URIRef] = CCDH.SpecimenContainer
+
+
+class Relationship(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.Relationship
+    class_class_curie: ClassVar[str] = "ccdh:Relationship"
+    class_name: ClassVar[str] = "Relationship"
+    class_model_uri: ClassVar[URIRef] = CCDH.Relationship
+
+
+class BodyStructure(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH.BodyStructure
+    class_class_curie: ClassVar[str] = "ccdh:BodyStructure"
+    class_name: ClassVar[str] = "BodyStructure"
+    class_model_uri: ClassVar[URIRef] = CCDH.BodyStructure
 
 
 

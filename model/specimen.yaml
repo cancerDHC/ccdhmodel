@@ -1,6 +1,6 @@
 id: https://ccdh.org/model/specimen
+title: Specimen
 name: specimen
-title: TCCM URI Prefixes
 description: >-
   Any material sample taken from a biological entity (living or dead), or taken from a physical object or the
   environment. (Adapted from FHIR) Specimens are usually collected as an example of their kind, often for use in some
@@ -178,4 +178,4 @@ classes:
         multivalued: true
 
       derived_from_subject:
-        range: PatientOrBiologicalyDerivedMaterial
+        range: PatientOrBiologicallyDerivedMaterial
