@@ -1,181 +1,554 @@
+name: Specimen
+mappings:
+- ADM:Sample
+- FHIR:Specimen
+- 'BRIDG: BiologicalSpecimen'
+description: "Any material sample taken from a biological entity (living or dead),\
+  \ or taken from a physical object or the environment. (Adapted from FHIR) \nSpecimens\
+  \ are usually collected as an example of their kind, often for use in some investigation. "
+notes:
+- derived from [CDM_Dictionary_v1](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/)
+comments:
+- 'In our first pass we are defining a single ''Specimen'' type to cover ADM Sample,
+  Portion, Aliquot, Analyte, and Slide.  '
+- 'The enum/value set for the ''type'' field will include terms to distinguish between
+  these types of specimens, e.g. ''original'', ''portion'', ''pool'', ''analyte'',
+  ''aliquot'', ''slide''. '
+- ADM properties across these source entities will be aggregated and merged into this
+  single CDM Specimen entity.
 id: https://ccdh.org/model/specimen
 title: Specimen
-name: specimen
-description: >-
-  Any material sample taken from a biological entity (living or dead), or taken from a physical object or the
-  environment. (Adapted from FHIR) Specimens are usually collected as an example of their kind, often for use in some
-  investigation.
-comments:
-  - In our first pass we are defining a single 'Specimen' type to cover ADM Sample, Portion, Aliquot, Analyte, and Slide.
-  - The enum/value set for the 'type' field will include terms to distinguish between these types of specimens, e.g. 'original', 'portion', 'pool', 'analyte', 'aliquot', 'slide'.
-  - ADM properties across these source entities will be aggregated and merged into this single CDM Specimen entity.
+imports:
+- prefixes
+- entities
+- datatypes
 license: https://creativecommons.org/publicdomain/zero/1.0/
-
-notes:
-  - derived from [CDM_Dictionary_v1](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/)
-
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
   specimen: https://ccdh.org/specimen/
-
-imports:
-  - prefixes
-  - entities
-  - datatypes
-
 default_prefix: specimen
-
-mappings:
-  - ADM:Sample
-  - FHIR:Specimen
-  - BRIDG:BiologicalSpecimen
-
-
 classes:
   Specimen:
     is_a: Entity
     slot_usage:
       id:
-        description: >-
-          The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a
-          given system. The identified entity may have a different 'id' in a different system.
-        comments:
-          - >-
-              We use  FHIR naming conventions here, where 'id' is used for the logical identifier, and 'identifier'
-              for the business identifier.
-        notes:
-          - The spreadsheet makes this optional, but some sort of identifier is required
         mappings:
-          - ADM:Sample.sample_id
-          - ADM:Portion.portion_id
-          - ADM:Aliquot.aliquot_id
-          - ADM:Analyte.analyte_id
-          - GDC:Aliquot.id
-          - GDC:Analyte.id
-          - GDC:Portion.id
-          - GDC:Sample.id
-          - PDC:Aliquot.aliquot_id
-          - PDC:Analyte.analyte_id
-          - PDC:Portion.portion_id
-          - PDC:Sample.sample_id
-          - ICDC:Sample.sample_id
-          - HTAN:Biospecimen.HTAN_BIOSPECIMEN_ID
-
-      identifier:
-        description: >-
-          A 'business' identifier  or accession number for the entity, typically as provided by an external system or
-          authority, that persists across implementing systems  (i.e. a  'logical' identifier).
-        range: Identifier
-        required: false
-        multivalued: true
-        comments:
-          - >-
-            Uses a specialized, complex 'Identifier' data type to capture information about the source of the business
-            identifier.
-        mappings:
-          - ADM:Sample.sample_submitter_id
-          - ADM:Sample.gdc_sample_id
-          - ADM:Portion.submitter_id
-          - ADM:Analyte.analyte_submitter_id
-          - GDC:Sample.submitter_id
-          - GDC:Analyte.submitter_id
-          - PDC:Sample.sample_submitter_id
-          - PDC:Analyte.analyte_submitter_id
-          - FHIR:Specimen.identifier
-        notes:
-          - >-
-            MHB - Thoughts on whether I accurately summarized the relevant aspects of FHIR identifier fields/data
-            types, and whether it is prudent for us to propose adopting these at this point?  Happy to take a
-            different direction if others feel strongly, or consider alternate names for these attributes
-            (e.g. 'internal_id' vs  'external_id')
-          - >-
-            BTF - well, i find 'id' and 'identifier' difficult to distinguish without knowing the FHIR definitions
-            of these.  certainly 'internal_id' or 'logical_id' and 'external_id' or 'business_id' make a clearer
-            distinction between the meaning of these fields.  that said, i am fine sticking with FHIR-aligned
-            attributes here unless others object
-          - >-
-            SE - the "id" is really implementation dependent thing. In REST/FHIR it's the resoruce identifier,
-            in Java there is no such thing since it's a memory location, etc.  So, if it's adds confusion just
-            leave it out and focus on the business "identifier" modeling
-          - >-
-            DJ - Need to find a way to represent the conditional mapping to FHIR identifier
-
-      description:
-        description: >-
-          A free text field to capture additional information or explanation about the specimen.
+        - ADM:Sample.sample_id
+        - ADM:Portion.portion_id
+        - ADM:Aliquot.aliquot_id
+        - ADM:Analyte.analyte_id
+        - GDC:Aliquot.id
+        - GDC:Analyte.id
+        - GDC:Portion.id
+        - GDC:Sample.id
+        - PDC:Aliquot.aliquot_id
+        - PDC:Analyte.analyte_id
+        - PDC:Portion.portion_id
+        - PDC:Sample.sample_id
+        - ICDC:Sample.sample_id
+        - HTAN:Biospecimen.HTAN_BIOSPECIMEN_ID
+        - FHIR:Specimen.id
+        description: The 'logical' identifier of the entity in the system of record,
+          e.g. a UUID.  This 'id' is unique within a given system. The identified
+          entity may have a different 'id' in a different system.
         range: literal
-        required: false
         multivalued: false
+        required: true
+      identifier:
         mappings:
-          - ADM:Sample.comment
-          - ICDC:Sample.comment
-          - FHIR:specimen.note
-        notes:
-          - >-
-            "FHIR provides a 'description' field on many resources (e.g. BodyStructure), that takes a string.  But it
-            is not offered on Specimen for some reason). Instead, Specimen has a note field that takes a complex
-            Annotation data type, that allows you to capture by whom and when the comment was made.
-
-      specimen_type:
-        description: >-
-          The high-level type of the specimen, based on its how it has been derived from the original extracted
-          sample.
-        range: Coding
-        required: false
+        - ADM:Sample.sample_submitter_id
+        - ADM:Sample.gdc_sample_id
+        - ADM:Portion.submitter_id
+        - ADM:Analyte.analyte_submitter_id
+        - GDC:Sample.submitter_id
+        - GDC:Analyte.submitter_id
+        - PDC:Sample.sample_submitter_id
+        - PDC:Analyte.analyte_submitter_id
+        description: 'A ''business'' identifier  or accession number for the entity,
+          typically as provided by an external system or authority, that persists
+          across implementing systems  (i.e. a  ''logical'' identifier). '
+        range: Identifier
         multivalued: true
-        examples:
-          - value: Initial Sample
-          - value: Portion; Aliquot
-          - value: Analyte, Pool
+        required: false
+      description:
+        mappings:
+        - ADM:Sample.comment
+        - ICDC:Sample.comment
+        description: A free text field to capture additional information or explanation
+          about the specimen.
+        range: literal
+        multivalued: false
+        required: false
+      specimen_type:
+        description: "The high-level type of the specimen, based on its how it has\
+          \ been derived from the original extracted sample. \n"
         comments:
-          - >-
-            This attribute is specific to Specimens of type 'analyte' or 'aliquot'
-            (specifically, an aliquot of an analyte).
-
-
-      analyte_type:
-        description: >-
-          When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte
-          represents (e.g. DNA, RNA)
+        - Initial Sample; Portion; Aliquot; Analyte, Pool
         range: Coding
-        examples:
-          - value: DNA; FFPE DNA
-          - value: GenomePlex (Rubicon) Amplified DNA
-          - value: Repli-G (Qiagen) DNA
-          - value: RNA
-          - value: FFPE RNA
+        multivalued: false
+        required: false
+      analyte_type:
+        mappings:
+        - ADM:Aliquot.analyte_type
+        - ADM:Aliquot.analyte_type_id
+        - ADM:Analyte.analyte_type
+        - ADM:Analyte.analyte_type_id
+        - GDC:Aliquot.analyte_type
+        - GDC:Aliquot.analyte_type_id
+        - PDC:Aliquot.analyte_type
+        - PDC:Aliquot.analyte_type_id
+        - HTAN:Biosepcimen.ANALYTE_TYPE
+        description: When the specimen is of type 'analyte' or 'aliquot', this is
+          the type of substance the analyte represents (e.g. DNA, RNA)
         comments:
-          - >-
-            This attribute is specific to Specimens of type 'analyte' or 'aliquot' (specifically, an aliquot of
-            an analyte).
-
+        - 'DNA; FFPE DNA; GenomePlex (Rubicon) Amplified DNA; Repli-G (Qiagen) DNA; '
+        - RNA; FFPE RNA
+        range: Coding
+        multivalued: false
+        required: false
       associated_project:
+        mappings:
+        - ADM:Sample.project_id
+        - ADM:Sample.gdc_project_id
+        - ADM:Portion.project_id
+        - ADM:Aliquot.project_id
+        - ADM:Analyte.project_id
+        - GDC:Sample.project_id
+        - GDC:Portion.project_id
+        - GDC:Aliquot.project_id
+        - GDC:Analyte.project_id
+        - PDC:Sample.gdc_project_id
         description: The Project associated with the specimen.
         range: Project
         multivalued: false
-
+        required: false
       provided_by:
+        mappings:
+        - ADM:Aliquot.source_center
+        - GDC:Aliquot.source_center
         description: The organization/center that provided the specimen.
         range: Organization
-
       source_material_type:
-        description: >-
-          The general kind of material from which the specimen was derived, indicating the physical nature of
-          the source material.
+        mappings:
+        - ADM:Sample.sample_type
+        - ADM:Sample.sample_type_id
+        - GDC:Sample.sample_type
+        - GDC:Sample.sample_type_id
+        - PDC:Sample.sample_type
+        - PDC:Sample.sample_type_id
+        - ICDC:Sample.sample_type
+        - HTAN:Biospecimen.BIOSPECIMEN_TYPE
+        description: 'The general kind of material from which the specimen was derived,
+          indicating the physical nature of the source material. '
+        comments:
+        - 'Tissue, Blood, Tumor Aspirate; Cell Line; Expanded Next Generation Cancer
+          Model; Pleural Effusion;  Xenograft Tissue, . . . '
         range: Coding
         multivalued: false
-        examples:
-          - value: Tissue
-          - value: Blood
-          - value: Tumor Aspirate
-          - value: Cell Line
-          - value: Expanded Next Generation Cancer Model
-          - value: Pleural Effusion
-          - value: Xenograft Tissue
-
+        required: false
       derived_from_specimen:
+        mappings:
+        - ADM:Sample.derived_from_sample
+        - ADM:Portion.derived_from
+        - ADM:Aliquot.derived_from_analyte
+        - ADM:Aliquot.derived_from_sample
+        - ADM:Analyte.derived_from_portion
+        - ADM:Analyte.derived_from_sample
+        - GDC:Sample.derived_from
+        - GDC:Aliquot.derived_from
+        - GDC:Aliquot.derived_from
+        - GDC:Analyte.derived_from
+        - GDC:Analyte.derived_from
+        - GDC:Portion.derived_from
+        - PDC:Aliquot.Sample
+        - PDC:Analyte.Portion
+        - PDC:Analyte.Sample
+        - PDC:Portion.Sample
+        description: The source specimen from which this one was directly derived.
         range: Specimen
         multivalued: true
-
+        required: false
       derived_from_subject:
+        mappings:
+        - ADM:Sample.derived_from_case
+        - PDC:Sample.Case
+        - GDC:Sample.derived_from
+        - ICDC:Sample.of_case
+        - HTAN:Biospecimen.HTAN_PARENT_ID
+        description: The Patient/ResearchSubject from which the specimen was directly
+          or indirectly derived.
         range: PatientOrBiologicallyDerivedMaterial
+        multivalued: false
+        required: false
+      subject_diagnosis:
+        mappings:
+        - ADM:Sample.tumor_descriptor
+        - GDC:Sample.tumor_descriptor
+        - PDC:Sample.tumor_descriptor
+        - HTAN:Biospecimen.TUMOR_TISSUE_TYPE
+        - ICDC:Sample.tumor_sample_origin
+        description: A diagnosis of the condition in the patient from which the sample
+          was derived - providing time-stamped information about the state of the
+          condition when the specimen was collected (e.g. if it was primary, recurrent,
+          metastatic, etc).
+        range: ConditionDiagnosis
+        multivalued: true
+        required: false
+      creation:
+        description: The activity in which the specimen was created, through removing
+          material from an biological source or natural setting, or through derivation
+          from an existing specimen.
+        range: SpecimenCreationActivity
+        multivalued: false
+        required: false
+      processing:
+        description: An activity that modifies the physical structure, composition,
+          or state of a specimen.
+        range: SpecimenProcessingActivity
+        multivalued: true
+        required: false
+      storage:
+        description: An activity that results in the storing or maintaining of the
+          specimen in a particular location, container, or state.
+        range: SpecimenStorageActivity
+        multivalued: false
+        required: false
+      transport:
+        description: An activity through which the specimen is transported between
+          locations.
+        range: SpecimenTransportActvity
+        multivalued: false
+        required: false
+      contained_in:
+        mappings:
+        - ADM:Analyte.well_number
+        - ADM:Sample.collection_media
+        - GDC:Analyte.well_number
+        - PDC:Analyte.well_number
+        - HTAN:Biospecimen.COLLECTION_MEDIA
+        description: 'A physical container in which a specimen is held or attached
+          -  to store for future use,  as a substrate for growth (e.g. a cell culture
+          dish), or as a vessel to enable analysis (e.g. a microscope slide or 96-well
+          plate) '
+        range: SpecimenContainer
+        multivalued: false
+        required: false
+      current_weight:
+        mappings:
+        - ADM:Sample.current_weight
+        - ADM:Portion.weight
+        - ADM:Aliquot.quantity
+        - ADM:Aliquot.amount
+        - ADM:Analyte.analyte_quantity
+        - ADM:Analyte.amount
+        - GDC:Sample.current_weight
+        - GDC:Aliquot.amount
+        - GDC:Portion.weight
+        - GDC:Aliquot.aliquot_quantity
+        - GDC:Analyte.amount
+        - GDC:Analyte.analyte_quantity
+        - PDC:Sample.current_weight
+        - PDC:Aliquot.amount
+        - PDC:Portion.weight
+        - PDC:Aliquot.aliquot_quantity
+        - PDC:Analyte.amount
+        - PDC:Analyte.analyte_quantity
+        - HTAN:Biospecimen.PORTION_WEIGHT
+        description: The present weight of the specimen, at the time of recording
+          (as opposed to an initial weight before its processing or portioning).
+        range: Quantity
+        multivalued: true
+        required: false
+      volume:
+        mappings:
+        - ADM:Sample.total_volume
+        - ADM:Aliquot.volume
+        - ADM:Analyte.analyte_volume
+        - ADM:Aliquot.amount
+        - ADM:Analyte.amount
+        - GDC:Aliquot.aliquot_volume
+        - GDC:Analyte.amount
+        - GDC:Aliquot.amount
+        - PDC:Aliquot.aliquot_volume
+        - PDC:Analyte.amount
+        - PDC:Aliquot.amount
+        - HTAN:Biospecimen.TOTAL_VOLUME
+        description: The total volume of the specimen
+        range: Quantity
+        multivalued: true
+        required: false
+      dimensional_measure:
+        mappings:
+        - ADM:Sample.length_of_tumor
+        - ADM:Sample.width_of_tumor
+        - ADM:Sample.longest_dimension
+        - ADM:Sample.shortest_dimension
+        - ADM:Sample.intermediate_dimension
+        - ADM:Sample.total_tissue_area
+        - ADM:Portion.section_thickness_value
+        - GDC:Sample.longest_dimension
+        - GDC:Sample.shortest_dimension
+        - GDC:Sample.intermediate_dimension
+        - PDC:Sample.longest_dimension
+        - PDC:Sample.shortest_dimension
+        - PDC:Sample.intermediate_dimension
+        - ICDC:Sample.length_of_tumor
+        - ICDC:Sample.width_of_tumor
+        - ICDC:Sample.total_tissue_area
+        - HTAN:Biospecimen.SECTION_THICKNESS_VALUE
+        description: A data container holding information about the one and two dimensional
+          measurements of a specimen.
+        range: DataContainer
+        multivalued: false
+        required: false
+      analyte_concentration:
+        mappings:
+        - ADM:Aliquot.concentration
+        - ADM:Analyte.concentration
+        - GDC:Aliquot.concentration
+        - PDC:Aliquot.concentration
+        description: The concentration of an extracted analyte that is present in
+          a specimen (specifically, in a specimen of type 'aliquot' or 'analyte').
+          e.g. the concentration of DNA in a specimen representing a DNA extract from
+          a blood sample.
+        range: Quantity
+        multivalued: false
+        required: false
+      analyte_concentration_method:
+        mappings:
+        - ADM:Analyte.spectrophotometer_method
+        - GDC:Analyte.spectrophotometer_method
+        - PDC:Analyte.spectrophotometer_method
+        description: The method used to determine the concentration of purified analyte  within
+          a solution.
+        comments:
+        - DDA; DIA; SRM
+        range: Coding
+        multivalued: false
+        required: false
+      cellular_composition:
+        mappings:
+        - ADM:Sample.composition
+        - GDC:Sample.composition
+        - PDC:Sample.composition
+        description: The cellular composition of the sample
+        comments:
+        - 2D Classical Conditionally Reprogrammed Cells; Adherent Cell Line; Bone
+          Marrow Components;
+        - Buccal Cells; Buffy Coat; Derived Cell Line; Granulocytes; Pleural Effusion;
+          Human Original Cells;
+        - 'Liquid Suspension Cell Line '
+        range: Coding
+        multivalued: false
+        required: false
+      compositional_measure:
+        mappings:
+        - ADM:Sample.non_tumor_tissue_area
+        - ADM:Sample.tumor_tissue_area
+        - ADM:Sample.percentage_tumor
+        - ADM:Sample.percentage_stroma
+        - ADM:Sample.analysis_area
+        - ADM:Sample.analysis_area_percentage_stroma
+        - ADM:Sample.analysis_area_percentage_tumor
+        - ADM:Sample.analysis_area_percentage_glass
+        - ADM:Sample.analysis_area_percentage_pigmented_tumor
+        - ICDC:Sample.non_tumor_tissue_area
+        - ICDC:Sample.tumor_tissue_area
+        - ICDC:Sample.percentage_tumor
+        - ICDC:Sample.percentage_stroma
+        - ICDC:Sample.analysis_area
+        - ICDC:Sample.analysis_area_percentage_stroma
+        - ICDC:Sample.analysis_area_percentage_tumor
+        - ICDC:Sample.analysis_area_percentage_glass
+        - ICDC:Sample.analysis_area_percentage_pigmented_tumor
+        description: A data container holding information about the area or relative
+          proportion of a specific type of tissue in a specimen
+        range: DataContainer
+        multivalued: false
+        required: false
+      specimen_quality_measure:
+        mappings:
+        - ADM:Analyte.a260_a280_ratio
+        - ADM:Analyte.ribosomal_rna_28s_16s_ratio
+        - GDC:Analyte.a260_a280_ratio
+        - GDC:Analyte.ribosomal_rna_28s_16s_ratio
+        - PDC:Analyte.a260_a280_ratio
+        - PDC:Analyte.ribosomal_rna_28s_16s_ratio
+        description: A data container holding measures of some specimen characteristic
+          that is indicative of its quality or suitability for use.
+        range: DataContainer
+        multivalued: true
+        required: false
+      general_tissue_morphology:
+        mappings:
+        - ADM:Sample.tissue_type
+        - GDC:Sample.tissue_type
+        - PDC:Sample.tissue_type
+        - ICDC:Sample.general_sample_pathology
+        description: "A term describing at a high-level the kind of tissue collected\
+          \ in a specimen, with respect to disease status or proximity to tumor tissue\
+          \ (e.g. is it normal, abnormal, tumor, tumor-adjacent). \n"
+        comments:
+        - Tumor;  Normal;  Abnormal;  Peritumoral; not applicable
+        range: Coding
+        multivalued: false
+        required: false
+      specific_tissue_morphology:
+        mappings:
+        - ADM:Sample.tumor_code
+        - ADM:Sample.tumor_code_id
+        - ADM:Sample.preinvasive_morphology
+        - GDC:Sample.tumor_code
+        - GDC:Sample.tumor_code_id
+        - PDC:Sample.tumor_code
+        - PDC:Sample.tumor_code_id
+        - ICDC:Sample.specific_sample_pathology
+        - HTAN:Biospecimen.MORPHOLOGY_CODE
+        - HTAN:Biospecimen.PREINVASIVE_MORPHOLOGY
+        description: A term describing the specific pathology exhibited by the tissue
+          in a specimen.
+        comments:
+        - Non cancerous tissue; Lung Cancer (all types); CNS, medulloblastoma; 00;  01;  02;
+          Melanocytic hyperplasia; Atypical melanocytic proliferation; Melanoma in
+          situ, superficial spreading
+        range: Coding
+        multivalued: false
+        required: false
+      morphology_pathologically_confirmed:
+        mappings:
+        - ADM:Sample.diagnosis_pathologically_confirmed
+        - GDC:Sample.diagnosis_pathologically_confirmed
+        - PDC:Sample.diagnosis_pathologically_confirmed
+        description: A flag indicating whether the histologic assessment of specific
+          morphology was confirmed by a pathologist review??
+        range: boolean
+        multivalued: false
+        required: false
+      related_document:
+        mappings:
+        - ADM:Sample.catalog_reference
+        - ADM:Sample.distributor_reference
+        - ADM:Sample.pathology_report_uuid
+        - ADM:Sample.protocol_id
+        - GDC:Sample.catalog_reference
+        - GDC:Sample.distributor_reference
+        - GDC:Sample.pathology_report_uuid
+        - PDC:Sample.catalog_reference
+        - PDC:Sample.distributor_reference
+        - PDC:Sample.pathology_report_uuid
+        description: A reference to an external document that is about or related
+          to the specimen (e.g. a publication related to the study it is a part of,
+          pathology report containing additional details about it, protocol describing
+          how it was collected, or a catalog entry describing  related research resource)
+        range: DocumentReference
+        multivalued: true
+        required: false
+      related_specimen:
+        mappings:
+        - ADM:Sample.next
+        - ADM:Sample.adjacent_biospecimen
+        - ICDC:Sample.next
+        - HTAN:Biospecimen.ADJACENT_BIOSPECIMEN_ID
+        description: Another specimen to which this one is related in some way (excluding
+          parent-child specimen relationships, which are captured using the dedicated
+          the source_specimen field)
+        range: Relationship
+        multivalued: true
+        required: false
+      derived_product:
+        mappings:
+        - ADM:Sample.passage_number
+        - ADM:Sample.growth_rate
+        - GDC:Sample.passage_count
+        - GDC:Sample.growth_rate
+        - PDC:Sample.passage_count
+        - PDC:Sample.growth_rate
+        description: A biologically derived product (e.g. a cell culture, tissue culture,
+          or organoid) that was generated from the specimen
+        range: BiologicallyDerivedProduct
+        multivalued: true
+        required: false
+      qualification_status_flag:
+        mappings:
+        - ADM:Aliquot.status
+        - PDC:Aliquot.status
+        description: A flag indicating whether the specimen is qualified or disqualified
+          for data analysis in a study.
+        comments:
+        - Qualified; Disqualified
+        range: Coding
+        multivalued: false
+        required: false
+      reference_status_flag:
+        mappings:
+        - ADM:Aliquot.aliquot_is_ref
+        - PDC:Aliquot.aliquot_is_ref
+        description: A flag indicating whether the specimen is used as a reference
+          during analytical interrogation
+        range: boolean
+        multivalued: false
+        required: false
+      matched_normal_flag:
+        mappings:
+        - ADM:Aliquot.no_matched_normal_targeted_sequencing
+        - ADM:Aliquot.no_matched_normal_wgs
+        - ADM:Aliquot.no_matched_normal_wxs
+        - GDC:Aliquot.no_matched_normal_targeted_sequencing
+        - GDC:Aliquot.no_matched_normal_wgs
+        - GDC:Aliquot.no_matched_normal_wxs
+        description: A flag indicating that there is no matched normal aliquot for
+          this case that can be used for variant calling purposes.
+        comments:
+        - no matched normal wgs; no matched normal wxs, no matched normal  targeted
+        range: Coding
+        multivalued: true
+        required: false
+      selected_normal_flag:
+        mappings:
+        - ADM:Aliquot.selected_normal_low_pass_wgs
+        - ADM:Aliquot.selected_normal_targeted_sequencing
+        - ADM:Aliquot.selected_normal_wgs
+        - ADM:Aliquot.selected_normal_wxs
+        - GDC:Aliquot.selected_normal_low_pass_wgs
+        - GDC:Aliquot.selected_normal_targeted_sequencing
+        - GDC:Aliquot.selected_normal_wgs
+        - GDC:Aliquot.selected_normal_wxs
+        description: A flag to denote which 'normal' aliquot the submitter prefers
+          to use for variant calling. Only one normal per experimental strategy per
+          case can be selected.
+        comments:
+        - selected normal low pass; selected normal wgs, selected normal wxs; selected
+          normal targeted
+        range: Coding
+        multivalued: false
+        required: false
+      paired_specimen_genotype_match_flag:
+        mappings:
+        - ADM:Analyte.normal_tumor_genotype_snp_match
+        - GDC:Analyte.normal_tumor_genotype_snp_match
+        - PDC:Analyte.normal_tumor_genotype_snp_match
+        description: A flag to indicate whether the genotype of the paired normal
+          or tumor specimen matches, or if the data is not available.
+        comments:
+        - Yes; No; Unknown; Not Reported
+        range: Coding
+        multivalued: false
+        required: false
+      source_body_structure:
+        description: The source anatomical material from which the specimen was derived.
+        deprecated: true
+        range: BodyStructure
+        multivalued: true
+        required: false
+      distance_from_paired_specimen:
+        mappings:
+        - ADM:Sample.distance_normal_to_tumor
+        description: The observed distance of the specimen from a 'paired specimen'
+          in the body at the time of collection. (e.g. the distance between the in
+          vivo location of a tumor tissue specimen and its paired normal specimen)
+        deprecated: true
+        range: literal
+        multivalued: false
+        required: false
+
+

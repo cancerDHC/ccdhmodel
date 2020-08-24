@@ -2,7 +2,7 @@
 # Type: Specimen_derived_from_subject
 
 
-
+The Patient/ResearchSubject from which the specimen was directly or indirectly derived.
 
 URI: [specimen:Specimen_derived_from_subject](https://ccdh.org/specimen/Specimen_derived_from_subject)
 

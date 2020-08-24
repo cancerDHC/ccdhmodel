@@ -13,6 +13,11 @@ URI: [specimen:ConditionDiagnosis](https://ccdh.org/specimen/ConditionDiagnosis)
 
  *  is_a: [Entity](Entity.md) - Any resource that has its own identifier
 
+## Referenced by class
+
+ *  **[Specimen](Specimen.md)** *[Specimen➞subject_diagnosis](Specimen_subject_diagnosis.md)*  <sub>0..*</sub>  **[ConditionDiagnosis](ConditionDiagnosis.md)**
+ *  **None** *[subject_diagnosis](subject_diagnosis.md)*  <sub>0..*</sub>  **[ConditionDiagnosis](ConditionDiagnosis.md)**
+
 ## Attributes
 
 

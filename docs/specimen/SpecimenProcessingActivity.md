@@ -9,5 +9,10 @@ URI: [specimen:SpecimenProcessingActivity](https://ccdh.org/specimen/SpecimenPro
 
 ![img](images/SpecimenProcessingActivity.svg)
 
+## Referenced by class
+
+ *  **[Specimen](Specimen.md)** *[Specimen➞processing](Specimen_processing.md)*  <sub>0..*</sub>  **[SpecimenProcessingActivity](SpecimenProcessingActivity.md)**
+ *  **None** *[processing](processing.md)*  <sub>0..*</sub>  **[SpecimenProcessingActivity](SpecimenProcessingActivity.md)**
+
 ## Attributes
 

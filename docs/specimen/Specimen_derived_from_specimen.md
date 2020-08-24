@@ -2,7 +2,7 @@
 # Type: Specimen_derived_from_specimen
 
 
-
+The source specimen from which this one was directly derived.
 
 URI: [specimen:Specimen_derived_from_specimen](https://ccdh.org/specimen/Specimen_derived_from_specimen)
 

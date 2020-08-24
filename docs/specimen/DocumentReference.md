@@ -13,6 +13,11 @@ URI: [specimen:DocumentReference](https://ccdh.org/specimen/DocumentReference)
 
  *  is_a: [Entity](Entity.md) - Any resource that has its own identifier
 
+## Referenced by class
+
+ *  **[Specimen](Specimen.md)** *[Specimen➞related_document](Specimen_related_document.md)*  <sub>0..*</sub>  **[DocumentReference](DocumentReference.md)**
+ *  **None** *[related_document](related_document.md)*  <sub>0..*</sub>  **[DocumentReference](DocumentReference.md)**
+
 ## Attributes
 
 
