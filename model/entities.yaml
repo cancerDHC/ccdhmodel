@@ -61,12 +61,29 @@ classes:
     mappings:
       - BRIDG:Project
 
-  PatientOrBiologicalyDerivedMaterial:
+  PatientOrBiologicallyDerivedMaterial:
 
   Patient:
-    is_a: PatientOrBiologicalyDerivedMaterial
+    is_a: PatientOrBiologicallyDerivedMaterial
 
   BiologicallyDerivedMaterial:
-    is_a: PatientOrBiologicalyDerivedMaterial
+    is_a: PatientOrBiologicallyDerivedMaterial
 
+  BiologicallyDerivedProduct:
+
+  SpecimenCreationActivity:
+
+  SpecimenProcessingActivity:
+
+  SpecimenStorageActivity:
+
+  SpecimenTransportActvity:
+
+  DataContainer:
+
+  SpecimenContainer:
+
+  Relationship:
+
+  BodyStructure:
 
