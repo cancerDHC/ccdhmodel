@@ -1,4 +1,4 @@
-# CCDH Model in BiolinkML
+# CCDH Models in BiolinkML
 
 ## Data Types
 
