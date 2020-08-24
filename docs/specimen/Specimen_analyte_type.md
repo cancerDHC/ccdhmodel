@@ -2,7 +2,7 @@
 # Type: Specimen_analyte_type
 
 
--> When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte represents (e.g. DNA, RNA)
+When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte represents (e.g. DNA, RNA)
 
 URI: [specimen:Specimen_analyte_type](https://ccdh.org/specimen/Specimen_analyte_type)
 

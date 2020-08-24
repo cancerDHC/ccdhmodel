@@ -2,7 +2,7 @@
 # Type: Specimen_description
 
 
--> A free text field to capture additional information or explanation about the specimen.
+A free text field to capture additional information or explanation about the specimen.
 
 URI: [specimen:Specimen_description](https://ccdh.org/specimen/Specimen_description)
 

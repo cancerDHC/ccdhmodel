@@ -1,5 +1,5 @@
 # Auto generated from specimen.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-20 08:22
+# Generation date: 2020-08-24 01:59
 # Schema: specimen
 #
 # id: https://ccdh.org/model/specimen

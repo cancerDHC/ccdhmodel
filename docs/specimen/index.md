@@ -26,7 +26,7 @@ Any material sample taken from a biological entity (living or dead), or taken fr
 
 ### Slots
 
- * [analyte_type](analyte_type.md) - -> When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte represents (e.g. DNA, RNA)
+ * [analyte_type](analyte_type.md) - When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte represents (e.g. DNA, RNA)
     * [Specimen➞analyte_type](Specimen_analyte_type.md)
  * [associated_project](associated_project.md) - The Project associated with the specimen.
     * [Specimen➞associated_project](Specimen_associated_project.md)
@@ -34,17 +34,17 @@ Any material sample taken from a biological entity (living or dead), or taken fr
     * [Specimen➞derived_from_specimen](Specimen_derived_from_specimen.md)
  * [derived_from_subject](derived_from_subject.md)
     * [Specimen➞derived_from_subject](Specimen_derived_from_subject.md)
- * [description](description.md) - -> A free text field to capture additional information or explanation about the specimen.
+ * [description](description.md) - A free text field to capture additional information or explanation about the specimen.
     * [Specimen➞description](Specimen_description.md)
  * [id](id.md)
     * [Specimen➞id](Specimen_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
- * [identifier](identifier.md) - -> A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier).
+ * [identifier](identifier.md) - A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier).
     * [Specimen➞identifier](Specimen_identifier.md)
  * [provided_by](provided_by.md) - The organization/center that provided the specimen.
     * [Specimen➞provided_by](Specimen_provided_by.md)
- * [source_material_type](source_material_type.md) - -> The general kind of material from which the specimen was derived, indicating the physical nature of the source material.
+ * [source_material_type](source_material_type.md) - The general kind of material from which the specimen was derived, indicating the physical nature of the source material.
     * [Specimen➞source_material_type](Specimen_source_material_type.md)
- * [specimen_type](specimen_type.md) - -> The high-level type of the specimen, based on its how it has been derived from the original extracted sample.
+ * [specimen_type](specimen_type.md) - The high-level type of the specimen, based on its how it has been derived from the original extracted sample.
     * [Specimen➞specimen_type](Specimen_specimen_type.md)
 
 ### Types

@@ -2,7 +2,7 @@
 # Type: Specimen_identifier
 
 
--> A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier).
+A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier).
 
 URI: [specimen:Specimen_identifier](https://ccdh.org/specimen/Specimen_identifier)
 
