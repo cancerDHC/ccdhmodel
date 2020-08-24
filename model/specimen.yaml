@@ -62,14 +62,14 @@ classes:
           - HTAN:Biospecimen.HTAN_BIOSPECIMEN_ID
 
       identifier:
-        description: ->
+        description: >-
           A 'business' identifier  or accession number for the entity, typically as provided by an external system or
           authority, that persists across implementing systems  (i.e. a  'logical' identifier).
         range: Identifier
         required: false
         multivalued: true
         comments:
-          - ->
+          - >-
             Uses a specialized, complex 'Identifier' data type to capture information about the source of the business
             identifier.
         mappings:
@@ -83,25 +83,25 @@ classes:
           - PDC:Analyte.analyte_submitter_id
           - FHIR:Specimen.identifier
         notes:
-          - ->
+          - >-
             MHB - Thoughts on whether I accurately summarized the relevant aspects of FHIR identifier fields/data
             types, and whether it is prudent for us to propose adopting these at this point?  Happy to take a
             different direction if others feel strongly, or consider alternate names for these attributes
             (e.g. 'internal_id' vs  'external_id')
-          - ->
+          - >-
             BTF - well, i find 'id' and 'identifier' difficult to distinguish without knowing the FHIR definitions
             of these.  certainly 'internal_id' or 'logical_id' and 'external_id' or 'business_id' make a clearer
             distinction between the meaning of these fields.  that said, i am fine sticking with FHIR-aligned
             attributes here unless others object
-          - ->
+          - >-
             SE - the "id" is really implementation dependent thing. In REST/FHIR it's the resoruce identifier,
             in Java there is no such thing since it's a memory location, etc.  So, if it's adds confusion just
             leave it out and focus on the business "identifier" modeling
-          - ->
+          - >-
             DJ - Need to find a way to represent the conditional mapping to FHIR identifier
 
       description:
-        description: ->
+        description: >-
           A free text field to capture additional information or explanation about the specimen.
         range: literal
         required: false
@@ -111,13 +111,13 @@ classes:
           - ICDC:Sample.comment
           - FHIR:specimen.note
         notes:
-          - ->
+          - >-
             "FHIR provides a 'description' field on many resources (e.g. BodyStructure), that takes a string.  But it
             is not offered on Specimen for some reason). Instead, Specimen has a note field that takes a complex
             Annotation data type, that allows you to capture by whom and when the comment was made.
 
       specimen_type:
-        description: ->
+        description: >-
           The high-level type of the specimen, based on its how it has been derived from the original extracted
           sample.
         range: Coding
@@ -128,13 +128,13 @@ classes:
           - value: Portion; Aliquot
           - value: Analyte, Pool
         comments:
-          - ->
+          - >-
             This attribute is specific to Specimens of type 'analyte' or 'aliquot'
             (specifically, an aliquot of an analyte).
 
 
       analyte_type:
-        description: ->
+        description: >-
           When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte
           represents (e.g. DNA, RNA)
         range: Coding
@@ -145,7 +145,7 @@ classes:
           - value: RNA
           - value: FFPE RNA
         comments:
-          - ->
+          - >-
             This attribute is specific to Specimens of type 'analyte' or 'aliquot' (specifically, an aliquot of
             an analyte).
 
@@ -159,7 +159,7 @@ classes:
         range: Organization
 
       source_material_type:
-        description: ->
+        description: >-
           The general kind of material from which the specimen was derived, indicating the physical nature of
           the source material.
         range: Coding
