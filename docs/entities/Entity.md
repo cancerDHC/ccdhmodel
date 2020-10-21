@@ -4,18 +4,17 @@
 
 Any resource that has its own identifier
 
-URI: [ccdh:Entity](https://ccdh.org/Entity)
+URI: [ccdh:Entity](https://ccdh.example.org/ccdh/Entity)
 
 
 ![img](images/Entity.svg)
 
 ## Children
 
- * [ConditionDiagnosis](ConditionDiagnosis.md)
- * [DocumentReference](DocumentReference.md)
- * [Organization](Organization.md)
+ * [Patient](Patient.md)
  * [Project](Project.md)
- * [Visit](Visit.md)
+ * [ResearchSubject](ResearchSubject.md)
+ * [Specimen](Specimen.md)
 
 ## Referenced by class
 
@@ -26,4 +25,4 @@ URI: [ccdh:Entity](https://ccdh.org/Entity)
 ### Own
 
  * [id](id.md)  <sub>REQ</sub>
-    * range: [Literal](types/Literal.md)
+    * range: [String](types/String.md)

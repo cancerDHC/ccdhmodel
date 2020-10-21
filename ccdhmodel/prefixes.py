@@ -1,5 +1,5 @@
 # Auto generated from prefixes.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-08-24 13:36
+# Generation date: 2020-10-20 19:53
 # Schema: prefixes
 #
 # id: https://ccdh.org/model/prefixes
@@ -36,7 +36,7 @@ HTAN = CurieNamespace('HTAN', 'http://fill.me.in/ICDC')
 ICDC = CurieNamespace('ICDC', 'http://fill.me.in/ICDC')
 PDC = CurieNamespace('PDC', 'http://fill.me.in/PDC')
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
-CCDH = CurieNamespace('ccdh', 'https://ccdh.org/')
+CCDH = CurieNamespace('ccdh', 'https://ccdh.example.org/ccdh/')
 SPECIMEN = CurieNamespace('specimen', 'https://ccdh.org/specimen/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = BIOLINKML

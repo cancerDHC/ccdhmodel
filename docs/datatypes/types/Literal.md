@@ -4,7 +4,7 @@
 
 
 
-URI: [types:Literal](https://ccdh.org/datatypes/Literal)
+URI: [types:Literal](https://ccdh.example.org/datatypes/Literal)
 
 |  |  |  |
 | --- | --- | --- |

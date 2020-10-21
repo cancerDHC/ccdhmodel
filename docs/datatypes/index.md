@@ -16,6 +16,24 @@
 
 ### Slots
 
+ * [code](code.md) - The value of the code itself.
+    * [Coding➞code](Coding_code.md)
+ * [comparator](comparator.md) -  how to understand the value  . . .   < | <= | >= | >
+    * [Quantity➞comparator](Quantity_comparator.md)
+ * [display](display.md) - A human-readable name for the code.
+    * [Coding➞display](Coding_display.md)
+ * [system](system.md) - The system or namespace that defines the identifier.
+    * [Coding➞system](Coding_system.md) - The code system where the code is defined.
+    * [Identifier➞system](Identifier_system.md)
+ * [type](type.md) - A code that defines the type of the identifier.
+    * [Identifier➞type](Identifier_type.md)
+ * [unit](unit.md) - Unit representation (e.g. mg, mL)
+    * [Quantity➞unit](Quantity_unit.md)
+ * [value](value.md) - The value of the identifier, as defined by the system.
+    * [Identifier➞value](Identifier_value.md)
+    * [Quantity➞value](Quantity_value.md) - Numerical value (with implicit precision)
+ * [version](version.md) - The version of the code system.
+    * [Coding➞version](Coding_version.md)
 
 ### Types
 
@@ -51,3 +69,4 @@
  * [Time](types/Time.md)  (**XSDTime**)  - A time object represents a (local) time of day, independent of any particular day
  * [Uri](types/Uri.md)  (**URI**)  - a complete URI
  * [Uriorcurie](types/Uriorcurie.md)  (**URIorCURIE**)  - a URI or a CURIE
+ * [Url](types/Url.md)  ([String](types/String.md)) 

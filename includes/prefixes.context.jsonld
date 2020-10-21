@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from prefixes.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-08-24 13:36\nSchema: prefixes\n\nid: https://ccdh.org/model/prefixes\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from prefixes.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-10-20 19:53\nSchema: prefixes\n\nid: https://ccdh.org/model/prefixes\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": "@type",
       "ADM": "https://ccdh.org/models/ADM/",
@@ -10,7 +10,7 @@
       "ICDC": "http://fill.me.in/ICDC",
       "PDC": "http://fill.me.in/PDC",
       "biolinkml": "https://w3id.org/biolink/biolinkml/",
-      "ccdh": "https://ccdh.org/",
+      "ccdh": "https://ccdh.example.org/ccdh/",
       "specimen": "https://ccdh.org/specimen/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "@vocab": "https://w3id.org/biolink/biolinkml/"

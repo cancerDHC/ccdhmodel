@@ -1,27 +1,68 @@
-id: https://ccdh.org/model/datatypes
 name: datatypes
+id: https://ccdh.example.org/model/datatypes
 title: Data Types used by the CCDH model
+imports:
+- biolinkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
-
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
-  types: https://ccdh.org/datatypes/
-
+  types: https://ccdh.example.org/datatypes/
 default_prefix: types
-
-imports:
-  - biolinkml:types
-
 types:
   literal:
     typeof: string
-
+  url:
+    typeof: string
 classes:
-  Coding:
-
-  Quantity:
-
   Identifier:
-
-
-
+    slot_usage:
+      value:
+        description: The value of the identifier, as defined by the system.
+        range: literal
+      system:
+        description: The system or namespace that defines the identifier.
+        range: literal
+        multivalued: false
+        required: false
+      type:
+        description: A code that defines the type of the identifier.
+        range: Coding
+        multivalued: false
+        required: false
+  Quantity:
+    slot_usage:
+      value:
+        description: Numerical value (with implicit precision)
+        range: literal
+      unit:
+        description: Unit representation (e.g. mg, mL)
+        range: Coding
+        multivalued: false
+        required: false
+      comparator:
+        description: ' how to understand the value  . . .   < | <= | >= | >'
+        range: Coding
+        multivalued: false
+        required: false
+  Coding:
+    slot_usage:
+      code:
+        description: The value of the code itself.
+        range: literal
+        multivalued: false
+        required: false
+      display:
+        description: A human-readable name for the code.
+        range: literal
+        multivalued: false
+        required: false
+      system:
+        description: The code system where the code is defined.
+        range: url
+        multivalued: false
+        required: false
+      version:
+        description: The version of the code system.
+        range: literal
+        multivalued: false
+        required: false
