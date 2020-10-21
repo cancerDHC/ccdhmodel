@@ -1,12 +1,12 @@
 name: datatypes
-id: https://ccdh.example.org/model/datatypes
+id: https://example.org/ccdh/model/datatypes
 title: Data Types used by the CCDH model
 imports:
 - biolinkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
-  types: https://ccdh.example.org/datatypes/
+  types: https://example.org/ccdh/datatypes/
 default_prefix: types
 types:
   literal:
@@ -15,7 +15,7 @@ types:
     typeof: string
 classes:
   Identifier:
-    slot_usage:
+    attributes:
       value:
         description: The value of the identifier, as defined by the system.
         range: literal
@@ -30,7 +30,7 @@ classes:
         multivalued: false
         required: false
   Quantity:
-    slot_usage:
+    attributes:
       value:
         description: Numerical value (with implicit precision)
         range: literal
@@ -45,7 +45,7 @@ classes:
         multivalued: false
         required: false
   Coding:
-    slot_usage:
+    attributes:
       code:
         description: The value of the code itself.
         range: literal

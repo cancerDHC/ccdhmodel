@@ -1,17 +1,17 @@
 name: CCDH-MVP
 notes:
 - derived from [CDM_Dictionary_v1](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/)
-id: https://ccdh.org/model/MVPv0
-title: CCDH MVP model
+id: https://example.org/ccdh/model/MVPv0
+title: MVPv0
 version: v0
-license: https://creativecommons.org/publicdomain/zero/1.0/
-prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
-  ccdh: https://ccdh.example.org/ccdh/
-default_prefix: ccdh
 imports:
 - datatypes
 - prefixes
+license: https://creativecommons.org/publicdomain/zero/1.0/
+prefixes:
+  biolinkml: https://w3id.org/biolink/biolinkml/
+  ccdh: https://example.org/ccdh/
+default_prefix: ccdh
 slots:
   id:
     multivalued: false
@@ -26,22 +26,6 @@ classes:
   Specimen:
     is_a: Entity
     slot_usage:
-      associated_project:
-        mappings:
-        - ADM:Sample.project_id
-        - ADM:Sample.gdc_project_id
-        - ADM:Portion.project_id
-        - ADM:Aliquot.project_id
-        - ADM:Analyte.project_id
-        - GDC:Sample.project_id
-        - GDC:Portion.project_id
-        - GDC:Aliquot.project_id
-        - GDC:Analyte.project_id
-        - PDC:Sample.gdc_project_id
-        description: The Project associated with the specimen.
-        range: Project
-        multivalued: false
-        required: false
       id:
         mappings:
         - ADM:Sample.sample_id
@@ -65,6 +49,23 @@ classes:
         range: literal
         multivalued: false
         required: true
+    attributes:
+      associated_project:
+        mappings:
+        - ADM:Sample.project_id
+        - ADM:Sample.gdc_project_id
+        - ADM:Portion.project_id
+        - ADM:Aliquot.project_id
+        - ADM:Analyte.project_id
+        - GDC:Sample.project_id
+        - GDC:Portion.project_id
+        - GDC:Aliquot.project_id
+        - GDC:Analyte.project_id
+        - PDC:Sample.gdc_project_id
+        description: The Project associated with the specimen.
+        range: Project
+        multivalued: false
+        required: false
       identifier:
         mappings:
         - ADM:Sample.sample_submitter_id
@@ -88,6 +89,7 @@ classes:
           \ been derived from the original extracted sample. \n"
         comments:
         - Initial Sample; Portion; Aliquot; Analyte, Pool
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/specimen_type
         range: Coding
         multivalued: false
         required: false
@@ -111,6 +113,7 @@ classes:
         comments:
         - 'DNA; FFPE DNA; GenomePlex (Rubicon) Amplified DNA; Repli-G (Qiagen) DNA; '
         - RNA; FFPE RNA
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/analyte_type
         range: Coding
         multivalued: false
         required: false
@@ -165,6 +168,7 @@ classes:
         comments:
         - 'Tissue, Blood, Tumor Aspirate; Cell Line; Expanded Next Generation Cancer
           Model; Pleural Effusion;  Xenograft Tissue, . . . '
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/source_material_type
         range: Coding
         multivalued: false
         required: false
@@ -180,6 +184,7 @@ classes:
         - Buccal Cells; Buffy Coat; Derived Cell Line; Granulocytes; Pleural Effusion;
           Human Original Cells;
         - 'Liquid Suspension Cell Line '
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/cellular_composition
         range: Coding
         multivalued: false
         required: false
@@ -194,6 +199,7 @@ classes:
           \ (e.g. is it normal, abnormal, tumor, tumor-adjacent). \n"
         comments:
         - Tumor;  Normal;  Abnormal;  Peritumoral; not applicable
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/general_tissue_morphology
         range: Coding
         multivalued: false
         required: false
@@ -215,6 +221,7 @@ classes:
         - Non cancerous tissue; Lung Cancer (all types); CNS, medulloblastoma; 00;  01;  02;
           Melanocytic hyperplasia; Atypical melanocytic proliferation; Melanoma in
           situ, superficial spreading
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/specific_tissue_morphology
         range: Coding
         multivalued: false
         required: false
@@ -288,6 +295,7 @@ classes:
           a solution.
         comments:
         - DDA; DIA; SRM
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/analyte_concentration_method
         range: Coding
         multivalued: false
         required: false
@@ -303,6 +311,7 @@ classes:
           this case that can be used for variant calling purposes.
         comments:
         - no matched normal wgs; no matched normal wxs, no matched normal  targeted
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/matched_normal_flag
         range: Coding
         multivalued: true
         required: false
@@ -314,12 +323,13 @@ classes:
           for data analysis in a study.
         comments:
         - Qualified; Disqualified
+        values_from: https://example.org/ccdh/valuesets/CDM/Specimen/qualification_status_flag
         range: Coding
         multivalued: false
         required: false
   Patient:
     is_a: Entity
-    slot_usage:
+    attributes:
       taxon:
         mappings:
         - ADM:Case.taxon
@@ -327,6 +337,7 @@ classes:
         description: The taxonomic group (e.g. species) of the patient.
         comments:
         - 'Trichomonas vaginalis; Bemisia tabaci (Gennadius); Mus musculus; '
+        values_from: https://example.org/ccdh/valuesets/CDM/Patient/taxon
         range: Coding
         multivalued: false
         required: false
@@ -354,6 +365,7 @@ classes:
           entity may have a different 'id' in a different system.
         range: literal
         required: true
+    attributes:
       identifier:
         mappings:
         - ADM:Case.external_case_id
@@ -380,6 +392,7 @@ classes:
         comments:
         - 'Acinar Cell Neoplasms; Adenomas and Adenocarcinomas; Adnexal and Skin Appendage
           Neoplasms; '
+        values_from: https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_type
         range: Coding
         multivalued: false
         required: false
@@ -394,6 +407,7 @@ classes:
           general categories.
         comments:
         - 'Accessory sinuses; Adrenal gland; Anus and anal canal; '
+        values_from: https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_site
         range: Coding
         multivalued: false
         required: false

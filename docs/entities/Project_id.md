@@ -4,7 +4,7 @@
 
 
 
-URI: [ccdh:Project_id](https://ccdh.example.org/ccdh/Project_id)
+URI: [ccdh:Project_id](https://example.org/ccdh/Project_id)
 
 
 ## Domain and Range

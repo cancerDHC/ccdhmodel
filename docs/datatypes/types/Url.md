@@ -4,7 +4,7 @@
 
 
 
-URI: [types:Url](https://ccdh.example.org/datatypes/Url)
+URI: [types:Url](https://example.org/ccdh/datatypes/Url)
 
 |  |  |  |
 | --- | --- | --- |

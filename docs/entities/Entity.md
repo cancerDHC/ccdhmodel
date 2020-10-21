@@ -4,7 +4,7 @@
 
 Any resource that has its own identifier
 
-URI: [ccdh:Entity](https://ccdh.example.org/ccdh/Entity)
+URI: [ccdh:Entity](https://example.org/ccdh/Entity)
 
 
 ![img](images/Entity.svg)

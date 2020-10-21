@@ -1,8 +1,8 @@
 # Auto generated from datatypes.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-10-20 22:34
+# Generation date: 2020-10-21 12:51
 # Schema: datatypes
 #
-# id: https://ccdh.example.org/model/datatypes
+# id: https://example.org/ccdh/model/datatypes
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -29,7 +29,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
-TYPES = CurieNamespace('types', 'https://ccdh.example.org/datatypes/')
+TYPES = CurieNamespace('types', 'https://example.org/ccdh/datatypes/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = TYPES
 
@@ -130,56 +130,32 @@ class Coding(YAMLRoot):
 class slots:
     pass
 
-slots.value = Slot(uri=TYPES.value, name="value", curie=TYPES.curie('value'),
-                      model_uri=TYPES.value, domain=None, range=Optional[Union[str, Literal]])
+slots.identifier__value = Slot(uri=TYPES.value, name="identifier__value", curie=TYPES.curie('value'),
+                      model_uri=TYPES.identifier__value, domain=None, range=Optional[Union[str, Literal]])
 
-slots.system = Slot(uri=TYPES.system, name="system", curie=TYPES.curie('system'),
-                      model_uri=TYPES.system, domain=None, range=Optional[Union[str, Literal]])
+slots.identifier__system = Slot(uri=TYPES.system, name="identifier__system", curie=TYPES.curie('system'),
+                      model_uri=TYPES.identifier__system, domain=None, range=Optional[Union[str, Literal]])
 
-slots.type = Slot(uri=TYPES.type, name="type", curie=TYPES.curie('type'),
-                      model_uri=TYPES.type, domain=None, range=Optional[Union[dict, Coding]])
+slots.identifier__type = Slot(uri=TYPES.type, name="identifier__type", curie=TYPES.curie('type'),
+                      model_uri=TYPES.identifier__type, domain=None, range=Optional[Union[dict, Coding]])
 
-slots.unit = Slot(uri=TYPES.unit, name="unit", curie=TYPES.curie('unit'),
-                      model_uri=TYPES.unit, domain=None, range=Optional[Union[dict, Coding]])
+slots.quantity__value = Slot(uri=TYPES.value, name="quantity__value", curie=TYPES.curie('value'),
+                      model_uri=TYPES.quantity__value, domain=None, range=Optional[Union[str, Literal]])
 
-slots.comparator = Slot(uri=TYPES.comparator, name="comparator", curie=TYPES.curie('comparator'),
-                      model_uri=TYPES.comparator, domain=None, range=Optional[Union[dict, Coding]])
+slots.quantity__unit = Slot(uri=TYPES.unit, name="quantity__unit", curie=TYPES.curie('unit'),
+                      model_uri=TYPES.quantity__unit, domain=None, range=Optional[Union[dict, Coding]])
 
-slots.code = Slot(uri=TYPES.code, name="code", curie=TYPES.curie('code'),
-                      model_uri=TYPES.code, domain=None, range=Optional[Union[str, Literal]])
+slots.quantity__comparator = Slot(uri=TYPES.comparator, name="quantity__comparator", curie=TYPES.curie('comparator'),
+                      model_uri=TYPES.quantity__comparator, domain=None, range=Optional[Union[dict, Coding]])
 
-slots.display = Slot(uri=TYPES.display, name="display", curie=TYPES.curie('display'),
-                      model_uri=TYPES.display, domain=None, range=Optional[Union[str, Literal]])
+slots.coding__code = Slot(uri=TYPES.code, name="coding__code", curie=TYPES.curie('code'),
+                      model_uri=TYPES.coding__code, domain=None, range=Optional[Union[str, Literal]])
 
-slots.version = Slot(uri=TYPES.version, name="version", curie=TYPES.curie('version'),
-                      model_uri=TYPES.version, domain=None, range=Optional[Union[str, Literal]])
+slots.coding__display = Slot(uri=TYPES.display, name="coding__display", curie=TYPES.curie('display'),
+                      model_uri=TYPES.coding__display, domain=None, range=Optional[Union[str, Literal]])
 
-slots.Identifier_value = Slot(uri=TYPES.value, name="Identifier_value", curie=TYPES.curie('value'),
-                      model_uri=TYPES.Identifier_value, domain=Identifier, range=Optional[Union[str, Literal]])
+slots.coding__system = Slot(uri=TYPES.system, name="coding__system", curie=TYPES.curie('system'),
+                      model_uri=TYPES.coding__system, domain=None, range=Optional[Union[str, Url]])
 
-slots.Identifier_system = Slot(uri=TYPES.system, name="Identifier_system", curie=TYPES.curie('system'),
-                      model_uri=TYPES.Identifier_system, domain=Identifier, range=Optional[Union[str, Literal]])
-
-slots.Identifier_type = Slot(uri=TYPES.type, name="Identifier_type", curie=TYPES.curie('type'),
-                      model_uri=TYPES.Identifier_type, domain=Identifier, range=Optional[Union[dict, "Coding"]])
-
-slots.Quantity_value = Slot(uri=TYPES.value, name="Quantity_value", curie=TYPES.curie('value'),
-                      model_uri=TYPES.Quantity_value, domain=Quantity, range=Optional[Union[str, Literal]])
-
-slots.Quantity_unit = Slot(uri=TYPES.unit, name="Quantity_unit", curie=TYPES.curie('unit'),
-                      model_uri=TYPES.Quantity_unit, domain=Quantity, range=Optional[Union[dict, "Coding"]])
-
-slots.Quantity_comparator = Slot(uri=TYPES.comparator, name="Quantity_comparator", curie=TYPES.curie('comparator'),
-                      model_uri=TYPES.Quantity_comparator, domain=Quantity, range=Optional[Union[dict, "Coding"]])
-
-slots.Coding_code = Slot(uri=TYPES.code, name="Coding_code", curie=TYPES.curie('code'),
-                      model_uri=TYPES.Coding_code, domain=Coding, range=Optional[Union[str, Literal]])
-
-slots.Coding_display = Slot(uri=TYPES.display, name="Coding_display", curie=TYPES.curie('display'),
-                      model_uri=TYPES.Coding_display, domain=Coding, range=Optional[Union[str, Literal]])
-
-slots.Coding_system = Slot(uri=TYPES.system, name="Coding_system", curie=TYPES.curie('system'),
-                      model_uri=TYPES.Coding_system, domain=Coding, range=Optional[Union[str, Url]])
-
-slots.Coding_version = Slot(uri=TYPES.version, name="Coding_version", curie=TYPES.curie('version'),
-                      model_uri=TYPES.Coding_version, domain=Coding, range=Optional[Union[str, Literal]])
+slots.coding__version = Slot(uri=TYPES.version, name="coding__version", curie=TYPES.curie('version'),
+                      model_uri=TYPES.coding__version, domain=None, range=Optional[Union[str, Literal]])

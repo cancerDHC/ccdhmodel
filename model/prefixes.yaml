@@ -4,7 +4,7 @@ title: URI Prefixes used by the CCDH Model
 license: https://creativecommons.org/publicdomain/zero/1.0/
 
 prefixes:
-  ccdh: https://ccdh.example.org/ccdh/
+  ccdh: https://example.org/ccdh/
   specimen: https://ccdh.org/specimen/
   xsd: http://www.w3.org/2001/XMLSchema#
   biolinkml: https://w3id.org/biolink/biolinkml/

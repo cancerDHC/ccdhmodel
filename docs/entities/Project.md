@@ -4,7 +4,7 @@
 
 
 
-URI: [ccdh:Project](https://ccdh.example.org/ccdh/Project)
+URI: [ccdh:Project](https://example.org/ccdh/Project)
 
 
 ![img](images/Project.svg)
@@ -15,9 +15,8 @@ URI: [ccdh:Project](https://ccdh.example.org/ccdh/Project)
 
 ## Referenced by class
 
- *  **[Patient](Patient.md)** *[Patient➞associated_project](Patient_associated_project.md)*  <sub>0..*</sub>  **[Project](Project.md)**
- *  **[Specimen](Specimen.md)** *[Specimen➞associated_project](Specimen_associated_project.md)*  <sub>OPT</sub>  **[Project](Project.md)**
- *  **None** *[associated_project](associated_project.md)*  <sub>OPT</sub>  **[Project](Project.md)**
+ *  **None** *[➞associated_project](patient__associated_project.md)*  <sub>0..*</sub>  **[Project](Project.md)**
+ *  **None** *[➞associated_project](specimen__associated_project.md)*  <sub>OPT</sub>  **[Project](Project.md)**
 
 ## Attributes
 
