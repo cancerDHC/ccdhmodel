@@ -20,19 +20,3 @@ None ->  <sub>OPT</sub> [Project](Project.md)
 ## Used by
 
  * [Specimen](Specimen.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | ADM:Sample.project_id |
-|  | | ADM:Sample.gdc_project_id |
-|  | | ADM:Portion.project_id |
-|  | | ADM:Aliquot.project_id |
-|  | | ADM:Analyte.project_id |
-|  | | GDC:Sample.project_id |
-|  | | GDC:Portion.project_id |
-|  | | GDC:Aliquot.project_id |
-|  | | GDC:Analyte.project_id |
-|  | | PDC:Sample.gdc_project_id |
-

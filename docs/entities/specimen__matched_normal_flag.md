@@ -25,11 +25,5 @@ None ->  <sub>0..*</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Aliquot.no_matched_normal_targeted_sequencing |
-|  | | ADM:Aliquot.no_matched_normal_wgs |
-|  | | ADM:Aliquot.no_matched_normal_wxs |
-|  | | GDC:Aliquot.no_matched_normal_targeted_sequencing |
-|  | | GDC:Aliquot.no_matched_normal_wgs |
-|  | | GDC:Aliquot.no_matched_normal_wxs |
-| **Comments:** | | no matched normal wgs; no matched normal wxs, no matched normal  targeted |
+| **Comments:** | | Example values: no matched normal wgs; no matched normal wxs, no matched normal  targeted |
 

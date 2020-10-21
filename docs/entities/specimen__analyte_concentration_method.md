@@ -25,8 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Analyte.spectrophotometer_method |
-|  | | GDC:Analyte.spectrophotometer_method |
-|  | | PDC:Analyte.spectrophotometer_method |
-| **Comments:** | | DDA; DIA; SRM |
+| **Comments:** | | Example values: DDA; DIA; SRM |
 

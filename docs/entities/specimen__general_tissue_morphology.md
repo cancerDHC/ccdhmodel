@@ -25,9 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Sample.tissue_type |
-|  | | GDC:Sample.tissue_type |
-|  | | PDC:Sample.tissue_type |
-|  | | ICDC:Sample.general_sample_pathology |
-| **Comments:** | | Tumor;  Normal;  Abnormal;  Peritumoral; not applicable |
+| **Comments:** | | Example values: Tumor;  Normal;  Abnormal;  Peritumoral; not applicable |
 

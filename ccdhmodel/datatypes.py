@@ -1,5 +1,5 @@
 # Auto generated from datatypes.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-10-21 12:51
+# Generation date: 2020-10-21 17:18
 # Schema: datatypes
 #
 # id: https://example.org/ccdh/model/datatypes

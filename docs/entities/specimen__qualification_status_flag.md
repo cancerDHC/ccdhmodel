@@ -25,7 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Aliquot.status |
-|  | | PDC:Aliquot.status |
-| **Comments:** | | Qualified; Disqualified |
+| **Comments:** | | Example values: Qualified; Disqualified |
 

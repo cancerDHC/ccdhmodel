@@ -25,8 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Case.disease_type |
-|  | | GDC:Case.disease_type |
-|  | | PDC:Case.disease_type |
-| **Comments:** | | Acinar Cell Neoplasms; Adenomas and Adenocarcinomas; Adnexal and Skin Appendage Neoplasms;  |
+| **Comments:** | | Example values: Acinar Cell Neoplasms; Adenomas and Adenocarcinomas; Adnexal and Skin Appendage Neoplasms;  |
 

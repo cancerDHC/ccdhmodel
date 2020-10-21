@@ -25,6 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | HTAN:Biospecimen.BIOSPECIMEN_TYPE |
-| **Comments:** | | Initial Sample; Portion; Aliquot; Analyte, Pool |
+| **Comments:** | | Example values: Initial Sample; Portion; Aliquot; Analyte, Pool |
 

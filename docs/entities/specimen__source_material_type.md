@@ -25,13 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Sample.sample_type |
-|  | | ADM:Sample.sample_type_id |
-|  | | GDC:Sample.sample_type |
-|  | | GDC:Sample.sample_type_id |
-|  | | PDC:Sample.sample_type |
-|  | | PDC:Sample.sample_type_id |
-|  | | ICDC:Sample.sample_type |
-|  | | HTAN:Biospecimen.BIOSPECIMEN_TYPE |
-| **Comments:** | | Tissue, Blood, Tumor Aspirate; Cell Line; Expanded Next Generation Cancer Model; Pleural Effusion;  Xenograft Tissue, . . .  |
+| **Comments:** | | Example values: Tissue, Blood, Tumor Aspirate; Cell Line; Expanded Next Generation Cancer Model; Pleural Effusion;  Xenograft Tissue |
 

@@ -25,19 +25,6 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Aliquot.analyte_type |
-|  | | ADM:Aliquot.analyte_type_id |
-|  | | ADM:Analyte.analyte_type |
-|  | | ADM:Analyte.analyte_type_id |
-|  | | GDC:Aliquot.analyte_type |
-|  | | GDC:Aliquot.analyte_type_id |
-|  | | GDC:Analyte.analyte_type |
-|  | | GDC:Analyte.analyte_type_id |
-|  | | PDC:Aliquot.analyte_type |
-|  | | PDC:Aliquot.analyte_type_id |
-|  | | PDC:Analyte.analyte_type |
-|  | | PDC:Analyte.analyte_type_id |
-|  | | HTAN:Biosepcimen.ANALYTE_TYPE |
-| **Comments:** | | DNA; FFPE DNA; GenomePlex (Rubicon) Amplified DNA; Repli-G (Qiagen) DNA;  |
+| **Comments:** | | Example values: DNA; FFPE DNA; GenomePlex (Rubicon) Amplified DNA; Repli-G (Qiagen) DNA;  |
 |  | | RNA; FFPE RNA |
 

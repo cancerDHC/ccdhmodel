@@ -20,14 +20,3 @@ None ->  <sub>0..*</sub> [Project](Project.md)
 ## Used by
 
  * [Patient](Patient.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | ADM:Case.member_of_project |
-|  | | ADM:Case.project_id |
-|  | | GDC:Case.member_of |
-|  | | GDC:Case.project_id |
-|  | | PDC:Case.Project |
-

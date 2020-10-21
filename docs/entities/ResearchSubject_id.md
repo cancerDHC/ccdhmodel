@@ -21,11 +21,3 @@ URI: [ccdh:ResearchSubject_id](https://example.org/ccdh/ResearchSubject_id)
 ## Used by
 
  * [ResearchSubject](ResearchSubject.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | ADM:Case.case_id |
-|  | | FHIR:ResearchSubject.id |
-

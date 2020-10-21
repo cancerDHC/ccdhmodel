@@ -20,15 +20,3 @@ None ->  <sub>0..*</sub> [Identifier](Identifier.md)
 ## Used by
 
  * [ResearchSubject](ResearchSubject.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | ADM:Case.external_case_id |
-|  | | ADM:Case.case_submitter_id |
-|  | | GDC:Case.id |
-|  | | GDC:Case.submitter_id |
-|  | | PDC:Case.external_case_id |
-|  | | PDC:Case.case_submitter_id |
-

@@ -20,15 +20,3 @@ None ->  <sub>OPT</sub> [Quantity](Quantity.md)
 ## Used by
 
  * [Specimen](Specimen.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | ADM:Aliquot.concentration |
-|  | | ADM:Analyte.concentration |
-|  | | GDC:Aliquot.concentration |
-|  | | GDC:Analyte.concentration |
-|  | | PDC:Aliquot.concentration |
-|  | | PDC:Analyte.concentration |
-

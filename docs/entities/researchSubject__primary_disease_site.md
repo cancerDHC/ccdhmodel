@@ -25,8 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Case.primary_site |
-|  | | GDC:Case.primary_site |
-|  | | PDC:Case.primary_site |
-| **Comments:** | | Accessory sinuses; Adrenal gland; Anus and anal canal;  |
+| **Comments:** | | Example values: Accessory sinuses; Adrenal gland; Anus and anal canal;  |
 

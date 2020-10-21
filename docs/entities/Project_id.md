@@ -21,12 +21,3 @@ URI: [ccdh:Project_id](https://example.org/ccdh/Project_id)
 ## Used by
 
  * [Project](Project.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | ADM:Project.project_id |
-|  | | GDC:Project.id |
-|  | | PDC:Project.project_id |
-

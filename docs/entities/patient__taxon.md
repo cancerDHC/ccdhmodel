@@ -25,7 +25,5 @@ None ->  <sub>OPT</sub> [Coding](Coding.md)
 
 |  |  |  |
 | --- | --- | --- |
-| **Mappings:** | | ADM:Case.taxon |
-|  | | PDC:Case.taxon |
-| **Comments:** | | Trichomonas vaginalis; Bemisia tabaci (Gennadius); Mus musculus;  |
+| **Comments:** | | Example values: Trichomonas vaginalis; Bemisia tabaci (Gennadius); Mus musculus;  |
 

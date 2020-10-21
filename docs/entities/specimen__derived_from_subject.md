@@ -20,14 +20,3 @@ None ->  <sub>OPT</sub> [Patient](Patient.md)
 ## Used by
 
  * [Specimen](Specimen.md)
-
-## Other properties
-
-|  |  |  |
-| --- | --- | --- |
-| **Mappings:** | | ADM:Sample.derived_from_case |
-|  | | PDC:Sample.Case |
-|  | | GDC:Sample.derived_from |
-|  | | ICDC:Sample.of_case |
-|  | | HTAN:Biospecimen.HTAN_PARENT_ID |
-
