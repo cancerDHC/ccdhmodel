@@ -25,6 +25,7 @@ classes:
     - id
   Specimen:
     is_a: Entity
+    description: Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation. 
     slot_usage:
       id:
         description: The 'logical' identifier of the entity in the system of record,
@@ -188,6 +189,7 @@ classes:
         required: false
   ResearchSubject:
     is_a: Entity
+    description: A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
     slot_usage:
       id:
         description: The 'logical' identifier of the entity in the system of record,
@@ -228,6 +230,7 @@ classes:
         required: false
   Project:
     is_a: Entity
+    description: Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885) 
     slot_usage:
       id:
         description: ''
