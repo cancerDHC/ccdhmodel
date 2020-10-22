@@ -15,6 +15,7 @@ types:
     typeof: string
 classes:
   Identifier:
+    description: An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.
     attributes:
       value:
         description: The value of the identifier, as defined by the system.
@@ -30,6 +31,7 @@ classes:
         multivalued: false
         required: false
   Quantity:
+    definition: A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
     attributes:
       value:
         description: Numerical value (with implicit precision)
@@ -45,6 +47,7 @@ classes:
         multivalued: false
         required: false
   Coding:
+    description: A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.
     attributes:
       code:
         description: The value of the code itself.
