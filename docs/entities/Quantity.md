@@ -2,7 +2,7 @@
 # Type: Quantity
 
 
-
+A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
 
 URI: [ccdh:Quantity](https://example.org/ccdh/Quantity)
 

@@ -2,7 +2,7 @@
 # Type: Coding
 
 
-
+A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.
 
 URI: [ccdh:Coding](https://example.org/ccdh/Coding)
 

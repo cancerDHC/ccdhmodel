@@ -1,0 +1,77 @@
+{
+   "$id": "https://example.org/ccdh/model/datatypes",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "definitions": {
+      "Coding": {
+         "additionalProperties": false,
+         "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
+         "properties": {
+            "code": {
+               "description": "The value of the code itself.",
+               "type": "string"
+            },
+            "display": {
+               "description": "A human-readable name for the code.",
+               "type": "string"
+            },
+            "system": {
+               "description": "The code system where the code is defined.",
+               "type": "string"
+            },
+            "version": {
+               "description": "The version of the code system.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Coding",
+         "type": "object"
+      },
+      "Identifier": {
+         "additionalProperties": false,
+         "description": "An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.",
+         "properties": {
+            "system": {
+               "description": "The system or namespace that defines the identifier.",
+               "type": "string"
+            },
+            "type": {
+               "$ref": "#/definitions/Coding",
+               "description": "A code that defines the type of the identifier."
+            },
+            "value": {
+               "description": "The value of the identifier, as defined by the system.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Identifier",
+         "type": "object"
+      },
+      "Quantity": {
+         "additionalProperties": false,
+         "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
+         "properties": {
+            "comparator": {
+               "$ref": "#/definitions/Coding",
+               "description": " how to understand the value  . . .   < | <= | >= | >"
+            },
+            "unit": {
+               "$ref": "#/definitions/Coding",
+               "description": "Unit representation (e.g. mg, mL)"
+            },
+            "value": {
+               "description": "Numerical value (with implicit precision)",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Quantity",
+         "type": "object"
+      }
+   },
+   "properties": {},
+   "title": "datatypes",
+   "type": "object"
+}
+

@@ -2,7 +2,7 @@
 # Type: Specimen
 
 
-
+Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
 
 URI: [ccdh:Specimen](https://example.org/ccdh/Specimen)
 

@@ -2,7 +2,7 @@
 # Type: Project
 
 
-
+Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)
 
 URI: [ccdh:Project](https://example.org/ccdh/Project)
 

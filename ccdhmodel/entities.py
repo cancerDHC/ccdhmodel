@@ -1,5 +1,5 @@
 # Auto generated from entities.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-10-21 17:18
+# Generation date: 2020-10-22 11:35
 # Schema: CCDH-MVP
 #
 # id: https://example.org/ccdh/model/MVPv0
@@ -81,6 +81,10 @@ class Entity(YAMLRoot):
 
 @dataclass
 class Specimen(Entity):
+    """
+    Any material taken as a sample from a biological entity (living or dead), or from a physical object or the
+    environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CCDH.Specimen
@@ -179,6 +183,11 @@ class Patient(Entity):
 
 @dataclass
 class ResearchSubject(Entity):
+    """
+    A research subject is the entity of interest in a research study, typically a human being or an animal, but can
+    also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not
+    traceable to a particular person to protect the subject’s privacy.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CCDH.ResearchSubject
@@ -208,6 +217,9 @@ class ResearchSubject(Entity):
 
 @dataclass
 class Project(Entity):
+    """
+    Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = CCDH.Project

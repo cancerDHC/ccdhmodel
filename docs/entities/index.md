@@ -7,14 +7,14 @@
 
 ### Classes
 
- * [Coding](Coding.md)
+ * [Coding](Coding.md) - A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.
  * [Entity](Entity.md) - Any resource that has its own identifier
     * [Patient](Patient.md)
-    * [Project](Project.md)
-    * [ResearchSubject](ResearchSubject.md)
-    * [Specimen](Specimen.md)
- * [Identifier](Identifier.md)
- * [Quantity](Quantity.md)
+    * [Project](Project.md) - Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)
+    * [ResearchSubject](ResearchSubject.md) - A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
+    * [Specimen](Specimen.md) - Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
+ * [Identifier](Identifier.md) - An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.
+ * [Quantity](Quantity.md) - A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
 
 ### Mixins
 

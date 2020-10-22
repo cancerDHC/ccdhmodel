@@ -7,9 +7,9 @@
 
 ### Classes
 
- * [Coding](Coding.md)
- * [Identifier](Identifier.md)
- * [Quantity](Quantity.md)
+ * [Coding](Coding.md) - A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.
+ * [Identifier](Identifier.md) - An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.
+ * [Quantity](Quantity.md) - A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
 
 ### Mixins
 

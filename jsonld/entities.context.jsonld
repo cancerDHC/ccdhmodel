@@ -1,0 +1,85 @@
+{
+   "_comments": "Auto generated from entities.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-10-22 11:36\nSchema: CCDH-MVP\n\nid: https://example.org/ccdh/model/MVPv0\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "@context": {
+      "type": {
+         "@type": "@id"
+      },
+      "biolinkml": "https://w3id.org/biolink/biolinkml/",
+      "ccdh": "https://example.org/ccdh/",
+      "types": "https://example.org/ccdh/datatypes/",
+      "@vocab": "https://example.org/ccdh/",
+      "associated_project": {
+         "@type": "@id"
+      },
+      "taxon": {
+         "@type": "@id"
+      },
+      "comparator": {
+         "@type": "@id"
+      },
+      "unit": {
+         "@type": "@id"
+      },
+      "identifier": {
+         "@type": "@id"
+      },
+      "primary_disease_site": {
+         "@type": "@id"
+      },
+      "primary_disease_type": {
+         "@type": "@id"
+      },
+      "analyte_concentration": {
+         "@type": "@id"
+      },
+      "analyte_concentration_method": {
+         "@type": "@id"
+      },
+      "analyte_type": {
+         "@type": "@id"
+      },
+      "cellular_composition": {
+         "@type": "@id"
+      },
+      "current_volume": {
+         "@type": "@id"
+      },
+      "current_weight": {
+         "@type": "@id"
+      },
+      "derived_from_specimen": {
+         "@type": "@id"
+      },
+      "derived_from_subject": {
+         "@type": "@id"
+      },
+      "general_tissue_morphology": {
+         "@type": "@id"
+      },
+      "matched_normal_flag": {
+         "@type": "@id"
+      },
+      "qualification_status_flag": {
+         "@type": "@id"
+      },
+      "source_material_type": {
+         "@type": "@id"
+      },
+      "specific_tissue_morphology": {
+         "@type": "@id"
+      },
+      "specimen_type": {
+         "@type": "@id"
+      },
+      "Coding": {
+         "@id": "types:Coding"
+      },
+      "Identifier": {
+         "@id": "types:Identifier"
+      },
+      "Quantity": {
+         "@id": "types:Quantity"
+      }
+   }
+}
+

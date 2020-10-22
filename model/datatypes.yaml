@@ -31,7 +31,7 @@ classes:
         multivalued: false
         required: false
   Quantity:
-    definition: A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
+    description: A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
     attributes:
       value:
         description: Numerical value (with implicit precision)

@@ -2,7 +2,7 @@
 # Type: Identifier
 
 
-
+An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.
 
 URI: [ccdh:Identifier](https://example.org/ccdh/Identifier)
 

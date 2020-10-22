@@ -1,0 +1,9 @@
+{
+   "$id": "https://ccdh.org/model/prefixes",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "definitions": {},
+   "properties": {},
+   "title": "prefixes",
+   "type": "object"
+}
+

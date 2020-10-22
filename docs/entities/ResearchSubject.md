@@ -2,7 +2,7 @@
 # Type: ResearchSubject
 
 
-
+A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
 
 URI: [ccdh:ResearchSubject](https://example.org/ccdh/ResearchSubject)
 

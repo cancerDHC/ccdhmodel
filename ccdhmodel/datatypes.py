@@ -1,5 +1,5 @@
 # Auto generated from datatypes.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-10-21 17:18
+# Generation date: 2020-10-22 11:35
 # Schema: datatypes
 #
 # id: https://example.org/ccdh/model/datatypes
@@ -55,6 +55,10 @@ class Url(String):
 
 @dataclass
 class Identifier(YAMLRoot):
+    """
+    An Identifier is associated with a unique object or entity within a given system. This data type is intended to be
+    used to represent business identifiers that are shared between systems.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = TYPES.Identifier
@@ -78,6 +82,10 @@ class Identifier(YAMLRoot):
 
 @dataclass
 class Quantity(YAMLRoot):
+    """
+    A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including
+    a value and unit.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = TYPES.Quantity
@@ -101,6 +109,10 @@ class Quantity(YAMLRoot):
 
 @dataclass
 class Coding(YAMLRoot):
+    """
+    A structured representation of a coded/enumerated data value, that includes additional metadata about the code and
+    code system.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = TYPES.Coding
