@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from entities.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-10-22 11:36\nSchema: CCDH-MVP\n\nid: https://example.org/ccdh/model/MVPv0\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from entities.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-11-10 10:01\nSchema: CCDH-MVP\n\nid: https://example.org/ccdh/model/MVPv0\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": {
          "@type": "@id"
@@ -8,7 +8,7 @@
       "ccdh": "https://example.org/ccdh/",
       "types": "https://example.org/ccdh/datatypes/",
       "@vocab": "https://example.org/ccdh/",
-      "associated_project": {
+      "coding": {
          "@type": "@id"
       },
       "taxon": {
@@ -18,6 +18,12 @@
          "@type": "@id"
       },
       "unit": {
+         "@type": "@id"
+      },
+      "value": {
+         "@type": "xsd:float"
+      },
+      "associated_project": {
          "@type": "@id"
       },
       "identifier": {
@@ -70,6 +76,9 @@
       },
       "specimen_type": {
          "@type": "@id"
+      },
+      "CodeableConcept": {
+         "@id": "types:CodeableConcept"
       },
       "Coding": {
          "@id": "types:Coding"

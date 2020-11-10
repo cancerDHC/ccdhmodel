@@ -8,6 +8,6 @@ for filename in model/*.yaml; do
     gen-markdown $PARMS model/$BASE.yaml -d docs/$BASE -i
     gen-jsonld $PARMS model/$BASE.yaml > jsonld/$BASE.jsonld
     gen-jsonld-context $PARMS model/$BASE.yaml > jsonld/$BASE.context.jsonld
-    gen-json-schema $PARMS model/$BASE.yaml > json-schema/$BASE.json
 done
+gen-json-schema $PARMS model/entities.yaml > json-schema/entities.json
 gen-jsonld-context $PARMS model/prefixes.yaml > includes/prefixes.context.jsonld

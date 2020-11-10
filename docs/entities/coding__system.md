@@ -9,7 +9,7 @@ URI: [ccdh:coding__system](https://example.org/ccdh/coding__system)
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Url](types/Url.md)
+None ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 

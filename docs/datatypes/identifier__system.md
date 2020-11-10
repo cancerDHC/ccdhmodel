@@ -9,7 +9,7 @@ URI: [types:identifier__system](https://example.org/ccdh/datatypes/identifier__s
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Literal](types/Literal.md)
+None ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 

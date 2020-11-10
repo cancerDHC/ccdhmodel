@@ -9,7 +9,7 @@ URI: [ccdh:specimen__matched_normal_flag](https://example.org/ccdh/specimen__mat
 
 ## Domain and Range
 
-None ->  <sub>0..*</sub> [Coding](Coding.md)
+None ->  <sub>0..*</sub> [CodeableConcept](CodeableConcept.md)
 
 ## Parents
 

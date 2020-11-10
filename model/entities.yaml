@@ -25,13 +25,13 @@ classes:
     - id
   Specimen:
     is_a: Entity
-    description: Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation. 
+    description: Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
     slot_usage:
       id:
         description: The 'logical' identifier of the entity in the system of record,
           e.g. a UUID.  This 'id' is unique within a given system. The identified
           entity may have a different 'id' in a different system.
-        range: literal
+        range: string
         multivalued: false
         required: true
     attributes:
@@ -53,7 +53,7 @@ classes:
         comments:
         - 'Example values: Initial Sample; Portion; Aliquot; Analyte, Pool'
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/specimen_type
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       analyte_type:
@@ -64,7 +64,7 @@ classes:
           (Qiagen) DNA; '
         - RNA; FFPE RNA
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/analyte_type
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       derived_from_specimen:
@@ -86,7 +86,7 @@ classes:
         - 'Example values: Tissue, Blood, Tumor Aspirate; Cell Line; Expanded Next
           Generation Cancer Model; Pleural Effusion;  Xenograft Tissue'
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/source_material_type
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       cellular_composition:
@@ -98,7 +98,7 @@ classes:
           Human Original Cells;
         - 'Liquid Suspension Cell Line '
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/cellular_composition
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       general_tissue_morphology:
@@ -108,7 +108,7 @@ classes:
         comments:
         - 'Example values: Tumor;  Normal;  Abnormal;  Peritumoral; not applicable'
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/general_tissue_morphology
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       specific_tissue_morphology:
@@ -119,7 +119,7 @@ classes:
           00;  01;  02; Melanocytic hyperplasia; Atypical melanocytic proliferation;
           Melanoma in situ, superficial spreading'
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/specific_tissue_morphology
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       current_weight:
@@ -147,7 +147,7 @@ classes:
         comments:
         - 'Example values: DDA; DIA; SRM'
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/analyte_concentration_method
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       matched_normal_flag:
@@ -157,7 +157,7 @@ classes:
         - 'Example values: no matched normal wgs; no matched normal wxs, no matched
           normal  targeted'
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/matched_normal_flag
-        range: Coding
+        range: CodeableConcept
         multivalued: true
         required: false
       qualification_status_flag:
@@ -166,7 +166,7 @@ classes:
         comments:
         - 'Example values: Qualified; Disqualified'
         values_from: https://example.org/ccdh/valuesets/CDM/Specimen/qualification_status_flag
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
   Patient:
@@ -178,14 +178,8 @@ classes:
         - 'Example values: Trichomonas vaginalis; Bemisia tabaci (Gennadius); Mus
           musculus; '
         values_from: https://example.org/ccdh/valuesets/CDM/Patient/taxon
-        range: Coding
+        range: CodeableConcept
         multivalued: false
-        required: false
-      associated_project:
-        description: A reference to the Project(s) of which this ResearchSubject is
-          a member
-        range: Project
-        multivalued: true
         required: false
   ResearchSubject:
     is_a: Entity
@@ -195,7 +189,7 @@ classes:
         description: The 'logical' identifier of the entity in the system of record,
           e.g. a UUID.  This 'id' is unique within a given system. The identified
           entity may have a different 'id' in a different system.
-        range: literal
+        range: string
         required: true
     attributes:
       identifier:
@@ -206,6 +200,12 @@ classes:
         range: Identifier
         multivalued: true
         required: false
+      associated_project:
+        description: A reference to the Project(s) of which this ResearchSubject is
+          a member
+        range: Project
+        multivalued: true
+        required: false
       primary_disease_type:
         description: 'The text term used to describe the type of malignant disease,
           as categorized by the World Health Organization''s (WHO) International Classification
@@ -214,7 +214,7 @@ classes:
         - 'Example values: Acinar Cell Neoplasms; Adenomas and Adenocarcinomas; Adnexal
           and Skin Appendage Neoplasms; '
         values_from: https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_type
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
       primary_disease_site:
@@ -225,14 +225,14 @@ classes:
         comments:
         - 'Example values: Accessory sinuses; Adrenal gland; Anus and anal canal; '
         values_from: https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_site
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
   Project:
     is_a: Entity
-    description: Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885) 
+    description: Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)
     slot_usage:
       id:
         description: ''
-        range: literal
+        range: string
         required: true

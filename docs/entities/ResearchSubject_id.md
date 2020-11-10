@@ -9,7 +9,7 @@ URI: [ccdh:ResearchSubject_id](https://example.org/ccdh/ResearchSubject_id)
 
 ## Domain and Range
 
-[ResearchSubject](ResearchSubject.md) ->  <sub>REQ</sub> [Literal](types/Literal.md)
+[ResearchSubject](ResearchSubject.md) ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Parents
 

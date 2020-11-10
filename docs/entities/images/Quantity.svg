@@ -33,10 +33,10 @@
 <polygon fill='white' points='0,-129 0,-165 68,-165 68,-129 0,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='34' y='-143.3'>Coding</text>
 </g><g class='node' id='node2'><title>Quantity</title>
-<polygon fill='white' points='62.5,-1 62.5,-37 165.5,-37 165.5,-1 62.5,-1' stroke='black'/>
+<polygon fill='white' points='56.5,-1 56.5,-37 171.5,-37 171.5,-1 56.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-24.3'>Quantity</text>
-<polyline fill='none' points='62.5,-19 165.5,-19 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-6.3'>value:literal ?</text>
+<polyline fill='none' points='56.5,-19 171.5,-19 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='114' y='-6.3'>value:decimal ?</text>
 </g><g class='edge' id='edge1'><title>Coding-&gt;Quantity</title>
 <path d='M45.0055,-119.853C57.0446,-98.4942 76.1231,-68.4191 91.2955,-46.8671' fill='none' stroke='black'/>
 <polygon fill='black' points='40.1391,-128.744 40.993,-117.812 42.5397,-124.358 44.9404,-119.972 44.9404,-119.972 44.9404,-119.972 42.5397,-124.358 48.8878,-122.133 40.1391,-128.744 40.1391,-128.744' stroke='black'/>

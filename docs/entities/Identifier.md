@@ -2,7 +2,7 @@
 # Type: Identifier
 
 
-An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.
+
 
 URI: [ccdh:Identifier](https://example.org/ccdh/Identifier)
 
@@ -21,10 +21,10 @@ URI: [ccdh:Identifier](https://example.org/ccdh/Identifier)
 
  * [➞system](identifier__system.md)  <sub>OPT</sub>
     * Description: The system or namespace that defines the identifier.
-    * range: [Literal](types/Literal.md)
+    * range: [String](types/String.md)
  * [➞type](identifier__type.md)  <sub>OPT</sub>
     * Description: A code that defines the type of the identifier.
-    * range: [Coding](Coding.md)
+    * range: [CodeableConcept](CodeableConcept.md)
  * [➞value](identifier__value.md)  <sub>OPT</sub>
     * Description: The value of the identifier, as defined by the system.
-    * range: [Literal](types/Literal.md)
+    * range: [String](types/String.md)

@@ -9,7 +9,7 @@ URI: [ccdh:Specimen_id](https://example.org/ccdh/Specimen_id)
 
 ## Domain and Range
 
-[Specimen](Specimen.md) ->  <sub>REQ</sub> [Literal](types/Literal.md)
+[Specimen](Specimen.md) ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Parents
 

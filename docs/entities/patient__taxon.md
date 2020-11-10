@@ -9,7 +9,7 @@ URI: [ccdh:patient__taxon](https://example.org/ccdh/patient__taxon)
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Coding](Coding.md)
+None ->  <sub>OPT</sub> [CodeableConcept](CodeableConcept.md)
 
 ## Parents
 

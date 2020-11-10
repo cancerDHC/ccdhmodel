@@ -15,7 +15,7 @@ URI: [ccdh:Project](https://example.org/ccdh/Project)
 
 ## Referenced by class
 
- *  **None** *[➞associated_project](patient__associated_project.md)*  <sub>0..*</sub>  **[Project](Project.md)**
+ *  **None** *[➞associated_project](researchSubject__associated_project.md)*  <sub>0..*</sub>  **[Project](Project.md)**
  *  **None** *[➞associated_project](specimen__associated_project.md)*  <sub>OPT</sub>  **[Project](Project.md)**
 
 ## Attributes
@@ -24,4 +24,4 @@ URI: [ccdh:Project](https://example.org/ccdh/Project)
 ### Own
 
  * [Project➞id](Project_id.md)  <sub>REQ</sub>
-    * range: [Literal](types/Literal.md)
+    * range: [String](types/String.md)

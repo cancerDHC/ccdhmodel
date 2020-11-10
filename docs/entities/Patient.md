@@ -22,12 +22,9 @@ URI: [ccdh:Patient](https://example.org/ccdh/Patient)
 
 ### Own
 
- * [➞associated_project](patient__associated_project.md)  <sub>0..*</sub>
-    * Description: A reference to the Project(s) of which this ResearchSubject is a member
-    * range: [Project](Project.md)
  * [➞taxon](patient__taxon.md)  <sub>OPT</sub>
     * Description: The taxonomic group (e.g. species) of the patient.
-    * range: [Coding](Coding.md)
+    * range: [CodeableConcept](CodeableConcept.md)
 
 ### Inherited from Entity:
 

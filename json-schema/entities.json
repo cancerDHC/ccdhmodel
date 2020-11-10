@@ -2,6 +2,26 @@
    "$id": "https://example.org/ccdh/model/MVPv0",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "definitions": {
+      "CodeableConcept": {
+         "additionalProperties": false,
+         "description": "",
+         "properties": {
+            "coding": {
+               "description": "A reference to a code defined by a terminology system",
+               "items": {
+                  "$ref": "#/definitions/Coding"
+               },
+               "type": "array"
+            },
+            "text": {
+               "description": "A human language representation of the concept represented by the Coding",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "CodeableConcept",
+         "type": "object"
+      },
       "Coding": {
          "additionalProperties": false,
          "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
@@ -29,14 +49,14 @@
       },
       "Identifier": {
          "additionalProperties": false,
-         "description": "An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.",
+         "description": "",
          "properties": {
             "system": {
                "description": "The system or namespace that defines the identifier.",
                "type": "string"
             },
             "type": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "A code that defines the type of the identifier."
             },
             "value": {
@@ -52,18 +72,11 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "associated_project": {
-               "description": "A reference to the Project(s) of which this ResearchSubject is a member",
-               "items": {
-                  "$ref": "#/definitions/Project"
-               },
-               "type": "array"
-            },
             "id": {
                "type": "string"
             },
             "taxon": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "The taxonomic group (e.g. species) of the patient."
             }
          },
@@ -93,7 +106,7 @@
          "properties": {
             "comparator": {
                "$ref": "#/definitions/Coding",
-               "description": " how to understand the value  . . .   < | <= | >= | >"
+               "description": "How to understand the value  . . .   < | <= | >= | >"
             },
             "unit": {
                "$ref": "#/definitions/Coding",
@@ -101,7 +114,7 @@
             },
             "value": {
                "description": "Numerical value (with implicit precision)",
-               "type": "string"
+               "type": "number"
             }
          },
          "required": [],
@@ -112,6 +125,13 @@
          "additionalProperties": false,
          "description": "A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject\u2019s privacy.",
          "properties": {
+            "associated_project": {
+               "description": "A reference to the Project(s) of which this ResearchSubject is a member",
+               "items": {
+                  "$ref": "#/definitions/Project"
+               },
+               "type": "array"
+            },
             "id": {
                "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
                "type": "string"
@@ -124,11 +144,11 @@
                "type": "array"
             },
             "primary_disease_site": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories."
             },
             "primary_disease_type": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). "
             }
          },
@@ -147,11 +167,11 @@
                "description": "The concentration of an extracted analyte that is present in a specimen (specifically, in a specimen of type 'analyte', or an 'aliquot' derived from an analyte). e.g. the concentration of DNA in a specimen created through extracting DNA from a blood sample."
             },
             "analyte_concentration_method": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "The method used to determine the concentration of purified analyte  within a solution."
             },
             "analyte_type": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte represents (e.g. DNA, RNA)"
             },
             "associated_project": {
@@ -159,7 +179,7 @@
                "description": "The Project associated with the specimen."
             },
             "cellular_composition": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "The cellular composition of the sample"
             },
             "current_volume": {
@@ -188,7 +208,7 @@
                "description": "The Patient/ResearchSubject, or Biologically Derived Materal (e.g. a cell line, tissue culture, organoid) from which the specimen was directly or indirectly derived."
             },
             "general_tissue_morphology": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent). \n"
             },
             "id": {
@@ -205,24 +225,24 @@
             "matched_normal_flag": {
                "description": "A flag indicating that there is no matched normal aliquot for this case that can be used for variant calling purposes.",
                "items": {
-                  "$ref": "#/definitions/Coding"
+                  "$ref": "#/definitions/CodeableConcept"
                },
                "type": "array"
             },
             "qualification_status_flag": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "A flag indicating whether the specimen is qualified or disqualified for data analysis in a study."
             },
             "source_material_type": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "The general kind of material from which the specimen was derived, indicating the physical nature of the source material. "
             },
             "specific_tissue_morphology": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "A term describing the specific pathology exhibited by the tissue in a specimen."
             },
             "specimen_type": {
-               "$ref": "#/definitions/Coding",
+               "$ref": "#/definitions/CodeableConcept",
                "description": "The high-level type of the specimen, based on its how it has been derived from the original extracted sample. \n"
             }
          },

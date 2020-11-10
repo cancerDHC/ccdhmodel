@@ -9,7 +9,7 @@ URI: [ccdh:specimen__general_tissue_morphology](https://example.org/ccdh/specime
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Coding](Coding.md)
+None ->  <sub>OPT</sub> [CodeableConcept](CodeableConcept.md)
 
 ## Parents
 

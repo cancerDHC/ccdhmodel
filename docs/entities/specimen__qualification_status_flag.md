@@ -9,7 +9,7 @@ URI: [ccdh:specimen__qualification_status_flag](https://example.org/ccdh/specime
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Coding](Coding.md)
+None ->  <sub>OPT</sub> [CodeableConcept](CodeableConcept.md)
 
 ## Parents
 

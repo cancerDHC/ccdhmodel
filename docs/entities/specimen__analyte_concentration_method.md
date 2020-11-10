@@ -9,7 +9,7 @@ URI: [ccdh:specimen__analyte_concentration_method](https://example.org/ccdh/spec
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Coding](Coding.md)
+None ->  <sub>OPT</sub> [CodeableConcept](CodeableConcept.md)
 
 ## Parents
 

@@ -20,12 +20,12 @@
   "default_range": "string",
   "types": [
     {
-      "name": "literal",
-      "definition_uri": "https://example.org/ccdh/datatypes/Literal",
+      "name": "decimal",
+      "definition_uri": "https://example.org/ccdh/datatypes/Decimal",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "typeof": "string",
-      "base": "str",
-      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "typeof": "float",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
       "type": "TypeDefinition"
     },
     {
@@ -190,7 +190,7 @@
       "name": "identifier__value",
       "description": "The value of the identifier, as defined by the system.",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "literal",
+      "range": "string",
       "slot_uri": "https://example.org/ccdh/datatypes/value",
       "alias": "value",
       "owner": "Identifier",
@@ -203,7 +203,7 @@
       "name": "identifier__system",
       "description": "The system or namespace that defines the identifier.",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "literal",
+      "range": "string",
       "slot_uri": "https://example.org/ccdh/datatypes/system",
       "alias": "system",
       "owner": "Identifier",
@@ -216,7 +216,7 @@
       "name": "identifier__type",
       "description": "A code that defines the type of the identifier.",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/datatypes/type",
       "inlined": true,
       "alias": "type",
@@ -227,10 +227,62 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "coding__code",
+      "description": "The value of the code itself.",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/datatypes/code",
+      "alias": "code",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "coding__display",
+      "description": "A human-readable name for the code.",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/datatypes/display",
+      "alias": "display",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "coding__system",
+      "description": "The code system where the code is defined.",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/datatypes/system",
+      "alias": "system",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "coding__version",
+      "description": "The version of the code system.",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/datatypes/version",
+      "alias": "version",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "quantity__value",
       "description": "Numerical value (with implicit precision)",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "literal",
+      "range": "decimal",
       "slot_uri": "https://example.org/ccdh/datatypes/value",
       "alias": "value",
       "owner": "Quantity",
@@ -255,7 +307,7 @@
     },
     {
       "name": "quantity__comparator",
-      "description": " how to understand the value  . . .   < | <= | >= | >",
+      "description": "How to understand the value  . . .   < | <= | >= | >",
       "from_schema": "https://example.org/ccdh/model/datatypes",
       "range": "Coding",
       "slot_uri": "https://example.org/ccdh/datatypes/comparator",
@@ -268,54 +320,30 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "coding__code",
-      "description": "The value of the code itself.",
+      "name": "codeableConcept__coding",
+      "description": "A reference to a code defined by a terminology system",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "literal",
-      "slot_uri": "https://example.org/ccdh/datatypes/code",
-      "alias": "code",
-      "owner": "Coding",
+      "range": "Coding",
+      "slot_uri": "https://example.org/ccdh/datatypes/coding",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "coding",
+      "owner": "CodeableConcept",
       "domain_of": [
-        "Coding"
+        "CodeableConcept"
       ],
       "type": "SlotDefinition"
     },
     {
-      "name": "coding__display",
-      "description": "A human-readable name for the code.",
+      "name": "codeableConcept__text",
+      "description": "A human language representation of the concept represented by the Coding",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "literal",
-      "slot_uri": "https://example.org/ccdh/datatypes/display",
-      "alias": "display",
-      "owner": "Coding",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/datatypes/text",
+      "alias": "text",
+      "owner": "CodeableConcept",
       "domain_of": [
-        "Coding"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "coding__system",
-      "description": "The code system where the code is defined.",
-      "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "url",
-      "slot_uri": "https://example.org/ccdh/datatypes/system",
-      "alias": "system",
-      "owner": "Coding",
-      "domain_of": [
-        "Coding"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "coding__version",
-      "description": "The version of the code system.",
-      "from_schema": "https://example.org/ccdh/model/datatypes",
-      "range": "literal",
-      "slot_uri": "https://example.org/ccdh/datatypes/version",
-      "alias": "version",
-      "owner": "Coding",
-      "domain_of": [
-        "Coding"
+        "CodeableConcept"
       ],
       "type": "SlotDefinition"
     }
@@ -324,7 +352,6 @@
     {
       "name": "Identifier",
       "definition_uri": "https://example.org/ccdh/datatypes/Identifier",
-      "description": "An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.",
       "from_schema": "https://example.org/ccdh/model/datatypes",
       "slots": [
         "identifier__value",
@@ -335,56 +362,23 @@
         {
           "name": "value",
           "description": "The value of the identifier, as defined by the system.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The system or namespace that defines the identifier.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "type",
           "description": "A code that defines the type of the identifier.",
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Identifier",
-      "type": "ClassDefinition"
-    },
-    {
-      "name": "Quantity",
-      "definition_uri": "https://example.org/ccdh/datatypes/Quantity",
-      "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
-      "from_schema": "https://example.org/ccdh/model/datatypes",
-      "slots": [
-        "quantity__value",
-        "quantity__unit",
-        "quantity__comparator"
-      ],
-      "attributes": [
-        {
-          "name": "value",
-          "description": "Numerical value (with implicit precision)",
-          "range": "literal",
-          "type": "SlotDefinition"
-        },
-        {
-          "name": "unit",
-          "description": "Unit representation (e.g. mg, mL)",
-          "range": "Coding",
-          "type": "SlotDefinition"
-        },
-        {
-          "name": "comparator",
-          "description": " how to understand the value  . . .   < | <= | >= | >",
-          "range": "Coding",
-          "type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://example.org/ccdh/datatypes/Quantity",
       "type": "ClassDefinition"
     },
     {
@@ -402,37 +396,96 @@
         {
           "name": "code",
           "description": "The value of the code itself.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "display",
           "description": "A human-readable name for the code.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The code system where the code is defined.",
-          "range": "url",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "version",
           "description": "The version of the code system.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Coding",
       "type": "ClassDefinition"
+    },
+    {
+      "name": "Quantity",
+      "definition_uri": "https://example.org/ccdh/datatypes/Quantity",
+      "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "slots": [
+        "quantity__value",
+        "quantity__unit",
+        "quantity__comparator"
+      ],
+      "attributes": [
+        {
+          "name": "value",
+          "description": "Numerical value (with implicit precision)",
+          "range": "decimal",
+          "type": "SlotDefinition"
+        },
+        {
+          "name": "unit",
+          "description": "Unit representation (e.g. mg, mL)",
+          "range": "Coding",
+          "type": "SlotDefinition"
+        },
+        {
+          "name": "comparator",
+          "description": "How to understand the value  . . .   < | <= | >= | >",
+          "range": "Coding",
+          "type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://example.org/ccdh/datatypes/Quantity",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "CodeableConcept",
+      "definition_uri": "https://example.org/ccdh/datatypes/CodeableConcept",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "slots": [
+        "codeableConcept__coding",
+        "codeableConcept__text"
+      ],
+      "attributes": [
+        {
+          "name": "coding",
+          "description": "A reference to a code defined by a terminology system",
+          "range": "Coding",
+          "multivalued": true,
+          "type": "SlotDefinition"
+        },
+        {
+          "name": "text",
+          "description": "A human language representation of the concept represented by the Coding",
+          "range": "string",
+          "type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://example.org/ccdh/datatypes/CodeableConcept",
+      "type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.5.3",
   "source_file": "datatypes.yaml",
-  "source_file_date": "Thu Oct 22 11:32:51 2020",
-  "source_file_size": 2379,
-  "generation_date": "2020-10-22 11:35",
+  "source_file_date": "Tue Nov 10 09:55:01 2020",
+  "source_file_size": 2562,
+  "generation_date": "2020-11-10 10:00",
   "type": "SchemaDefinition",
   "@context": [
     "h",

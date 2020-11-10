@@ -9,7 +9,7 @@ URI: [ccdh:researchSubject__primary_disease_type](https://example.org/ccdh/resea
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Coding](Coding.md)
+None ->  <sub>OPT</sub> [CodeableConcept](CodeableConcept.md)
 
 ## Parents
 

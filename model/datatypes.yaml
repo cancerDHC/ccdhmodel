@@ -9,41 +9,24 @@ prefixes:
   types: https://example.org/ccdh/datatypes/
 default_prefix: types
 types:
-  literal:
-    typeof: string
+  decimal:
+    typeof: float
   url:
     typeof: string
 classes:
   Identifier:
-    description: An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.
     attributes:
       value:
         description: The value of the identifier, as defined by the system.
-        range: literal
+        range: string
       system:
         description: The system or namespace that defines the identifier.
-        range: literal
+        range: string
         multivalued: false
         required: false
       type:
         description: A code that defines the type of the identifier.
-        range: Coding
-        multivalued: false
-        required: false
-  Quantity:
-    description: A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
-    attributes:
-      value:
-        description: Numerical value (with implicit precision)
-        range: literal
-      unit:
-        description: Unit representation (e.g. mg, mL)
-        range: Coding
-        multivalued: false
-        required: false
-      comparator:
-        description: ' how to understand the value  . . .   < | <= | >= | >'
-        range: Coding
+        range: CodeableConcept
         multivalued: false
         required: false
   Coding:
@@ -51,21 +34,50 @@ classes:
     attributes:
       code:
         description: The value of the code itself.
-        range: literal
+        range: string
         multivalued: false
         required: false
       display:
         description: A human-readable name for the code.
-        range: literal
+        range: string
         multivalued: false
         required: false
       system:
         description: The code system where the code is defined.
-        range: url
+        range: string
         multivalued: false
         required: false
       version:
         description: The version of the code system.
-        range: literal
+        range: string
+        multivalued: false
+        required: false
+  Quantity:
+    description: A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
+    attributes:
+      value:
+        description: Numerical value (with implicit precision)
+        range: decimal
+      unit:
+        description: Unit representation (e.g. mg, mL)
+        range: Coding
+        multivalued: false
+        required: false
+      comparator:
+        description: How to understand the value  . . .   < | <= | >= | >
+        range: Coding
+        multivalued: false
+        required: false
+  CodeableConcept:
+    attributes:
+      coding:
+        description: A reference to a code defined by a terminology system
+        range: Coding
+        multivalued: true
+        required: false
+      text:
+        description: A human language representation of the concept represented by
+          the Coding
+        range: string
         multivalued: false
         required: false

@@ -26,13 +26,13 @@
   "default_range": "string",
   "types": [
     {
-      "name": "literal",
-      "definition_uri": "https://example.org/ccdh/datatypes/Literal",
+      "name": "decimal",
+      "definition_uri": "https://example.org/ccdh/datatypes/Decimal",
       "from_schema": "https://example.org/ccdh/model/datatypes",
       "imported_from": "datatypes",
-      "typeof": "string",
-      "base": "str",
-      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "typeof": "float",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
       "type": "TypeDefinition"
     },
     {
@@ -247,7 +247,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/specimen_type"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/specimen_type",
       "inlined": true,
       "alias": "specimen_type",
@@ -268,7 +268,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/analyte_type"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/analyte_type",
       "inlined": true,
       "alias": "analyte_type",
@@ -317,7 +317,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/source_material_type"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/source_material_type",
       "inlined": true,
       "alias": "source_material_type",
@@ -339,7 +339,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/cellular_composition"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/cellular_composition",
       "inlined": true,
       "alias": "cellular_composition",
@@ -359,7 +359,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/general_tissue_morphology"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/general_tissue_morphology",
       "inlined": true,
       "alias": "general_tissue_morphology",
@@ -379,7 +379,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/specific_tissue_morphology"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/specific_tissue_morphology",
       "inlined": true,
       "alias": "specific_tissue_morphology",
@@ -443,7 +443,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/analyte_concentration_method"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/analyte_concentration_method",
       "inlined": true,
       "alias": "analyte_concentration_method",
@@ -463,7 +463,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/matched_normal_flag"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/matched_normal_flag",
       "multivalued": true,
       "inlined": true,
@@ -484,7 +484,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Specimen/qualification_status_flag"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/qualification_status_flag",
       "inlined": true,
       "alias": "qualification_status_flag",
@@ -504,25 +504,10 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/Patient/taxon"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/taxon",
       "inlined": true,
       "alias": "taxon",
-      "owner": "Patient",
-      "domain_of": [
-        "Patient"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "patient__associated_project",
-      "description": "A reference to the Project(s) of which this ResearchSubject is a member",
-      "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "Project",
-      "slot_uri": "https://example.org/ccdh/associated_project",
-      "multivalued": true,
-      "inlined": true,
-      "alias": "associated_project",
       "owner": "Patient",
       "domain_of": [
         "Patient"
@@ -545,6 +530,21 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "researchSubject__associated_project",
+      "description": "A reference to the Project(s) of which this ResearchSubject is a member",
+      "from_schema": "https://example.org/ccdh/model/MVPv0",
+      "range": "Project",
+      "slot_uri": "https://example.org/ccdh/associated_project",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "associated_project",
+      "owner": "ResearchSubject",
+      "domain_of": [
+        "ResearchSubject"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "researchSubject__primary_disease_type",
       "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). ",
       "comments": [
@@ -554,7 +554,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_type"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/primary_disease_type",
       "inlined": true,
       "alias": "primary_disease_type",
@@ -574,7 +574,7 @@
       "values_from": [
         "https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_site"
       ],
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/primary_disease_site",
       "inlined": true,
       "alias": "primary_disease_site",
@@ -588,7 +588,7 @@
       "name": "identifier__value",
       "description": "The value of the identifier, as defined by the system.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "literal",
+      "range": "string",
       "slot_uri": "https://example.org/ccdh/value",
       "alias": "value",
       "owner": "Identifier",
@@ -601,7 +601,7 @@
       "name": "identifier__system",
       "description": "The system or namespace that defines the identifier.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "literal",
+      "range": "string",
       "slot_uri": "https://example.org/ccdh/system",
       "alias": "system",
       "owner": "Identifier",
@@ -614,7 +614,7 @@
       "name": "identifier__type",
       "description": "A code that defines the type of the identifier.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "Coding",
+      "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/type",
       "inlined": true,
       "alias": "type",
@@ -625,10 +625,62 @@
       "type": "SlotDefinition"
     },
     {
+      "name": "coding__code",
+      "description": "The value of the code itself.",
+      "from_schema": "https://example.org/ccdh/model/MVPv0",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/code",
+      "alias": "code",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "coding__display",
+      "description": "A human-readable name for the code.",
+      "from_schema": "https://example.org/ccdh/model/MVPv0",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/display",
+      "alias": "display",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "coding__system",
+      "description": "The code system where the code is defined.",
+      "from_schema": "https://example.org/ccdh/model/MVPv0",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/system",
+      "alias": "system",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
+      "name": "coding__version",
+      "description": "The version of the code system.",
+      "from_schema": "https://example.org/ccdh/model/MVPv0",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/version",
+      "alias": "version",
+      "owner": "Coding",
+      "domain_of": [
+        "Coding"
+      ],
+      "type": "SlotDefinition"
+    },
+    {
       "name": "quantity__value",
       "description": "Numerical value (with implicit precision)",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "literal",
+      "range": "decimal",
       "slot_uri": "https://example.org/ccdh/value",
       "alias": "value",
       "owner": "Quantity",
@@ -653,7 +705,7 @@
     },
     {
       "name": "quantity__comparator",
-      "description": " how to understand the value  . . .   < | <= | >= | >",
+      "description": "How to understand the value  . . .   < | <= | >= | >",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
       "range": "Coding",
       "slot_uri": "https://example.org/ccdh/comparator",
@@ -666,54 +718,30 @@
       "type": "SlotDefinition"
     },
     {
-      "name": "coding__code",
-      "description": "The value of the code itself.",
+      "name": "codeableConcept__coding",
+      "description": "A reference to a code defined by a terminology system",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "literal",
-      "slot_uri": "https://example.org/ccdh/code",
-      "alias": "code",
-      "owner": "Coding",
+      "range": "Coding",
+      "slot_uri": "https://example.org/ccdh/coding",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "coding",
+      "owner": "CodeableConcept",
       "domain_of": [
-        "Coding"
+        "CodeableConcept"
       ],
       "type": "SlotDefinition"
     },
     {
-      "name": "coding__display",
-      "description": "A human-readable name for the code.",
+      "name": "codeableConcept__text",
+      "description": "A human language representation of the concept represented by the Coding",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "literal",
-      "slot_uri": "https://example.org/ccdh/display",
-      "alias": "display",
-      "owner": "Coding",
+      "range": "string",
+      "slot_uri": "https://example.org/ccdh/text",
+      "alias": "text",
+      "owner": "CodeableConcept",
       "domain_of": [
-        "Coding"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "coding__system",
-      "description": "The code system where the code is defined.",
-      "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "url",
-      "slot_uri": "https://example.org/ccdh/system",
-      "alias": "system",
-      "owner": "Coding",
-      "domain_of": [
-        "Coding"
-      ],
-      "type": "SlotDefinition"
-    },
-    {
-      "name": "coding__version",
-      "description": "The version of the code system.",
-      "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "range": "literal",
-      "slot_uri": "https://example.org/ccdh/version",
-      "alias": "version",
-      "owner": "Coding",
-      "domain_of": [
-        "Coding"
+        "CodeableConcept"
       ],
       "type": "SlotDefinition"
     },
@@ -723,7 +751,7 @@
       "from_schema": "https://example.org/ccdh/model/MVPv0",
       "is_a": "id",
       "domain": "Specimen",
-      "range": "literal",
+      "range": "string",
       "slot_uri": "https://example.org/ccdh/id",
       "required": true,
       "key": true,
@@ -742,7 +770,7 @@
       "from_schema": "https://example.org/ccdh/model/MVPv0",
       "is_a": "id",
       "domain": "ResearchSubject",
-      "range": "literal",
+      "range": "string",
       "slot_uri": "https://example.org/ccdh/id",
       "required": true,
       "key": true,
@@ -761,7 +789,7 @@
       "from_schema": "https://example.org/ccdh/model/MVPv0",
       "is_a": "id",
       "domain": "Project",
-      "range": "literal",
+      "range": "string",
       "slot_uri": "https://example.org/ccdh/id",
       "required": true,
       "key": true,
@@ -836,7 +864,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/specimen_type"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -849,7 +877,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/analyte_type"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -874,7 +902,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/source_material_type"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -888,7 +916,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/cellular_composition"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -900,7 +928,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/general_tissue_morphology"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -912,7 +940,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/specific_tissue_morphology"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -944,7 +972,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/analyte_concentration_method"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -956,7 +984,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/matched_normal_flag"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "multivalued": true,
           "type": "SlotDefinition"
         },
@@ -969,7 +997,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Specimen/qualification_status_flag"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         }
       ],
@@ -983,8 +1011,7 @@
       "is_a": "Entity",
       "slots": [
         "id",
-        "patient__taxon",
-        "patient__associated_project"
+        "patient__taxon"
       ],
       "attributes": [
         {
@@ -996,14 +1023,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/Patient/taxon"
           ],
-          "range": "Coding",
-          "type": "SlotDefinition"
-        },
-        {
-          "name": "associated_project",
-          "description": "A reference to the Project(s) of which this ResearchSubject is a member",
-          "range": "Project",
-          "multivalued": true,
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         }
       ],
@@ -1018,6 +1038,7 @@
       "is_a": "Entity",
       "slots": [
         "researchSubject__identifier",
+        "researchSubject__associated_project",
         "researchSubject__primary_disease_type",
         "researchSubject__primary_disease_site",
         "ResearchSubject_id"
@@ -1031,6 +1052,13 @@
           "type": "SlotDefinition"
         },
         {
+          "name": "associated_project",
+          "description": "A reference to the Project(s) of which this ResearchSubject is a member",
+          "range": "Project",
+          "multivalued": true,
+          "type": "SlotDefinition"
+        },
+        {
           "name": "primary_disease_type",
           "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). ",
           "comments": [
@@ -1039,7 +1067,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_type"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         },
         {
@@ -1051,7 +1079,7 @@
           "values_from": [
             "https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_site"
           ],
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         }
       ],
@@ -1073,7 +1101,6 @@
     {
       "name": "Identifier",
       "definition_uri": "https://example.org/ccdh/datatypes/Identifier",
-      "description": "An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.",
       "from_schema": "https://example.org/ccdh/model/datatypes",
       "imported_from": "datatypes",
       "slots": [
@@ -1085,57 +1112,23 @@
         {
           "name": "value",
           "description": "The value of the identifier, as defined by the system.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The system or namespace that defines the identifier.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "type",
           "description": "A code that defines the type of the identifier.",
-          "range": "Coding",
+          "range": "CodeableConcept",
           "type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Identifier",
-      "type": "ClassDefinition"
-    },
-    {
-      "name": "Quantity",
-      "definition_uri": "https://example.org/ccdh/datatypes/Quantity",
-      "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
-      "from_schema": "https://example.org/ccdh/model/datatypes",
-      "imported_from": "datatypes",
-      "slots": [
-        "quantity__value",
-        "quantity__unit",
-        "quantity__comparator"
-      ],
-      "attributes": [
-        {
-          "name": "value",
-          "description": "Numerical value (with implicit precision)",
-          "range": "literal",
-          "type": "SlotDefinition"
-        },
-        {
-          "name": "unit",
-          "description": "Unit representation (e.g. mg, mL)",
-          "range": "Coding",
-          "type": "SlotDefinition"
-        },
-        {
-          "name": "comparator",
-          "description": " how to understand the value  . . .   < | <= | >= | >",
-          "range": "Coding",
-          "type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://example.org/ccdh/datatypes/Quantity",
       "type": "ClassDefinition"
     },
     {
@@ -1154,37 +1147,98 @@
         {
           "name": "code",
           "description": "The value of the code itself.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "display",
           "description": "A human-readable name for the code.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The code system where the code is defined.",
-          "range": "url",
+          "range": "string",
           "type": "SlotDefinition"
         },
         {
           "name": "version",
           "description": "The version of the code system.",
-          "range": "literal",
+          "range": "string",
           "type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Coding",
       "type": "ClassDefinition"
+    },
+    {
+      "name": "Quantity",
+      "definition_uri": "https://example.org/ccdh/datatypes/Quantity",
+      "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "imported_from": "datatypes",
+      "slots": [
+        "quantity__value",
+        "quantity__unit",
+        "quantity__comparator"
+      ],
+      "attributes": [
+        {
+          "name": "value",
+          "description": "Numerical value (with implicit precision)",
+          "range": "decimal",
+          "type": "SlotDefinition"
+        },
+        {
+          "name": "unit",
+          "description": "Unit representation (e.g. mg, mL)",
+          "range": "Coding",
+          "type": "SlotDefinition"
+        },
+        {
+          "name": "comparator",
+          "description": "How to understand the value  . . .   < | <= | >= | >",
+          "range": "Coding",
+          "type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://example.org/ccdh/datatypes/Quantity",
+      "type": "ClassDefinition"
+    },
+    {
+      "name": "CodeableConcept",
+      "definition_uri": "https://example.org/ccdh/datatypes/CodeableConcept",
+      "from_schema": "https://example.org/ccdh/model/datatypes",
+      "imported_from": "datatypes",
+      "slots": [
+        "codeableConcept__coding",
+        "codeableConcept__text"
+      ],
+      "attributes": [
+        {
+          "name": "coding",
+          "description": "A reference to a code defined by a terminology system",
+          "range": "Coding",
+          "multivalued": true,
+          "type": "SlotDefinition"
+        },
+        {
+          "name": "text",
+          "description": "A human language representation of the concept represented by the Coding",
+          "range": "string",
+          "type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://example.org/ccdh/datatypes/CodeableConcept",
+      "type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.5.3",
   "source_file": "entities.yaml",
-  "source_file_date": "Thu Oct 22 09:24:10 2020",
-  "source_file_size": 10536,
-  "generation_date": "2020-10-22 11:36",
+  "source_file_date": "Tue Nov 10 09:57:22 2020",
+  "source_file_size": 10639,
+  "generation_date": "2020-11-10 10:01",
   "type": "SchemaDefinition",
   "@context": [
     "h",

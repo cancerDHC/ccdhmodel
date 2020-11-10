@@ -9,7 +9,7 @@ URI: [types:quantity__value](https://example.org/ccdh/datatypes/quantity__value)
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Literal](types/Literal.md)
+None ->  <sub>OPT</sub> [Decimal](types/Decimal.md)
 
 ## Parents
 

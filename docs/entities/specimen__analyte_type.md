@@ -9,7 +9,7 @@ URI: [ccdh:specimen__analyte_type](https://example.org/ccdh/specimen__analyte_ty
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Coding](Coding.md)
+None ->  <sub>OPT</sub> [CodeableConcept](CodeableConcept.md)
 
 ## Parents
 

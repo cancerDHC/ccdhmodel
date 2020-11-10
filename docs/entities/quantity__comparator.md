@@ -2,7 +2,7 @@
 # Type: quantity__comparator
 
 
-how to understand the value  . . .   < | <= | >= | >
+How to understand the value  . . .   < | <= | >= | >
 
 URI: [ccdh:quantity__comparator](https://example.org/ccdh/quantity__comparator)
 

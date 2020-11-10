@@ -7,13 +7,14 @@
 
 ### Classes
 
+ * [CodeableConcept](CodeableConcept.md)
  * [Coding](Coding.md) - A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.
  * [Entity](Entity.md) - Any resource that has its own identifier
     * [Patient](Patient.md)
     * [Project](Project.md) - Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)
     * [ResearchSubject](ResearchSubject.md) - A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
     * [Specimen](Specimen.md) - Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
- * [Identifier](Identifier.md) - An Identifier is associated with a unique object or entity within a given system.  This data type is intended to be used to represent business identifiers that are shared between systems.
+ * [Identifier](Identifier.md)
  * [Quantity](Quantity.md) - A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
 
 ### Mixins
@@ -21,6 +22,8 @@
 
 ### Slots
 
+ * [➞coding](codeableConcept__coding.md) - A reference to a code defined by a terminology system
+ * [➞text](codeableConcept__text.md) - A human language representation of the concept represented by the Coding
  * [➞code](coding__code.md) - The value of the code itself.
  * [➞display](coding__display.md) - A human-readable name for the code.
  * [➞system](coding__system.md) - The code system where the code is defined.
@@ -32,11 +35,11 @@
  * [➞system](identifier__system.md) - The system or namespace that defines the identifier.
  * [➞type](identifier__type.md) - A code that defines the type of the identifier.
  * [➞value](identifier__value.md) - The value of the identifier, as defined by the system.
- * [➞associated_project](patient__associated_project.md) - A reference to the Project(s) of which this ResearchSubject is a member
  * [➞taxon](patient__taxon.md) - The taxonomic group (e.g. species) of the patient.
- * [➞comparator](quantity__comparator.md) -  how to understand the value  . . .   < | <= | >= | >
+ * [➞comparator](quantity__comparator.md) - How to understand the value  . . .   < | <= | >= | >
  * [➞unit](quantity__unit.md) - Unit representation (e.g. mg, mL)
  * [➞value](quantity__value.md) - Numerical value (with implicit precision)
+ * [➞associated_project](researchSubject__associated_project.md) - A reference to the Project(s) of which this ResearchSubject is a member
  * [➞identifier](researchSubject__identifier.md) - A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. 
  * [➞primary_disease_site](researchSubject__primary_disease_site.md) - The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.
  * [➞primary_disease_type](researchSubject__primary_disease_type.md) - The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). 
@@ -80,10 +83,10 @@
  * [Boolean](types/Boolean.md)  (**Bool**)  - A binary (true or false) value
  * [Date](types/Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
  * [Datetime](types/Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
+ * [Decimal](types/Decimal.md)  ([Float](types/Float.md)) 
  * [Double](types/Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
  * [Float](types/Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
  * [Integer](types/Integer.md)  (**int**)  - An integer
- * [Literal](types/Literal.md)  ([String](types/String.md)) 
  * [Ncname](types/Ncname.md)  (**NCName**)  - Prefix part of CURIE
  * [Nodeidentifier](types/Nodeidentifier.md)  (**NodeIdentifier**)  - A URI, CURIE or BNODE that represents a node in a model.
  * [Objectidentifier](types/Objectidentifier.md)  (**ElementIdentifier**)  - A URI or CURIE that represents an object in the model.

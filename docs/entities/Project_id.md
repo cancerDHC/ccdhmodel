@@ -9,7 +9,7 @@ URI: [ccdh:Project_id](https://example.org/ccdh/Project_id)
 
 ## Domain and Range
 
-[Project](Project.md) ->  <sub>REQ</sub> [Literal](types/Literal.md)
+[Project](Project.md) ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Parents
 

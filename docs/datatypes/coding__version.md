@@ -9,7 +9,7 @@ URI: [types:coding__version](https://example.org/ccdh/datatypes/coding__version)
 
 ## Domain and Range
 
-None ->  <sub>OPT</sub> [Literal](types/Literal.md)
+None ->  <sub>OPT</sub> [String](types/String.md)
 
 ## Parents
 
