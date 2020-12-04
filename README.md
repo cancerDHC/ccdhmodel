@@ -4,7 +4,7 @@
 
 * model documentation
 
-https://biolink.github.io/ccdhmodel/
+https://cancerdhc.github.io/ccdhmodel/
 
 * Talk on the CCDH Data Harmonization Workstream meeting
 
