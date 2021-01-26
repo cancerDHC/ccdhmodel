@@ -11,6 +11,7 @@ URI: [ccdh:Identifier](https://example.org/ccdh/Identifier)
 
 ## Referenced by class
 
+ *  **None** *[➞identifier](patient__identifier.md)*  <sub>0..*</sub>  **[Identifier](Identifier.md)**
  *  **None** *[➞identifier](researchSubject__identifier.md)*  <sub>0..*</sub>  **[Identifier](Identifier.md)**
  *  **None** *[➞identifier](specimen__identifier.md)*  <sub>0..*</sub>  **[Identifier](Identifier.md)**
 

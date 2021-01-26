@@ -1,5 +1,5 @@
-# Auto generated from datatypes.yaml by pythongen.py version: 0.4.0
-# Generation date: 2020-11-10 10:00
+# Auto generated from datatypes.yaml by pythongen.py version: 0.9.0
+# Generation date: 2021-01-26 16:12
 # Schema: datatypes
 #
 # id: https://example.org/ccdh/model/datatypes
@@ -8,8 +8,11 @@
 
 import dataclasses
 import sys
+import re
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from biolinkml.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+
 from biolinkml.utils.slot import Slot
 from biolinkml.utils.metamodelcore import empty_list, empty_dict, bnode
 from biolinkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
@@ -18,11 +21,13 @@ if sys.version_info < (3, 7, 6):
 else:
     from biolinkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
 from biolinkml.utils.formatutils import camelcase, underscore, sfx
+from biolinkml.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from biolinkml.utils.curienamespace import CurieNamespace
-from includes.types import Float, String
+from biolinkml.utils.metamodelcore import Decimal
+from includes.types import Decimal, String
 
-metamodel_version = "1.5.3"
+metamodel_version = "1.7.0"
 
 # Overwrite dataclasses _init_fn to add **kwargs in __init__
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
@@ -35,13 +40,6 @@ DEFAULT_ = TYPES
 
 
 # Types
-class Decimal(Float):
-    type_class_uri = XSD.float
-    type_class_curie = "xsd:float"
-    type_name = "decimal"
-    type_model_uri = TYPES.Decimal
-
-
 class Url(String):
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
@@ -66,9 +64,16 @@ class Identifier(YAMLRoot):
     system: Optional[str] = None
     type: Optional[Union[dict, "CodeableConcept"]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.value is not None and not isinstance(self.value, str):
+            self.value = str(self.value)
+
+        if self.system is not None and not isinstance(self.system, str):
+            self.system = str(self.system)
+
         if self.type is not None and not isinstance(self.type, CodeableConcept):
             self.type = CodeableConcept(**self.type)
+
         super().__post_init__(**kwargs)
 
 
@@ -90,6 +95,22 @@ class Coding(YAMLRoot):
     system: Optional[str] = None
     version: Optional[str] = None
 
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.code is not None and not isinstance(self.code, str):
+            self.code = str(self.code)
+
+        if self.display is not None and not isinstance(self.display, str):
+            self.display = str(self.display)
+
+        if self.system is not None and not isinstance(self.system, str):
+            self.system = str(self.system)
+
+        if self.version is not None and not isinstance(self.version, str):
+            self.version = str(self.version)
+
+        super().__post_init__(**kwargs)
+
+
 @dataclass
 class Quantity(YAMLRoot):
     """
@@ -103,17 +124,20 @@ class Quantity(YAMLRoot):
     class_name: ClassVar[str] = "Quantity"
     class_model_uri: ClassVar[URIRef] = TYPES.Quantity
 
-    value: Optional[Union[float, Decimal]] = None
+    value: Optional[Decimal] = None
     unit: Optional[Union[dict, Coding]] = None
     comparator: Optional[Union[dict, Coding]] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.value is not None and not isinstance(self.value, Decimal):
             self.value = Decimal(self.value)
+
         if self.unit is not None and not isinstance(self.unit, Coding):
             self.unit = Coding(**self.unit)
+
         if self.comparator is not None and not isinstance(self.comparator, Coding):
             self.comparator = Coding(**self.comparator)
+
         super().__post_init__(**kwargs)
 
 
@@ -126,15 +150,23 @@ class CodeableConcept(YAMLRoot):
     class_name: ClassVar[str] = "CodeableConcept"
     class_model_uri: ClassVar[URIRef] = TYPES.CodeableConcept
 
-    coding: List[Union[dict, Coding]] = empty_list()
+    coding: Optional[Union[Union[dict, Coding], List[Union[dict, Coding]]]] = empty_list()
     text: Optional[str] = None
 
-    def __post_init__(self, **kwargs: Dict[str, Any]):
-        self.coding = [Coding(*e) for e in self.coding.items()] if isinstance(self.coding, dict) \
-                       else [v if isinstance(v, Coding) else Coding(**v)
-                             for v in ([self.coding] if isinstance(self.coding, str) else self.coding)]
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.coding is None:
+            self.coding = []
+        if not isinstance(self.coding, list):
+            self.coding = [self.coding]
+        self.coding = [v if isinstance(v, Coding) else Coding(**v) for v in self.coding]
+
+        if self.text is not None and not isinstance(self.text, str):
+            self.text = str(self.text)
+
         super().__post_init__(**kwargs)
 
+
+# Enumerations
 
 
 # Slots
@@ -142,37 +174,37 @@ class slots:
     pass
 
 slots.identifier__value = Slot(uri=TYPES.value, name="identifier__value", curie=TYPES.curie('value'),
-                      model_uri=TYPES.identifier__value, domain=None, range=Optional[str])
+                   model_uri=TYPES.identifier__value, domain=None, range=Optional[str])
 
 slots.identifier__system = Slot(uri=TYPES.system, name="identifier__system", curie=TYPES.curie('system'),
-                      model_uri=TYPES.identifier__system, domain=None, range=Optional[str])
+                   model_uri=TYPES.identifier__system, domain=None, range=Optional[str])
 
 slots.identifier__type = Slot(uri=TYPES.type, name="identifier__type", curie=TYPES.curie('type'),
-                      model_uri=TYPES.identifier__type, domain=None, range=Optional[Union[dict, CodeableConcept]])
+                   model_uri=TYPES.identifier__type, domain=None, range=Optional[Union[dict, CodeableConcept]])
 
 slots.coding__code = Slot(uri=TYPES.code, name="coding__code", curie=TYPES.curie('code'),
-                      model_uri=TYPES.coding__code, domain=None, range=Optional[str])
+                   model_uri=TYPES.coding__code, domain=None, range=Optional[str])
 
 slots.coding__display = Slot(uri=TYPES.display, name="coding__display", curie=TYPES.curie('display'),
-                      model_uri=TYPES.coding__display, domain=None, range=Optional[str])
+                   model_uri=TYPES.coding__display, domain=None, range=Optional[str])
 
 slots.coding__system = Slot(uri=TYPES.system, name="coding__system", curie=TYPES.curie('system'),
-                      model_uri=TYPES.coding__system, domain=None, range=Optional[str])
+                   model_uri=TYPES.coding__system, domain=None, range=Optional[str])
 
 slots.coding__version = Slot(uri=TYPES.version, name="coding__version", curie=TYPES.curie('version'),
-                      model_uri=TYPES.coding__version, domain=None, range=Optional[str])
+                   model_uri=TYPES.coding__version, domain=None, range=Optional[str])
 
 slots.quantity__value = Slot(uri=TYPES.value, name="quantity__value", curie=TYPES.curie('value'),
-                      model_uri=TYPES.quantity__value, domain=None, range=Optional[Union[float, Decimal]])
+                   model_uri=TYPES.quantity__value, domain=None, range=Optional[Decimal])
 
 slots.quantity__unit = Slot(uri=TYPES.unit, name="quantity__unit", curie=TYPES.curie('unit'),
-                      model_uri=TYPES.quantity__unit, domain=None, range=Optional[Union[dict, Coding]])
+                   model_uri=TYPES.quantity__unit, domain=None, range=Optional[Union[dict, Coding]])
 
 slots.quantity__comparator = Slot(uri=TYPES.comparator, name="quantity__comparator", curie=TYPES.curie('comparator'),
-                      model_uri=TYPES.quantity__comparator, domain=None, range=Optional[Union[dict, Coding]])
+                   model_uri=TYPES.quantity__comparator, domain=None, range=Optional[Union[dict, Coding]])
 
 slots.codeableConcept__coding = Slot(uri=TYPES.coding, name="codeableConcept__coding", curie=TYPES.curie('coding'),
-                      model_uri=TYPES.codeableConcept__coding, domain=None, range=List[Union[dict, Coding]])
+                   model_uri=TYPES.codeableConcept__coding, domain=None, range=Optional[Union[Union[dict, Coding], List[Union[dict, Coding]]]])
 
 slots.codeableConcept__text = Slot(uri=TYPES.text, name="codeableConcept__text", curie=TYPES.curie('text'),
-                      model_uri=TYPES.codeableConcept__text, domain=None, range=Optional[str])
+                   model_uri=TYPES.codeableConcept__text, domain=None, range=Optional[str])

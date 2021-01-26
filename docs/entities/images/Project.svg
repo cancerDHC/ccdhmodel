@@ -38,16 +38,14 @@
 <polyline fill='none' points='130,-19 226,-19 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-6.3'>id(pk):string</text>
 </g><g class='edge' id='edge1'><title>ResearchSubject-&gt;Project</title>
-<path d='M72.0899,-246.06C95.2069,-196.718 142.952,-94.8076 165.582,-46.5054' fill='none' stroke='black'/>
-<polygon fill='black' points='72.0838,-246.073 73.1604,-253.204 66.9927,-256.94 65.9161,-249.81 72.0838,-246.073' stroke='black'/>
+<path d='M66.9927,-256.94C87.3097,-213.574 141.051,-98.8652 165.533,-46.6097' fill='none' stroke='black'/>
 <polygon fill='black' points='169.885,-37.3203 169.718,-48.2849 167.764,-41.848 165.643,-46.3757 165.643,-46.3757 165.643,-46.3757 167.764,-41.848 161.568,-44.4666 169.885,-37.3203 169.885,-37.3203' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='141.55' y='-61.8535'> associated_project 0..*</text>
 </g><g class='node' id='node3'><title>Specimen</title>
 <polygon fill='white' points='136.5,-257 136.5,-293 219.5,-293 219.5,-257 136.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='178' y='-271.3'>Specimen</text>
 </g><g class='edge' id='edge2'><title>Specimen-&gt;Project</title>
-<path d='M178,-244.718C178,-195.175 178,-95.5145 178,-47.3265' fill='none' stroke='black'/>
-<polygon fill='black' points='178,-244.94 182,-250.94 178,-256.94 174,-250.94 178,-244.94' stroke='black'/>
+<path d='M178,-256.94C178,-213.845 178,-100.293 178,-47.5947' fill='none' stroke='black'/>
 <polygon fill='black' points='178,-37.3203 182.5,-47.3202 178,-42.3203 178,-47.3203 178,-47.3203 178,-47.3203 178,-42.3203 173.5,-47.3203 178,-37.3203 178,-37.3203' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='164.319' y='-71.208'> associated_project 0..1</text>
 </g><g class='node' id='node4'><title>Entity</title>

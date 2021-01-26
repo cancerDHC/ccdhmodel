@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from entities.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2020-11-10 10:01\nSchema: CCDH-MVP\n\nid: https://example.org/ccdh/model/MVPv0\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
+   "_comments": "Auto generated from entities.yaml by jsonldcontextgen.py version: 0.1.1\nGeneration date: 2021-01-26 16:13\nSchema: CCDH-MVP\n\nid: https://example.org/ccdh/model/MVPv0\ndescription: \nlicense: https://creativecommons.org/publicdomain/zero/1.0/\n",
    "@context": {
       "type": {
          "@type": "@id"
@@ -9,6 +9,9 @@
       "types": "https://example.org/ccdh/datatypes/",
       "@vocab": "https://example.org/ccdh/",
       "coding": {
+         "@type": "@id"
+      },
+      "identifier": {
          "@type": "@id"
       },
       "taxon": {
@@ -21,12 +24,12 @@
          "@type": "@id"
       },
       "value": {
-         "@type": "xsd:float"
+         "@type": "xsd:decimal"
       },
-      "associated_project": {
+      "associated_patient": {
          "@type": "@id"
       },
-      "identifier": {
+      "associated_project": {
          "@type": "@id"
       },
       "primary_disease_site": {

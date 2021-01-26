@@ -16,6 +16,7 @@ None ->  <sub>REQ</sub> [String](types/String.md)
 
 ## Children
 
+ *  [Patient➞id](Patient_id.md)
  *  [Project➞id](Project_id.md)
  *  [ResearchSubject➞id](ResearchSubject_id.md)
  *  [Specimen➞id](Specimen_id.md)
@@ -23,7 +24,3 @@ None ->  <sub>REQ</sub> [String](types/String.md)
 ## Used by
 
  * [Entity](Entity.md)
- * [Patient](Patient.md)
- * [Project](Project.md)
- * [ResearchSubject](ResearchSubject.md)
- * [Specimen](Specimen.md)

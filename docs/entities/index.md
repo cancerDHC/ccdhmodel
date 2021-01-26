@@ -11,7 +11,7 @@
  * [Coding](Coding.md) - A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.
  * [Entity](Entity.md) - Any resource that has its own identifier
     * [Patient](Patient.md)
-    * [Project](Project.md) - Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)
+    * [Project](Project.md)
     * [ResearchSubject](ResearchSubject.md) - A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
     * [Specimen](Specimen.md) - Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
  * [Identifier](Identifier.md)
@@ -29,16 +29,19 @@
  * [➞system](coding__system.md) - The code system where the code is defined.
  * [➞version](coding__version.md) - The version of the code system.
  * [id](id.md)
+    * [Patient➞id](Patient_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     * [Project➞id](Project_id.md)
     * [ResearchSubject➞id](ResearchSubject_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     * [Specimen➞id](Specimen_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
  * [➞system](identifier__system.md) - The system or namespace that defines the identifier.
  * [➞type](identifier__type.md) - A code that defines the type of the identifier.
  * [➞value](identifier__value.md) - The value of the identifier, as defined by the system.
+ * [➞identifier](patient__identifier.md) - A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems. 
  * [➞taxon](patient__taxon.md) - The taxonomic group (e.g. species) of the patient.
  * [➞comparator](quantity__comparator.md) - How to understand the value  . . .   < | <= | >= | >
  * [➞unit](quantity__unit.md) - Unit representation (e.g. mg, mL)
  * [➞value](quantity__value.md) - Numerical value (with implicit precision)
+ * [➞associated_patient](researchSubject__associated_patient.md) - A reference to the Patient that is this ResearchSubject
  * [➞associated_project](researchSubject__associated_project.md) - A reference to the Project(s) of which this ResearchSubject is a member
  * [➞identifier](researchSubject__identifier.md) - A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. 
  * [➞primary_disease_site](researchSubject__primary_disease_site.md) - The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.
@@ -66,6 +69,7 @@
 #### Built in
 
  * **Bool**
+ * **Decimal**
  * **ElementIdentifier**
  * **NCName**
  * **NodeIdentifier**
@@ -83,7 +87,7 @@
  * [Boolean](types/Boolean.md)  (**Bool**)  - A binary (true or false) value
  * [Date](types/Date.md)  (**XSDDate**)  - a date (year, month and day) in an idealized calendar
  * [Datetime](types/Datetime.md)  (**XSDDateTime**)  - The combination of a date and time
- * [Decimal](types/Decimal.md)  ([Float](types/Float.md)) 
+ * [Decimal](types/Decimal.md)  (**Decimal**)  - A real number with arbitrary precision that conforms to the xsd:decimal specification
  * [Double](types/Double.md)  (**float**)  - A real number that conforms to the xsd:double specification
  * [Float](types/Float.md)  (**float**)  - A real number that conforms to the xsd:float specification
  * [Integer](types/Integer.md)  (**int**)  - An integer

@@ -24,6 +24,9 @@ URI: [ccdh:ResearchSubject](https://example.org/ccdh/ResearchSubject)
  * [ResearchSubject➞id](ResearchSubject_id.md)  <sub>REQ</sub>
     * Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
     * range: [String](types/String.md)
+ * [➞associated_patient](researchSubject__associated_patient.md)  <sub>OPT</sub>
+    * Description: A reference to the Patient that is this ResearchSubject
+    * range: [Patient](Patient.md)
  * [➞associated_project](researchSubject__associated_project.md)  <sub>0..*</sub>
     * Description: A reference to the Project(s) of which this ResearchSubject is a member
     * range: [Project](Project.md)
