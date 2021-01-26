@@ -14,20 +14,23 @@ prefixes:
 default_prefix: ccdh
 slots:
   id:
+    name: id
     multivalued: false
     required: true
     key: true
 classes:
   Entity:
+    name: Entity
     description: Any resource that has its own identifier
     abstract: true
     slots:
     - id
   Specimen:
+    name: Specimen
     is_a: Entity
-    description: Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
     slot_usage:
       id:
+        name: id
         description: The 'logical' identifier of the entity in the system of record,
           e.g. a UUID.  This 'id' is unique within a given system. The identified
           entity may have a different 'id' in a different system.
@@ -36,18 +39,21 @@ classes:
         required: true
     attributes:
       identifier:
-        description: 'A ''business'' identifier  or accession number for the entity,
+        name: identifier
+        description: A 'business' identifier  or accession number for the entity,
           typically as provided by an external system or authority, that persists
-          across implementing systems  (i.e. a  ''logical'' identifier). '
+          across implementing systems.
         range: Identifier
         multivalued: true
         required: false
       associated_project:
+        name: associated_project
         description: The Project associated with the specimen.
         range: Project
         multivalued: false
         required: false
       specimen_type:
+        name: specimen_type
         description: "The high-level type of the specimen, based on its how it has\
           \ been derived from the original extracted sample. \n"
         comments:
@@ -57,6 +63,7 @@ classes:
         multivalued: false
         required: false
       analyte_type:
+        name: analyte_type
         description: When the specimen is of type 'analyte' or 'aliquot', this is
           the type of substance the analyte represents (e.g. DNA, RNA)
         comments:
@@ -68,11 +75,13 @@ classes:
         multivalued: false
         required: false
       derived_from_specimen:
+        name: derived_from_specimen
         description: A source/parent specimen from which this one was directly derived.
         range: Specimen
         multivalued: true
         required: false
       derived_from_subject:
+        name: derived_from_subject
         description: The Patient/ResearchSubject, or Biologically Derived Materal
           (e.g. a cell line, tissue culture, organoid) from which the specimen was
           directly or indirectly derived.
@@ -80,6 +89,7 @@ classes:
         multivalued: false
         required: false
       source_material_type:
+        name: source_material_type
         description: 'The general kind of material from which the specimen was derived,
           indicating the physical nature of the source material. '
         comments:
@@ -90,6 +100,7 @@ classes:
         multivalued: false
         required: false
       cellular_composition:
+        name: cellular_composition
         description: The cellular composition of the sample
         comments:
         - 'Example values: 2D Classical Conditionally Reprogrammed Cells; Adherent
@@ -102,6 +113,7 @@ classes:
         multivalued: false
         required: false
       general_tissue_morphology:
+        name: general_tissue_morphology
         description: "A term describing at a high-level the kind of tissue collected\
           \ in a specimen, with respect to disease status or proximity to tumor tissue\
           \ (e.g. is it normal, abnormal, tumor, tumor-adjacent). \n"
@@ -112,6 +124,7 @@ classes:
         multivalued: false
         required: false
       specific_tissue_morphology:
+        name: specific_tissue_morphology
         description: A term describing the specific pathology exhibited by the tissue
           in a specimen.
         comments:
@@ -123,17 +136,20 @@ classes:
         multivalued: false
         required: false
       current_weight:
+        name: current_weight
         description: The current weight of the specimen, at the time of recording
           (as opposed to an initial weight before its processing or portioning).
         range: Quantity
         multivalued: true
         required: false
       current_volume:
+        name: current_volume
         description: The current total volume of the specimen, at the time of recording.
         range: Quantity
         multivalued: true
         required: false
       analyte_concentration:
+        name: analyte_concentration
         description: The concentration of an extracted analyte that is present in
           a specimen (specifically, in a specimen of type 'analyte', or an 'aliquot'
           derived from an analyte). e.g. the concentration of DNA in a specimen created
@@ -142,6 +158,7 @@ classes:
         multivalued: false
         required: false
       analyte_concentration_method:
+        name: analyte_concentration_method
         description: The method used to determine the concentration of purified analyte  within
           a solution.
         comments:
@@ -151,6 +168,7 @@ classes:
         multivalued: false
         required: false
       matched_normal_flag:
+        name: matched_normal_flag
         description: A flag indicating that there is no matched normal aliquot for
           this case that can be used for variant calling purposes.
         comments:
@@ -161,6 +179,7 @@ classes:
         multivalued: true
         required: false
       qualification_status_flag:
+        name: qualification_status_flag
         description: A flag indicating whether the specimen is qualified or disqualified
           for data analysis in a study.
         comments:
@@ -170,9 +189,26 @@ classes:
         multivalued: false
         required: false
   Patient:
+    name: Patient
     is_a: Entity
+    slot_usage:
+      id:
+        name: id
+        description: The 'logical' identifier of the entity in the system of record,
+          e.g. a UUID.  This 'id' is unique within a given system. The identified
+          entity may have a different 'id' in a different system.
+        range: string
+        required: true
     attributes:
+      identifier:
+        name: identifier
+        description: 'A ''business'' identifier for the entity, typically as provided
+          by an external system or authority, that persists across implementing systems. '
+        range: Identifier
+        multivalued: true
+        required: false
       taxon:
+        name: taxon
         description: The taxonomic group (e.g. species) of the patient.
         comments:
         - 'Example values: Trichomonas vaginalis; Bemisia tabaci (Gennadius); Mus
@@ -182,10 +218,11 @@ classes:
         multivalued: false
         required: false
   ResearchSubject:
+    name: ResearchSubject
     is_a: Entity
-    description: A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
     slot_usage:
       id:
+        name: id
         description: The 'logical' identifier of the entity in the system of record,
           e.g. a UUID.  This 'id' is unique within a given system. The identified
           entity may have a different 'id' in a different system.
@@ -193,6 +230,7 @@ classes:
         required: true
     attributes:
       identifier:
+        name: identifier
         description: 'A ''business'' identifier for the entity, typically as provided
           by an external system or authority, that persists across implementing systems  (i.e.
           a  ''logical'' identifier). Uses a specialized, complex ''Identifier'' data
@@ -201,12 +239,14 @@ classes:
         multivalued: true
         required: false
       associated_project:
+        name: associated_project
         description: A reference to the Project(s) of which this ResearchSubject is
           a member
         range: Project
         multivalued: true
         required: false
       primary_disease_type:
+        name: primary_disease_type
         description: 'The text term used to describe the type of malignant disease,
           as categorized by the World Health Organization''s (WHO) International Classification
           of Diseases for Oncology (ICD-O). '
@@ -218,6 +258,7 @@ classes:
         multivalued: false
         required: false
       primary_disease_site:
+        name: primary_disease_site
         description: The text term used to describe the primary site of disease, as
           categorized by the World Health Organization's (WHO) International Classification
           of Diseases for Oncology (ICD-O). This categorization groups cases into
@@ -228,11 +269,18 @@ classes:
         range: CodeableConcept
         multivalued: false
         required: false
+      associated_patient:
+        name: associated_patient
+        description: A reference to the Patient that is this ResearchSubject
+        range: Patient
+        multivalued: false
+        required: false
   Project:
+    name: Project
     is_a: Entity
-    description: Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)
     slot_usage:
       id:
+        name: id
         description: ''
         range: string
         required: true

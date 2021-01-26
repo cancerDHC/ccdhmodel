@@ -9,8 +9,6 @@ prefixes:
   types: https://example.org/ccdh/datatypes/
 default_prefix: types
 types:
-  decimal:
-    typeof: float
   url:
     typeof: string
 classes:
