@@ -2,13 +2,6 @@
 
 ## Data Types
 
-[./datatypes](./datatypes)
-
-## Prefixes
-
-[./prefixes](./prefixes)
-
-
-## Entities
-
-[./entities](./entities)
+* [Prefixes](./prefixes/index.md)
+* [Data Types](./datatypes/index.md)
+* [Entities](./entities/index.md)
