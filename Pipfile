@@ -7,7 +7,7 @@ verify_ssl = true
 pytest = "*"
 
 [packages]
-biolinkml = ">=1.7.0"
+linkml = "*"
 
 [requires]
 python_version = "3.8"
