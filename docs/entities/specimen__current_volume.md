@@ -1,5 +1,5 @@
 
-# Type: specimen__current_volume
+# Slot: specimen__current_volume
 
 
 The current total volume of the specimen, at the time of recording.

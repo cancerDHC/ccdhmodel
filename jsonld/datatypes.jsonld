@@ -26,7 +26,7 @@
       "typeof": "string",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "string",
@@ -36,7 +36,7 @@
       "imported_from": "biolinkml:types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "integer",
@@ -46,7 +46,7 @@
       "imported_from": "biolinkml:types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "boolean",
@@ -57,7 +57,7 @@
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "repr": "bool",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "float",
@@ -67,7 +67,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "double",
@@ -77,7 +77,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "decimal",
@@ -87,7 +87,7 @@
       "imported_from": "biolinkml:types",
       "base": "Decimal",
       "uri": "http://www.w3.org/2001/XMLSchema#decimal",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "time",
@@ -101,7 +101,7 @@
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "date",
@@ -115,7 +115,7 @@
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "datetime",
@@ -126,7 +126,7 @@
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uriorcurie",
@@ -137,7 +137,7 @@
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uri",
@@ -148,7 +148,7 @@
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "ncname",
@@ -159,7 +159,7 @@
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "objectidentifier",
@@ -173,7 +173,7 @@
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "nodeidentifier",
@@ -184,7 +184,7 @@
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     }
   ],
   "slots": [
@@ -199,7 +199,7 @@
       "domain_of": [
         "Identifier"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "identifier__system",
@@ -212,7 +212,7 @@
       "domain_of": [
         "Identifier"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "identifier__type",
@@ -226,7 +226,7 @@
       "domain_of": [
         "Identifier"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__code",
@@ -239,7 +239,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__display",
@@ -252,7 +252,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__system",
@@ -265,7 +265,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__version",
@@ -278,7 +278,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "quantity__value",
@@ -291,7 +291,7 @@
       "domain_of": [
         "Quantity"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "quantity__unit",
@@ -305,7 +305,7 @@
       "domain_of": [
         "Quantity"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "quantity__comparator",
@@ -319,7 +319,7 @@
       "domain_of": [
         "Quantity"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "codeableConcept__coding",
@@ -334,7 +334,7 @@
       "domain_of": [
         "CodeableConcept"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "codeableConcept__text",
@@ -347,7 +347,7 @@
       "domain_of": [
         "CodeableConcept"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -365,23 +365,23 @@
           "name": "value",
           "description": "The value of the identifier, as defined by the system.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The system or namespace that defines the identifier.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "type",
           "description": "A code that defines the type of the identifier.",
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Identifier",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Coding",
@@ -399,29 +399,29 @@
           "name": "code",
           "description": "The value of the code itself.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "display",
           "description": "A human-readable name for the code.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The code system where the code is defined.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "version",
           "description": "The version of the code system.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Coding",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Quantity",
@@ -438,23 +438,23 @@
           "name": "value",
           "description": "Numerical value (with implicit precision)",
           "range": "decimal",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "unit",
           "description": "Unit representation (e.g. mg, mL)",
           "range": "Coding",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "comparator",
           "description": "How to understand the value  . . .   < | <= | >= | >",
           "range": "Coding",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Quantity",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "CodeableConcept",
@@ -470,28 +470,28 @@
           "description": "A reference to a code defined by a terminology system",
           "range": "Coding",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "text",
           "description": "A human language representation of the concept represented by the Coding",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/CodeableConcept",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "datatypes.yaml",
-  "source_file_date": "Tue Jan 26 16:09:54 2021",
+  "source_file_date": "Tue Apr 27 00:02:20 2021",
   "source_file_size": 2533,
-  "generation_date": "2021-01-26 16:12",
-  "type": "SchemaDefinition",
+  "generation_date": "2021-04-27 00:07",
+  "@type": "SchemaDefinition",
   "@context": [
     [
-      "https://w3id.org/biolink/biolinkml/context.jsonld",
+      "https://w3id.org/linkml/meta.context.jsonld",
       "https://w3id.org/biolink/biolinkml/types.context.jsonld"
     ],
     {

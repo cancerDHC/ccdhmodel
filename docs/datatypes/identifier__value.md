@@ -1,5 +1,5 @@
 
-# Type: identifier__value
+# Slot: identifier__value
 
 
 The value of the identifier, as defined by the system.

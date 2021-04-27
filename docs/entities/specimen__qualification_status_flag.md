@@ -1,5 +1,5 @@
 
-# Type: specimen__qualification_status_flag
+# Slot: specimen__qualification_status_flag
 
 
 A flag indicating whether the specimen is qualified or disqualified for data analysis in a study.

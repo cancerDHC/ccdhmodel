@@ -33,7 +33,7 @@
       "typeof": "string",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "string",
@@ -43,7 +43,7 @@
       "imported_from": "biolinkml:types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "integer",
@@ -53,7 +53,7 @@
       "imported_from": "biolinkml:types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "boolean",
@@ -64,7 +64,7 @@
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "repr": "bool",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "float",
@@ -74,7 +74,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "double",
@@ -84,7 +84,7 @@
       "imported_from": "biolinkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "decimal",
@@ -94,7 +94,7 @@
       "imported_from": "biolinkml:types",
       "base": "Decimal",
       "uri": "http://www.w3.org/2001/XMLSchema#decimal",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "time",
@@ -108,7 +108,7 @@
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "date",
@@ -122,7 +122,7 @@
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "datetime",
@@ -133,7 +133,7 @@
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uriorcurie",
@@ -144,7 +144,7 @@
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "uri",
@@ -155,7 +155,7 @@
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "ncname",
@@ -166,7 +166,7 @@
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "objectidentifier",
@@ -180,7 +180,7 @@
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     },
     {
       "name": "nodeidentifier",
@@ -191,7 +191,7 @@
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
-      "type": "TypeDefinition"
+      "@type": "TypeDefinition"
     }
   ],
   "slots": [
@@ -207,7 +207,7 @@
       "domain_of": [
         "Entity"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__identifier",
@@ -222,7 +222,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__associated_project",
@@ -235,7 +235,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__specimen_type",
@@ -255,7 +255,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__analyte_type",
@@ -276,7 +276,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__derived_from_specimen",
@@ -290,7 +290,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__derived_from_subject",
@@ -303,7 +303,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__source_material_type",
@@ -323,7 +323,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__cellular_composition",
@@ -345,7 +345,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__general_tissue_morphology",
@@ -365,7 +365,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__specific_tissue_morphology",
@@ -385,7 +385,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__current_weight",
@@ -400,7 +400,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__current_volume",
@@ -415,7 +415,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__analyte_concentration",
@@ -429,7 +429,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__analyte_concentration_method",
@@ -449,7 +449,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__matched_normal_flag",
@@ -470,7 +470,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "specimen__qualification_status_flag",
@@ -490,7 +490,7 @@
       "domain_of": [
         "Specimen"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "patient__identifier",
@@ -505,7 +505,7 @@
       "domain_of": [
         "Patient"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "patient__taxon",
@@ -525,7 +525,7 @@
       "domain_of": [
         "Patient"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "researchSubject__identifier",
@@ -540,7 +540,7 @@
       "domain_of": [
         "ResearchSubject"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "researchSubject__associated_project",
@@ -554,7 +554,7 @@
       "domain_of": [
         "ResearchSubject"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "researchSubject__primary_disease_type",
@@ -574,7 +574,7 @@
       "domain_of": [
         "ResearchSubject"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "researchSubject__primary_disease_site",
@@ -594,7 +594,7 @@
       "domain_of": [
         "ResearchSubject"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "researchSubject__associated_patient",
@@ -607,7 +607,7 @@
       "domain_of": [
         "ResearchSubject"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "identifier__value",
@@ -621,7 +621,7 @@
       "domain_of": [
         "Identifier"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "identifier__system",
@@ -635,7 +635,7 @@
       "domain_of": [
         "Identifier"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "identifier__type",
@@ -650,7 +650,7 @@
       "domain_of": [
         "Identifier"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__code",
@@ -664,7 +664,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__display",
@@ -678,7 +678,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__system",
@@ -692,7 +692,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "coding__version",
@@ -706,7 +706,7 @@
       "domain_of": [
         "Coding"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "quantity__value",
@@ -720,7 +720,7 @@
       "domain_of": [
         "Quantity"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "quantity__unit",
@@ -735,7 +735,7 @@
       "domain_of": [
         "Quantity"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "quantity__comparator",
@@ -750,7 +750,7 @@
       "domain_of": [
         "Quantity"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "codeableConcept__coding",
@@ -766,7 +766,7 @@
       "domain_of": [
         "CodeableConcept"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "codeableConcept__text",
@@ -780,7 +780,7 @@
       "domain_of": [
         "CodeableConcept"
       ],
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "Specimen_id",
@@ -799,7 +799,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "id",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "Patient_id",
@@ -818,7 +818,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "id",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "ResearchSubject_id",
@@ -837,7 +837,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "id",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     },
     {
       "name": "Project_id",
@@ -856,7 +856,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "id",
-      "type": "SlotDefinition"
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -870,7 +870,7 @@
         "id"
       ],
       "class_uri": "https://example.org/ccdh/Entity",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Specimen",
@@ -903,13 +903,13 @@
           "description": "A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier). ",
           "range": "Identifier",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "associated_project",
           "description": "The Project associated with the specimen.",
           "range": "Project",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "specimen_type",
@@ -921,7 +921,7 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/specimen_type"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "analyte_type",
@@ -934,20 +934,20 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/analyte_type"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "derived_from_specimen",
           "description": "A source/parent specimen from which this one was directly derived.",
           "range": "Specimen",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "derived_from_subject",
           "description": "The Patient/ResearchSubject, or Biologically Derived Materal (e.g. a cell line, tissue culture, organoid) from which the specimen was directly or indirectly derived.",
           "range": "Patient",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "source_material_type",
@@ -959,7 +959,7 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/source_material_type"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "cellular_composition",
@@ -973,7 +973,7 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/cellular_composition"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "general_tissue_morphology",
@@ -985,7 +985,7 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/general_tissue_morphology"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "specific_tissue_morphology",
@@ -997,27 +997,27 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/specific_tissue_morphology"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "current_weight",
           "description": "The current weight of the specimen, at the time of recording (as opposed to an initial weight before its processing or portioning).",
           "range": "Quantity",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "current_volume",
           "description": "The current total volume of the specimen, at the time of recording.",
           "range": "Quantity",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "analyte_concentration",
           "description": "The concentration of an extracted analyte that is present in a specimen (specifically, in a specimen of type 'analyte', or an 'aliquot' derived from an analyte). e.g. the concentration of DNA in a specimen created through extracting DNA from a blood sample.",
           "range": "Quantity",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "analyte_concentration_method",
@@ -1029,7 +1029,7 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/analyte_concentration_method"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "matched_normal_flag",
@@ -1042,7 +1042,7 @@
           ],
           "range": "CodeableConcept",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "qualification_status_flag",
@@ -1054,11 +1054,11 @@
             "https://example.org/ccdh/valuesets/CDM/Specimen/qualification_status_flag"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/Specimen",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Patient",
@@ -1076,7 +1076,7 @@
           "description": "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems. ",
           "range": "Identifier",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "taxon",
@@ -1088,11 +1088,11 @@
             "https://example.org/ccdh/valuesets/CDM/Patient/taxon"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/Patient",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "ResearchSubject",
@@ -1114,14 +1114,14 @@
           "description": "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. ",
           "range": "Identifier",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "associated_project",
           "description": "A reference to the Project(s) of which this ResearchSubject is a member",
           "range": "Project",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "primary_disease_type",
@@ -1133,7 +1133,7 @@
             "https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_type"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "primary_disease_site",
@@ -1145,17 +1145,17 @@
             "https://example.org/ccdh/valuesets/CDM/ResearchSubject/primary_disease_site"
           ],
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "associated_patient",
           "description": "A reference to the Patient that is this ResearchSubject",
           "range": "Patient",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/ResearchSubject",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Project",
@@ -1166,7 +1166,7 @@
         "Project_id"
       ],
       "class_uri": "https://example.org/ccdh/Project",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Identifier",
@@ -1183,23 +1183,23 @@
           "name": "value",
           "description": "The value of the identifier, as defined by the system.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The system or namespace that defines the identifier.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "type",
           "description": "A code that defines the type of the identifier.",
           "range": "CodeableConcept",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Identifier",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Coding",
@@ -1218,29 +1218,29 @@
           "name": "code",
           "description": "The value of the code itself.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "display",
           "description": "A human-readable name for the code.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "system",
           "description": "The code system where the code is defined.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "version",
           "description": "The version of the code system.",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Coding",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "Quantity",
@@ -1258,23 +1258,23 @@
           "name": "value",
           "description": "Numerical value (with implicit precision)",
           "range": "decimal",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "unit",
           "description": "Unit representation (e.g. mg, mL)",
           "range": "Coding",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "comparator",
           "description": "How to understand the value  . . .   < | <= | >= | >",
           "range": "Coding",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/Quantity",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     },
     {
       "name": "CodeableConcept",
@@ -1291,28 +1291,28 @@
           "description": "A reference to a code defined by a terminology system",
           "range": "Coding",
           "multivalued": true,
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         },
         {
           "name": "text",
           "description": "A human language representation of the concept represented by the Coding",
           "range": "string",
-          "type": "SlotDefinition"
+          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://example.org/ccdh/datatypes/CodeableConcept",
-      "type": "ClassDefinition"
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "entities.yaml",
-  "source_file_date": "Tue Jan 26 16:12:26 2021",
+  "source_file_date": "Tue Apr 27 00:02:20 2021",
   "source_file_size": 11259,
-  "generation_date": "2021-01-26 16:13",
-  "type": "SchemaDefinition",
+  "generation_date": "2021-04-27 00:07",
+  "@type": "SchemaDefinition",
   "@context": [
     [
-      "https://w3id.org/biolink/biolinkml/context.jsonld",
+      "https://w3id.org/linkml/meta.context.jsonld",
       "datatypes.context.jsonld",
       "prefixes.context.jsonld",
       "https://w3id.org/biolink/biolinkml/types.context.jsonld"

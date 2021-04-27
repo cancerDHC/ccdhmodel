@@ -1,5 +1,5 @@
 
-# Type: specimen__derived_from_subject
+# Slot: specimen__derived_from_subject
 
 
 The Patient/ResearchSubject, or Biologically Derived Materal (e.g. a cell line, tissue culture, organoid) from which the specimen was directly or indirectly derived.

@@ -1,5 +1,5 @@
 
-# Type: quantity__comparator
+# Slot: quantity__comparator
 
 
 How to understand the value  . . .   < | <= | >= | >

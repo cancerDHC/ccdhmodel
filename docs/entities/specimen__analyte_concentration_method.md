@@ -1,5 +1,5 @@
 
-# Type: specimen__analyte_concentration_method
+# Slot: specimen__analyte_concentration_method
 
 
 The method used to determine the concentration of purified analyte  within a solution.

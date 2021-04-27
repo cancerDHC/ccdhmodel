@@ -1,5 +1,5 @@
 
-# Type: identifier__system
+# Slot: identifier__system
 
 
 The system or namespace that defines the identifier.

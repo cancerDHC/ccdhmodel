@@ -1,5 +1,5 @@
 
-# Type: specimen__source_material_type
+# Slot: specimen__source_material_type
 
 
 The general kind of material from which the specimen was derived, indicating the physical nature of the source material.

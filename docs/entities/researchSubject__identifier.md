@@ -1,5 +1,5 @@
 
-# Type: researchSubject__identifier
+# Slot: researchSubject__identifier
 
 
 A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier.

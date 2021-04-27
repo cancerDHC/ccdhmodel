@@ -1,5 +1,5 @@
 
-# Type: specimen__derived_from_specimen
+# Slot: specimen__derived_from_specimen
 
 
 A source/parent specimen from which this one was directly derived.

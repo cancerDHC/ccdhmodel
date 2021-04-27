@@ -1,5 +1,5 @@
 
-# Type: Project
+# Class: Project
 
 
 
@@ -24,4 +24,4 @@ URI: [ccdh:Project](https://example.org/ccdh/Project)
 ### Own
 
  * [Project➞id](Project_id.md)  <sub>REQ</sub>
-    * range: [String](types/String.md)
+     * range: [String](types/String.md)

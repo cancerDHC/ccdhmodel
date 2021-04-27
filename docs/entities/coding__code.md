@@ -1,5 +1,5 @@
 
-# Type: coding__code
+# Slot: coding__code
 
 
 The value of the code itself.

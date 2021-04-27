@@ -1,5 +1,5 @@
 
-# Type: researchSubject__primary_disease_site
+# Slot: researchSubject__primary_disease_site
 
 
 The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.

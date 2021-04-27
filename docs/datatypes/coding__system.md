@@ -1,5 +1,5 @@
 
-# Type: coding__system
+# Slot: coding__system
 
 
 The code system where the code is defined.

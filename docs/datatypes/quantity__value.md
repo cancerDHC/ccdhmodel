@@ -1,5 +1,5 @@
 
-# Type: quantity__value
+# Slot: quantity__value
 
 
 Numerical value (with implicit precision)
