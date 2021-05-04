@@ -15,4 +15,4 @@ https://docs.google.com/document/d/13PMvYlstQ9BNr_Br1HzZ9n7etkz5nCKxp_RbF0cL4n0
 
 The model yaml files are programmatically generated from the Google Sheet [https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/]
 
-The code that generates the yamls are at [https://github.com/HOT-Ecosystem/crdc-node-models/blob/master/ccdh/biolinkml/cdm_biolinkml_loader.py]
+The code that generates the yamls are in the [``./generators/google-sheets`](./generators/google-sheets) directory.
