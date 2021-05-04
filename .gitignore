@@ -1,5 +1,6 @@
 # Google API authentication information
 google_api_credentials.json
+token.pickle
 
 # Others
 ontology/*.obo
