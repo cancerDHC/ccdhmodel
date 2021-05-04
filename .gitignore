@@ -1,3 +1,7 @@
+# Google API authentication information
+google_api_credentials.json
+
+# Others
 ontology/*.obo
 ontology/*.pro
 ontology/*.qlf
