@@ -56,5 +56,3 @@ DEFAULT_ = BIOLINKML
 # Slots
 class slots:
     pass
-
-
