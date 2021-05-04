@@ -1,5 +1,5 @@
 # Auto generated from prefixes.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-05-11 12:48
+# Generation date: 2021-05-04 16:44
 # Schema: prefixes
 #
 # id: https://ccdh.org/model/prefixes
@@ -32,15 +32,15 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 ADM = CurieNamespace('ADM', 'https://ccdh.org/models/ADM/')
 BRIDG = CurieNamespace('BRIDG', 'https://fill.me.in/BRIDG/')
 FHIR = CurieNamespace('FHIR', 'http://hl7.org/fhir/')
-GDC = CurieNamespace('GDC', 'http://fill.me.in/GDC/')
-HTAN = CurieNamespace('HTAN', 'http://fill.me.in/HTAN/')
-ICDC = CurieNamespace('ICDC', 'http://fill.me.in/ICDC/')
-PDC = CurieNamespace('PDC', 'http://fill.me.in/PDC/')
-BIOLINKML = CurieNamespace('biolinkml', 'https://w3id.org/biolink/biolinkml/')
+GDC = CurieNamespace('GDC', 'http://fill.me.in/GDC')
+HTAN = CurieNamespace('HTAN', 'http://fill.me.in/ICDC')
+ICDC = CurieNamespace('ICDC', 'http://fill.me.in/ICDC')
+PDC = CurieNamespace('PDC', 'http://fill.me.in/PDC')
 CCDH = CurieNamespace('ccdh', 'https://example.org/ccdh/')
+LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SPECIMEN = CurieNamespace('specimen', 'https://ccdh.org/specimen/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
-DEFAULT_ = BIOLINKML
+DEFAULT_ = LINKML
 
 
 # Types
