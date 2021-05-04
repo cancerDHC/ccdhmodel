@@ -1,4 +1,4 @@
-# BiolinkML generator for CCDH
+# LinkML generator for CCDH
 
 ## Set up
 
@@ -42,7 +42,7 @@ CDM_GOOGLE_SHEET_ID=1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4
 You can run this script in a pipenv by running:
 
 ```
-pipenv run python -m ccdh.biolinkml.cdm_biolinkml_loader
+pipenv run python -m ccdh.linkml.cdm_linkml_loader
 ```
 
 or run `pipenv shell` first and then the python command.
