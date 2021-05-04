@@ -1,2 +1,2 @@
-biolinkml >= 1.7.0
+git+https://github.com/linkml/linkml.git@main#egg=linkml
 mkdocs
