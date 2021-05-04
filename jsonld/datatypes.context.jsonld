@@ -1,7 +1,7 @@
 {
-   "_comments": "Auto generated from datatypes.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-05-11 12:47\n    Schema: datatypes\n    \n    id: https://example.org/ccdh/model/datatypes\n    description: \n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from datatypes.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-05-04 16:50\n    Schema: datatypes\n    \n    id: https://example.org/ccdh/model/datatypes\n    description: \n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
-      "biolinkml": "https://w3id.org/biolink/biolinkml/",
+      "linkml": "https://w3id.org/linkml/",
       "types": "https://example.org/ccdh/datatypes/",
       "@vocab": "https://example.org/ccdh/datatypes/",
       "coding": {
@@ -21,4 +21,3 @@
       }
    }
 }
-

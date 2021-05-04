@@ -9,13 +9,13 @@
   "imports": [
     "datatypes",
     "prefixes",
-    "biolinkml:types"
+    "linkml:types"
   ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
     {
-      "prefix_prefix": "biolinkml",
-      "prefix_reference": "https://w3id.org/biolink/biolinkml/"
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
     },
     {
       "prefix_prefix": "ccdh",
@@ -29,7 +29,6 @@
       "name": "url",
       "definition_uri": "https://example.org/ccdh/datatypes/Url",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "imported_from": "datatypes",
       "typeof": "string",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
@@ -37,30 +36,30 @@
     },
     {
       "name": "string",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/String",
+      "definition_uri": "https://w3id.org/linkml/String",
       "description": "A character string",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "@type": "TypeDefinition"
     },
     {
       "name": "integer",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
       "description": "An integer",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
       "@type": "TypeDefinition"
     },
     {
       "name": "boolean",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
       "description": "A binary (true or false) value",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "repr": "bool",
@@ -68,43 +67,43 @@
     },
     {
       "name": "float",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Float",
+      "definition_uri": "https://w3id.org/linkml/Float",
       "description": "A real number that conforms to the xsd:float specification",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
       "@type": "TypeDefinition"
     },
     {
       "name": "double",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Double",
+      "definition_uri": "https://w3id.org/linkml/Double",
       "description": "A real number that conforms to the xsd:double specification",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
       "@type": "TypeDefinition"
     },
     {
       "name": "decimal",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "Decimal",
       "uri": "http://www.w3.org/2001/XMLSchema#decimal",
       "@type": "TypeDefinition"
     },
     {
       "name": "time",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Time",
+      "definition_uri": "https://w3id.org/linkml/Time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -112,13 +111,13 @@
     },
     {
       "name": "date",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Date",
+      "definition_uri": "https://w3id.org/linkml/Date",
       "description": "a date (year, month and day) in an idealized calendar",
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
@@ -126,10 +125,10 @@
     },
     {
       "name": "datetime",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
       "description": "The combination of a date and time",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -137,10 +136,10 @@
     },
     {
       "name": "uriorcurie",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
       "description": "a URI or a CURIE",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "URIorCURIE",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -148,10 +147,10 @@
     },
     {
       "name": "uri",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
       "description": "a complete URI",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -159,10 +158,10 @@
     },
     {
       "name": "ncname",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
       "description": "Prefix part of CURIE",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "NCName",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "repr": "str",
@@ -170,13 +169,13 @@
     },
     {
       "name": "objectidentifier",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
       "description": "A URI or CURIE that represents an object in the model.",
       "comments": [
         "Used for inheritence and type checking"
       ],
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "ElementIdentifier",
       "uri": "http://www.w3.org/ns/shex#iri",
       "repr": "str",
@@ -184,10 +183,10 @@
     },
     {
       "name": "nodeidentifier",
-      "definition_uri": "https://w3id.org/biolink/biolinkml/meta/types/Nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
-      "from_schema": "https://w3id.org/biolink/biolinkml/types",
-      "imported_from": "biolinkml:types",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
       "base": "NodeIdentifier",
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
@@ -613,7 +612,6 @@
       "name": "identifier__value",
       "description": "The value of the identifier, as defined by the system.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "string",
       "slot_uri": "https://example.org/ccdh/value",
       "alias": "value",
@@ -627,7 +625,6 @@
       "name": "identifier__system",
       "description": "The system or namespace that defines the identifier.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "string",
       "slot_uri": "https://example.org/ccdh/system",
       "alias": "system",
@@ -641,7 +638,6 @@
       "name": "identifier__type",
       "description": "A code that defines the type of the identifier.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "CodeableConcept",
       "slot_uri": "https://example.org/ccdh/type",
       "inlined": true,
@@ -656,7 +652,6 @@
       "name": "coding__code",
       "description": "The value of the code itself.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "string",
       "slot_uri": "https://example.org/ccdh/code",
       "alias": "code",
@@ -670,7 +665,6 @@
       "name": "coding__display",
       "description": "A human-readable name for the code.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "string",
       "slot_uri": "https://example.org/ccdh/display",
       "alias": "display",
@@ -684,7 +678,6 @@
       "name": "coding__system",
       "description": "The code system where the code is defined.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "string",
       "slot_uri": "https://example.org/ccdh/system",
       "alias": "system",
@@ -698,7 +691,6 @@
       "name": "coding__version",
       "description": "The version of the code system.",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "string",
       "slot_uri": "https://example.org/ccdh/version",
       "alias": "version",
@@ -712,7 +704,6 @@
       "name": "quantity__value",
       "description": "Numerical value (with implicit precision)",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "decimal",
       "slot_uri": "https://example.org/ccdh/value",
       "alias": "value",
@@ -726,7 +717,6 @@
       "name": "quantity__unit",
       "description": "Unit representation (e.g. mg, mL)",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "Coding",
       "slot_uri": "https://example.org/ccdh/unit",
       "inlined": true,
@@ -741,7 +731,6 @@
       "name": "quantity__comparator",
       "description": "How to understand the value  . . .   < | <= | >= | >",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "Coding",
       "slot_uri": "https://example.org/ccdh/comparator",
       "inlined": true,
@@ -756,7 +745,6 @@
       "name": "codeableConcept__coding",
       "description": "A reference to a code defined by a terminology system",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "Coding",
       "slot_uri": "https://example.org/ccdh/coding",
       "multivalued": true,
@@ -772,7 +760,6 @@
       "name": "codeableConcept__text",
       "description": "A human language representation of the concept represented by the Coding",
       "from_schema": "https://example.org/ccdh/model/MVPv0",
-      "imported_from": "datatypes",
       "range": "string",
       "slot_uri": "https://example.org/ccdh/text",
       "alias": "text",
@@ -1172,7 +1159,6 @@
       "name": "Identifier",
       "definition_uri": "https://example.org/ccdh/datatypes/Identifier",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "imported_from": "datatypes",
       "slots": [
         "identifier__value",
         "identifier__system",
@@ -1206,7 +1192,6 @@
       "definition_uri": "https://example.org/ccdh/datatypes/Coding",
       "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "imported_from": "datatypes",
       "slots": [
         "coding__code",
         "coding__display",
@@ -1247,7 +1232,6 @@
       "definition_uri": "https://example.org/ccdh/datatypes/Quantity",
       "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "imported_from": "datatypes",
       "slots": [
         "quantity__value",
         "quantity__unit",
@@ -1280,7 +1264,6 @@
       "name": "CodeableConcept",
       "definition_uri": "https://example.org/ccdh/datatypes/CodeableConcept",
       "from_schema": "https://example.org/ccdh/model/datatypes",
-      "imported_from": "datatypes",
       "slots": [
         "codeableConcept__coding",
         "codeableConcept__text"
@@ -1305,21 +1288,20 @@
     }
   ],
   "metamodel_version": "1.7.0",
-  "source_file": "entities.yaml",
-  "source_file_date": "Fri May  7 14:52:18 2021",
-  "source_file_size": 11259,
-  "generation_date": "2021-05-11 12:47",
+  "source_file": "ccdhmodel.yaml",
+  "source_file_date": "Tue May  4 16:29:44 2021",
+  "source_file_size": 11245,
+  "generation_date": "2021-05-04 16:45",
   "@type": "SchemaDefinition",
   "@context": [
     [
       "https://w3id.org/linkml/meta.context.jsonld",
       "datatypes.context.jsonld",
       "prefixes.context.jsonld",
-      "https://w3id.org/biolink/biolinkml/types.context.jsonld"
+      "https://w3id.org/linkml/types.context.jsonld"
     ],
     {
       "@base": "https://example.org/ccdh/"
     }
   ]
 }
-

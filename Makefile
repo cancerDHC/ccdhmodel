@@ -69,6 +69,14 @@ gen-jsonschema: target/jsonschema/$(SCHEMA_NAME).schema.json
 target/jsonschema/%.schema.json: $(SCHEMA_DIR)/%.yaml tdir-jsonschema
 	gen-json-schema $(GEN_OPTS) -t transaction $< > $@
 
+###  -- JSON-LD --
+# TWO files per module
+gen-jsonld: $(patsubst %, target/jsonld/%.jsonld, $(SCHEMA_NAMES)) $(patsubst %, target/jsonld/%.context.jsonld, $(SCHEMA_NAMES))
+target/jsonld/%.jsonld: $(SCHEMA_DIR)/%.yaml tdir-jsonld
+	gen-jsonld $(GEN_OPTS) $< > $@
+target/jsonld/%.context.jsonld: $(SCHEMA_DIR)/%.yaml tdir-jsonld
+	gen-jsonld-context $(GEN_OPTS) $< > $@
+
 ###  -- Shex --
 # one file per module
 gen-shex: $(patsubst %, target/shex/%.shex, $(SCHEMA_NAMES))
