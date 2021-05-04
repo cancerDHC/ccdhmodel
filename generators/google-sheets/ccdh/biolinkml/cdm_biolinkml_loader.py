@@ -1,12 +1,12 @@
 from pathlib import Path
 
-from biolinkml.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
+from linkml_model.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
 from typing import List, Tuple
 from ccdh.cdm import class_definition
 import re
 from dotenv import load_dotenv
 
-from biolinkml.utils.yamlutils import extended_str, as_yaml
+from linkml.utils.yamlutils import extended_str, as_yaml
 
 from pathlib import Path
 env_path = Path('.').parent.parent / '.env'
@@ -25,7 +25,7 @@ class TabularSchemaDefinitionLoader(object):
         schema.classes = {name: klass}
         schema.license = 'https://creativecommons.org/publicdomain/zero/1.0/'
         schema.prefixes = {
-            'biolinkml': 'https://w3id.org/biolink/biolinkml/',
+            'linkml': 'https://w3id.org/biolink/linkml/',
             'specimen': f'{ccdh_root}/specimen/'
         }
         schema.default_prefix = 'specimen'
@@ -132,7 +132,7 @@ class TabularSchemaDefinitionLoader(object):
         schema.version = 'v0'
         schema.license = 'https://creativecommons.org/publicdomain/zero/1.0/'
         schema.prefixes = {
-            'biolinkml': 'https://w3id.org/biolink/biolinkml/',
+            'linkml': 'https://w3id.org/biolink/linkml/',
             'ccdh': f'{ccdh_root}/'
         }
         schema.imports = ['datatypes', 'prefixes']
@@ -186,11 +186,11 @@ def load_ccdh_sheet(ranges) -> Tuple[SchemaDefinition, SchemaDefinition]:
     data_types_schema = SchemaDefinition(name='datatypes', id=f'{ccdh_root}/model/datatypes', title='Data Types used by the CCDH model')
     data_types_schema.license = 'https://creativecommons.org/publicdomain/zero/1.0/'
     data_types_schema.prefixes = {
-        'biolinkml': 'https://w3id.org/biolink/biolinkml/',
+        'linkml': 'https://w3id.org/biolink/linkml/',
         'types': f'{ccdh_root}/datatypes/'
     }
     data_types_schema.default_prefix = 'types'
-    data_types_schema.imports = ['biolinkml:types']
+    data_types_schema.imports = ['linkml:types']
     data_types_schema.types = {
         'url': TypeDefinition(name='url', typeof='string')
     }
