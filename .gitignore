@@ -5,7 +5,16 @@
 google_api_credentials.json
 token.pickle
 
-# Others
+# From LinkML template (https://github.com/linkml/linkml-template/blob/1c94efc880b607b36786b87e164455a099618ffa/.gitignore)
+Pipfile
+target/
+site/
+venv/
+docs/*md
+docs/types/
+*/my_schema.*
+
+# Previous
 ontology/*.obo
 ontology/*.pro
 ontology/*.qlf
