@@ -1,0 +1,77 @@
+type CodeableConcept
+  {
+    coding: [Coding]
+    text: String
+  }
+
+type Coding
+  {
+    code: String
+    display: String
+    system: String
+    version: String
+  }
+
+interface Entity
+  {
+    id: String!
+  }
+
+type Identifier
+  {
+    value: String
+    system: String
+    type: CodeableConcept
+  }
+
+type Patient
+  {
+    identifier: [Identifier]
+    taxon: CodeableConcept
+    id: String!
+  }
+
+type Project
+  {
+    id: String!
+  }
+
+type Quantity
+  {
+    value: Decimal
+    unit: Coding
+    comparator: Coding
+  }
+
+type ResearchSubject
+  {
+    identifier: [Identifier]
+    associatedProject: [Project]
+    primaryDiseaseType: CodeableConcept
+    primaryDiseaseSite: CodeableConcept
+    associatedPatient: Patient
+    id: String!
+  }
+
+type Specimen
+  {
+    identifier: [Identifier]
+    associatedProject: Project
+    specimenType: CodeableConcept
+    analyteType: CodeableConcept
+    derivedFromSpecimen: [Specimen]
+    derivedFromSubject: Patient
+    sourceMaterialType: CodeableConcept
+    cellularComposition: CodeableConcept
+    generalTissueMorphology: CodeableConcept
+    specificTissueMorphology: CodeableConcept
+    currentWeight: [Quantity]
+    currentVolume: [Quantity]
+    analyteConcentration: Quantity
+    analyteConcentrationMethod: CodeableConcept
+    matchedNormalFlag: [CodeableConcept]
+    qualificationStatusFlag: CodeableConcept
+    id: String!
+  }
+
+

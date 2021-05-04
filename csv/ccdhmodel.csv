@@ -1,0 +1,11 @@
+id,mappings,description
+CodeableConcept,,
+Coding,,"A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system."
+Entity,,Any resource that has its own identifier
+Identifier,,
+Patient,,
+Project,,
+Quantity,,"A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit."
+ResearchSubject,,"A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy."
+Specimen,,"Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation."
+

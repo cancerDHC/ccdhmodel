@@ -1,0 +1,6 @@
+id,mappings,description
+CodeableConcept,,
+Coding,,"A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system."
+Identifier,,
+Quantity,,"A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit."
+

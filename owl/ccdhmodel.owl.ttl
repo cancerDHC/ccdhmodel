@@ -1,0 +1,633 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/ccdh/datatypes/Url> a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "url" ;
+    rdfs:subClassOf linkml:String .
+
+<https://example.org/ccdh/model/MVPv0> a owl:Ontology ;
+    rdfs:label "CCDH-MVP" ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    dcterms:title "MVPv0" ;
+    skos:editorialNote "derived from [CDM_Dictionary_v1](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/)" ;
+    linkml:generation_date "2021-05-04 16:44" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "ccdhmodel.yaml" ;
+    linkml:source_file_date "Tue May  4 16:29:44 2021" ;
+    linkml:source_file_size 11245 .
+
+linkml:Boolean a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "boolean" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A binary (true or false) value" .
+
+linkml:Date a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "date" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a date (year, month and day) in an idealized calendar" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Datetime a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "datetime" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "The combination of a date and time" .
+
+linkml:Double a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "double" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:double ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:double specification" .
+
+linkml:Float a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "float" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:float specification" .
+
+linkml:Integer a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "integer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "An integer" .
+
+linkml:Ncname a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "ncname" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Prefix part of CURIE" .
+
+linkml:Nodeidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "nodeidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#nonLiteral> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI, CURIE or BNODE that represents a node in a model." .
+
+linkml:Objectidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "objectidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#iri> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI or CURIE that represents an object in the model." ;
+    skos:note "Used for inheritence and type checking" .
+
+linkml:Patient_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Patient_id" ;
+    rdfs:domain <https://example.org/ccdh/Patient> ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://example.org/ccdh/id> ;
+    skos:definition "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." .
+
+linkml:Project_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Project_id" ;
+    rdfs:domain <https://example.org/ccdh/Project> ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://example.org/ccdh/id> ;
+    skos:definition "" .
+
+linkml:ResearchSubject_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "ResearchSubject_id" ;
+    rdfs:domain <https://example.org/ccdh/ResearchSubject> ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://example.org/ccdh/id> ;
+    skos:definition "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." .
+
+linkml:Specimen_id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "Specimen_id" ;
+    rdfs:domain <https://example.org/ccdh/Specimen> ;
+    rdfs:range linkml:String ;
+    rdfs:subPropertyOf <https://example.org/ccdh/id> ;
+    skos:definition "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+linkml:Time a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "time" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Uri a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uri" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a complete URI" .
+
+linkml:Uriorcurie a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uriorcurie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a URI or a CURIE" .
+
+linkml:codeableConcept__coding a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "codeableConcept__coding" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Coding> ;
+    skos:definition "A reference to a code defined by a terminology system" .
+
+linkml:codeableConcept__text a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "codeableConcept__text" ;
+    rdfs:range linkml:String ;
+    skos:definition "A human language representation of the concept represented by the Coding" .
+
+linkml:coding__code a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "coding__code" ;
+    rdfs:range linkml:String ;
+    skos:definition "The value of the code itself." .
+
+linkml:coding__display a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "coding__display" ;
+    rdfs:range linkml:String ;
+    skos:definition "A human-readable name for the code." .
+
+linkml:coding__system a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "coding__system" ;
+    rdfs:range linkml:String ;
+    skos:definition "The code system where the code is defined." .
+
+linkml:coding__version a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "coding__version" ;
+    rdfs:range linkml:String ;
+    skos:definition "The version of the code system." .
+
+linkml:identifier__system a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "identifier__system" ;
+    rdfs:range linkml:String ;
+    skos:definition "The system or namespace that defines the identifier." .
+
+linkml:identifier__type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "identifier__type" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "A code that defines the type of the identifier." .
+
+linkml:identifier__value a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "identifier__value" ;
+    rdfs:range linkml:String ;
+    skos:definition "The value of the identifier, as defined by the system." .
+
+linkml:patient__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "patient__identifier" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Identifier> ;
+    skos:definition "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems. " .
+
+linkml:patient__taxon a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "patient__taxon" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "The taxonomic group (e.g. species) of the patient." ;
+    skos:note "Example values: Trichomonas vaginalis; Bemisia tabaci (Gennadius); Mus musculus; " .
+
+linkml:quantity__comparator a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "quantity__comparator" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Coding> ;
+    skos:definition "How to understand the value  . . .   < | <= | >= | >" .
+
+linkml:quantity__unit a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "quantity__unit" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Coding> ;
+    skos:definition "Unit representation (e.g. mg, mL)" .
+
+linkml:quantity__value a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "quantity__value" ;
+    rdfs:range linkml:Decimal ;
+    skos:definition "Numerical value (with implicit precision)" .
+
+linkml:researchSubject__associated_patient a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "researchSubject__associated_patient" ;
+    rdfs:range <https://example.org/ccdh/Patient> ;
+    skos:definition "A reference to the Patient that is this ResearchSubject" .
+
+linkml:researchSubject__associated_project a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "researchSubject__associated_project" ;
+    rdfs:range <https://example.org/ccdh/Project> ;
+    skos:definition "A reference to the Project(s) of which this ResearchSubject is a member" .
+
+linkml:researchSubject__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "researchSubject__identifier" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Identifier> ;
+    skos:definition "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier). Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. " .
+
+linkml:researchSubject__primary_disease_site a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "researchSubject__primary_disease_site" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories." ;
+    skos:note "Example values: Accessory sinuses; Adrenal gland; Anus and anal canal; " .
+
+linkml:researchSubject__primary_disease_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "researchSubject__primary_disease_type" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). " ;
+    skos:note "Example values: Acinar Cell Neoplasms; Adenomas and Adenocarcinomas; Adnexal and Skin Appendage Neoplasms; " .
+
+linkml:specimen__analyte_concentration a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__analyte_concentration" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Quantity> ;
+    skos:definition "The concentration of an extracted analyte that is present in a specimen (specifically, in a specimen of type 'analyte', or an 'aliquot' derived from an analyte). e.g. the concentration of DNA in a specimen created through extracting DNA from a blood sample." .
+
+linkml:specimen__analyte_concentration_method a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__analyte_concentration_method" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "The method used to determine the concentration of purified analyte  within a solution." ;
+    skos:note "Example values: DDA; DIA; SRM" .
+
+linkml:specimen__analyte_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__analyte_type" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "When the specimen is of type 'analyte' or 'aliquot', this is the type of substance the analyte represents (e.g. DNA, RNA)" ;
+    skos:note "Example values: DNA; FFPE DNA; GenomePlex (Rubicon) Amplified DNA; Repli-G (Qiagen) DNA; ",
+        "RNA; FFPE RNA" .
+
+linkml:specimen__associated_project a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__associated_project" ;
+    rdfs:range <https://example.org/ccdh/Project> ;
+    skos:definition "The Project associated with the specimen." .
+
+linkml:specimen__cellular_composition a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__cellular_composition" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "The cellular composition of the sample" ;
+    skos:note "Buccal Cells; Buffy Coat; Derived Cell Line; Granulocytes; Pleural Effusion; Human Original Cells;",
+        "Example values: 2D Classical Conditionally Reprogrammed Cells; Adherent Cell Line; Bone Marrow Components;",
+        "Liquid Suspension Cell Line " .
+
+linkml:specimen__current_volume a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__current_volume" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Quantity> ;
+    skos:definition "The current total volume of the specimen, at the time of recording." .
+
+linkml:specimen__current_weight a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__current_weight" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Quantity> ;
+    skos:definition "The current weight of the specimen, at the time of recording (as opposed to an initial weight before its processing or portioning)." .
+
+linkml:specimen__derived_from_specimen a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__derived_from_specimen" ;
+    rdfs:range <https://example.org/ccdh/Specimen> ;
+    skos:definition "A source/parent specimen from which this one was directly derived." .
+
+linkml:specimen__derived_from_subject a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__derived_from_subject" ;
+    rdfs:range <https://example.org/ccdh/Patient> ;
+    skos:definition "The Patient/ResearchSubject, or Biologically Derived Materal (e.g. a cell line, tissue culture, organoid) from which the specimen was directly or indirectly derived." .
+
+linkml:specimen__general_tissue_morphology a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__general_tissue_morphology" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition """A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent). 
+""" ;
+    skos:note "Example values: Tumor;  Normal;  Abnormal;  Peritumoral; not applicable" .
+
+linkml:specimen__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__identifier" ;
+    rdfs:range <https://example.org/ccdh/datatypes/Identifier> ;
+    skos:definition "A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier). " .
+
+linkml:specimen__matched_normal_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__matched_normal_flag" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "A flag indicating that there is no matched normal aliquot for this case that can be used for variant calling purposes." ;
+    skos:note "Example values: no matched normal wgs; no matched normal wxs, no matched normal  targeted" .
+
+linkml:specimen__qualification_status_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__qualification_status_flag" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "A flag indicating whether the specimen is qualified or disqualified for data analysis in a study." ;
+    skos:note "Example values: Qualified; Disqualified" .
+
+linkml:specimen__source_material_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__source_material_type" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "The general kind of material from which the specimen was derived, indicating the physical nature of the source material. " ;
+    skos:note "Example values: Tissue, Blood, Tumor Aspirate; Cell Line; Expanded Next Generation Cancer Model; Pleural Effusion;  Xenograft Tissue" .
+
+linkml:specimen__specific_tissue_morphology a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__specific_tissue_morphology" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition "A term describing the specific pathology exhibited by the tissue in a specimen." ;
+    skos:note "Example values: Non cancerous tissue; Lung Cancer (all types); CNS, medulloblastoma; 00;  01;  02; Melanocytic hyperplasia; Atypical melanocytic proliferation; Melanoma in situ, superficial spreading" .
+
+linkml:specimen__specimen_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "specimen__specimen_type" ;
+    rdfs:range <https://example.org/ccdh/datatypes/CodeableConcept> ;
+    skos:definition """The high-level type of the specimen, based on its how it has been derived from the original extracted sample. 
+""" ;
+    skos:note "Example values: Initial Sample; Portion; Aliquot; Analyte, Pool" .
+
+<https://example.org/ccdh/ResearchSubject> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ResearchSubject" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:primary_disease_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Project> ;
+            owl:onProperty linkml:associated_project ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Patient> ;
+            owl:onProperty linkml:associated_patient ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://example.org/ccdh/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/datatypes/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:primary_disease_site ],
+        <https://example.org/ccdh/Entity> ;
+    skos:definition "A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy." .
+
+linkml:Decimal a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "decimal" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" .
+
+<https://example.org/ccdh/Specimen> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Specimen" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:matched_normal_flag ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:analyte_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:analyte_concentration_method ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/datatypes/Quantity> ;
+            owl:onProperty linkml:current_volume ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:specific_tissue_morphology ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:cellular_composition ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/datatypes/Quantity> ;
+            owl:onProperty linkml:current_weight ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Specimen> ;
+            owl:onProperty linkml:derived_from_specimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:source_material_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:qualification_status_flag ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Patient> ;
+            owl:onProperty linkml:derived_from_subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/datatypes/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://example.org/ccdh/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/Quantity> ;
+            owl:onProperty linkml:analyte_concentration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:specimen_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:general_tissue_morphology ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Project> ;
+            owl:onProperty linkml:associated_project ],
+        <https://example.org/ccdh/Entity> ;
+    skos:definition "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation." .
+
+<https://example.org/ccdh/Entity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Entity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://example.org/ccdh/id> ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Any resource that has its own identifier" .
+
+<https://example.org/ccdh/Patient> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Patient" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://example.org/ccdh/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/datatypes/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:taxon ],
+        <https://example.org/ccdh/Entity> .
+
+<https://example.org/ccdh/Project> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Project" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://example.org/ccdh/id> ;
+            owl:qualifiedCardinality 1 ],
+        <https://example.org/ccdh/Entity> .
+
+<https://example.org/ccdh/datatypes/Coding> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Coding" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:system ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:display ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:code ] ;
+    skos:definition "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system." .
+
+<https://example.org/ccdh/datatypes/Identifier> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Identifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/CodeableConcept> ;
+            owl:onProperty linkml:type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:value ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:system ] .
+
+<https://example.org/ccdh/datatypes/Quantity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Quantity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/Coding> ;
+            owl:onProperty linkml:comparator ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/datatypes/Coding> ;
+            owl:onProperty linkml:unit ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:Decimal ;
+            owl:onProperty linkml:value ] ;
+    skos:definition "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit." .
+
+<https://example.org/ccdh/id> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:String .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+linkml:String a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "string" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A character string" .
+
+<https://example.org/ccdh/datatypes/CodeableConcept> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CodeableConcept" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:text ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/datatypes/Coding> ;
+            owl:onProperty linkml:coding ] .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+
+
