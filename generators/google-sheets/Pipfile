@@ -6,6 +6,5 @@ verify_ssl = true
 
 [packages]
 biolinkml = "*"
-py2neo = "*"
 pydantic = {extras = ["dotenv"], version = "*"}
 pygsheets = "*"
