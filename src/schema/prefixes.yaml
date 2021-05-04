@@ -7,7 +7,7 @@ prefixes:
   ccdh: https://example.org/ccdh/
   specimen: https://ccdh.org/specimen/
   xsd: http://www.w3.org/2001/XMLSchema#
-  biolinkml: https://w3id.org/biolink/biolinkml/
+  linkml: https://w3id.org/linkml/
   ADM: https://ccdh.org/models/ADM/
   FHIR: http://hl7.org/fhir/
   BRIDG: https://fill.me.in/BRIDG/
@@ -16,7 +16,7 @@ prefixes:
   ICDC: http://fill.me.in/ICDC/
   HTAN: http://fill.me.in/HTAN/
 
-default_prefix: biolinkml
+default_prefix: linkml
 
 imports:
-  - biolinkml:types
+  - linkml:types

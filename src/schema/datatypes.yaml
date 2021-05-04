@@ -2,10 +2,10 @@ name: datatypes
 id: https://example.org/ccdh/model/datatypes
 title: Data Types used by the CCDH model
 imports:
-- biolinkml:types
+- linkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
+  linkml: https://w3id.org/linkml/
   types: https://example.org/ccdh/datatypes/
 default_prefix: types
 types:

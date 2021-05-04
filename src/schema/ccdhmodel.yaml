@@ -9,7 +9,7 @@ imports:
 - prefixes
 license: https://creativecommons.org/publicdomain/zero/1.0/
 prefixes:
-  biolinkml: https://w3id.org/biolink/biolinkml/
+  linkml: https://w3id.org/linkml/
   ccdh: https://example.org/ccdh/
 default_prefix: ccdh
 slots:
