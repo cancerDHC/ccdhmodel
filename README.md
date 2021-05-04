@@ -1,4 +1,4 @@
-# CCDH Models in LinkML
+# CRDC-H Model in LinkML
 
 ## Documentation:
 

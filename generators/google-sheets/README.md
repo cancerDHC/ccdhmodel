@@ -1,4 +1,4 @@
-# LinkML generator for CCDH
+# Google Sheets to LinkML generator for the CRDC-H model
 
 ## Setup
 
