@@ -1,4 +1,12 @@
-from linkml_model.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
+from linkml_model.meta import (
+    SchemaDefinition,
+    SlotDefinition,
+    ElementName,
+    ClassDefinition,
+    ClassDefinitionName,
+    TypeDefinitionName,
+    TypeDefinition,
+)
 import re
 import logging
 
@@ -10,7 +18,7 @@ class Attribute:
     It is represented by a single row in a Google Sheet spreadsheet.
     """
 
-    COL_ATTRIBUTE_NAME = 'CDM Attribute Name'
+    COL_ATTRIBUTE_NAME = "CDM Attribute Name"
 
     def __init__(self, model, entity, row: dict):
         """
@@ -26,7 +34,11 @@ class Attribute:
 
     @property
     def name(self):
-        return self.row.get('CDM Attribute Name') or self.row.get('Name') or self.row.get('name')
+        return (
+            self.row.get("CDM Attribute Name")
+            or self.row.get("Name")
+            or self.row.get("name")
+        )
 
     def __str__(self):
         """
@@ -42,11 +54,11 @@ class Attribute:
 
         default = 0, None
 
-        cardinality = self.row.get('Cardinality')
+        cardinality = self.row.get("Cardinality")
         if not cardinality:
             return default
 
-        m = re.compile('^(\\d+)\\.\\.(\\d+)$').match(str(cardinality))
+        m = re.compile("^(\\d+)\\.\\.(\\d+)$").match(str(cardinality))
         if not m:
             return default
 
@@ -65,16 +77,16 @@ class Attribute:
 
         slot: SlotDefinition = SlotDefinition(
             name=data[Attribute.COL_ATTRIBUTE_NAME],
-            description=data.get('Description'),
-            comments=data.get('Comments'),
-            notes=data.get('Developer Notes'),
+            description=data.get("Description"),
+            comments=data.get("Comments"),
+            notes=data.get("Developer Notes"),
             required=(min_count > 0),
-            multivalued=(max_count is None or max_count > 1)
+            multivalued=(max_count is None or max_count > 1),
         )
 
-        cardinality = data.get('Cardinality')
+        cardinality = data.get("Cardinality")
         if cardinality:
-            slot.notes.append(f'Cardinality: {cardinality}')
+            slot.notes.append(f"Cardinality: {cardinality}")
 
         # TODO: Add slot.range.
 

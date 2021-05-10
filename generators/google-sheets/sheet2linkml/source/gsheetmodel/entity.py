@@ -1,7 +1,15 @@
 from sheet2linkml.model import Model
 from sheet2linkml.source.gsheetmodel.attribute import Attribute
 from pygsheets import worksheet
-from linkml_model.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
+from linkml_model.meta import (
+    SchemaDefinition,
+    SlotDefinition,
+    ElementName,
+    ClassDefinition,
+    ClassDefinitionName,
+    TypeDefinitionName,
+    TypeDefinition,
+)
 import logging
 import re
 
@@ -13,7 +21,7 @@ class Entity(Model):
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
 
-    COL_ATTRIBUTE_NAME = 'CDM Attribute Name'
+    COL_ATTRIBUTE_NAME = "CDM Attribute Name"
 
     def __init__(self, model, sheet: worksheet, name, rows):
         """
@@ -37,7 +45,9 @@ class Entity(Model):
 
         :return: A list of named rows in this sheet.
         """
-        return [row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is not None]
+        return [
+            row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is not None
+        ]
 
     @property
     def attributes(self):
@@ -56,16 +66,20 @@ class Entity(Model):
         :return: A dictionary representing a row in the spreadsheet that represents this entity.
         """
 
-        entity_rows = [row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is None]
+        entity_rows = [
+            row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is None
+        ]
         if not entity_rows:
             # raise RuntimeError(f'Entity does not have an entity row: {self}')
-            logging.warn(f'Entity contains no entity row: {self}')
+            logging.warn(f"Entity contains no entity row: {self}")
             return dict()
 
         if len(entity_rows) > 1:
-            logging.warn(f'Entity contains more than one "entity row", only the first one will be used: {self}')
+            logging.warn(
+                f'Entity contains more than one "entity row", only the first one will be used: {self}'
+            )
             for row in entity_rows:
-                logging.warn(f' - Found entity row: {row}')
+                logging.warn(f" - Found entity row: {row}")
 
         return entity_rows[0]
 
@@ -84,15 +98,15 @@ class Entity(Model):
         """
 
         # Taken from https://stackoverflow.com/a/46801075/27310
-        name = str(self.name).strip().replace(' ', '_')
-        return re.sub(r'(?u)[^-\w.]', '', name)
+        name = str(self.name).strip().replace(" ", "_")
+        return re.sub(r"(?u)[^-\w.]", "", name)
 
     def to_markdown(self) -> str:
         """
         :return: A Markdown representation of this entity.
         """
 
-        return f'[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})'
+        return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
 
     def as_linkml(self, root_uri) -> ClassDefinition:
         """
@@ -102,29 +116,28 @@ class Entity(Model):
         :return:
         """
 
-        logging.info(f'Generating LinkML for {self}')
+        logging.info(f"Generating LinkML for {self}")
 
-        unprefixed_name = re.sub('^CDM\.', '', self.get_filename())
+        unprefixed_name = re.sub("^CDM\.", "", self.get_filename())
 
         # Basic metadata
         cls: ClassDefinition = ClassDefinition(
             name=unprefixed_name,
             see_also=self.worksheet.url,
-
-            description=self.entity_row.get('Description'),
-            comments=self.entity_row.get('Comments'),
-            notes=self.entity_row.get('Developer Notes')
+            description=self.entity_row.get("Description"),
+            comments=self.entity_row.get("Comments"),
+            notes=self.entity_row.get("Developer Notes"),
         )
 
         # Additional metadata
 
         # We add a 'derived from' note to the notes field, which might be
         # a string or a list, apparently.
-        derived_from = f'Derived from {self.to_markdown()}'
+        derived_from = f"Derived from {self.to_markdown()}"
         if isinstance(cls.notes, list):
             cls.notes.append(derived_from)
         elif isinstance(cls.notes, str):
-            cls.notes = cls.notes + f'\n{derived_from}'
+            cls.notes = cls.notes + f"\n{derived_from}"
         else:
             cls.notes = derived_from
 
@@ -148,8 +161,8 @@ class Worksheet(Model):
     """
 
     # Some column names.
-    COL_STATUS = 'Status'
-    COL_ENTITY_NAME = 'CDM Entity'
+    COL_STATUS = "Status"
+    COL_ENTITY_NAME = "CDM Entity"
 
     def __init__(self, model, sheet: worksheet):
         """
@@ -180,7 +193,9 @@ class Worksheet(Model):
 
         :return: A list of included rows in this sheet.
         """
-        return [row for row in self.rows if row.get(Worksheet.COL_STATUS, '') == 'include']
+        return [
+            row for row in self.rows if row.get(Worksheet.COL_STATUS, "") == "include"
+        ]
 
     @property
     def entity_names(self) -> list[str]:
@@ -219,7 +234,10 @@ class Worksheet(Model):
         :return: A dict with keys of COL_ENTITY_NAME values and values of Entity objects.
         """
 
-        return {k: Entity(self.model, self.worksheet, k, v) for k, v in self.entities_as_included_rows.items()}
+        return {
+            k: Entity(self.model, self.worksheet, k, v)
+            for k, v in self.entities_as_included_rows.items()
+        }
 
     @property
     def entities(self) -> dict[str, Entity]:
@@ -239,15 +257,15 @@ class Worksheet(Model):
         """
 
         # Taken from https://stackoverflow.com/a/46801075/27310
-        name = str(self.worksheet.title).strip().replace(' ', '_')
-        return re.sub(r'(?u)[^-\w.]', '', name)
+        name = str(self.worksheet.title).strip().replace(" ", "_")
+        return re.sub(r"(?u)[^-\w.]", "", name)
 
     def to_markdown(self) -> str:
         """
         :return: A Markdown representation of this entity.
         """
 
-        return f'[{self.worksheet.title}]({self.worksheet.url})'
+        return f"[{self.worksheet.title}]({self.worksheet.url})"
 
     def as_linkml(self, root_uri) -> list[SchemaDefinition]:
         return [entity.as_linkml(root_uri) for entity in self.entities.values()]

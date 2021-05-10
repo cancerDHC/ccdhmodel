@@ -2,7 +2,15 @@ import pygsheets
 
 from sheet2linkml.model import Model
 from sheet2linkml.source.gsheetmodel.entity import Entity, Worksheet
-from linkml_model.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
+from linkml_model.meta import (
+    SchemaDefinition,
+    SlotDefinition,
+    ElementName,
+    ClassDefinition,
+    ClassDefinitionName,
+    TypeDefinitionName,
+    TypeDefinition,
+)
 import re
 import logging
 
@@ -19,14 +27,12 @@ class GSheetModel(Model):
     """
 
     """ The Google API scopes that are necessary to query this sheet. """
-    SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly',
-              'https://www.googleapis.com/auth/drive.metadata.readonly']
+    SCOPES = [
+        "https://www.googleapis.com/auth/spreadsheets.readonly",
+        "https://www.googleapis.com/auth/drive.metadata.readonly",
+    ]
 
-    def __init__(
-            self,
-            google_sheet_oath2_credentials: str,
-            google_sheet_id: str
-        ):
+    def __init__(self, google_sheet_oath2_credentials: str, google_sheet_id: str):
         """
         Create a new Google Sheet Model. This will create a model that uses the specified
         Google Sheet as an input.
@@ -44,7 +50,9 @@ class GSheetModel(Model):
         :param google_sheet_id: The Google Sheet ID containing the model.
         """
 
-        self.client = pygsheets.authorize(client_secret=google_sheet_oath2_credentials, scopes=self.SCOPES)
+        self.client = pygsheets.authorize(
+            client_secret=google_sheet_oath2_credentials, scopes=self.SCOPES
+        )
         self.sheet = self.client.open_by_key(google_sheet_id)
 
     def worksheets(self) -> list[Worksheet]:
@@ -57,16 +65,18 @@ class GSheetModel(Model):
         """
 
         def is_sheet_entity(worksheet: pygsheets.worksheet):
-            return worksheet.get_value('A1') == 'Status'
+            return worksheet.get_value("A1") == "Status"
 
         def is_sheet_included(worksheet: pygsheets.worksheet):
-            """ Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
+            """Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
             but for now we just check to see if the title starts with 'x-'.
             """
-            return not worksheet.title.startswith('x-')
+            return not worksheet.title.startswith("x-")
 
         worksheets = self.sheet.worksheets()
-        entity_worksheets = filter(is_sheet_entity, filter(is_sheet_included, worksheets))
+        entity_worksheets = filter(
+            is_sheet_entity, filter(is_sheet_included, worksheets)
+        )
         return [Worksheet(self, worksheet) for worksheet in entity_worksheets]
 
     def entities(self) -> list[Entity]:
@@ -93,15 +103,15 @@ class GSheetModel(Model):
         """
 
         # Taken from https://stackoverflow.com/a/46801075/27310
-        filename = str(self.sheet.title).strip().replace(' ', '_')
-        return re.sub(r'(?u)[^-\w.]', '', filename)
+        filename = str(self.sheet.title).strip().replace(" ", "_")
+        return re.sub(r"(?u)[^-\w.]", "", filename)
 
     def to_markdown(self) -> str:
         """
         :return: A Markdown representation of this Google Sheet model.
         """
 
-        return f'[{self.sheet.title}]({self.sheet.url})'
+        return f"[{self.sheet.title}]({self.sheet.url})"
 
     def as_linkml(self, root_uri) -> SchemaDefinition:
         """
@@ -111,23 +121,21 @@ class GSheetModel(Model):
         :return: A LinkML SchemaDefinition for the model described by this Google Sheet.
         """
 
-        logging.info(f'Generating LinkML for {self}')
+        logging.info(f"Generating LinkML for {self}")
 
         # Set up general metadata.
-        schema: SchemaDefinition = SchemaDefinition(
-            name='CRDC-H',
-            id=f'{root_uri}')
-        schema.version = 'v0'   # TODO: Replace with a version.
-        schema.license = 'https://creativecommons.org/publicdomain/zero/1.0/'
+        schema: SchemaDefinition = SchemaDefinition(name="CRDC-H", id=f"{root_uri}")
+        schema.version = "v0"  # TODO: Replace with a version.
+        schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.prefixes = {
-            'linkml': 'https://w3id.org/biolink/linkml/',
-            'ccdh': f'{root_uri}/'
+            "linkml": "https://w3id.org/biolink/linkml/",
+            "ccdh": f"{root_uri}/",
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
 
-        schema.default_prefix = 'ccdh'
-        schema.notes.append(f'derived from {self.to_markdown()}')
+        schema.default_prefix = "ccdh"
+        schema.notes.append(f"derived from {self.to_markdown()}")
 
         # Generate all the entities.
         schema.classes = [entity.as_linkml(root_uri) for entity in self.entities()]
