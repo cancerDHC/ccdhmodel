@@ -94,7 +94,7 @@ class Entity(Model):
 
         return f'[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})'
 
-    def as_linkml(self, root_uri) -> SchemaDefinition:
+    def as_linkml(self, root_uri) -> ClassDefinition:
         """
         Return this entity as a LinkML SchemaDefinition.
 
@@ -107,16 +107,8 @@ class Entity(Model):
         unprefixed_name = re.sub('^CDM\.', '', self.get_filename())
 
         # Basic metadata
-        schema: SchemaDefinition = SchemaDefinition(
+        cls: ClassDefinition = ClassDefinition(
             name=unprefixed_name,
-            id=f'{root_uri}/entity/{unprefixed_name}',
-            title=self.name,
-            version='v0', # TODO: Replace with a version.
-            license='https://creativecommons.org/publicdomain/zero/1.0/',
-            prefixes={
-                'linkml': 'https://w3id.org/biolink/linkml/',
-                'ccdh': f'{root_uri}/'
-            },
             see_also=self.worksheet.url,
 
             description=self.entity_row.get('Description'),
@@ -129,12 +121,12 @@ class Entity(Model):
         # We add a 'derived from' note to the notes field, which might be
         # a string or a list, apparently.
         derived_from = f'Derived from {self.to_markdown()}'
-        if isinstance(schema.notes, list):
-            schema.notes.append(derived_from)
-        elif isinstance(schema.notes, str):
-            schema.notes = schema.notes + f'\n{derived_from}'
+        if isinstance(cls.notes, list):
+            cls.notes.append(derived_from)
+        elif isinstance(cls.notes, str):
+            cls.notes = cls.notes + f'\n{derived_from}'
         else:
-            schema.notes = derived_from
+            cls.notes = derived_from
 
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
@@ -143,9 +135,9 @@ class Entity(Model):
 
         # Now generate LinkML for all of the attributes.
 
-        schema.slots = [attribute.as_linkml(root_uri) for attribute in self.attributes]
+        cls.slots = [attribute.as_linkml(root_uri) for attribute in self.attributes]
 
-        return schema
+        return cls
 
 
 class Worksheet(Model):

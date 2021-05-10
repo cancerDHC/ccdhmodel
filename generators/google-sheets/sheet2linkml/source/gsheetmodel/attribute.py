@@ -72,4 +72,10 @@ class Attribute:
             multivalued=(max_count is None or max_count > 1)
         )
 
+        cardinality = data.get('Cardinality')
+        if cardinality:
+            slot.notes.append(f'Cardinality: {cardinality}')
+
+        # TODO: Add slot.range.
+
         return slot
