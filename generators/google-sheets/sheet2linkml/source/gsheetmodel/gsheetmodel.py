@@ -1,12 +1,13 @@
 import pygsheets
 
-from sheet2linkml.source.gsheetmodel.entity import Entity
+from sheet2linkml.model import Model
+from sheet2linkml.source.gsheetmodel.entity import Entity, Worksheet
 from linkml_model.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
 import re
 import logging
 
 
-class GSheetModel:
+class GSheetModel(Model):
     """
     A GSheetModel represents a single, coherent model represented as a series of worksheets
     in Google Sheets. This representation is currently being developed by all the CCDH workstreams,
@@ -46,11 +47,11 @@ class GSheetModel:
         self.client = pygsheets.authorize(client_secret=google_sheet_oath2_credentials, scopes=self.SCOPES)
         self.sheet = self.client.open_by_key(google_sheet_id)
 
-    def entities(self) -> list:
+    def worksheets(self) -> list[Worksheet]:
         """
-        A list of entities available in this model.
+        A list of worksheets available in this model.
 
-        We identify an entity based on having 'Status' as the first column header title.
+        We identify a worksheet containing entities based on having 'Status' as the first column header title.
 
         :return: A list of entities available in this model.
         """
@@ -66,7 +67,16 @@ class GSheetModel:
 
         worksheets = self.sheet.worksheets()
         entity_worksheets = filter(is_sheet_entity, filter(is_sheet_included, worksheets))
-        return [Entity(self, worksheet) for worksheet in entity_worksheets]
+        return [Worksheet(self, worksheet) for worksheet in entity_worksheets]
+
+    def entities(self) -> list[Entity]:
+        """
+        :return: The list of entities in this model.
+        """
+        result = []
+        for worksheet in self.worksheets():
+            result.extend(worksheet.entities)
+        return result
 
     def __str__(self) -> str:
         """

@@ -27,7 +27,7 @@ def main(filter_entity):
         click.echo(f'Filtering to entity {filter_entity}.')
 
         # Only extract a single entity.
-        selected_entities = [entity for entity in model.entities() if filter_entity in entity.names]
+        selected_entities = [entity for entity in model.entities() if filter_entity == entity.name]
         for entity in selected_entities:
             filename = f'output/{entity.get_filename()}.yaml'
             with open(filename, 'w') as f:
