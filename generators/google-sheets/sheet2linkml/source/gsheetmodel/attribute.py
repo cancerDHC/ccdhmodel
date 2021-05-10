@@ -1,4 +1,6 @@
 from linkml_model.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
+import re
+import logging
 
 
 class Attribute:
@@ -33,6 +35,23 @@ class Attribute:
 
         return f'{self.__class__.__name__} named "{self.name}" containing {len(self.row)} properties'
 
+    def counts(self) -> (int, int):
+        """
+        Returns the minimum and maximum cardinality by reading the 'Cardinality' column.
+        """
+
+        default = 0, None
+
+        cardinality = self.row.get('Cardinality')
+        if not cardinality:
+            return default
+
+        m = re.compile('^(\\d+)\\.\\.(\\d+)$').match(str(cardinality))
+        if not m:
+            return default
+
+        return int(m.group(1)), int(m.group(2))
+
     def as_linkml(self, root_uri) -> SlotDefinition:
         """
         Returns this attribute as a LinkML SlotDefinition.
@@ -42,12 +61,15 @@ class Attribute:
         """
 
         data = self.row
+        min_count, max_count = self.counts()
 
         slot: SlotDefinition = SlotDefinition(
             name=data[Attribute.COL_ATTRIBUTE_NAME],
             description=data.get('Description'),
             comments=data.get('Comments'),
-            notes=data.get('Developer Notes')
+            notes=data.get('Developer Notes'),
+            required=(min_count > 0),
+            multivalued=(max_count is None or max_count > 1)
         )
 
         return slot

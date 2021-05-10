@@ -115,18 +115,6 @@ class TabularSchemaDefinitionLoader(object):
         return slot
 
     @classmethod
-    def cardinality_to_slot(cls, slot, card):
-        if card == '0..1':
-            slot.required = False
-            slot.multivalued = False
-        elif card == '0..m':
-            slot.required = False
-            slot.multivalued = True
-        if slot.name == 'id':
-            slot.required = True
-        return slot
-
-    @classmethod
     def create_schema(cls, name):
         schema: SchemaDefinition = SchemaDefinition(name='CCDH-MVP', id=f'{ccdh_root}/model/{name}', title=name)
         schema.version = 'v0'
