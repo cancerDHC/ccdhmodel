@@ -1,6 +1,9 @@
 import pygsheets
 
 from sheet2linkml.source.gsheetmodel.entity import Entity
+from linkml_model.meta import SchemaDefinition, SlotDefinition, ElementName, ClassDefinition, ClassDefinitionName, TypeDefinitionName, TypeDefinition
+import re
+import logging
 
 
 class GSheetModel:
@@ -55,8 +58,14 @@ class GSheetModel:
         def is_sheet_entity(worksheet: pygsheets.worksheet):
             return worksheet.get_value('A1') == 'Status'
 
+        def is_sheet_included(worksheet: pygsheets.worksheet):
+            """ Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
+            but for now we just check to see if the title starts with 'x-'.
+            """
+            return not worksheet.title.startswith('x-')
+
         worksheets = self.sheet.worksheets()
-        entity_worksheets = filter(is_sheet_entity, worksheets)
+        entity_worksheets = filter(is_sheet_entity, filter(is_sheet_included, worksheets))
         return [Entity(self, worksheet) for worksheet in entity_worksheets]
 
     def __str__(self) -> str:
@@ -65,3 +74,52 @@ class GSheetModel:
         """
 
         return f'{self.__class__.__name__} with an underlying Google Sheet titled "{self.sheet.title}" containing {len(self.sheet.worksheets())} worksheets'
+
+    def get_filename(self) -> str:
+        """
+        Return this Google Sheet model as a filename, which we calculate by making the Google Sheet title filesystem-safe.
+
+        :return: A filename that could be used for this model.
+        """
+
+        # Taken from https://stackoverflow.com/a/46801075/27310
+        filename = str(self.sheet.title).strip().replace(' ', '_')
+        return re.sub(r'(?u)[^-\w.]', '', filename)
+
+    def to_markdown(self) -> str:
+        """
+        :return: A Markdown representation of this Google Sheet model.
+        """
+
+        return f'[{self.sheet.title}]({self.sheet.url})'
+
+    def as_linkml(self, root_uri) -> SchemaDefinition:
+        """
+        Return this Google Sheet model as a LinkML SchemaDefinition.
+
+        :param root_uri: The base URI to use for terms defined in this model.
+        :return: A LinkML SchemaDefinition for the model described by this Google Sheet.
+        """
+
+        logging.info(f'Generating LinkML for {self}')
+
+        # Set up general metadata.
+        schema: SchemaDefinition = SchemaDefinition(
+            name='CRDC-H',
+            id=f'{root_uri}')
+        schema.version = 'v0'   # TODO: Replace with a version.
+        schema.license = 'https://creativecommons.org/publicdomain/zero/1.0/'
+        schema.prefixes = {
+            'linkml': 'https://w3id.org/biolink/linkml/',
+            'ccdh': f'{root_uri}/'
+        }
+        # TODO: See if we can get by without.
+        # schema.imports = ['datatypes', 'prefixes']
+
+        schema.default_prefix = 'ccdh'
+        schema.notes.append(f'derived from {self.to_markdown()}')
+
+        # Generate all the entities.
+        schema.classes = [entity.as_linkml(root_uri) for entity in self.entities()]
+
+        return schema
