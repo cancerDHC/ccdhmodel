@@ -8,6 +8,8 @@ In order to extract the data from Google Sheets, [enable the Google Drive API](h
 
 The first time running the scripts, you will see a browser page asking you to log in. Follow the instructions. The script will download a token and store it locally. You won't need to log in in the future.
 
+We use the [pygsheets](https://pygsheets.readthedocs.io/) package to access the Google Sheets API. It includes detailed instructions and screenshots on [authorizing this application](https://pygsheets.readthedocs.io/en/stable/authorization.html).
+
 ### Python packages
 
 Use [pipenv](https://github.com/pypa/pipenv#readme) to install python packages.
@@ -36,7 +38,7 @@ CDM_GOOGLE_SHEET_ID=1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4
 You can run this script in a pipenv by running:
 
 ```
-pipenv run python -m ccdh.linkml.cdm_linkml_loader
+pipenv run python sheet2linkml.py
 ```
 
 or run `pipenv shell` first and then the python command.
