@@ -47,6 +47,28 @@ class Entity(Model):
 
         return [Attribute(self.model, self, dct) for dct in self.attribute_rows]
 
+    @property
+    def entity_row(self) -> dict:
+        """
+        Returns the "entity row" -- the row in the spreadsheet that represents this entity itself.
+        This is the (single) row without an attribute name.
+
+        :return: A dictionary representing a row in the spreadsheet that represents this entity.
+        """
+
+        entity_rows = [row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is None]
+        if not entity_rows:
+            # raise RuntimeError(f'Entity does not have an entity row: {self}')
+            logging.warn(f'Entity contains no entity row: {self}')
+            return dict()
+
+        if len(entity_rows) > 1:
+            logging.warn(f'Entity contains more than one "entity row", only the first one will be used: {self}')
+            for row in entity_rows:
+                logging.warn(f' - Found entity row: {row}')
+
+        return entity_rows[0]
+
     def __str__(self):
         """
         :return: A text description of this entity.
@@ -84,20 +106,45 @@ class Entity(Model):
 
         unprefixed_name = re.sub('^CDM\.', '', self.get_filename())
 
+        # Basic metadata
         schema: SchemaDefinition = SchemaDefinition(
             name=unprefixed_name,
             id=f'{root_uri}/entity/{unprefixed_name}',
-            title=self.name)
-        schema.version = 'v0'   # TODO: Replace with a version.
-        schema.license = 'https://creativecommons.org/publicdomain/zero/1.0/'
-        schema.prefixes = {
-            'linkml': 'https://w3id.org/biolink/linkml/',
-            'ccdh': f'{root_uri}/'
-        }
+            title=self.name,
+            version='v0', # TODO: Replace with a version.
+            license='https://creativecommons.org/publicdomain/zero/1.0/',
+            prefixes={
+                'linkml': 'https://w3id.org/biolink/linkml/',
+                'ccdh': f'{root_uri}/'
+            },
+            see_also=self.worksheet.url,
+
+            description=self.entity_row.get('Description'),
+            comments=self.entity_row.get('Comments'),
+            notes=self.entity_row.get('Developer Notes')
+        )
+
+        # Additional metadata
+
+        # We add a 'derived from' note to the notes field, which might be
+        # a string or a list, apparently.
+        derived_from = f'Derived from {self.to_markdown()}'
+        if isinstance(schema.notes, list):
+            schema.notes.append(derived_from)
+        elif isinstance(schema.notes, str):
+            schema.notes = schema.notes + f'\n{derived_from}'
+        else:
+            schema.notes = derived_from
+
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
 
-        schema.notes.append(f'derived from {self.to_markdown()}')
+        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
+
+        # Now generate LinkML for all of the attributes.
+
+        schema.slots = [attribute.as_linkml(root_uri) for attribute in self.attributes]
+
         return schema
 
 
