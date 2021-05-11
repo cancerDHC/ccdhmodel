@@ -4,6 +4,7 @@ A script for converting Google Sheets to a LinkML model.
 """
 
 import logging
+import logging.config
 from sheet2linkml import config
 from sheet2linkml.source.gsheetmodel.gsheetmodel import GSheetModel
 from linkml.utils.yamlutils import as_yaml
@@ -16,16 +17,27 @@ import click
     type=str,
     help="The name of a single entity that you would like to extract.",
 )
-def main(filter_entity):
+@click.option(
+    "--logging-config",
+    type=str,
+    help="A logging configuration file.",
+    default="./logging.ini"
+)
+def main(filter_entity, logging_config):
+    # Display INFO log entry and up.
+    logging.config.fileConfig(logging_config)
+
+    # Read in Google API credentials.
     google_api_credentials = config.Settings().google_api_credentials
     google_sheet_id = config.Settings().cdm_google_sheet_id
 
+    # Arbitrarily set a CRDC-H root URI.
     crdch_root = "https://example.org/ccdh"
 
+    # Load the Google Sheet model.
     model = GSheetModel(google_api_credentials, google_sheet_id)
-    click.echo(f"Google Sheet loaded: {model}")
+    logging.info(f"Google Sheet loaded: {model}")
 
-    logging.basicConfig(level=logging.INFO)
 
     if filter_entity:
         click.echo(f"Filtering to entity {filter_entity}.")
