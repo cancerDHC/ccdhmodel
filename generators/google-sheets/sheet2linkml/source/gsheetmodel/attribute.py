@@ -1,14 +1,5 @@
-from linkml_model.meta import (
-    SchemaDefinition,
-    SlotDefinition,
-    ElementName,
-    ClassDefinition,
-    ClassDefinitionName,
-    TypeDefinitionName,
-    TypeDefinition,
-)
+from linkml_model.meta import SlotDefinition
 import re
-import logging
 
 
 class Attribute:
@@ -18,14 +9,17 @@ class Attribute:
     It is represented by a single row in a Google Sheet spreadsheet.
     """
 
+    # Some column names.
     COL_ATTRIBUTE_NAME = "CDM Attribute Name"
+    COL_CARDINALITY = "Cardinality"
 
-    def __init__(self, model, entity, row: dict):
+    def __init__(self, model, entity, row: dict[str, str]):
         """
         Create an entity based on a GSheetModel and a Google Sheet worksheet.
 
         :param model: The GSheetModel that this attribute is a part of.
         :param entity: The Entity that this attribute is a part of.
+        :param row: The row describing this attribute (as a dictionary of str -> str).
         """
 
         self.model = model
@@ -34,6 +28,9 @@ class Attribute:
 
     @property
     def name(self):
+        """
+        :return: A name for this attribute.
+        """
         return (
             self.row.get("CDM Attribute Name")
             or self.row.get("Name")
@@ -49,15 +46,22 @@ class Attribute:
 
     def counts(self) -> (int, int):
         """
-        Returns the minimum and maximum cardinality by reading the 'Cardinality' column.
+        Returns the minimum and maximum cardinality, determined by parsing the Cardinality column.
+        If the string is `?..m`, this indicates that there is no maximum cardinality -- which we
+        report by returning None instead of the maximum cardinality.
+
+        :return: The minimum and maximum cardinality by reading the 'Cardinality' column.
         """
 
+        # A default cardinality to return if none can be parsed.
         default = 0, None
 
-        cardinality = self.row.get("Cardinality")
+        cardinality = self.row.get(Attribute.COL_CARDINALITY)
         if not cardinality:
             return default
 
+        # We currently use `1..m` to indicate that there is no maximum cardinality.
+        # We might eventually need to support `1..*` as well.
         m = re.compile("^(\\d+)\\.\\.(\\d+|m)$").match(str(cardinality))
         if not m:
             return default
