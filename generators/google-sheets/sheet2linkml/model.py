@@ -2,15 +2,30 @@ from abc import ABC, abstractmethod
 from linkml_model.meta import SchemaDefinition
 
 
-class Model(ABC):
+class ModelElement(ABC):
     """
-    A Model represents a class that can be convert into a YAML model.
+    A Model Element represents a model element that can be convert into a LinkML model.
     """
+
+    @property
+    @abstractmethod
+    def name(self) -> str:
+        """
+        :return: A name for this model element.
+        """
+        pass
 
     @abstractmethod
     def get_filename(self) -> str:
         """
-        Return this model element as a string.
+        :return: This model element as a string.
+        """
+        pass
+
+    @abstractmethod
+    def get_filename(self) -> str:
+        """
+        :return: This model element as a string.
         """
         pass
 

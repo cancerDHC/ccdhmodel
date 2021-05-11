@@ -1,6 +1,6 @@
 import pygsheets
 
-from sheet2linkml.model import Model
+from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.entity import Entity, Worksheet
 from linkml_model.meta import (
     SchemaDefinition,
@@ -15,7 +15,7 @@ import re
 import logging
 
 
-class GSheetModel(Model):
+class GSheetModel(ModelElement):
     """
     A GSheetModel represents a single, coherent model represented as a series of worksheets
     in Google Sheets. This representation is currently being developed by all the CCDH workstreams,

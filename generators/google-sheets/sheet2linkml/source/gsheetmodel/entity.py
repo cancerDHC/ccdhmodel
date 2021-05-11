@@ -1,4 +1,4 @@
-from sheet2linkml.model import Model
+from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.attribute import Attribute
 from pygsheets import worksheet
 from linkml_model.meta import (
@@ -14,7 +14,7 @@ import logging
 import re
 
 
-class Entity(Model):
+class Entity(ModelElement):
     """
     An entity represents a class of data that we need to model.
 
@@ -33,7 +33,7 @@ class Entity(Model):
 
         self.model = model
         self.worksheet = sheet
-        self.name = name
+        self.entity_name = name
         self.rows = rows
 
     @property
@@ -89,6 +89,13 @@ class Entity(Model):
         """
 
         return f'{self.__class__.__name__} named {self.name} from worksheet "{self.worksheet.title}" containing {len(self.attribute_rows)} attributes'
+
+    @property
+    def name(self) -> str:
+        """
+        :return: A name for this worksheet.
+        """
+        return self.entity_name
 
     def get_filename(self) -> str:
         """
@@ -153,7 +160,7 @@ class Entity(Model):
         return cls
 
 
-class Worksheet(Model):
+class Worksheet(ModelElement):
     """
     A Worksheet represents a single worksheet in a GSheetModel. A single sheet usually contains
     information on a single Entity, but this is not always the case. In those cases, you should
@@ -248,6 +255,13 @@ class Worksheet(Model):
         """
 
         return list(self.grouped_entities.values())
+
+    @property
+    def name(self) -> str:
+        """
+        :return: A name for this worksheet.
+        """
+        return self.worksheet.title
 
     def get_filename(self) -> str:
         """
