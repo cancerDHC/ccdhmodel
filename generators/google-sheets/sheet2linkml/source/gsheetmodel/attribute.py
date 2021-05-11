@@ -58,7 +58,7 @@ class Attribute:
         if not cardinality:
             return default
 
-        m = re.compile("^(\\d+)\\.\\.(?:(\\d+)|m)$").match(str(cardinality))
+        m = re.compile("^(\\d+)\\.\\.(\\d+|m)$").match(str(cardinality))
         if not m:
             return default
 
