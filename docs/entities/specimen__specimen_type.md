@@ -1,5 +1,5 @@
 
-# Type: specimen__specimen_type
+# Slot: specimen__specimen_type
 
 
 The high-level type of the specimen, based on its how it has been derived from the original extracted sample.

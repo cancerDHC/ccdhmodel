@@ -11,10 +11,10 @@ prefixes:
   ADM: https://ccdh.org/models/ADM/
   FHIR: http://hl7.org/fhir/
   BRIDG: https://fill.me.in/BRIDG/
-  GDC: http://fill.me.in/GDC
-  PDC: http://fill.me.in/PDC
-  ICDC: http://fill.me.in/ICDC
-  HTAN: http://fill.me.in/ICDC
+  GDC: http://fill.me.in/GDC/
+  PDC: http://fill.me.in/PDC/
+  ICDC: http://fill.me.in/ICDC/
+  HTAN: http://fill.me.in/HTAN/
 
 default_prefix: biolinkml
 

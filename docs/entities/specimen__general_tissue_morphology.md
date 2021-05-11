@@ -1,5 +1,5 @@
 
-# Type: specimen__general_tissue_morphology
+# Slot: specimen__general_tissue_morphology
 
 
 A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).

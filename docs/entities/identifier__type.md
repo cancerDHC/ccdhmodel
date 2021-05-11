@@ -1,5 +1,5 @@
 
-# Type: identifier__type
+# Slot: identifier__type
 
 
 A code that defines the type of the identifier.

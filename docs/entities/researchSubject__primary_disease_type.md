@@ -1,5 +1,5 @@
 
-# Type: researchSubject__primary_disease_type
+# Slot: researchSubject__primary_disease_type
 
 
 The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).

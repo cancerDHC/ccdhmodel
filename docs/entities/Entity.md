@@ -1,5 +1,5 @@
 
-# Type: Entity
+# Class: Entity
 
 
 Any resource that has its own identifier
@@ -25,4 +25,4 @@ URI: [ccdh:Entity](https://example.org/ccdh/Entity)
 ### Own
 
  * [id](id.md)  <sub>REQ</sub>
-    * range: [String](types/String.md)
+     * range: [String](types/String.md)

@@ -1,5 +1,5 @@
 
-# Type: coding__version
+# Slot: coding__version
 
 
 The version of the code system.

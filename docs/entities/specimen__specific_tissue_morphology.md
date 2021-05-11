@@ -1,5 +1,5 @@
 
-# Type: specimen__specific_tissue_morphology
+# Slot: specimen__specific_tissue_morphology
 
 
 A term describing the specific pathology exhibited by the tissue in a specimen.

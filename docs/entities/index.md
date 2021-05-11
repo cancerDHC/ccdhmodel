@@ -10,10 +10,10 @@
  * [CodeableConcept](CodeableConcept.md)
  * [Coding](Coding.md) - A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.
  * [Entity](Entity.md) - Any resource that has its own identifier
-    * [Patient](Patient.md)
-    * [Project](Project.md)
-    * [ResearchSubject](ResearchSubject.md) - A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
-    * [Specimen](Specimen.md) - Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
+     * [Patient](Patient.md)
+     * [Project](Project.md)
+     * [ResearchSubject](ResearchSubject.md) - A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.
+     * [Specimen](Specimen.md) - Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.
  * [Identifier](Identifier.md)
  * [Quantity](Quantity.md) - A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.
 
@@ -29,10 +29,10 @@
  * [➞system](coding__system.md) - The code system where the code is defined.
  * [➞version](coding__version.md) - The version of the code system.
  * [id](id.md)
-    * [Patient➞id](Patient_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
-    * [Project➞id](Project_id.md)
-    * [ResearchSubject➞id](ResearchSubject_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
-    * [Specimen➞id](Specimen_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
+     * [Patient➞id](Patient_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
+     * [Project➞id](Project_id.md)
+     * [ResearchSubject➞id](ResearchSubject_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
+     * [Specimen➞id](Specimen_id.md) - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
  * [➞system](identifier__system.md) - The system or namespace that defines the identifier.
  * [➞type](identifier__type.md) - A code that defines the type of the identifier.
  * [➞value](identifier__value.md) - The value of the identifier, as defined by the system.

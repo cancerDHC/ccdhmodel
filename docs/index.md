@@ -1,14 +1,5 @@
-# CCDH Models in BiolinkML
+# CCDH Models in LinkML
 
-## Data Types
-
-[https://cancerdhc.github.io/ccdhmodel/datatypes](https://cancerdhc.github.io/ccdhmodel/datatypes)
-
-## Prefixes
-
-[https://cancerdhc.github.io/ccdhmodel/prefixes](https://cancerdhc.github.io/ccdhmodel/prefixes)
-
-
-## Entities
-
-[https://cancerdhc.github.io/ccdhmodel/entities](https://cancerdhc.github.io/ccdhmodel/entities)
+* [Prefixes](./prefixes/index.md)
+* [Data Types](./datatypes/index.md)
+* [Entities](./entities/index.md)

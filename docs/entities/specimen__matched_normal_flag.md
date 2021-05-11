@@ -1,5 +1,5 @@
 
-# Type: specimen__matched_normal_flag
+# Slot: specimen__matched_normal_flag
 
 
 A flag indicating that there is no matched normal aliquot for this case that can be used for variant calling purposes.

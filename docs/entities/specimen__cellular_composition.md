@@ -1,5 +1,5 @@
 
-# Type: specimen__cellular_composition
+# Slot: specimen__cellular_composition
 
 
 The cellular composition of the sample

@@ -1,5 +1,5 @@
 
-# Type: quantity__unit
+# Slot: quantity__unit
 
 
 Unit representation (e.g. mg, mL)

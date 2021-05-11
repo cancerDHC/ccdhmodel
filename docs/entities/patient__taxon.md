@@ -1,5 +1,5 @@
 
-# Type: patient__taxon
+# Slot: patient__taxon
 
 
 The taxonomic group (e.g. species) of the patient.

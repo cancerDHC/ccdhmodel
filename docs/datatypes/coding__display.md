@@ -1,5 +1,5 @@
 
-# Type: coding__display
+# Slot: coding__display
 
 
 A human-readable name for the code.

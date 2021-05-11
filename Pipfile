@@ -4,10 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "*"
+pytest = "~=6.2.4"
 
 [packages]
-biolinkml = ">=1.7.0"
+linkml = "==0.0.7"
 
 [requires]
 python_version = "3.8"

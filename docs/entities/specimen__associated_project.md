@@ -1,5 +1,5 @@
 
-# Type: specimen__associated_project
+# Slot: specimen__associated_project
 
 
 The Project associated with the specimen.

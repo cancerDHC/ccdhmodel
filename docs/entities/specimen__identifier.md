@@ -1,5 +1,5 @@
 
-# Type: specimen__identifier
+# Slot: specimen__identifier
 
 
 A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems  (i.e. a  'logical' identifier).

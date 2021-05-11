@@ -1,5 +1,5 @@
 
-# Type: Patient
+# Class: Patient
 
 
 
@@ -24,11 +24,11 @@ URI: [ccdh:Patient](https://example.org/ccdh/Patient)
 ### Own
 
  * [Patient➞id](Patient_id.md)  <sub>REQ</sub>
-    * Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
-    * range: [String](types/String.md)
+     * Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.
+     * range: [String](types/String.md)
  * [➞identifier](patient__identifier.md)  <sub>0..*</sub>
-    * Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems. 
-    * range: [Identifier](Identifier.md)
+     * Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems. 
+     * range: [Identifier](Identifier.md)
  * [➞taxon](patient__taxon.md)  <sub>OPT</sub>
-    * Description: The taxonomic group (e.g. species) of the patient.
-    * range: [CodeableConcept](CodeableConcept.md)
+     * Description: The taxonomic group (e.g. species) of the patient.
+     * range: [CodeableConcept](CodeableConcept.md)
