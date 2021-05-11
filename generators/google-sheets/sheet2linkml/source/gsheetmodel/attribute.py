@@ -58,11 +58,16 @@ class Attribute:
         if not cardinality:
             return default
 
-        m = re.compile("^(\\d+)\\.\\.(\\d+)$").match(str(cardinality))
+        m = re.compile("^(\\d+)\\.\\.(?:(\\d+)|m)$").match(str(cardinality))
         if not m:
             return default
 
-        return int(m.group(1)), int(m.group(2))
+        min_count = int(m.group(1))
+        max_count = None
+        if m.group(2) != 'm':   # We use '..m' to indicate that there is no maximum value.
+            max_count = int(m.group(2))
+
+        return min_count, max_count
 
     def as_linkml(self, root_uri) -> SlotDefinition:
         """
