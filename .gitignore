@@ -1,3 +1,11 @@
+# Outputs from various generators.
+/generators/google-sheets/output/*.yaml
+
+# Google API authentication information
+google_api_credentials.json
+token.pickle
+
+# Others
 ontology/*.obo
 ontology/*.pro
 ontology/*.qlf

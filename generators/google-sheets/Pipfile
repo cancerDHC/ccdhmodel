@@ -1,0 +1,10 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+pydantic = {extras = ["dotenv"], version = "*"}
+pygsheets = "*"
+linkml = {editable = true, git = "https://github.com/linkml/linkml.git"}
