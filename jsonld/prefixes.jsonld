@@ -37,19 +37,19 @@
     },
     {
       "prefix_prefix": "GDC",
-      "prefix_reference": "http://fill.me.in/GDC"
+      "prefix_reference": "http://fill.me.in/GDC/"
     },
     {
       "prefix_prefix": "PDC",
-      "prefix_reference": "http://fill.me.in/PDC"
+      "prefix_reference": "http://fill.me.in/PDC/"
     },
     {
       "prefix_prefix": "ICDC",
-      "prefix_reference": "http://fill.me.in/ICDC"
+      "prefix_reference": "http://fill.me.in/ICDC/"
     },
     {
       "prefix_prefix": "HTAN",
-      "prefix_reference": "http://fill.me.in/ICDC"
+      "prefix_reference": "http://fill.me.in/HTAN/"
     }
   ],
   "default_prefix": "biolinkml",
@@ -216,9 +216,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "prefixes.yaml",
-  "source_file_date": "Tue Apr 27 00:02:20 2021",
-  "source_file_size": 605,
-  "generation_date": "2021-04-27 00:07",
+  "source_file_date": "Tue May 11 12:46:43 2021",
+  "source_file_size": 609,
+  "generation_date": "2021-05-11 12:48",
   "@type": "SchemaDefinition",
   "@context": [
     [
