@@ -128,12 +128,9 @@ class Entity(ModelElement):
         """
         logging.info(f"Generating LinkML for {self}")
 
-        # For now, we remove the `CDM.` prefix from all entity names.
-        unprefixed_name = re.sub("^CDM\.", "", self.get_filename())
-
         # Basic metadata
         cls: ClassDefinition = ClassDefinition(
-            name=unprefixed_name,
+            name=self.name,
             see_also=self.worksheet.url,
             description=self.entity_row.get("Description"),
             comments=self.entity_row.get("Comments"),
