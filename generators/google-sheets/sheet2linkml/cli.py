@@ -3,6 +3,8 @@ sheet2linkml.py
 A script for converting Google Sheets to a LinkML model.
 """
 
+import sys
+import os
 import logging
 import logging.config
 from sheet2linkml import config
@@ -21,7 +23,7 @@ import click
     "--logging-config",
     type=str,
     help="A logging configuration file.",
-    default="./logging.ini"
+    default=os.path.join(sys.path[0], "logging.ini")
 )
 def main(filter_entity, logging_config):
     # Display INFO log entry and up.
