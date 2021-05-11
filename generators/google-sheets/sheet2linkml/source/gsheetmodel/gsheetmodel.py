@@ -130,11 +130,14 @@ class GSheetModel(ModelElement):
         schema.version = "v0"  # TODO: Replace with a version.
         schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.prefixes = {
-            "linkml": "https://w3id.org/biolink/linkml/",
+            "linkml": "https://w3id.org/linkml/",
             "ccdh": f"{root_uri}/",
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
+        schema.imports = [
+            'linkml:types'
+        ]
 
         schema.default_prefix = "ccdh"
         schema.notes.append(f"derived from {self.to_markdown()}")
