@@ -2,15 +2,7 @@ import pygsheets
 
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.entity import Entity, Worksheet
-from linkml_model.meta import (
-    SchemaDefinition,
-    SlotDefinition,
-    ElementName,
-    ClassDefinition,
-    ClassDefinitionName,
-    TypeDefinitionName,
-    TypeDefinition,
-)
+from linkml_model.meta import SchemaDefinition
 import re
 import logging
 
@@ -65,14 +57,17 @@ class GSheetModel(ModelElement):
         """
 
         def is_sheet_entity(worksheet: pygsheets.worksheet):
+            """ Identify worksheets containing entities, i.e. those that have 'Status' in cell A1. """
             return worksheet.get_value("A1") == "Status"
 
         def is_sheet_included(worksheet: pygsheets.worksheet):
-            """Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
+            """
+            Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
             but for now we just check to see if the title starts with 'x-'.
             """
             return not worksheet.title.startswith("x-")
 
+        # Identify entity worksheets among the list of all worksheets in this Google Sheets document.
         worksheets = self.sheet.worksheets()
         entity_worksheets = filter(
             is_sheet_entity, filter(is_sheet_included, worksheets)
