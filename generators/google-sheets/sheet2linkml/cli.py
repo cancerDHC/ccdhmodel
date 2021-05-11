@@ -23,7 +23,7 @@ import click
     "--logging-config",
     type=str,
     help="A logging configuration file.",
-    default=os.path.join(sys.path[0], "logging.ini")
+    default=os.path.join(sys.path[0], "logging.ini"),
 )
 def main(filter_entity, logging_config):
     # Display INFO log entry and up.
@@ -52,7 +52,9 @@ def main(filter_entity, logging_config):
         ]
 
         if not selected_entities:
-            logging.error(f"Could not find any entities named {filter_entity}. Please use one of:")
+            logging.error(
+                f"Could not find any entities named {filter_entity}. Please use one of:"
+            )
             for entity in model.entities():
                 logging.error(f" - {entity.name}")
             exit(1)

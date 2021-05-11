@@ -68,7 +68,9 @@ class Attribute:
 
         min_count = int(m.group(1))
         max_count = None
-        if m.group(2) != 'm':   # We use '..m' to indicate that there is no maximum value.
+        if (
+            m.group(2) != "m"
+        ):  # We use '..m' to indicate that there is no maximum value.
             max_count = int(m.group(2))
 
         return min_count, max_count

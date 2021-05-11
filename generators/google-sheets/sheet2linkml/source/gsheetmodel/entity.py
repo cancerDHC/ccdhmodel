@@ -1,10 +1,7 @@
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.attribute import Attribute
 from pygsheets import worksheet
-from linkml_model.meta import (
-    SchemaDefinition,
-    ClassDefinition
-)
+from linkml_model.meta import SchemaDefinition, ClassDefinition
 import logging
 import re
 

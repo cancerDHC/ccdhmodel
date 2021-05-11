@@ -57,7 +57,7 @@ class GSheetModel(ModelElement):
         """
 
         def is_sheet_entity(worksheet: pygsheets.worksheet):
-            """ Identify worksheets containing entities, i.e. those that have 'Status' in cell A1. """
+            """Identify worksheets containing entities, i.e. those that have 'Status' in cell A1."""
             return worksheet.get_value("A1") == "Status"
 
         def is_sheet_included(worksheet: pygsheets.worksheet):
