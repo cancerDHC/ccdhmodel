@@ -95,6 +95,13 @@ class GSheetModel(Model):
 
         return f'{self.__class__.__name__} with an underlying Google Sheet titled "{self.sheet.title}" containing {len(self.sheet.worksheets())} worksheets'
 
+    @property
+    def name(self) -> str:
+        """
+        :return: The name of this model.
+        """
+        return self.sheet.title
+
     def get_filename(self) -> str:
         """
         Return this Google Sheet model as a filename, which we calculate by making the Google Sheet title filesystem-safe.
