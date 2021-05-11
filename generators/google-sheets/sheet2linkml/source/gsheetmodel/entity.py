@@ -155,7 +155,7 @@ class Entity(ModelElement):
         # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
 
         # Now generate LinkML for all of the attributes.
-        cls.slots = [attribute.as_linkml(root_uri) for attribute in self.attributes]
+        cls.attributes = {attribute.name: attribute.as_linkml(root_uri) for attribute in self.attributes}
 
         return cls
 

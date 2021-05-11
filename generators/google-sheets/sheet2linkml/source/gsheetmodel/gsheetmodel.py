@@ -140,6 +140,6 @@ class GSheetModel(ModelElement):
         schema.notes.append(f"derived from {self.to_markdown()}")
 
         # Generate all the entities.
-        schema.classes = [entity.as_linkml(root_uri) for entity in self.entities()]
+        schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
 
         return schema
