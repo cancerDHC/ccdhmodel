@@ -93,7 +93,7 @@ class Attribute:
             multivalued=(max_count is None or max_count > 1),
         )
 
-        cardinality = data.get("Cardinality")
+        cardinality = data.get(Attribute.COL_CARDINALITY)
         if cardinality:
             slot.notes.append(f"Cardinality: {cardinality}")
 
