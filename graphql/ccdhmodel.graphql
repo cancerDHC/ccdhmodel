@@ -2,7 +2,7 @@ type CDM.BiologicallyDerivedProduct
   {
     id: String
     description: String
-    type: String
+    productType: String
     passageNumber: [String]
     growthRate: [String]
   }
@@ -37,7 +37,7 @@ type CDM.Patient
 
 type CDM.Report
   {
-    id: [String]
+    id: String
   }
 
 type CDM.ResearchProject
@@ -105,8 +105,7 @@ type CDM.Specimen
     tissueCompositionMeasure: [String]
     generalTissueMorphology: String
     specificTissueMorphology: String
-    morphologyPathologicallyConfirmed: String
-    relatedDocument: [String]
+    relatedDocument?RelatedReport?: [String]
     relatedSpecimen: [String]
     derivedProduct: [String]
     qualificationStatusFlag: String

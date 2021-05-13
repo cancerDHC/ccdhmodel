@@ -1,5 +1,5 @@
 # Auto generated from ccdhmodel.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-05-11 18:19
+# Generation date: 2021-05-12 21:25
 # Schema: CRDC-H
 #
 # id: https://example.org/ccdh
@@ -79,8 +79,7 @@ class CDM.Specimen(YAMLRoot):
     tissue_composition_measure: Optional[Union[str, List[str]]] = empty_list()
     general_tissue_morphology: Optional[str] = None
     specific_tissue_morphology: Optional[str] = None
-    morphology_pathologically_confirmed: Optional[str] = None
-    related_document: Optional[Union[str, List[str]]] = empty_list()
+    related_document?_related_report?: Optional[Union[str, List[str]]] = empty_list()
     related_specimen: Optional[Union[str, List[str]]] = empty_list()
     derived_product: Optional[Union[str, List[str]]] = empty_list()
     qualification_status_flag: Optional[str] = None
@@ -193,14 +192,11 @@ class CDM.Specimen(YAMLRoot):
         if self.specific_tissue_morphology is not None and not isinstance(self.specific_tissue_morphology, str):
             self.specific_tissue_morphology = str(self.specific_tissue_morphology)
 
-        if self.morphology_pathologically_confirmed is not None and not isinstance(self.morphology_pathologically_confirmed, str):
-            self.morphology_pathologically_confirmed = str(self.morphology_pathologically_confirmed)
-
-        if self.related_document is None:
-            self.related_document = []
-        if not isinstance(self.related_document, list):
-            self.related_document = [self.related_document]
-        self.related_document = [v if isinstance(v, str) else str(v) for v in self.related_document]
+        if self.related_document?_related_report? is None:
+            self.related_document?_related_report? = []
+        if not isinstance(self.related_document?_related_report?, list):
+            self.related_document?_related_report? = [self.related_document?_related_report?]
+        self.related_document?_related_report? = [v if isinstance(v, str) else str(v) for v in self.related_document?_related_report?]
 
         if self.related_specimen is None:
             self.related_specimen = []
@@ -234,27 +230,6 @@ class CDM.Specimen(YAMLRoot):
 
         if self.section_location is not None and not isinstance(self.section_location, str):
             self.section_location = str(self.section_location)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class CDM.Report(YAMLRoot):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = CCDH["CDM.Report"]
-    class_class_curie: ClassVar[str] = "ccdh:CDM.Report"
-    class_name: ClassVar[str] = "CDM.Report"
-    class_model_uri: ClassVar[URIRef] = CCDH.CDM.Report
-
-    id: Optional[Union[str, List[str]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
-            self.id = []
-        if not isinstance(self.id, list):
-            self.id = [self.id]
-        self.id = [v if isinstance(v, str) else str(v) for v in self.id]
 
         super().__post_init__(**kwargs)
 
@@ -488,7 +463,7 @@ class CDM.BiologicallyDerivedProduct(YAMLRoot):
 
     id: Optional[str] = None
     description: Optional[str] = None
-    type: Optional[str] = None
+    product_type: Optional[str] = None
     passage_number: Optional[Union[str, List[str]]] = empty_list()
     growth_rate: Optional[Union[str, List[str]]] = empty_list()
 
@@ -499,8 +474,8 @@ class CDM.BiologicallyDerivedProduct(YAMLRoot):
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
 
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
+        if self.product_type is not None and not isinstance(self.product_type, str):
+            self.product_type = str(self.product_type)
 
         if self.passage_number is None:
             self.passage_number = []
@@ -852,6 +827,24 @@ class CDM.Exposure(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class CDM.Report(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CCDH["CDM.Report"]
+    class_class_curie: ClassVar[str] = "ccdh:CDM.Report"
+    class_name: ClassVar[str] = "CDM.Report"
+    class_model_uri: ClassVar[URIRef] = CCDH.CDM.Report
+
+    id: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 
 
@@ -937,11 +930,8 @@ slots.cDM.Specimen__general_tissue_morphology = Slot(uri=CCDH.general_tissue_mor
 slots.cDM.Specimen__specific_tissue_morphology = Slot(uri=CCDH.specific_tissue_morphology, name="cDM.Specimen__specific_tissue_morphology", curie=CCDH.curie('specific_tissue_morphology'),
                    model_uri=CCDH['cDM.Specimen__specific_tissue_morphology'], domain=None, range=Optional[str])
 
-slots.cDM.Specimen__morphology_pathologically_confirmed = Slot(uri=CCDH.morphology_pathologically_confirmed, name="cDM.Specimen__morphology_pathologically_confirmed", curie=CCDH.curie('morphology_pathologically_confirmed'),
-                   model_uri=CCDH['cDM.Specimen__morphology_pathologically_confirmed'], domain=None, range=Optional[str])
-
-slots.cDM.Specimen__related_document = Slot(uri=CCDH.related_document, name="cDM.Specimen__related_document", curie=CCDH.curie('related_document'),
-                   model_uri=CCDH['cDM.Specimen__related_document'], domain=None, range=Optional[Union[str, List[str]]])
+slots.cDM.Specimen__related_document?_related_report? = Slot(uri=CCDH['related_document?_related_report?'], name="cDM.Specimen__related_document?_related_report?", curie=CCDH.curie('related_document?_related_report?'),
+                   model_uri=CCDH['cDM.Specimen__related_document?_related_report?'], domain=None, range=Optional[Union[str, List[str]]])
 
 slots.cDM.Specimen__related_specimen = Slot(uri=CCDH.related_specimen, name="cDM.Specimen__related_specimen", curie=CCDH.curie('related_specimen'),
                    model_uri=CCDH['cDM.Specimen__related_specimen'], domain=None, range=Optional[Union[str, List[str]]])
@@ -966,9 +956,6 @@ slots.cDM.Specimen__paired_specimen_genotype_match_flag = Slot(uri=CCDH.paired_s
 
 slots.cDM.Specimen__section_location = Slot(uri=CCDH.section_location, name="cDM.Specimen__section_location", curie=CCDH.curie('section_location'),
                    model_uri=CCDH['cDM.Specimen__section_location'], domain=None, range=Optional[str])
-
-slots.cDM.Report__id = Slot(uri=CCDH.id, name="cDM.Report__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH['cDM.Report__id'], domain=None, range=Optional[Union[str, List[str]]])
 
 slots.cDM.SpecimenCreationActivity__id = Slot(uri=CCDH.id, name="cDM.SpecimenCreationActivity__id", curie=CCDH.curie('id'),
                    model_uri=CCDH['cDM.SpecimenCreationActivity__id'], domain=None, range=Optional[str])
@@ -1054,8 +1041,8 @@ slots.cDM.BiologicallyDerivedProduct__id = Slot(uri=CCDH.id, name="cDM.Biologica
 slots.cDM.BiologicallyDerivedProduct__description = Slot(uri=CCDH.description, name="cDM.BiologicallyDerivedProduct__description", curie=CCDH.curie('description'),
                    model_uri=CCDH['cDM.BiologicallyDerivedProduct__description'], domain=None, range=Optional[str])
 
-slots.cDM.BiologicallyDerivedProduct__type = Slot(uri=CCDH.type, name="cDM.BiologicallyDerivedProduct__type", curie=CCDH.curie('type'),
-                   model_uri=CCDH['cDM.BiologicallyDerivedProduct__type'], domain=None, range=Optional[str])
+slots.cDM.BiologicallyDerivedProduct__product_type = Slot(uri=CCDH.product_type, name="cDM.BiologicallyDerivedProduct__product_type", curie=CCDH.curie('product_type'),
+                   model_uri=CCDH['cDM.BiologicallyDerivedProduct__product_type'], domain=None, range=Optional[str])
 
 slots.cDM.BiologicallyDerivedProduct__passage_number = Slot(uri=CCDH.passage_number, name="cDM.BiologicallyDerivedProduct__passage_number", curie=CCDH.curie('passage_number'),
                    model_uri=CCDH['cDM.BiologicallyDerivedProduct__passage_number'], domain=None, range=Optional[Union[str, List[str]]])
@@ -1197,3 +1184,6 @@ slots.cDM.Exposure__environmental = Slot(uri=CCDH.environmental, name="cDM.Expos
 
 slots.cDM.Exposure__related_patient = Slot(uri=CCDH.related_patient, name="cDM.Exposure__related_patient", curie=CCDH.curie('related_patient'),
                    model_uri=CCDH['cDM.Exposure__related_patient'], domain=None, range=Optional[str])
+
+slots.cDM.Report__id = Slot(uri=CCDH.id, name="cDM.Report__id", curie=CCDH.curie('id'),
+                   model_uri=CCDH['cDM.Report__id'], domain=None, range=Optional[str])

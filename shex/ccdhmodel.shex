@@ -35,7 +35,7 @@ linkml:Nodeidentifier NONLITERAL
 <CDM.BiologicallyDerivedProduct> CLOSED {
     (  $<CDM.BiologicallyDerivedProduct_tes> (  <id> @linkml:String ? ;
           <description> @linkml:String ? ;
-          <type> @linkml:String ? ;
+          <product_type> @linkml:String ? ;
           <passage_number> @linkml:String * ;
           <growth_rate> @linkml:String *
        ) ;
@@ -78,7 +78,7 @@ linkml:Nodeidentifier NONLITERAL
 }
 
 <CDM.Report> CLOSED {
-    (  $<CDM.Report_tes> <id> @linkml:String * ;
+    (  $<CDM.Report_tes> <id> @linkml:String ? ;
        rdf:type [ <CDM.Report> ] ?
     )
 }
@@ -151,8 +151,7 @@ linkml:Nodeidentifier NONLITERAL
           <tissue_composition_measure> @linkml:String * ;
           <general_tissue_morphology> @linkml:String ? ;
           <specific_tissue_morphology> @linkml:String ? ;
-          <morphology_pathologically_confirmed> @linkml:String ? ;
-          <related_document> @linkml:String * ;
+          <related_document?_related_report?> @linkml:String * ;
           <related_specimen> @linkml:String * ;
           <derived_product> @linkml:String * ;
           <qualification_status_flag> @linkml:String ? ;

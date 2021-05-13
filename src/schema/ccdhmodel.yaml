@@ -444,24 +444,8 @@ classes:
         - 'Cardinality: 0..1'
         multivalued: false
         required: false
-      morphology_pathologically_confirmed:
-        name: morphology_pathologically_confirmed
-        description: A flag indicating whether the histologic assessment of specific
-          morphology was confirmed by a pathologist review
-        notes:
-        - 'MHB: Is there a better way to model this, given modeling approches/decisions
-          we have made to date.?'
-        - 'Cardinality: 0..1'
-        comments:
-        - Need to clarify the meaning/significance of this element with GDC/PDC. I
-          think this element pairs with Sample.tumor_code - such that in a FHIR paradigm,
-          these two fields might be grouped together as components in  a composite
-          Observation instance (if we end up using an Observation structure to capture
-          this info)
-        multivalued: false
-        required: false
-      related_document:
-        name: related_document
+      ? "related_document?  \nrelated_report?\n\n"
+      : name: "related_document?  \nrelated_report?\n\n"
         description: A reference to an external document that is about or related
           to the specimen (e.g. a publication related to the study it is a part of,
           pathology report containing additional details about it, protocol describing
@@ -524,7 +508,7 @@ classes:
           allowed for ''specimen_type'' to include things like ''biologically-derived
           product'', or ''cell line''.  Looking at the definition of this field in
           GDC ("Number of passages (splits) between the original tissue and this model."),
-          is suspect the latter is true here.  But note that the mapped GDC fields
+          i suspect the latter is true here.  But note that the mapped GDC fields
           are never populatedin GDC data.'
         - 'Cardinality: 0..m'
         comments:
@@ -638,25 +622,16 @@ classes:
         description: The location in a parent specimen from which a section/portion
           was excised (e.g. top, middle, bottom)
         notes:
-        - 'MHB: Consider if this should be attached to the creation/derivation activity,
-          not the specimen itself.  (We could do this if a creation/derivation activity
-          is scoped to creating a single specimen) Is analogous to the anatomical
-          collection site for original samples. '
+        - "MHB: Consider if this should be attached to the creation/derivation activity,\
+          \ not the specimen itself.  (We could do this if a creation/derivation activity\
+          \ is scoped to creating a single specimen) Is analogous to the anatomical\
+          \ collection site for original samples. \n\nNote also that i dont think\
+          \ this is an enumerated field in the GDC model . . .but it likely should\
+          \ be?"
         - 'Cardinality: 0..1'
         comments:
-        - This attribute applies only to Speciens that are of type 'portion' or 'slide'.
+        - This attribute applies only to Specmiens that are of type 'portion' or 'slide'.
         multivalued: false
-        required: false
-  CDM.Report:
-    name: CDM.Report
-    notes:
-    - Derived from [CDM.Report in sheet Report](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603
-    attributes:
-      id:
-        name: id
-        multivalued: true
         required: false
   CDM.SpecimenCreationActivity:
     name: CDM.SpecimenCreationActivity
@@ -689,9 +664,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 0..1'
         comments:
@@ -719,8 +695,12 @@ classes:
         description: "The date when the activity began (in this case, a specimen creation\
           \ event). \n"
         notes:
-        - 'MHB: Cnsider naming simple ''start'' and ''end'' or ''started'' and ;ended''
-          - as the data type here is a dateTIme, not a date. '
+        - 'MHB: Consider naming simple ''start'' and ''end'' or ''started'' and ''ended''
+          - as the data type here is a dateTIme, not a date.
+
+          MHB: Consider using the compelx Timepoint data type we discussed here.  And
+          consider if we might expand the idea of a Timepoint to capture a range of
+          time? (e.g call it TImeSpan) '
         - 'Cardinality: 0..1'
         comments:
         - For our purposes, dates can be expressed explicitly as a single date  (e.g.
@@ -744,7 +724,10 @@ classes:
         notes:
         - 'MHB: consider use of role-based classes like in BRIDG (e.g. Performer)
           - which represent the person/organization in a particular agent role, separately
-          form the underlying, context-independent  person/organization.'
+          form the underlying, context-independent  person/organization.
+
+          MHB: No source node attribute that captures this - leave out of model, even
+          though it seems of fundamental importance more generally?'
         - 'Cardinality: 0..1'
         multivalued: false
         required: false
@@ -939,9 +922,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 0..1'
         multivalued: false
@@ -968,9 +952,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - '  '
         - 'Cardinality: 0..1'
@@ -1075,9 +1060,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 0..1'
         multivalued: false
@@ -1090,8 +1076,8 @@ classes:
         - 'Cardinality: 0..1'
         multivalued: false
         required: false
-      type:
-        name: type
+      product_type:
+        name: product_type
         description: The high level type of model system (e.g. cell line, cell culture,
           tissue culture, organoid)
         notes:
@@ -1121,9 +1107,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Mappings:
 
@@ -1189,9 +1176,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 1..1'
         multivalued: false
@@ -1372,9 +1360,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 0..1'
         comments:
@@ -1529,9 +1518,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 1..1'
         multivalued: false
@@ -1589,9 +1579,10 @@ classes:
     attributes:
       id:
         name: id
-        description: The 'logical' identifier of the entity in the system of record,
-          e.g. a UUID.  This 'id' is unique within a given system. The identified
-          entity may have a different 'id' in a different system.
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 1..1'
         multivalued: false
@@ -1693,6 +1684,23 @@ classes:
       related_patient:
         name: related_patient
         description: A reference to the Patient that is the subject of this Exposure
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+  CDM.Report:
+    name: CDM.Report
+    notes:
+    - Derived from [CDM.Report in sheet Report](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)
+    see_also:
+    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
         notes:
         - 'Cardinality: 0..1'
         multivalued: false
