@@ -345,7 +345,7 @@
                "type": "string"
             },
             "cellular_composition_measure": {
-               "description": "An observation that quantifies the realative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.",
+               "description": "An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.",
                "items": {
                   "type": "string"
                },

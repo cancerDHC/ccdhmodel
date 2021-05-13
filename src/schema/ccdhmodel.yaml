@@ -20,8 +20,6 @@ classes:
     - Derived from [CDM.Specimen in sheet Specimen](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281)
     comments:
     - Definition adapted from FHIR.Specimen.
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281
     attributes:
       id:
         name: id
@@ -393,7 +391,7 @@ classes:
         required: false
       cellular_composition_measure:
         name: cellular_composition_measure
-        description: An observation that quantifies the realative or absolute composition
+        description: An observation that quantifies the relative or absolute composition
           of a specimen at cellular level, - i.e. how many cells in the specimen are
           of a given type, or exhibit a particular cellular phenotype. This information
           is typically determined through microscopic analysis of a slide.
@@ -659,8 +657,6 @@ classes:
       \ concrete SpecimenCreationActivity class.  Later we can split the two classes\
       \ into SpecimenCollection and SpecimenDerivation - if we decide to go this route. "
     - Derived from [CDM.SpecimenCreationActivity in sheet SpecimenCreation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130
     attributes:
       id:
         name: id
@@ -871,8 +867,6 @@ classes:
     name: CDM.SpecimenProcessingActivity
     notes:
     - Derived from [CDM.SpecimenProcessingActivity in sheet SpecimenTransport](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096
     attributes:
       duration:
         name: duration
@@ -917,8 +911,6 @@ classes:
       to the  FHIR.Specimen.container, and the HL7 Biospecimen DAM model of containers,
       for inspiration.'
     - Derived from [CDM.SpecimenStorageActivity in sheet SpecimenContainer](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697
     attributes:
       id:
         name: id
@@ -947,8 +939,6 @@ classes:
       of "processing" to allow coverage of transport, so we can collapse this class
       into SpecimenProcessingActivity.                '
     - Derived from [CDM.SpecimenTransportActivity in sheet SpecimenTransport](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096
     attributes:
       id:
         name: id
@@ -1002,8 +992,6 @@ classes:
     name: CDM.SpecimenContainer
     notes:
     - Derived from [CDM.SpecimenContainer in sheet SpecimenContainer](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697
     attributes:
       container_type:
         name: container_type
@@ -1055,8 +1043,6 @@ classes:
       \ is a simple placeholder class with a few basic fields that will be fleshed\
       \ out if/when the need arises."
     - Derived from [CDM.BiologicallyDerivedProduct in sheet BiologicProduct](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080
     attributes:
       id:
         name: id
@@ -1102,8 +1088,6 @@ classes:
       or animal receiving care or other health-related services.
     notes:
     - Derived from [CDM.Patient in sheet Patient](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379
     attributes:
       id:
         name: id
@@ -1171,8 +1155,6 @@ classes:
 
       BRIDG: Subject'
     - Derived from [CDM.ResearchSubject in sheet ResearchSubject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=665511119)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=665511119
     attributes:
       id:
         name: id
@@ -1355,8 +1337,6 @@ classes:
       \nMHB: Meant to cover just GDC/PDC/ICDC.Program and GDC/PDC.Project, correct?\
       \ Not PDC.Study or ICDC.Study."
     - Derived from [CDM.ResearchProject in sheet ResearchProject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1123416579)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1123416579
     attributes:
       id:
         name: id
@@ -1513,8 +1493,6 @@ classes:
     - "Mappings: \nADM: Center, TissueSourceSite, StudySite (all are defined as types\
       \ of organization)\nFHIR:Organization\nBRIDG:Organization\n"
     - Derived from [CDM.Organization in sheet Organization](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710
     attributes:
       id:
         name: id
@@ -1574,8 +1552,6 @@ classes:
 
       ADM:Exposure'
     - Derived from [CDM.Exposure in sheet Exposure](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931
     attributes:
       id:
         name: id
@@ -1692,8 +1668,6 @@ classes:
     name: CDM.Report
     notes:
     - Derived from [CDM.Report in sheet Report](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)
-    see_also:
-    - https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603
     attributes:
       id:
         name: id
