@@ -1,0 +1,4 @@
+# Google API credentials
+google_api_credentials.json
+sheets.googleapis.com-python.json
+token.pickle

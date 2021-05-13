@@ -8,3 +8,4 @@ verify_ssl = true
 pydantic = {extras = ["dotenv"], version = "*"}
 pygsheets = "*"
 linkml = {editable = true, git = "https://github.com/linkml/linkml.git"}
+black = "==v21.5b1"
