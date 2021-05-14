@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: CDM.Specimen - {{schema.description}}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: CDM.Specimen";
+    var mkdocs_page_input_path = "CDM.Specimen.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> {{schema.description}}</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">{{schema.description}}</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: CDM.Specimen</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-cdmspecimen">Class: CDM.Specimen</h1>
+<p>Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.</p>
+<p>URI: <a href="https://example.org/ccdh/CDM.Specimen">ccdh:CDM.Specimen</a></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[CDM.Specimen&#124;id:string%20%3F;identifier:string%20*;description:string%20%3F;specimen_type:string%20%3F;analyte_type:string%20%3F;associated_project:string%20%3F;provided_by:string%20%3F;source_material_type:string%20%3F;parent_specimen:string%20*;source_patient:string%20%3F;source_model_system:string%20%3F;condition_status_at_collection:string%20%3F;related_diagnosis:string%20*;creation_activity:string%20%3F;processing_activity:string%20*;storage_activity:string%20%3F;transport_activity:string%20%3F;contained_in:string%20%3F;dimensional_measure:string%20%3F;quantity_measure:string%20*;quality_measure:string%20*;cellular_composition_type:string%20%3F;cellular_composition_measure:string%20*;tissue_composition_measure:string%20*;general_tissue_morphology:string%20%3F;specific_tissue_morphology:string%20%3F;related_document%3F_related_report%3F:string%20*;related_specimen:string%20*;derived_product:string%20*;qualification_status_flag:string%20%3F;reference_status_flag:string%20%3F;matched_normal_flag:string%20*;selected_normal_flag:string%20%3F;paired_specimen_genotype_match_flag:string%20%3F;section_location:string%20%3F]" /></p>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../cDM.Specimen__analyte_type/">➞analyte_type</a>  <sub>OPT</sub><ul>
+<li>Description: For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__associated_project/">➞associated_project</a>  <sub>OPT</sub><ul>
+<li>Description: The Project associated with the specimen.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__cellular_composition_measure/">➞cellular_composition_measure</a>  <sub>0..*</sub><ul>
+<li>Description: An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__cellular_composition_type/">➞cellular_composition_type</a>  <sub>OPT</sub><ul>
+<li>Description: A term describing the type of material comprising a specimen at a celluar level.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__condition_status_at_collection/">➞condition_status_at_collection</a>  <sub>OPT</sub><ul>
+<li>Description: The status of a patient's condition at the time the speimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__contained_in/">➞contained_in</a>  <sub>OPT</sub><ul>
+<li>Description: A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate) </li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__creation_activity/">➞creation_activity</a>  <sub>OPT</sub><ul>
+<li>Description: An activity or procedure through which a specimen was created, through removing material from an biological subject, or deriving material from an existing specimen.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__derived_product/">➞derived_product</a>  <sub>0..*</sub><ul>
+<li>Description: A 'living' biologically active product (e.g. a cell culture, tissue culture, or organoid) that was generated from the specimen</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__description/">➞description</a>  <sub>OPT</sub><ul>
+<li>Description: A free text field to capture additional information or explanation about the specimen.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li>
+<p><a href="../cDM.Specimen__dimensional_measure/">➞dimensional_measure</a>  <sub>OPT</sub></p>
+<ul>
+<li>
+<p>Description: An observation about the dimensions of an object, including lengths, areas, and volumes.</p>
+</li>
+<li>
+<p>range: <a href="../types/String/">String</a></p>
+</li>
+<li><a href="../cDM.Specimen__general_tissue_morphology/">➞general_tissue_morphology</a>  <sub>OPT</sub></li>
+<li>
+<p>Description: A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent). </p>
+</li>
+<li>
+<p>range: <a href="../types/String/">String</a></p>
+</li>
+<li><a href="../cDM.Specimen__id/">➞id</a>  <sub>OPT</sub></li>
+<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. </li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__identifier/">➞identifier</a>  <sub>0..*</sub></li>
+<li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__matched_normal_flag/">➞matched_normal_flag</a>  <sub>0..*</sub></li>
+<li>Description: A flag indicating that there is no matched normal aliquot for this case that can be used for variant calling purposes.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__paired_specimen_genotype_match_flag/">➞paired_specimen_genotype_match_flag</a>  <sub>OPT</sub></li>
+<li>Description: A flag to indicate whether the genotype of the paired normal or tumor specimen matches, or if the data is not available.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__parent_specimen/">➞parent_specimen</a>  <sub>0..*</sub></li>
+<li>Description: An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__processing_activity/">➞processing_activity</a>  <sub>0..*</sub></li>
+<li>Description: An activity that modifies the physical structure, composition, or state of a specimen.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__provided_by/">➞provided_by</a>  <sub>OPT</sub></li>
+<li>Description: The organization/center that provided the specimen.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__qualification_status_flag/">➞qualification_status_flag</a>  <sub>OPT</sub></li>
+<li>Description: A flag indicating whether the specimen is qualified or disqualified for data analysis in a study.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__quality_measure/">➞quality_measure</a>  <sub>0..*</sub></li>
+<li>Description: An observation about  specimen characteristics indicative of its quality or suitability for use.</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__quantity_measure/">➞quantity_measure
+</a>  <sub>0..*</sub></li>
+<li>Description: An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration. </li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__reference_status_flag/">➞reference_status_flag</a>  <sub>OPT</sub></li>
+<li>Description: A flag indicating whether the specimen is used as a reference during analytical interrogation</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li><a href="../cDM.Specimen__related_diagnosis/">➞related_diagnosis</a>  <sub>0..*</sub></li>
+<li>Description: A patient diagnosis that was informed by a pathological assessment of the specimen</li>
+<li>range: <a href="../types/String/">String</a></li>
+<li>[➞related_document?<br />
+related_report?</li>
+</ul>
+</li>
+</ul>
+<p>](cDM.Specimen__related_document?_related_report?.md)  <sub>0..<em></sub>
+     * Description: A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected, or a catalog entry describing  related research resource)
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__related_specimen/">➞related_specimen</a>  <sub>0..</em></sub>
+     * Description: Another specimen to which this one is related in some way (excluding parent-child / derivation relationships, which are captured using the dedicated the source_specimen field)
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__section_location/">➞section_location</a>  <sub>OPT</sub>
+     * Description: The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__selected_normal_flag/">➞selected_normal_flag</a>  <sub>OPT</sub>
+     * Description: A flag to denote which 'normal' aliquot the submitter prefers to use for variant calling. Only one normal per experimental strategy per case can be selected.
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__source_material_type/">➞source_material_type</a>  <sub>OPT</sub>
+     * Description: The general kind of material from which the specimen was derived, based on the physical nature of the source material. 
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__source_model_system/">➞source_model_system</a>  <sub>OPT</sub>
+     * Description: A Biologically Derived Material / model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__source_patient/">➞source_patient</a>  <sub>OPT</sub>
+     * Description: A Patient from which the specimen was directly or indirectly derived.
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a>  <sub>OPT</sub>
+     * Description: A term describing the specific pathology exhibited by the tissue in a specimen.
+     * range: <a href="../types/String/">String</a>
+ * <a href="../cDM.Specimen__specimen_type/">➞specimen_type</a>  <sub>OPT</sub>
+     * Description: The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</p>
+<pre><code> * range: [String](types/String.md)
+</code></pre>
+<ul>
+<li><a href="../cDM.Specimen__storage_activity/">➞storage_activity</a>  <sub>OPT</sub><ul>
+<li>Description: An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__tissue_composition_measure/">➞tissue_composition_measure</a>  <sub>0..*</sub><ul>
+<li>Description: An observation about the absolute area or relative proportion of a specific type of tissue in a specimen or other biological material</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../cDM.Specimen__transport_activity/">➞transport_activity</a>  <sub>OPT</sub><ul>
+<li>Description: An activity through which the specimen is transported between locations.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>Definition adapted from FHIR.Specimen.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
