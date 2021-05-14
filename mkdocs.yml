@@ -1,4 +1,4 @@
-site_name: "{{schema.description}}"
+site_name: "CRDC-H Model in LinkML documentation"
 theme: readthedocs
 nav:
   - Home: home.md
