@@ -25,10 +25,33 @@ This will generate files in:
 
 Do **not** git add the files in docs
 
-Once the files are generated, run
+## Using mike to maintain multiple versions
 
-```bash
-make gh-deploy
+We use [mike](https://github.com/jimporter/mike) to maintain multiple
+versions of our documentation on the website. We currently refer to
+each version as e.g. `v0.2`. Please create Git tags to keep track of
+which version of the source code the documentation was generated from.
+
+To deploy a new version, you have to prepare the `docs/` directory
+with the new documentation in Markdown. Usually, the steps described
+above can be used to do this. However, if the `docs/` directory was not
+created and populated correctly, you can run:
+
+```
+$ make clean      # This will delete the `docs/` directory. 
+$ make gen-docs	  # This will generate the docs in `target/docs`.
+$ make stage-docs # This will copy `target/docs` into `docs/`.
 ```
 
-Your documentation will be available from a URL https://my_org_or_name.github.io/my_schema/
+Once the documentation has been generated in `docs/`, use mike to 
+publish a new version:
+
+```
+$ pip install mike # Only needed the first time.
+$ mike deploy v0.2 latest -p
+```
+
+Note that the `-p` option causes mike to push the documentation to
+the `gh-pages` branch immediately. `latest` is the alias we use to
+indicate that a particular version should be considered the latest
+(and therefore the default).
