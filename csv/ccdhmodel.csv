@@ -1,0 +1,18 @@
+id,mappings,description
+CDM.BiologicallyDerivedProduct,,"A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."
+CDM.Exposure,,"Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance."
+CDM.Organization,,"A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university"
+CDM.Patient,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+CDM.Report,,
+CDM.ResearchProject,,"A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
+This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
+and investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects."
+CDM.ResearchSubject,,"A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
+or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy."
+CDM.Specimen,,"Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation."
+CDM.SpecimenContainer,,
+CDM.SpecimenCreationActivity,,"The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported."
+CDM.SpecimenProcessingActivity,,
+CDM.SpecimenStorageActivity,,A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)
+CDM.SpecimenTransportActivity,,An activity through which a specimen is transported between locations.
+

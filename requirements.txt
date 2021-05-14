@@ -1,0 +1,2 @@
+linkml >= 0.0.6
+mkdocs

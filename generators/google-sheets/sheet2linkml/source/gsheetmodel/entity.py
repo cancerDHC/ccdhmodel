@@ -131,7 +131,6 @@ class Entity(ModelElement):
         # Basic metadata
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
-            see_also=self.worksheet.url,
             description=self.entity_row.get("Description"),
             comments=self.entity_row.get("Comments"),
             notes=self.entity_row.get("Developer Notes"),

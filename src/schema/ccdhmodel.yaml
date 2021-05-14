@@ -1,0 +1,1681 @@
+name: CRDC-H
+notes:
+- derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)
+id: https://example.org/ccdh
+version: v0
+imports:
+- linkml:types
+license: https://creativecommons.org/publicdomain/zero/1.0/
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ccdh: https://example.org/ccdh/
+default_prefix: ccdh
+classes:
+  CDM.Specimen:
+    name: CDM.Specimen
+    description: 'Any material taken as a sample from a biological entity (living
+      or dead), or from a physical object or the environment. Specimens are usually
+      collected as an example of their kind, often for use in some investigation. '
+    notes:
+    - Derived from [CDM.Specimen in sheet Specimen](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281)
+    comments:
+    - Definition adapted from FHIR.Specimen.
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 0..1'
+        comments:
+        - 'FHIR naming conventions are followed here, where ''id'' is used for logical
+          identifiers, and ''identifier'' for business identifiers. '
+        multivalued: false
+        required: false
+      identifier:
+        name: identifier
+        description: A 'business' identifier  or accession number for the entity,
+          typically as provided by an external system or authority, that us globally
+          unique and persists across implementing systems.
+        notes:
+        - 'MHB: Thoughts on whether I accurately summarized the relevant aspects of
+          FHIR identifier fields/data types, and whether it is prudent for us to propose
+          adopting these at this point?  Happy to take a different direction if others
+          feel strongly, or consider alternate names for these attributes (e.g. ''internal_id''
+          vs  ''external_id'')
+
+
+          BTF: well, i find ''id'' and ''identifier'' difficult to distinguish without
+          knowing the FHIR definitions of these.  certainly ''internal_id'' or ''logical_id''
+          and ''external_id'' or ''business_id'' make a clearer distinction between
+          the meaning of these fields.  that said, i am fine sticking with FHIR-aligned
+          attributes here unless others object
+
+
+          SE: the "id" is really implementation dependent thing. In REST/FHIR it''s
+          the resoruce identifier, in Java there is no such thing since it''s a memory
+          location, etc.  So, if it''s adds confusion just leave it out and focus
+          on the business "identifier" modeling'
+        - 'Cardinality: 0..m'
+        comments:
+        - '
+
+          FHIR naming conventions are followed here, where ''id'' is used for logical
+          identifiers, and ''identifier'' for business identifiers.  The complex ''Identifier''
+          data type is used  to capture the identifier itself, along with metadata
+          about the source of the business identifier.  Typically, identifiers are
+          used to connect content in resources to external content available in other
+          frameworks or protocols.'
+        multivalued: true
+        required: false
+      description:
+        name: description
+        description: A free text field to capture additional information or explanation
+          about the specimen.
+        notes:
+        - 'FHIR provides a ''description'' field on many resources (e.g. BodyStructure),
+          that takes a string.  But it is not offered on Specimen for some reason).
+          Instead, Specimen has a note field that takes a complex Annotation data
+          type, that allows you to capture by whom and when the comment was made.
+
+          '
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      specimen_type:
+        name: specimen_type
+        description: 'The high-level type of the specimen, based on its derivation
+          provenance (i.e. how far removed it is from the original sample extracted
+          from a source).
+
+          '
+        notes:
+        - "MHB: Should we include 'pool'? A 'pool' can be created by pooling any of\
+          \ the other categories of samples (e.g. analytes, aliquots, original). If\
+          \ multiple aliquots are pooled, the specimen ceases to be an aliquot.  But\
+          \ we do want to maintain that it is a pool of aliquots, for example.  Lots\
+          \ of ways we might do this (enumerated in comment on this cell).\nSE: let's\
+          \ just say this is an \"extensible\" valueset that contains the clearly\
+          \ needed ones for now. If the data needs an entry in this set for one reason\
+          \ or another we'll add one. For now let's just stick with the codes that\
+          \ stand for the differnt \"types\" in the nodes. The \"pool\" aspect was\
+          \ only recognized in fields, not types.\nMHB: wait to see data here, and\
+          \ talk with nodes - then make a decision. \n\n"
+        - 'Cardinality: 0..1'
+        comments:
+        - Our model definies a single 'Specimen' type to cover speific subtypes of
+          specimens delineated in some CRDC node models (e.g. GDC 'Sample', 'Portion',
+          'Aliquot', 'Analyte', and 'Slide'). The 'specimen_type' field is used to
+          indicate which subtype a given Specimen instance represents.  The enumerated
+          values are meant to be mutually exclusive, such that only one can be applied
+          to a given specimen.
+        multivalued: false
+        required: false
+      analyte_type:
+        name: analyte_type
+        description: For speciemens of type 'analyte' (or an 'aliquot' derived from
+          an analyte), this is the category of chemcial the analyte of interest represents
+          (e.g. DNA, RNA)
+        notes:
+        - "MHB: Consider if/how we might collapse this into the more generic 'specimen_type'\
+          \ attribute. This is a fundamentally different axis of classification -\
+          \ and specific to analytes, but we could collapse if we include values like\
+          \ 'aliquot-DNA' in the 'specimen_type' value set. \n\nSE: +1 to collapsing\
+          \ and the valueset and profiles help with this. Profiles allow for binding\
+          \ of differnt valusets based on the intended use of the profile.\n\nMHB:\
+          \ Terminologies team is also thinking about this issue ot pre- vs post-composed\
+          \ attributes / values. Where did they end up on this? Pre-compose but logically\
+          \ define in teh source ontology?"
+        - 'Cardinality: 0..1'
+        comments:
+        - This attribute is to be used with Specimens of type 'analyte' or 'aliquot'
+          (specifically, aliquots that were derived from analytes).
+        multivalued: false
+        required: false
+      associated_project:
+        name: associated_project
+        description: The Project associated with the specimen.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      provided_by:
+        name: provided_by
+        description: The organization/center that provided the specimen.
+        notes:
+        - 'MHB: This mapping raises a general modeling question about how specific
+          we want be w.r.t. attribute semantics. Here we could define a very specific
+          property such as ''specimen_source_center'' that can be used only to link
+          a Specimen to a Center that provided it.  But we chose a more generic proeprty
+          ''provided_by'' that might be used in other settings to link any resource
+          to an Agent/Org that provided it.  Is there a general guiding principle
+          we can define when faced with such decisions about the specificity of attribute
+          semantics?'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      source_material_type:
+        name: source_material_type
+        description: 'The general kind of material from which the specimen was derived,
+          based on the physical nature of the source material. '
+        notes:
+        - 'MHB: Alt, call this attribute specimen_type, and define it as "the type
+          of specimen, based on the general kind of source material from which it
+          was derived." From ICDC: "ICDC uses the sample-level property of sample_type
+          to capture the physical nature of the sample in question - for example a
+          tissue sample vs. a tumor aspirate vs. a blood sample. We will probably
+          deliberately change sample_type to physical_sample_type to clarify this."
+
+
+          SE: for later consideration, if there are enough properties about the source
+          of a specimen, we should probably consider modeling a "Source" entity, which
+          can just be an instance of "BiologicalEntity" with properties but there.
+          For FHIR, this could be BodyStructure, Substance, etc. (MHB: we do this
+          in the SpecimenCreation entity).
+
+
+          Based on conversations with nodes, it seems that values for this field is
+          an area that needs to be cleaned up/refactored, and should be coordinated
+          across nodes as well. '
+        - 'Cardinality: 0..1'
+        comments:
+        - Values captured here may describe the type of molecular mixture, cell, tissue,
+          organ, body fluid, embryo, excretory substance, or experimental system from
+          which a specimen was derived.
+        multivalued: false
+        required: false
+      parent_specimen:
+        name: parent_specimen
+        description: An existing specimen from which the specimen of interest was
+          directly derived (i.e its immediate parent specimen).
+        notes:
+        - 'MAK: for derived_from_analyte use Specimen --parent--> Specimen[analyte]
+
+          MHB: Consider renaming to make intended use of this field clearer (i.e.
+          direct parent only)?  e.g. ''parent_specimen'', or  ''direct_parent_specimen''.  See
+          Comments in column K.
+
+
+          Discussed value in keeping name more general, so this field can be more
+          easily intuited and re-used, at the cost of less precise semantics. Decided
+          to keep a more precise name, and revisit decision if we get pushback from
+          users/developers.'
+        - 'Cardinality: 0..m'
+        comments:
+        - This property indicates only the direct parent specimen(s).  Cardinality
+          is 0..m to account for specimens derived from pooling of mulitple speciens.
+        multivalued: true
+        required: false
+      source_patient:
+        name: source_patient
+        description: A Patient from which the specimen was directly or indirectly
+          derived.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      source_model_system:
+        name: source_model_system
+        description: A Biologically Derived Material / model system (e.g. a cell line,
+          tissue culture, organoid) from which a specimen was directly or indirectly
+          derived.
+        notes:
+        - 'MHB: Return to this when there is data / requirements to support it'
+        - 'Cardinality: 0..1'
+        comments:
+        - While the 'model systems' referenced here originated as specimens extracted
+          from some source biological entity, they themselves are no longer specimens
+          - as they have been propagated as independent, metaboloically active 'living'
+          systems. However, specimens may be derived from these model systems for
+          resarch purpsoes.
+        multivalued: false
+        required: false
+      condition_status_at_collection:
+        name: condition_status_at_collection
+        description: The status of a patient's condition at the time the speimen was
+          collected (e.g. if it was primary, recurrent, metastatic, etc).
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      related_diagnosis:
+        name: related_diagnosis
+        description: A patient diagnosis that was informed by a pathological assessment
+          of the specimen
+        notes:
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      creation_activity:
+        name: creation_activity
+        description: An activity or procedure through which a specimen was created,
+          through removing material from an biological subject, or deriving material
+          from an existing specimen.
+        notes:
+        - 'MHB: for v1, leave single creationActivity field here, and keep a single
+          concrete SpecimenCreationActivity class.  Later we can split the two classes
+          into SpecimenCollection and SpecimenDerivation - if we decide to go this
+          route. '
+        - 'Cardinality: 0..1'
+        comments:
+        - Note that a given specimen is the result of only one and only one SpecimenCreationActivity,
+          but may be subject to many processing events that modify or derive new speciemns
+          from it.
+        multivalued: false
+        required: false
+      processing_activity:
+        name: processing_activity
+        description: An activity that modifies the physical structure, composition,
+          or state of a specimen.
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - 'Note that if a given specimen may undergo more than one distinct processing
+          activity, via the application of different methodologies that modify its
+          physical state. However, activities that generate new specimens (e.g. portioning,
+          slicing) are considered SpeciemnCreationActivities, not SpecimenProcessingActivities. '
+        multivalued: true
+        required: false
+      storage_activity:
+        name: storage_activity
+        description: An activity that results in the storage or maintenance of a specimen
+          in a particular location, container, or state.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      transport_activity:
+        name: transport_activity
+        description: An activity through which the specimen is transported between
+          locations.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      contained_in:
+        name: contained_in
+        description: 'A physical container in which a specimen is held or attached
+          -  as storage for future use,  a substrate for growth (e.g. a cell culture
+          dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well
+          plate) '
+        notes:
+        - 'MHB: There are only a few properties in the ADM related to containment.
+          Creating a SpecimenContainer class to hold these for now. We can always
+          flatten/denormalize later if we decide this is not warranted/useful.
+
+
+          MAK: Analyte.well_number was "Deferred" but comments suggest the same "container"
+          mapping as Sample.collection_media.'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      dimensional_measure:
+        name: dimensional_measure
+        description: 'An observation about the dimensions of an object, including
+          lengths, areas, and volumes.
+
+          '
+        notes:
+        - "MHB: re: naming of this property - I tried to keep attribute names generic\
+          \ so the same property might be applied to other entities with dimensional\
+          \ measurements. Alt, we could name properties more specifically, e.g. 'specimen_dimensions'\
+          \ here.\n\nMHB: I lumped 'surface_area' into this container, as it is derived\
+          \ from length measurements, and likely performed using the same methods\
+          \ and at the same time as these lengths.  Thoughts?  Can always split this\
+          \ back out. \n\nMHB: The cardinality here is 0..1 because the DimensionalMeasure\
+          \ would be created as a \"composite\" observation  - which uses the 'Observation.component'\
+          \ field to group several related atomic observations together into one Observation\
+          \ object.   "
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      ? 'quantity_measure
+
+        '
+      : name: 'quantity_measure
+
+          '
+        description: 'An observation related to the current quantity of a specimen
+          or analyte it contains - e.g. its weight, volume, or concentration. '
+        notes:
+        - 'MHB: Would this model allow us to declare the volume of an analyte solution,
+          and the concentration of the analyte it contains? I think yes - we would
+          create two QuantityMeasure objects - one of type "volume" and one of type
+          "analyte_concentration"'
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      quality_measure:
+        name: quality_measure
+        description: An observation about  specimen characteristics indicative of
+          its quality or suitability for use.
+        notes:
+        - "As for all 'DataContainer' objects, we are not yet committing to what type\
+          \ of structure the 'Container' will be here.  It may be may be a complex\
+          \ data type, a nested backbone element, or a FHIR Observation-like object.\
+          \ Our final decision in if and how to encapsulate these ADM properties will\
+          \ depend on additional requirements we collect as work proceeds, and also\
+          \ on the modeling framework we use for our implemented logical model. \n\
+          \nMHB: I proposed this as a \"simple \" observation only for the sake of\
+          \ providing an example of a \"simple\" Container object. It may be that\
+          \ this is better suited to be a \"composite\" Observation/Container. \n\n\
+          MHB: For now I lumped 'analyte_concentration' in here, but this may be split\
+          \ out.  One reason I did this is that it lets us wrap the 'spectrophotometer_method'\
+          \ property, used to capture the method used to determine concentration,\
+          \ in with the quality measure data. But as noted in the comment above, it\
+          \ could make sense to capture this in with a  general 'quantity' attribute. "
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      cellular_composition_type:
+        name: cellular_composition_type
+        description: A term describing the type of material comprising a specimen
+          at a celluar level.
+        notes:
+        - "Note that there is a diverse range of values in the data in GDC and PDC\
+          \ here.  These nodes indicated that they would likely refactor this property\
+          \ and consider if/how to merge with GDC.sample_type (see above).\n\nMHB:\
+          \ consider relationship to  cellular_composition_measure . . . they are\
+          \ named the same, but are fundamentally different in that this field is\
+          \ more closely aligned with source material  / sample_type. It is not about\
+          \ the propostional/relative make up of the specimen at a cellular level.\
+          \  It is about the overall cell type/source material.   Consider calling\
+          \ this cellular_type or cellular_source_matieral so as not to confuse with\
+          \ compositional fields.  \n\nMHB: keep in mind that this will likely be\
+          \ deprecated / collapsed into source_material/sample_type in the future.\
+          \ AI to sync up with GDC and PDC if/when this happens"
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      cellular_composition_measure:
+        name: cellular_composition_measure
+        description: An observation that quantifies the relative or absolute composition
+          of a specimen at cellular level, - i.e. how many cells in the specimen are
+          of a given type, or exhibit a particular cellular phenotype. This information
+          is typically determined through microscopic analysis of a slide.
+        notes:
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      tissue_composition_measure:
+        name: tissue_composition_measure
+        description: An observation about the absolute area or relative proportion
+          of a specific type of tissue in a specimen or other biological material
+        notes:
+        - "As for all 'DataContainer' objects, we are not yet committing to what type\
+          \ of structure the 'Container' will be here.  It may be may be a complex\
+          \ data type, a nested backbone element, or a FHIR Observation-like object.\
+          \ Our final decision in if and how to encapsulate these ADM properties will\
+          \ depend on additional requirements we collect as work proceeds, and also\
+          \ on the modeling framework we use for our implemented logical model. \n"
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      general_tissue_morphology:
+        name: general_tissue_morphology
+        description: "A term describing at a high-level the kind of tissue collected\
+          \ in a specimen, with respect to disease status or proximity to tumor tissue\
+          \ (e.g. is it normal, abnormal, tumor, tumor-adjacent). \n"
+        notes:
+        - "MHB: Consider collapsing general and specific tissue morphlogy?  codeable\
+          \ concepts lets us have multiple codings, at general and specific levels\
+          \ - as long as they don\u2019t contradict.  can capture all parents of most\
+          \ specific code. maybe call it just 'tissue morphology'."
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      specific_tissue_morphology:
+        name: specific_tissue_morphology
+        description: A term describing the specific pathology exhibited by the tissue
+          in a specimen.
+        notes:
+        - 'MHB: Cannot map two HTAN properties to this single CDM property given its
+          0..1 cardinality.  Will the harmonized value set handle this (i.e.  nest
+          pre-invasive terms under general morphlogy codes?).  Or do we need a separate
+          field (specific_preinvasive_tissue_morphology?)? Discuss with Dazhi/terminologies
+          team?
+
+
+          For Phase 2 we will collapse these fields.  Revisit in Phase 3.'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      ? "related_document?  \nrelated_report?\n\n"
+      : name: "related_document?  \nrelated_report?\n\n"
+        description: A reference to an external document that is about or related
+          to the specimen (e.g. a publication related to the study it is a part of,
+          pathology report containing additional details about it, protocol describing
+          how it was collected, or a catalog entry describing  related research resource)
+        notes:
+        - 'MHB: Proposing a single property to capture several types of related resources
+          linked to a Sample in the ADM. ''RelatedArtifact'' is a complex data type
+          patterned after the FHIR ''RelatedArtifact'' metadata type (https://www.hl7.org/fhir/metadatatypes.html#relatedartifact)
+          - which allows you to indicate the type of related artifact, a label, description,
+          and url.  If we want to restrict this to related documents, we can consider
+          the field name "related_document", and a DocumentReference data type (based
+          on the FHIR DocumentReference data type: https://www.hl7.org/fhir/documentreference.html),
+          which provides similar features as RelatedArtifact)
+
+          '
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      related_specimen:
+        name: related_specimen
+        description: Another specimen to which this one is related in some way (excluding
+          parent-child / derivation relationships, which are captured using the dedicated
+          the source_specimen field)
+        notes:
+        - 'There are a handful of ADM properties that represent a link to another
+          specimen instance related in some way.  Sometimes the relationship is specified
+          (e.g. HTAN.adjacent_biospecimen), and other times the property does not
+          (e.g. ICDC.next). The notion of a ''Relationship'' data type used here is
+          a place holder for defining some generic, flexible object that can be used
+          to describe a relationship between two entity instances.  Minimally the
+          type of relationship, but perhaps also allow for additional details like
+          dates, roles, etc.
+
+
+          BRIDG has a host of ''Relationship'' classes for this sort of thing.  Guessing
+          that FHIR has some way to support this?
+
+
+          Or, consider representing this as an Observation?
+
+
+          Or, if we dont anticipate a need for a generalized ''Relationship'' element
+          to accommodate additional types of relationships, just create a named field
+          for each of the couple use cases we have for now.'
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      derived_product:
+        name: derived_product
+        description: A 'living' biologically active product (e.g. a cell culture,
+          tissue culture, or organoid) that was generated from the specimen
+        notes:
+        - 'MHB: This mapping assumes that what the source models aim to represent
+          is the fact that a specimen was used as a source of material from which
+          to derive a cell line, and nodes want to be able to describe attributes
+          of this derived cell line.
+
+          Alternatively the intent here could be to capture the fact that the specimen
+          is a derivd cell line, in which case we might consider expanding the values
+          allowed for ''specimen_type'' to include things like ''biologically-derived
+          product'', or ''cell line''.  Looking at the definition of this field in
+          GDC ("Number of passages (splits) between the original tissue and this model."),
+          i suspect the latter is true here.  But note that the mapped GDC fields
+          are never populatedin GDC data.'
+        - 'Cardinality: 0..m'
+        comments:
+        - 'MHB: Might be worth considering things like cell lines to be a new subtype
+          of Specimen, and not bother representing the source ''model'' as a separate
+          entity?'
+        multivalued: true
+        required: false
+      qualification_status_flag:
+        name: qualification_status_flag
+        description: A flag indicating whether the specimen is qualified or disqualified
+          for data analysis in a study.
+        notes:
+        - "MHB: I chose here to name the attribute more specifically than in the ADM,\
+          \ to be clearer about its intended meaning.  We can generalize if other\
+          \ types of statuses become relevant to hang from a specimen. \n\nBTF: There\
+          \ is a similar attribute in ADM.Case which i refactored as 'qualification_status'\
+          \ which isn't a great name.  'Eligibility' for a research subject means\
+          \ something very specific and so I don't think i'd want to name the 'qualifed'\
+          \ / 'disqualified' status for that entity as 'eligibility_status'\n\nSE:\
+          \ this is really a relational status. In other words, the specimen is disqualified\
+          \ in a study, not just disqualified on its own. So, if we want to accomodate\
+          \ a database that will eventually have entries where the same specimen is\
+          \ used in more than one study but still be able to capture which study disqualifies\
+          \ it and why, we'll need to make this a \"qualified relationship\"\n\nMHB:\
+          \ Agreed. I think the context of the present associated study is implied\
+          \ here (and it was clarified that a given specimen is only associated with\
+          \ one study in th GDC/PDC/ICDC). But we should address this in the next\
+          \ phase. "
+        - 'Cardinality: 0..1'
+        comments:
+        - This is the first of several 'flag' type properties we define to capture
+          admistrative or experimental roles/status associated with a specimen.  We
+          may ultimately define a container strucutre to accommodate all flags, where
+          the meaning of the flag is captured in the data (as values of a single 'flag_type'
+          attribute) instead of in the model (as separate attributes for each type
+          of flag)
+        multivalued: false
+        required: false
+      reference_status_flag:
+        name: reference_status_flag
+        description: A flag indicating whether the specimen is used as a reference
+          during analytical interrogation
+        notes:
+        - 'MHB: Not sure about how I modeled this one.  Also, consider collapsing
+          with ''eliqibility_flag'' , and any other status/role related elements,
+          into a single property with a  generic data type that can capture any type
+          of status or role.
+
+
+          BTF: as with ''status'' above, there is a similar attribute in ADM.Case
+          which i left named ''is_reference'' for lack of imagination.
+
+
+          SE: same thought as above but probably too much change to consider for this
+          cycle. This field and similar ones are really not an attribute of a single
+          entity. It''s a "relational fact" that involves multiple entity instances
+          and the fact itself holds some attributes. Saying this in plain English
+          makes this clear. For example, this can be worded as "Study x uses specimen
+          y and uses specimen z as a reference". So one option is to figure out how
+          to reduce this to a simple property and this is doable if we put more meaning
+          on the instance of x and y. If we say that we''ll have an instance of y
+          for every study the real thing behind y (the real world specimen), i.e.
+          y stands for the role of the real specimen in the specific study, then we
+          can have a simle property on that instance to say it is a reference because
+          that property is specific to y''s role in that study, not the real y entity
+          in the world. We haven''t talked much about the meaning of the instances
+          of our entities, i.e. when should they be instantiated and what does the
+          instance stand for in the data, so it''s hard to decide on how to model
+          attriburtes. Just thinking out loud here but some of our difficulties are
+          due to not also thinking at the instance level.'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      matched_normal_flag:
+        name: matched_normal_flag
+        description: A flag indicating that there is no matched normal aliquot for
+          this case that can be used for variant calling purposes.
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - 'This attribute comes from GDC, where it is specific to ''aliquot'' specimens.
+          If we leave this as a separate attribute with an enum data type, values
+          will have to indicate whether the variant calling strategy is for targeted,
+          whole genome, or exome sequencing (e.g. "no matched normal wgs"). But as
+          noted above we may ultimately group with with other ''flag''-like attributes
+          into a common structure, where we can deal with this issue. '
+        multivalued: true
+        required: false
+      selected_normal_flag:
+        name: selected_normal_flag
+        description: A flag to denote which 'normal' aliquot the submitter prefers
+          to use for variant calling. Only one normal per experimental strategy per
+          case can be selected.
+        notes:
+        - 'Cardinality: 0..1'
+        comments:
+        - Same comment/issue as for matched_normal_flag above
+        multivalued: false
+        required: false
+      paired_specimen_genotype_match_flag:
+        name: paired_specimen_genotype_match_flag
+        description: A flag to indicate whether the genotype of the paired normal
+          or tumor specimen matches, or if the data is not available.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      section_location:
+        name: section_location
+        description: The location in a parent specimen from which a section/portion
+          was excised (e.g. top, middle, bottom)
+        notes:
+        - "MHB: Consider if this should be attached to the creation/derivation activity,\
+          \ not the specimen itself.  (We could do this if a creation/derivation activity\
+          \ is scoped to creating a single specimen) Is analogous to the anatomical\
+          \ collection site for original samples. \n\nNote also that i dont think\
+          \ this is an enumerated field in the GDC model . . .but it likely should\
+          \ be?"
+        - 'Cardinality: 0..1'
+        comments:
+        - This attribute applies only to Specmiens that are of type 'portion' or 'slide'.
+        multivalued: false
+        required: false
+  CDM.SpecimenCreationActivity:
+    name: CDM.SpecimenCreationActivity
+    description: The process of creating a specimen through observing and/or removing
+      material from an biological source or natural setting (e.g. from a person, animal,
+      cell line, or environmental material), or through derivation from an existing
+      specimen (e.g. through portioning or aliquoting). This activity represents the
+      entire process up to the point where the specimen is physically modified, stored,
+      or transported.
+    notes:
+    - "Mappings: ADM: n/a\nFHIR: Specimen/collection\nBRIDG:PerformedSpecimenCollection,\
+      \ PerformedMaterialProcessingStep\n\nConsider whether this represents the entire\
+      \ creation process, or a single activity involved in the creation process. \
+      \ I think in FHIR the 'collection' backbone element represents the entire process\
+      \ (as it has 0..1 cardinality). But I think that the 'processing' backbone element\
+      \ may represent just one of many possible processing activities (as it has a\
+      \ 0..m cardinality).  The cardinality on the 'method' fileds in these two activity\
+      \ classes (and Storage) will also depend on our decision here. \n\nConsider\
+      \ also if this is scoped to creation of a single specimen - i.e. would a 'sectioning\
+      \ activity' that produced 10 slices be considered one or ten SpecimenCreationActivities?\
+      \ It matters for what data we capture in this entity (e.g. quantity collected,\
+      \ and relative order can go here only if it is scoped to a single specimen).\
+      \ Note that if we split creation into collection and derivation, the anwer may\
+      \ be different for these two activity types. \n\nMHB: for define just a single\
+      \ concrete SpecimenCreationActivity class.  Later we can split the two classes\
+      \ into SpecimenCollection and SpecimenDerivation - if we decide to go this route. "
+    - Derived from [CDM.SpecimenCreationActivity in sheet SpecimenCreation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 0..1'
+        comments:
+        - 'We use  FHIR naming conventions here, where ''id'' is used for the logical
+          identifier, and ''identifier'' for the business identifier. '
+        multivalued: false
+        required: false
+      activity_type:
+        name: activity_type
+        description: The high-level type of creation activity
+        notes:
+        - 'MHB: Consider splitting SpecimenCreation into two subclasses (Collection,
+          and Derivation)'
+        - 'Cardinality: 0..1'
+        comments:
+        - For now we are collapsing the two types of processes through which specimens
+          are created (initial collection form source, and downstream derivation from
+          an existing specimen).  This category attribute is a flag to indicate which
+          applies to a given instance, so that more specific recommendations about
+          field requirement/cardinality can be specified.
+        multivalued: false
+        required: false
+      date_started:
+        name: date_started
+        description: "The date when the activity began (in this case, a specimen creation\
+          \ event). \n"
+        notes:
+        - 'MHB: Consider naming simple ''start'' and ''end'' or ''started'' and ''ended''
+          - as the data type here is a dateTIme, not a date.
+
+          MHB: Consider using the compelx Timepoint data type we discussed here.  And
+          consider if we might expand the idea of a Timepoint to capture a range of
+          time? (e.g call it TImeSpan) '
+        - 'Cardinality: 0..1'
+        comments:
+        - For our purposes, dates can be expressed explicitly as a single date  (e.g.
+          "2012-04-09") or a period spanning many days (e.g. "2012-04-09 - "2012-04-12"),
+          or as an offset from some index date (e.g. "55 days from index"), for purposes
+          of obfuscating  patient identity. The t.b.d. DateTime data type will need
+          to be capable of expressing a date in these different ways.
+        multivalued: false
+        required: false
+      date_ended:
+        name: date_ended
+        description: "The date when the activity ended (in this case, a specimen creation\
+          \ event). \n"
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      performed_by:
+        name: performed_by
+        description: The organization or group that performed the activity.
+        notes:
+        - 'MHB: consider use of role-based classes like in BRIDG (e.g. Performer)
+          - which represent the person/organization in a particular agent role, separately
+          form the underlying, context-independent  person/organization.
+
+          MHB: No source node attribute that captures this - leave out of model, even
+          though it seems of fundamental importance more generally?'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      method_type:
+        name: method_type
+        description: 'A specific type of method followed in performing the creation
+          activity. '
+        notes:
+        - 'MHB: Consider cardinality on this field . . . if the Activity here represents
+          the entire creation process, which may involve many sub-activities and apply
+          many methods, should cardinality be 0..m?'
+        - 'Cardinality: 0..1'
+        comments:
+        - This attribute specifically captures the method of collection from the original
+          source in the case of the original/upstream specimen (Specimen.category
+          = 'original'), or the method of derivation from an existing specimen in
+          the case of a derived specimen (Specimen.category = 'portion', 'aliquot',
+          'analyte').
+        multivalued: false
+        required: false
+      collection_site:
+        name: collection_site
+        description: A data container holding information about the anatomic source
+          of a specimen, including its location in the body, and the approach route
+          used to access it.
+        notes:
+        - 'As for all ''DataContainer'' objects, we are not yet committing to what
+          type of structure the ''Container'' will be here.  It may be may be a complex
+          data type,  a nested backbone element, or a Observation-like object. Our
+          final decision in if and how to encapsulate these ADM properties will depend
+          on additional requirements we collect as work proceeds, and also on the
+          modeling framework we use for our implemented logical model. '
+        - 'Cardinality: 0..1'
+        comments:
+        - 'This attribute is used when the activity_type is ''Collection form Source''
+          - to describe the anatomic location targeted by the specimen creation activity. '
+        multivalued: false
+        required: false
+      input_specimen:
+        name: input_specimen
+        description: One or more existing specimens input into the specimen creation
+          activity, from which a new specimen is derived (e.g. through portioning,
+          aliquoting, sectioning, etc)
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - 'This attribute is used when the activity_type is ''Derivation from Specimen''
+          - to identify the existing specimen input into the specimen creation process. '
+        multivalued: true
+        required: false
+      quantity_collected:
+        name: quantity_collected
+        description: The quantity of material in the specimen as originally collected
+          from its original source material (prior to downstream portioning or processing)
+        notes:
+        - 'MHB: not sure this works if we want to capture the original weight of a
+          derived specimen (e.g. a Portion).  Is the initial_weight of the portion
+          that of the processed specimen before further portioning or freeze drying?
+          Or is it the weight of the upstream original collected from which the portion
+          was derived? Or would the notion of an initial weight just not be relevnt
+          for a derived specimen like a portion?
+
+
+          MHB: Also, becuase we try to follow where FHIR hangs this info, we separate
+          initial and current weight across two entities (the Colleciton, and the
+          Sample itself, respectively). Is this a problem?
+
+
+          MHB: Could this attribute apply to both collected/initial and derived specimen?  Is
+          it useful in the latter context? '
+        - 'Cardinality: 0..1'
+        comments:
+        - This applies only to specimens with category='initial'.
+        multivalued: false
+        required: false
+      execution_condition:
+        name: execution_condition
+        description: Information describing the specified or observed conditions under
+          which activity was executed
+        notes:
+        - 'MHB: We should explore the ''map'' data type / extension that Shahim mentioned
+          that KF is considering here as a flexible way to capture this type of innumerable
+          information. It is a simple key-value object where we could indicate the
+          type of parameter and the value e.g. ''ischemic_time, 3 seconds''.
+
+
+          MHB: Clarify if this is a condition of the collection or procesing.'
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      collected_during_visit:
+        name: collected_during_visit
+        description: A specific visit during which the specimen was collected.
+        notes:
+        - 'MHB: Consider if we could make this a mroe generic/re-usable property like
+          ''partOf'', or ''performedDuring'''
+        - 'Cardinality: 0..1'
+        comments:
+        - '*Modeling of ''Visit'' is not in scope for this phase, but is a likely
+          entity that will be added in the next phase of work.  '
+        multivalued: false
+        required: false
+      'relative_timing ':
+        name: 'relative_timing '
+        description: 'The timing of the activity relative to some other activity or
+          timepoint.  '
+        notes:
+        - "MHB: The data type/container should allow us to describe the timing of\
+          \ an activity relative to some other activity or timepoint. If we lump all\
+          \ three of these ADM properties, the strucutre should be able to capture\
+          \ the type of the related activity/timepoint (e.g. for 'timepoint_label),\
+          \ 'necropsy_sample'), and/or a specific instance of the related activity\
+          \ (e.g. for 'on_visit').  And it should capture the temporal relationship\
+          \ to this related activity - e.g. before, immediately before, during, after,\
+          \ etc (there are existing relational algebras we can adopt here). \n\nMHB:\
+          \ Here I proposed to group these attributes together - but we may want to\
+          \ keep separate for now and just note that this would be one option for\
+          \ collapsing.  In particular, on_visit links to a Visit instance, and may\
+          \ need to be split out. Thoughts?\n\nBTF: it does seem like on_visit should\
+          \ be split out as you suggest"
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      relative_order:
+        name: relative_order
+        description: A numeric value that represents the sequential order of this
+          collection process relative to that of collection processes producing specimens
+          from the same source material or parent specimen.
+        notes:
+        - 'MHB: We could hang this from the Specimen itself instead?'
+        - 'Cardinality: 0..1'
+        comments:
+        - The requirement for this came from Portion.portion_number, so it may be
+          that this is specifically relevant to order in which a derived specimen
+          was sectioned/aliquoted/portioned form an existing parent specimen. But
+          proposing here in case we decide it is relevant for a fresh / collected
+          specimen as well.
+        multivalued: false
+        required: false
+  CDM.SpecimenProcessingActivity:
+    name: CDM.SpecimenProcessingActivity
+    notes:
+    - Derived from [CDM.SpecimenProcessingActivity in sheet SpecimenTransport](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)
+    attributes:
+      duration:
+        name: duration
+        description: The length of time over which the activity was performed.
+        multivalued: true
+        required: false
+      performed_by:
+        name: performed_by
+        description: The organization or group that performed the activity.
+        notes:
+        - 'Defined as a general attribute to capture the agent who performed an activity.
+          In node data we have so far, this is always an organization - so for now
+          restricting the data type to Organization). But there may be use cases for
+          capturing a Person, or even a Computational Agent - in which case we can
+          broaden the data type to the notion of an Agent, which covers all of these
+          things.
+
+
+          MHB: consider use of role-based classes like in BRIDG (e.g. Performer) -
+          which represent the person/organization in a particular agent role, separately
+          form the underlying, context-independent  person/organization.'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+  CDM.SpecimenStorageActivity:
+    name: CDM.SpecimenStorageActivity
+    description: 'A vessel in which a specimen is held or attached - to store or as
+      a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope
+      slide or 96-well plate) '
+    notes:
+    - 'Mappings:
+
+      ADM: n/a
+
+      FHIR: Specimen/container
+
+      BRIDG: Container
+
+      There are only a few properties in the ADM so related to containment, that concern
+      the container in which a Specimen is held. This is a simple placeholder class
+      with a few basic fields that will be fleshed out if/when the need arise.  Look
+      to the  FHIR.Specimen.container, and the HL7 Biospecimen DAM model of containers,
+      for inspiration.'
+    - Derived from [CDM.SpecimenStorageActivity in sheet SpecimenContainer](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+  CDM.SpecimenTransportActivity:
+    name: CDM.SpecimenTransportActivity
+    description: An activity through which a specimen is transported between locations.
+    notes:
+    - 'Mappings:
+
+      ADM: n/a
+
+      BRIDG: PerformedMaterialTransport
+
+      There are a few ADM elements that concern how a Specimen is transoprted. This
+      is a simple placeholder class with a few basic fields that will be fleshed out
+      if/when the need arises. If we do not come across any use cases for more richly
+      describing aspects of Specimen transport, consdier broadening the definition
+      of "processing" to allow coverage of transport, so we can collapse this class
+      into SpecimenProcessingActivity.                '
+    - Derived from [CDM.SpecimenTransportActivity in sheet SpecimenTransport](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - '  '
+        - 'Cardinality: 0..1'
+        comments:
+        - 'We use  FHIR naming conventions here, where ''id'' is used for the logical
+          identifier, and ''identifier'' for the business identifier. '
+        multivalued: false
+        required: false
+      date_started:
+        name: date_started
+        description: 'The date when the activity began (in this case, a transport
+          event). '
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      date_ended:
+        name: date_ended
+        description: 'The date when the activity ended (in this case, a transport
+          event). '
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      transport_destination:
+        name: transport_destination
+        description: An organization (facility, site, lab, etc) to which the specimen
+          is delivered as a result of the activity.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      execution_conditions:
+        name: execution_conditions
+        description: An environmental condition under which the activity is executed
+          (in this case, a transport activity).
+        notes:
+        - We may want to consider next round how to refactor this to leverage SpecimenContainer,
+          and/or the ExecutionCondition DataContainer
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+  CDM.SpecimenContainer:
+    name: CDM.SpecimenContainer
+    notes:
+    - Derived from [CDM.SpecimenContainer in sheet SpecimenContainer](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)
+    attributes:
+      container_type:
+        name: container_type
+        description: The kind of container associated with the specimen.
+        notes:
+        - 'See the FHIR container type value set here: https://www.hl7.org/fhir/valueset-specimen-container-type.html'
+        multivalued: true
+        required: false
+      container_number:
+        name: container_number
+        description: Informal number/identifier by which the container is referenced
+          (e.g. a slide number, or a well number in a plate)
+        multivalued: true
+        required: false
+      additive:
+        name: additive
+        description: A material substance added to the container.
+        multivalued: true
+        required: false
+      parent_container:
+        name: parent_container
+        description: A larger container of which this container is a part (e.g. a
+          single well in a 96-well plate)
+        multivalued: true
+        required: false
+      charge_type:
+        name: charge_type
+        description: A descripton of the type of charge on a slide on which a specimen
+          is mounted
+        notes:
+        - 'This hangs directly from the specimen in node models - moved to container
+          here. '
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+  CDM.BiologicallyDerivedProduct:
+    name: CDM.BiologicallyDerivedProduct
+    description: A living organism, or a metabolocally active biological system such
+      as a cell culture, tissue culture, or organoid that is maintained or propagated
+      in vitro.
+    notes:
+    - "Mapings: \nADM: n/a\nBRIDG: [BiologicEntity or CellCulture]\nFHIR: BiologicallyDerivedProduct\n\
+      aka \"BiologicalStstem\"\nWe interpret the growth_rate and passage_number properties\
+      \ in the ADM as describing features of the a cell line/culture, tissue culture,\
+      \ or organoid  that is either the source of a specimen, or a product that a\
+      \ specimen is derived into.   But because this is a \"living\" biological entity,\
+      \ we do not consider it to be a specimen itself. For this reason, we define\
+      \ a BiologicallyDerivedProduct class from which to hang these properties. This\
+      \ is a simple placeholder class with a few basic fields that will be fleshed\
+      \ out if/when the need arises."
+    - Derived from [CDM.BiologicallyDerivedProduct in sheet BiologicProduct](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      description:
+        name: description
+        description: A free text field to capture additional info/explanation about
+          the model system
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      product_type:
+        name: product_type
+        description: The high level type of model system (e.g. cell line, cell culture,
+          tissue culture, organoid)
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      passage_number:
+        name: passage_number
+        description: When the specimen an actively growing model system, such as a
+          cell or tissue culture, this property captures its passage number.
+        multivalued: true
+        required: false
+      growth_rate:
+        name: growth_rate
+        description: When the specimen an actively growing model system, such as a
+          cell or tissue culture, this property captures its rate of growth.
+        multivalued: true
+        required: false
+  CDM.Patient:
+    name: CDM.Patient
+    description: Demographics and other administrative information about an individual
+      or animal receiving care or other health-related services.
+    notes:
+    - Derived from [CDM.Patient in sheet Patient](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Mappings:
+
+          ADM: n/a
+
+          FHIR: Patient'
+        - 'Cardinality: 1..1'
+        multivalued: false
+        required: true
+      identifier:
+        name: identifier
+        description: 'A ''business'' identifier for the entity, typically as provided
+          by an external system or authority, that persists across implementing systems. '
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - 'Uses a specialized, complex ''Identifier'' data type to capture information
+          about the source of the business identifier. '
+        multivalued: true
+        required: false
+      given_name:
+        name: given_name
+        description: The given name for the patient, likely only applicable in non-human
+          use cases given HIPAA restrictions on sharing of PII
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      taxon:
+        name: taxon
+        description: The taxonomic group (e.g. species) of the patient.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      adverse_events:
+        name: adverse_events
+        description: A reference to the AdverseEvent(s) experienced by this Patient
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - '*Modeling of ''AdverseEvent'' is not in scope for this phase, but is a
+          likely entity that will be added in the next phase of work.'
+        multivalued: true
+        required: false
+  CDM.ResearchSubject:
+    name: CDM.ResearchSubject
+    description: "A research subject is the entity of interest in a research study,\
+      \ typically a human being or an animal, but can also be a device, group of humans\
+      \ or animals, \nor a tissue sample. Human research subjects are usually not\
+      \ traceable to a particular person to protect the subject\u2019s privacy."
+    notes:
+    - 'Mappings:
+
+      ADM:Case
+
+      FHIR:ResearchSubect
+
+      BRIDG: Subject'
+    - Derived from [CDM.ResearchSubject in sheet ResearchSubject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=665511119)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 1..1'
+        multivalued: false
+        required: true
+      identifier:
+        name: identifier
+        description: A 'business' identifier for the entity, typically as provided
+          by an external system or authority, that persists across implementing systems.
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - Uses a specialized, complex 'Identifier' data type to capture information
+          about the source of the business identifier.
+        multivalued: true
+        required: false
+      description:
+        name: description
+        description: A free text field to capture additional info/explanation about
+          the research subject.
+        notes:
+        - 'BTF: This is not an attribute in the ADM, but it might be useful for recording
+          descriptive text about ResearchSubjects in future data sources we bring
+          in, so I have carried it forward from Matt''s work on Specimen.  Certainly
+          this could be removed if deemed unnecessary'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      primary_disease_type:
+        name: primary_disease_type
+        description: 'The text term used to describe the type of malignant disease,
+          as categorized by the World Health Organization''s (WHO) International Classification
+          of Diseases for Oncology (ICD-O). '
+        notes:
+        - "MHB: Consider grouping primary_disease_type and primary_disease_site in\
+          \ a Container - as they are related, and together define the type of disease?\n\
+          \nSE: an Observation can hold the disease type as a CodeableConcept or refernces\
+          \ an actual Condition that holds that disease type.\r\n\r\nQ from WNV: \
+          \ Are you proposing a change to Observation.value?  Because even in the\
+          \ build version, the datatypes value can take are:  Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period|Attachment\r\
+          \n"
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      primary_disease_site:
+        name: primary_disease_site
+        description: The text term used to describe the primary site of disease, as
+          categorized by the World Health Organization's (WHO) International Classification
+          of Diseases for Oncology (ICD-O). This categorization groups cases into
+          general categories.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      qualification_status_flag:
+        name: qualification_status_flag
+        description: Specifies if the ResearchSubject is qualified or disqualified
+          for any reason. Usually the data related to such ResearchSubjects may be
+          not used in the data analysis
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      associated_project:
+        name: associated_project
+        description: A reference to the Project(s) in which this ResearchSubject participates
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - '*Modeling of ''Project'' is not in scope for this phase, but is a likely
+          entity that will be added in the next phase of work.'
+        multivalued: true
+        required: false
+      member_of_cohort:
+        name: member_of_cohort
+        description: A reference to the Cohort(s) of which this ResearchSubject is
+          a member
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - '*Modeling of ''Cohort'' is not in scope for this phase, but is a likely
+          entity that will be added in the next phase of work.'
+        multivalued: true
+        required: false
+      member_of_study:
+        name: member_of_study
+        description: A reference to the Study(s) of which this ResearchSubject is
+          a member
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - '*Modeling of ''ResearchProject'' is not in scope for this phase, but is
+          a likely entity that will be added in the next phase of work.'
+        multivalued: true
+        required: false
+      index_timepoint:
+        name: index_timepoint
+        description: 'The text term used to describe the reference or anchor date
+          used for date obfuscation, where a single date is obscured by creating one
+          or more date ranges in relation to this date. '
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      reference_status_flag:
+        name: reference_status_flag
+        description: A biospecimen entity which is used as a reference sample for
+          determining relative protein abundances in labeling experiments.
+        notes:
+        - "Q for PDC:  Can cases actually be references - what does it mean for a\
+          \ case to be a reference?  How does that relate to individual samples being\
+          \ references?  Does this mean all samples for this case are references?\
+          \  or does it mean that this case has at least one sample that is a reference?\
+          \  Ditto on aliquot that may be references?\n\nA from PDC: (Also see sample_is\
+          \ ref) The composition of the reference is highly variable between studies,\
+          \ so PDC records only whether an aliquot (the biological sample) is a reference\
+          \ \u2013 Yes or No.  If an aliquot is a reference, the sample and case inherit\
+          \ its attributes - pool and _is _ref"
+        - 'Cardinality: 0..1'
+        comments:
+        - Inherited on an Case/Subject with derived specimens (typically an aliquot)
+          that are flagged as being used as a reference.
+        multivalued: false
+        required: false
+      processed_at:
+        name: processed_at
+        description: The site at which a biospecimen entity was processed.
+        notes:
+        - 'Cardinality: 0..1'
+        comments:
+        - '*Modeling of ''Organization'' is not in scope for this phase, but is a
+          likely entity that will be added in the next phase of work.'
+        multivalued: false
+        required: false
+      originating_site:
+        name: originating_site
+        description: A clinical site that collects and provides patient samples and
+          clinical metadata for research use.
+        notes:
+        - 'Cardinality: 0..1'
+        comments:
+        - '*Modeling of ''Organization'' is not in scope for this phase, but is a
+          likely entity that will be added in the next phase of work.'
+        multivalued: false
+        required: false
+      study_progress:
+        name: study_progress
+        description: "A data container holding information about the various states\
+          \ through which a ResearchSubject may pass during the course of their participation\
+          \ in a ResearchStudy\t\t\t"
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - n/a (will define mappings when we define a specific DataContainer structure)
+        multivalued: true
+        required: false
+      associated_patient:
+        name: associated_patient
+        description: A reference to the Patient that is this ResearchSubject
+        notes:
+        - 'Cardinality: 1..1'
+        multivalued: false
+        required: true
+  CDM.ResearchProject:
+    name: CDM.ResearchProject
+    description: "A process where a researcher or organization plans and then executes\
+      \ a series of steps intended to increase the field of healthcare-related knowledge.\
+      \ \nThis includes studies of safety, efficacy, comparative effectiveness and\
+      \ other information about medications, devices, therapies and other interventional\
+      \ \nand investigative techniques. A ResearchProject involves the gathering of\
+      \ information about human or animal subjects."
+    notes:
+    - "Mappings: \nADM:Progam, ADM.Project\nFHIR:ResearchStudy\nBRIDG: ResearchProject\n\
+      \nMHB: Meant to cover just GDC/PDC/ICDC.Program and GDC/PDC.Project, correct?\
+      \ Not PDC.Study or ICDC.Study."
+    - Derived from [CDM.ResearchProject in sheet ResearchProject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1123416579)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 0..1'
+        comments:
+        - 'We use  FHIR naming conventions here, where ''id'' is used for the logical
+          identifier, and ''identifier'' for the business identifier. '
+        multivalued: false
+        required: false
+      identifier:
+        name: identifier
+        description: A 'business' identifier  or accession number for the entity,
+          typically as provided by an external system or authority, that persists
+          across implementing systems.
+        notes:
+        - 'MHB: What about GDC.code?'
+        - 'Cardinality: 0..m'
+        comments:
+        - 'Uses a specialized, complex ''Identifier'' data type to capture information
+          about the source of the business identifier. '
+        multivalued: true
+        required: false
+      name:
+        name: name
+        description: An unabridged name of a research program, project, or study.
+        notes:
+        - 'MHB: Many things will have names we want to capture - people, projects,
+          publications, etc.  These may go by different domains (title, name, label,
+          etc) - but at the end of the day are all a label assignd to something.  Consider
+          utility of a single re-usable field for the names/labels of things - e.g.  ''label''? '
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      name_shortened:
+        name: name_shortened
+        description: An abbreviated name of a research program, project, or study.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      description:
+        name: description
+        description: An unabridged description of a research program, project, or
+          study.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      description_shortened:
+        name: description_shortened
+        description: An abbreviated description of a research program, project, or
+          study.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      sponsor:
+        name: sponsor
+        description: An entity that is responsible for the initiation, management,
+          and/or financing of a research project.
+        notes:
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      date_started:
+        name: date_started
+        description: The date when the research project began.
+        notes:
+        - 'MHB: Is this the general pattern we will use to capture when things happen?
+          Comapre with the single activity_date field on SpecimenCreation and SpecimenProcessing,
+          and the start_date and end_date fields in SpecimenStorage.'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      date_ended:
+        name: date_ended
+        description: The date when the research project ended.
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      primary_anatomic_site:
+        name: primary_anatomic_site
+        description: The text term used to describe the general location of the malignant
+          disease, as categorized by the World Health Organization's (WHO) International
+          Classification of Diseases for Oncology (ICD-O).
+        notes:
+        - 'MHB: Needs clearer definition - SIte as in location where performed? Or
+          site as in anatomical site that is focus of the Study?  I think what is
+          meant here is the latter.   And I think it is scheduled for deprecation
+          by GDC.'
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      url:
+        name: url
+        description: A URL address for a resource that provides information about
+          a research program, project, or study.
+        notes:
+        - 'MHB: Do we want a single, more generic field to capture a url that has
+          info about and Entity? (be it internal or external)?  e.g. just ''url''
+          or has_url''?'
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      part_of:
+        name: part_of
+        description: A reference to a parent ResearchProject (e.g. a link to the overarching
+          CPTAC ResearchProject from a substudy of CPTAC)
+        notes:
+        - 'MHB: Cardinality 0..1 or 0..m (consider transitivitity of this relation)?'
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      research_project_type:
+        name: research_project_type
+        description: The 'type' of ResearchProject represented (e.g. a broad-based
+          Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery
+          Study')
+        notes:
+        - 'BTF: how do we want to name our attributes which specify something akin
+          to a ''type'' in an OO language?
+
+
+          BTF: Is it important to be able to distinguish these two ''classes''?  I
+          don''t feel like they are defined well enough to be possible to disambiguate
+          by someone who may be creating instance data in this model.'
+        - 'Cardinality: 1..1'
+        multivalued: false
+        required: true
+      date_iacuc_approval:
+        name: date_iacuc_approval
+        description: The date that the Institutional Animal Care and Use Committee
+          (IACUC) approved an animal study protocol. This date cannot be released
+          to funding agencies until congruency between the animal use in the funding
+          proposal and the IACUC approved protocol has been verified.
+        notes:
+        - 'BTF: eventually we should consider refactoring ''events'' or ''state changes''
+          generically rather than with a bunch of specific date fields for things
+          like iacuc or irb approval, etc.'
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+  CDM.Organization:
+    name: CDM.Organization
+    description: A grouping of people or organizations with a common purpose such
+      as a data coordinating center, an university, or an institute within a university
+    notes:
+    - "Mappings: \nADM: Center, TissueSourceSite, StudySite (all are defined as types\
+      \ of organization)\nFHIR:Organization\nBRIDG:Organization\n"
+    - Derived from [CDM.Organization in sheet Organization](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 1..1'
+        multivalued: false
+        required: true
+      identifier:
+        name: identifier
+        description: A 'business' identifier for the entity, typically as provided
+          by an external system or authority, that persists across implementing systems.
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - 'Uses a specialized, complex ''Identifier'' data type to capture information
+          about the source of the business identifier. '
+        multivalued: true
+        required: false
+      name:
+        name: name
+        description: The full legal name by which the organization is known (e.g.
+          'National Cancer Institute')
+        notes:
+        - 'Cardinality: 1..1'
+        multivalued: false
+        required: true
+      alias:
+        name: alias
+        description: A secondary name for the organization such as a short name or
+          abbreviation (e.g. 'NCI')
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      organization_type:
+        name: organization_type
+        description: 'The type of the organization (e.g. ''Cancer Genome Characterization
+          Center'') '
+        notes:
+        - 'Cardinality: 0..1'
+        comments:
+        - 'BTF: this is listed as a string in the source GDC dictionary, but it feels
+          like this should be a coded value to me'
+        multivalued: false
+        required: false
+  CDM.Exposure:
+    name: CDM.Exposure
+    description: Contact between an agent and a target. A state of contact or close
+      proximity to a medicinal product, chemical, pathogen, radioisotope or other
+      substance.
+    notes:
+    - 'Mappings:
+
+      ADM:Exposure'
+    - Derived from [CDM.Exposure in sheet Exposure](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 1..1'
+        multivalued: false
+        required: true
+      identifier:
+        name: identifier
+        description: A 'business' identifier for the entity, typically as provided
+          by an external system or authority, that persists across implementing systems.
+        notes:
+        - 'Cardinality: 0..m'
+        comments:
+        - 'Uses a specialized, complex ''Identifier'' data type to capture information
+          about the source of the business identifier. '
+        multivalued: true
+        required: false
+      tobacco_use:
+        name: tobacco_use
+        description: A container holding a set of observations about an individual's
+          exposure to tobacco.
+        notes:
+        - "BTF: One possible way this could look is here\n\n{\n        \"id\":\"3a9e0212-33a6-413f-a764-d6dca68e8ee3\"\
+          ,\n        \"category\":\"Tobacco\",\n        \"component\":\n         \
+          \       [\n                        {\n                                \"\
+          id\":\"e1df441b-b817-4042-8d33-ad8be4a580f8\",\n                       \
+          \         \"observation_type\":\"cigarettes_per_day\",\n               \
+          \                 \"value\": 15\n                        },\n          \
+          \              {\n                                \"id\":\"1323165c-3f04-4db9-a651-6c7eaab15966\"\
+          ,\n                                \"observation_type\":\"environmental_tobacco_smoke_exposure\"\
+          ,\n                                \"value\":\"Yes\"\n                 \
+          \       },\n                        {\n                                \"\
+          id\":\"2aa05086-6862-4f82-8cc7-9dfc9975c2ae\",\n                       \
+          \         \"observation_type\":\"pack_years_smoked\",\n                \
+          \                \"value\": 12\n                        },\n           \
+          \             {\n                                \"id\":\"65665602-c7b6-4646-a1c5-caf8998d09df\"\
+          ,\n                                \"observation_type\":\"smoking_frequency\"\
+          ,\n                                \"value\":\"Every day\"\n           \
+          \             },\n                        {\n                          \
+          \      \"id\":\"08c5b4a8-0efb-4b37-9dbd-22815063b55a\",\n              \
+          \                  \"observation_type\":\"time_between_waking_and_first_smoke\"\
+          ,\n                                \"value\":\"Within 5 minutes\"\n    \
+          \                    },\n                        {\n                   \
+          \             \"id\":\"ceb461ff-d103-4b0f-8199-b4ae11daf50d\",\n       \
+          \                         \"observation_type\":\"tobacco_smoking_onset_year\"\
+          ,\n                                \"value\": 1992\n                   \
+          \     },\n                        {\n                                \"\
+          id\":\"3ceb40d4-a0db-46c2-bb31-c2f889739b74\",\n                       \
+          \         \"observation_type\":\"tobacco_smoking_quit_year\",\n        \
+          \                        \"value\": 2012\n                        },\n \
+          \                       {\n                                \"id\":\"8dd41080-b075-4df1-b584-e2ef968ffd35\"\
+          ,\n                                \"observation_type\":\"tobacco_smoking_status\"\
+          ,\n                                \"value\": 4\n                      \
+          \  },\n                        {\n                                \"id\"\
+          :\"96a1b93d-5167-4c1f-a254-ce84529a6a6b\",\n                           \
+          \     \"observation_type\":\"type_of_tobacco_used\",\n                 \
+          \               \"value\":\"Cigarettes\"\n                        },\n \
+          \                       {\n                                \"id\":\"b18830ff-e6f7-4596-b4ba-b2c2629cf3e6\"\
+          ,\n                                \"observation_type\":\"years_smoked\"\
+          ,\n                                \"value\": 20\n                     \
+          \   }\n                ]\n}"
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      alcohol_use:
+        name: alcohol_use
+        description: A container holding a set of observations about an individual's
+          exposure to alcohol.
+        notes:
+        - "BTF: One possible way this could look is here\n\n{\n\t\"id\":\"2be998ca-9e24-4999-83d0-c94f83cfad96\"\
+          ,\n\t\"category\":\"Alcohol\",\n\t\"component\":\n\t\t[\n\t\t\t{\n\t\t\t\
+          \t\"id\":\"4ee24674-08f7-47b0-85d4-2d7797c4a4a6\",\n\t\t\t\t\"observation_type\"\
+          :\"alcohol_history\",\n\t\t\t\t\"value\":\"Yes\"\n\t\t\t},\n\t\t\t{\n\t\t\
+          \t\t\"id\":\"18cab612-a255-465f-b803-1fe52d46ef93\",\n\t\t\t\t\"observation_type\"\
+          :\"alcohol_days_per_week\",\n\t\t\t\t\"value\":21\n\t\t\t},\n\t\t\t{\n\t\
+          \t\t\t\"id\":\"8d1a5fb1-04e8-4d8f-93e5-fa5e9eeb26cf\",\n\t\t\t\t\"observation_type\"\
+          :\"alcohol_drinks_per_day\",\n\t\t\t\t\"value\":3\n\t\t\t},\n\t\t\t{\n\t\
+          \t\t\t\"id\":\"594c890d-85c8-44ac-9108-9d22fab1c8d7\",\n\t\t\t\t\"observation_type\"\
+          :\"alcohol_intensity\",\n\t\t\t\t\"value\":\"Heavy Drinker\"\n\t\t\t}\n\t\
+          \t]\n}"
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+      environmental:
+        name: environmental
+        description: Observations about an individual's exposure to environmental
+          substances that may impact clinical outcomes.
+        notes:
+        - "BTF: One possible way this could look is here\n\n[\n\t{\n\t\t\"id\":\"\
+          2eaefbba-6838-4e2f-bba6-6d478000a503\",\n\t\t\"observation_type\":\"asbestos_exposure\"\
+          ,\n\t\t\"value\":\"Yes\"\n\t},\n\t{\n\t\t\"id\":\"7432b121-f050-48fe-aec6-f144f5330f63\"\
+          ,\n\t\t\"observation_type\":\"coal_dust_exposure\",\n\t\t\"value\":\"Yes\"\
+          \n\t},\n\t{\n\t\t\"id\":\"9d470e84-6e78-4d6b-8eaf-9e554f950bed\",\n\t\t\"\
+          observation_type\":\"radon_exposure\",\n\t\t\"value\":\"No\"\n\t},\n\t{\n\
+          \t\t\"id\":\"4c1159f7-e30b-431a-b597-12a3d62b4af0\",\n\t\t\"observation_type\"\
+          :\"respirable_crystalline_silica_exposure\",\n\t\t\"value\":\"No\"\n\t}\n\
+          ]"
+        - 'Cardinality: 0..m'
+        multivalued: true
+        required: false
+      related_patient:
+        name: related_patient
+        description: A reference to the Patient that is the subject of this Exposure
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false
+  CDM.Report:
+    name: CDM.Report
+    notes:
+    - Derived from [CDM.Report in sheet Report](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)
+    attributes:
+      id:
+        name: id
+        description: 'The ''logical'' identifier of the entity in the system of record.  This
+          ''id'' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different ''id'' in a different system,
+          and have many external business ''identifiers'' associated with it. '
+        notes:
+        - 'Cardinality: 0..1'
+        multivalued: false
+        required: false

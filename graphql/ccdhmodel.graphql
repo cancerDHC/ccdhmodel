@@ -1,0 +1,165 @@
+type CDM.BiologicallyDerivedProduct
+  {
+    id: String
+    description: String
+    productType: String
+    passageNumber: [String]
+    growthRate: [String]
+  }
+
+type CDM.Exposure
+  {
+    id: String!
+    identifier: [String]
+    tobaccoUse: String
+    alcoholUse: String
+    environmental: [String]
+    relatedPatient: String
+  }
+
+type CDM.Organization
+  {
+    id: String!
+    identifier: [String]
+    name: String!
+    alias: String
+    organizationType: String
+  }
+
+type CDM.Patient
+  {
+    id: String!
+    identifier: [String]
+    givenName: String
+    taxon: String
+    adverseEvents: [String]
+  }
+
+type CDM.Report
+  {
+    id: String
+  }
+
+type CDM.ResearchProject
+  {
+    id: String
+    identifier: [String]
+    name: String
+    nameShortened: String
+    description: String
+    descriptionShortened: String
+    sponsor: [String]
+    dateStarted: String
+    dateEnded: String
+    primaryAnatomicSite: [String]
+    url: [String]
+    partOf: [String]
+    researchProjectType: String!
+    dateIacucApproval: String
+  }
+
+type CDM.ResearchSubject
+  {
+    id: String!
+    identifier: [String]
+    description: String
+    primaryDiseaseType: String
+    primaryDiseaseSite: String
+    qualificationStatusFlag: String
+    associatedProject: [String]
+    memberOfCohort: [String]
+    memberOfStudy: [String]
+    indexTimepoint: String
+    referenceStatusFlag: String
+    processedAt: String
+    originatingSite: String
+    studyProgress: [String]
+    associatedPatient: String!
+  }
+
+type CDM.Specimen
+  {
+    id: String
+    identifier: [String]
+    description: String
+    specimenType: String
+    analyteType: String
+    associatedProject: String
+    providedBy: String
+    sourceMaterialType: String
+    parentSpecimen: [String]
+    sourcePatient: String
+    sourceModelSystem: String
+    conditionStatusAtCollection: String
+    relatedDiagnosis: [String]
+    creationActivity: String
+    processingActivity: [String]
+    storageActivity: String
+    transportActivity: String
+    containedIn: String
+    dimensionalMeasure: String
+    quantityMeasure: [String]
+    qualityMeasure: [String]
+    cellularCompositionType: String
+    cellularCompositionMeasure: [String]
+    tissueCompositionMeasure: [String]
+    generalTissueMorphology: String
+    specificTissueMorphology: String
+    relatedDocument?RelatedReport?: [String]
+    relatedSpecimen: [String]
+    derivedProduct: [String]
+    qualificationStatusFlag: String
+    referenceStatusFlag: String
+    matchedNormalFlag: [String]
+    selectedNormalFlag: String
+    pairedSpecimenGenotypeMatchFlag: String
+    sectionLocation: String
+  }
+
+type CDM.SpecimenContainer
+  {
+    containerType: [String]
+    containerNumber: [String]
+    additive: [String]
+    parentContainer: [String]
+    chargeType: String
+  }
+
+type CDM.SpecimenCreationActivity
+  {
+    id: String
+    activityType: String
+    dateStarted: String
+    dateEnded: String
+    performedBy: String
+    methodType: String
+    collectionSite: String
+    inputSpecimen: [String]
+    quantityCollected: String
+    executionCondition: [String]
+    collectedDuringVisit: String
+    relativeTiming: [String]
+    relativeOrder: String
+  }
+
+type CDM.SpecimenProcessingActivity
+  {
+    duration: [String]
+    performedBy: String
+  }
+
+type CDM.SpecimenStorageActivity
+  {
+    id: String
+  }
+
+type CDM.SpecimenTransportActivity
+  {
+    id: String
+    dateStarted: String
+    dateEnded: String
+    transportDestination: String
+    executionConditions: [String]
+  }
+
+

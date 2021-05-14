@@ -1,0 +1,1763 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/ccdh> a owl:Ontology ;
+    rdfs:label "CRDC-H" ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    skos:editorialNote "derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)" ;
+    linkml:generation_date "2021-05-13 18:22" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "ccdhmodel.yaml" ;
+    linkml:source_file_date "Thu May 13 18:21:44 2021" ;
+    linkml:source_file_size 84400 .
+
+<https://example.org/ccdh/CDM.BiologicallyDerivedProduct> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.BiologicallyDerivedProduct" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:passage_number ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:product_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:growth_rate ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ] ;
+    skos:definition "A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro." ;
+    skos:editorialNote "Derived from [CDM.BiologicallyDerivedProduct in sheet BiologicProduct](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080)",
+        """Mapings: 
+ADM: n/a
+BRIDG: [BiologicEntity or CellCulture]
+FHIR: BiologicallyDerivedProduct
+aka "BiologicalStstem"
+We interpret the growth_rate and passage_number properties in the ADM as describing features of the a cell line/culture, tissue culture, or organoid  that is either the source of a specimen, or a product that a specimen is derived into.   But because this is a "living" biological entity, we do not consider it to be a specimen itself. For this reason, we define a BiologicallyDerivedProduct class from which to hang these properties. This is a simple placeholder class with a few basic fields that will be fleshed out if/when the need arises.""" .
+
+<https://example.org/ccdh/CDM.Exposure> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.Exposure" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:related_patient ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:alcohol_use ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:tobacco_use ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:environmental ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance." ;
+    skos:editorialNote "Derived from [CDM.Exposure in sheet Exposure](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931)",
+        """Mappings:
+ADM:Exposure""" .
+
+<https://example.org/ccdh/CDM.Organization> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.Organization" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:name ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:organization_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:alias ] ;
+    skos:definition "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university" ;
+    skos:editorialNote "Derived from [CDM.Organization in sheet Organization](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710)",
+        """Mappings: 
+ADM: Center, TissueSourceSite, StudySite (all are defined as types of organization)
+FHIR:Organization
+BRIDG:Organization
+""" .
+
+<https://example.org/ccdh/CDM.Patient> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.Patient" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:given_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:taxon ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:adverse_events ] ;
+    skos:definition "Demographics and other administrative information about an individual or animal receiving care or other health-related services." ;
+    skos:editorialNote "Derived from [CDM.Patient in sheet Patient](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379)" .
+
+<https://example.org/ccdh/CDM.Report> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.Report" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ] ;
+    skos:editorialNote "Derived from [CDM.Report in sheet Report](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)" .
+
+<https://example.org/ccdh/CDM.ResearchProject> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.ResearchProject" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:research_project_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:url ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:date_started ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:primary_anatomic_site ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:part_of ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:sponsor ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:date_iacuc_approval ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:name_shortened ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:name ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:description_shortened ] ;
+    skos:definition """A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
+This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
+and investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects.""" ;
+    skos:editorialNote "Derived from [CDM.ResearchProject in sheet ResearchProject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1123416579)",
+        """Mappings: 
+ADM:Progam, ADM.Project
+FHIR:ResearchStudy
+BRIDG: ResearchProject
+
+MHB: Meant to cover just GDC/PDC/ICDC.Program and GDC/PDC.Project, correct? Not PDC.Study or ICDC.Study.""" .
+
+<https://example.org/ccdh/CDM.ResearchSubject> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.ResearchSubject" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:member_of_cohort ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:member_of_study ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:primary_disease_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:primary_disease_site ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:reference_status_flag ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:associated_patient ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:qualification_status_flag ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:associated_project ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:processed_at ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:originating_site ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:study_progress ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:index_timepoint ] ;
+    skos:definition """A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
+or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.""" ;
+    skos:editorialNote "Derived from [CDM.ResearchSubject in sheet ResearchSubject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=665511119)",
+        """Mappings:
+ADM:Case
+FHIR:ResearchSubect
+BRIDG: Subject""" .
+
+<https://example.org/ccdh/CDM.Specimen> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.Specimen" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:specimen_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:processing_activity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:source_model_system ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:quality_measure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:transport_activity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:source_patient ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:matched_normal_flag ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:cellular_composition_measure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:condition_status_at_collection ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:analyte_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:cellular_composition_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:reference_status_flag ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:source_material_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:quantity_measure ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:tissue_composition_measure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:selected_normal_flag ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:storage_activity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:general_tissue_morphology ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:provided_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:related_specimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:specific_tissue_morphology ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:associated_project ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:contained_in ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:creation_activity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:section_location ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:derived_product ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:related_diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:dimensional_measure ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty <https://w3id.org/linkml/related_document?_related_report?> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:parent_specimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:qualification_status_flag ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:paired_specimen_genotype_match_flag ] ;
+    skos:definition "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation. " ;
+    skos:editorialNote "Derived from [CDM.Specimen in sheet Specimen](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281)" ;
+    skos:note "Definition adapted from FHIR.Specimen." .
+
+<https://example.org/ccdh/CDM.SpecimenContainer> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.SpecimenContainer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:additive ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:charge_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:parent_container ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:container_number ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:container_type ] ;
+    skos:editorialNote "Derived from [CDM.SpecimenContainer in sheet SpecimenContainer](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)" .
+
+<https://example.org/ccdh/CDM.SpecimenCreationActivity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.SpecimenCreationActivity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:collection_site ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:input_specimen ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:relative_timing ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:relative_order ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:activity_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:collected_during_visit ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:quantity_collected ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:execution_condition ] ;
+    skos:definition "The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported." ;
+    skos:editorialNote "Derived from [CDM.SpecimenCreationActivity in sheet SpecimenCreation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130)",
+        """Mappings: ADM: n/a
+FHIR: Specimen/collection
+BRIDG:PerformedSpecimenCollection, PerformedMaterialProcessingStep
+
+Consider whether this represents the entire creation process, or a single activity involved in the creation process.  I think in FHIR the 'collection' backbone element represents the entire process (as it has 0..1 cardinality). But I think that the 'processing' backbone element may represent just one of many possible processing activities (as it has a 0..m cardinality).  The cardinality on the 'method' fileds in these two activity classes (and Storage) will also depend on our decision here. 
+
+Consider also if this is scoped to creation of a single specimen - i.e. would a 'sectioning activity' that produced 10 slices be considered one or ten SpecimenCreationActivities? It matters for what data we capture in this entity (e.g. quantity collected, and relative order can go here only if it is scoped to a single specimen). Note that if we split creation into collection and derivation, the anwer may be different for these two activity types. 
+
+MHB: for define just a single concrete SpecimenCreationActivity class.  Later we can split the two classes into SpecimenCollection and SpecimenDerivation - if we decide to go this route. """ .
+
+<https://example.org/ccdh/CDM.SpecimenProcessingActivity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.SpecimenProcessingActivity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:duration ] ;
+    skos:editorialNote "Derived from [CDM.SpecimenProcessingActivity in sheet SpecimenTransport](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)" .
+
+<https://example.org/ccdh/CDM.SpecimenStorageActivity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.SpecimenStorageActivity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ] ;
+    skos:definition "A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate) " ;
+    skos:editorialNote "Derived from [CDM.SpecimenStorageActivity in sheet SpecimenContainer](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)",
+        """Mappings:
+ADM: n/a
+FHIR: Specimen/container
+BRIDG: Container
+There are only a few properties in the ADM so related to containment, that concern the container in which a Specimen is held. This is a simple placeholder class with a few basic fields that will be fleshed out if/when the need arise.  Look to the  FHIR.Specimen.container, and the HL7 Biospecimen DAM model of containers, for inspiration.""" .
+
+<https://example.org/ccdh/CDM.SpecimenTransportActivity> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CDM.SpecimenTransportActivity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:transport_destination ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty linkml:execution_conditions ] ;
+    skos:definition "An activity through which a specimen is transported between locations." ;
+    skos:editorialNote "Derived from [CDM.SpecimenTransportActivity in sheet SpecimenTransport](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)",
+        """Mappings:
+ADM: n/a
+BRIDG: PerformedMaterialTransport
+There are a few ADM elements that concern how a Specimen is transoprted. This is a simple placeholder class with a few basic fields that will be fleshed out if/when the need arises. If we do not come across any use cases for more richly describing aspects of Specimen transport, consdier broadening the definition of "processing" to allow coverage of transport, so we can collapse this class into SpecimenProcessingActivity.                """ .
+
+linkml:Boolean a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "boolean" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A binary (true or false) value" .
+
+linkml:Date a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "date" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a date (year, month and day) in an idealized calendar" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Datetime a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "datetime" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "The combination of a date and time" .
+
+linkml:Decimal a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "decimal" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" .
+
+linkml:Double a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "double" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:double ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:double specification" .
+
+linkml:Float a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "float" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A real number that conforms to the xsd:float specification" .
+
+linkml:Integer a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "integer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "An integer" .
+
+linkml:Ncname a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "ncname" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Prefix part of CURIE" .
+
+linkml:Nodeidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "nodeidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#nonLiteral> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI, CURIE or BNODE that represents a node in a model." .
+
+linkml:Objectidentifier a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "objectidentifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange <http://www.w3.org/ns/shex#iri> ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A URI or CURIE that represents an object in the model." ;
+    skos:note "Used for inheritence and type checking" .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+linkml:Time a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "time" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
+    skos:editorialNote "URI is dateTime because OWL reasoners don't work with straight date or time" .
+
+linkml:Uri a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uri" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a complete URI" .
+
+linkml:Uriorcurie a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "uriorcurie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:anyURI ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "a URI or a CURIE" .
+
+linkml:cDM.BiologicallyDerivedProduct__description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.BiologicallyDerivedProduct__description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A free text field to capture additional info/explanation about the model system" ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.BiologicallyDerivedProduct__growth_rate a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.BiologicallyDerivedProduct__growth_rate" ;
+    rdfs:range linkml:String ;
+    skos:definition "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth." .
+
+linkml:cDM.BiologicallyDerivedProduct__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.BiologicallyDerivedProduct__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.BiologicallyDerivedProduct__passage_number a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.BiologicallyDerivedProduct__passage_number" ;
+    rdfs:range linkml:String ;
+    skos:definition "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number." .
+
+linkml:cDM.BiologicallyDerivedProduct__product_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.BiologicallyDerivedProduct__product_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)" ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Exposure__alcohol_use a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Exposure__alcohol_use" ;
+    rdfs:range linkml:String ;
+    skos:definition "A container holding a set of observations about an individual's exposure to alcohol." ;
+    skos:editorialNote """BTF: One possible way this could look is here
+
+{
+	"id":"2be998ca-9e24-4999-83d0-c94f83cfad96",
+	"category":"Alcohol",
+	"component":
+		[
+			{
+				"id":"4ee24674-08f7-47b0-85d4-2d7797c4a4a6",
+				"observation_type":"alcohol_history",
+				"value":"Yes"
+			},
+			{
+				"id":"18cab612-a255-465f-b803-1fe52d46ef93",
+				"observation_type":"alcohol_days_per_week",
+				"value":21
+			},
+			{
+				"id":"8d1a5fb1-04e8-4d8f-93e5-fa5e9eeb26cf",
+				"observation_type":"alcohol_drinks_per_day",
+				"value":3
+			},
+			{
+				"id":"594c890d-85c8-44ac-9108-9d22fab1c8d7",
+				"observation_type":"alcohol_intensity",
+				"value":"Heavy Drinker"
+			}
+		]
+}""",
+        "Cardinality: 0..1" .
+
+linkml:cDM.Exposure__environmental a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Exposure__environmental" ;
+    rdfs:range linkml:String ;
+    skos:definition "Observations about an individual's exposure to environmental substances that may impact clinical outcomes." ;
+    skos:editorialNote """BTF: One possible way this could look is here
+
+[
+	{
+		"id":"2eaefbba-6838-4e2f-bba6-6d478000a503",
+		"observation_type":"asbestos_exposure",
+		"value":"Yes"
+	},
+	{
+		"id":"7432b121-f050-48fe-aec6-f144f5330f63",
+		"observation_type":"coal_dust_exposure",
+		"value":"Yes"
+	},
+	{
+		"id":"9d470e84-6e78-4d6b-8eaf-9e554f950bed",
+		"observation_type":"radon_exposure",
+		"value":"No"
+	},
+	{
+		"id":"4c1159f7-e30b-431a-b597-12a3d62b4af0",
+		"observation_type":"respirable_crystalline_silica_exposure",
+		"value":"No"
+	}
+]""",
+        "Cardinality: 0..m" .
+
+linkml:cDM.Exposure__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Exposure__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 1..1" .
+
+linkml:cDM.Exposure__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Exposure__identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems." ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. " .
+
+linkml:cDM.Exposure__related_patient a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Exposure__related_patient" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to the Patient that is the subject of this Exposure" ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Exposure__tobacco_use a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Exposure__tobacco_use" ;
+    rdfs:range linkml:String ;
+    skos:definition "A container holding a set of observations about an individual's exposure to tobacco." ;
+    skos:editorialNote """BTF: One possible way this could look is here
+
+{
+        "id":"3a9e0212-33a6-413f-a764-d6dca68e8ee3",
+        "category":"Tobacco",
+        "component":
+                [
+                        {
+                                "id":"e1df441b-b817-4042-8d33-ad8be4a580f8",
+                                "observation_type":"cigarettes_per_day",
+                                "value": 15
+                        },
+                        {
+                                "id":"1323165c-3f04-4db9-a651-6c7eaab15966",
+                                "observation_type":"environmental_tobacco_smoke_exposure",
+                                "value":"Yes"
+                        },
+                        {
+                                "id":"2aa05086-6862-4f82-8cc7-9dfc9975c2ae",
+                                "observation_type":"pack_years_smoked",
+                                "value": 12
+                        },
+                        {
+                                "id":"65665602-c7b6-4646-a1c5-caf8998d09df",
+                                "observation_type":"smoking_frequency",
+                                "value":"Every day"
+                        },
+                        {
+                                "id":"08c5b4a8-0efb-4b37-9dbd-22815063b55a",
+                                "observation_type":"time_between_waking_and_first_smoke",
+                                "value":"Within 5 minutes"
+                        },
+                        {
+                                "id":"ceb461ff-d103-4b0f-8199-b4ae11daf50d",
+                                "observation_type":"tobacco_smoking_onset_year",
+                                "value": 1992
+                        },
+                        {
+                                "id":"3ceb40d4-a0db-46c2-bb31-c2f889739b74",
+                                "observation_type":"tobacco_smoking_quit_year",
+                                "value": 2012
+                        },
+                        {
+                                "id":"8dd41080-b075-4df1-b584-e2ef968ffd35",
+                                "observation_type":"tobacco_smoking_status",
+                                "value": 4
+                        },
+                        {
+                                "id":"96a1b93d-5167-4c1f-a254-ce84529a6a6b",
+                                "observation_type":"type_of_tobacco_used",
+                                "value":"Cigarettes"
+                        },
+                        {
+                                "id":"b18830ff-e6f7-4596-b4ba-b2c2629cf3e6",
+                                "observation_type":"years_smoked",
+                                "value": 20
+                        }
+                ]
+}""",
+        "Cardinality: 0..1" .
+
+linkml:cDM.Organization__alias a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Organization__alias" ;
+    rdfs:range linkml:String ;
+    skos:definition "A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')" ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Organization__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Organization__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 1..1" .
+
+linkml:cDM.Organization__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Organization__identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems." ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. " .
+
+linkml:cDM.Organization__name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Organization__name" ;
+    rdfs:range linkml:String ;
+    skos:definition "The full legal name by which the organization is known (e.g. 'National Cancer Institute')" ;
+    skos:editorialNote "Cardinality: 1..1" .
+
+linkml:cDM.Organization__organization_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Organization__organization_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The type of the organization (e.g. 'Cancer Genome Characterization Center') " ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "BTF: this is listed as a string in the source GDC dictionary, but it feels like this should be a coded value to me" .
+
+linkml:cDM.Patient__adverse_events a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Patient__adverse_events" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to the AdverseEvent(s) experienced by this Patient" ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "*Modeling of 'AdverseEvent' is not in scope for this phase, but is a likely entity that will be added in the next phase of work." .
+
+linkml:cDM.Patient__given_name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Patient__given_name" ;
+    rdfs:range linkml:String ;
+    skos:definition "The given name for the patient, likely only applicable in non-human use cases given HIPAA restrictions on sharing of PII" ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Patient__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Patient__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 1..1",
+        """Mappings:
+ADM: n/a
+FHIR: Patient""" .
+
+linkml:cDM.Patient__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Patient__identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems. " ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. " .
+
+linkml:cDM.Patient__taxon a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Patient__taxon" ;
+    rdfs:range linkml:String ;
+    skos:definition "The taxonomic group (e.g. species) of the patient." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Report__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Report__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchProject__date_ended a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__date_ended" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date when the research project ended." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchProject__date_iacuc_approval a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__date_iacuc_approval" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified." ;
+    skos:editorialNote "BTF: eventually we should consider refactoring 'events' or 'state changes' generically rather than with a bunch of specific date fields for things like iacuc or irb approval, etc.",
+        "Cardinality: 0..1" .
+
+linkml:cDM.ResearchProject__date_started a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__date_started" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date when the research project began." ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: Is this the general pattern we will use to capture when things happen? Comapre with the single activity_date field on SpecimenCreation and SpecimenProcessing, and the start_date and end_date fields in SpecimenStorage." .
+
+linkml:cDM.ResearchProject__description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__description" ;
+    rdfs:range linkml:String ;
+    skos:definition "An unabridged description of a research program, project, or study." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchProject__description_shortened a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__description_shortened" ;
+    rdfs:range linkml:String ;
+    skos:definition "An abbreviated description of a research program, project, or study." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchProject__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "We use  FHIR naming conventions here, where 'id' is used for the logical identifier, and 'identifier' for the business identifier. " .
+
+linkml:cDM.ResearchProject__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems." ;
+    skos:editorialNote "Cardinality: 0..m",
+        "MHB: What about GDC.code?" ;
+    skos:note "Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier. " .
+
+linkml:cDM.ResearchProject__name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__name" ;
+    rdfs:range linkml:String ;
+    skos:definition "An unabridged name of a research program, project, or study." ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: Many things will have names we want to capture - people, projects, publications, etc.  These may go by different domains (title, name, label, etc) - but at the end of the day are all a label assignd to something.  Consider utility of a single re-usable field for the names/labels of things - e.g.  'label'? " .
+
+linkml:cDM.ResearchProject__name_shortened a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__name_shortened" ;
+    rdfs:range linkml:String ;
+    skos:definition "An abbreviated name of a research program, project, or study." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchProject__part_of a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__part_of" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to a parent ResearchProject (e.g. a link to the overarching CPTAC ResearchProject from a substudy of CPTAC)" ;
+    skos:editorialNote "Cardinality: 0..m",
+        "MHB: Cardinality 0..1 or 0..m (consider transitivitity of this relation)?" .
+
+linkml:cDM.ResearchProject__primary_anatomic_site a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__primary_anatomic_site" ;
+    rdfs:range linkml:String ;
+    skos:definition "The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O)." ;
+    skos:editorialNote "Cardinality: 0..m",
+        "MHB: Needs clearer definition - SIte as in location where performed? Or site as in anatomical site that is focus of the Study?  I think what is meant here is the latter.   And I think it is scheduled for deprecation by GDC." .
+
+linkml:cDM.ResearchProject__research_project_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__research_project_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')" ;
+    skos:editorialNote """BTF: how do we want to name our attributes which specify something akin to a 'type' in an OO language?
+
+BTF: Is it important to be able to distinguish these two 'classes'?  I don't feel like they are defined well enough to be possible to disambiguate by someone who may be creating instance data in this model.""",
+        "Cardinality: 1..1" .
+
+linkml:cDM.ResearchProject__sponsor a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__sponsor" ;
+    rdfs:range linkml:String ;
+    skos:definition "An entity that is responsible for the initiation, management, and/or financing of a research project." ;
+    skos:editorialNote "Cardinality: 0..m" .
+
+linkml:cDM.ResearchProject__url a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchProject__url" ;
+    rdfs:range linkml:String ;
+    skos:definition "A URL address for a resource that provides information about a research program, project, or study." ;
+    skos:editorialNote "Cardinality: 0..m",
+        "MHB: Do we want a single, more generic field to capture a url that has info about and Entity? (be it internal or external)?  e.g. just 'url' or has_url'?" .
+
+linkml:cDM.ResearchSubject__associated_patient a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__associated_patient" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to the Patient that is this ResearchSubject" ;
+    skos:editorialNote "Cardinality: 1..1" .
+
+linkml:cDM.ResearchSubject__associated_project a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__associated_project" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to the Project(s) in which this ResearchSubject participates" ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "*Modeling of 'Project' is not in scope for this phase, but is a likely entity that will be added in the next phase of work." .
+
+linkml:cDM.ResearchSubject__description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A free text field to capture additional info/explanation about the research subject." ;
+    skos:editorialNote "BTF: This is not an attribute in the ADM, but it might be useful for recording descriptive text about ResearchSubjects in future data sources we bring in, so I have carried it forward from Matt's work on Specimen.  Certainly this could be removed if deemed unnecessary",
+        "Cardinality: 0..1" .
+
+linkml:cDM.ResearchSubject__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 1..1" .
+
+linkml:cDM.ResearchSubject__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems." ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "Uses a specialized, complex 'Identifier' data type to capture information about the source of the business identifier." .
+
+linkml:cDM.ResearchSubject__index_timepoint a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__index_timepoint" ;
+    rdfs:range linkml:String ;
+    skos:definition "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date. " ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchSubject__member_of_cohort a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__member_of_cohort" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to the Cohort(s) of which this ResearchSubject is a member" ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "*Modeling of 'Cohort' is not in scope for this phase, but is a likely entity that will be added in the next phase of work." .
+
+linkml:cDM.ResearchSubject__member_of_study a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__member_of_study" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to the Study(s) of which this ResearchSubject is a member" ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "*Modeling of 'ResearchProject' is not in scope for this phase, but is a likely entity that will be added in the next phase of work." .
+
+linkml:cDM.ResearchSubject__originating_site a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__originating_site" ;
+    rdfs:range linkml:String ;
+    skos:definition "A clinical site that collects and provides patient samples and clinical metadata for research use." ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "*Modeling of 'Organization' is not in scope for this phase, but is a likely entity that will be added in the next phase of work." .
+
+linkml:cDM.ResearchSubject__primary_disease_site a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__primary_disease_site" ;
+    rdfs:range linkml:String ;
+    skos:definition "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchSubject__primary_disease_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__primary_disease_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). " ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Consider grouping primary_disease_type and primary_disease_site in a Container - as they are related, and together define the type of disease?
+
+SE: an Observation can hold the disease type as a CodeableConcept or refernces an actual Condition that holds that disease type.\r
+\r
+Q from WNV:  Are you proposing a change to Observation.value?  Because even in the build version, the datatypes value can take are:  Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period|Attachment\r
+""" .
+
+linkml:cDM.ResearchSubject__processed_at a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__processed_at" ;
+    rdfs:range linkml:String ;
+    skos:definition "The site at which a biospecimen entity was processed." ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "*Modeling of 'Organization' is not in scope for this phase, but is a likely entity that will be added in the next phase of work." .
+
+linkml:cDM.ResearchSubject__qualification_status_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__qualification_status_flag" ;
+    rdfs:range linkml:String ;
+    skos:definition "Specifies if the ResearchSubject is qualified or disqualified for any reason. Usually the data related to such ResearchSubjects may be not used in the data analysis" ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.ResearchSubject__reference_status_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__reference_status_flag" ;
+    rdfs:range linkml:String ;
+    skos:definition "A biospecimen entity which is used as a reference sample for determining relative protein abundances in labeling experiments." ;
+    skos:editorialNote "Cardinality: 0..1",
+        """Q for PDC:  Can cases actually be references - what does it mean for a case to be a reference?  How does that relate to individual samples being references?  Does this mean all samples for this case are references?  or does it mean that this case has at least one sample that is a reference?  Ditto on aliquot that may be references?
+
+A from PDC: (Also see sample_is ref) The composition of the reference is highly variable between studies, so PDC records only whether an aliquot (the biological sample) is a reference – Yes or No.  If an aliquot is a reference, the sample and case inherit its attributes - pool and _is _ref""" ;
+    skos:note "Inherited on an Case/Subject with derived specimens (typically an aliquot) that are flagged as being used as a reference." .
+
+linkml:cDM.ResearchSubject__study_progress a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.ResearchSubject__study_progress" ;
+    rdfs:range linkml:String ;
+    skos:definition "A data container holding information about the various states through which a ResearchSubject may pass during the course of their participation in a ResearchStudy			" ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "n/a (will define mappings when we define a specific DataContainer structure)" .
+
+linkml:cDM.SpecimenContainer__additive a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenContainer__additive" ;
+    rdfs:range linkml:String ;
+    skos:definition "A material substance added to the container." .
+
+linkml:cDM.SpecimenContainer__charge_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenContainer__charge_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "A descripton of the type of charge on a slide on which a specimen is mounted" ;
+    skos:editorialNote "Cardinality: 0..1",
+        "This hangs directly from the specimen in node models - moved to container here. " .
+
+linkml:cDM.SpecimenContainer__container_number a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenContainer__container_number" ;
+    rdfs:range linkml:String ;
+    skos:definition "Informal number/identifier by which the container is referenced (e.g. a slide number, or a well number in a plate)" .
+
+linkml:cDM.SpecimenContainer__container_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenContainer__container_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The kind of container associated with the specimen." ;
+    skos:editorialNote "See the FHIR container type value set here: https://www.hl7.org/fhir/valueset-specimen-container-type.html" .
+
+linkml:cDM.SpecimenContainer__parent_container a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenContainer__parent_container" ;
+    rdfs:range linkml:String ;
+    skos:definition "A larger container of which this container is a part (e.g. a single well in a 96-well plate)" .
+
+linkml:cDM.SpecimenCreationActivity__activity_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__activity_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The high-level type of creation activity" ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: Consider splitting SpecimenCreation into two subclasses (Collection, and Derivation)" ;
+    skos:note "For now we are collapsing the two types of processes through which specimens are created (initial collection form source, and downstream derivation from an existing specimen).  This category attribute is a flag to indicate which applies to a given instance, so that more specific recommendations about field requirement/cardinality can be specified." .
+
+linkml:cDM.SpecimenCreationActivity__collected_during_visit a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__collected_during_visit" ;
+    rdfs:range linkml:String ;
+    skos:definition "A specific visit during which the specimen was collected." ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: Consider if we could make this a mroe generic/re-usable property like 'partOf', or 'performedDuring'" ;
+    skos:note "*Modeling of 'Visit' is not in scope for this phase, but is a likely entity that will be added in the next phase of work.  " .
+
+linkml:cDM.SpecimenCreationActivity__collection_site a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__collection_site" ;
+    rdfs:range linkml:String ;
+    skos:definition "A data container holding information about the anatomic source of a specimen, including its location in the body, and the approach route used to access it." ;
+    skos:editorialNote "As for all 'DataContainer' objects, we are not yet committing to what type of structure the 'Container' will be here.  It may be may be a complex data type,  a nested backbone element, or a Observation-like object. Our final decision in if and how to encapsulate these ADM properties will depend on additional requirements we collect as work proceeds, and also on the modeling framework we use for our implemented logical model. ",
+        "Cardinality: 0..1" ;
+    skos:note "This attribute is used when the activity_type is 'Collection form Source' - to describe the anatomic location targeted by the specimen creation activity. " .
+
+linkml:cDM.SpecimenCreationActivity__date_ended a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__date_ended" ;
+    rdfs:range linkml:String ;
+    skos:definition """The date when the activity ended (in this case, a specimen creation event). 
+""" ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.SpecimenCreationActivity__date_started a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__date_started" ;
+    rdfs:range linkml:String ;
+    skos:definition """The date when the activity began (in this case, a specimen creation event). 
+""" ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Consider naming simple 'start' and 'end' or 'started' and 'ended' - as the data type here is a dateTIme, not a date.
+MHB: Consider using the compelx Timepoint data type we discussed here.  And consider if we might expand the idea of a Timepoint to capture a range of time? (e.g call it TImeSpan) """ ;
+    skos:note "For our purposes, dates can be expressed explicitly as a single date  (e.g. \"2012-04-09\") or a period spanning many days (e.g. \"2012-04-09 - \"2012-04-12\"), or as an offset from some index date (e.g. \"55 days from index\"), for purposes of obfuscating  patient identity. The t.b.d. DateTime data type will need to be capable of expressing a date in these different ways." .
+
+linkml:cDM.SpecimenCreationActivity__execution_condition a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__execution_condition" ;
+    rdfs:range linkml:String ;
+    skos:definition "Information describing the specified or observed conditions under which activity was executed" ;
+    skos:editorialNote "Cardinality: 0..m",
+        """MHB: We should explore the 'map' data type / extension that Shahim mentioned that KF is considering here as a flexible way to capture this type of innumerable information. It is a simple key-value object where we could indicate the type of parameter and the value e.g. 'ischemic_time, 3 seconds'.
+
+MHB: Clarify if this is a condition of the collection or procesing.""" .
+
+linkml:cDM.SpecimenCreationActivity__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "We use  FHIR naming conventions here, where 'id' is used for the logical identifier, and 'identifier' for the business identifier. " .
+
+linkml:cDM.SpecimenCreationActivity__input_specimen a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__input_specimen" ;
+    rdfs:range linkml:String ;
+    skos:definition "One or more existing specimens input into the specimen creation activity, from which a new specimen is derived (e.g. through portioning, aliquoting, sectioning, etc)" ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "This attribute is used when the activity_type is 'Derivation from Specimen' - to identify the existing specimen input into the specimen creation process. " .
+
+linkml:cDM.SpecimenCreationActivity__method_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__method_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "A specific type of method followed in performing the creation activity. " ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: Consider cardinality on this field . . . if the Activity here represents the entire creation process, which may involve many sub-activities and apply many methods, should cardinality be 0..m?" ;
+    skos:note "This attribute specifically captures the method of collection from the original source in the case of the original/upstream specimen (Specimen.category = 'original'), or the method of derivation from an existing specimen in the case of a derived specimen (Specimen.category = 'portion', 'aliquot', 'analyte')." .
+
+linkml:cDM.SpecimenCreationActivity__performed_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__performed_by" ;
+    rdfs:range linkml:String ;
+    skos:definition "The organization or group that performed the activity." ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: consider use of role-based classes like in BRIDG (e.g. Performer) - which represent the person/organization in a particular agent role, separately form the underlying, context-independent  person/organization.
+MHB: No source node attribute that captures this - leave out of model, even though it seems of fundamental importance more generally?""" .
+
+linkml:cDM.SpecimenCreationActivity__quantity_collected a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__quantity_collected" ;
+    rdfs:range linkml:String ;
+    skos:definition "The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)" ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: not sure this works if we want to capture the original weight of a derived specimen (e.g. a Portion).  Is the initial_weight of the portion that of the processed specimen before further portioning or freeze drying? Or is it the weight of the upstream original collected from which the portion was derived? Or would the notion of an initial weight just not be relevnt for a derived specimen like a portion?
+
+MHB: Also, becuase we try to follow where FHIR hangs this info, we separate initial and current weight across two entities (the Colleciton, and the Sample itself, respectively). Is this a problem?
+
+MHB: Could this attribute apply to both collected/initial and derived specimen?  Is it useful in the latter context? """ ;
+    skos:note "This applies only to specimens with category='initial'." .
+
+linkml:cDM.SpecimenCreationActivity__relative_order a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__relative_order" ;
+    rdfs:range linkml:String ;
+    skos:definition "A numeric value that represents the sequential order of this collection process relative to that of collection processes producing specimens from the same source material or parent specimen." ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: We could hang this from the Specimen itself instead?" ;
+    skos:note "The requirement for this came from Portion.portion_number, so it may be that this is specifically relevant to order in which a derived specimen was sectioned/aliquoted/portioned form an existing parent specimen. But proposing here in case we decide it is relevant for a fresh / collected specimen as well." .
+
+linkml:cDM.SpecimenCreationActivity__relative_timing a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenCreationActivity__relative_timing" ;
+    rdfs:range linkml:String ;
+    skos:definition "The timing of the activity relative to some other activity or timepoint.  " ;
+    skos:editorialNote "Cardinality: 0..m",
+        """MHB: The data type/container should allow us to describe the timing of an activity relative to some other activity or timepoint. If we lump all three of these ADM properties, the strucutre should be able to capture the type of the related activity/timepoint (e.g. for 'timepoint_label), 'necropsy_sample'), and/or a specific instance of the related activity (e.g. for 'on_visit').  And it should capture the temporal relationship to this related activity - e.g. before, immediately before, during, after, etc (there are existing relational algebras we can adopt here). 
+
+MHB: Here I proposed to group these attributes together - but we may want to keep separate for now and just note that this would be one option for collapsing.  In particular, on_visit links to a Visit instance, and may need to be split out. Thoughts?
+
+BTF: it does seem like on_visit should be split out as you suggest""" .
+
+linkml:cDM.SpecimenProcessingActivity__duration a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenProcessingActivity__duration" ;
+    rdfs:range linkml:String ;
+    skos:definition "The length of time over which the activity was performed." .
+
+linkml:cDM.SpecimenProcessingActivity__performed_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenProcessingActivity__performed_by" ;
+    rdfs:range linkml:String ;
+    skos:definition "The organization or group that performed the activity." ;
+    skos:editorialNote "Cardinality: 0..1",
+        """Defined as a general attribute to capture the agent who performed an activity. In node data we have so far, this is always an organization - so for now restricting the data type to Organization). But there may be use cases for capturing a Person, or even a Computational Agent - in which case we can broaden the data type to the notion of an Agent, which covers all of these things.
+
+MHB: consider use of role-based classes like in BRIDG (e.g. Performer) - which represent the person/organization in a particular agent role, separately form the underlying, context-independent  person/organization.""" .
+
+linkml:cDM.SpecimenStorageActivity__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenStorageActivity__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.SpecimenTransportActivity__date_ended a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenTransportActivity__date_ended" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date when the activity ended (in this case, a transport event). " ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.SpecimenTransportActivity__date_started a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenTransportActivity__date_started" ;
+    rdfs:range linkml:String ;
+    skos:definition "The date when the activity began (in this case, a transport event). " ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.SpecimenTransportActivity__execution_conditions a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenTransportActivity__execution_conditions" ;
+    rdfs:range linkml:String ;
+    skos:definition "An environmental condition under which the activity is executed (in this case, a transport activity)." ;
+    skos:editorialNote "Cardinality: 0..m",
+        "We may want to consider next round how to refactor this to leverage SpecimenContainer, and/or the ExecutionCondition DataContainer" .
+
+linkml:cDM.SpecimenTransportActivity__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenTransportActivity__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "  ",
+        "Cardinality: 0..1" ;
+    skos:note "We use  FHIR naming conventions here, where 'id' is used for the logical identifier, and 'identifier' for the business identifier. " .
+
+linkml:cDM.SpecimenTransportActivity__transport_destination a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.SpecimenTransportActivity__transport_destination" ;
+    rdfs:range linkml:String ;
+    skos:definition "An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Specimen__analyte_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__analyte_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)" ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Consider if/how we might collapse this into the more generic 'specimen_type' attribute. This is a fundamentally different axis of classification - and specific to analytes, but we could collapse if we include values like 'aliquot-DNA' in the 'specimen_type' value set. 
+
+SE: +1 to collapsing and the valueset and profiles help with this. Profiles allow for binding of differnt valusets based on the intended use of the profile.
+
+MHB: Terminologies team is also thinking about this issue ot pre- vs post-composed attributes / values. Where did they end up on this? Pre-compose but logically define in teh source ontology?""" ;
+    skos:note "This attribute is to be used with Specimens of type 'analyte' or 'aliquot' (specifically, aliquots that were derived from analytes)." .
+
+linkml:cDM.Specimen__associated_project a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__associated_project" ;
+    rdfs:range linkml:String ;
+    skos:definition "The Project associated with the specimen." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Specimen__cellular_composition_measure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__cellular_composition_measure" ;
+    rdfs:range linkml:String ;
+    skos:definition "An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide." ;
+    skos:editorialNote "Cardinality: 0..m" .
+
+linkml:cDM.Specimen__cellular_composition_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__cellular_composition_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "A term describing the type of material comprising a specimen at a celluar level." ;
+    skos:editorialNote "Cardinality: 0..1",
+        """Note that there is a diverse range of values in the data in GDC and PDC here.  These nodes indicated that they would likely refactor this property and consider if/how to merge with GDC.sample_type (see above).
+
+MHB: consider relationship to  cellular_composition_measure . . . they are named the same, but are fundamentally different in that this field is more closely aligned with source material  / sample_type. It is not about the propostional/relative make up of the specimen at a cellular level.  It is about the overall cell type/source material.   Consider calling this cellular_type or cellular_source_matieral so as not to confuse with compositional fields.  
+
+MHB: keep in mind that this will likely be deprecated / collapsed into source_material/sample_type in the future. AI to sync up with GDC and PDC if/when this happens""" .
+
+linkml:cDM.Specimen__condition_status_at_collection a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__condition_status_at_collection" ;
+    rdfs:range linkml:String ;
+    skos:definition "The status of a patient's condition at the time the speimen was collected (e.g. if it was primary, recurrent, metastatic, etc)." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Specimen__contained_in a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__contained_in" ;
+    rdfs:range linkml:String ;
+    skos:definition "A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate) " ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: There are only a few properties in the ADM related to containment. Creating a SpecimenContainer class to hold these for now. We can always flatten/denormalize later if we decide this is not warranted/useful.
+
+MAK: Analyte.well_number was "Deferred" but comments suggest the same "container" mapping as Sample.collection_media.""" .
+
+linkml:cDM.Specimen__creation_activity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__creation_activity" ;
+    rdfs:range linkml:String ;
+    skos:definition "An activity or procedure through which a specimen was created, through removing material from an biological subject, or deriving material from an existing specimen." ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: for v1, leave single creationActivity field here, and keep a single concrete SpecimenCreationActivity class.  Later we can split the two classes into SpecimenCollection and SpecimenDerivation - if we decide to go this route. " ;
+    skos:note "Note that a given specimen is the result of only one and only one SpecimenCreationActivity, but may be subject to many processing events that modify or derive new speciemns from it." .
+
+linkml:cDM.Specimen__derived_product a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__derived_product" ;
+    rdfs:range linkml:String ;
+    skos:definition "A 'living' biologically active product (e.g. a cell culture, tissue culture, or organoid) that was generated from the specimen" ;
+    skos:editorialNote "Cardinality: 0..m",
+        """MHB: This mapping assumes that what the source models aim to represent is the fact that a specimen was used as a source of material from which to derive a cell line, and nodes want to be able to describe attributes of this derived cell line.
+Alternatively the intent here could be to capture the fact that the specimen is a derivd cell line, in which case we might consider expanding the values allowed for 'specimen_type' to include things like 'biologically-derived product', or 'cell line'.  Looking at the definition of this field in GDC ("Number of passages (splits) between the original tissue and this model."), i suspect the latter is true here.  But note that the mapped GDC fields are never populatedin GDC data.""" ;
+    skos:note "MHB: Might be worth considering things like cell lines to be a new subtype of Specimen, and not bother representing the source 'model' as a separate entity?" .
+
+linkml:cDM.Specimen__description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__description" ;
+    rdfs:range linkml:String ;
+    skos:definition "A free text field to capture additional information or explanation about the specimen." ;
+    skos:editorialNote "Cardinality: 0..1",
+        """FHIR provides a 'description' field on many resources (e.g. BodyStructure), that takes a string.  But it is not offered on Specimen for some reason). Instead, Specimen has a note field that takes a complex Annotation data type, that allows you to capture by whom and when the comment was made.
+""" .
+
+linkml:cDM.Specimen__dimensional_measure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__dimensional_measure" ;
+    rdfs:range linkml:String ;
+    skos:definition """An observation about the dimensions of an object, including lengths, areas, and volumes.
+""" ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: re: naming of this property - I tried to keep attribute names generic so the same property might be applied to other entities with dimensional measurements. Alt, we could name properties more specifically, e.g. 'specimen_dimensions' here.
+
+MHB: I lumped 'surface_area' into this container, as it is derived from length measurements, and likely performed using the same methods and at the same time as these lengths.  Thoughts?  Can always split this back out. 
+
+MHB: The cardinality here is 0..1 because the DimensionalMeasure would be created as a "composite" observation  - which uses the 'Observation.component' field to group several related atomic observations together into one Observation object.   """ .
+
+linkml:cDM.Specimen__general_tissue_morphology a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__general_tissue_morphology" ;
+    rdfs:range linkml:String ;
+    skos:definition """A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent). 
+""" ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: Consider collapsing general and specific tissue morphlogy?  codeable concepts lets us have multiple codings, at general and specific levels - as long as they don’t contradict.  can capture all parents of most specific code. maybe call it just 'tissue morphology'." .
+
+linkml:cDM.Specimen__id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__id" ;
+    rdfs:range linkml:String ;
+    skos:definition "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. " ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "FHIR naming conventions are followed here, where 'id' is used for logical identifiers, and 'identifier' for business identifiers. " .
+
+linkml:cDM.Specimen__identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__identifier" ;
+    rdfs:range linkml:String ;
+    skos:definition "A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems." ;
+    skos:editorialNote "Cardinality: 0..m",
+        """MHB: Thoughts on whether I accurately summarized the relevant aspects of FHIR identifier fields/data types, and whether it is prudent for us to propose adopting these at this point?  Happy to take a different direction if others feel strongly, or consider alternate names for these attributes (e.g. 'internal_id' vs  'external_id')
+
+BTF: well, i find 'id' and 'identifier' difficult to distinguish without knowing the FHIR definitions of these.  certainly 'internal_id' or 'logical_id' and 'external_id' or 'business_id' make a clearer distinction between the meaning of these fields.  that said, i am fine sticking with FHIR-aligned attributes here unless others object
+
+SE: the "id" is really implementation dependent thing. In REST/FHIR it's the resoruce identifier, in Java there is no such thing since it's a memory location, etc.  So, if it's adds confusion just leave it out and focus on the business "identifier" modeling""" ;
+    skos:note """
+FHIR naming conventions are followed here, where 'id' is used for logical identifiers, and 'identifier' for business identifiers.  The complex 'Identifier' data type is used  to capture the identifier itself, along with metadata about the source of the business identifier.  Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.""" .
+
+linkml:cDM.Specimen__matched_normal_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__matched_normal_flag" ;
+    rdfs:range linkml:String ;
+    skos:definition "A flag indicating that there is no matched normal aliquot for this case that can be used for variant calling purposes." ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "This attribute comes from GDC, where it is specific to 'aliquot' specimens. If we leave this as a separate attribute with an enum data type, values will have to indicate whether the variant calling strategy is for targeted, whole genome, or exome sequencing (e.g. \"no matched normal wgs\"). But as noted above we may ultimately group with with other 'flag'-like attributes into a common structure, where we can deal with this issue. " .
+
+linkml:cDM.Specimen__paired_specimen_genotype_match_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__paired_specimen_genotype_match_flag" ;
+    rdfs:range linkml:String ;
+    skos:definition "A flag to indicate whether the genotype of the paired normal or tumor specimen matches, or if the data is not available." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Specimen__parent_specimen a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__parent_specimen" ;
+    rdfs:range linkml:String ;
+    skos:definition "An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen)." ;
+    skos:editorialNote "Cardinality: 0..m",
+        """MAK: for derived_from_analyte use Specimen --parent--> Specimen[analyte]
+MHB: Consider renaming to make intended use of this field clearer (i.e. direct parent only)?  e.g. 'parent_specimen', or  'direct_parent_specimen'.  See Comments in column K.
+
+Discussed value in keeping name more general, so this field can be more easily intuited and re-used, at the cost of less precise semantics. Decided to keep a more precise name, and revisit decision if we get pushback from users/developers.""" ;
+    skos:note "This property indicates only the direct parent specimen(s).  Cardinality is 0..m to account for specimens derived from pooling of mulitple speciens." .
+
+linkml:cDM.Specimen__processing_activity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__processing_activity" ;
+    rdfs:range linkml:String ;
+    skos:definition "An activity that modifies the physical structure, composition, or state of a specimen." ;
+    skos:editorialNote "Cardinality: 0..m" ;
+    skos:note "Note that if a given specimen may undergo more than one distinct processing activity, via the application of different methodologies that modify its physical state. However, activities that generate new specimens (e.g. portioning, slicing) are considered SpeciemnCreationActivities, not SpecimenProcessingActivities. " .
+
+linkml:cDM.Specimen__provided_by a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__provided_by" ;
+    rdfs:range linkml:String ;
+    skos:definition "The organization/center that provided the specimen." ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: This mapping raises a general modeling question about how specific we want be w.r.t. attribute semantics. Here we could define a very specific property such as 'specimen_source_center' that can be used only to link a Specimen to a Center that provided it.  But we chose a more generic proeprty 'provided_by' that might be used in other settings to link any resource to an Agent/Org that provided it.  Is there a general guiding principle we can define when faced with such decisions about the specificity of attribute semantics?" .
+
+linkml:cDM.Specimen__qualification_status_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__qualification_status_flag" ;
+    rdfs:range linkml:String ;
+    skos:definition "A flag indicating whether the specimen is qualified or disqualified for data analysis in a study." ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: I chose here to name the attribute more specifically than in the ADM, to be clearer about its intended meaning.  We can generalize if other types of statuses become relevant to hang from a specimen. 
+
+BTF: There is a similar attribute in ADM.Case which i refactored as 'qualification_status' which isn't a great name.  'Eligibility' for a research subject means something very specific and so I don't think i'd want to name the 'qualifed' / 'disqualified' status for that entity as 'eligibility_status'
+
+SE: this is really a relational status. In other words, the specimen is disqualified in a study, not just disqualified on its own. So, if we want to accomodate a database that will eventually have entries where the same specimen is used in more than one study but still be able to capture which study disqualifies it and why, we'll need to make this a "qualified relationship"
+
+MHB: Agreed. I think the context of the present associated study is implied here (and it was clarified that a given specimen is only associated with one study in th GDC/PDC/ICDC). But we should address this in the next phase. """ ;
+    skos:note "This is the first of several 'flag' type properties we define to capture admistrative or experimental roles/status associated with a specimen.  We may ultimately define a container strucutre to accommodate all flags, where the meaning of the flag is captured in the data (as values of a single 'flag_type' attribute) instead of in the model (as separate attributes for each type of flag)" .
+
+linkml:cDM.Specimen__quality_measure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__quality_measure" ;
+    rdfs:range linkml:String ;
+    skos:definition "An observation about  specimen characteristics indicative of its quality or suitability for use." ;
+    skos:editorialNote """As for all 'DataContainer' objects, we are not yet committing to what type of structure the 'Container' will be here.  It may be may be a complex data type, a nested backbone element, or a FHIR Observation-like object. Our final decision in if and how to encapsulate these ADM properties will depend on additional requirements we collect as work proceeds, and also on the modeling framework we use for our implemented logical model. 
+
+MHB: I proposed this as a "simple " observation only for the sake of providing an example of a "simple" Container object. It may be that this is better suited to be a "composite" Observation/Container. 
+
+MHB: For now I lumped 'analyte_concentration' in here, but this may be split out.  One reason I did this is that it lets us wrap the 'spectrophotometer_method' property, used to capture the method used to determine concentration, in with the quality measure data. But as noted in the comment above, it could make sense to capture this in with a  general 'quantity' attribute. """,
+        "Cardinality: 0..m" .
+
+linkml:cDM.Specimen__quantity_measure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__quantity_measure" ;
+    rdfs:range linkml:String ;
+    skos:definition "An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration. " ;
+    skos:editorialNote "Cardinality: 0..m",
+        "MHB: Would this model allow us to declare the volume of an analyte solution, and the concentration of the analyte it contains? I think yes - we would create two QuantityMeasure objects - one of type \"volume\" and one of type \"analyte_concentration\"" .
+
+linkml:cDM.Specimen__reference_status_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__reference_status_flag" ;
+    rdfs:range linkml:String ;
+    skos:definition "A flag indicating whether the specimen is used as a reference during analytical interrogation" ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Not sure about how I modeled this one.  Also, consider collapsing with 'eliqibility_flag' , and any other status/role related elements, into a single property with a  generic data type that can capture any type of status or role.
+
+BTF: as with 'status' above, there is a similar attribute in ADM.Case which i left named 'is_reference' for lack of imagination.
+
+SE: same thought as above but probably too much change to consider for this cycle. This field and similar ones are really not an attribute of a single entity. It's a "relational fact" that involves multiple entity instances and the fact itself holds some attributes. Saying this in plain English makes this clear. For example, this can be worded as "Study x uses specimen y and uses specimen z as a reference". So one option is to figure out how to reduce this to a simple property and this is doable if we put more meaning on the instance of x and y. If we say that we'll have an instance of y for every study the real thing behind y (the real world specimen), i.e. y stands for the role of the real specimen in the specific study, then we can have a simle property on that instance to say it is a reference because that property is specific to y's role in that study, not the real y entity in the world. We haven't talked much about the meaning of the instances of our entities, i.e. when should they be instantiated and what does the instance stand for in the data, so it's hard to decide on how to model attriburtes. Just thinking out loud here but some of our difficulties are due to not also thinking at the instance level.""" .
+
+linkml:cDM.Specimen__related_diagnosis a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__related_diagnosis" ;
+    rdfs:range linkml:String ;
+    skos:definition "A patient diagnosis that was informed by a pathological assessment of the specimen" ;
+    skos:editorialNote "Cardinality: 0..m" .
+
+<https://w3id.org/linkml/cDM.Specimen__related_document?_related_report?> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__related_document?_related_report?" ;
+    rdfs:range linkml:String ;
+    skos:definition "A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected, or a catalog entry describing  related research resource)" ;
+    skos:editorialNote "Cardinality: 0..m",
+        """MHB: Proposing a single property to capture several types of related resources linked to a Sample in the ADM. 'RelatedArtifact' is a complex data type patterned after the FHIR 'RelatedArtifact' metadata type (https://www.hl7.org/fhir/metadatatypes.html#relatedartifact) - which allows you to indicate the type of related artifact, a label, description, and url.  If we want to restrict this to related documents, we can consider the field name "related_document", and a DocumentReference data type (based on the FHIR DocumentReference data type: https://www.hl7.org/fhir/documentreference.html), which provides similar features as RelatedArtifact)
+""" .
+
+linkml:cDM.Specimen__related_specimen a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__related_specimen" ;
+    rdfs:range linkml:String ;
+    skos:definition "Another specimen to which this one is related in some way (excluding parent-child / derivation relationships, which are captured using the dedicated the source_specimen field)" ;
+    skos:editorialNote "Cardinality: 0..m",
+        """There are a handful of ADM properties that represent a link to another specimen instance related in some way.  Sometimes the relationship is specified (e.g. HTAN.adjacent_biospecimen), and other times the property does not (e.g. ICDC.next). The notion of a 'Relationship' data type used here is a place holder for defining some generic, flexible object that can be used to describe a relationship between two entity instances.  Minimally the type of relationship, but perhaps also allow for additional details like dates, roles, etc.
+
+BRIDG has a host of 'Relationship' classes for this sort of thing.  Guessing that FHIR has some way to support this?
+
+Or, consider representing this as an Observation?
+
+Or, if we dont anticipate a need for a generalized 'Relationship' element to accommodate additional types of relationships, just create a named field for each of the couple use cases we have for now.""" .
+
+linkml:cDM.Specimen__section_location a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__section_location" ;
+    rdfs:range linkml:String ;
+    skos:definition "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)" ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Consider if this should be attached to the creation/derivation activity, not the specimen itself.  (We could do this if a creation/derivation activity is scoped to creating a single specimen) Is analogous to the anatomical collection site for original samples. 
+
+Note also that i dont think this is an enumerated field in the GDC model . . .but it likely should be?""" ;
+    skos:note "This attribute applies only to Specmiens that are of type 'portion' or 'slide'." .
+
+linkml:cDM.Specimen__selected_normal_flag a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__selected_normal_flag" ;
+    rdfs:range linkml:String ;
+    skos:definition "A flag to denote which 'normal' aliquot the submitter prefers to use for variant calling. Only one normal per experimental strategy per case can be selected." ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "Same comment/issue as for matched_normal_flag above" .
+
+linkml:cDM.Specimen__source_material_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__source_material_type" ;
+    rdfs:range linkml:String ;
+    skos:definition "The general kind of material from which the specimen was derived, based on the physical nature of the source material. " ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Alt, call this attribute specimen_type, and define it as "the type of specimen, based on the general kind of source material from which it was derived." From ICDC: "ICDC uses the sample-level property of sample_type to capture the physical nature of the sample in question - for example a tissue sample vs. a tumor aspirate vs. a blood sample. We will probably deliberately change sample_type to physical_sample_type to clarify this."
+
+SE: for later consideration, if there are enough properties about the source of a specimen, we should probably consider modeling a "Source" entity, which can just be an instance of "BiologicalEntity" with properties but there. For FHIR, this could be BodyStructure, Substance, etc. (MHB: we do this in the SpecimenCreation entity).
+
+Based on conversations with nodes, it seems that values for this field is an area that needs to be cleaned up/refactored, and should be coordinated across nodes as well. """ ;
+    skos:note "Values captured here may describe the type of molecular mixture, cell, tissue, organ, body fluid, embryo, excretory substance, or experimental system from which a specimen was derived." .
+
+linkml:cDM.Specimen__source_model_system a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__source_model_system" ;
+    rdfs:range linkml:String ;
+    skos:definition "A Biologically Derived Material / model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived." ;
+    skos:editorialNote "Cardinality: 0..1",
+        "MHB: Return to this when there is data / requirements to support it" ;
+    skos:note "While the 'model systems' referenced here originated as specimens extracted from some source biological entity, they themselves are no longer specimens - as they have been propagated as independent, metaboloically active 'living' systems. However, specimens may be derived from these model systems for resarch purpsoes." .
+
+linkml:cDM.Specimen__source_patient a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__source_patient" ;
+    rdfs:range linkml:String ;
+    skos:definition "A Patient from which the specimen was directly or indirectly derived." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Specimen__specific_tissue_morphology a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__specific_tissue_morphology" ;
+    rdfs:range linkml:String ;
+    skos:definition "A term describing the specific pathology exhibited by the tissue in a specimen." ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Cannot map two HTAN properties to this single CDM property given its 0..1 cardinality.  Will the harmonized value set handle this (i.e.  nest pre-invasive terms under general morphlogy codes?).  Or do we need a separate field (specific_preinvasive_tissue_morphology?)? Discuss with Dazhi/terminologies team?
+
+For Phase 2 we will collapse these fields.  Revisit in Phase 3.""" .
+
+linkml:cDM.Specimen__specimen_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__specimen_type" ;
+    rdfs:range linkml:String ;
+    skos:definition """The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).
+""" ;
+    skos:editorialNote "Cardinality: 0..1",
+        """MHB: Should we include 'pool'? A 'pool' can be created by pooling any of the other categories of samples (e.g. analytes, aliquots, original). If multiple aliquots are pooled, the specimen ceases to be an aliquot.  But we do want to maintain that it is a pool of aliquots, for example.  Lots of ways we might do this (enumerated in comment on this cell).
+SE: let's just say this is an "extensible" valueset that contains the clearly needed ones for now. If the data needs an entry in this set for one reason or another we'll add one. For now let's just stick with the codes that stand for the differnt "types" in the nodes. The "pool" aspect was only recognized in fields, not types.
+MHB: wait to see data here, and talk with nodes - then make a decision. 
+
+""" ;
+    skos:note "Our model definies a single 'Specimen' type to cover speific subtypes of specimens delineated in some CRDC node models (e.g. GDC 'Sample', 'Portion', 'Aliquot', 'Analyte', and 'Slide'). The 'specimen_type' field is used to indicate which subtype a given Specimen instance represents.  The enumerated values are meant to be mutually exclusive, such that only one can be applied to a given specimen." .
+
+linkml:cDM.Specimen__storage_activity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__storage_activity" ;
+    rdfs:range linkml:String ;
+    skos:definition "An activity that results in the storage or maintenance of a specimen in a particular location, container, or state." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:cDM.Specimen__tissue_composition_measure a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__tissue_composition_measure" ;
+    rdfs:range linkml:String ;
+    skos:definition "An observation about the absolute area or relative proportion of a specific type of tissue in a specimen or other biological material" ;
+    skos:editorialNote """As for all 'DataContainer' objects, we are not yet committing to what type of structure the 'Container' will be here.  It may be may be a complex data type, a nested backbone element, or a FHIR Observation-like object. Our final decision in if and how to encapsulate these ADM properties will depend on additional requirements we collect as work proceeds, and also on the modeling framework we use for our implemented logical model. 
+""",
+        "Cardinality: 0..m" .
+
+linkml:cDM.Specimen__transport_activity a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "cDM.Specimen__transport_activity" ;
+    rdfs:range linkml:String ;
+    skos:definition "An activity through which the specimen is transported between locations." ;
+    skos:editorialNote "Cardinality: 0..1" .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+linkml:String a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "string" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "A character string" .
+
+
+

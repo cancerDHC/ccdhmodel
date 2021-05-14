@@ -1,0 +1,96 @@
+{
+   "_comments": "Auto generated from ccdhmodel.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-05-04 16:45\n    Schema: CCDH-MVP\n    \n    id: https://example.org/ccdh/model/MVPv0\n    description: \n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "ccdh": "https://example.org/ccdh/",
+      "linkml": "https://w3id.org/linkml/",
+      "types": "https://example.org/ccdh/datatypes/",
+      "@vocab": "https://example.org/ccdh/",
+      "coding": {
+         "@type": "@id"
+      },
+      "type": {
+         "@type": "@id"
+      },
+      "identifier": {
+         "@type": "@id"
+      },
+      "taxon": {
+         "@type": "@id"
+      },
+      "comparator": {
+         "@type": "@id"
+      },
+      "unit": {
+         "@type": "@id"
+      },
+      "value": {
+         "@type": "xsd:decimal"
+      },
+      "associated_patient": {
+         "@type": "@id"
+      },
+      "associated_project": {
+         "@type": "@id"
+      },
+      "primary_disease_site": {
+         "@type": "@id"
+      },
+      "primary_disease_type": {
+         "@type": "@id"
+      },
+      "analyte_concentration": {
+         "@type": "@id"
+      },
+      "analyte_concentration_method": {
+         "@type": "@id"
+      },
+      "analyte_type": {
+         "@type": "@id"
+      },
+      "cellular_composition": {
+         "@type": "@id"
+      },
+      "current_volume": {
+         "@type": "@id"
+      },
+      "current_weight": {
+         "@type": "@id"
+      },
+      "derived_from_specimen": {
+         "@type": "@id"
+      },
+      "derived_from_subject": {
+         "@type": "@id"
+      },
+      "general_tissue_morphology": {
+         "@type": "@id"
+      },
+      "matched_normal_flag": {
+         "@type": "@id"
+      },
+      "qualification_status_flag": {
+         "@type": "@id"
+      },
+      "source_material_type": {
+         "@type": "@id"
+      },
+      "specific_tissue_morphology": {
+         "@type": "@id"
+      },
+      "specimen_type": {
+         "@type": "@id"
+      },
+      "CodeableConcept": {
+         "@id": "types:CodeableConcept"
+      },
+      "Coding": {
+         "@id": "types:Coding"
+      },
+      "Identifier": {
+         "@id": "types:Identifier"
+      },
+      "Quantity": {
+         "@id": "types:Quantity"
+      }
+   }
+}
