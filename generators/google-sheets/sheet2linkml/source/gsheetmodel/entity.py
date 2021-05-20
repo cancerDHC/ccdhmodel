@@ -13,7 +13,7 @@ class Entity(ModelElement):
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
 
-    COL_ATTRIBUTE_NAME = "CDM Attribute Name"
+    COL_ATTRIBUTE_NAME = "Attribute Name"
 
     def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
         """
@@ -165,7 +165,7 @@ class Worksheet(ModelElement):
 
     # Some column names.
     COL_STATUS = "Status"
-    COL_ENTITY_NAME = "CDM Entity"
+    COL_ENTITY_NAME = "Entity"
 
     def __init__(self, model, sheet: worksheet):
         """
@@ -221,11 +221,11 @@ class Worksheet(ModelElement):
         result = dict()
 
         for row in self.included_rows:
-            col_name = row[Worksheet.COL_ENTITY_NAME]
-            if not (col_name in result):
-                result[col_name] = list()
+            entity_name = row.get(Worksheet.COL_ENTITY_NAME, "")
+            if not (entity_name in result):
+                result[entity_name] = list()
 
-            result[col_name].append(row)
+            result[entity_name].append(row)
 
         return result
 

@@ -10,7 +10,7 @@ class Attribute:
     """
 
     # Some column names.
-    COL_ATTRIBUTE_NAME = "CDM Attribute Name"
+    COL_ATTRIBUTE_NAME = "Attribute Name"
     COL_CARDINALITY = "Cardinality"
 
     def __init__(self, model, entity, row: dict[str, str]):
