@@ -3,6 +3,7 @@ import pygsheets
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.entity import Entity, Worksheet
 from linkml_model.meta import SchemaDefinition
+from datetime import datetime
 import re
 import logging
 
@@ -141,6 +142,7 @@ class GSheetModel(ModelElement):
 
         schema.default_prefix = "ccdh"
         schema.notes.append(f"derived from {self.to_markdown()}")
+        schema.generation_date = datetime.now().isoformat()
 
         # Generate all the entities.
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
