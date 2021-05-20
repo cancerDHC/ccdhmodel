@@ -132,7 +132,7 @@ class Entity(ModelElement):
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
             description=self.entity_row.get("Description"),
-            comments=self.entity_row.get("Comments"),
+            # comments=self.entity_row.get("Comments"),
         )
 
         # Additional metadata

@@ -89,8 +89,8 @@ class Attribute:
         slot: SlotDefinition = SlotDefinition(
             name=data[Attribute.COL_ATTRIBUTE_NAME],
             description=data.get("Description"),
-            comments=data.get("Comments"),
-            notes=data.get("Developer Notes"),
+            # comments=data.get("Comments"),
+            # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
         )
