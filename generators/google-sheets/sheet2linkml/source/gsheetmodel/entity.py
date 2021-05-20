@@ -133,7 +133,6 @@ class Entity(ModelElement):
             name=self.name,
             description=self.entity_row.get("Description"),
             comments=self.entity_row.get("Comments"),
-            notes=self.entity_row.get("Developer Notes"),
         )
 
         # Additional metadata
