@@ -165,6 +165,7 @@ class Worksheet(ModelElement):
     # Some column names.
     COL_STATUS = "Status"
     COL_ENTITY_NAME = "Entity"
+    COL_ATTRIBUTE_NAME = "Attribute Name"
 
     def __init__(self, model, sheet: worksheet):
         """
@@ -226,7 +227,20 @@ class Worksheet(ModelElement):
 
             result[entity_name].append(row)
 
-        return result
+        # The Google Sheet might indicate that the entity row (the row without an attribute name) should be excluded.
+        # If any other rows have been included for this entity, however, they would be used to define the entity,
+        # even though the intention was to exclude that entity. In order to prevent this, we will check for any included
+        # rows that don't have an entity row -- such groups will be filtered out here.
+        filtered = dict()
+
+        for name, rows in result.items():
+            logging.debug(f'Found entity {name} in worksheet {self.name}.')
+            if not any(row for row in rows if row.get(Worksheet.COL_ATTRIBUTE_NAME, '') == ''):
+                logging.warning(f'- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row.')
+            else:
+                filtered[name] = rows
+
+        return filtered
 
     @property
     def grouped_entities(self) -> dict[str, Entity]:
