@@ -5,6 +5,8 @@ A script for converting Google Sheets to a LinkML model.
 
 import sys
 import os
+import re
+import subprocess
 import logging
 import logging.config
 from sheet2linkml import config
@@ -36,9 +38,14 @@ def main(filter_entity, logging_config):
     # Arbitrarily set a CRDC-H root URI.
     crdch_root = "https://example.org/ccdh"
 
-    # Load the Google Sheet model.
+    # Load the Google Sheet model and add the development version number.
     model = GSheetModel(google_api_credentials, google_sheet_id)
     logging.info(f"Google Sheet loaded: {model}")
+
+    # Determine the development version number. We can get this from git-describe.
+    git_describe_result = subprocess.run(['git', 'describe', '--long', '--dirty'], capture_output=True)
+    if git_describe_result.returncode == 0:
+        model.development_version = re.sub('[^a-zA-Z0-9.\\-]', '_', git_describe_result.stdout.decode('utf8').strip())
 
     # We have two operating modes:
     # 1. If a `--filter-entity "<Entity Name>"` is specified on the command line,
