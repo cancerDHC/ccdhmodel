@@ -32,7 +32,7 @@ class Attribute:
         :return: A name for this attribute.
         """
         return (
-            self.row.get("CDM Attribute Name")
+            self.row.get(Attribute.COL_ATTRIBUTE_NAME)
             or self.row.get("Name")
             or self.row.get("name")
         )
@@ -87,7 +87,7 @@ class Attribute:
         min_count, max_count = self.counts()
 
         slot: SlotDefinition = SlotDefinition(
-            name=data[Attribute.COL_ATTRIBUTE_NAME],
+            name=data.get(Attribute.COL_ATTRIBUTE_NAME) or "",
             description=data.get("Description"),
             # comments=data.get("Comments"),
             # notes=data.get("Developer Notes"),

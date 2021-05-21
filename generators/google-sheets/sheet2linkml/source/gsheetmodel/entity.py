@@ -208,7 +208,7 @@ class EntityWorksheet(ModelElement):
         :return: A list of all the entity names in this worksheet.
         """
 
-        return [row.get(EntityWorksheet.COL_ENTITY_NAME, "") for row in self.included_rows()]
+        return [(row.get(EntityWorksheet.COL_ENTITY_NAME) or "") for row in self.included_rows()]
 
     @property
     def entities_as_included_rows(self) -> dict[str, list[dict]]:
@@ -221,7 +221,7 @@ class EntityWorksheet(ModelElement):
         result = dict()
 
         for row in self.included_rows:
-            entity_name = row.get(EntityWorksheet.COL_ENTITY_NAME, "")
+            entity_name = row.get(EntityWorksheet.COL_ENTITY_NAME) or ""
             if not (entity_name in result):
                 result[entity_name] = list()
 
