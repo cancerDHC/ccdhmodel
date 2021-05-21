@@ -69,26 +69,35 @@ class GSheetModel(ModelElement):
                 - 'Name' in cell B1, and
                 - 'Attribute Name' in cell C1.
             """
-            flag_allow = worksheet.get_values("A1", "C1") == [["Status", "Entity", "Attribute Name"]]
-            if not flag_allow:
-                logging.warning(f'Worksheet {worksheet.title} skipped: not an entity')
-            return flag_allow
+            return worksheet.get_values("A1", "C1") == [["Status", "Entity", "Attribute Name"]]
 
         def is_sheet_included(worksheet: pygsheets.worksheet):
             """
             Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
             but for now we just check to see if the title starts with 'X_'.
             """
-            flag_allow = not worksheet.title.startswith("X_")
-            if not flag_allow:
-                logging.warning(f'Worksheet {worksheet.title} skipped: excluded by starting with "X_"')
-            return flag_allow
+            return not worksheet.title.startswith("X_")
 
         # Identify entity worksheets among the list of all worksheets in this Google Sheets document.
         worksheets = self.sheet.worksheets()
-        entity_worksheets = filter(
-            is_sheet_entity, filter(is_sheet_included, worksheets)
-        )
+
+        tests_and_errors = {
+            'excluded by starting with "X_"': is_sheet_included,
+            'not an entity worksheet': is_sheet_entity
+        }
+
+        entity_worksheets = list()
+        for worksheet in worksheets:
+            flag_skip = False
+            for test_name, error in tests_and_errors.items():
+                if not error(worksheet):
+                    logging.warning(f'Skipping worksheet {worksheet.title}: {test_name}')
+                    flag_skip = True
+                    break
+
+            if not flag_skip:
+                entity_worksheets.append(worksheet)
+
         return [EntityWorksheet(self, worksheet) for worksheet in entity_worksheets]
 
     def entities(self) -> list[Entity]:
