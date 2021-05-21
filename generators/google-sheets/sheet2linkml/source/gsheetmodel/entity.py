@@ -234,11 +234,10 @@ class EntityWorksheet(ModelElement):
         filtered = dict()
 
         for name, rows in result.items():
-            logging.debug(f'Found entity {name} in worksheet {self.name}.')
-            if not any(row for row in rows if row.get(Worksheet.COL_ATTRIBUTE_NAME, '') == ''):
-                logging.warning(f'- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row.')
-            else:
+            if any(row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None for row in rows):
                 filtered[name] = rows
+            else:
+                logging.warning(f'- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row.')
 
         return filtered
 
