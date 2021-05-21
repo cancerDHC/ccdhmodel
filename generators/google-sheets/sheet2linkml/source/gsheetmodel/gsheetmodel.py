@@ -69,14 +69,20 @@ class GSheetModel(ModelElement):
                 - 'Name' in cell B1, and
                 - 'Attribute Name' in cell C1.
             """
-            return worksheet.get_values("A1", "C1") == [["Status", "Entity", "Attribute Name"]]
+            flag_allow = worksheet.get_values("A1", "C1") == [["Status", "Entity", "Attribute Name"]]
+            if not flag_allow:
+                logging.warning(f'Worksheet {worksheet.title} skipped: not an entity')
+            return flag_allow
 
         def is_sheet_included(worksheet: pygsheets.worksheet):
             """
             Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
             but for now we just check to see if the title starts with 'X_'.
             """
-            return not worksheet.title.startswith("X_")
+            flag_allow = not worksheet.title.startswith("X_")
+            if not flag_allow:
+                logging.warning(f'Worksheet {worksheet.title} skipped: excluded by starting with "X_"')
+            return flag_allow
 
         # Identify entity worksheets among the list of all worksheets in this Google Sheets document.
         worksheets = self.sheet.worksheets()
