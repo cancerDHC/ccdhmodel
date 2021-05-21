@@ -63,9 +63,7 @@ class GSheetModel(ModelElement):
                 - 'Name' in cell B1, and
                 - 'Attribute Name' in cell C1.
             """
-            return worksheet.get_value("A1") == "Status" and \
-                worksheet.get_value("B1") == "Entity" and \
-                worksheet.get_value("C1") == "Attribute Name"
+            return worksheet.get_values("A1", "C1") == [["Status", "Entity", "Attribute Name"]]
 
         def is_sheet_included(worksheet: pygsheets.worksheet):
             """
