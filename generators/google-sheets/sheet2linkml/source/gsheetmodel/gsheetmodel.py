@@ -1,7 +1,7 @@
 import pygsheets
 
 from sheet2linkml.model import ModelElement
-from sheet2linkml.source.gsheetmodel.entity import Entity, Worksheet
+from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
 from linkml_model.meta import SchemaDefinition
 from datetime import datetime
 import re
@@ -48,7 +48,7 @@ class GSheetModel(ModelElement):
         )
         self.sheet = self.client.open_by_key(google_sheet_id)
 
-    def worksheets(self) -> list[Worksheet]:
+    def entity_worksheets(self) -> list[EntityWorksheet]:
         """
         A list of worksheets available in this model.
 
@@ -58,29 +58,35 @@ class GSheetModel(ModelElement):
         """
 
         def is_sheet_entity(worksheet: pygsheets.worksheet):
-            """Identify worksheets containing entities, i.e. those that have 'Status' in cell A1."""
-            return worksheet.get_value("A1") == "Status"
+            """Identify worksheets containing entities, i.e. those that have:
+                - 'Status' in cell A1, and
+                - 'Name' in cell B1, and
+                - 'Attribute Name' in cell C1.
+            """
+            return worksheet.get_value("A1") == "Status" and \
+                worksheet.get_value("B1") == "Entity" and \
+                worksheet.get_value("C1") == "Attribute Name"
 
         def is_sheet_included(worksheet: pygsheets.worksheet):
             """
             Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
-            but for now we just check to see if the title starts with 'x-'.
+            but for now we just check to see if the title starts with 'X_'.
             """
-            return not worksheet.title.startswith("x-")
+            return not worksheet.title.startswith("X_")
 
         # Identify entity worksheets among the list of all worksheets in this Google Sheets document.
         worksheets = self.sheet.worksheets()
         entity_worksheets = filter(
             is_sheet_entity, filter(is_sheet_included, worksheets)
         )
-        return [Worksheet(self, worksheet) for worksheet in entity_worksheets]
+        return [EntityWorksheet(self, worksheet) for worksheet in entity_worksheets]
 
     def entities(self) -> list[Entity]:
         """
         :return: The list of entities in this model.
         """
         result = []
-        for worksheet in self.worksheets():
+        for worksheet in self.entity_worksheets():
             result.extend(worksheet.entities)
         return result
 

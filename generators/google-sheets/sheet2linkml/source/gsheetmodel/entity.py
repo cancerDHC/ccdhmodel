@@ -155,7 +155,7 @@ class Entity(ModelElement):
         return cls
 
 
-class Worksheet(ModelElement):
+class EntityWorksheet(ModelElement):
     """
     A Worksheet represents a single worksheet in a GSheetModel. A single sheet usually contains
     information on a single Entity, but sometimes multiple entities may be described in a single
@@ -197,7 +197,7 @@ class Worksheet(ModelElement):
         :return: A list of included rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(Worksheet.COL_STATUS, "") == "include"
+            row for row in self.rows if row.get(EntityWorksheet.COL_STATUS, "") == "include"
         ]
 
     @property
@@ -208,7 +208,7 @@ class Worksheet(ModelElement):
         :return: A list of all the entity names in this worksheet.
         """
 
-        return [row[Worksheet.COL_ENTITY_NAME] for row in self.included_rows()]
+        return [row.get(EntityWorksheet.COL_ENTITY_NAME, "") for row in self.included_rows()]
 
     @property
     def entities_as_included_rows(self) -> dict[str, list[dict]]:
@@ -221,7 +221,7 @@ class Worksheet(ModelElement):
         result = dict()
 
         for row in self.included_rows:
-            entity_name = row.get(Worksheet.COL_ENTITY_NAME, "")
+            entity_name = row.get(EntityWorksheet.COL_ENTITY_NAME, "")
             if not (entity_name in result):
                 result[entity_name] = list()
 
