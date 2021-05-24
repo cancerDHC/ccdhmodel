@@ -121,6 +121,7 @@
 <li><a href="Document/">Document</a></li>
 <li><a href="Exposure/">Exposure</a> - Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.</li>
 <li><a href="Identifier/">Identifier</a> - An Identifier is associated with a unique object or entity within a given system.</li>
+<li><a href="Observation/">Observation</a> - A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.</li>
 <li><a href="Organization/">Organization</a> - A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university</li>
 <li><a href="Quantity/">Quantity</a> - A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.</li>
 <li><a href="ResearchProject/">ResearchProject</a> - A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. </li>
@@ -191,6 +192,18 @@
 <li><a href="identifier__system/">➞system</a> - The system or namespace that defines the identifier.</li>
 <li><a href="identifier__type/">➞type</a> - A code that defines the type of the identifier.</li>
 <li><a href="identifier__value/">➞value</a> - The value of the identifier, as defined by the system.</li>
+<li><a href="observation__category/">➞category</a> - The general category of observation described</li>
+<li><a href="observation__focus/">➞focus</a> - The entity or entities directly observed/measured in generating an observation result.</li>
+<li><a href="observation__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li><a href="observation__method_type/">➞method_type</a> - A type of method used in generating the Observation result.</li>
+<li><a href="observation__observation_type/">➞observation_type</a> - The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
+<li><a href="observation__patient/">➞patient</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li><a href="observation__performed_by/">➞performed_by</a> - The organization or group that performed the observation activity.</li>
+<li><a href="observation__valueBoolean/">➞valueBoolean</a> - The result of the observation, encoded as a boolean.</li>
+<li><a href="observation__valueCodeableConcept/">➞valueCodeableConcept</a> - The result of the observation, encoded as a CodeableConcept.</li>
+<li><a href="observation__valueDecimal/">➞valueDecimal</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="observation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
+<li><a href="observation__valueString/">➞valueString</a> - The result of the observation, encoded as a free-text string.</li>
 <li><a href="organization__alias/">➞alias</a> - A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')</li>
 <li><a href="organization__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li><a href="organization__identifier/">➞identifier</a> - A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
@@ -287,8 +300,7 @@
 <li><a href="specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a> - A term describing the pathology exhibited by a pre-invasive tissue in a specimen.</li>
 <li><a href="specimen__processing_activity/">➞processing_activity</a> - An activity that modifies the physical structure, composition, or state of a specimen.</li>
 <li><a href="specimen__quality_measure/">➞quality_measure</a> - An observation about  specimen characteristics indicative of its quality or suitability for use.</li>
-<li><a href="specimen__quantity_measure/">➞quantity_measure
-</a> - An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration.</li>
+<li><a href="specimen__quantity_measure/">➞quantity_measure</a> - An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration.</li>
 <li><a href="specimen__related_document/">➞related_document
 </a> - A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected, or a catalog entry describing  related research resource)</li>
 <li><a href="specimen__section_location/">➞section_location</a> - The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)</li>
@@ -437,5 +449,5 @@ indexOffset</a> - A quantity of time that, together with the index date or event
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-05-24 21:16:00.597494+00:00
+Build Date UTC : 2021-05-24 21:36:07.251428+00:00
 -->

@@ -91,7 +91,7 @@
                 <h1 id="class-treatment">Class: Treatment</h1>
 <p>Represent medication administration or other treatment types.</p>
 <p>URI: <a href="https://example.org/ccdh/Treatment">ccdh:Treatment</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Treatment]&lt;concurrent_treatment%200..*-++[Treatment&#124;id:ccdh_string%20%3F;regimen:ccdh_string%20%3F;end_reason:ccdh_string%20*;effect:ccdh_string%20%3F;intent:ccdh_string%20%3F;outcome:ccdh_string%20%3F;number_of_cycles:ccdh_integer%20%3F],[Entity]&lt;concurrent_treatment_type%200..*-++[Treatment],[Diagnosis]&lt;diagnosis%200..*-++[Treatment],[BodySite]&lt;anatomic_site%200..1-++[Treatment],[TimePoint]&lt;end_date%200..1-++[Treatment],[TimePoint]&lt;start_date%200..1-++[Treatment],[Entity]&lt;therapeutic_agent%200..*-++[Treatment],[Entity]&lt;type%200..1-++[Treatment],[Identifier]&lt;identifier%200..*-++[Treatment],[Entity]^-[Treatment],[TimePoint],[Identifier],[Entity],[Diagnosis],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Treatment]&lt;concurrent_treatment%200..*-++[Treatment&#124;id:ccdh_string%20%3F;regimen:ccdh_string%20%3F;end_reason:ccdh_string%20*;effect:ccdh_string%20%3F;intent:ccdh_string%20%3F;outcome:ccdh_string%20%3F;number_of_cycles:ccdh_integer%20%3F;concurrent_treatment_type:ccdh_string%20*],[Diagnosis]&lt;diagnosis%200..*-++[Treatment],[BodySite]&lt;anatomic_site%200..1-++[Treatment],[TimePoint]&lt;end_date%200..1-++[Treatment],[TimePoint]&lt;start_date%200..1-++[Treatment],[Entity]&lt;therapeutic_agent%200..*-++[Treatment],[CodeableConcept]&lt;type%200..1-++[Treatment],[Identifier]&lt;identifier%200..*-++[Treatment],[Entity]^-[Treatment],[TimePoint],[Identifier],[Entity],[Diagnosis],[CodeableConcept],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -115,7 +115,7 @@
 </li>
 <li><a href="../treatment__concurrent_treatment_type/">➞concurrent_treatment_type</a>  <sub>0..*</sub><ul>
 <li>Description: The type(s) of treatment(s) that are concurrent to this treatment.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../treatment__diagnosis/">➞diagnosis</a>  <sub>0..*</sub><ul>
@@ -177,7 +177,7 @@
 </li>
 <li><a href="../treatment__type/">➞type</a>  <sub>OPT</sub><ul>
 <li>Description: The treatment type including medication/theraputics or other procedures.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 </ul>

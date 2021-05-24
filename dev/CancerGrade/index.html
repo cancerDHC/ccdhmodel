@@ -91,26 +91,27 @@
                 <h1 id="class-cancergrade">Class: CancerGrade</h1>
 <p>A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</p>
 <p>URI: <a href="https://example.org/ccdh/CancerGrade">ccdh:CancerGrade</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept],[CodeableConcept]&lt;observations%200..1-++[CancerGrade&#124;id(i):ccdh_string%20%3F],[CodeableConcept]&lt;method_type%201..1-++[CancerGrade],[Diagnosis]++-%20grade%200..*&gt;[CancerGrade],[Entity]^-[CancerGrade],[Diagnosis]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept],[CancerGrade]&lt;observations%200..*-++[CancerGrade&#124;id(i):ccdh_string%20%3F],[CodeableConcept]&lt;method_type%200..1-++[CancerGrade],[Diagnosis]++-%20grade%200..*&gt;[CancerGrade],[Entity]^-[CancerGrade],[Diagnosis]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
+<li><strong>None</strong> <em><a href="../cancerGrade__observations/">➞observations</a></em>  <sub>0..<em></sub>  </em><em><a href="./">CancerGrade</a></em>*</li>
 <li><strong>None</strong> <em><a href="../diagnosis__grade/">➞grade</a></em>  <sub>0..<em></sub>  </em><em><a href="./">CancerGrade</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../cancerGrade__method_type/">➞method_type</a>  <sub>REQ</sub><ul>
+<li><a href="../cancerGrade__method_type/">➞method_type</a>  <sub>OPT</sub><ul>
 <li>Description: The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
-<li><a href="../cancerGrade__observations/">➞observations</a>  <sub>OPT</sub><ul>
+<li><a href="../cancerGrade__observations/">➞observations</a>  <sub>0..*</sub><ul>
 <li>Description: The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="./">CancerGrade</a></li>
 </ul>
 </li>
 </ul>

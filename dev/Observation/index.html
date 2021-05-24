@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Class: Exposure - CRDC-H Model in LinkML documentation</title>
+  <title>Class: Observation - CRDC-H Model in LinkML documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Class: Exposure";
-    var mkdocs_page_input_path = "Exposure.md";
+    var mkdocs_page_name = "Class: Observation";
+    var mkdocs_page_input_path = "Observation.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -77,7 +77,7 @@
     
       
     
-    <li>Class: Exposure</li>
+    <li>Class: Observation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -88,45 +88,79 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="class-exposure">Class: Exposure</h1>
-<p>Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.</p>
-<p>URI: <a href="https://example.org/ccdh/Exposure">ccdh:Exposure</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Observation],[Identifier],[Subject]&lt;related_patient%200..1-++[Exposure&#124;id:ccdh_string],[Observation]&lt;environmental%200..*-++[Exposure],[Entity]&lt;alcohol_use%200..1-++[Exposure],[Entity]&lt;tobacco_use%200..1-++[Exposure],[Identifier]&lt;identifier%200..*-++[Exposure],[Entity]^-[Exposure],[Entity]" /></p>
+                <h1 id="class-observation">Class: Observation</h1>
+<p>A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.</p>
+<p>URI: <a href="https://example.org/ccdh/Observation">ccdh:Observation</a></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Quantity],[Organization],[CodeableConcept]&lt;valueCodeableConcept%200..1-++[Observation&#124;id:ccdh_string;valueString:ccdh_string%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F],[Quantity]&lt;valueQuantity%200..1-++[Observation],[Organization]&lt;performed_by%200..1-++[Observation],[Subject]&lt;patient%200..1-++[Observation],[Entity]&lt;focus%200..*-++[Observation],[CodeableConcept]&lt;method_type%200..*-++[Observation],[CodeableConcept]&lt;observation_type%201..1-++[Observation],[CodeableConcept]&lt;category%201..1-++[Observation],[Exposure]++-%20environmental%200..*&gt;[Observation],[Entity]^-[Observation],[Exposure],[Entity],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../exposure__environmental/">➞environmental</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Observation</a></em>*</li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../exposure__alcohol_use/">➞alcohol_use</a>  <sub>OPT</sub><ul>
-<li>Description: A container holding a set of observations about an individual's exposure to alcohol.</li>
+<li><a href="../observation__category/">➞category</a>  <sub>REQ</sub><ul>
+<li>Description: The general category of observation described</li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+</ul>
+</li>
+<li><a href="../observation__focus/">➞focus</a>  <sub>0..*</sub><ul>
+<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../exposure__environmental/">➞environmental</a>  <sub>0..*</sub><ul>
-<li>Description: Observations about an individual's exposure to environmental substances that may impact clinical outcomes.</li>
-<li>range: <a href="../Observation/">Observation</a></li>
-</ul>
-</li>
-<li><a href="../exposure__id/">➞id</a>  <sub>REQ</sub><ul>
+<li><a href="../observation__id/">➞id</a>  <sub>REQ</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../exposure__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
-<li>Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
-<li>range: <a href="../Identifier/">Identifier</a></li>
+<li><a href="../observation__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
+<li>Description: A type of method used in generating the Observation result.</li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
-<li><a href="../exposure__related_patient/">➞related_patient</a>  <sub>OPT</sub><ul>
-<li>Description: A reference to the Subject that is the subject of this Exposure</li>
+<li><a href="../observation__observation_type/">➞observation_type</a>  <sub>REQ</sub><ul>
+<li>Description: The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+</ul>
+</li>
+<li><a href="../observation__patient/">➞patient</a>  <sub>OPT</sub><ul>
+<li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
-<li><a href="../exposure__tobacco_use/">➞tobacco_use</a>  <sub>OPT</sub><ul>
-<li>Description: A container holding a set of observations about an individual's exposure to tobacco.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li><a href="../observation__performed_by/">➞performed_by</a>  <sub>OPT</sub><ul>
+<li>Description: The organization or group that performed the observation activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueBoolean/">➞valueBoolean</a>  <sub>OPT</sub><ul>
+<li>Description: The result of the observation, encoded as a boolean.</li>
+<li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>OPT</sub><ul>
+<li>Description: The result of the observation, encoded as a CodeableConcept.</li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueDecimal/">➞valueDecimal</a>  <sub>OPT</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueQuantity/">➞valueQuantity</a>  <sub>OPT</sub><ul>
+<li>Description: The result of the observation, encoded as a free-text Quantity.</li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueString/">➞valueString</a>  <sub>OPT</sub><ul>
+<li>Description: The result of the observation, encoded as a free-text string.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>

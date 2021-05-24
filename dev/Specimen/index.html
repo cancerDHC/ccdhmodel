@@ -91,9 +91,8 @@
                 <h1 id="class-specimen">Class: Specimen</h1>
 <p>Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.</p>
 <p>URI: <a href="https://example.org/ccdh/Specimen">ccdh:Specimen</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;morphology_pathologically_confirmed:ccdh_boolean%20%3F;dysplasia_fraction:ccdh_string%20%3F],[BiologicallyDerivedProduct]&lt;derived_product%200..*-++[Specimen],[CodeableConcept]&lt;section_location%200..1-++[Specimen],[Document]&lt;related_document
-%200..*-++[Specimen],[CodeableConcept]&lt;degree_of_dysplasia%200..1-++[Specimen],[CodeableConcept]&lt;morphlogy_assessment_method%200..1-++[Specimen],[CodeableConcept]&lt;morphology_assessor_role%200..1-++[Specimen],[CodeableConcept]&lt;preinvasive_tissue_morphology%200..1-++[Specimen],[CodeableConcept]&lt;specific_tissue_morphology%200..1-++[Specimen],[CodeableConcept]&lt;general_tissue_morphology%200..1-++[Specimen],[Entity]&lt;tissue_composition_measure%200..*-++[Specimen],[Entity]&lt;cellular_composition_measure%200..*-++[Specimen],[CodeableConcept]&lt;cellular_composition_type%200..1-++[Specimen],[Entity]&lt;quality_measure%200..*-++[Specimen],[Entity]&lt;quantity_measure
-%200..*-++[Specimen],[Entity]&lt;dimensional_measure%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[Entity]&lt;transport_activity%200..1-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..1-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[CodeableConcept]&lt;condition_status_at_collection%200..1-++[Specimen],[Entity]&lt;source_model_system%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[CodeableConcept]&lt;source_material_type%200..1-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[Entity]&lt;analyte_type%200..1-++[Specimen],[CodeableConcept]&lt;specimen_type%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[SpecimenCreationActivity]++-%20input_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[Identifier],[Entity],[Document],[Diagnosis],[CodeableConcept],[BiologicallyDerivedProduct]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;morphology_pathologically_confirmed:ccdh_boolean%20%3F;dysplasia_fraction:ccdh_string%20%3F],[BiologicallyDerivedProduct]&lt;derived_product%200..*-++[Specimen],[CodeableConcept]&lt;section_location%200..1-++[Specimen],[Document]&lt;related_document
+%200..*-++[Specimen],[CodeableConcept]&lt;degree_of_dysplasia%200..1-++[Specimen],[CodeableConcept]&lt;morphlogy_assessment_method%200..1-++[Specimen],[CodeableConcept]&lt;morphology_assessor_role%200..1-++[Specimen],[CodeableConcept]&lt;preinvasive_tissue_morphology%200..1-++[Specimen],[CodeableConcept]&lt;specific_tissue_morphology%200..1-++[Specimen],[CodeableConcept]&lt;general_tissue_morphology%200..1-++[Specimen],[Entity]&lt;tissue_composition_measure%200..*-++[Specimen],[Entity]&lt;cellular_composition_measure%200..*-++[Specimen],[CodeableConcept]&lt;cellular_composition_type%200..1-++[Specimen],[Entity]&lt;quality_measure%200..*-++[Specimen],[Entity]&lt;quantity_measure%200..*-++[Specimen],[Entity]&lt;dimensional_measure%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[SpecimenTransportActivity]&lt;transport_activity%200..1-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..1-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[CodeableConcept]&lt;condition_status_at_collection%200..1-++[Specimen],[Entity]&lt;source_model_system%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[CodeableConcept]&lt;source_material_type%200..1-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[CodeableConcept]&lt;analyte_type%200..1-++[Specimen],[CodeableConcept]&lt;specimen_type%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[SpecimenCreationActivity]++-%20input_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[Identifier],[Entity],[Document],[Diagnosis],[CodeableConcept],[BiologicallyDerivedProduct]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -109,7 +108,7 @@
 <ul>
 <li><a href="../specimen__analyte_type/">➞analyte_type</a>  <sub>OPT</sub><ul>
 <li>Description: For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../specimen__associated_project/">➞associated_project</a>  <sub>OPT</sub><ul>
@@ -227,8 +226,7 @@
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../specimen__quantity_measure/">➞quantity_measure
-</a>  <sub>0..*</sub><ul>
+<li><a href="../specimen__quantity_measure/">➞quantity_measure</a>  <sub>0..*</sub><ul>
 <li>Description: An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
@@ -281,7 +279,7 @@
 </li>
 <li><a href="../specimen__transport_activity/">➞transport_activity</a>  <sub>OPT</sub><ul>
 <li>Description: An activity through which the specimen is transported between locations.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></li>
 </ul>
 </li>
 </ul>

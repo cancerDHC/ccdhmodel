@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Class: Exposure - CRDC-H Model in LinkML documentation</title>
+  <title>Slot: observation__valueBoolean - CRDC-H Model in LinkML documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Class: Exposure";
-    var mkdocs_page_input_path = "Exposure.md";
+    var mkdocs_page_name = "Slot: observation__valueBoolean";
+    var mkdocs_page_input_path = "observation__valueBoolean.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -77,7 +77,7 @@
     
       
     
-    <li>Class: Exposure</li>
+    <li>Slot: observation__valueBoolean</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -88,47 +88,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="class-exposure">Class: Exposure</h1>
-<p>Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.</p>
-<p>URI: <a href="https://example.org/ccdh/Exposure">ccdh:Exposure</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Observation],[Identifier],[Subject]&lt;related_patient%200..1-++[Exposure&#124;id:ccdh_string],[Observation]&lt;environmental%200..*-++[Exposure],[Entity]&lt;alcohol_use%200..1-++[Exposure],[Entity]&lt;tobacco_use%200..1-++[Exposure],[Identifier]&lt;identifier%200..*-++[Exposure],[Entity]^-[Exposure],[Entity]" /></p>
+                <h1 id="slot-observation__valueboolean">Slot: observation__valueBoolean</h1>
+<p>The result of the observation, encoded as a boolean.</p>
+<p>URI: <a href="https://example.org/ccdh/observation__valueBoolean">ccdh:observation__valueBoolean</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p>None -&gt;  <sub>OPT</sub> <a href="../types/CcdhBoolean/">CcdhBoolean</a></p>
 <h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
-</ul>
-<h2 id="attributes">Attributes</h2>
-<h3 id="own">Own</h3>
-<ul>
-<li><a href="../exposure__alcohol_use/">➞alcohol_use</a>  <sub>OPT</sub><ul>
-<li>Description: A container holding a set of observations about an individual's exposure to alcohol.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
-<li><a href="../exposure__environmental/">➞environmental</a>  <sub>0..*</sub><ul>
-<li>Description: Observations about an individual's exposure to environmental substances that may impact clinical outcomes.</li>
-<li>range: <a href="../Observation/">Observation</a></li>
-</ul>
-</li>
-<li><a href="../exposure__id/">➞id</a>  <sub>REQ</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-<li><a href="../exposure__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
-<li>Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
-<li>range: <a href="../Identifier/">Identifier</a></li>
-</ul>
-</li>
-<li><a href="../exposure__related_patient/">➞related_patient</a>  <sub>OPT</sub><ul>
-<li>Description: A reference to the Subject that is the subject of this Exposure</li>
-<li>range: <a href="../Subject/">Subject</a></li>
-</ul>
-</li>
-<li><a href="../exposure__tobacco_use/">➞tobacco_use</a>  <sub>OPT</sub><ul>
-<li>Description: A container holding a set of observations about an individual's exposure to tobacco.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
+<li><a href="../Observation/">Observation</a></li>
 </ul>
               
             </div>

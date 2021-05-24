@@ -91,7 +91,7 @@
                 <h1 id="class-subject">Class: Subject</h1>
 <p>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</p>
 <p>URI: <a href="https://example.org/ccdh/Subject">ccdh:Subject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[CodeableConcept]&lt;cause_of_death%200..1-++[Subject&#124;id:ccdh_string;year_of_birth:ccdh_integer%20%3F;year_of_death:ccdh_integer%20%3F],[Quantity]&lt;age_at_death%200..1-++[Subject],[CodeableConcept]&lt;vital_status%200..1-++[Subject],[CodeableConcept]&lt;race%200..*-++[Subject],[CodeableConcept]&lt;ethnicity%200..1-++[Subject],[CodeableConcept]&lt;sex%200..1-++[Subject],[CodeableConcept]&lt;breed%200..1-++[Subject],[CodeableConcept]&lt;species%200..1-++[Subject],[Identifier]&lt;identifier%200..*-++[Subject],[Exposure]++-%20related_patient%200..1&gt;[Subject],[ResearchSubject]++-%20associated_subject%201..1&gt;[Subject],[Specimen]++-%20source_subject%200..1&gt;[Subject],[Entity]^-[Subject],[Specimen],[ResearchSubject],[Quantity],[Identifier],[Exposure],[Entity],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[CodeableConcept]&lt;cause_of_death%200..1-++[Subject&#124;id:ccdh_string;year_of_birth:ccdh_integer%20%3F;year_of_death:ccdh_integer%20%3F],[Quantity]&lt;age_at_death%200..1-++[Subject],[CodeableConcept]&lt;vital_status%200..1-++[Subject],[CodeableConcept]&lt;race%200..*-++[Subject],[CodeableConcept]&lt;ethnicity%200..1-++[Subject],[CodeableConcept]&lt;sex%200..1-++[Subject],[CodeableConcept]&lt;breed%200..1-++[Subject],[CodeableConcept]&lt;species%200..1-++[Subject],[Identifier]&lt;identifier%200..*-++[Subject],[Exposure]++-%20related_patient%200..1&gt;[Subject],[Observation]++-%20patient%200..1&gt;[Subject],[ResearchSubject]++-%20associated_subject%201..1&gt;[Subject],[Specimen]++-%20source_subject%200..1&gt;[Subject],[Entity]^-[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Exposure],[Entity],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -99,6 +99,7 @@
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong>None</strong> <em><a href="../exposure__related_patient/">➞related_patient</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
+<li><strong>None</strong> <em><a href="../observation__patient/">➞patient</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 <li><strong>None</strong> <em><a href="../researchSubject__associated_subject/">➞associated_subject</a></em>  <sub>REQ</sub>  <strong><a href="./">Subject</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimen__source_subject/">➞source_subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 </ul>

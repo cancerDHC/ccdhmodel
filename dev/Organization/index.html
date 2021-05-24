@@ -91,13 +91,14 @@
                 <h1 id="class-organization">Class: Organization</h1>
 <p>A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university</p>
 <p>URI: <a href="https://example.org/ccdh/Organization">ccdh:Organization</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier]&lt;identifier%200..*-++[Organization&#124;id:ccdh_string;name:ccdh_string;alias:ccdh_string%20%3F;organization_type:ccdh_string%20%3F],[ResearchSubject]++-%20originating_site%200..1&gt;[Organization],[SpecimenCreationActivity]++-%20performed_by%200..1&gt;[Organization],[SpecimenProcessingActivity]++-%20performed_by%200..1&gt;[Organization],[SpecimenTransportActivity]++-%20transport_destination%200..1&gt;[Organization],[Specimen]++-%20data_provider%200..1&gt;[Organization],[Entity]^-[Organization],[SpecimenTransportActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Identifier],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier]&lt;identifier%200..*-++[Organization&#124;id:ccdh_string;name:ccdh_string;alias:ccdh_string%20%3F;organization_type:ccdh_string%20%3F],[Observation]++-%20performed_by%200..1&gt;[Organization],[ResearchSubject]++-%20originating_site%200..1&gt;[Organization],[SpecimenCreationActivity]++-%20performed_by%200..1&gt;[Organization],[SpecimenProcessingActivity]++-%20performed_by%200..1&gt;[Organization],[SpecimenTransportActivity]++-%20transport_destination%200..1&gt;[Organization],[Specimen]++-%20data_provider%200..1&gt;[Organization],[Entity]^-[Organization],[SpecimenTransportActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Observation],[Identifier],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
+<li><strong>None</strong> <em><a href="../observation__performed_by/">➞performed_by</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
 <li><strong>None</strong> <em><a href="../researchSubject__originating_site/">➞originating_site</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimenCreationActivity__performed_by/">➞performed_by</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimenProcessingActivity__performed_by/">➞performed_by</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
