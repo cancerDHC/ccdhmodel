@@ -95,7 +95,7 @@ class Entity(ModelElement):
         """
         :return: A name for this entity.
         """
-        return self.entity_name
+        return (self.entity_name or '(unnamed entity)').strip()
 
     def get_filename(self) -> str:
         """
@@ -129,7 +129,7 @@ class Entity(ModelElement):
         # Basic metadata
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
-            description=self.entity_row.get("Description"),
+            description=(self.entity_row.get("Description") or '').strip(),
             # comments=self.entity_row.get("Comments"),
         )
 
@@ -247,7 +247,7 @@ class Attribute:
 
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
-            description=data.get("Description"),
+            description=(data.get("Description") or '').strip(),
             # comments=data.get("Comments"),
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
