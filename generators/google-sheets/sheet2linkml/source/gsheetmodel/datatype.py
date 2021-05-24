@@ -100,10 +100,11 @@ class Datatype(ModelElement):
         logging.info(f"Generating LinkML for {self}")
 
         # Basic metadata
+        first_typeof = (self.linkml_type_mappings or ['linkml:string'])[0]
         typ: TypeDefinition = TypeDefinition(
             name=self.name,
             description=self.datatype_row.get("Description"),
-            typeof=[f'linkml:{typeof}' for typeof in self.linkml_type_mappings]
+            typeof=f'linkml:{first_typeof}'
         )
 
         # Additional metadata
