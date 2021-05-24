@@ -121,7 +121,6 @@ class GSheetModel(ModelElement):
         :return: A list of datatype worksheets available in this model.
         """
 
-        # Identify entity worksheets among the list of all worksheets in this Google Sheets document.
         return [DatatypeWorksheet(self, self.sheet.worksheet('title', 'Primitives'))]
 
     def datatypes(self) -> list[Datatype]:
@@ -196,9 +195,6 @@ class GSheetModel(ModelElement):
             schema.version = self.version
         elif self.development_version:
             schema.version = self.development_version
-
-        # TODO: The following is a neat and clear way of doing this, but very inefficient: we need to loop through
-        # all the worksheets for every type of data we need! Need to clean this up.
 
         # Generate all the datatypes.
         schema.types = {datatype.name: datatype.as_linkml(root_uri) for datatype in self.datatypes()}
