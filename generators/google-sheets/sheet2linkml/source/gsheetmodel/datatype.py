@@ -1,0 +1,249 @@
+from linkml_model import SchemaDefinition
+
+from sheet2linkml.model import ModelElement
+from pygsheets import worksheet
+from linkml_model.meta import TypeDefinition
+import logging
+import re
+
+
+class Datatype(ModelElement):
+    """
+    A datatype defined in the CRDC-H model. This is definitionally the primitive types, since
+    the complex types are defined as entities. However, if there is some need for complex datatypes,
+    we'll probably implement that here as well.
+
+    The way our model works, we define our own primitive types (which will be defined as datatypes here),
+    but we define mappings to the LinkML types. Those are mapped to Python types, so eventually everything
+    should get mapped to Python types.
+    """
+
+    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
+        """
+        Create a datatype based on a GSheetModel and a Google Sheet worksheet.
+
+        :param model: The GSheetModel that this entity is a part of.
+        :param sheet: A Google Sheet worksheet describing this entity.
+        :param name: The name of this datatype.
+        :param rows: The rows in the spreadsheet describing this datatype (as dictionaries of str -> str).
+                     For primitives, this should only be a single row.
+        """
+
+        self.model = model
+        self.worksheet = sheet
+        self.datatype_name = name
+        self.rows = rows
+
+    @property
+    def datatype_row(self):
+        if len(self.rows) == 0:
+            raise RuntimeError(f'Unexpected lack of rows for {self}')
+
+        if len(self.rows) > 1:
+            logging.error(f'Expected exactly one row for {self} but found {len(self.rows)} rows, using first row: {self.rows[0]}')
+
+        return self.rows[0]
+
+    def __str__(self):
+        """
+        :return: A text description of this datatype.
+        """
+
+        return f'{self.__class__.__name__} named {self.name} from worksheet "{self.worksheet.title}" containing {len(self.rows)} rows'
+
+    @property
+    def name(self) -> str:
+        """
+        :return: A name for this datatype.
+        """
+        return self.datatype_name
+
+    def get_filename(self) -> str:
+        """
+        Return this entity as a filename, which we calculate by making the entity name safe for file systems.
+
+        :return: A filename that can be used for this entity.
+        """
+
+        # Taken from https://stackoverflow.com/a/46801075/27310
+        name = str(self.name).strip().replace(" ", "_")
+        return re.sub(r"(?u)[^-\w.]", "", name)
+
+    def to_markdown(self) -> str:
+        """
+        Returns a reference to this entity in Markdown. We include the name, worksheet name and worksheet URL.
+
+        :return: A Markdown representation of this entity.
+        """
+
+        return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
+
+    def as_linkml(self, root_uri) -> TypeDefinition:
+        """
+        Returns a LinkML TypeDefinition describing this datatype.
+
+        :param root_uri: The root URI to use for this entity.
+        :return: A LinkML TypeDefinition describing this entity.
+        """
+        logging.info(f"Generating LinkML for {self}")
+
+        # Basic metadata
+        typ: TypeDefinition = TypeDefinition(
+            name=self.name,
+            description=self.datatype_row.get("Description"),
+        )
+
+        # Additional metadata
+
+        # We add a 'derived from' note to the notes field, which might be
+        # a string or a list, apparently.
+        derived_from = f"Derived from {self.to_markdown()}"
+        if isinstance(typ.notes, list):
+            typ.notes.append(derived_from)
+        elif isinstance(typ.notes, str):
+            typ.notes = typ.notes + f"\n{derived_from}"
+        else:
+            typ.notes = derived_from
+
+        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
+
+        return typ
+
+
+class DatatypeWorksheet(ModelElement):
+    """
+    A Worksheet represents a single worksheet in a GSheetModel. DatatypeWorksheets contain one or
+    (more likely) more than one datatype definitions.
+    """
+
+    # Some column names.
+    COL_STATUS = "Status"
+    COL_DATATYPE_NAME = "Entity"
+
+    def is_sheet_datatype(worksheet: worksheet):
+        """Identify worksheets containing datatypes, i.e. those that have:
+            - COL_STATUS in cell A1, and
+            - COL_DATATYPE_NAME in cell B1, and
+            - "Description" in cell C1.
+        """
+        return worksheet.get_values("A1", "C1") == [[DatatypeWorksheet.COL_STATUS, DatatypeWorksheet.COL_DATATYPE_NAME, "Description"]]
+
+    def __init__(self, model, sheet: worksheet):
+        """
+        Create a datatype worksheet based on a GSheetModel and a Google Sheet worksheet.
+
+        :param model: The GSheetModel that this worksheet is a part of.
+        :param sheet: A Google Sheet worksheet describing this worksheet.
+        """
+
+        self.model = model
+        self.worksheet = sheet
+
+    @property
+    def rows(self) -> list[dict]:
+        """
+        Returns this datatype worksheet as a list of rows. We use the header row to create these dictionaries.
+
+        :return: A list of the rows in this sheet.
+        """
+        return self.worksheet.get_all_records(empty_value=None)
+
+    @property
+    def included_rows(self) -> list[dict]:
+        """
+        Returns this datatype worksheet as a list of included rows.
+
+        An included row is one whose COL_STATUS is set to 'include'.
+
+        :return: A list of included rows in this sheet.
+        """
+        return [
+            row for row in self.rows if row.get(DatatypeWorksheet.COL_STATUS, "") == "include"
+        ]
+
+    @property
+    def datatype_names(self) -> list[str]:
+        """
+        Return a list of all the datatype names in this worksheet.
+
+        :return: A list of all the datatype names in this worksheet.
+        """
+
+        return [(row.get(DatatypeWorksheet.COL_DATATYPE_NAME) or "") for row in self.included_rows()]
+
+    @property
+    def datatypes_as_included_rows(self) -> dict[str, list[dict]]:
+        """
+        Group the list of rows based on having identical COL_DATATYPE_NAME values.
+
+        :return: A dict with keys of COL_DATATYPE_NAME values and values of included rows having that value.
+        """
+
+        result = dict()
+
+        for row in self.included_rows:
+            datatype_name = row.get(DatatypeWorksheet.COL_DATATYPE_NAME) or ""
+            if not (datatype_name in result):
+                result[datatype_name] = list()
+
+            result[datatype_name].append(row)
+
+        return result
+
+    @property
+    def grouped_datatypes(self) -> dict[str, Datatype]:
+        """
+        Return a list of entities in this file, grouped into a dict by key name.
+
+        :return: A dict with keys of COL_ENTITY_NAME values and values of Entity objects.
+        """
+
+        return {
+            k: Datatype(self.model, self.worksheet, k, v)
+            for k, v in self.datatypes_as_included_rows.items()
+        }
+
+    @property
+    def datatypes(self) -> list[Datatype]:
+        """
+        Return a list of datatypes in this worksheet.
+
+        :return: A list of Datatype objects.
+        """
+
+        return list(self.grouped_datatypes.values())
+
+    @property
+    def name(self) -> str:
+        """
+        :return: A name for this worksheet.
+        """
+        return self.worksheet.title
+
+    def get_filename(self) -> str:
+        """
+        Return this worksheet as a filename, which we calculate by making the entity name safe.
+
+        :return: A filename that could be used for this entity.
+        """
+
+        # Taken from https://stackoverflow.com/a/46801075/27310
+        name = str(self.worksheet.title).strip().replace(" ", "_")
+        return re.sub(r"(?u)[^-\w.]", "", name)
+
+    def to_markdown(self) -> str:
+        """
+        :return: A Markdown representation of this entity.
+        """
+
+        return f"[{self.worksheet.title}]({self.worksheet.url})"
+
+    def as_linkml(self, root_uri) -> list[SchemaDefinition]:
+        """
+        Return all LinkML SchemaDefinitions in this worksheet. We do this by converting each
+        Entity into its LinkML SchemaDefinition.
+
+        :param root_uri: The root URI to use for this worksheet.
+        :return: A list of LinkML SchemaDefinitions representing entities in this worksheet.
+        """
+        return [datatype.as_linkml(root_uri) for datatype in self.datatypes.values()]

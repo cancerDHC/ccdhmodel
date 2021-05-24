@@ -1,164 +1,10 @@
+from linkml_model import SchemaDefinition
+
 from sheet2linkml.model import ModelElement
 from pygsheets import worksheet
-from linkml_model.meta import SchemaDefinition, ClassDefinition, SlotDefinition
+from linkml_model.meta import ClassDefinition, SlotDefinition
 import logging
 import re
-
-
-class EntityWorksheet(ModelElement):
-    """
-    A Worksheet represents a single worksheet in a GSheetModel. A single sheet usually contains
-    information on a single Entity, but sometimes multiple entities may be described in a single
-    Worksheet. In that case, this Worksheet will return multiple entities.
-    """
-
-    # Some column names.
-    COL_STATUS = "Status"
-    COL_ENTITY_NAME = "Entity"
-    COL_ATTRIBUTE_NAME = "Attribute"
-    COL_CARDINALITY = "Cardinality"
-
-    @staticmethod
-    def is_sheet_entity(worksheet: worksheet):
-        """Identify worksheets containing entities, i.e. those that have:
-            - COL_STATUS in cell A1, and
-            - COL_ENTITY_NAME in cell B1, and
-            - COL_ATTRIBUTE_NAME in cell C1.
-        """
-        return worksheet.get_values("A1", "C1") == [[EntityWorksheet.COL_STATUS, EntityWorksheet.COL_ENTITY_NAME, EntityWorksheet.COL_ATTRIBUTE_NAME]]
-
-    def __init__(self, model, sheet: worksheet):
-        """
-        Create a worksheet based on a GSheetModel and a Google Sheet worksheet.
-
-        :param model: The GSheetModel that this worksheet is a part of.
-        :param sheet: A Google Sheet worksheet describing this worksheet.
-        """
-
-        self.model = model
-        self.worksheet = sheet
-
-    @property
-    def rows(self) -> list[dict]:
-        """
-        Returns this entity as a list of rows. We use the header row to create these dictionaries.
-
-        :return: A list of the rows in this sheet.
-        """
-        return self.worksheet.get_all_records(empty_value=None)
-
-    @property
-    def included_rows(self) -> list[dict]:
-        """
-        Returns this entity as a list of included rows.
-
-        An included row is one whose COL_STATUS is set to 'include'.
-
-        :return: A list of included rows in this sheet.
-        """
-        return [
-            row for row in self.rows if row.get(EntityWorksheet.COL_STATUS, "") == "include"
-        ]
-
-    @property
-    def entity_names(self) -> list[str]:
-        """
-        Return a list of all the entity names in this worksheet.
-
-        :return: A list of all the entity names in this worksheet.
-        """
-
-        return [(row.get(EntityWorksheet.COL_ENTITY_NAME) or "") for row in self.included_rows()]
-
-    @property
-    def entities_as_included_rows(self) -> dict[str, list[dict]]:
-        """
-        Group the list of rows based on having identical COL_ENTITY_NAME values.
-
-        :return: A dict with keys of COL_ENTITY_NAME values and values of included rows having that value.
-        """
-
-        result = dict()
-
-        for row in self.included_rows:
-            entity_name = row.get(EntityWorksheet.COL_ENTITY_NAME) or ""
-            if not (entity_name in result):
-                result[entity_name] = list()
-
-            result[entity_name].append(row)
-
-        # The Google Sheet might indicate that the entity row (the row without an attribute name) should be excluded.
-        # If any other rows have been included for this entity, however, they would be used to define the entity,
-        # even though the intention was to exclude that entity. In order to prevent this, we will check for any included
-        # rows that don't have an entity row -- such groups will be filtered out here.
-        filtered = dict()
-
-        for name, rows in result.items():
-            if any(row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None for row in rows):
-                filtered[name] = rows
-            else:
-                logging.warning(f'- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row.')
-
-        return filtered
-
-    @property
-    def grouped_entities(self) -> dict[str, Entity]:
-        """
-        Return a list of entities in this file, grouped into a dict by key name.
-
-        :return: A dict with keys of COL_ENTITY_NAME values and values of Entity objects.
-        """
-
-        return {
-            k: Entity(self.model, self.worksheet, k, v)
-            for k, v in self.entities_as_included_rows.items()
-        }
-
-    @property
-    def entities(self) -> list[Entity]:
-        """
-        Return a list of entities in this file.
-
-        :return: A list of Entity objects.
-        """
-
-        return list(self.grouped_entities.values())
-
-    @property
-    def name(self) -> str:
-        """
-        :return: A name for this worksheet.
-        """
-        return self.worksheet.title
-
-    def get_filename(self) -> str:
-        """
-        Return this worksheet as a filename, which we calculate by making the entity name safe.
-
-        :return: A filename that could be used for this entity.
-        """
-
-        # Taken from https://stackoverflow.com/a/46801075/27310
-        name = str(self.worksheet.title).strip().replace(" ", "_")
-        return re.sub(r"(?u)[^-\w.]", "", name)
-
-    def to_markdown(self) -> str:
-        """
-        :return: A Markdown representation of this entity.
-        """
-
-        return f"[{self.worksheet.title}]({self.worksheet.url})"
-
-    def as_linkml(self, root_uri) -> list[SchemaDefinition]:
-        """
-        Return all LinkML SchemaDefinitions in this worksheet. We do this by converting each
-        Entity into its LinkML SchemaDefinition.
-
-        :param root_uri: The root URI to use for this worksheet.
-        :return: A list of LinkML SchemaDefinitions representing entities in this worksheet.
-        """
-        return [entity.as_linkml(root_uri) for entity in self.entities.values()]
-
 
 class Entity(ModelElement):
     """
@@ -403,3 +249,158 @@ class Attribute:
         # TODO: Add slot.range.
 
         return slot
+
+
+class EntityWorksheet(ModelElement):
+    """
+    A Worksheet represents a single worksheet in a GSheetModel. A single sheet usually contains
+    information on a single Entity, but sometimes multiple entities may be described in a single
+    Worksheet. In that case, this Worksheet will return multiple entities.
+    """
+
+    # Some column names.
+    COL_STATUS = "Status"
+    COL_ENTITY_NAME = "Entity"
+    COL_ATTRIBUTE_NAME = "Attribute"
+    COL_CARDINALITY = "Cardinality"
+
+    @staticmethod
+    def is_sheet_entity(worksheet: worksheet):
+        """Identify worksheets containing entities, i.e. those that have:
+            - COL_STATUS in cell A1, and
+            - COL_ENTITY_NAME in cell B1, and
+            - COL_ATTRIBUTE_NAME in cell C1.
+        """
+        return worksheet.get_values("A1", "C1") == [[EntityWorksheet.COL_STATUS, EntityWorksheet.COL_ENTITY_NAME, EntityWorksheet.COL_ATTRIBUTE_NAME]]
+
+    def __init__(self, model, sheet: worksheet):
+        """
+        Create a worksheet based on a GSheetModel and a Google Sheet worksheet.
+
+        :param model: The GSheetModel that this worksheet is a part of.
+        :param sheet: A Google Sheet worksheet describing this worksheet.
+        """
+
+        self.model = model
+        self.worksheet = sheet
+
+    @property
+    def rows(self) -> list[dict]:
+        """
+        Returns this entity as a list of rows. We use the header row to create these dictionaries.
+
+        :return: A list of the rows in this sheet.
+        """
+        return self.worksheet.get_all_records(empty_value=None)
+
+    @property
+    def included_rows(self) -> list[dict]:
+        """
+        Returns this entity as a list of included rows.
+
+        An included row is one whose COL_STATUS is set to 'include'.
+
+        :return: A list of included rows in this sheet.
+        """
+        return [
+            row for row in self.rows if row.get(EntityWorksheet.COL_STATUS, "") == "include"
+        ]
+
+    @property
+    def entity_names(self) -> list[str]:
+        """
+        Return a list of all the entity names in this worksheet.
+
+        :return: A list of all the entity names in this worksheet.
+        """
+
+        return [(row.get(EntityWorksheet.COL_ENTITY_NAME) or "") for row in self.included_rows()]
+
+    @property
+    def entities_as_included_rows(self) -> dict[str, list[dict]]:
+        """
+        Group the list of rows based on having identical COL_ENTITY_NAME values.
+
+        :return: A dict with keys of COL_ENTITY_NAME values and values of included rows having that value.
+        """
+
+        result = dict()
+
+        for row in self.included_rows:
+            entity_name = row.get(EntityWorksheet.COL_ENTITY_NAME) or ""
+            if not (entity_name in result):
+                result[entity_name] = list()
+
+            result[entity_name].append(row)
+
+        # The Google Sheet might indicate that the entity row (the row without an attribute name) should be excluded.
+        # If any other rows have been included for this entity, however, they would be used to define the entity,
+        # even though the intention was to exclude that entity. In order to prevent this, we will check for any included
+        # rows that don't have an entity row -- such groups will be filtered out here.
+        filtered = dict()
+
+        for name, rows in result.items():
+            if any(row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None for row in rows):
+                filtered[name] = rows
+            else:
+                logging.warning(f'- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row.')
+
+        return filtered
+
+    @property
+    def grouped_entities(self) -> dict[str, Entity]:
+        """
+        Return a list of entities in this file, grouped into a dict by key name.
+
+        :return: A dict with keys of COL_ENTITY_NAME values and values of Entity objects.
+        """
+
+        return {
+            k: Entity(self.model, self.worksheet, k, v)
+            for k, v in self.entities_as_included_rows.items()
+        }
+
+    @property
+    def entities(self) -> list[Entity]:
+        """
+        Return a list of entities in this file.
+
+        :return: A list of Entity objects.
+        """
+
+        return list(self.grouped_entities.values())
+
+    @property
+    def name(self) -> str:
+        """
+        :return: A name for this worksheet.
+        """
+        return self.worksheet.title
+
+    def get_filename(self) -> str:
+        """
+        Return this worksheet as a filename, which we calculate by making the entity name safe.
+
+        :return: A filename that could be used for this entity.
+        """
+
+        # Taken from https://stackoverflow.com/a/46801075/27310
+        name = str(self.worksheet.title).strip().replace(" ", "_")
+        return re.sub(r"(?u)[^-\w.]", "", name)
+
+    def to_markdown(self) -> str:
+        """
+        :return: A Markdown representation of this entity.
+        """
+
+        return f"[{self.worksheet.title}]({self.worksheet.url})"
+
+    def as_linkml(self, root_uri) -> list[SchemaDefinition]:
+        """
+        Return all LinkML SchemaDefinitions in this worksheet. We do this by converting each
+        Entity into its LinkML SchemaDefinition.
+
+        :param root_uri: The root URI to use for this worksheet.
+        :return: A list of LinkML SchemaDefinitions representing entities in this worksheet.
+        """
+        return [entity.as_linkml(root_uri) for entity in self.entities.values()]
