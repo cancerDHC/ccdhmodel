@@ -78,6 +78,18 @@ class Datatype(ModelElement):
 
         return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
 
+    @property
+    def linkml_type_mappings(self):
+        mapping_rows = list(filter(lambda r: r is not None, [row.get(DatatypeWorksheet.COL_EXTERNAL_MAPPINGS) for row in self.rows]))
+        if len(mapping_rows) > 0:
+            mapping_string = "\n".join(mapping_rows)
+        else:
+            mapping_string = ""
+
+        # TODO: parse all external mappings and include them.
+        linkml_matches = re.findall(r"LINKML:(\w+)\W", mapping_string)
+        return linkml_matches
+
     def as_linkml(self, root_uri) -> TypeDefinition:
         """
         Returns a LinkML TypeDefinition describing this datatype.
@@ -91,6 +103,7 @@ class Datatype(ModelElement):
         typ: TypeDefinition = TypeDefinition(
             name=self.name,
             description=self.datatype_row.get("Description"),
+            typeof=[f'linkml:{typeof}' for typeof in self.linkml_type_mappings]
         )
 
         # Additional metadata
@@ -119,6 +132,7 @@ class DatatypeWorksheet(ModelElement):
     # Some column names.
     COL_STATUS = "Status"
     COL_DATATYPE_NAME = "Entity"
+    COL_EXTERNAL_MAPPINGS = "External Mappings"
 
     def is_sheet_datatype(worksheet: worksheet):
         """Identify worksheets containing datatypes, i.e. those that have:
