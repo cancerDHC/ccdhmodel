@@ -9,12 +9,12 @@ import re
 class Datatype(ModelElement):
     """
     A datatype defined in the CRDC-H model. This is definitionally the primitive types, since
-    the complex types are defined as entities. However, if there is some need for complex datatypes,
-    we'll probably implement that here as well.
+    the complex types are defined as entities. However, if there is some need for complex datatypes
+    that are not entities, we'll probably implement that here as well.
 
-    The way our model works, we define our own primitive types (which will be defined as datatypes here),
-    but we define mappings to the LinkML types. Those are mapped to Python types, so eventually everything
-    should get mapped to Python types.
+    The way our model works, we define our own primitive types as well as mappings to the LinkML types along with
+    other types. Since those are mapped to types in all the output formats (Python, JSON Schema, etc.), eventually
+    everything should get mapped to right types everywhere..
     """
 
     def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
@@ -53,15 +53,17 @@ class Datatype(ModelElement):
     @property
     def name(self) -> str:
         """
+        The name of this datatype. To differentiate it from the LinkML base types, we add `ccdh_` as a prefix.
+
         :return: A name for this datatype.
         """
         return f'ccdh_{self.datatype_name}'
 
     def get_filename(self) -> str:
         """
-        Return this entity as a filename, which we calculate by making the entity name safe for file systems.
+        Return this datatype as a filename, which we calculate by making the datatype name safe for file systems.
 
-        :return: A filename that can be used for this entity.
+        :return: A filename that can be used for this datatype.
         """
 
         # Taken from https://stackoverflow.com/a/46801075/27310
@@ -72,7 +74,7 @@ class Datatype(ModelElement):
         """
         Returns a reference to this entity in Markdown. We include the name, worksheet name and worksheet URL.
 
-        :return: A Markdown representation of this entity.
+        :return: A Markdown representation of this datatype.
         """
 
         return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
@@ -86,15 +88,15 @@ class Datatype(ModelElement):
             mapping_string = ""
 
         # TODO: parse all external mappings and include them.
-        linkml_matches = re.findall(r"LINKML:(\w+)\W", mapping_string)
+        linkml_matches = re.findall(r"LINKML:(\w+)\W", mapping_string, flags=re.IGNORECASE)
         return linkml_matches
 
     def as_linkml(self, root_uri) -> TypeDefinition:
         """
         Returns a LinkML TypeDefinition describing this datatype.
 
-        :param root_uri: The root URI to use for this entity.
-        :return: A LinkML TypeDefinition describing this entity.
+        :param root_uri: The root URI to use for this datatype.
+        :return: A LinkML TypeDefinition describing this datatype.
         """
         logging.info(f"Generating LinkML for {self}")
 
@@ -132,15 +134,19 @@ class DatatypeWorksheet(ModelElement):
     # Some column names.
     COL_STATUS = "Status"
     COL_DATATYPE_NAME = "Entity"
+    COL_DESCRIPTION = "Description"
     COL_EXTERNAL_MAPPINGS = "External Mappings"
 
     def is_sheet_datatype(worksheet: worksheet):
-        """Identify worksheets containing datatypes, i.e. those that have:
+        """
+        Identify worksheets containing datatypes, i.e. those that have:
             - COL_STATUS in cell A1, and
             - COL_DATATYPE_NAME in cell B1, and
-            - "Description" in cell C1.
+            - COL_DESCRIPTION in cell C1.
         """
-        return worksheet.get_values("A1", "C1") == [[DatatypeWorksheet.COL_STATUS, DatatypeWorksheet.COL_DATATYPE_NAME, "Description"]]
+        return worksheet.get_values("A1", "C1") == [[
+            DatatypeWorksheet.COL_STATUS, DatatypeWorksheet.COL_DATATYPE_NAME, DatatypeWorksheet.COL_DESCRIPTION
+        ]]
 
     def __init__(self, model, sheet: worksheet):
         """
@@ -207,9 +213,9 @@ class DatatypeWorksheet(ModelElement):
     @property
     def grouped_datatypes(self) -> dict[str, Datatype]:
         """
-        Return a list of entities in this file, grouped into a dict by key name.
+        Return a list of datatypes in this file, grouped into a dict by key name.
 
-        :return: A dict with keys of COL_ENTITY_NAME values and values of Entity objects.
+        :return: A dict with keys of COL_ENTITY_NAME values and values of Datatype objects.
         """
 
         return {
@@ -236,9 +242,9 @@ class DatatypeWorksheet(ModelElement):
 
     def get_filename(self) -> str:
         """
-        Return this worksheet as a filename, which we calculate by making the entity name safe.
+        Return this worksheet as a filename, which we calculate by making the datatype name safe.
 
-        :return: A filename that could be used for this entity.
+        :return: A filename that could be used for this datatype.
         """
 
         # Taken from https://stackoverflow.com/a/46801075/27310
@@ -247,17 +253,17 @@ class DatatypeWorksheet(ModelElement):
 
     def to_markdown(self) -> str:
         """
-        :return: A Markdown representation of this entity.
+        :return: A Markdown representation of this datatype.
         """
 
         return f"[{self.worksheet.title}]({self.worksheet.url})"
 
-    def as_linkml(self, root_uri) -> list[SchemaDefinition]:
+    def as_linkml(self, root_uri) -> list[TypeDefinition]:
         """
-        Return all LinkML SchemaDefinitions in this worksheet. We do this by converting each
-        Entity into its LinkML SchemaDefinition.
+        Return all LinkML TypeDefinitions in this worksheet. We do this by converting each
+        Datatype into its LinkML TypeDefinition.
 
         :param root_uri: The root URI to use for this worksheet.
-        :return: A list of LinkML SchemaDefinitions representing entities in this worksheet.
+        :return: A list of LinkML TypeDefinitions representing entities in this worksheet.
         """
         return [datatype.as_linkml(root_uri) for datatype in self.datatypes.values()]
