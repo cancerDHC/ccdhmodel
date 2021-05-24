@@ -206,4 +206,23 @@ class GSheetModel(ModelElement):
         # Generate all the entities.
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
 
+        # At this point, classes might refer to types that haven't been defined
+        # yet. So, for fields that refer to other classes in this model, we need to
+        # go through and:
+        #   - Warn the user about the missing type
+        #   - Replace the type with 'Entity' for now.
+        valid_types = set(schema.types.keys()).union(set(schema.classes.keys()))
+
+        def fix_type_name(entity, dict, propName):
+            value = dict[propName]
+            if value is not None and value not in valid_types:
+                logging.warning(f'Entity {entity}\'s {propName} refers to type {value}, which is not defined.')
+                dict[propName] = 'Entity'
+
+        for entity in schema.classes.values():
+            fix_type_name(entity.name, entity, 'is_a')
+            for attrName in entity.attributes:
+                attr = entity.attributes[attrName]
+                fix_type_name(f'{entity.name}.{attrName}', attr, 'range')
+
         return schema
