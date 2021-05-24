@@ -1,5 +1,6 @@
 id,mappings,description
 BiologicallyDerivedProduct,,"A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."
+BodySite,,
 CancerGrade,,"A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)."
 CancerStage,,"A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging."
 CancerStageSet,,"A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation)."
@@ -7,8 +8,10 @@ CodeableConcept,,"A representation of a concept that may be defined by or mapped
 Coding,,"A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system."
 Diagnosis,,
 Document,,
+Entity,,Any resource that has its own identifier
 Exposure,,"Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance."
 Identifier,,An Identifier is associated with a unique object or entity within a given system.
+Observation,,"A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation."
 Organization,,"A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university"
 Quantity,,"A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit."
 ResearchProject,,"A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
@@ -26,4 +29,5 @@ SpecimenTransportActivity,,An activity through which a specimen is transported b
 Subject,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
 TimePeriod,,
 TimePoint,,"A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index."
+Treatment,,Represent medication administration or other treatment types.
 

@@ -47,310 +47,424 @@ linkml:Objectidentifier IRI
 linkml:Nodeidentifier NONLITERAL
 
 <BiologicallyDerivedProduct> CLOSED {
-    (  $<BiologicallyDerivedProduct_tes> (  <id> @linkml:String ? ;
-          <description> @linkml:String ? ;
-          <product_type> @linkml:String ? ;
-          <passage_number> @linkml:String * ;
-          <growth_rate> @linkml:String *
+    (  $<BiologicallyDerivedProduct_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <description> @<CcdhString> ? ;
+          <product_type> @<CodeableConcept> ? ;
+          <passage_number> @<CcdhInteger> * ;
+          <growth_rate> @<CcdhString> *
        ) ;
        rdf:type [ <BiologicallyDerivedProduct> ] ?
     )
 }
 
+<BodySite> CLOSED {
+    (  $<BodySite_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <site> @<CodeableConcept> ;
+          <qualifier> @<CodeableConcept> *
+       ) ;
+       rdf:type [ <BodySite> ] ?
+    )
+}
+
 <CancerGrade> CLOSED {
-    (  $<CancerGrade_tes> (  <method_type> @linkml:String ;
-          <observations> @linkml:String ?
+    (  $<CancerGrade_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <method_type> @<CodeableConcept> ? ;
+          <observations> @<CancerGrade> *
        ) ;
        rdf:type [ <CancerGrade> ] ?
     )
 }
 
 <CancerStage> CLOSED {
-    (  $<CancerStage_tes> (  <observation_type> @linkml:String ;
-          <valueCodeableConcept> @linkml:String ?
+    (  $<CancerStage_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <observation_type> @<CodeableConcept> ;
+          <valueCodeableConcept> @<CodeableConcept> ?
        ) ;
        rdf:type [ <CancerStage> ] ?
     )
 }
 
 <CancerStageSet> CLOSED {
-    (  $<CancerStageSet_tes> (  <method_type> @linkml:String ? ;
-          <observations> @linkml:String *
+    (  $<CancerStageSet_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <method_type> @<CodeableConcept> ? ;
+          <observations> @<CancerStage> *
        ) ;
        rdf:type [ <CancerStageSet> ] ?
     )
 }
 
 <CodeableConcept> CLOSED {
-    (  $<CodeableConcept_tes> (  <coding> @linkml:String * ;
-          <text> @linkml:String ?
+    (  $<CodeableConcept_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <coding> @<Coding> * ;
+          <text> @<CcdhString> ?
        ) ;
        rdf:type [ <CodeableConcept> ] ?
     )
 }
 
 <Coding> CLOSED {
-    (  $<Coding_tes> (  <code> @linkml:String ;
-          <system> @linkml:String ;
-          <label> @linkml:String ? ;
-          <systemURL> @linkml:String ? ;
-          <systemVersion> @linkml:String ?
+    (  $<Coding_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <code> @<CcdhString> ;
+          <system> @<CcdhString> ;
+          <label> @<CcdhString> ? ;
+          <systemURL> @<CcdhString> ? ;
+          <systemVersion> @<CcdhString> ?
        ) ;
        rdf:type [ <Coding> ] ?
     )
 }
 
 <Diagnosis> CLOSED {
-    (  $<Diagnosis_tes> (  <id> @linkml:String ? ;
-          <identifier> @linkml:String * ;
-          <age_at_diagnosis> @linkml:String ? ;
-          <year_at_diagnosis> @linkml:String ? ;
-          <condition> @linkml:String ? ;
-          <primary_site> @linkml:String * ;
-          <metastatic_sites> @linkml:String * ;
-          <stage> @linkml:String * ;
-          <grade> @linkml:String * ;
-          <morphology> @linkml:String ? ;
-          <disease_status> @linkml:String ? ;
-          <prior_diagnosis> @linkml:String ? ;
-          <method_of_diagnosis> @linkml:String ? ;
-          <related_specimen> @linkml:String *
+    (  $<Diagnosis_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <identifier> @<Identifier> * ;
+          <age_at_diagnosis> @<Quantity> ? ;
+          <year_at_diagnosis> @<CcdhInteger> ? ;
+          <condition> @<CodeableConcept> ? ;
+          <primary_site> @<BodySite> * ;
+          <metastatic_sites> @<BodySite> * ;
+          <stage> @<CancerStageSet> * ;
+          <grade> @<CancerGrade> * ;
+          <morphology> @<CodeableConcept> ? ;
+          <disease_status> @<CodeableConcept> ? ;
+          <prior_diagnosis> @<Diagnosis> ? ;
+          <method_of_diagnosis> @<CodeableConcept> ? ;
+          <related_specimen> @<Specimen> *
        ) ;
        rdf:type [ <Diagnosis> ] ?
     )
 }
 
 <Document> CLOSED {
-    (  $<Document_tes> (  <id> @linkml:String ? ;
-          <identifier> @linkml:String * ;
-          <document_type> @linkml:String ? ;
-          <description> @linkml:String ? ;
-          <focus> @linkml:String ? ;
-          <url> @linkml:String *
+    (  $<Document_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <identifier> @<Identifier> * ;
+          <document_type> @<CodeableConcept> ? ;
+          <description> @<CcdhString> ? ;
+          <focus> @<Entity> ? ;
+          <url> @<CcdhString> *
        ) ;
        rdf:type [ <Document> ] ?
     )
 }
 
+<Entity>  (
+    CLOSED {
+       (  $<Entity_tes> <id> @<CcdhString> ? ;
+          rdf:type [ <Entity> ] ?
+       )
+    } OR @<BiologicallyDerivedProduct> OR @<BodySite> OR @<CancerGrade> OR @<CancerStage> OR @<CancerStageSet> OR
+    @<CodeableConcept> OR @<Coding> OR @<Diagnosis> OR @<Document> OR @<Exposure> OR @<Identifier> OR @<Observation> OR
+    @<Organization> OR @<Quantity> OR @<ResearchProject> OR @<ResearchSubject> OR @<Specimen> OR @<SpecimenContainer> OR
+    @<SpecimenCreationActivity> OR @<SpecimenProcessingActivity> OR @<SpecimenStorageActivity> OR @<SpecimenTransportActivity> OR
+    @<Subject> OR @<TimePeriod> OR @<TimePoint> OR @<Treatment>
+)
+
 <Exposure> CLOSED {
-    (  $<Exposure_tes> (  <id> @linkml:String ;
-          <identifier> @linkml:String * ;
-          <tobacco_use> @linkml:String ? ;
-          <alcohol_use> @linkml:String ? ;
-          <environmental> @linkml:String * ;
-          <related_patient> @linkml:String ?
+    (  $<Exposure_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ;
+          <identifier> @<Identifier> * ;
+          <tobacco_use> @<Entity> ? ;
+          <alcohol_use> @<Entity> ? ;
+          <environmental> @<Observation> * ;
+          <related_patient> @<Subject> ?
        ) ;
        rdf:type [ <Exposure> ] ?
     )
 }
 
 <Identifier> CLOSED {
-    (  $<Identifier_tes> (  <value> @linkml:String ;
-          <system> @linkml:String ? ;
-          <type> @linkml:String ?
+    (  $<Identifier_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <value> @<CcdhString> ;
+          <system> @<CcdhString> ? ;
+          <type> @<CodeableConcept> ?
        ) ;
        rdf:type [ <Identifier> ] ?
     )
 }
 
+<Observation> CLOSED {
+    (  $<Observation_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ;
+          <category> @<CodeableConcept> ;
+          <observation_type> @<CodeableConcept> ;
+          <method_type> @<CodeableConcept> * ;
+          <focus> @<Entity> * ;
+          <patient> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
+          <valueString> @<CcdhString> ? ;
+          <valueDecimal> @<CcdhDecimal> ? ;
+          <valueQuantity> @<Quantity> ? ;
+          <valueBoolean> @<CcdhBoolean> ? ;
+          <valueCodeableConcept> @<CodeableConcept> ?
+       ) ;
+       rdf:type [ <Observation> ] ?
+    )
+}
+
 <Organization> CLOSED {
-    (  $<Organization_tes> (  <id> @linkml:String ;
-          <identifier> @linkml:String * ;
-          <name> @linkml:String ;
-          <alias> @linkml:String ? ;
-          <organization_type> @linkml:String ?
+    (  $<Organization_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ;
+          <identifier> @<Identifier> * ;
+          <name> @<CcdhString> ;
+          <alias> @<CcdhString> ? ;
+          <organization_type> @<CcdhString> ?
        ) ;
        rdf:type [ <Organization> ] ?
     )
 }
 
 <Quantity> CLOSED {
-    (  $<Quantity_tes> (  <value> @linkml:String ;
-          <unitCode> @linkml:String ? ;
-          <unit> @linkml:String ? ;
-          <comparator> @linkml:String ?
+    (  $<Quantity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <valueDecimal> @<CcdhDecimal> ? ;
+          <valueCodeableConcept> @<CodeableConcept> ? ;
+          <unitCode> @<Coding> ? ;
+          <unit> @<CcdhString> ? ;
+          <comparator> @<Coding> ?
        ) ;
        rdf:type [ <Quantity> ] ?
     )
 }
 
 <ResearchProject> CLOSED {
-    (  $<ResearchProject_tes> (  <id> @linkml:String ? ;
-          <identifier> @linkml:String * ;
-          <name> @linkml:String ? ;
-          <name_shortened> @linkml:String ? ;
-          <description> @linkml:String ? ;
-          <description_shortened> @linkml:String ? ;
-          <sponsor> @linkml:String * ;
-          <date_started> @linkml:String ? ;
-          <date_ended> @linkml:String ? ;
-          <primary_anatomic_site> @linkml:String * ;
-          <url> @linkml:String * ;
-          <part_of> @linkml:String * ;
-          <research_project_type> @linkml:String ;
-          <date_iacuc_approval> @linkml:String ?
+    (  $<ResearchProject_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <identifier> @<Identifier> * ;
+          <name> @<CcdhString> ? ;
+          <name_shortened> @<CcdhString> ? ;
+          <description> @<CcdhString> ? ;
+          <description_shortened> @<CcdhString> ? ;
+          <sponsor> @<CcdhString> * ;
+          <date_started> @<CcdhDateTime> ? ;
+          <date_ended> @<CcdhDateTime> ? ;
+          <primary_anatomic_site> @<CodeableConcept> * ;
+          <url> @<CcdhString> * ;
+          <part_of> @<ResearchProject> * ;
+          <research_project_type> @<CodeableConcept> ;
+          <date_iacuc_approval> @<CcdhDateTime> ?
        ) ;
        rdf:type [ <ResearchProject> ] ?
     )
 }
 
 <ResearchSubject> CLOSED {
-    (  $<ResearchSubject_tes> (  <id> @linkml:String ;
-          <identifier> @linkml:String * ;
-          <description> @linkml:String ? ;
-          <member_of_research_project> @linkml:String * ;
-          <age_at_enrollment> @linkml:String ? ;
-          <primary_diagnosis_condition> @linkml:String ? ;
-          <primary_diagnosis_site> @linkml:String ? ;
-          <primary_diagnosis> @linkml:String * ;
-          <comorbid_diagnoses> @linkml:String * ;
-          <index_timepoint> @linkml:String ? ;
-          <originating_site> @linkml:String ? ;
-          <associated_subject> @linkml:String
+    (  $<ResearchSubject_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ;
+          <identifier> @<Identifier> * ;
+          <description> @<CcdhString> ? ;
+          <member_of_research_project> @<ResearchProject> * ;
+          <age_at_enrollment> @<Quantity> ? ;
+          <primary_diagnosis_condition> @<CodeableConcept> ? ;
+          <primary_diagnosis_site> @<CodeableConcept> ? ;
+          <primary_diagnosis> @<Diagnosis> * ;
+          <comorbid_diagnoses> @<Diagnosis> * ;
+          <index_timepoint> @<CodeableConcept> ? ;
+          <originating_site> @<Organization> ? ;
+          <associated_subject> @<Subject>
        ) ;
        rdf:type [ <ResearchSubject> ] ?
     )
 }
 
 <Specimen> CLOSED {
-    (  $<Specimen_tes> (  <id> @linkml:String ? ;
-          <identifier> @linkml:String * ;
-          <description> @linkml:String ? ;
-          <specimen_type> @linkml:String ? ;
-          <analyte_type> @linkml:String ? ;
-          <associated_project> @linkml:String ? ;
-          <data_provider> @linkml:String ? ;
-          <source_material_type> @linkml:String ? ;
-          <parent_specimen> @linkml:String * ;
-          <source_subject> @linkml:String ? ;
-          <source_model_system> @linkml:String ? ;
-          <condition_status_at_collection> @linkml:String ? ;
-          <creation_activity> @linkml:String ? ;
-          <processing_activity> @linkml:String * ;
-          <storage_activity> @linkml:String ? ;
-          <transport_activity> @linkml:String ? ;
-          <contained_in> @linkml:String ? ;
-          <dimensional_measure> @linkml:String ? ;
-          <quantity_measure> @linkml:String * ;
-          <quality_measure> @linkml:String * ;
-          <cellular_composition_type> @linkml:String ? ;
-          <cellular_composition_measure> @linkml:String * ;
-          <tissue_composition_measure> @linkml:String * ;
-          <general_tissue_morphology> @linkml:String ? ;
-          <specific_tissue_morphology> @linkml:String ? ;
-          <preinvasive_tissue_morphology> @linkml:String ? ;
-          <morphology_pathologically_confirmed> @linkml:String ? ;
-          <morphology_assessor_role> @linkml:String ? ;
-          <morphlogy_assessment_method> @linkml:String ? ;
-          <degree_of_dysplasia> @linkml:String ? ;
-          <dysplasia_fraction> @linkml:String ? ;
-          <related_document> @linkml:String * ;
-          <section_location> @linkml:String ? ;
-          <derived_product> @linkml:String *
+    (  $<Specimen_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <identifier> @<Identifier> * ;
+          <description> @<CcdhString> ? ;
+          <specimen_type> @<CodeableConcept> ? ;
+          <analyte_type> @<CodeableConcept> ? ;
+          <associated_project> @<ResearchProject> ? ;
+          <data_provider> @<Organization> ? ;
+          <source_material_type> @<CodeableConcept> ? ;
+          <parent_specimen> @<Specimen> * ;
+          <source_subject> @<Subject> ? ;
+          <source_model_system> @<Entity> ? ;
+          <condition_status_at_collection> @<CodeableConcept> ? ;
+          <creation_activity> @<SpecimenCreationActivity> ? ;
+          <processing_activity> @<SpecimenProcessingActivity> * ;
+          <storage_activity> @<SpecimenStorageActivity> ? ;
+          <transport_activity> @<SpecimenTransportActivity> ? ;
+          <contained_in> @<SpecimenContainer> ? ;
+          <dimensional_measure> @<Entity> ? ;
+          <quantity_measure> @<Entity> * ;
+          <quality_measure> @<Entity> * ;
+          <cellular_composition_type> @<CodeableConcept> ? ;
+          <cellular_composition_measure> @<Entity> * ;
+          <tissue_composition_measure> @<Entity> * ;
+          <general_tissue_morphology> @<CodeableConcept> ? ;
+          <specific_tissue_morphology> @<CodeableConcept> ? ;
+          <preinvasive_tissue_morphology> @<CodeableConcept> ? ;
+          <morphology_pathologically_confirmed> @<CcdhBoolean> ? ;
+          <morphology_assessor_role> @<CodeableConcept> ? ;
+          <morphlogy_assessment_method> @<CodeableConcept> ? ;
+          <degree_of_dysplasia> @<CodeableConcept> ? ;
+          <dysplasia_fraction> @<CcdhString> ? ;
+          <related_document> @<Document> * ;
+          <section_location> @<CodeableConcept> ? ;
+          <derived_product> @<BiologicallyDerivedProduct> * ;
+          <distance_from_paired_specimen> @<Quantity> ?
        ) ;
        rdf:type [ <Specimen> ] ?
     )
 }
 
 <SpecimenContainer> CLOSED {
-    (  $<SpecimenContainer_tes> (  <id> @linkml:String ? ;
-          <identifier> @linkml:String * ;
-          <container_type> @linkml:String ? ;
-          <container_number> @linkml:String ? ;
-          <additive> @linkml:String * ;
-          <parent_container> @linkml:String * ;
-          <charge_type> @linkml:String ?
+    (  $<SpecimenContainer_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <identifier> @<Identifier> * ;
+          <container_type> @<CodeableConcept> ? ;
+          <container_number> @<CcdhString> ? ;
+          <additive> @<Entity> * ;
+          <parent_container> @<SpecimenContainer> * ;
+          <charge_type> @<CodeableConcept> ?
        ) ;
        rdf:type [ <SpecimenContainer> ] ?
     )
 }
 
 <SpecimenCreationActivity> CLOSED {
-    (  $<SpecimenCreationActivity_tes> (  <activity_type> @linkml:String ? ;
-          <date_started> @linkml:String ? ;
-          <date_ended> @linkml:String ? ;
-          <performed_by> @linkml:String ? ;
-          <collection_method_type> @linkml:String ? ;
-          <derivation_method_type> @linkml:String ? ;
-          <additive> @linkml:String * ;
-          <collection_site> @linkml:String ? ;
-          <input_specimen> @linkml:String * ;
-          <quantity_collected> @linkml:String ? ;
-          <execution_condition> @linkml:String * ;
-          <specimen_order> @linkml:String ?
+    (  $<SpecimenCreationActivity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <activity_type> @<CodeableConcept> ? ;
+          <date_started> @<CcdhDateTime> ? ;
+          <date_ended> @<CcdhDateTime> ? ;
+          <performed_by> @<Organization> ? ;
+          <collection_method_type> @<CodeableConcept> ? ;
+          <derivation_method_type> @<CodeableConcept> ? ;
+          <additive> @<Entity> * ;
+          <collection_site> @<Entity> ? ;
+          <input_specimen> @<Specimen> * ;
+          <quantity_collected> @<Quantity> ? ;
+          <execution_condition> @<Entity> * ;
+          <specimen_order> @<CcdhString> ?
        ) ;
        rdf:type [ <SpecimenCreationActivity> ] ?
     )
 }
 
 <SpecimenProcessingActivity> CLOSED {
-    (  $<SpecimenProcessingActivity_tes> (  <activity_type> @linkml:String ? ;
-          <date_started> @linkml:String ? ;
-          <date_ended> @linkml:String ? ;
-          <duration> @linkml:String * ;
-          <performed_by> @linkml:String ? ;
-          <method_type> @linkml:String ? ;
-          <additive> @linkml:String * ;
-          <device> @linkml:String * ;
-          <executionConditions> @linkml:String *
+    (  $<SpecimenProcessingActivity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <activity_type> @<CodeableConcept> ? ;
+          <date_started> @<CcdhDateTime> ? ;
+          <date_ended> @<CcdhDateTime> ? ;
+          <duration> @<CcdhString> * ;
+          <performed_by> @<Organization> ? ;
+          <method_type> @<CodeableConcept> ? ;
+          <additive> @<Entity> * ;
+          <device> @<CodeableConcept> * ;
+          <executionConditions> @<Entity> *
        ) ;
        rdf:type [ <SpecimenProcessingActivity> ] ?
     )
 }
 
 <SpecimenStorageActivity> CLOSED {
-    (  $<SpecimenStorageActivity_tes> (  <date_started> @linkml:String ? ;
-          <date_ended> @linkml:String ? ;
-          <method_type> @linkml:String ? ;
-          <container> @linkml:String *
+    (  $<SpecimenStorageActivity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <date_started> @<CcdhDateTime> ? ;
+          <date_ended> @<CcdhDateTime> ? ;
+          <method_type> @<CodeableConcept> ? ;
+          <container> @<SpecimenContainer> *
        ) ;
        rdf:type [ <SpecimenStorageActivity> ] ?
     )
 }
 
 <SpecimenTransportActivity> CLOSED {
-    (  $<SpecimenTransportActivity_tes> (  <date_started> @linkml:String ? ;
-          <date_ended> @linkml:String ? ;
-          <transport_destination> @linkml:String ? ;
-          <execution_conditions> @linkml:String *
+    (  $<SpecimenTransportActivity_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <date_started> @<CcdhDateTime> ? ;
+          <date_ended> @<CcdhDateTime> ? ;
+          <transport_destination> @<Organization> ? ;
+          <execution_conditions> @<CcdhString> *
        ) ;
        rdf:type [ <SpecimenTransportActivity> ] ?
     )
 }
 
 <Subject> CLOSED {
-    (  $<Subject_tes> (  <id> @linkml:String ;
-          <identifier> @linkml:String * ;
-          <species> @linkml:String ? ;
-          <breed> @linkml:String ? ;
-          <sex> @linkml:String ? ;
-          <ethnicity> @linkml:String ? ;
-          <race> @linkml:String * ;
-          <year_of_birth> @linkml:String ? ;
-          <vital_status> @linkml:String ? ;
-          <age_at_death> @linkml:String ? ;
-          <year_of_death> @linkml:String ? ;
-          <cause_of_death> @linkml:String ?
+    (  $<Subject_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ;
+          <identifier> @<Identifier> * ;
+          <species> @<CodeableConcept> ? ;
+          <breed> @<CodeableConcept> ? ;
+          <sex> @<CodeableConcept> ? ;
+          <ethnicity> @<CodeableConcept> ? ;
+          <race> @<CodeableConcept> * ;
+          <year_of_birth> @<CcdhInteger> ? ;
+          <vital_status> @<CodeableConcept> ? ;
+          <age_at_death> @<Quantity> ? ;
+          <year_of_death> @<CcdhInteger> ? ;
+          <cause_of_death> @<CodeableConcept> ?
        ) ;
        rdf:type [ <Subject> ] ?
     )
 }
 
 <TimePeriod> CLOSED {
-    (  $<TimePeriod_tes> (  <periodStart_start> @linkml:String ? ;
-          <periodEnd_end> @linkml:String ?
+    (  $<TimePeriod_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <periodStart_start> @<TimePoint> ? ;
+          <periodEnd_end> @<TimePoint> ?
        ) ;
        rdf:type [ <TimePeriod> ] ?
     )
 }
 
 <TimePoint> CLOSED {
-    (  $<TimePoint_tes> (  <dateTime> @linkml:String ? ;
-          <indexDate> @linkml:String ? ;
-          <indexEventType> @linkml:String ? ;
-          <offsetFromIndex_indexOffset> @linkml:String ?
+    (  $<TimePoint_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <dateTime> @<CcdhDateTime> ? ;
+          <indexDate> @<CcdhDateTime> ? ;
+          <indexEventType> @<CodeableConcept> ? ;
+          <offsetFromIndex_indexOffset> @<Quantity> ?
        ) ;
        rdf:type [ <TimePoint> ] ?
+    )
+}
+
+<Treatment> CLOSED {
+    (  $<Treatment_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <identifier> @<Identifier> * ;
+          <regimen> @<CcdhString> ? ;
+          <type> @<CodeableConcept> ? ;
+          <therapeutic_agent> @<Entity> * ;
+          <start_date> @<TimePoint> ? ;
+          <end_date> @<TimePoint> ? ;
+          <end_reason> @<CcdhString> * ;
+          <anatomic_site> @<BodySite> ? ;
+          <effect> @<CcdhString> ? ;
+          <intent> @<CcdhString> ? ;
+          <outcome> @<CcdhString> ? ;
+          <diagnosis> @<Diagnosis> * ;
+          <number_of_cycles> @<CcdhInteger> ? ;
+          <concurrent_treatment_type> @<CcdhString> * ;
+          <concurrent_treatment> @<Treatment> *
+       ) ;
+       rdf:type [ <Treatment> ] ?
     )
 }
 

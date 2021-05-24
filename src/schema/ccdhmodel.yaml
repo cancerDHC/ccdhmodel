@@ -2,7 +2,7 @@ name: CRDC-H
 notes:
 - Derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)
 id: https://example.org/ccdh
-version: v0.2-25-g9645eea-dirty
+version: v0.2-32-gd35974d
 imports:
 - linkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -66,6 +66,31 @@ types:
     - Derived from [ccdh_code in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)
     typeof: string
 classes:
+  BodySite:
+    name: BodySite
+    description: ''
+    notes:
+    - Derived from [BodySite in sheet BodySite](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097478901)
+    is_a: Entity
+    attributes:
+      site:
+        name: site
+        description: A term describing any site in the body.
+        notes:
+        - 'Cardinality: 1..1'
+        range: CodeableConcept
+        multivalued: false
+        required: true
+      qualifier:
+        name: qualifier
+        description: A qualifier that further refines or specifies the location of
+          the body site (e.g. to indicate laterality, upper v. lower, containment,
+          etc).
+        notes:
+        - 'Cardinality: 0..m'
+        range: CodeableConcept
+        multivalued: true
+        required: false
   BiologicallyDerivedProduct:
     name: BiologicallyDerivedProduct
     description: A living organism, or a metabolocally active biological system such
@@ -73,15 +98,17 @@ classes:
       in vitro.
     notes:
     - Derived from [BiologicallyDerivedProduct in sheet BiologicProduct](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       description:
@@ -90,6 +117,7 @@ classes:
           the model system
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       product_type:
@@ -98,18 +126,21 @@ classes:
           tissue culture, organoid)
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       passage_number:
         name: passage_number
         description: When the specimen an actively growing model system, such as a
           cell or tissue culture, this property captures its passage number.
+        range: ccdh_integer
         multivalued: true
         required: false
       growth_rate:
         name: growth_rate
         description: When the specimen an actively growing model system, such as a
           cell or tissue culture, this property captures its rate of growth.
+        range: ccdh_string
         multivalued: true
         required: false
   CancerGrade:
@@ -118,22 +149,25 @@ classes:
       cancer (e.g. overall, primary gleason, secondary gleason, etc.).
     notes:
     - Derived from [CancerGrade in sheet CancerGradeSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1025765903)
+    is_a: Entity
     attributes:
       method_type:
         name: method_type
         description: The cancer grade classification system being used to classify
           the cancer (e.g. INPC, Gleason, etc.)
         notes:
-        - 'Cardinality: 1..1'
+        - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
-        required: true
+        required: false
       observations:
         name: observations
         description: The value from the grade classification system that classifies
           the cancer (e.g. Poorly differentiated, differntiated, etc.)
         notes:
-        - 'Cardinality: 0..1'
-        multivalued: false
+        - 'Cardinality: 0..m'
+        range: CancerGrade
+        multivalued: true
         required: false
   CancerStage:
     name: CancerStage
@@ -142,6 +176,7 @@ classes:
       Clinical Metastasis (M) component of a clinical TNM staging.
     notes:
     - Derived from [CancerStage in sheet CancerStage](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=2055385865)
+    is_a: Entity
     attributes:
       observation_type:
         name: observation_type
@@ -149,6 +184,7 @@ classes:
           'Clinical Metastasis (M)')
         notes:
         - 'Cardinality: 1..1'
+        range: CodeableConcept
         multivalued: false
         required: true
       valueCodeableConcept:
@@ -157,6 +193,7 @@ classes:
           'M1')
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
   CancerStageSet:
@@ -165,6 +202,7 @@ classes:
       of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).
     notes:
     - Derived from [CancerStageSet in sheet CancerStageSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=985251464)
+    is_a: Entity
     attributes:
       method_type:
         name: method_type
@@ -173,6 +211,7 @@ classes:
           to classify the cancer.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       observations:
@@ -181,32 +220,33 @@ classes:
           stage
         notes:
         - 'Cardinality: 0..m'
+        range: CancerStage
         multivalued: true
         required: false
   CodeableConcept:
     name: CodeableConcept
-    description: 'A representation of a concept that may be defined by or mapped to
+    description: A representation of a concept that may be defined by or mapped to
       one or more codes in code systems (terminologies, ontologies, dictionaries,
       code sets, etc) - but may also be defined by the provision of text.
-
-
-      '
     notes:
     - Derived from [CodeableConcept in sheet CodeableConcept](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1820375300)
+    is_a: Entity
     attributes:
       coding:
         name: coding
         description: A reference to a code defined by a terminology system
         notes:
         - 'Cardinality: 0..m'
+        range: Coding
         multivalued: true
         required: false
       text:
         name: text
-        description: 'A human language representation of the concept represented by
-          the Coding. '
+        description: A human language representation of the concept represented by
+          the Coding.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
   Coding:
@@ -215,12 +255,14 @@ classes:
       includes additional metadata about the code and code system.
     notes:
     - Derived from [Coding in sheet Coding](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1218588936)
+    is_a: Entity
     attributes:
       code:
         name: code
         description: The symbol/value of the code, as defined by the code system.
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       system:
@@ -228,6 +270,7 @@ classes:
         description: The code system where the code is defined.
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       label:
@@ -235,6 +278,7 @@ classes:
         description: A human-readable name for the code, as defined by the code system.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       systemURL:
@@ -242,6 +286,7 @@ classes:
         description: A URL where the code system can be found.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       systemVersion:
@@ -249,24 +294,27 @@ classes:
         description: The version of the code system.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
   SpecimenContainer:
     name: SpecimenContainer
-    description: 'A vessel in which a specimen is held or attached - to store or as
+    description: A vessel in which a specimen is held or attached - to store or as
       a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope
-      slide or 96-well plate) '
+      slide or 96-well plate)
     notes:
     - Derived from [SpecimenContainer in sheet Container](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       identifier:
@@ -276,6 +324,7 @@ classes:
           unique and persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       container_type:
@@ -283,6 +332,7 @@ classes:
         description: The kind of container associated with the specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       container_number:
@@ -291,6 +341,7 @@ classes:
           (e.g. a slide number, or a well number in a plate)
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       additive:
@@ -299,6 +350,7 @@ classes:
           the primary object contained)
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       parent_container:
@@ -307,6 +359,7 @@ classes:
           single well in a 96-well plate)
         notes:
         - 'Cardinality: 0..m'
+        range: SpecimenContainer
         multivalued: true
         required: false
       charge_type:
@@ -315,12 +368,15 @@ classes:
           is mounted
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
   Diagnosis:
     name: Diagnosis
+    description: ''
     notes:
     - Derived from [Diagnosis in sheet Diagnosis](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1015759209)
+    is_a: Entity
     attributes:
       id:
         name: id
@@ -329,6 +385,7 @@ classes:
           entity may have a different 'id' in a different system.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       identifier:
@@ -338,6 +395,7 @@ classes:
           across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       age_at_diagnosis:
@@ -345,6 +403,7 @@ classes:
         description: The age in days of the individual at the time of diagnosis
         notes:
         - 'Cardinality: 0..1'
+        range: Quantity
         multivalued: false
         required: false
       year_at_diagnosis:
@@ -352,6 +411,7 @@ classes:
         description: Numeric value to represent the year of an individual's diagnosis.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_integer
         multivalued: false
         required: false
       condition:
@@ -360,11 +420,13 @@ classes:
           ICD-10, SNOMED, etc.)
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       primary_site:
         name: primary_site
         description: The anatomical location of the primary condition
+        range: BodySite
         multivalued: true
         required: false
       metastatic_sites:
@@ -372,6 +434,7 @@ classes:
         description: The anatomical location(s) of metastatic disease
         notes:
         - 'Cardinality: 0..m'
+        range: BodySite
         multivalued: true
         required: false
       stage:
@@ -381,6 +444,7 @@ classes:
           the cancer has spread from the original site to other parts of the body.
         notes:
         - 'Cardinality: 0..m'
+        range: CancerStageSet
         multivalued: true
         required: false
       grade:
@@ -396,6 +460,7 @@ classes:
           brain tumors, lymphomas, and breast have special grading systems.
         notes:
         - 'Cardinality: 0..m'
+        range: CancerGrade
         multivalued: true
         required: false
       morphology:
@@ -406,6 +471,7 @@ classes:
           site (topography) and the histology (morphology) of neoplasms.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       disease_status:
@@ -414,6 +480,7 @@ classes:
           disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       prior_diagnosis:
@@ -423,6 +490,7 @@ classes:
           diagnosis.
         notes:
         - 'Cardinality: 0..1'
+        range: Diagnosis
         multivalued: false
         required: false
       method_of_diagnosis:
@@ -430,6 +498,7 @@ classes:
         description: The method used to confirm the patients malignant diagnosis
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       related_specimen:
@@ -437,21 +506,25 @@ classes:
         description: The specimen from which this diagnosis is made
         notes:
         - 'Cardinality: 0..m'
+        range: Specimen
         multivalued: true
         required: false
   Document:
     name: Document
+    description: ''
     notes:
     - Derived from [Document in sheet Document](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       identifier:
@@ -461,6 +534,7 @@ classes:
           unique and persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       document_type:
@@ -468,13 +542,15 @@ classes:
         description: The high-level type of the report (e.g. 'pathology report')
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       description:
         name: description
-        description: 'A free text description or summary of the report. '
+        description: A free text description or summary of the report.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       focus:
@@ -482,6 +558,7 @@ classes:
         description: The entity that the report is primarily about
         notes:
         - 'Cardinality: 0..1'
+        range: Entity
         multivalued: false
         required: false
       url:
@@ -489,7 +566,25 @@ classes:
         description: A URL/web address where the document can be accessed.
         notes:
         - 'Cardinality: 0..m'
+        range: ccdh_string
         multivalued: true
+        required: false
+  Entity:
+    name: Entity
+    description: Any resource that has its own identifier
+    notes:
+    - Derived from [Entity in sheet Entity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=65213867)
+    attributes:
+      id:
+        name: id
+        description: The 'logical' identifier of the entity in the system of record,
+          e.g. a UUID.  This 'id' is unique within a given system of record. The identified
+          entity (with same "identifier" value for example) may have a different 'id'
+          in a different system.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_string
+        multivalued: false
         required: false
   Exposure:
     name: Exposure
@@ -498,15 +593,17 @@ classes:
       substance.
     notes:
     - Derived from [Exposure in sheet Exposure](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       identifier:
@@ -515,6 +612,7 @@ classes:
           by an external system or authority, that persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       tobacco_use:
@@ -523,6 +621,7 @@ classes:
           exposure to tobacco.
         notes:
         - 'Cardinality: 0..1'
+        range: Entity
         multivalued: false
         required: false
       alcohol_use:
@@ -531,6 +630,7 @@ classes:
           exposure to alcohol.
         notes:
         - 'Cardinality: 0..1'
+        range: Entity
         multivalued: false
         required: false
       environmental:
@@ -539,6 +639,7 @@ classes:
           substances that may impact clinical outcomes.
         notes:
         - 'Cardinality: 0..m'
+        range: Observation
         multivalued: true
         required: false
       related_patient:
@@ -546,20 +647,23 @@ classes:
         description: A reference to the Subject that is the subject of this Exposure
         notes:
         - 'Cardinality: 0..1'
+        range: Subject
         multivalued: false
         required: false
   Identifier:
     name: Identifier
-    description: 'An Identifier is associated with a unique object or entity within
-      a given system.  '
+    description: An Identifier is associated with a unique object or entity within
+      a given system.
     notes:
     - Derived from [Identifier in sheet Identifier](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1307792462)
+    is_a: Entity
     attributes:
       value:
         name: value
         description: The value of the identifier, as defined by the system.
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       system:
@@ -567,6 +671,7 @@ classes:
         description: The system or namespace that defines the identifier.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       type:
@@ -574,6 +679,119 @@ classes:
         description: A code that defines the type of the identifier.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
+        multivalued: false
+        required: false
+  Observation:
+    name: Observation
+    description: A structured object that describes a single data item about an entity,
+      as generated through a point-in-time observation, measurement, or interpretation.
+    notes:
+    - Derived from [Observation in sheet Observation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=550424063)
+    is_a: Entity
+    attributes:
+      id:
+        name: id
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
+        notes:
+        - 'Cardinality: 1..1'
+        range: ccdh_string
+        multivalued: false
+        required: true
+      category:
+        name: category
+        description: The general category of observation described
+        notes:
+        - 'Cardinality: 1..1'
+        range: CodeableConcept
+        multivalued: false
+        required: true
+      observation_type:
+        name: observation_type
+        description: The specific type of observation made - i.e. the feature or characteristic
+          that was observed, measured, estimated, etc..
+        notes:
+        - 'Cardinality: 1..1'
+        range: CodeableConcept
+        multivalued: false
+        required: true
+      method_type:
+        name: method_type
+        description: A type of method used in generating the Observation result.
+        notes:
+        - 'Cardinality: 0..m'
+        range: CodeableConcept
+        multivalued: true
+        required: false
+      focus:
+        name: focus
+        description: The entity or entities directly observed/measured in generating
+          an observation result.
+        notes:
+        - 'Cardinality: 0..m'
+        range: Entity
+        multivalued: true
+        required: false
+      patient:
+        name: patient
+        description: The patient that the observation is about (if not the direct
+          focus).  e.g. observations are often made on specimens derived from a patient,
+          or other entities related to a patient, that ultimately tell us something
+          about the patient of interest.
+        notes:
+        - 'Cardinality: 0..1'
+        range: Subject
+        multivalued: false
+        required: false
+      performed_by:
+        name: performed_by
+        description: The organization or group that performed the observation activity.
+        notes:
+        - 'Cardinality: 0..1'
+        range: Organization
+        multivalued: false
+        required: false
+      valueString:
+        name: valueString
+        description: The result of the observation, encoded as a free-text string.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_string
+        multivalued: false
+        required: false
+      valueDecimal:
+        name: valueDecimal
+        description: The result of the observation, encoded as a decimal.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_decimal
+        multivalued: false
+        required: false
+      valueQuantity:
+        name: valueQuantity
+        description: The result of the observation, encoded as a free-text Quantity.
+        notes:
+        - 'Cardinality: 0..1'
+        range: Quantity
+        multivalued: false
+        required: false
+      valueBoolean:
+        name: valueBoolean
+        description: The result of the observation, encoded as a boolean.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_boolean
+        multivalued: false
+        required: false
+      valueCodeableConcept:
+        name: valueCodeableConcept
+        description: The result of the observation, encoded as a CodeableConcept.
+        notes:
+        - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
   Organization:
@@ -582,15 +800,17 @@ classes:
       as a data coordinating center, an university, or an institute within a university
     notes:
     - Derived from [Organization in sheet Organization](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       identifier:
@@ -599,6 +819,7 @@ classes:
           by an external system or authority, that persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       name:
@@ -607,6 +828,7 @@ classes:
           'National Cancer Institute')
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       alias:
@@ -615,14 +837,16 @@ classes:
           abbreviation (e.g. 'NCI')
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       organization_type:
         name: organization_type
-        description: 'The type of the organization (e.g. ''Cancer Genome Characterization
-          Center'') '
+        description: The type of the organization (e.g. 'Cancer Genome Characterization
+          Center')
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
   Quantity:
@@ -631,19 +855,31 @@ classes:
       mass, length, duration of time) - including a value and unit.
     notes:
     - Derived from [Quantity in sheet Quantity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1941950611)
+    is_a: Entity
     attributes:
-      value:
-        name: value
+      valueDecimal:
+        name: valueDecimal
         description: An amount, in the given units (if specified)
         notes:
-        - 'Cardinality: 1..1'
+        - 'Cardinality: 0..1'
+        range: ccdh_decimal
         multivalued: false
-        required: true
+        required: false
+      valueCodeableConcept:
+        name: valueCodeableConcept
+        description: A coded value representing a quantity (e.g. "Adjacent (< or =
+          2cm)")
+        notes:
+        - 'Cardinality: 0..1'
+        range: CodeableConcept
+        multivalued: false
+        required: false
       unitCode:
         name: unitCode
         description: A coded representation of the unit.
         notes:
         - 'Cardinality: 0..1'
+        range: Coding
         multivalued: false
         required: false
       unit:
@@ -652,6 +888,7 @@ classes:
           days).  This may be a free-text form of the unitCode.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       comparator:
@@ -660,6 +897,7 @@ classes:
           )
         notes:
         - 'Cardinality: 0..1'
+        range: Coding
         multivalued: false
         required: false
   ResearchProject:
@@ -672,15 +910,17 @@ classes:
       \ information about human or animal subjects."
     notes:
     - Derived from [ResearchProject in sheet ResearchProject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1123416579)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       identifier:
@@ -690,6 +930,7 @@ classes:
           across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       name:
@@ -697,6 +938,7 @@ classes:
         description: An unabridged name of a research program, project, or study.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       name_shortened:
@@ -704,6 +946,7 @@ classes:
         description: An abbreviated name of a research program, project, or study.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       description:
@@ -712,6 +955,7 @@ classes:
           study.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       description_shortened:
@@ -720,6 +964,7 @@ classes:
           study.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       sponsor:
@@ -728,6 +973,7 @@ classes:
           and/or financing of a research project.
         notes:
         - 'Cardinality: 0..m'
+        range: ccdh_string
         multivalued: true
         required: false
       date_started:
@@ -735,6 +981,7 @@ classes:
         description: The date when the research project began.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       date_ended:
@@ -742,6 +989,7 @@ classes:
         description: The date when the research project ended.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       primary_anatomic_site:
@@ -752,6 +1000,7 @@ classes:
           this attribute captures the anatomic sites of research interest.
         notes:
         - 'Cardinality: 0..m'
+        range: CodeableConcept
         multivalued: true
         required: false
       url:
@@ -760,6 +1009,7 @@ classes:
           a research program, project, or study.
         notes:
         - 'Cardinality: 0..m'
+        range: ccdh_string
         multivalued: true
         required: false
       part_of:
@@ -768,6 +1018,7 @@ classes:
           CPTAC ResearchProject from a substudy of CPTAC)
         notes:
         - 'Cardinality: 0..m'
+        range: ResearchProject
         multivalued: true
         required: false
       research_project_type:
@@ -777,6 +1028,7 @@ classes:
           Study')
         notes:
         - 'Cardinality: 1..1'
+        range: CodeableConcept
         multivalued: false
         required: true
       date_iacuc_approval:
@@ -787,6 +1039,7 @@ classes:
           proposal and the IACUC approved protocol has been verified.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
   ResearchSubject:
@@ -797,15 +1050,17 @@ classes:
       \ traceable to a particular person to protect the subject\u2019s privacy."
     notes:
     - Derived from [ResearchSubject in sheet ResearchSubject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=665511119)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       identifier:
@@ -814,6 +1069,7 @@ classes:
           by an external system or authority, that persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       description:
@@ -822,6 +1078,7 @@ classes:
           the research subject.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       member_of_research_project:
@@ -830,6 +1087,7 @@ classes:
           a member
         notes:
         - 'Cardinality: 0..m'
+        range: ResearchProject
         multivalued: true
         required: false
       age_at_enrollment:
@@ -837,6 +1095,7 @@ classes:
         description: The age in days when the Subject enrolled on the ResearchProject
         notes:
         - 'Cardinality: 0..1'
+        range: Quantity
         multivalued: false
         required: false
       primary_diagnosis_condition:
@@ -847,6 +1106,7 @@ classes:
           \ that qualified the subject for inclusion on the ResearchProject"
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       primary_diagnosis_site:
@@ -861,6 +1121,7 @@ classes:
           on the ResearchProject.'
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       primary_diagnosis:
@@ -869,6 +1130,7 @@ classes:
           on a ResearchProject
         notes:
         - 'Cardinality: 0..m'
+        range: Diagnosis
         multivalued: true
         required: false
       comorbid_diagnoses:
@@ -877,15 +1139,17 @@ classes:
           that qualified a subject for inclusion on a ResearchProject
         notes:
         - 'Cardinality: 0..m'
+        range: Diagnosis
         multivalued: true
         required: false
       index_timepoint:
         name: index_timepoint
-        description: 'The text term used to describe the reference or anchor date
-          used for date obfuscation, where a single date is obscured by creating one
-          or more date ranges in relation to this date. '
+        description: The text term used to describe the reference or anchor date used
+          for date obfuscation, where a single date is obscured by creating one or
+          more date ranges in relation to this date.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       originating_site:
@@ -893,6 +1157,7 @@ classes:
         description: The Organization at which a subject was enrolled on a ResearchProject.
         notes:
         - 'Cardinality: 0..1'
+        range: Organization
         multivalued: false
         required: false
       associated_subject:
@@ -900,24 +1165,27 @@ classes:
         description: A reference to the Subject that is this ResearchSubject
         notes:
         - 'Cardinality: 1..1'
+        range: Subject
         multivalued: false
         required: true
   Specimen:
     name: Specimen
-    description: 'Any material taken as a sample from a biological entity (living
-      or dead), or from a physical object or the environment. Specimens are usually
-      collected as an example of their kind, often for use in some investigation. '
+    description: Any material taken as a sample from a biological entity (living or
+      dead), or from a physical object or the environment. Specimens are usually collected
+      as an example of their kind, often for use in some investigation.
     notes:
     - Derived from [Specimen in sheet Specimen](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       identifier:
@@ -927,6 +1195,7 @@ classes:
           unique and persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       description:
@@ -935,17 +1204,17 @@ classes:
           about the specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       specimen_type:
         name: specimen_type
-        description: 'The high-level type of the specimen, based on its derivation
+        description: The high-level type of the specimen, based on its derivation
           provenance (i.e. how far removed it is from the original sample extracted
           from a source).
-
-          '
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       analyte_type:
@@ -955,6 +1224,7 @@ classes:
           (e.g. DNA, RNA)
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       associated_project:
@@ -962,6 +1232,7 @@ classes:
         description: The Project associated with the specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: ResearchProject
         multivalued: false
         required: false
       data_provider:
@@ -970,14 +1241,16 @@ classes:
           specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: Organization
         multivalued: false
         required: false
       source_material_type:
         name: source_material_type
-        description: 'The general kind of material from which the specimen was derived,
-          based on the physical nature of the source material. '
+        description: The general kind of material from which the specimen was derived,
+          based on the physical nature of the source material.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       parent_specimen:
@@ -986,6 +1259,7 @@ classes:
           directly derived (i.e its immediate parent specimen).
         notes:
         - 'Cardinality: 0..m'
+        range: Specimen
         multivalued: true
         required: false
       source_subject:
@@ -994,6 +1268,7 @@ classes:
           derived.
         notes:
         - 'Cardinality: 0..1'
+        range: Subject
         multivalued: false
         required: false
       source_model_system:
@@ -1003,6 +1278,7 @@ classes:
           derived.
         notes:
         - 'Cardinality: 0..1'
+        range: Entity
         multivalued: false
         required: false
       condition_status_at_collection:
@@ -1011,6 +1287,7 @@ classes:
           collected (e.g. if it was primary, recurrent, metastatic, etc).
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       creation_activity:
@@ -1020,6 +1297,7 @@ classes:
           from an existing specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: SpecimenCreationActivity
         multivalued: false
         required: false
       processing_activity:
@@ -1028,6 +1306,7 @@ classes:
           or state of a specimen.
         notes:
         - 'Cardinality: 0..m'
+        range: SpecimenProcessingActivity
         multivalued: true
         required: false
       storage_activity:
@@ -1036,6 +1315,7 @@ classes:
           in a particular location, container, or state.
         notes:
         - 'Cardinality: 0..1'
+        range: SpecimenStorageActivity
         multivalued: false
         required: false
       transport_activity:
@@ -1044,38 +1324,36 @@ classes:
           locations.
         notes:
         - 'Cardinality: 0..1'
+        range: SpecimenTransportActivity
         multivalued: false
         required: false
       contained_in:
         name: contained_in
-        description: 'A physical container in which a specimen is held or attached
+        description: A physical container in which a specimen is held or attached
           -  as storage for future use,  a substrate for growth (e.g. a cell culture
           dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well
-          plate) '
+          plate)
         notes:
         - 'Cardinality: 0..1'
+        range: SpecimenContainer
         multivalued: false
         required: false
       dimensional_measure:
         name: dimensional_measure
-        description: 'An observation about the dimensions of an object, including
-          lengths, areas, and volumes.
-
-          '
+        description: An observation about the dimensions of an object, including lengths,
+          areas, and volumes.
         notes:
         - 'Cardinality: 0..1'
+        range: Entity
         multivalued: false
         required: false
-      ? 'quantity_measure
-
-        '
-      : name: 'quantity_measure
-
-          '
-        description: 'An observation related to the current quantity of a specimen
-          or analyte it contains - e.g. its weight, volume, or concentration. '
+      quantity_measure:
+        name: quantity_measure
+        description: An observation related to the current quantity of a specimen
+          or analyte it contains - e.g. its weight, volume, or concentration.
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       quality_measure:
@@ -1084,6 +1362,7 @@ classes:
           its quality or suitability for use.
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       cellular_composition_type:
@@ -1092,6 +1371,7 @@ classes:
           at a celluar level.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       cellular_composition_measure:
@@ -1102,6 +1382,7 @@ classes:
           is typically determined through microscopic analysis of a slide.
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       tissue_composition_measure:
@@ -1110,15 +1391,17 @@ classes:
           of a specific type of tissue in a specimen or other biological material
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       general_tissue_morphology:
         name: general_tissue_morphology
-        description: "A term describing at a high-level the kind of tissue collected\
-          \ in a specimen, with respect to disease status or proximity to tumor tissue\
-          \ (e.g. is it normal, abnormal, tumor, tumor-adjacent). \n"
+        description: A term describing at a high-level the kind of tissue collected
+          in a specimen, with respect to disease status or proximity to tumor tissue
+          (e.g. is it normal, abnormal, tumor, tumor-adjacent).
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       specific_tissue_morphology:
@@ -1127,6 +1410,7 @@ classes:
           in a specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       preinvasive_tissue_morphology:
@@ -1135,6 +1419,7 @@ classes:
           in a specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       morphology_pathologically_confirmed:
@@ -1143,14 +1428,16 @@ classes:
           morphology was confirmed by a pathologist review
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_boolean
         multivalued: false
         required: false
       morphology_assessor_role:
         name: morphology_assessor_role
-        description: ' A term describing the role of the person who histologically
-          assessed the specific tissue morphology of a specimen'
+        description: A term describing the role of the person who histologically assessed
+          the specific tissue morphology of a specimen
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       morphlogy_assessment_method:
@@ -1159,6 +1446,7 @@ classes:
           morphology
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       degree_of_dysplasia:
@@ -1168,6 +1456,7 @@ classes:
           the degree of dysplasia for the cyst or lesion under consideration.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       dysplasia_fraction:
@@ -1176,6 +1465,7 @@ classes:
           divided by the total number of pieces.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
       ? 'related_document
@@ -1190,6 +1480,7 @@ classes:
           how it was collected, or a catalog entry describing  related research resource)
         notes:
         - 'Cardinality: 0..m'
+        range: Document
         multivalued: true
         required: false
       section_location:
@@ -1198,6 +1489,7 @@ classes:
           was excised (e.g. top, middle, bottom)
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       derived_product:
@@ -1206,7 +1498,18 @@ classes:
           tissue culture, or organoid) that was generated from the specimen
         notes:
         - 'Cardinality: 0..m'
+        range: BiologicallyDerivedProduct
         multivalued: true
+        required: false
+      distance_from_paired_specimen:
+        name: distance_from_paired_specimen
+        description: The observed distance of the specimen from a 'paired specimen'
+          in the body at the time of collection. (e.g. the distance between the in
+          vivo location of a tumor tissue specimen and its paired normal specimen)
+        notes:
+        - 'Cardinality: 0..1'
+        range: Quantity
+        multivalued: false
         required: false
   SpecimenCreationActivity:
     name: SpecimenCreationActivity
@@ -1218,28 +1521,32 @@ classes:
       or transported.
     notes:
     - Derived from [SpecimenCreationActivity in sheet SpecimenCreation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130)
+    is_a: Entity
     attributes:
       activity_type:
         name: activity_type
         description: The high-level type of creation activity
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       date_started:
         name: date_started
-        description: "The date when the activity began (in this case, a specimen creation\
-          \ event). \n"
+        description: The date when the activity began (in this case, a specimen creation
+          event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       date_ended:
         name: date_ended
-        description: "The date when the activity ended (in this case, a specimen creation\
-          \ event). \n"
+        description: The date when the activity ended (in this case, a specimen creation
+          event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       performed_by:
@@ -1247,22 +1554,25 @@ classes:
         description: The organization or group that performed the activity.
         notes:
         - 'Cardinality: 0..1'
+        range: Organization
         multivalued: false
         required: false
       collection_method_type:
         name: collection_method_type
-        description: 'A type of method followed in collecting a sample form its original
-          source. '
+        description: A type of method followed in collecting a sample form its original
+          source.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       derivation_method_type:
         name: derivation_method_type
-        description: 'A type of method followed in deriving new specimens from an
-          existing one. '
+        description: A type of method followed in deriving new specimens from an existing
+          one.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       additive:
@@ -1271,6 +1581,7 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       collection_site:
@@ -1280,6 +1591,7 @@ classes:
           used to access it.
         notes:
         - 'Cardinality: 0..1'
+        range: Entity
         multivalued: false
         required: false
       input_specimen:
@@ -1289,6 +1601,7 @@ classes:
           aliquoting, sectioning, etc)
         notes:
         - 'Cardinality: 0..m'
+        range: Specimen
         multivalued: true
         required: false
       quantity_collected:
@@ -1297,6 +1610,7 @@ classes:
           from its original source material (prior to downstream portioning or processing)
         notes:
         - 'Cardinality: 0..1'
+        range: Quantity
         multivalued: false
         required: false
       execution_condition:
@@ -1305,6 +1619,7 @@ classes:
           which activity was executed
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       specimen_order:
@@ -1314,6 +1629,7 @@ classes:
           same source material or parent specimen.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_string
         multivalued: false
         required: false
   SpecimenProcessingActivity:
@@ -1324,33 +1640,38 @@ classes:
       as input, and output that same specimen.
     notes:
     - Derived from [SpecimenProcessingActivity in sheet SpecimenProcessing](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1726416617)
+    is_a: Entity
     attributes:
       activity_type:
         name: activity_type
         description: The high-level type of processing activity
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       date_started:
         name: date_started
-        description: "The date when the activity began (in this case, a specimen processing\
-          \ event). \n"
+        description: The date when the activity began (in this case, a specimen processing
+          event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       date_ended:
         name: date_ended
-        description: "The date when the activity began (in this case, a specimen processing\
-          \ event). \n"
+        description: The date when the activity began (in this case, a specimen processing
+          event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       duration:
         name: duration
         description: The length of time over which the activity was performed.
+        range: ccdh_string
         multivalued: true
         required: false
       performed_by:
@@ -1358,6 +1679,7 @@ classes:
         description: The organization or group that performed the activity.
         notes:
         - 'Cardinality: 0..1'
+        range: Organization
         multivalued: false
         required: false
       method_type:
@@ -1366,6 +1688,7 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       additive:
@@ -1374,6 +1697,7 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
       device:
@@ -1381,6 +1705,7 @@ classes:
         description: A type of instrument or tool used to perform the processing
         notes:
         - 'Cardinality: 0..m'
+        range: CodeableConcept
         multivalued: true
         required: false
       executionConditions:
@@ -1389,6 +1714,7 @@ classes:
           which activity was executed
         notes:
         - 'Cardinality: 0..m'
+        range: Entity
         multivalued: true
         required: false
   SpecimenStorageActivity:
@@ -1398,19 +1724,22 @@ classes:
       \ not alter the \nintrinsic physical nature of a specimen."
     notes:
     - Derived from [SpecimenStorageActivity in sheet SpecimenStorage](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1583133214)
+    is_a: Entity
     attributes:
       date_started:
         name: date_started
-        description: 'The date when the activity began (in this case, a storage event). '
+        description: The date when the activity began (in this case, a storage event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       date_ended:
         name: date_ended
-        description: 'The date when the activity ended (in this case, a storage event). '
+        description: The date when the activity ended (in this case, a storage event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       method_type:
@@ -1419,6 +1748,7 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       container:
@@ -1427,6 +1757,7 @@ classes:
           storage.
         notes:
         - 'Cardinality: 0..m'
+        range: SpecimenContainer
         multivalued: true
         required: false
   SpecimenTransportActivity:
@@ -1434,21 +1765,22 @@ classes:
     description: An activity through which a specimen is transported between locations.
     notes:
     - Derived from [SpecimenTransportActivity in sheet SpecimenTransport](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)
+    is_a: Entity
     attributes:
       date_started:
         name: date_started
-        description: 'The date when the activity began (in this case, a transport
-          event). '
+        description: The date when the activity began (in this case, a transport event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       date_ended:
         name: date_ended
-        description: 'The date when the activity ended (in this case, a transport
-          event). '
+        description: The date when the activity ended (in this case, a transport event).
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       transport_destination:
@@ -1457,6 +1789,7 @@ classes:
           is delivered as a result of the activity.
         notes:
         - 'Cardinality: 0..1'
+        range: Organization
         multivalued: false
         required: false
       execution_conditions:
@@ -1465,6 +1798,7 @@ classes:
           (in this case, a transport activity).
         notes:
         - 'Cardinality: 0..m'
+        range: ccdh_string
         multivalued: true
         required: false
   Subject:
@@ -1473,23 +1807,26 @@ classes:
       or animal receiving care or other health-related services.
     notes:
     - Derived from [Subject in sheet Subject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379)
+    is_a: Entity
     attributes:
       id:
         name: id
-        description: 'The ''logical'' identifier of the entity in the system of record.  This
-          ''id'' is guaranteed to be unique only within a given system, but not globally.
-          The identified entity may have a different ''id'' in a different system,
-          and have many external business ''identifiers'' associated with it. '
+        description: The 'logical' identifier of the entity in the system of record.  This
+          'id' is guaranteed to be unique only within a given system, but not globally.
+          The identified entity may have a different 'id' in a different system, and
+          have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 1..1'
+        range: ccdh_string
         multivalued: false
         required: true
       identifier:
         name: identifier
-        description: 'A ''business'' identifier for the entity, typically as provided
-          by an external system or authority, that persists across implementing systems. '
+        description: A 'business' identifier for the entity, typically as provided
+          by an external system or authority, that persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        range: Identifier
         multivalued: true
         required: false
       species:
@@ -1498,6 +1835,7 @@ classes:
           Homo sapiens, Mus musculus, etc.)
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       breed:
@@ -1507,6 +1845,7 @@ classes:
           same species.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       sex:
@@ -1516,6 +1855,7 @@ classes:
           morphologic (internal and external), chromosomal, and hormonal characteristics.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       ethnicity:
@@ -1529,6 +1869,7 @@ classes:
           Applicable only when Subject.species is Homo Sapiens'
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       race:
@@ -1545,6 +1886,7 @@ classes:
           Applicable only when Subject.species is Homo Sapiens'
         notes:
         - 'Cardinality: 0..m'
+        range: CodeableConcept
         multivalued: true
         required: false
       year_of_birth:
@@ -1553,6 +1895,7 @@ classes:
           was born.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_integer
         multivalued: false
         required: false
       vital_status:
@@ -1561,6 +1904,7 @@ classes:
           or deceased; also includes the case where the vital status is unknown.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       age_at_death:
@@ -1569,6 +1913,7 @@ classes:
           since birth
         notes:
         - 'Cardinality: 0..1'
+        range: Quantity
         multivalued: false
         required: false
       year_of_death:
@@ -1577,6 +1922,7 @@ classes:
           died.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_integer
         multivalued: false
         required: false
       cause_of_death:
@@ -1585,15 +1931,17 @@ classes:
           in the death of the subject.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
   TimePoint:
     name: TimePoint
-    description: 'A structured representation of a single point in time that allows
+    description: A structured representation of a single point in time that allows
       direct/explicit declaration as a dateTime, or specification in terms of offset
-      from a defiend index. '
+      from a defiend index.
     notes:
     - Derived from [TimePoint in sheet TimePoint](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=300932847)
+    is_a: Entity
     attributes:
       dateTime:
         name: dateTime
@@ -1601,6 +1949,7 @@ classes:
           and optionally a time on that date.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       indexDate:
@@ -1609,6 +1958,7 @@ classes:
           a specified offset compared to derive a specific timepoint.
         notes:
         - 'Cardinality: 0..1'
+        range: ccdh_dateTime
         multivalued: false
         required: false
       indexEventType:
@@ -1618,6 +1968,7 @@ classes:
           derive a specific timepoint.
         notes:
         - 'Cardinality: 0..1'
+        range: CodeableConcept
         multivalued: false
         required: false
       ? 'offsetFromIndex
@@ -1630,12 +1981,15 @@ classes:
           can be used to derive a specific timepoint.
         notes:
         - 'Cardinality: 0..1'
+        range: Quantity
         multivalued: false
         required: false
   TimePeriod:
     name: TimePeriod
+    description: ''
     notes:
     - Derived from [TimePeriod in sheet TimePeriod](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1590126992)
+    is_a: Entity
     attributes:
       ? 'periodStart
 
@@ -1646,6 +2000,7 @@ classes:
         description: When a period of time started.
         notes:
         - 'Cardinality: 0..1'
+        range: TimePoint
         multivalued: false
         required: false
       ? 'periodEnd
@@ -1657,6 +2012,141 @@ classes:
         description: When a period of time ended.
         notes:
         - 'Cardinality: 0..1'
+        range: TimePoint
         multivalued: false
         required: false
-generation_date: '2021-05-24T17:03:25.040551+00:00'
+  Treatment:
+    name: Treatment
+    description: Represent medication administration or other treatment types.
+    notes:
+    - Derived from [Treatment in sheet Treatment](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=2111784779)
+    is_a: Entity
+    attributes:
+      id:
+        name: id
+        description: ''
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_string
+        multivalued: false
+        required: false
+      identifier:
+        name: identifier
+        description: The regimen or line of therapy
+        notes:
+        - 'Cardinality: 0..m'
+        range: Identifier
+        multivalued: true
+        required: false
+      regimen:
+        name: regimen
+        description: ''
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_string
+        multivalued: false
+        required: false
+      type:
+        name: type
+        description: The treatment type including medication/theraputics or other
+          procedures.
+        notes:
+        - 'Cardinality: 0..1'
+        range: CodeableConcept
+        multivalued: false
+        required: false
+      therapeutic_agent:
+        name: therapeutic_agent
+        description: One or more theraputic agents as part of this treatment.
+        notes:
+        - 'Cardinality: 0..m'
+        range: Entity
+        multivalued: true
+        required: false
+      start_date:
+        name: start_date
+        description: The timepoint at which the treatment started.
+        notes:
+        - 'Cardinality: 0..1'
+        range: TimePoint
+        multivalued: false
+        required: false
+      end_date:
+        name: end_date
+        description: The timepoint at which the treatment ended.
+        notes:
+        - 'Cardinality: 0..1'
+        range: TimePoint
+        multivalued: false
+        required: false
+      end_reason:
+        name: end_reason
+        description: ''
+        range: ccdh_string
+        multivalued: true
+        required: false
+      anatomic_site:
+        name: anatomic_site
+        description: The anatomical site that the treatment targets.
+        notes:
+        - 'Cardinality: 0..1'
+        range: BodySite
+        multivalued: false
+        required: false
+      effect:
+        name: effect
+        description: The effect of a treatment on the diagnosis or tumor.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_string
+        multivalued: false
+        required: false
+      intent:
+        name: intent
+        description: The intent of the treatment.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_string
+        multivalued: false
+        required: false
+      outcome:
+        name: outcome
+        description: The final outcome of the treatment.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_string
+        multivalued: false
+        required: false
+      diagnosis:
+        name: diagnosis
+        description: The diagnosis for which this treatement is intended for
+        notes:
+        - 'Cardinality: 0..m'
+        range: Diagnosis
+        multivalued: true
+        required: false
+      number_of_cycles:
+        name: number_of_cycles
+        description: The number of treatment cycles the patient received.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_integer
+        multivalued: false
+        required: false
+      concurrent_treatment_type:
+        name: concurrent_treatment_type
+        description: The type(s) of treatment(s) that are concurrent to this treatment.
+        notes:
+        - 'Cardinality: 0..m'
+        range: ccdh_string
+        multivalued: true
+        required: false
+      concurrent_treatment:
+        name: concurrent_treatment
+        description: The treatment(s) instance(s) that are concurrent with this treatment.
+        notes:
+        - 'Cardinality: 0..m'
+        range: Treatment
+        multivalued: true
+        required: false
+generation_date: '2021-05-24T21:33:19.932427+00:00'
