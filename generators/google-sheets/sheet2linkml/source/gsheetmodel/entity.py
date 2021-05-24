@@ -13,8 +13,6 @@ class Entity(ModelElement):
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
 
-    COL_ATTRIBUTE_NAME = "Attribute Name"
-
     def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
         """
         Create an entity based on a GSheetModel and a Google Sheet worksheet.
@@ -40,7 +38,7 @@ class Entity(ModelElement):
         :return: A list of named rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is not None
+            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
         ]
 
     @property
@@ -66,7 +64,7 @@ class Entity(ModelElement):
 
         # Find all entity rows
         entity_rows = [
-            row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is None
+            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None
         ]
 
         # Report an error if no rows were found.
@@ -165,7 +163,16 @@ class EntityWorksheet(ModelElement):
     # Some column names.
     COL_STATUS = "Status"
     COL_ENTITY_NAME = "Entity"
-    COL_ATTRIBUTE_NAME = "Attribute Name"
+    COL_ATTRIBUTE_NAME = "Attribute"
+
+    @staticmethod
+    def is_sheet_entity(worksheet: worksheet):
+        """Identify worksheets containing entities, i.e. those that have:
+            - COL_STATUS in cell A1, and
+            - COL_ENTITY_NAME in cell B1, and
+            - COL_ATTRIBUTE_NAME in cell C1.
+        """
+        return worksheet.get_values("A1", "C1") == [[EntityWorksheet.COL_STATUS, EntityWorksheet.COL_ENTITY_NAME, EntityWorksheet.COL_ATTRIBUTE_NAME]]
 
     def __init__(self, model, sheet: worksheet):
         """
