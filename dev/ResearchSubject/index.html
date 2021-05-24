@@ -92,7 +92,11 @@
 <p>A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
 or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.</p>
 <p>URI: <a href="https://example.org/ccdh/ResearchSubject">ccdh:ResearchSubject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[ResearchSubject&#124;id:string;identifier:string%20*;description:string%20%3F;member_of_research_project:string%20*;age_at_enrollment:string%20%3F;primary_diagnosis_condition:string%20%3F;primary_diagnosis_site:string%20%3F;primary_diagnosis:string%20*;comorbid_diagnoses:string%20*;index_timepoint:string%20%3F;originating_site:string%20%3F;associated_subject:string]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[ResearchSubject&#124;id:string;identifier:string%20*;description:string%20%3F;member_of_research_project:string%20*;age_at_enrollment:string%20%3F;primary_diagnosis_condition:string%20%3F;primary_diagnosis_site:string%20%3F;primary_diagnosis:string%20*;comorbid_diagnoses:string%20*;index_timepoint:string%20%3F;originating_site:string%20%3F;associated_subject:string],[Entity]" /></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>

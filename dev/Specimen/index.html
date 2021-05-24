@@ -91,7 +91,11 @@
                 <h1 id="class-specimen">Class: Specimen</h1>
 <p>Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.</p>
 <p>URI: <a href="https://example.org/ccdh/Specimen">ccdh:Specimen</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen&#124;id:string%20%3F;identifier:string%20*;description:string%20%3F;specimen_type:string%20%3F;analyte_type:string%20%3F;associated_project:string%20%3F;data_provider:string%20%3F;source_material_type:string%20%3F;parent_specimen:string%20*;source_subject:string%20%3F;source_model_system:string%20%3F;condition_status_at_collection:string%20%3F;creation_activity:string%20%3F;processing_activity:string%20*;storage_activity:string%20%3F;transport_activity:string%20%3F;contained_in:string%20%3F;dimensional_measure:string%20%3F;quantity_measure:string%20*;quality_measure:string%20*;cellular_composition_type:string%20%3F;cellular_composition_measure:string%20*;tissue_composition_measure:string%20*;general_tissue_morphology:string%20%3F;specific_tissue_morphology:string%20%3F;preinvasive_tissue_morphology:string%20%3F;morphology_pathologically_confirmed:string%20%3F;morphology_assessor_role:string%20%3F;morphlogy_assessment_method:string%20%3F;degree_of_dysplasia:string%20%3F;dysplasia_fraction:string%20%3F;related_document:string%20*;section_location:string%20%3F;derived_product:string%20*]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[Specimen&#124;id:string%20%3F;identifier:string%20*;description:string%20%3F;specimen_type:string%20%3F;analyte_type:string%20%3F;associated_project:string%20%3F;data_provider:string%20%3F;source_material_type:string%20%3F;parent_specimen:string%20*;source_subject:string%20%3F;source_model_system:string%20%3F;condition_status_at_collection:string%20%3F;creation_activity:string%20%3F;processing_activity:string%20*;storage_activity:string%20%3F;transport_activity:string%20%3F;contained_in:string%20%3F;dimensional_measure:string%20%3F;quantity_measure:string%20*;quality_measure:string%20*;cellular_composition_type:string%20%3F;cellular_composition_measure:string%20*;tissue_composition_measure:string%20*;general_tissue_morphology:string%20%3F;specific_tissue_morphology:string%20%3F;preinvasive_tissue_morphology:string%20%3F;morphology_pathologically_confirmed:string%20%3F;morphology_assessor_role:string%20%3F;morphlogy_assessment_method:string%20%3F;degree_of_dysplasia:string%20%3F;dysplasia_fraction:string%20%3F;related_document:string%20*;section_location:string%20%3F;derived_product:string%20*;distance_from_paired_specimen:string%20%3F],[Entity]" /></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
@@ -159,6 +163,9 @@
 <li>
 <p>range: <a href="../types/String/">String</a></p>
 </li>
+<li><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a>  <sub>OPT</sub></li>
+<li>Description: The observed distance of the specimen from a 'paired specimen' in the body at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)</li>
+<li>range: <a href="../types/String/">String</a></li>
 <li><a href="../specimen__dysplasia_fraction/">➞dysplasia_fraction</a>  <sub>OPT</sub></li>
 <li>Description: Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.</li>
 <li>range: <a href="../types/String/">String</a></li>

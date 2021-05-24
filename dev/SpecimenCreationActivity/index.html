@@ -91,7 +91,11 @@
                 <h1 id="class-specimencreationactivity">Class: SpecimenCreationActivity</h1>
 <p>The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenCreationActivity">ccdh:SpecimenCreationActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[SpecimenCreationActivity&#124;activity_type:string%20%3F;date_started:string%20%3F;date_ended:string%20%3F;performed_by:string%20%3F;collection_method_type:string%20%3F;derivation_method_type:string%20%3F;additive:string%20*;collection_site:string%20%3F;input_specimen:string%20*;quantity_collected:string%20%3F;execution_condition:string%20*;specimen_order:string%20%3F]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[SpecimenCreationActivity&#124;activity_type:string%20%3F;date_started:string%20%3F;date_ended:string%20%3F;performed_by:string%20%3F;collection_method_type:string%20%3F;derivation_method_type:string%20%3F;additive:string%20*;collection_site:string%20%3F;input_specimen:string%20*;quantity_collected:string%20%3F;execution_condition:string%20*;specimen_order:string%20%3F;id(i):string%20%3F],[Entity]" /></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
@@ -148,6 +152,14 @@
 <li>range: <a href="../types/String/">String</a></li>
 <li><a href="../specimenCreationActivity__specimen_order/">➞specimen_order</a>  <sub>OPT</sub></li>
 <li>Description: A numeric value that represents the sequential order of this creation activity relative to that of creation of other specimens from the same source material or parent specimen.</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-entity">Inherited from Entity:</h3>
+<ul>
+<li><a href="../entity__id/">➞id</a>  <sub>OPT</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
 <li>range: <a href="../types/String/">String</a></li>
 </ul>
 </li>

@@ -92,7 +92,11 @@
 <p>An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
 intrinsic physical nature of a specimen.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenStorageActivity">ccdh:SpecimenStorageActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[SpecimenStorageActivity&#124;date_started:string%20%3F;date_ended:string%20%3F;method_type:string%20%3F;container:string%20*]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[SpecimenStorageActivity&#124;date_started:string%20%3F;date_ended:string%20%3F;method_type:string%20%3F;container:string%20*;id(i):string%20%3F],[Entity]" /></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
@@ -113,6 +117,14 @@ intrinsic physical nature of a specimen.</p>
 </li>
 <li><a href="../specimenStorageActivity__method_type/">➞method_type</a>  <sub>OPT</sub><ul>
 <li>Description: A specific type of method or procedure performed to store the specimen</li>
+<li>range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-entity">Inherited from Entity:</h3>
+<ul>
+<li><a href="../entity__id/">➞id</a>  <sub>OPT</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
 <li>range: <a href="../types/String/">String</a></li>
 </ul>
 </li>
