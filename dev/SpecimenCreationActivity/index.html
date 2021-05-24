@@ -114,7 +114,7 @@
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__collection_method_type/">➞collection_method_type</a>  <sub>OPT</sub><ul>
-<li>Description: A type of method followed in collecting a sample form its original source. </li>
+<li>Description: A type of method followed in collecting a sample form its original source.</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
@@ -123,38 +123,42 @@
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li>
-<p><a href="../specimenCreationActivity__date_ended/">➞date_ended</a>  <sub>OPT</sub></p>
-<ul>
-<li>
-<p>Description: The date when the activity ended (in this case, a specimen creation event). </p>
+<li><a href="../specimenCreationActivity__date_ended/">➞date_ended</a>  <sub>OPT</sub><ul>
+<li>Description: The date when the activity ended (in this case, a specimen creation event).</li>
+<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+</ul>
 </li>
-<li>
-<p>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></p>
+<li><a href="../specimenCreationActivity__date_started/">➞date_started</a>  <sub>OPT</sub><ul>
+<li>Description: The date when the activity began (in this case, a specimen creation event).</li>
+<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+</ul>
 </li>
-<li><a href="../specimenCreationActivity__date_started/">➞date_started</a>  <sub>OPT</sub></li>
-<li>
-<p>Description: The date when the activity began (in this case, a specimen creation event). </p>
-</li>
-<li>
-<p>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></p>
-</li>
-<li><a href="../specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a>  <sub>OPT</sub></li>
-<li>Description: A type of method followed in deriving new specimens from an existing one. </li>
+<li><a href="../specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a>  <sub>OPT</sub><ul>
+<li>Description: A type of method followed in deriving new specimens from an existing one.</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-<li><a href="../specimenCreationActivity__execution_condition/">➞execution_condition</a>  <sub>0..*</sub></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__execution_condition/">➞execution_condition</a>  <sub>0..*</sub><ul>
 <li>Description: Information describing the specified or observed conditions under which activity was executed</li>
 <li>range: <a href="../Entity/">Entity</a></li>
-<li><a href="../specimenCreationActivity__input_specimen/">➞input_specimen</a>  <sub>0..*</sub></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__input_specimen/">➞input_specimen</a>  <sub>0..*</sub><ul>
 <li>Description: One or more existing specimens input into the specimen creation activity, from which a new specimen is derived (e.g. through portioning, aliquoting, sectioning, etc)</li>
 <li>range: <a href="../Specimen/">Specimen</a></li>
-<li><a href="../specimenCreationActivity__performed_by/">➞performed_by</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__performed_by/">➞performed_by</a>  <sub>OPT</sub><ul>
 <li>Description: The organization or group that performed the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li><a href="../specimenCreationActivity__quantity_collected/">➞quantity_collected</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__quantity_collected/">➞quantity_collected</a>  <sub>OPT</sub><ul>
 <li>Description: The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
-<li><a href="../specimenCreationActivity__specimen_order/">➞specimen_order</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__specimen_order/">➞specimen_order</a>  <sub>OPT</sub><ul>
 <li>Description: A numeric value that represents the sequential order of this creation activity relative to that of creation of other specimens from the same source material or parent specimen.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>

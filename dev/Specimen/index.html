@@ -133,7 +133,7 @@
 </ul>
 </li>
 <li><a href="../specimen__contained_in/">➞contained_in</a>  <sub>OPT</sub><ul>
-<li>Description: A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate) </li>
+<li>Description: A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)</li>
 <li>range: <a href="../SpecimenContainer/">SpecimenContainer</a></li>
 </ul>
 </li>
@@ -162,92 +162,124 @@
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li>
-<p><a href="../specimen__dimensional_measure/">➞dimensional_measure</a>  <sub>OPT</sub></p>
-<ul>
-<li>
-<p>Description: An observation about the dimensions of an object, including lengths, areas, and volumes.</p>
+<li><a href="../specimen__dimensional_measure/">➞dimensional_measure</a>  <sub>OPT</sub><ul>
+<li>Description: An observation about the dimensions of an object, including lengths, areas, and volumes.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
+</ul>
 </li>
-<li>
-<p>range: <a href="../Entity/">Entity</a></p>
-</li>
-<li><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a>  <sub>OPT</sub></li>
+<li><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a>  <sub>OPT</sub><ul>
 <li>Description: The observed distance of the specimen from a 'paired specimen' in the body at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
-<li><a href="../specimen__dysplasia_fraction/">➞dysplasia_fraction</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__dysplasia_fraction/">➞dysplasia_fraction</a>  <sub>OPT</sub><ul>
 <li>Description: Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li><a href="../specimen__general_tissue_morphology/">➞general_tissue_morphology</a>  <sub>OPT</sub></li>
-<li>
-<p>Description: A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent). </p>
+</ul>
 </li>
-<li>
-<p>range: <a href="../CodeableConcept/">CodeableConcept</a></p>
+<li><a href="../specimen__general_tissue_morphology/">➞general_tissue_morphology</a>  <sub>OPT</sub><ul>
+<li>Description: A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+</ul>
 </li>
-<li><a href="../specimen__id/">➞id</a>  <sub>OPT</sub></li>
-<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. </li>
+<li><a href="../specimen__id/">➞id</a>  <sub>OPT</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li><a href="../specimen__identifier/">➞identifier</a>  <sub>0..*</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li><a href="../specimen__morphlogy_assessment_method/">➞morphlogy_assessment_method</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__morphlogy_assessment_method/">➞morphlogy_assessment_method</a>  <sub>OPT</sub><ul>
 <li>Description: The general method used to assess a specimens specific tissue morphology</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-<li><a href="../specimen__morphology_assessor_role/">➞morphology_assessor_role</a>  <sub>OPT</sub></li>
-<li>Description:  A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen</li>
+</ul>
+</li>
+<li><a href="../specimen__morphology_assessor_role/">➞morphology_assessor_role</a>  <sub>OPT</sub><ul>
+<li>Description: A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-<li><a href="../specimen__morphology_pathologically_confirmed/">➞morphology_pathologically_confirmed</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__morphology_pathologically_confirmed/">➞morphology_pathologically_confirmed</a>  <sub>OPT</sub><ul>
 <li>Description: A flag indicating whether the histologic assessment of specific morphology was confirmed by a pathologist review</li>
 <li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
-<li><a href="../specimen__parent_specimen/">➞parent_specimen</a>  <sub>0..*</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__parent_specimen/">➞parent_specimen</a>  <sub>0..*</sub><ul>
 <li>Description: An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).</li>
 <li>range: <a href="./">Specimen</a></li>
-<li><a href="../specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing the pathology exhibited by a pre-invasive tissue in a specimen.</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-<li><a href="../specimen__processing_activity/">➞processing_activity</a>  <sub>0..*</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__processing_activity/">➞processing_activity</a>  <sub>0..*</sub><ul>
 <li>Description: An activity that modifies the physical structure, composition, or state of a specimen.</li>
 <li>range: <a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></li>
-<li><a href="../specimen__quality_measure/">➞quality_measure</a>  <sub>0..*</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__quality_measure/">➞quality_measure</a>  <sub>0..*</sub><ul>
 <li>Description: An observation about  specimen characteristics indicative of its quality or suitability for use.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
 <li><a href="../specimen__quantity_measure/">➞quantity_measure
-</a>  <sub>0..*</sub></li>
-<li>Description: An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration. </li>
+</a>  <sub>0..*</sub><ul>
+<li>Description: An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
 <li><a href="../specimen__related_document/">➞related_document
-</a>  <sub>0..*</sub></li>
+</a>  <sub>0..*</sub><ul>
 <li>Description: A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected, or a catalog entry describing  related research resource)</li>
 <li>range: <a href="../Document/">Document</a></li>
-<li><a href="../specimen__section_location/">➞section_location</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__section_location/">➞section_location</a>  <sub>OPT</sub><ul>
 <li>Description: The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-<li><a href="../specimen__source_material_type/">➞source_material_type</a>  <sub>OPT</sub></li>
-<li>Description: The general kind of material from which the specimen was derived, based on the physical nature of the source material. </li>
+</ul>
+</li>
+<li><a href="../specimen__source_material_type/">➞source_material_type</a>  <sub>OPT</sub><ul>
+<li>Description: The general kind of material from which the specimen was derived, based on the physical nature of the source material.</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-<li><a href="../specimen__source_model_system/">➞source_model_system</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__source_model_system/">➞source_model_system</a>  <sub>OPT</sub><ul>
 <li>Description: A Biologically Derived Material / model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
-<li><a href="../specimen__source_subject/">➞source_subject</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__source_subject/">➞source_subject</a>  <sub>OPT</sub><ul>
 <li>Description: A Subject from which the specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
-<li><a href="../specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing the specific pathology exhibited by the tissue in a specimen.</li>
 <li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-<li><a href="../specimen__specimen_type/">➞specimen_type</a>  <sub>OPT</sub></li>
-<li>
-<p>Description: The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</p>
+</ul>
 </li>
-<li>
-<p>range: <a href="../CodeableConcept/">CodeableConcept</a></p>
+<li><a href="../specimen__specimen_type/">➞specimen_type</a>  <sub>OPT</sub><ul>
+<li>Description: The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+</ul>
 </li>
-<li><a href="../specimen__storage_activity/">➞storage_activity</a>  <sub>OPT</sub></li>
+<li><a href="../specimen__storage_activity/">➞storage_activity</a>  <sub>OPT</sub><ul>
 <li>Description: An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.</li>
 <li>range: <a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></li>
-<li><a href="../specimen__tissue_composition_measure/">➞tissue_composition_measure</a>  <sub>0..*</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__tissue_composition_measure/">➞tissue_composition_measure</a>  <sub>0..*</sub><ul>
 <li>Description: An observation about the absolute area or relative proportion of a specific type of tissue in a specimen or other biological material</li>
 <li>range: <a href="../Entity/">Entity</a></li>
-<li><a href="../specimen__transport_activity/">➞transport_activity</a>  <sub>OPT</sub></li>
+</ul>
+</li>
+<li><a href="../specimen__transport_activity/">➞transport_activity</a>  <sub>OPT</sub><ul>
 <li>Description: An activity through which the specimen is transported between locations.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
