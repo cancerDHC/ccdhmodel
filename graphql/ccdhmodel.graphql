@@ -1,4 +1,4 @@
-type CDM.BiologicallyDerivedProduct
+type BiologicallyDerivedProduct
   {
     id: String
     description: String
@@ -7,7 +7,68 @@ type CDM.BiologicallyDerivedProduct
     growthRate: [String]
   }
 
-type CDM.Exposure
+type CancerGrade
+  {
+    methodType: String!
+    observations: String
+  }
+
+type CancerStage
+  {
+    observationType: String!
+    valueCodeableConcept: String
+  }
+
+type CancerStageSet
+  {
+    methodType: String
+    observations: [String]
+  }
+
+type CodeableConcept
+  {
+    coding: [String]
+    text: String
+  }
+
+type Coding
+  {
+    code: String!
+    system: String!
+    label: String
+    systemURL: String
+    systemVersion: String
+  }
+
+type Diagnosis
+  {
+    id: String
+    identifier: [String]
+    ageAtDiagnosis: String
+    yearAtDiagnosis: String
+    condition: String
+    primarySite: [String]
+    metastaticSites: [String]
+    stage: [String]
+    grade: [String]
+    morphology: String
+    diseaseStatus: String
+    priorDiagnosis: String
+    methodOfDiagnosis: String
+    relatedSpecimen: [String]
+  }
+
+type Document
+  {
+    id: String
+    identifier: [String]
+    documentType: String
+    description: String
+    focus: String
+    url: [String]
+  }
+
+type Exposure
   {
     id: String!
     identifier: [String]
@@ -17,7 +78,14 @@ type CDM.Exposure
     relatedPatient: String
   }
 
-type CDM.Organization
+type Identifier
+  {
+    value: String!
+    system: String
+    type: String
+  }
+
+type Organization
   {
     id: String!
     identifier: [String]
@@ -26,21 +94,15 @@ type CDM.Organization
     organizationType: String
   }
 
-type CDM.Patient
+type Quantity
   {
-    id: String!
-    identifier: [String]
-    givenName: String
-    taxon: String
-    adverseEvents: [String]
+    value: String!
+    unitCode: String
+    unit: String
+    comparator: String
   }
 
-type CDM.Report
-  {
-    id: String
-  }
-
-type CDM.ResearchProject
+type ResearchProject
   {
     id: String
     identifier: [String]
@@ -58,26 +120,23 @@ type CDM.ResearchProject
     dateIacucApproval: String
   }
 
-type CDM.ResearchSubject
+type ResearchSubject
   {
     id: String!
     identifier: [String]
     description: String
-    primaryDiseaseType: String
-    primaryDiseaseSite: String
-    qualificationStatusFlag: String
-    associatedProject: [String]
-    memberOfCohort: [String]
-    memberOfStudy: [String]
+    memberOfResearchProject: [String]
+    ageAtEnrollment: String
+    primaryDiagnosisCondition: String
+    primaryDiagnosisSite: String
+    primaryDiagnosis: [String]
+    comorbidDiagnoses: [String]
     indexTimepoint: String
-    referenceStatusFlag: String
-    processedAt: String
     originatingSite: String
-    studyProgress: [String]
-    associatedPatient: String!
+    associatedSubject: String!
   }
 
-type CDM.Specimen
+type Specimen
   {
     id: String
     identifier: [String]
@@ -85,13 +144,12 @@ type CDM.Specimen
     specimenType: String
     analyteType: String
     associatedProject: String
-    providedBy: String
+    dataProvider: String
     sourceMaterialType: String
     parentSpecimen: [String]
-    sourcePatient: String
+    sourceSubject: String
     sourceModelSystem: String
     conditionStatusAtCollection: String
-    relatedDiagnosis: [String]
     creationActivity: String
     processingActivity: [String]
     storageActivity: String
@@ -105,61 +163,101 @@ type CDM.Specimen
     tissueCompositionMeasure: [String]
     generalTissueMorphology: String
     specificTissueMorphology: String
-    relatedDocument?RelatedReport?: [String]
-    relatedSpecimen: [String]
-    derivedProduct: [String]
-    qualificationStatusFlag: String
-    referenceStatusFlag: String
-    matchedNormalFlag: [String]
-    selectedNormalFlag: String
-    pairedSpecimenGenotypeMatchFlag: String
+    preinvasiveTissueMorphology: String
+    morphologyPathologicallyConfirmed: String
+    morphologyAssessorRole: String
+    morphlogyAssessmentMethod: String
+    degreeOfDysplasia: String
+    dysplasiaFraction: String
+    relatedDocument: [String]
     sectionLocation: String
+    derivedProduct: [String]
   }
 
-type CDM.SpecimenContainer
+type SpecimenContainer
   {
-    containerType: [String]
-    containerNumber: [String]
+    id: String
+    identifier: [String]
+    containerType: String
+    containerNumber: String
     additive: [String]
     parentContainer: [String]
     chargeType: String
   }
 
-type CDM.SpecimenCreationActivity
+type SpecimenCreationActivity
   {
-    id: String
     activityType: String
     dateStarted: String
     dateEnded: String
     performedBy: String
-    methodType: String
+    collectionMethodType: String
+    derivationMethodType: String
+    additive: [String]
     collectionSite: String
     inputSpecimen: [String]
     quantityCollected: String
     executionCondition: [String]
-    collectedDuringVisit: String
-    relativeTiming: [String]
-    relativeOrder: String
+    specimenOrder: String
   }
 
-type CDM.SpecimenProcessingActivity
+type SpecimenProcessingActivity
   {
+    activityType: String
+    dateStarted: String
+    dateEnded: String
     duration: [String]
     performedBy: String
+    methodType: String
+    additive: [String]
+    device: [String]
+    executionConditions: [String]
   }
 
-type CDM.SpecimenStorageActivity
+type SpecimenStorageActivity
   {
-    id: String
+    dateStarted: String
+    dateEnded: String
+    methodType: String
+    container: [String]
   }
 
-type CDM.SpecimenTransportActivity
+type SpecimenTransportActivity
   {
-    id: String
     dateStarted: String
     dateEnded: String
     transportDestination: String
     executionConditions: [String]
+  }
+
+type Subject
+  {
+    id: String!
+    identifier: [String]
+    species: String
+    breed: String
+    sex: String
+    ethnicity: String
+    race: [String]
+    yearOfBirth: String
+    vitalStatus: String
+    ageAtDeath: String
+    yearOfDeath: String
+    causeOfDeath: String
+  }
+
+type TimePeriod
+  {
+    periodStartStart: String
+    periodEndEnd: String
+  }
+
+type TimePoint
+  {
+    dateTime: String
+    indexDate: String
+    indexEventType: String
+    offsetFromIndexIndexOffset: String
   }
 
 
