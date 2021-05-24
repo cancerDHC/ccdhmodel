@@ -1,8 +1,7 @@
-from linkml_model import SchemaDefinition
-
 from sheet2linkml.model import ModelElement
 from pygsheets import worksheet
-from linkml_model.meta import TypeDefinition
+import linkml_model
+from linkml_model.meta import TypeDefinition, SchemaDefinition
 import logging
 import re
 
@@ -56,7 +55,7 @@ class Datatype(ModelElement):
         """
         :return: A name for this datatype.
         """
-        return self.datatype_name
+        return f'ccdh_{self.datatype_name}'
 
     def get_filename(self) -> str:
         """
@@ -100,11 +99,11 @@ class Datatype(ModelElement):
         logging.info(f"Generating LinkML for {self}")
 
         # Basic metadata
-        first_typeof = (self.linkml_type_mappings or ['linkml:string'])[0]
+        first_typeof = (self.linkml_type_mappings or ['string'])[0]
         typ: TypeDefinition = TypeDefinition(
             name=self.name,
             description=self.datatype_row.get("Description"),
-            typeof=f'linkml:{first_typeof}'
+            typeof=first_typeof.lower()
         )
 
         # Additional metadata
