@@ -3,7 +3,7 @@ import pygsheets
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
 from linkml_model.meta import SchemaDefinition
-from datetime import datetime
+from datetime import datetime, timezone
 import re
 import logging
 
@@ -151,7 +151,7 @@ class GSheetModel(ModelElement):
 
         schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.notes.append(f"Derived from {self.to_markdown()}")
-        schema.generation_date = datetime.now().isoformat()
+        schema.generation_date = datetime.now(timezone.utc).isoformat()
 
         if self.version:
             schema.version = self.version
