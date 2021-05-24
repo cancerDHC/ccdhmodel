@@ -48,6 +48,12 @@ class GSheetModel(ModelElement):
         )
         self.sheet = self.client.open_by_key(google_sheet_id)
 
+        # TODO: at some point, we should read the version number from the Google Sheets document... somehow.
+        self.version = None
+
+        # Set a `development version`. This is initially None, but if set, we add this to the metadata we emit.
+        self.development_version = None
+
     def entity_worksheets(self) -> list[EntityWorksheet]:
         """
         A list of worksheets available in this model.
@@ -132,8 +138,6 @@ class GSheetModel(ModelElement):
 
         # Set up general metadata.
         schema: SchemaDefinition = SchemaDefinition(name="CRDC-H", id=f"{root_uri}")
-        schema.version = "v0"  # TODO: Replace with a version.
-        schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.prefixes = {
             "linkml": "https://w3id.org/linkml/",
             "ccdh": f"{root_uri}/",
@@ -143,11 +147,16 @@ class GSheetModel(ModelElement):
         schema.imports = [
             'linkml:types'
         ]
-
         schema.default_prefix = "ccdh"
+
         schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.notes.append(f"Derived from {self.to_markdown()}")
         schema.generation_date = datetime.now(timezone.utc).isoformat()
+
+        if self.version:
+            schema.version = self.version
+        elif self.development_version:
+            schema.version = self.development_version
 
         # Generate all the entities.
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
