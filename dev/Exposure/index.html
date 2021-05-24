@@ -91,7 +91,7 @@
                 <h1 id="class-exposure">Class: Exposure</h1>
 <p>Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.</p>
 <p>URI: <a href="https://example.org/ccdh/Exposure">ccdh:Exposure</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[Exposure&#124;id:string;identifier:string%20*;tobacco_use:string%20%3F;alcohol_use:string%20%3F;environmental:string%20*;related_patient:string%20%3F],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Identifier],[Subject]&lt;related_patient%200..1-++[Exposure&#124;id:ccdh_string],[Entity]&lt;environmental%200..*-++[Exposure],[Entity]&lt;alcohol_use%200..1-++[Exposure],[Entity]&lt;tobacco_use%200..1-++[Exposure],[Identifier]&lt;identifier%200..*-++[Exposure],[Entity]^-[Exposure],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -101,32 +101,32 @@
 <ul>
 <li><a href="../exposure__alcohol_use/">➞alcohol_use</a>  <sub>OPT</sub><ul>
 <li>Description: A container holding a set of observations about an individual's exposure to alcohol.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../exposure__environmental/">➞environmental</a>  <sub>0..*</sub><ul>
 <li>Description: Observations about an individual's exposure to environmental substances that may impact clinical outcomes.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../exposure__id/">➞id</a>  <sub>REQ</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. </li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../exposure__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
 <li><a href="../exposure__related_patient/">➞related_patient</a>  <sub>OPT</sub><ul>
 <li>Description: A reference to the Subject that is the subject of this Exposure</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
 <li><a href="../exposure__tobacco_use/">➞tobacco_use</a>  <sub>OPT</sub><ul>
 <li>Description: A container holding a set of observations about an individual's exposure to tobacco.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 </ul>

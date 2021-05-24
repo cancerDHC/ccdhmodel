@@ -91,32 +91,48 @@
                 <h1 id="class-quantity">Class: Quantity</h1>
 <p>A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.</p>
 <p>URI: <a href="https://example.org/ccdh/Quantity">ccdh:Quantity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[Quantity&#124;value:string;unitCode:string%20%3F;unit:string%20%3F;comparator:string%20%3F;id(i):string%20%3F],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Coding]&lt;comparator%200..1-++[Quantity&#124;valueDecimal:ccdh_decimal%20%3F;unit:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Coding]&lt;unitCode%200..1-++[Quantity],[CodeableConcept]&lt;valueCodeableConcept%200..1-++[Quantity],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[TimePoint]++-%20offsetFromIndex
+indexOffset%200..1&gt;[Quantity],[Entity]^-[Quantity],[TimePoint],[Subject],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Entity],[Diagnosis],[Coding],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../diagnosis__age_at_diagnosis/">➞age_at_diagnosis</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong>None</strong> <em><a href="../researchSubject__age_at_enrollment/">➞age_at_enrollment</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__quantity_collected/">➞quantity_collected</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong>None</strong> <em><a href="../subject__age_at_death/">➞age_at_death</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong>None</strong> <em><a href="../timePoint__offsetFromIndex_indexOffset/">➞offsetFromIndex
+indexOffset</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../quantity__comparator/">➞comparator</a>  <sub>OPT</sub><ul>
 <li>Description: How to understand the value (e.g.  &lt;  |  &lt;=  |  =  |   &gt;=  |  &gt; )</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Coding/">Coding</a></li>
 </ul>
 </li>
 <li><a href="../quantity__unit/">➞unit</a>  <sub>OPT</sub><ul>
 <li>Description: The unit of the amount represented by the value (e.g. mg, mL, days).  This may be a free-text form of the unitCode.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../quantity__unitCode/">➞unitCode</a>  <sub>OPT</sub><ul>
 <li>Description: A coded representation of the unit.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Coding/">Coding</a></li>
 </ul>
 </li>
-<li><a href="../quantity__value/">➞value</a>  <sub>REQ</sub><ul>
+<li><a href="../quantity__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>OPT</sub><ul>
+<li>Description: A coded value representing a quantity (e.g. "Adjacent (&lt; or = 2cm)")</li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+</ul>
+</li>
+<li><a href="../quantity__valueDecimal/">➞valueDecimal</a>  <sub>OPT</sub><ul>
 <li>Description: An amount, in the given units (if specified)</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
 </ul>
 </li>
 </ul>
@@ -124,7 +140,7 @@
 <ul>
 <li><a href="../entity__id/">➞id</a>  <sub>OPT</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>

@@ -91,27 +91,33 @@
                 <h1 id="class-subject">Class: Subject</h1>
 <p>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</p>
 <p>URI: <a href="https://example.org/ccdh/Subject">ccdh:Subject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[Subject&#124;id:string;identifier:string%20*;species:string%20%3F;breed:string%20%3F;sex:string%20%3F;ethnicity:string%20%3F;race:string%20*;year_of_birth:string%20%3F;vital_status:string%20%3F;age_at_death:string%20%3F;year_of_death:string%20%3F;cause_of_death:string%20%3F],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[CodeableConcept]&lt;cause_of_death%200..1-++[Subject&#124;id:ccdh_string;year_of_birth:ccdh_integer%20%3F;year_of_death:ccdh_integer%20%3F],[Quantity]&lt;age_at_death%200..1-++[Subject],[CodeableConcept]&lt;vital_status%200..1-++[Subject],[CodeableConcept]&lt;race%200..*-++[Subject],[CodeableConcept]&lt;ethnicity%200..1-++[Subject],[CodeableConcept]&lt;sex%200..1-++[Subject],[CodeableConcept]&lt;breed%200..1-++[Subject],[CodeableConcept]&lt;species%200..1-++[Subject],[Identifier]&lt;identifier%200..*-++[Subject],[Exposure]++-%20related_patient%200..1&gt;[Subject],[ResearchSubject]++-%20associated_subject%201..1&gt;[Subject],[Specimen]++-%20source_subject%200..1&gt;[Subject],[Entity]^-[Subject],[Specimen],[ResearchSubject],[Quantity],[Identifier],[Exposure],[Entity],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../exposure__related_patient/">➞related_patient</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
+<li><strong>None</strong> <em><a href="../researchSubject__associated_subject/">➞associated_subject</a></em>  <sub>REQ</sub>  <strong><a href="./">Subject</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__source_subject/">➞source_subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../subject__age_at_death/">➞age_at_death</a>  <sub>OPT</sub><ul>
 <li>Description: The age of an individual at the time of death, expressed in days since birth</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
 <li><a href="../subject__breed/">➞breed</a>  <sub>OPT</sub><ul>
 <li>Description: A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../subject__cause_of_death/">➞cause_of_death</a>  <sub>OPT</sub><ul>
 <li>Description: Coded value indicating the circumstance or condition that results in the death of the subject.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../subject__ethnicity/">➞ethnicity</a>  <sub>OPT</sub><ul>
@@ -120,32 +126,32 @@
 </li>
 </ul>
 <p>Applicable only when Subject.species is Homo Sapiens
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../CodeableConcept/">CodeableConcept</a>
  * <a href="../subject__id/">➞id</a>  <sub>REQ</sub>
      * Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. 
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../types/CcdhString/">CcdhString</a>
  * <a href="../subject__identifier/">➞identifier</a>  <sub>0..<em></sub>
      * Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems. 
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../Identifier/">Identifier</a>
  * <a href="../subject__race/">➞race</a>  <sub>0..</em></sub>
      * Description: An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</p>
 <p>Applicable only when Subject.species is Homo Sapiens
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../CodeableConcept/">CodeableConcept</a>
  * <a href="../subject__sex/">➞sex</a>  <sub>OPT</sub>
      * Description: The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../CodeableConcept/">CodeableConcept</a>
  * <a href="../subject__species/">➞species</a>  <sub>OPT</sub>
      * Description: The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../CodeableConcept/">CodeableConcept</a>
  * <a href="../subject__vital_status/">➞vital_status</a>  <sub>OPT</sub>
      * Description: Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../CodeableConcept/">CodeableConcept</a>
  * <a href="../subject__year_of_birth/">➞year_of_birth</a>  <sub>OPT</sub>
      * Description: Numeric value to represent the calendar year in which an individual was born.
-     * range: <a href="../types/String/">String</a>
+     * range: <a href="../types/CcdhInteger/">CcdhInteger</a>
  * <a href="../subject__year_of_death/">➞year_of_death</a>  <sub>OPT</sub>
      * Description: Numeric value to represent the calendar year in which an individual died.
-     * range: <a href="../types/String/">String</a></p>
+     * range: <a href="../types/CcdhInteger/">CcdhInteger</a></p>
               
             </div>
           </div>

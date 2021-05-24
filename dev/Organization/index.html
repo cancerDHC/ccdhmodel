@@ -91,37 +91,45 @@
                 <h1 id="class-organization">Class: Organization</h1>
 <p>A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university</p>
 <p>URI: <a href="https://example.org/ccdh/Organization">ccdh:Organization</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[Organization&#124;id:string;identifier:string%20*;name:string;alias:string%20%3F;organization_type:string%20%3F],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier]&lt;identifier%200..*-++[Organization&#124;id:ccdh_string;name:ccdh_string;alias:ccdh_string%20%3F;organization_type:ccdh_string%20%3F],[ResearchSubject]++-%20originating_site%200..1&gt;[Organization],[SpecimenCreationActivity]++-%20performed_by%200..1&gt;[Organization],[SpecimenProcessingActivity]++-%20performed_by%200..1&gt;[Organization],[SpecimenTransportActivity]++-%20transport_destination%200..1&gt;[Organization],[Specimen]++-%20data_provider%200..1&gt;[Organization],[Entity]^-[Organization],[SpecimenTransportActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Identifier],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../researchSubject__originating_site/">➞originating_site</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__performed_by/">➞performed_by</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__performed_by/">➞performed_by</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenTransportActivity__transport_destination/">➞transport_destination</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__data_provider/">➞data_provider</a></em>  <sub>OPT</sub>  <strong><a href="./">Organization</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../organization__alias/">➞alias</a>  <sub>OPT</sub><ul>
 <li>Description: A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../organization__id/">➞id</a>  <sub>REQ</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. </li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../organization__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
 <li><a href="../organization__name/">➞name</a>  <sub>REQ</sub><ul>
 <li>Description: The full legal name by which the organization is known (e.g. 'National Cancer Institute')</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../organization__organization_type/">➞organization_type</a>  <sub>OPT</sub><ul>
 <li>Description: The type of the organization (e.g. 'Cancer Genome Characterization Center') </li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>

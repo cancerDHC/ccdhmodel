@@ -91,10 +91,12 @@
                 <h1 id="class-entity">Class: Entity</h1>
 <p>Any resource that has its own identifier</p>
 <p>URI: <a href="https://example.org/ccdh/Entity">ccdh:Entity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[TimePeriod],[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Quantity],[Organization],[Identifier],[Exposure],[Entity&#124;id:string%20%3F]^-[TimePoint],[Entity]^-[TimePeriod],[Entity]^-[Subject],[Entity]^-[SpecimenTransportActivity],[Entity]^-[SpecimenStorageActivity],[Entity]^-[SpecimenProcessingActivity],[Entity]^-[SpecimenCreationActivity],[Entity]^-[SpecimenContainer],[Entity]^-[Specimen],[Entity]^-[ResearchSubject],[Entity]^-[ResearchProject],[Entity]^-[Quantity],[Entity]^-[Organization],[Entity]^-[Identifier],[Entity]^-[Exposure],[Entity]^-[Document],[Entity]^-[Diagnosis],[Entity]^-[Coding],[Entity]^-[CodeableConcept],[Entity]^-[CancerStageSet],[Entity]^-[CancerStage],[Entity]^-[CancerGrade],[Entity]^-[BiologicallyDerivedProduct],[Document],[Diagnosis],[Coding],[CodeableConcept],[CancerStageSet],[CancerStage],[CancerGrade],[BiologicallyDerivedProduct]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[TimePoint],[TimePeriod],[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Quantity],[Organization],[Identifier],[Exposure],[Document]++-%20focus%200..1&gt;[Entity&#124;id:ccdh_string%20%3F],[Exposure]++-%20alcohol_use%200..1&gt;[Entity],[Exposure]++-%20environmental%200..*&gt;[Entity],[Exposure]++-%20tobacco_use%200..1&gt;[Entity],[SpecimenContainer]++-%20additive%200..*&gt;[Entity],[SpecimenCreationActivity]++-%20additive%200..*&gt;[Entity],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[Entity],[SpecimenCreationActivity]++-%20execution_condition%200..*&gt;[Entity],[SpecimenProcessingActivity]++-%20additive%200..*&gt;[Entity],[SpecimenProcessingActivity]++-%20executionConditions%200..*&gt;[Entity],[Specimen]++-%20analyte_type%200..1&gt;[Entity],[Specimen]++-%20cellular_composition_measure%200..*&gt;[Entity],[Specimen]++-%20dimensional_measure%200..1&gt;[Entity],[Specimen]++-%20quality_measure%200..*&gt;[Entity],[Specimen]++-%20quantity_measure
+%200..*&gt;[Entity],[Specimen]++-%20source_model_system%200..1&gt;[Entity],[Specimen]++-%20tissue_composition_measure%200..*&gt;[Entity],[Specimen]++-%20transport_activity%200..1&gt;[Entity],[TimePoint]++-%20dateTime%200..1&gt;[Entity],[TimePoint]++-%20indexDate%200..1&gt;[Entity],[Treatment]++-%20concurrent_treatment_type%200..*&gt;[Entity],[Treatment]++-%20therapeutic_agent%200..*&gt;[Entity],[Treatment]++-%20type%200..1&gt;[Entity],[Entity]^-[Treatment],[Entity]^-[TimePoint],[Entity]^-[TimePeriod],[Entity]^-[Subject],[Entity]^-[SpecimenTransportActivity],[Entity]^-[SpecimenStorageActivity],[Entity]^-[SpecimenProcessingActivity],[Entity]^-[SpecimenCreationActivity],[Entity]^-[SpecimenContainer],[Entity]^-[Specimen],[Entity]^-[ResearchSubject],[Entity]^-[ResearchProject],[Entity]^-[Quantity],[Entity]^-[Organization],[Entity]^-[Identifier],[Entity]^-[Exposure],[Entity]^-[Document],[Entity]^-[Diagnosis],[Entity]^-[Coding],[Entity]^-[CodeableConcept],[Entity]^-[CancerStageSet],[Entity]^-[CancerStage],[Entity]^-[CancerGrade],[Entity]^-[BodySite],[Entity]^-[BiologicallyDerivedProduct],[Document],[Diagnosis],[Coding],[CodeableConcept],[CancerStageSet],[CancerStage],[CancerGrade],[BodySite],[BiologicallyDerivedProduct]" /></p>
 <h2 id="children">Children</h2>
 <ul>
 <li><a href="../BiologicallyDerivedProduct/">BiologicallyDerivedProduct</a> - A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
+<li><a href="../BodySite/">BodySite</a></li>
 <li><a href="../CancerGrade/">CancerGrade</a> - A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</li>
 <li><a href="../CancerStage/">CancerStage</a> - A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.</li>
 <li><a href="../CancerStageSet/">CancerStageSet</a> - A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).</li>
@@ -117,14 +119,41 @@
 <li><a href="../Subject/">Subject</a> - Demographics and other administrative information about an individual or animal receiving care or other health-related services.</li>
 <li><a href="../TimePeriod/">TimePeriod</a></li>
 <li><a href="../TimePoint/">TimePoint</a> - A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index. </li>
+<li><a href="../Treatment/">Treatment</a> - Represent medication administration or other treatment types.</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../document__focus/">➞focus</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../exposure__alcohol_use/">➞alcohol_use</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../exposure__environmental/">➞environmental</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../exposure__tobacco_use/">➞tobacco_use</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenContainer__additive/">➞additive</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__additive/">➞additive</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__collection_site/">➞collection_site</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__execution_condition/">➞execution_condition</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__additive/">➞additive</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__executionConditions/">➞executionConditions</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimen__analyte_type/">➞analyte_type</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__cellular_composition_measure/">➞cellular_composition_measure</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimen__dimensional_measure/">➞dimensional_measure</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__quality_measure/">➞quality_measure</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimen__quantity_measure/">➞quantity_measure
+</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimen__source_model_system/">➞source_model_system</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__tissue_composition_measure/">➞tissue_composition_measure</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimen__transport_activity/">➞transport_activity</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../timePoint__dateTime/">➞dateTime</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../timePoint__indexDate/">➞indexDate</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+<li><strong>None</strong> <em><a href="../treatment__concurrent_treatment_type/">➞concurrent_treatment_type</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../treatment__therapeutic_agent/">➞therapeutic_agent</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
+<li><strong>None</strong> <em><a href="../treatment__type/">➞type</a></em>  <sub>OPT</sub>  <strong><a href="./">Entity</a></strong></li>
+</ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../entity__id/">➞id</a>  <sub>OPT</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>

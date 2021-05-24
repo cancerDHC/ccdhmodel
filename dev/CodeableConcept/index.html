@@ -91,22 +91,73 @@
                 <h1 id="class-codeableconcept">Class: CodeableConcept</h1>
 <p>A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.</p>
 <p>URI: <a href="https://example.org/ccdh/CodeableConcept">ccdh:CodeableConcept</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Entity]^-[CodeableConcept&#124;coding:string%20*;text:string%20%3F;id(i):string%20%3F]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Coding],[Coding]&lt;coding%200..*-++[CodeableConcept&#124;text:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[BiologicallyDerivedProduct]++-%20product_type%200..1&gt;[CodeableConcept],[BodySite]++-%20qualifier%200..*&gt;[CodeableConcept],[BodySite]++-%20site%201..1&gt;[CodeableConcept],[CancerGrade]++-%20method_type%201..1&gt;[CodeableConcept],[CancerGrade]++-%20observations%200..1&gt;[CodeableConcept],[CancerStageSet]++-%20method_type%200..1&gt;[CodeableConcept],[CancerStage]++-%20observation_type%201..1&gt;[CodeableConcept],[CancerStage]++-%20valueCodeableConcept%200..1&gt;[CodeableConcept],[Diagnosis]++-%20condition%200..1&gt;[CodeableConcept],[Diagnosis]++-%20disease_status%200..1&gt;[CodeableConcept],[Diagnosis]++-%20method_of_diagnosis%200..1&gt;[CodeableConcept],[Diagnosis]++-%20morphology%200..1&gt;[CodeableConcept],[Document]++-%20document_type%200..1&gt;[CodeableConcept],[Identifier]++-%20type%200..1&gt;[CodeableConcept],[Quantity]++-%20valueCodeableConcept%200..1&gt;[CodeableConcept],[ResearchProject]++-%20primary_anatomic_site%200..*&gt;[CodeableConcept],[ResearchProject]++-%20research_project_type%201..1&gt;[CodeableConcept],[ResearchSubject]++-%20index_timepoint%200..1&gt;[CodeableConcept],[ResearchSubject]++-%20primary_diagnosis_condition%200..1&gt;[CodeableConcept],[ResearchSubject]++-%20primary_diagnosis_site%200..1&gt;[CodeableConcept],[SpecimenContainer]++-%20charge_type%200..1&gt;[CodeableConcept],[SpecimenContainer]++-%20container_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20activity_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20collection_method_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20derivation_method_type%200..1&gt;[CodeableConcept],[SpecimenProcessingActivity]++-%20activity_type%200..1&gt;[CodeableConcept],[SpecimenProcessingActivity]++-%20device%200..*&gt;[CodeableConcept],[SpecimenProcessingActivity]++-%20method_type%200..1&gt;[CodeableConcept],[SpecimenStorageActivity]++-%20method_type%200..1&gt;[CodeableConcept],[Specimen]++-%20cellular_composition_type%200..1&gt;[CodeableConcept],[Specimen]++-%20condition_status_at_collection%200..1&gt;[CodeableConcept],[Specimen]++-%20degree_of_dysplasia%200..1&gt;[CodeableConcept],[Specimen]++-%20general_tissue_morphology%200..1&gt;[CodeableConcept],[Specimen]++-%20morphlogy_assessment_method%200..1&gt;[CodeableConcept],[Specimen]++-%20morphology_assessor_role%200..1&gt;[CodeableConcept],[Specimen]++-%20preinvasive_tissue_morphology%200..1&gt;[CodeableConcept],[Specimen]++-%20section_location%200..1&gt;[CodeableConcept],[Specimen]++-%20source_material_type%200..1&gt;[CodeableConcept],[Specimen]++-%20specific_tissue_morphology%200..1&gt;[CodeableConcept],[Specimen]++-%20specimen_type%200..1&gt;[CodeableConcept],[Subject]++-%20breed%200..1&gt;[CodeableConcept],[Subject]++-%20cause_of_death%200..1&gt;[CodeableConcept],[Subject]++-%20ethnicity%200..1&gt;[CodeableConcept],[Subject]++-%20race%200..*&gt;[CodeableConcept],[Subject]++-%20sex%200..1&gt;[CodeableConcept],[Subject]++-%20species%200..1&gt;[CodeableConcept],[Subject]++-%20vital_status%200..1&gt;[CodeableConcept],[TimePoint]++-%20indexEventType%200..1&gt;[CodeableConcept],[Entity]^-[CodeableConcept],[TimePoint],[Subject],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Quantity],[Identifier],[Document],[Diagnosis],[CancerStageSet],[CancerStage],[CancerGrade],[BodySite],[BiologicallyDerivedProduct]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../biologicallyDerivedProduct__product_type/">➞product_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../bodySite__qualifier/">➞qualifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">CodeableConcept</a></em>*</li>
+<li><strong>None</strong> <em><a href="../bodySite__site/">➞site</a></em>  <sub>REQ</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../cancerGrade__method_type/">➞method_type</a></em>  <sub>REQ</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../cancerGrade__observations/">➞observations</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../cancerStageSet__method_type/">➞method_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../cancerStage__observation_type/">➞observation_type</a></em>  <sub>REQ</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../cancerStage__valueCodeableConcept/">➞valueCodeableConcept</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../diagnosis__condition/">➞condition</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../diagnosis__disease_status/">➞disease_status</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../diagnosis__method_of_diagnosis/">➞method_of_diagnosis</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../diagnosis__morphology/">➞morphology</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../document__document_type/">➞document_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../identifier__type/">➞type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../quantity__valueCodeableConcept/">➞valueCodeableConcept</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../researchProject__primary_anatomic_site/">➞primary_anatomic_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">CodeableConcept</a></em>*</li>
+<li><strong>None</strong> <em><a href="../researchProject__research_project_type/">➞research_project_type</a></em>  <sub>REQ</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../researchSubject__index_timepoint/">➞index_timepoint</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../researchSubject__primary_diagnosis_condition/">➞primary_diagnosis_condition</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../researchSubject__primary_diagnosis_site/">➞primary_diagnosis_site</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenContainer__charge_type/">➞charge_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenContainer__container_type/">➞container_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__activity_type/">➞activity_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__collection_method_type/">➞collection_method_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__activity_type/">➞activity_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__device/">➞device</a></em>  <sub>0..<em></sub>  </em><em><a href="./">CodeableConcept</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__method_type/">➞method_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenStorageActivity__method_type/">➞method_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__cellular_composition_type/">➞cellular_composition_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__condition_status_at_collection/">➞condition_status_at_collection</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__degree_of_dysplasia/">➞degree_of_dysplasia</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__general_tissue_morphology/">➞general_tissue_morphology</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__morphlogy_assessment_method/">➞morphlogy_assessment_method</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__morphology_assessor_role/">➞morphology_assessor_role</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__section_location/">➞section_location</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__source_material_type/">➞source_material_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__specimen_type/">➞specimen_type</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../subject__breed/">➞breed</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../subject__cause_of_death/">➞cause_of_death</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../subject__ethnicity/">➞ethnicity</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../subject__race/">➞race</a></em>  <sub>0..<em></sub>  </em><em><a href="./">CodeableConcept</a></em>*</li>
+<li><strong>None</strong> <em><a href="../subject__sex/">➞sex</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../subject__species/">➞species</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../subject__vital_status/">➞vital_status</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong>None</strong> <em><a href="../timePoint__indexEventType/">➞indexEventType</a></em>  <sub>OPT</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../codeableConcept__coding/">➞coding</a>  <sub>0..*</sub><ul>
 <li>Description: A reference to a code defined by a terminology system</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Coding/">Coding</a></li>
 </ul>
 </li>
 <li><a href="../codeableConcept__text/">➞text</a>  <sub>OPT</sub><ul>
 <li>Description: A human language representation of the concept represented by the Coding. </li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>
@@ -114,7 +165,7 @@
 <ul>
 <li><a href="../entity__id/">➞id</a>  <sub>OPT</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>

@@ -111,6 +111,7 @@
 <ul>
 <li><a href="Entity/">Entity</a> - Any resource that has its own identifier<ul>
 <li><a href="BiologicallyDerivedProduct/">BiologicallyDerivedProduct</a> - A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
+<li><a href="BodySite/">BodySite</a></li>
 <li><a href="CancerGrade/">CancerGrade</a> - A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</li>
 <li><a href="CancerStage/">CancerStage</a> - A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.</li>
 <li><a href="CancerStageSet/">CancerStageSet</a> - A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).</li>
@@ -133,6 +134,7 @@
 <li><a href="Subject/">Subject</a> - Demographics and other administrative information about an individual or animal receiving care or other health-related services.</li>
 <li><a href="TimePeriod/">TimePeriod</a></li>
 <li><a href="TimePoint/">TimePoint</a> - A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index. </li>
+<li><a href="Treatment/">Treatment</a> - Represent medication administration or other treatment types.</li>
 </ul>
 </li>
 </ul>
@@ -144,6 +146,8 @@
 <li><a href="biologicallyDerivedProduct__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. </li>
 <li><a href="biologicallyDerivedProduct__passage_number/">➞passage_number</a> - When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.</li>
 <li><a href="biologicallyDerivedProduct__product_type/">➞product_type</a> - The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)</li>
+<li><a href="bodySite__qualifier/">➞qualifier</a> - A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).</li>
+<li><a href="bodySite__site/">➞site</a> - A term describing any site in the body.</li>
 <li><a href="cancerGrade__method_type/">➞method_type</a> - The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)</li>
 <li><a href="cancerGrade__observations/">➞observations</a> - The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
 <li><a href="cancerStageSet__method_type/">➞method_type</a> - A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.</li>
@@ -195,7 +199,8 @@
 <li><a href="quantity__comparator/">➞comparator</a> - How to understand the value (e.g.  &lt;  |  &lt;=  |  =  |   &gt;=  |  &gt; )</li>
 <li><a href="quantity__unit/">➞unit</a> - The unit of the amount represented by the value (e.g. mg, mL, days).  This may be a free-text form of the unitCode.</li>
 <li><a href="quantity__unitCode/">➞unitCode</a> - A coded representation of the unit.</li>
-<li><a href="quantity__value/">➞value</a> - An amount, in the given units (if specified)</li>
+<li><a href="quantity__valueCodeableConcept/">➞valueCodeableConcept</a> - A coded value representing a quantity (e.g. "Adjacent (&lt; or = 2cm)")</li>
+<li><a href="quantity__valueDecimal/">➞valueDecimal</a> - An amount, in the given units (if specified)</li>
 <li><a href="researchProject__date_ended/">➞date_ended</a> - The date when the research project ended.</li>
 <li><a href="researchProject__date_iacuc_approval/">➞date_iacuc_approval</a> - The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.</li>
 <li><a href="researchProject__date_started/">➞date_started</a> - The date when the research project began.</li>
@@ -316,6 +321,22 @@ start</a> - When a period of time started.</li>
 <li><a href="timePoint__indexEventType/">➞indexEventType</a> - A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
 <li><a href="timePoint__offsetFromIndex_indexOffset/">➞offsetFromIndex
 indexOffset</a> - A quantity of time that, together with the index date or event, can be used to derive a specific timepoint.</li>
+<li><a href="treatment__anatomic_site/">➞anatomic_site</a> - The anatomical site that the treatment targets.</li>
+<li><a href="treatment__concurrent_treatment/">➞concurrent_treatment</a> - The treatment(s) instance(s) that are concurrent with this treatment.</li>
+<li><a href="treatment__concurrent_treatment_type/">➞concurrent_treatment_type</a> - The type(s) of treatment(s) that are concurrent to this treatment.</li>
+<li><a href="treatment__diagnosis/">➞diagnosis</a> - The diagnosis for which this treatement is intended for</li>
+<li><a href="treatment__effect/">➞effect</a> - The effect of a treatment on the diagnosis or tumor.</li>
+<li><a href="treatment__end_date/">➞end_date</a> - The timepoint at which the treatment ended.</li>
+<li><a href="treatment__end_reason/">➞end_reason</a></li>
+<li><a href="treatment__id/">➞id</a></li>
+<li><a href="treatment__identifier/">➞identifier</a> - The regimen or line of therapy</li>
+<li><a href="treatment__intent/">➞intent</a> - The intent of the treatment.</li>
+<li><a href="treatment__number_of_cycles/">➞number_of_cycles</a> - The number of treatment cycles the patient received.</li>
+<li><a href="treatment__outcome/">➞outcome</a> - The final outcome of the treatment.</li>
+<li><a href="treatment__regimen/">➞regimen</a></li>
+<li><a href="treatment__start_date/">➞start_date</a> - The timepoint at which the treatment started.</li>
+<li><a href="treatment__therapeutic_agent/">➞therapeutic_agent</a> - One or more theraputic agents as part of this treatment.</li>
+<li><a href="treatment__type/">➞type</a> - The treatment type including medication/theraputics or other procedures.</li>
 </ul>
 <h3 id="enums">Enums</h3>
 <h3 id="types">Types</h3>
@@ -416,5 +437,5 @@ indexOffset</a> - A quantity of time that, together with the index date or event
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-05-24 18:01:22.106959+00:00
+Build Date UTC : 2021-05-24 21:05:43.756362+00:00
 -->

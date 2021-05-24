@@ -91,47 +91,53 @@
                 <h1 id="class-specimencontainer">Class: SpecimenContainer</h1>
 <p>A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenContainer">ccdh:SpecimenContainer</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]^-[SpecimenContainer&#124;id:string%20%3F;identifier:string%20*;container_type:string%20%3F;container_number:string%20%3F;additive:string%20*;parent_container:string%20*;charge_type:string%20%3F],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[CodeableConcept]&lt;charge_type%200..1-++[SpecimenContainer&#124;id:ccdh_string%20%3F;container_number:ccdh_string%20%3F],[SpecimenContainer]&lt;parent_container%200..*-++[SpecimenContainer],[Entity]&lt;additive%200..*-++[SpecimenContainer],[CodeableConcept]&lt;container_type%200..1-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[SpecimenStorageActivity],[Specimen],[Identifier],[Entity],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../specimenContainer__parent_container/">➞parent_container</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenContainer</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimenStorageActivity__container/">➞container</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenContainer</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimen__contained_in/">➞contained_in</a></em>  <sub>OPT</sub>  <strong><a href="./">SpecimenContainer</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../specimenContainer__additive/">➞additive</a>  <sub>0..*</sub><ul>
 <li>Description: A material substance added to the container (typically to support the primary object contained)</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__charge_type/">➞charge_type</a>  <sub>OPT</sub><ul>
 <li>Description: A descripton of the type of charge on a slide on which a specimen is mounted</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__container_number/">➞container_number</a>  <sub>OPT</sub><ul>
 <li>Description: Informal number/identifier by which the container is referenced (e.g. a slide number, or a well number in a plate)</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__container_type/">➞container_type</a>  <sub>OPT</sub><ul>
 <li>Description: The kind of container associated with the specimen.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__id/">➞id</a>  <sub>OPT</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. </li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__parent_container/">➞parent_container</a>  <sub>0..*</sub><ul>
 <li>Description: A larger container of which this container is a part (e.g. a single well in a 96-well plate)</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="./">SpecimenContainer</a></li>
 </ul>
 </li>
 </ul>

@@ -91,37 +91,43 @@
                 <h1 id="class-coding">Class: Coding</h1>
 <p>A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.</p>
 <p>URI: <a href="https://example.org/ccdh/Coding">ccdh:Coding</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Entity]^-[Coding&#124;code:string;system:string;label:string%20%3F;systemURL:string%20%3F;systemVersion:string%20%3F;id(i):string%20%3F]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept]++-%20coding%200..*&gt;[Coding&#124;code:ccdh_string;system:ccdh_string;label:ccdh_string%20%3F;systemURL:ccdh_string%20%3F;systemVersion:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Quantity]++-%20comparator%200..1&gt;[Coding],[Quantity]++-%20unitCode%200..1&gt;[Coding],[Entity]^-[Coding],[Quantity],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../codeableConcept__coding/">➞coding</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Coding</a></em>*</li>
+<li><strong>None</strong> <em><a href="../quantity__comparator/">➞comparator</a></em>  <sub>OPT</sub>  <strong><a href="./">Coding</a></strong></li>
+<li><strong>None</strong> <em><a href="../quantity__unitCode/">➞unitCode</a></em>  <sub>OPT</sub>  <strong><a href="./">Coding</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../coding__code/">➞code</a>  <sub>REQ</sub><ul>
 <li>Description: The symbol/value of the code, as defined by the code system.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../coding__label/">➞label</a>  <sub>OPT</sub><ul>
 <li>Description: A human-readable name for the code, as defined by the code system.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../coding__system/">➞system</a>  <sub>REQ</sub><ul>
 <li>Description: The code system where the code is defined.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../coding__systemURL/">➞systemURL</a>  <sub>OPT</sub><ul>
 <li>Description: A URL where the code system can be found.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../coding__systemVersion/">➞systemVersion</a>  <sub>OPT</sub><ul>
 <li>Description: The version of the code system.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>
@@ -129,7 +135,7 @@
 <ul>
 <li><a href="../entity__id/">➞id</a>  <sub>OPT</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/String/">String</a></li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>
