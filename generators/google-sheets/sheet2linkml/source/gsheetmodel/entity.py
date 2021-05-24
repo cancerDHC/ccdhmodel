@@ -5,153 +5,6 @@ import logging
 import re
 
 
-class Entity(ModelElement):
-    """
-    An entity represents a class of data that we need to model.
-
-    It is represented by a single worksheet in a Google Sheet spreadsheet.
-    """
-
-    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
-        """
-        Create an entity based on a GSheetModel and a Google Sheet worksheet.
-
-        :param model: The GSheetModel that this entity is a part of.
-        :param sheet: A Google Sheet worksheet describing this entity.
-        :param name: The name of this entity.
-        :param rows: The rows in the spreadsheet describing this entity (as dictionaries of str -> str).
-        """
-
-        self.model = model
-        self.worksheet = sheet
-        self.entity_name = name
-        self.rows = rows
-
-    @property
-    def attribute_rows(self) -> list[dict[str, str]]:
-        """
-        Returns this entity as a list of attribute rows.
-
-        An attribute row is one where the COL_ATTRIBUTE_NAME row is not empty.
-
-        :return: A list of named rows in this sheet.
-        """
-        return [
-            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
-        ]
-
-    @property
-    def attributes(self):
-        """
-        Returns a list of attributes in this entity. We construct this by wrapping the
-        attribute rows with Attribute().
-
-        :return: A list of all the attributes in this entity.
-        """
-
-        return [Attribute(self.model, self, dct) for dct in self.attribute_rows]
-
-    @property
-    def entity_row(self) -> dict[str, str]:
-        """
-        Returns the "entity row" -- the single row in the spreadsheet that represents this
-        entity itself. Writes errors in the logs if more than one "entity row" is found (only the
-        first will be used).
-
-        :return: A dictionary representing a row in the spreadsheet that represents this entity.
-        """
-
-        # Find all entity rows
-        entity_rows = [
-            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None
-        ]
-
-        # Report an error if no rows were found.
-        if not entity_rows:
-            # raise RuntimeError(f'Entity does not have an entity row: {self}')
-            logging.error(f"Entity contains no entity row: {self}")
-            return dict()
-
-        # Report an error if more than one row was found.
-        if len(entity_rows) > 1:
-            logging.error(
-                f'Entity contains more than one "entity row", only the first one will be used: {self}'
-            )
-            for row in entity_rows:
-                logging.error(f" - Found entity row: {row}")
-
-        return entity_rows[0]
-
-    def __str__(self):
-        """
-        :return: A text description of this entity.
-        """
-
-        return f'{self.__class__.__name__} named {self.name} from worksheet "{self.worksheet.title}" containing {len(self.attribute_rows)} attributes'
-
-    @property
-    def name(self) -> str:
-        """
-        :return: A name for this entity.
-        """
-        return self.entity_name
-
-    def get_filename(self) -> str:
-        """
-        Return this entity as a filename, which we calculate by making the entity name safe for file systems.
-
-        :return: A filename that can be used for this entity.
-        """
-
-        # Taken from https://stackoverflow.com/a/46801075/27310
-        name = str(self.name).strip().replace(" ", "_")
-        return re.sub(r"(?u)[^-\w.]", "", name)
-
-    def to_markdown(self) -> str:
-        """
-        Returns a reference to this entity in Markdown. We include the name, worksheet name and worksheet URL.
-
-        :return: A Markdown representation of this entity.
-        """
-
-        return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
-
-    def as_linkml(self, root_uri) -> ClassDefinition:
-        """
-        Returns a LinkML ClassDefinition describing this entity, including attributes.
-
-        :param root_uri: The root URI to use for this entity.
-        :return: A LinkML ClassDefinition describing this entity.
-        """
-        logging.info(f"Generating LinkML for {self}")
-
-        # Basic metadata
-        cls: ClassDefinition = ClassDefinition(
-            name=self.name,
-            description=self.entity_row.get("Description"),
-            # comments=self.entity_row.get("Comments"),
-        )
-
-        # Additional metadata
-
-        # We add a 'derived from' note to the notes field, which might be
-        # a string or a list, apparently.
-        derived_from = f"Derived from {self.to_markdown()}"
-        if isinstance(cls.notes, list):
-            cls.notes.append(derived_from)
-        elif isinstance(cls.notes, str):
-            cls.notes = cls.notes + f"\n{derived_from}"
-        else:
-            cls.notes = derived_from
-
-        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
-
-        # Now generate LinkML for all of the attributes.
-        cls.attributes = {attribute.name: attribute.as_linkml(root_uri) for attribute in self.attributes}
-
-        return cls
-
-
 class EntityWorksheet(ModelElement):
     """
     A Worksheet represents a single worksheet in a GSheetModel. A single sheet usually contains
@@ -305,6 +158,153 @@ class EntityWorksheet(ModelElement):
         :return: A list of LinkML SchemaDefinitions representing entities in this worksheet.
         """
         return [entity.as_linkml(root_uri) for entity in self.entities.values()]
+
+
+class Entity(ModelElement):
+    """
+    An entity represents a class of data that we need to model.
+
+    It is represented by a single worksheet in a Google Sheet spreadsheet.
+    """
+
+    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
+        """
+        Create an entity based on a GSheetModel and a Google Sheet worksheet.
+
+        :param model: The GSheetModel that this entity is a part of.
+        :param sheet: A Google Sheet worksheet describing this entity.
+        :param name: The name of this entity.
+        :param rows: The rows in the spreadsheet describing this entity (as dictionaries of str -> str).
+        """
+
+        self.model = model
+        self.worksheet = sheet
+        self.entity_name = name
+        self.rows = rows
+
+    @property
+    def attribute_rows(self) -> list[dict[str, str]]:
+        """
+        Returns this entity as a list of attribute rows.
+
+        An attribute row is one where the COL_ATTRIBUTE_NAME row is not empty.
+
+        :return: A list of named rows in this sheet.
+        """
+        return [
+            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
+        ]
+
+    @property
+    def attributes(self):
+        """
+        Returns a list of attributes in this entity. We construct this by wrapping the
+        attribute rows with Attribute().
+
+        :return: A list of all the attributes in this entity.
+        """
+
+        return [Attribute(self.model, self, dct) for dct in self.attribute_rows]
+
+    @property
+    def entity_row(self) -> dict[str, str]:
+        """
+        Returns the "entity row" -- the single row in the spreadsheet that represents this
+        entity itself. Writes errors in the logs if more than one "entity row" is found (only the
+        first will be used).
+
+        :return: A dictionary representing a row in the spreadsheet that represents this entity.
+        """
+
+        # Find all entity rows
+        entity_rows = [
+            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None
+        ]
+
+        # Report an error if no rows were found.
+        if not entity_rows:
+            # raise RuntimeError(f'Entity does not have an entity row: {self}')
+            logging.error(f"Entity contains no entity row: {self}")
+            return dict()
+
+        # Report an error if more than one row was found.
+        if len(entity_rows) > 1:
+            logging.error(
+                f'Entity contains more than one "entity row", only the first one will be used: {self}'
+            )
+            for row in entity_rows:
+                logging.error(f" - Found entity row: {row}")
+
+        return entity_rows[0]
+
+    def __str__(self):
+        """
+        :return: A text description of this entity.
+        """
+
+        return f'{self.__class__.__name__} named {self.name} from worksheet "{self.worksheet.title}" containing {len(self.attribute_rows)} attributes'
+
+    @property
+    def name(self) -> str:
+        """
+        :return: A name for this entity.
+        """
+        return self.entity_name
+
+    def get_filename(self) -> str:
+        """
+        Return this entity as a filename, which we calculate by making the entity name safe for file systems.
+
+        :return: A filename that can be used for this entity.
+        """
+
+        # Taken from https://stackoverflow.com/a/46801075/27310
+        name = str(self.name).strip().replace(" ", "_")
+        return re.sub(r"(?u)[^-\w.]", "", name)
+
+    def to_markdown(self) -> str:
+        """
+        Returns a reference to this entity in Markdown. We include the name, worksheet name and worksheet URL.
+
+        :return: A Markdown representation of this entity.
+        """
+
+        return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
+
+    def as_linkml(self, root_uri) -> ClassDefinition:
+        """
+        Returns a LinkML ClassDefinition describing this entity, including attributes.
+
+        :param root_uri: The root URI to use for this entity.
+        :return: A LinkML ClassDefinition describing this entity.
+        """
+        logging.info(f"Generating LinkML for {self}")
+
+        # Basic metadata
+        cls: ClassDefinition = ClassDefinition(
+            name=self.name,
+            description=self.entity_row.get("Description"),
+            # comments=self.entity_row.get("Comments"),
+        )
+
+        # Additional metadata
+
+        # We add a 'derived from' note to the notes field, which might be
+        # a string or a list, apparently.
+        derived_from = f"Derived from {self.to_markdown()}"
+        if isinstance(cls.notes, list):
+            cls.notes.append(derived_from)
+        elif isinstance(cls.notes, str):
+            cls.notes = cls.notes + f"\n{derived_from}"
+        else:
+            cls.notes = derived_from
+
+        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
+
+        # Now generate LinkML for all of the attributes.
+        cls.attributes = {attribute.name: attribute.as_linkml(root_uri) for attribute in self.attributes}
+
+        return cls
 
 
 class Attribute:
