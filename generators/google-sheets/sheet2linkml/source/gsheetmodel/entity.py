@@ -133,6 +133,9 @@ class Entity(ModelElement):
             # comments=self.entity_row.get("Comments"),
         )
 
+        if not self.name == 'Entity':
+            cls.is_a = 'Entity'
+
         # Additional metadata
 
         # We add a 'derived from' note to the notes field, which might be
