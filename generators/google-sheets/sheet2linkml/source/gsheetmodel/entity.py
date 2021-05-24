@@ -13,7 +13,7 @@ class Entity(ModelElement):
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
 
-    COL_ATTRIBUTE_NAME = "CDM Attribute Name"
+    COL_ATTRIBUTE_NAME = "Attribute Name"
 
     def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
         """
@@ -132,8 +132,7 @@ class Entity(ModelElement):
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
             description=self.entity_row.get("Description"),
-            comments=self.entity_row.get("Comments"),
-            notes=self.entity_row.get("Developer Notes"),
+            # comments=self.entity_row.get("Comments"),
         )
 
         # Additional metadata
@@ -156,7 +155,7 @@ class Entity(ModelElement):
         return cls
 
 
-class Worksheet(ModelElement):
+class EntityWorksheet(ModelElement):
     """
     A Worksheet represents a single worksheet in a GSheetModel. A single sheet usually contains
     information on a single Entity, but sometimes multiple entities may be described in a single
@@ -165,7 +164,8 @@ class Worksheet(ModelElement):
 
     # Some column names.
     COL_STATUS = "Status"
-    COL_ENTITY_NAME = "CDM Entity"
+    COL_ENTITY_NAME = "Entity"
+    COL_ATTRIBUTE_NAME = "Attribute Name"
 
     def __init__(self, model, sheet: worksheet):
         """
@@ -197,7 +197,7 @@ class Worksheet(ModelElement):
         :return: A list of included rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(Worksheet.COL_STATUS, "") == "include"
+            row for row in self.rows if row.get(EntityWorksheet.COL_STATUS, "") == "include"
         ]
 
     @property
@@ -208,7 +208,7 @@ class Worksheet(ModelElement):
         :return: A list of all the entity names in this worksheet.
         """
 
-        return [row[Worksheet.COL_ENTITY_NAME] for row in self.included_rows()]
+        return [(row.get(EntityWorksheet.COL_ENTITY_NAME) or "") for row in self.included_rows()]
 
     @property
     def entities_as_included_rows(self) -> dict[str, list[dict]]:
@@ -221,13 +221,25 @@ class Worksheet(ModelElement):
         result = dict()
 
         for row in self.included_rows:
-            col_name = row[Worksheet.COL_ENTITY_NAME]
-            if not (col_name in result):
-                result[col_name] = list()
+            entity_name = row.get(EntityWorksheet.COL_ENTITY_NAME) or ""
+            if not (entity_name in result):
+                result[entity_name] = list()
 
-            result[col_name].append(row)
+            result[entity_name].append(row)
 
-        return result
+        # The Google Sheet might indicate that the entity row (the row without an attribute name) should be excluded.
+        # If any other rows have been included for this entity, however, they would be used to define the entity,
+        # even though the intention was to exclude that entity. In order to prevent this, we will check for any included
+        # rows that don't have an entity row -- such groups will be filtered out here.
+        filtered = dict()
+
+        for name, rows in result.items():
+            if any(row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None for row in rows):
+                filtered[name] = rows
+            else:
+                logging.warning(f'- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row.')
+
+        return filtered
 
     @property
     def grouped_entities(self) -> dict[str, Entity]:

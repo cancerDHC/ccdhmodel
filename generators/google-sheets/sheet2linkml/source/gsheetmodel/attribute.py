@@ -10,7 +10,7 @@ class Attribute:
     """
 
     # Some column names.
-    COL_ATTRIBUTE_NAME = "CDM Attribute Name"
+    COL_ATTRIBUTE_NAME = "Attribute Name"
     COL_CARDINALITY = "Cardinality"
 
     def __init__(self, model, entity, row: dict[str, str]):
@@ -32,7 +32,7 @@ class Attribute:
         :return: A name for this attribute.
         """
         return (
-            self.row.get("CDM Attribute Name")
+            self.row.get(Attribute.COL_ATTRIBUTE_NAME)
             or self.row.get("Name")
             or self.row.get("name")
         )
@@ -87,10 +87,10 @@ class Attribute:
         min_count, max_count = self.counts()
 
         slot: SlotDefinition = SlotDefinition(
-            name=data[Attribute.COL_ATTRIBUTE_NAME],
+            name=data.get(Attribute.COL_ATTRIBUTE_NAME) or "",
             description=data.get("Description"),
-            comments=data.get("Comments"),
-            notes=data.get("Developer Notes"),
+            # comments=data.get("Comments"),
+            # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
         )
