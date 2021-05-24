@@ -116,32 +116,13 @@ class GSheetModel(ModelElement):
         """
         A list of datatype worksheets available in this model.
 
-        We identify a worksheet containing datatypes based on their column header.
+        We only have a single datatype worksheet: 'Primitives'. So we just return that.
 
-        :return: A list of datatypes available in this model.
+        :return: A list of datatype worksheets available in this model.
         """
 
         # Identify entity worksheets among the list of all worksheets in this Google Sheets document.
-        worksheets = self.sheet.worksheets()
-
-        tests_and_errors = {
-            'excluded by sheet type': GSheetModel.is_sheet_normative,
-            'not a datatype worksheet': DatatypeWorksheet.is_sheet_datatype
-        }
-
-        datatype_worksheets = list()
-        for worksheet in worksheets:
-            flag_skip = False
-            for test_name, error in tests_and_errors.items():
-                if not error(worksheet):
-                    logging.debug(f'Skipping worksheet {worksheet.title}: {test_name}')
-                    flag_skip = True
-                    break
-
-            if not flag_skip:
-                datatype_worksheets.append(worksheet)
-
-        return [DatatypeWorksheet(self, worksheet) for worksheet in datatype_worksheets]
+        return [DatatypeWorksheet(self, self.sheet.worksheet('title', 'Primitives'))]
 
     def datatypes(self) -> list[Datatype]:
         """
@@ -226,5 +207,3 @@ class GSheetModel(ModelElement):
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
 
         return schema
-
-
