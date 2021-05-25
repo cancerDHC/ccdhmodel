@@ -56,6 +56,12 @@ class GSheetModel(ModelElement):
         # Set a `development version`. This is initially None, but if set, we add this to the metadata we emit.
         self.development_version = None
 
+        # Set the 'last_updated' time to now.
+        # TODO: we should be able to get this from the Google Sheet, in RFC 3339 format, but this apparently
+        # requires a different scope than what we currently use.
+        # return self.sheet.updated
+        self.last_updated = datetime.now(timezone.utc).isoformat()
+
     @property
     def version(self):
         """
@@ -67,17 +73,6 @@ class GSheetModel(ModelElement):
             return self.release_version
         else:
             return self.development_version
-
-    @property
-    def last_updated(self):
-        """
-        Return the time on which this model was last updated.
-        """
-
-        # TODO: we should be able to get this from the Google Sheet, in RFC 3339 format, but this apparently
-        # requires a different scope than what we currently use.
-        # return self.sheet.updated
-        return datetime.now(timezone.utc).isoformat()
 
     @staticmethod
     def is_sheet_normative(worksheet: pygsheets.worksheet):
@@ -159,7 +154,7 @@ class GSheetModel(ModelElement):
     def mappings(self) -> list[Mappings.Mapping]:
         """ Return a list of all the mappings in this LinkML document. """
         mappings = [mapping for datatype in self.datatypes() for mapping in datatype.mappings.mappings]
-        mappings.extend(mapping for entity in self.entities() for mapping in entity.mappings.mappings)
+        mappings.extend(mapping for entity in self.entities() for mapping in entity.mappings_including_attributes)
         return mappings
 
     def __str__(self) -> str:

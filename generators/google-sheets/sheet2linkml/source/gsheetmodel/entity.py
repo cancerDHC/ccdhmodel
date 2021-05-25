@@ -132,6 +132,15 @@ class Entity(ModelElement):
         """
         return Mappings(self, self.entity_row.get("Source Mapping"))
 
+    @property
+    def mappings_including_attributes(self) -> list[Mappings.Mapping]:
+        """
+        Returns the list of all mappings of this entity as well as all of its attributes.
+        """
+        mappings = self.mappings.mappings
+        for attr in self.attributes:
+            mappings.extend(attr.mappings.mappings)
+        return mappings
 
     def as_linkml(self, root_uri) -> ClassDefinition:
         """
