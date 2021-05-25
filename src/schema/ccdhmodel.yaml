@@ -2,7 +2,7 @@ name: CRDC-H
 notes:
 - Derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)
 id: https://example.org/ccdh
-version: v0.2-37-gf2b5b55
+version: v0.2-45-g6e30d3c-dirty
 imports:
 - linkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -2716,4 +2716,4 @@ classes:
         range: Treatment
         multivalued: true
         required: false
-generation_date: '2021-05-25T06:05:25.125945+00:00'
+generation_date: '2021-05-25T07:24:57.446861+00:00'
