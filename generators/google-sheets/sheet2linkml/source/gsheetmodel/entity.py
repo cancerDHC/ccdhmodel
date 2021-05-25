@@ -265,6 +265,22 @@ class Attribute:
         """
         return Mappings(self, self.row.get("Source Mapping"))
 
+    @property
+    def range(self):
+        """
+        Return the range of this attribute.
+        """
+
+        attribute_range = "string"  # Default to linkml:string.
+        if EntityWorksheet.COL_TYPE in self.row:
+            attribute_range = self.row.get(EntityWorksheet.COL_TYPE) or "string"
+
+            # For primitive types, we need to add `ccdh_` to the start of the type name.
+            if attribute_range[0].islower():
+                attribute_range = f'ccdh_{attribute_range}'
+
+        return attribute_range
+
     def as_linkml(self, root_uri) -> SlotDefinition:
         """
         Returns this attribute as a LinkML SlotDefinition.
@@ -276,15 +292,6 @@ class Attribute:
         data = self.row
         min_count, max_count = self.counts()
 
-        # Calculate the range.
-        attribute_range = "string"    # Default to linkml:string.
-        if EntityWorksheet.COL_TYPE in data:
-            attribute_range = data.get(EntityWorksheet.COL_TYPE) or "string"
-
-            # For primitive types, we need to add `ccdh_` to the start of the type name.
-            if attribute_range[0].islower():
-                attribute_range = f'ccdh_{attribute_range}'
-
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
             description=(data.get("Description") or '').strip(),
@@ -292,7 +299,7 @@ class Attribute:
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
-            range=attribute_range
+            range=self.range
         )
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)

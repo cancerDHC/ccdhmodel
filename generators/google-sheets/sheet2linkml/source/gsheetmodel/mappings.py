@@ -169,6 +169,7 @@ class Mappings:
             writer = csv.writer(csvfile, dialect='excel-tab')
             writer.writerow([
                 'subject_id',
+                'subject_category',
                 'predicate_id',
                 'object_id',
                 'comment',
@@ -180,8 +181,14 @@ class Mappings:
             ])
 
             for mapping in mappings:
+                # See if we can figure out the range of this datatype/entity/attribute.
+                source_range = None
+                if hasattr(mapping.source, 'range'):
+                    source_range = mapping.source.range
+
                 writer.writerow([
                     mapping.source.full_name,
+                    source_range,
                     mapping.relation,
                     mapping.target,
                     mapping.description,
