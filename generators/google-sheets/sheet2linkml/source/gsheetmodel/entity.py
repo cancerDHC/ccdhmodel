@@ -98,6 +98,13 @@ class Entity(ModelElement):
         """
         return (self.entity_name or '(unnamed entity)').strip()
 
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this entity.
+        """
+        return f'ccdh:{self.entity_name}'
+
     def get_filename(self) -> str:
         """
         Return this entity as a filename, which we calculate by making the entity name safe for file systems.
@@ -196,6 +203,13 @@ class Attribute:
             or self.row.get("Name")
             or self.row.get("name")
         )
+
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this attribute.
+        """
+        return f'{self.entity.full_name}#{self.name}'
 
     def __str__(self):
         """
@@ -408,6 +422,13 @@ class EntityWorksheet(ModelElement):
         :return: A name for this worksheet.
         """
         return self.worksheet.title
+
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this worksheet.
+        """
+        return self.worksheet.url
 
     def get_filename(self) -> str:
         """

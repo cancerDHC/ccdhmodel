@@ -59,6 +59,13 @@ class Datatype(ModelElement):
         """
         return f'ccdh_{self.datatype_name}'
 
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this datatype.
+        """
+        return f'{self.model.full_name}#{self.name}'
+
     def get_filename(self) -> str:
         """
         Return this datatype as a filename, which we calculate by making the datatype name safe for file systems.
@@ -247,6 +254,13 @@ class DatatypeWorksheet(ModelElement):
         :return: A name for this worksheet.
         """
         return self.worksheet.title
+
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this worksheet.
+        """
+        return self.worksheet.url
 
     def get_filename(self) -> str:
         """

@@ -176,6 +176,13 @@ class GSheetModel(ModelElement):
         """
         return self.sheet.title
 
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this model.
+        """
+        return self.sheet.url
+
     def get_filename(self) -> str:
         """
         Return this Google Sheet model as a filename, which we calculate by making the Google Sheet title filesystem-safe.
