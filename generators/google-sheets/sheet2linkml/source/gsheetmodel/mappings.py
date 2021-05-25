@@ -3,6 +3,7 @@ from linkml_model.meta import Element
 from linkml_model.types import Uriorcurie
 import re
 import urllib
+import csv
 import logging
 from enum import Enum
 from dataclasses import dataclass
@@ -151,3 +152,41 @@ class Mappings:
                 element.related_mappings.append(mapping.target)
             else:
                 element.mappings.append(mapping.target)
+
+    @classmethod
+    def write_to_file(cls, mappings: list[Mapping], filename: str, model):
+        """
+        Write the list of mappings to a filename, provided as a string.
+
+        mapping: A list of Mappings.Mapping objects to write.
+        filename: A filename to write to. If None, no file will be written.
+        model: The GSheetModel these mappings are a part of.
+        """
+        if filename is None:
+            return
+
+        with open(filename, 'w') as csvfile:
+            writer = csv.writer(csvfile, dialect='excel-tab')
+            writer.writerow([
+                'subject_id',
+                'predicate_id',
+                'object_id',
+                'comment',
+                'match_type',
+                'mapping_set_id',
+                'mapping_set_version',
+                'creator_id',
+                'mapping_date'
+            ])
+
+            for mapping in mappings:
+                writer.writerow([
+                    mapping.source.full_name,
+                    mapping.relation,
+                    mapping.target,
+                    mapping.description,
+                    'SSSOMC:HumanCurated',
+                    model.full_name,
+                    model.version,
+                    model.last_updated
+                ])

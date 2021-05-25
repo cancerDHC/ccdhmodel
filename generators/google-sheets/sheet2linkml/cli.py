@@ -11,6 +11,7 @@ import logging
 import logging.config
 from sheet2linkml import config
 from sheet2linkml.source.gsheetmodel.gsheetmodel import GSheetModel
+from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from linkml.utils import yamlutils
 import click
 
@@ -27,7 +28,12 @@ import click
     help="A logging configuration file.",
     default=os.path.join(sys.path[0], "logging.ini"),
 )
-def main(filter_entity, logging_config):
+@click.option(
+    '--write-mappings',
+    type=str,
+    help="A file to write out mappings to."
+)
+def main(filter_entity, logging_config, write_mappings):
     # Display INFO log entry and up.
     logging.config.fileConfig(logging_config)
 
@@ -66,17 +72,26 @@ def main(filter_entity, logging_config):
                 logging.error(f" - {entity.name}")
             exit(1)
 
+        mappings = list()
+
         for entity in selected_entities:
             filename = f"output/{entity.get_filename()}.yaml"
             logging.info(f"Writing entity {entity.name} to {filename}")
             with open(filename, "w") as f:
                 f.write(yamlutils.as_yaml(entity.as_linkml(crdch_root)))
+
+            mappings.extend(entity.mappings.mappings)
+
+        Mappings.write_to_file(mappings, filename=write_mappings)
+
     else:
         # Convert the entire model into YAML.
         filename = f"output/{model.get_filename()}.yaml"
         logging.info(f"Writing model {model.name} to {filename}")
         with open(filename, "w") as f:
             f.write(yamlutils.as_yaml(model.as_linkml(crdch_root)))
+
+        Mappings.write_to_file(model.mappings(), filename=write_mappings, model=model)
 
 
 if __name__ == "__main__":
