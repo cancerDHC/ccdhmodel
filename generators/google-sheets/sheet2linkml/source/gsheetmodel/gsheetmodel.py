@@ -1,6 +1,7 @@
 import pygsheets
 
 from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
 from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
 from linkml_model.meta import SchemaDefinition
@@ -154,6 +155,12 @@ class GSheetModel(ModelElement):
         for worksheet in self.datatype_worksheets():
             result.extend(worksheet.datatypes)
         return result
+
+    def mappings(self) -> list[Mappings.Mapping]:
+        """ Return a list of all the mappings in this LinkML document. """
+        mappings = [mapping for datatype in self.datatypes() for mapping in datatype.mappings.mappings]
+        mappings.extend(mapping for entity in self.entities() for mapping in entity.mappings.mappings)
+        return mappings
 
     def __str__(self) -> str:
         """

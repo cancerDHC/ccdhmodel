@@ -118,6 +118,14 @@ class Entity(ModelElement):
 
         return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
 
+    @property
+    def mappings(self) -> Mappings:
+        """
+        Returns the list of mappings for this entity.
+        """
+        return Mappings(self, self.entity_row.get("Source Mapping"))
+
+
     def as_linkml(self, root_uri) -> ClassDefinition:
         """
         Returns a LinkML ClassDefinition describing this entity, including attributes.
@@ -150,7 +158,7 @@ class Entity(ModelElement):
             cls.notes = derived_from
 
         # Add mappings
-        Mappings(self, self.entity_row.get("Source Mapping")).set_mappings_on_element(cls)
+        self.mappings.set_mappings_on_element(cls)
 
         # Now generate LinkML for all of the attributes.
         cls.attributes = {attribute.name: attribute.as_linkml(root_uri) for attribute in self.attributes}
@@ -227,6 +235,13 @@ class Attribute:
 
         return min_count, max_count
 
+    @property
+    def mappings(self) -> Mappings:
+        """
+        Returns the list of mappings for this attribute.
+        """
+        return Mappings(self, self.row.get("Source Mapping"))
+
     def as_linkml(self, root_uri) -> SlotDefinition:
         """
         Returns this attribute as a LinkML SlotDefinition.
@@ -262,7 +277,7 @@ class Attribute:
             slot.notes.append(f"Cardinality: {cardinality}")
 
         # Add mappings
-        Mappings(self, data.get("Source Mapping")).set_mappings_on_element(slot)
+        self.mappings.set_mappings_on_element(slot)
 
         return slot
 

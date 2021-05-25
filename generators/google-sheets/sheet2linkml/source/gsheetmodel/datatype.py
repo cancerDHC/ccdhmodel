@@ -91,6 +91,13 @@ class Datatype(ModelElement):
         linkml_matches = re.findall(r"LINKML:(\w+)\W", mapping_string, flags=re.IGNORECASE)
         return linkml_matches
 
+    @property
+    def mappings(self) -> Mappings:
+        """
+        Returns the list of mappings for this datatype.
+        """
+        return Mappings(self, self.datatype_row.get("External Mappings"))
+
     def as_linkml(self, root_uri) -> TypeDefinition:
         """
         Returns a LinkML TypeDefinition describing this datatype.
@@ -121,7 +128,7 @@ class Datatype(ModelElement):
             typ.notes = derived_from
 
         # Add mappings.
-        Mappings(self, self.datatype_row.get("External Mappings")).set_mappings_on_element(typ)
+        self.mappings.set_mappings_on_element(typ)
 
         return typ
 
