@@ -67,6 +67,17 @@ class GSheetModel(ModelElement):
         else:
             return self.development_version
 
+    @property
+    def last_updated(self):
+        """
+        Return the time on which this model was last updated.
+        """
+
+        # TODO: we should be able to get this from the Google Sheet, in RFC 3339 format, but this apparently
+        # requires a different scope than what we currently use.
+        # return self.sheet.updated
+        return datetime.now(timezone.utc).isoformat()
+
     @staticmethod
     def is_sheet_normative(worksheet: pygsheets.worksheet):
         """
@@ -201,7 +212,7 @@ class GSheetModel(ModelElement):
 
         schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.notes.append(f"Derived from {self.to_markdown()}")
-        schema.generation_date = datetime.now(timezone.utc).isoformat()
+        schema.generation_date = self.last_updated
 
         schema.version = self.version
 
