@@ -50,10 +50,22 @@ class GSheetModel(ModelElement):
         self.sheet = self.client.open_by_key(google_sheet_id)
 
         # TODO: at some point, we should read the version number from the Google Sheets document... somehow.
-        self.version = None
+        self.release_version = None
 
         # Set a `development version`. This is initially None, but if set, we add this to the metadata we emit.
         self.development_version = None
+
+    @property
+    def version(self):
+        """
+        Return the version of this GSheetModel.
+        """
+
+        # TODO: We should read this from the Google Sheet.
+        if self.release_version:
+            return self.release_version
+        else:
+            return self.development_version
 
     @staticmethod
     def is_sheet_normative(worksheet: pygsheets.worksheet):
@@ -191,10 +203,7 @@ class GSheetModel(ModelElement):
         schema.notes.append(f"Derived from {self.to_markdown()}")
         schema.generation_date = datetime.now(timezone.utc).isoformat()
 
-        if self.version:
-            schema.version = self.version
-        elif self.development_version:
-            schema.version = self.development_version
+        schema.version = self.version
 
         # Generate all the datatypes.
         schema.types = {datatype.name: datatype.as_linkml(root_uri) for datatype in self.datatypes()}
