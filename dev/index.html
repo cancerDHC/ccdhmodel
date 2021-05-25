@@ -168,7 +168,7 @@
 <li><a href="diagnosis__grade/">➞grade</a> - The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.</li>
 <li><a href="diagnosis__id/">➞id</a> - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity may have a different 'id' in a different system.</li>
 <li><a href="diagnosis__identifier/">➞identifier</a> - A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
-<li><a href="diagnosis__metastatic_sites/">➞metastatic_sites</a> - The anatomical location(s) of metastatic disease</li>
+<li><a href="diagnosis__metastatic_site/">➞metastatic_site</a> - The anatomical location(s) of metastatic disease</li>
 <li><a href="diagnosis__method_of_diagnosis/">➞method_of_diagnosis</a> - The method used to confirm the patients malignant diagnosis</li>
 <li><a href="diagnosis__morphology/">➞morphology</a> - Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
 <li><a href="diagnosis__primary_site/">➞primary_site</a> - The anatomical location of the primary condition</li>
@@ -200,9 +200,10 @@
 <li><a href="observation__patient/">➞patient</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li><a href="observation__performed_by/">➞performed_by</a> - The organization or group that performed the observation activity.</li>
 <li><a href="observation__valueBoolean/">➞valueBoolean</a> - The result of the observation, encoded as a boolean.</li>
-<li><a href="observation__valueCodeableConcept/">➞valueCodeableConcept</a> - The result of the observation, encoded as a CodeableConcept.</li>
+<li><a href="observation__valueDateTime/">➞valueDateTime</a> - The result of the observation, encoded as a decimal.</li>
 <li><a href="observation__valueDecimal/">➞valueDecimal</a> - The result of the observation, encoded as a decimal.</li>
-<li><a href="observation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
+<li><a href="observation__valueEntity/">➞valueEntity</a> - The value of an observation</li>
+<li><a href="observation__valueInteger/">➞valueInteger</a> - The result of the observation, encoded as a decimal.</li>
 <li><a href="observation__valueString/">➞valueString</a> - The result of the observation, encoded as a free-text string.</li>
 <li><a href="organization__alias/">➞alias</a> - A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')</li>
 <li><a href="organization__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
@@ -449,5 +450,5 @@ indexOffset</a> - A quantity of time that, together with the index date or event
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-05-24 21:36:07.251428+00:00
+Build Date UTC : 2021-05-25 05:57:49.690036+00:00
 -->

@@ -91,7 +91,7 @@
                 <h1 id="class-observation">Class: Observation</h1>
 <p>A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.</p>
 <p>URI: <a href="https://example.org/ccdh/Observation">ccdh:Observation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Quantity],[Organization],[CodeableConcept]&lt;valueCodeableConcept%200..1-++[Observation&#124;id:ccdh_string;valueString:ccdh_string%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F],[Quantity]&lt;valueQuantity%200..1-++[Observation],[Organization]&lt;performed_by%200..1-++[Observation],[Subject]&lt;patient%200..1-++[Observation],[Entity]&lt;focus%200..*-++[Observation],[CodeableConcept]&lt;method_type%200..*-++[Observation],[CodeableConcept]&lt;observation_type%201..1-++[Observation],[CodeableConcept]&lt;category%201..1-++[Observation],[Exposure]++-%20environmental%200..*&gt;[Observation],[Entity]^-[Observation],[Exposure],[Entity],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity]&lt;valueEntity%200..1-++[Observation&#124;id:ccdh_string;valueString:ccdh_string%20%3F;valueInteger:ccdh_decimal%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F;valueDateTime:ccdh_decimal%20%3F],[Organization]&lt;performed_by%200..1-++[Observation],[Subject]&lt;patient%200..1-++[Observation],[Entity]&lt;focus%200..*-++[Observation],[CodeableConcept]&lt;method_type%200..*-++[Observation],[CodeableConcept]&lt;observation_type%201..1-++[Observation],[CodeableConcept]&lt;category%201..1-++[Observation],[Exposure]++-%20environmental%200..*&gt;[Observation],[Entity]^-[Observation],[Exposure],[Entity],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -143,9 +143,9 @@
 <li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
 </ul>
 </li>
-<li><a href="../observation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>OPT</sub><ul>
-<li>Description: The result of the observation, encoded as a CodeableConcept.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li><a href="../observation__valueDateTime/">➞valueDateTime</a>  <sub>OPT</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
 </ul>
 </li>
 <li><a href="../observation__valueDecimal/">➞valueDecimal</a>  <sub>OPT</sub><ul>
@@ -153,9 +153,14 @@
 <li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
 </ul>
 </li>
-<li><a href="../observation__valueQuantity/">➞valueQuantity</a>  <sub>OPT</sub><ul>
-<li>Description: The result of the observation, encoded as a free-text Quantity.</li>
-<li>range: <a href="../Quantity/">Quantity</a></li>
+<li><a href="../observation__valueEntity/">➞valueEntity</a>  <sub>OPT</sub><ul>
+<li>Description: The value of an observation</li>
+<li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueInteger/">➞valueInteger</a>  <sub>OPT</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
 </ul>
 </li>
 <li><a href="../observation__valueString/">➞valueString</a>  <sub>OPT</sub><ul>

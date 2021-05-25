@@ -90,15 +90,16 @@
               
                 <h1 id="class-bodysite">Class: BodySite</h1>
 <p>URI: <a href="https://example.org/ccdh/BodySite">ccdh:BodySite</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept],[CodeableConcept]&lt;qualifier%200..*-++[BodySite&#124;id(i):ccdh_string%20%3F],[CodeableConcept]&lt;site%201..1-++[BodySite],[Diagnosis]++-%20metastatic_sites%200..*&gt;[BodySite],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[Treatment]++-%20anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite],[Treatment],[Diagnosis]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept],[CodeableConcept]&lt;qualifier%200..*-++[BodySite&#124;id(i):ccdh_string%20%3F],[CodeableConcept]&lt;site%201..1-++[BodySite],[Diagnosis]++-%20metastatic_site%200..*&gt;[BodySite],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[BodySite],[Treatment]++-%20anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite],[Treatment],[SpecimenCreationActivity],[Diagnosis]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../diagnosis__metastatic_sites/">➞metastatic_sites</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
+<li><strong>None</strong> <em><a href="../diagnosis__metastatic_site/">➞metastatic_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
 <li><strong>None</strong> <em><a href="../diagnosis__primary_site/">➞primary_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__collection_site/">➞collection_site</a></em>  <sub>OPT</sub>  <strong><a href="./">BodySite</a></strong></li>
 <li><strong>None</strong> <em><a href="../treatment__anatomic_site/">➞anatomic_site</a></em>  <sub>OPT</sub>  <strong><a href="./">BodySite</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>

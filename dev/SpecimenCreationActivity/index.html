@@ -91,7 +91,7 @@
                 <h1 id="class-specimencreationactivity">Class: SpecimenCreationActivity</h1>
 <p>The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenCreationActivity">ccdh:SpecimenCreationActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;execution_condition%200..*-++[SpecimenCreationActivity&#124;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;specimen_order:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[Specimen]&lt;input_specimen%200..*-++[SpecimenCreationActivity],[Entity]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Entity]&lt;additive%200..*-++[SpecimenCreationActivity],[CodeableConcept]&lt;derivation_method_type%200..1-++[SpecimenCreationActivity],[CodeableConcept]&lt;collection_method_type%200..1-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[CodeableConcept]&lt;activity_type%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[Entity],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;execution_condition%200..*-++[SpecimenCreationActivity&#124;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;specimen_order:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[Specimen]&lt;input_specimen%200..*-++[SpecimenCreationActivity],[BodySite]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Entity]&lt;additive%200..*-++[SpecimenCreationActivity],[CodeableConcept]&lt;derivation_method_type%200..1-++[SpecimenCreationActivity],[CodeableConcept]&lt;collection_method_type%200..1-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[CodeableConcept]&lt;activity_type%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[Entity],[CodeableConcept],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -120,7 +120,7 @@
 </li>
 <li><a href="../specimenCreationActivity__collection_site/">➞collection_site</a>  <sub>OPT</sub><ul>
 <li>Description: A data container holding information about the anatomic source of a specimen, including its location in the body, and the approach route used to access it.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__date_ended/">➞date_ended</a>  <sub>OPT</sub><ul>

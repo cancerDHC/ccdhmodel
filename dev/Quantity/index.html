@@ -91,8 +91,8 @@
                 <h1 id="class-quantity">Class: Quantity</h1>
 <p>A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.</p>
 <p>URI: <a href="https://example.org/ccdh/Quantity">ccdh:Quantity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Coding]&lt;comparator%200..1-++[Quantity&#124;valueDecimal:ccdh_decimal%20%3F;unit:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Coding]&lt;unitCode%200..1-++[Quantity],[CodeableConcept]&lt;valueCodeableConcept%200..1-++[Quantity],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity],[Observation]++-%20valueQuantity%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[TimePoint]++-%20offsetFromIndex
-indexOffset%200..1&gt;[Quantity],[Entity]^-[Quantity],[TimePoint],[Subject],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Observation],[Entity],[Diagnosis],[Coding],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Coding]&lt;comparator%200..1-++[Quantity&#124;valueDecimal:ccdh_decimal%20%3F;unit:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Coding]&lt;unitCode%200..1-++[Quantity],[CodeableConcept]&lt;valueCodeableConcept%200..1-++[Quantity],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[TimePoint]++-%20offsetFromIndex
+indexOffset%200..1&gt;[Quantity],[Entity]^-[Quantity],[TimePoint],[Subject],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Entity],[Diagnosis],[Coding],[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -100,7 +100,6 @@ indexOffset%200..1&gt;[Quantity],[Entity]^-[Quantity],[TimePoint],[Subject],[Spe
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong>None</strong> <em><a href="../diagnosis__age_at_diagnosis/">➞age_at_diagnosis</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../observation__valueQuantity/">➞valueQuantity</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong>None</strong> <em><a href="../researchSubject__age_at_enrollment/">➞age_at_enrollment</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimenCreationActivity__quantity_collected/">➞quantity_collected</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a></em>  <sub>OPT</sub>  <strong><a href="./">Quantity</a></strong></li>

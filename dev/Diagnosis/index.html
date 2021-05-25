@@ -90,7 +90,7 @@
               
                 <h1 id="class-diagnosis">Class: Diagnosis</h1>
 <p>URI: <a href="https://example.org/ccdh/Diagnosis">ccdh:Diagnosis</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Identifier],[Entity],[Specimen]&lt;related_specimen%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F],[CodeableConcept]&lt;method_of_diagnosis%200..1-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CodeableConcept]&lt;disease_status%200..1-++[Diagnosis],[CodeableConcept]&lt;morphology%200..1-++[Diagnosis],[CancerGrade]&lt;grade%200..*-++[Diagnosis],[CancerStageSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_sites%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[CodeableConcept]&lt;condition%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnoses%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CodeableConcept],[CancerStageSet],[CancerGrade],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Identifier],[Entity],[Specimen]&lt;related_specimen%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F],[CodeableConcept]&lt;method_of_diagnosis%200..1-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CodeableConcept]&lt;disease_status%200..1-++[Diagnosis],[CodeableConcept]&lt;morphology%200..1-++[Diagnosis],[CancerGrade]&lt;grade%200..*-++[Diagnosis],[CancerStageSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[CodeableConcept]&lt;condition%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnoses%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CodeableConcept],[CancerStageSet],[CancerGrade],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -135,7 +135,7 @@
 <li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__metastatic_sites/">➞metastatic_sites</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__metastatic_site/">➞metastatic_site</a>  <sub>0..*</sub><ul>
 <li>Description: The anatomical location(s) of metastatic disease</li>
 <li>range: <a href="../BodySite/">BodySite</a></li>
 </ul>
