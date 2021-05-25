@@ -2,7 +2,7 @@ name: CRDC-H
 notes:
 - Derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)
 id: https://example.org/ccdh
-version: v0.2-32-gd35974d
+version: v0.2-37-gf2b5b55
 imports:
 - linkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -17,6 +17,12 @@ types:
       of characters in the string.
     notes:
     - Derived from [ccdh_string in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)
+    exact_mappings:
+    - LINKML:String
+    - XML:string
+    - JSON:string
+    related_mappings:
+    - FHIR:string
     typeof: string
   ccdh_integer:
     name: ccdh_integer
@@ -27,6 +33,12 @@ types:
       '
     notes:
     - Derived from [ccdh_integer in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)
+    exact_mappings:
+    - LINKML:Integer
+    - XML:integer
+    - JSON:integer
+    related_mappings:
+    - FHIR:integer
     typeof: integer
   ccdh_decimal:
     name: ccdh_decimal
@@ -34,6 +46,12 @@ types:
       does not restrict the size or precision of the number.
     notes:
     - Derived from [ccdh_decimal in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)
+    exact_mappings:
+    - LINKML:Decimal
+    - XML:decimal
+    related_mappings:
+    - JSON:number
+    - FHIR:integer
     typeof: decimal
   ccdh_boolean:
     name: ccdh_boolean
@@ -42,6 +60,12 @@ types:
       , \u201C1\u201D, \u201C0\u201D."
     notes:
     - Derived from [ccdh_boolean in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)
+    exact_mappings:
+    - LINKML:Boolean
+    - XML:boolean
+    - FHIR:boolean
+    related_mappings:
+    - JSON:boolean
     typeof: boolean
   ccdh_dateTime:
     name: ccdh_dateTime
@@ -49,6 +73,12 @@ types:
       of the date and time data types, in the general format YYYY-MM-DDThh:mm:ss+zz:zz.  '
     notes:
     - Derived from [ccdh_dateTime in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)
+    exact_mappings:
+    - LINKML:Datetime
+    related_mappings:
+    - XML:dateTime
+    - JSON:string
+    - FHIR:dateTime
     typeof: datetime
   ccdh_curie:
     name: ccdh_curie
@@ -59,6 +89,11 @@ types:
       \ be mapped to a URI."
     notes:
     - Derived from [ccdh_curie in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)
+    related_mappings:
+    - LINKML:Uriorcurie
+    - XML:string
+    - JSON:string
+    - FHIR:string
     typeof: uriorcurie
   ccdh_code:
     name: ccdh_code
@@ -133,6 +168,9 @@ classes:
         name: passage_number
         description: When the specimen an actively growing model system, such as a
           cell or tissue culture, this property captures its passage number.
+        related_mappings:
+        - GDC:Sample.passage_count
+        - PDC:Sample.passage_count
         range: ccdh_integer
         multivalued: true
         required: false
@@ -140,6 +178,9 @@ classes:
         name: growth_rate
         description: When the specimen an actively growing model system, such as a
           cell or tissue culture, this property captures its rate of growth.
+        related_mappings:
+        - GDC:Sample.growth_rate
+        - PDC:Sample.growth_rate
         range: ccdh_string
         multivalued: true
         required: false
@@ -193,6 +234,55 @@ classes:
           'M1')
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.ajcc_clinical_m
+        - PDC:Diagnosis.ajcc_clinical_m
+        - GDC:Diagnosis.ajcc_clinical_n
+        - PDC:Diagnosis.ajcc_clinical_n
+        - GDC:Diagnosis.ajcc_clinical_t
+        - PDC:Diagnosis.ajcc_clinical_t
+        - GDC:Diagnosis.ajcc_clinical_stage
+        - PDC:Diagnosis.ajcc_clinical_stage
+        - PDC:Diagnosis.tumor_stage
+        - ICDC:Diagnosis.stage_of_disease
+        - GDC:Diagnosis.ajcc_pathologic_m
+        - PDC:Diagnosis.ajcc_pathologic_m
+        - GDC:Diagnosis.ajcc_pathologic_n
+        - PDC:Diagnosis.ajcc_pathologic_n
+        - GDC:Diagnosis.ajcc_pathologic_t
+        - PDC:Diagnosis.ajcc_pathologic_t
+        - GDC:Diagnosis.ajcc_pathologic_stage
+        - PDC:Diagnosis.ajcc_pathologic_stage
+        - GDC:Diagnosis.ajcc_staging_system_edition
+        - PDC:Diagnosis.ajcc_staging_system_edition
+        - GDC:Diagnosis.ann_arbor_clinical_stage
+        - PDC:Diagnosis.ann_arbor_clinical_stage
+        - GDC:Diagnosis.ann_arbor_pathologic_stage
+        - PDC:Diagnosis.ann_arbor_pathologic_stage
+        - GDC:Diagnosis.figo_stage
+        - PDC:Diagnosis.figo_stage
+        - GDC:Diagnosis.igcccg_stage
+        - PDC:Diagnosis.igcccg_stage
+        - GDC:Diagnosis.inss_stage
+        - PDC:Diagnosis.inss_stage
+        - GDC:Diagnosis.iss_stage
+        - PDC:Diagnosis.iss_stage
+        - GDC:Diagnosis.masaoka_stage
+        - PDC:Diagnosis.masaoka_stage
+        - GDC:Diagnosis.cog_liver_stage
+        - PDC:Diagnosis.cog_liver_stage
+        - GDC:Diagnosis.cog_renal_stage
+        - PDC:Diagnosis.cog_renal_stage
+        - GDC:Diagnosis.enneking_msts_metastasis
+        - PDC:Diagnosis.enneking_msts_metastasis
+        - GDC:Diagnosis.enneking_msts_stage
+        - PDC:Diagnosis.enneking_msts_stage
+        - GDC:Diagnosis.enneking_msts_tumor_site
+        - PDC:Diagnosis.enneking_msts_tumor_site
+        - GDC:Diagnosis.inrg_stage
+        - PDC:Diagnosis.inrg_stage
+        - GDC:Diagnosis.irs_stage
+        - PDC:Diagnosis.irs_stage
         range: CodeableConcept
         multivalued: false
         required: false
@@ -211,6 +301,9 @@ classes:
           to classify the cancer.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.ajcc_staging_system_edition
+        - PDC:Diagnosis.ajcc_staging_system_edition
         range: CodeableConcept
         multivalued: false
         required: false
@@ -341,6 +434,9 @@ classes:
           (e.g. a slide number, or a well number in a plate)
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Analyte.well_number
+        - PDC:Analyte.well_number
         range: ccdh_string
         multivalued: false
         required: false
@@ -350,6 +446,8 @@ classes:
           the primary object contained)
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - HTAN:Biospecimen.CollectionMedia
         range: Entity
         multivalued: true
         required: false
@@ -368,6 +466,8 @@ classes:
           is mounted
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Slide.charge_type
         range: CodeableConcept
         multivalued: false
         required: false
@@ -385,6 +485,9 @@ classes:
           entity may have a different 'id' in a different system.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.id
+        - PDC:Diagnosis.diagnosis_id
         range: ccdh_string
         multivalued: false
         required: false
@@ -395,6 +498,9 @@ classes:
           across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Diagnosis.submitter_id
+        - PDC:Diagnosis.diagnosis_submitter_id
         range: Identifier
         multivalued: true
         required: false
@@ -403,6 +509,9 @@ classes:
         description: The age in days of the individual at the time of diagnosis
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.age_at_diagnosis
+        - PDC:Diagnosis.age_at_diagnosis
         range: Quantity
         multivalued: false
         required: false
@@ -411,6 +520,10 @@ classes:
         description: Numeric value to represent the year of an individual's diagnosis.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.year_of_diagnosis
+        - PDC:Diagnosis.year_of_diagnosis
+        - ICDC:Diagnosis.date_of_diagnosis
         range: ccdh_integer
         multivalued: false
         required: false
@@ -420,17 +533,31 @@ classes:
           ICD-10, SNOMED, etc.)
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.primary_diagnosis
+        - PDC:Diagnosis.primary_diagnosis
+        - ICDC:Diagnosis.disease_term
+        - GDC:Diagnosis.icd_10_code
+        - PDC:Diagnosis.icd_10_code
         range: CodeableConcept
         multivalued: false
         required: false
       primary_site:
         name: primary_site
         description: The anatomical location of the primary condition
+        notes:
+        - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Diagnosis.tissue_or_organ_of_origin
+        - PDC:Diagnosis.tissue_or_organ_of_origin
+        - ICDC:Diagnosis.primary_disease_site
+        - GDC:Diagnosis.laterality
+        - PDC:Diagnosis.laterality
         range: BodySite
         multivalued: true
         required: false
-      metastatic_sites:
-        name: metastatic_sites
+      metastatic_site:
+        name: metastatic_site
         description: The anatomical location(s) of metastatic disease
         notes:
         - 'Cardinality: 0..m'
@@ -471,6 +598,9 @@ classes:
           site (topography) and the histology (morphology) of neoplasms.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.morphology
+        - PDC:Diagnosis.morphology
         range: CodeableConcept
         multivalued: false
         required: false
@@ -498,6 +628,9 @@ classes:
         description: The method used to confirm the patients malignant diagnosis
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Diagnosis.method_of_diagnosis
+        - PDC:Diagnosis.method_of_diagnosis
         range: CodeableConcept
         multivalued: false
         required: false
@@ -723,6 +856,10 @@ classes:
         description: A type of method used in generating the Observation result.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Analyte.spectrophotometer_method
+        - PDC:Analyte.spectrophotometer_method
+        - HTAN:Biospecimen.HistologyAssessmentMedium
         range: CodeableConcept
         multivalued: true
         required: false
@@ -754,12 +891,28 @@ classes:
         range: Organization
         multivalued: false
         required: false
+      valueEntity:
+        name: valueEntity
+        description: The value of an observation
+        notes:
+        - 'Cardinality: 0..1'
+        range: Entity
+        multivalued: false
+        required: false
       valueString:
         name: valueString
         description: The result of the observation, encoded as a free-text string.
         notes:
         - 'Cardinality: 0..1'
         range: ccdh_string
+        multivalued: false
+        required: false
+      valueInteger:
+        name: valueInteger
+        description: The result of the observation, encoded as a decimal.
+        notes:
+        - 'Cardinality: 0..1'
+        range: ccdh_decimal
         multivalued: false
         required: false
       valueDecimal:
@@ -770,14 +923,6 @@ classes:
         range: ccdh_decimal
         multivalued: false
         required: false
-      valueQuantity:
-        name: valueQuantity
-        description: The result of the observation, encoded as a free-text Quantity.
-        notes:
-        - 'Cardinality: 0..1'
-        range: Quantity
-        multivalued: false
-        required: false
       valueBoolean:
         name: valueBoolean
         description: The result of the observation, encoded as a boolean.
@@ -786,12 +931,12 @@ classes:
         range: ccdh_boolean
         multivalued: false
         required: false
-      valueCodeableConcept:
-        name: valueCodeableConcept
-        description: The result of the observation, encoded as a CodeableConcept.
+      valueDateTime:
+        name: valueDateTime
+        description: The result of the observation, encoded as a decimal.
         notes:
         - 'Cardinality: 0..1'
-        range: CodeableConcept
+        range: ccdh_decimal
         multivalued: false
         required: false
   Organization:
@@ -810,6 +955,8 @@ classes:
           have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 1..1'
+        related_mappings:
+        - GDC:Center.id
         range: ccdh_string
         multivalued: false
         required: true
@@ -819,6 +966,8 @@ classes:
           by an external system or authority, that persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Center.code
         range: Identifier
         multivalued: true
         required: false
@@ -828,6 +977,8 @@ classes:
           'National Cancer Institute')
         notes:
         - 'Cardinality: 1..1'
+        related_mappings:
+        - GDC:Center.name
         range: ccdh_string
         multivalued: false
         required: true
@@ -837,6 +988,8 @@ classes:
           abbreviation (e.g. 'NCI')
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Center.short_name
         range: ccdh_string
         multivalued: false
         required: false
@@ -846,6 +999,8 @@ classes:
           Center')
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Center.center_type
         range: ccdh_string
         multivalued: false
         required: false
@@ -920,6 +1075,12 @@ classes:
           have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Program.id
+        - PDC:Program.program_id
+        - PDC:Project.project_id
+        - GDC:Project.id
+        - ICDC:Study.clinical_study_id
         range: ccdh_string
         multivalued: false
         required: false
@@ -930,6 +1091,12 @@ classes:
           across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Program.dbgap_accession_number
+        - GDC:Project.dbgap_accession_number
+        - PDC:Program.program_submitter_id
+        - PDC:Project.project_submitter_id
+        - ICDC:Study.clinical_study_designation
         range: Identifier
         multivalued: true
         required: false
@@ -938,6 +1105,13 @@ classes:
         description: An unabridged name of a research program, project, or study.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Program.name
+        - PDC:Program.name
+        - ICDC:Program.program_name
+        - GDC:Project.name
+        - PDC:Project.name
+        - ICDC:Study.clinical_study_name
         range: ccdh_string
         multivalued: false
         required: false
@@ -946,6 +1120,9 @@ classes:
         description: An abbreviated name of a research program, project, or study.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Program.program_acronym
+        - PDC:Program.program_shortname
         range: ccdh_string
         multivalued: false
         required: false
@@ -955,6 +1132,8 @@ classes:
           study.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Program.program_full_description
         range: ccdh_string
         multivalued: false
         required: false
@@ -964,6 +1143,8 @@ classes:
           study.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Program.program_short_description
         range: ccdh_string
         multivalued: false
         required: false
@@ -973,6 +1154,8 @@ classes:
           and/or financing of a research project.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - PDC:Program.sponsor
         range: ccdh_string
         multivalued: true
         required: false
@@ -981,6 +1164,8 @@ classes:
         description: The date when the research project began.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Study.dates_of_conduct
         range: ccdh_dateTime
         multivalued: false
         required: false
@@ -989,6 +1174,8 @@ classes:
         description: The date when the research project ended.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Study.dates_of_conduct
         range: ccdh_dateTime
         multivalued: false
         required: false
@@ -1000,6 +1187,8 @@ classes:
           this attribute captures the anatomic sites of research interest.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Project.primary_site
         range: CodeableConcept
         multivalued: true
         required: false
@@ -1009,6 +1198,8 @@ classes:
           a research program, project, or study.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - ICDC:Program.program_external_url
         range: ccdh_string
         multivalued: true
         required: false
@@ -1028,6 +1219,8 @@ classes:
           Study')
         notes:
         - 'Cardinality: 1..1'
+        related_mappings:
+        - ICDC:Study.clinical_study_type
         range: CodeableConcept
         multivalued: false
         required: true
@@ -1039,6 +1232,8 @@ classes:
           proposal and the IACUC approved protocol has been verified.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Study.date_of_iacuc_approval
         range: ccdh_dateTime
         multivalued: false
         required: false
@@ -1069,6 +1264,11 @@ classes:
           by an external system or authority, that persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Case.id
+        - GDC:Case.submitter_id
+        - PDC:Case.case_submitter_id
+        - ICDC:Case.case_id
         range: Identifier
         multivalued: true
         required: false
@@ -1087,6 +1287,11 @@ classes:
           a member
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Case.member_of
+        - GDC:Case.project_id
+        - PDC:Case.Project
+        - ICDC:Case.member_of
         range: ResearchProject
         multivalued: true
         required: false
@@ -1095,6 +1300,8 @@ classes:
         description: The age in days when the Subject enrolled on the ResearchProject
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Demographic.patient_age_at_enrollment
         range: Quantity
         multivalued: false
         required: false
@@ -1106,6 +1313,9 @@ classes:
           \ that qualified the subject for inclusion on the ResearchProject"
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Case.disease_type
+        - PDC:Case.disease_type
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1121,6 +1331,9 @@ classes:
           on the ResearchProject.'
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Case.primary_site
+        - PDC:Case.primary_site
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1149,6 +1362,9 @@ classes:
           more date ranges in relation to this date.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Case.index_date
+        - PDC:Case.index_date
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1157,6 +1373,8 @@ classes:
         description: The Organization at which a subject was enrolled on a ResearchProject.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - PDC:Case.tissue_source_site_code
         range: Organization
         multivalued: false
         required: false
@@ -1185,6 +1403,18 @@ classes:
           have many external business 'identifiers' associated with it.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Aliquot.id
+        - GDC:Analyte.id
+        - GDC:Portion.id
+        - GDC:Sample.id
+        - GDC:Slide.id
+        - PDC:Aliquot.aliquot_id
+        - PDC:Analyte.analyte_id
+        - PDC:Portion.portion_id
+        - PDC:Sample.sample_id
+        - ICDC:Sample.sample_id
+        - HTAN:Biospecimen.HTANBiospecimenID
         range: ccdh_string
         multivalued: false
         required: false
@@ -1195,6 +1425,12 @@ classes:
           unique and persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Sample.submitter_id
+        - GDC:Analyte.submitter_id
+        - GDC:Slide.submitter_id
+        - PDC:Sample.sample_submitter_id
+        - PDC:Analyte.analyte_submitter_id
         range: Identifier
         multivalued: true
         required: false
@@ -1204,6 +1440,8 @@ classes:
           about the specimen.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Sample.comment
         range: ccdh_string
         multivalued: false
         required: false
@@ -1214,6 +1452,10 @@ classes:
           from a source).
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - example:GDC%2FPDC+-++base+this+on+the+Entity+Type
+        - example:ICDC+-+not+sure+how+to+tell+the+subtype+of+an+ICDC.Sample+instance
+        - HTAN:Biospecimen.BIOSPECIMEN_TYPE
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1224,6 +1466,16 @@ classes:
           (e.g. DNA, RNA)
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Aliquot.analyte_type
+        - GDC:Aliquot.analyte_type_id
+        - GDC:Analyte.analyte_type
+        - GDC:Analyte.analyte_type_id
+        - PDC:Aliquot.analyte_type
+        - PDC:Aliquot.analyte_type_id
+        - PDC:Analyte.analyte_type
+        - PDC:Analyte.analyte_type_id
+        - HTAN:Biosepcimen.ANALYTE_TYPE
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1232,6 +1484,12 @@ classes:
         description: The Project associated with the specimen.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.project_id
+        - GDC:Portion.project_id
+        - GDC:Aliquot.project_id
+        - GDC:Analyte.project_id
+        - PDC:Sample.gdc_project_id
         range: ResearchProject
         multivalued: false
         required: false
@@ -1241,6 +1499,9 @@ classes:
           specimen.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Aliquot.source_center
+        - HTAN:Biospecimen.SiteDataSource
         range: Organization
         multivalued: false
         required: false
@@ -1250,6 +1511,13 @@ classes:
           based on the physical nature of the source material.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.sample_type
+        - GDC:Sample.sample_type_id
+        - PDC:Sample.sample_type
+        - PDC:Sample.sample_type_id
+        - ICDC:Sample.sample_type
+        - HTAN:Biospecimen.BiospecimenType
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1259,6 +1527,19 @@ classes:
           directly derived (i.e its immediate parent specimen).
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Sample.derived_from
+        - GDC:Aliquot.derived_from
+        - GDC:Aliquot.derived_from
+        - GDC:Analyte.derived_from
+        - GDC:Analyte.derived_from
+        - GDC:Portion.derived_from
+        - GDC:Slide.derived_from
+        - PDC:Aliquot.Sample
+        - PDC:Analyte.Portion
+        - PDC:Analyte.Sample
+        - PDC:Portion.Sample
+        - HTAN:Biospecimen.HTANParentID
         range: Specimen
         multivalued: true
         required: false
@@ -1268,6 +1549,11 @@ classes:
           derived.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - PDC:Sample.Case
+        - GDC:Sample.derived_from
+        - ICDC:Sample.of_case
+        - HTAN:Biospecimen.HTAN_PARENT_ID
         range: Subject
         multivalued: false
         required: false
@@ -1278,6 +1564,11 @@ classes:
           derived.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - PDC:Sample.Case
+        - GDC:Sample.derived_from
+        - ICDC:Sample.of_case
+        - HTAN:Biospecimen.HTAN_PARENT_ID
         range: Entity
         multivalued: false
         required: false
@@ -1287,6 +1578,11 @@ classes:
           collected (e.g. if it was primary, recurrent, metastatic, etc).
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.tumor_descriptor
+        - PDC:Sample.tumor_descriptor
+        - HTAN:Biospecimen.TUMOR_TISSUE_TYPE
+        - ICDC:Sample.tumor_sample_origin
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1335,6 +1631,10 @@ classes:
           plate)
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Analyte.well_number
+        - PDC:Analyte.well_number
+        - HTAN:Biospecimen.COLLECTION_MEDIA
         range: SpecimenContainer
         multivalued: false
         required: false
@@ -1344,6 +1644,17 @@ classes:
           areas, and volumes.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.longest_dimension
+        - GDC:Sample.shortest_dimension
+        - GDC:Sample.intermediate_dimension
+        - PDC:Sample.longest_dimension
+        - PDC:Sample.shortest_dimension
+        - PDC:Sample.intermediate_dimension
+        - ICDC:Sample.length_of_tumor
+        - ICDC:Sample.width_of_tumor
+        - ICDC:Sample.total_tissue_area
+        - HTAN:Biospecimen.SECTION_THICKNESS_VALUE
         range: Entity
         multivalued: false
         required: false
@@ -1353,6 +1664,35 @@ classes:
           or analyte it contains - e.g. its weight, volume, or concentration.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Sample.current_weight
+        - GDC:Aliquot.amount
+        - GDC:Portion.weight
+        - GDC:Aliquot.aliquot_quantity
+        - GDC:Analyte.amount
+        - GDC:Analyte.analyte_quantity
+        - PDC:Sample.current_weight
+        - PDC:Aliquot.amount
+        - PDC:Portion.weight
+        - PDC:Aliquot.aliquot_quantity
+        - PDC:Analyte.amount
+        - PDC:Analyte.analyte_quantity
+        - HTAN:Biospecimen.PORTION_WEIGHT
+        - GDC:Aliquot.aliquot_volume
+        - GDC:Aliquot.amount
+        - GDC:Analyte.amount
+        - GDC:Analyte.analyte_volume
+        - PDC:Aliquot.aliquot_volume
+        - PDC:Aliquot.amount
+        - PDC:Analyte.amount
+        - PDC:Analyte.analyte_volume
+        - HTAN:Biospecimen.TOTAL_VOLUME
+        - GDC:Aliquot.concentration
+        - GDC:Analyte.concentration
+        - PDC:Aliquot.concentration
+        - PDC:Analyte.concentration
+        - GDC:Analyte.spectrophotometer_method
+        - PDC:Analyte.spectrophotometer_method
         range: Entity
         multivalued: true
         required: false
@@ -1362,6 +1702,11 @@ classes:
           its quality or suitability for use.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Analyte.a260_a280_ratio
+        - GDC:Analyte.ribosomal_rna_28s_16s_ratio
+        - PDC:Analyte.a260_a280_ratio
+        - PDC:Analyte.ribosomal_rna_28s_16s_ratio
         range: Entity
         multivalued: true
         required: false
@@ -1371,6 +1716,9 @@ classes:
           at a celluar level.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.composition
+        - PDC:Sample.composition
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1382,6 +1730,32 @@ classes:
           is typically determined through microscopic analysis of a slide.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Slide.number_proliferating_cells
+        - GDC:Slide.percent_eosinophil_infiltration
+        - GDC:Slide.percent_granulocyte_infiltration
+        - GDC:Slide.percent_inflam_infiltration
+        - GDC:Slide.percent_lymphocyte_infiltration
+        - GDC:Slide.percent_monocyte_infiltration
+        - GDC:Slide.percent_necrosis
+        - GDC:Slide.percent_neutrophil_infiltration
+        - GDC:Slide.percent_normal_cells
+        - GDC:Slide.percent_stromal_cells
+        - GDC:Slide.percent_tumor_cells
+        - GDC:Slide.percent_tumor_nuclei
+        - HTAN:Biospecimen.NumberProliferatingCells
+        - HTAN:Biospecimen.PercentEosinophilInfiltration
+        - HTAN:Biospecimen.PercentGranulocyteInfiltration
+        - HTAN:Biospecimen.PercentInflamInfiltration
+        - HTAN:Biospecimen.PercentLymphocyteInfiltration
+        - HTAN:Biospecimen.PercentMonocyteInfiltration
+        - HTAN:Biospecimen.PercentNecrosis
+        - HTAN:Biospecimen.PercentNeutrophilInfiltration
+        - HTAN:Biospecimen.PercentNormalCells
+        - HTAN:Biospecimen.PercentStromalCells
+        - HTAN:Biospecimen.PercentTumorCells
+        - HTAN:Biospecimen.PercentTumorNuclei
+        - HTAN:Biospecimen.TumorInfiltratingLymphocytes
         range: Entity
         multivalued: true
         required: false
@@ -1391,6 +1765,16 @@ classes:
           of a specific type of tissue in a specimen or other biological material
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - ICDC:Sample.non_tumor_tissue_area
+        - ICDC:Sample.tumor_tissue_area
+        - ICDC:Sample.percentage_tumor
+        - ICDC:Sample.percentage_stroma
+        - ICDC:Sample.analysis_area
+        - ICDC:Sample.analysis_area_percentage_stroma
+        - ICDC:Sample.analysis_area_percentage_tumor
+        - ICDC:Sample.analysis_area_percentage_glass
+        - ICDC:Sample.analysis_area_percentage_pigmented_tumor
         range: Entity
         multivalued: true
         required: false
@@ -1401,6 +1785,10 @@ classes:
           (e.g. is it normal, abnormal, tumor, tumor-adjacent).
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.tissue_type
+        - PDC:Sample.tissue_type
+        - ICDC:Sample.general_sample_pathology
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1410,6 +1798,13 @@ classes:
           in a specimen.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.tumor_code
+        - GDC:Sample.tumor_code_id
+        - PDC:Sample.tumor_code
+        - PDC:Sample.tumor_code_id
+        - ICDC:Sample.specific_sample_pathology
+        - HTAN:Biospecimen.HistologicMorphologyCode
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1419,6 +1814,8 @@ classes:
           in a specimen.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.PreinvasiveMorphology
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1428,6 +1825,9 @@ classes:
           morphology was confirmed by a pathologist review
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.diagnosis_pathologically_confirmed
+        - PDC:Sample.diagnosis_pathologically_confirmed
         range: ccdh_boolean
         multivalued: false
         required: false
@@ -1437,6 +1837,8 @@ classes:
           the specific tissue morphology of a specimen
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.HistologyAssessmentBy
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1446,6 +1848,8 @@ classes:
           morphology
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.HistologyAssessmentMedium
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1456,6 +1860,8 @@ classes:
           the degree of dysplasia for the cyst or lesion under consideration.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.DegreeofDysplasia
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1465,6 +1871,8 @@ classes:
           divided by the total number of pieces.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.DysplasiaFraction
         range: ccdh_string
         multivalued: false
         required: false
@@ -1480,6 +1888,14 @@ classes:
           how it was collected, or a catalog entry describing  related research resource)
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Sample.catalog_reference
+        - GDC:Sample.distributor_reference
+        - GDC:Sample.pathology_report_uuid
+        - PDC:Sample.catalog_reference
+        - PDC:Sample.distributor_reference
+        - PDC:Sample.pathology_report_uuid
+        - HTAN:Biospecimen.ProtocolLink
         range: Document
         multivalued: true
         required: false
@@ -1489,6 +1905,8 @@ classes:
           was excised (e.g. top, middle, bottom)
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Slide.section_location
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1498,6 +1916,11 @@ classes:
           tissue culture, or organoid) that was generated from the specimen
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Sample.passage_count
+        - GDC:Sample.growth_rate
+        - PDC:Sample.passage_count
+        - PDC:Sample.growth_rate
         range: BiologicallyDerivedProduct
         multivalued: true
         required: false
@@ -1508,6 +1931,9 @@ classes:
           vivo location of a tumor tissue specimen and its paired normal specimen)
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Specimen.distance_normal_to_tumor
+        - PDC:Specimen.distance_normal_to_tumor
         range: Quantity
         multivalued: false
         required: false
@@ -1537,6 +1963,12 @@ classes:
           event).
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Portion.creation_datetime
+        - PDC:Portion.creation_datetime
+        - PDC:Sample.days_to_collection
+        - ICDC:Sample.date_of_sample_collection
+        - HTAN:Biospecimen.CollectionDaysfromIndex
         range: ccdh_dateTime
         multivalued: false
         required: false
@@ -1563,6 +1995,12 @@ classes:
           source.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.method_of_sample_procurement
+        - PDC:Sample.method_of_sample_procurement
+        - PDC:Sample.pool
+        - PDC:Aliquot.pool
+        - HTAN:Biospecimen.AcquisitionMethodType
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1572,6 +2010,9 @@ classes:
           one.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.SlicingMethod
+        - HTAN:Biospecimen.MethodofNucleicAcidIsolation
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1581,6 +2022,8 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - HTAN:Biospecimen.LysisBuffer
         range: Entity
         multivalued: true
         required: false
@@ -1591,7 +2034,14 @@ classes:
           used to access it.
         notes:
         - 'Cardinality: 0..1'
-        range: Entity
+        related_mappings:
+        - GDC:Sample.biospecimen_anatomic_site
+        - GDC:Sample.biospecimen_laterality
+        - PDC:Sample.biospecimen_anatomic_site
+        - PDC:Sample.biospecimen_laterality
+        - ICDC:Sample.sample_site
+        - HTAN:Biospecimen.SiteofResectionorBiopsy
+        range: BodySite
         multivalued: false
         required: false
       input_specimen:
@@ -1610,6 +2060,9 @@ classes:
           from its original source material (prior to downstream portioning or processing)
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.initial_weight
+        - PDC:Sample.initial_weight
         range: Quantity
         multivalued: false
         required: false
@@ -1619,6 +2072,13 @@ classes:
           which activity was executed
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Sample.time_between_excision_and_freezing
+        - GDC:Sample.time_between_clamping_and_freezing
+        - PDC:Sample.time_between_excision_and_freezing
+        - PDC:Sample.time_between_clamping_and_freezing
+        - HTAN:Biospecimen.ISCHEMIC_TEMPERATURE
+        - HTAN:Biospecimen.ISCHEMIC_TIME
         range: Entity
         multivalued: true
         required: false
@@ -1629,6 +2089,9 @@ classes:
           same source material or parent specimen.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Portion.portion_number
+        - PDC:Portion.portion_number
         range: ccdh_string
         multivalued: false
         required: false
@@ -1656,6 +2119,8 @@ classes:
           event).
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.ProcessingDaysfromIndex
         range: ccdh_dateTime
         multivalued: false
         required: false
@@ -1671,6 +2136,8 @@ classes:
       duration:
         name: duration
         description: The length of time over which the activity was performed.
+        related_mappings:
+        - HTAN:Biospecimen.FIXATION_DURATION
         range: ccdh_string
         multivalued: true
         required: false
@@ -1679,6 +2146,9 @@ classes:
         description: The organization or group that performed the activity.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.processed_at
+        - HTAN:Biospecimen.ProcessingLocation
         range: Organization
         multivalued: false
         required: false
@@ -1688,6 +2158,18 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Sample.freezing_method
+        - GDC:Sample.preservation_method
+        - GDC:Sample.is_ffpe
+        - GDC:Portion.is_ffpe
+        - GDC:Sample.oct_embedded
+        - PDC:Sample.freezing_method
+        - PDC:Sample.preservation_method
+        - PDC:Sample.is_ffpe
+        - GDC:Portion.is_ffpe
+        - PDC:Sample.oct_embedded
+        - HTAN:Biospecimen.PRESERVATION_METHOD
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1697,6 +2179,9 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - HTAN:Biospecimen.FixativeType
+        - HTAN:Biospecimen.MountingMedium
         range: Entity
         multivalued: true
         required: false
@@ -1748,6 +2233,8 @@ classes:
           specimen
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - HTAN:Biospecimen.StorageMethod
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1789,6 +2276,9 @@ classes:
           is delivered as a result of the activity.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Portion.shipped_to
+        - GDC:Aliquot.shipped_to
         range: Organization
         multivalued: false
         required: false
@@ -1826,6 +2316,8 @@ classes:
           by an external system or authority, that persists across implementing systems.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - ICDC:Case.patient_id
         range: Identifier
         multivalued: true
         required: false
@@ -1845,6 +2337,8 @@ classes:
           same species.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Demographic.breed
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1855,6 +2349,10 @@ classes:
           morphologic (internal and external), chromosomal, and hormonal characteristics.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - ICDC:Demographic.sex
+        - GDC:Demographic.gender
+        - PDC:Demographic.gender
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1869,6 +2367,10 @@ classes:
           Applicable only when Subject.species is Homo Sapiens'
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Clinical.ethnicity
+        - GDC:Demographic.ethnicity
+        - PDC:Demographic.ethnicity
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1886,6 +2388,10 @@ classes:
           Applicable only when Subject.species is Homo Sapiens'
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Clinical.race
+        - GDC:Demographic.race
+        - PDC:Demographic.race
         range: CodeableConcept
         multivalued: true
         required: false
@@ -1895,6 +2401,10 @@ classes:
           was born.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Demographic.year_of_birth
+        - PDC:Demographic.year_of_birth
+        - ICDC:Demographic.date_of_birth
         range: ccdh_integer
         multivalued: false
         required: false
@@ -1904,6 +2414,9 @@ classes:
           or deceased; also includes the case where the vital status is unknown.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Demographic.vital_status
+        - PDC:Demographic.vital_status
         range: CodeableConcept
         multivalued: false
         required: false
@@ -1913,6 +2426,9 @@ classes:
           since birth
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Demographic.days_to_death
+        - PDC:Demographic.days_to_death
         range: Quantity
         multivalued: false
         required: false
@@ -1922,6 +2438,9 @@ classes:
           died.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Demographic.year_of_death
+        - PDC:Demographic.year_of_death
         range: ccdh_integer
         multivalued: false
         required: false
@@ -1931,6 +2450,9 @@ classes:
           in the death of the subject.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Demographic.cause_of_death
+        - PDC:Demographic.cause_of_death
         range: CodeableConcept
         multivalued: false
         required: false
@@ -2027,6 +2549,9 @@ classes:
         description: ''
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.id
+        - PDC:Treatment.id
         range: ccdh_string
         multivalued: false
         required: false
@@ -2035,6 +2560,9 @@ classes:
         description: The regimen or line of therapy
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Treatment.id
+        - PDC:Treatment.id
         range: Identifier
         multivalued: true
         required: false
@@ -2043,6 +2571,9 @@ classes:
         description: ''
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.regimen_or_line_of_therapy
+        - PDC:Treatment.regimen_or_line_of_therapy
         range: ccdh_string
         multivalued: false
         required: false
@@ -2052,6 +2583,9 @@ classes:
           procedures.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.treatment_type
+        - PDC:Treatment.treatment_type
         range: CodeableConcept
         multivalued: false
         required: false
@@ -2060,6 +2594,11 @@ classes:
         description: One or more theraputic agents as part of this treatment.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Treatment.therapeutic_agents
+        - PDC:Treatment.therapeutic_agents
+        - GDC:Treatment.treatment_dose
+        - GDC:Treatment.treatment_dose_unit
         range: Entity
         multivalued: true
         required: false
@@ -2068,6 +2607,9 @@ classes:
         description: The timepoint at which the treatment started.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.days_to_treatment_start
+        - PDC:Treatment.days_to_treatment_start
         range: TimePoint
         multivalued: false
         required: false
@@ -2076,6 +2618,9 @@ classes:
         description: The timepoint at which the treatment ended.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.days_to_treatment_end
+        - PDC:Treatment.days_to_treatment_end
         range: TimePoint
         multivalued: false
         required: false
@@ -2090,6 +2635,9 @@ classes:
         description: The anatomical site that the treatment targets.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.therapeutic_agents
+        - PDC:Treatment.therapeutic_agents
         range: BodySite
         multivalued: false
         required: false
@@ -2098,6 +2646,10 @@ classes:
         description: The effect of a treatment on the diagnosis or tumor.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.treatment_effect
+        - PDC:Treatment.treatment_effect
+        - GDC:Treatment.reatment_effect_indicator
         range: ccdh_string
         multivalued: false
         required: false
@@ -2106,6 +2658,9 @@ classes:
         description: The intent of the treatment.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.treatment_intent_type
+        - PDC:Treatment.treatment_intent_type
         range: ccdh_string
         multivalued: false
         required: false
@@ -2114,6 +2669,9 @@ classes:
         description: The final outcome of the treatment.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.treatment_outcome
+        - PDC:Treatment.treatment_outcome
         range: ccdh_string
         multivalued: false
         required: false
@@ -2122,6 +2680,11 @@ classes:
         description: The diagnosis for which this treatement is intended for
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Treatment.diagnosis
+        - PDC:Treatment.Diagnosis
+        - GDC:Treatment.initial_disease_status
+        - PDC:Treatment.initial_disease_status
         range: Diagnosis
         multivalued: true
         required: false
@@ -2130,6 +2693,8 @@ classes:
         description: The number of treatment cycles the patient received.
         notes:
         - 'Cardinality: 0..1'
+        related_mappings:
+        - GDC:Treatment.number_of_cycles
         range: ccdh_integer
         multivalued: false
         required: false
@@ -2138,6 +2703,8 @@ classes:
         description: The type(s) of treatment(s) that are concurrent to this treatment.
         notes:
         - 'Cardinality: 0..m'
+        related_mappings:
+        - GDC:Treatment.chemo_concurrent_to_radiation
         range: ccdh_string
         multivalued: true
         required: false
@@ -2149,4 +2716,4 @@ classes:
         range: Treatment
         multivalued: true
         required: false
-generation_date: '2021-05-24T21:33:19.932427+00:00'
+generation_date: '2021-05-25T06:05:25.125945+00:00'

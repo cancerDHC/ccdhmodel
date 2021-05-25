@@ -228,7 +228,7 @@
                },
                "type": "array"
             },
-            "metastatic_sites": {
+            "metastatic_site": {
                "description": "The anatomical location(s) of metastatic disease",
                "items": {
                   "$ref": "#/definitions/BodySite"
@@ -439,17 +439,21 @@
                "description": "The result of the observation, encoded as a boolean.",
                "type": "boolean"
             },
-            "valueCodeableConcept": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The result of the observation, encoded as a CodeableConcept."
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
             },
             "valueDecimal": {
                "description": "The result of the observation, encoded as a decimal.",
                "type": "string"
             },
-            "valueQuantity": {
-               "$ref": "#/definitions/Quantity",
-               "description": "The result of the observation, encoded as a free-text Quantity."
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
             },
             "valueString": {
                "description": "The result of the observation, encoded as a free-text string.",
@@ -928,7 +932,7 @@
                "description": "A type of method followed in collecting a sample form its original source."
             },
             "collection_site": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/definitions/BodySite",
                "description": "A data container holding information about the anatomic source of a specimen, including its location in the body, and the approach route used to access it."
             },
             "date_ended": {
