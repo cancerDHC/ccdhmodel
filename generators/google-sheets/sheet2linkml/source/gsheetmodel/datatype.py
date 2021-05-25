@@ -1,7 +1,7 @@
 from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
-import linkml_model
-from linkml_model.meta import TypeDefinition, SchemaDefinition
+from linkml_model.meta import TypeDefinition
 import logging
 import re
 
@@ -120,7 +120,8 @@ class Datatype(ModelElement):
         else:
             typ.notes = derived_from
 
-        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
+        # Add mappings.
+        Mappings(self, self.datatype_row.get("External Mappings")).set_mappings_on_element(typ)
 
         return typ
 

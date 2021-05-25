@@ -1,6 +1,7 @@
 from linkml_model import SchemaDefinition
 
 from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
 from linkml_model.meta import ClassDefinition, SlotDefinition
 import logging
@@ -148,7 +149,8 @@ class Entity(ModelElement):
         else:
             cls.notes = derived_from
 
-        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
+        # Add mappings
+        Mappings(self, self.entity_row.get("Source Mapping")).set_mappings_on_element(cls)
 
         # Now generate LinkML for all of the attributes.
         cls.attributes = {attribute.name: attribute.as_linkml(root_uri) for attribute in self.attributes}
@@ -258,6 +260,9 @@ class Attribute:
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
         if cardinality:
             slot.notes.append(f"Cardinality: {cardinality}")
+
+        # Add mappings
+        Mappings(self, data.get("Source Mapping")).set_mappings_on_element(slot)
 
         return slot
 
