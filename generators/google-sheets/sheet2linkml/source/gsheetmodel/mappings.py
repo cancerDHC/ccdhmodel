@@ -189,7 +189,7 @@ class Mappings:
                 writer.writerow([
                     mapping.source.full_name,
                     source_range,
-                    mapping.relation,
+                    mapping.relation.value,
                     mapping.target,
                     mapping.description,
                     'SSSOMC:HumanCurated',
