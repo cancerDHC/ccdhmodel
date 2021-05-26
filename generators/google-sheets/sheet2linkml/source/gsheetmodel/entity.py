@@ -1,10 +1,10 @@
+from linkml_model import SchemaDefinition
+
 from sheet2linkml.model import ModelElement
-from sheet2linkml.source.gsheetmodel.attribute import Attribute
 from pygsheets import worksheet
-from linkml_model.meta import SchemaDefinition, ClassDefinition
+from linkml_model.meta import ClassDefinition, SlotDefinition
 import logging
 import re
-
 
 class Entity(ModelElement):
     """
@@ -12,8 +12,6 @@ class Entity(ModelElement):
 
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
-
-    COL_ATTRIBUTE_NAME = "Attribute Name"
 
     def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
         """
@@ -40,7 +38,7 @@ class Entity(ModelElement):
         :return: A list of named rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is not None
+            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
         ]
 
     @property
@@ -66,7 +64,7 @@ class Entity(ModelElement):
 
         # Find all entity rows
         entity_rows = [
-            row for row in self.rows if row.get(Entity.COL_ATTRIBUTE_NAME) is None
+            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None
         ]
 
         # Report an error if no rows were found.
@@ -97,7 +95,7 @@ class Entity(ModelElement):
         """
         :return: A name for this entity.
         """
-        return self.entity_name
+        return (self.entity_name or '(unnamed entity)').strip()
 
     def get_filename(self) -> str:
         """
@@ -131,9 +129,12 @@ class Entity(ModelElement):
         # Basic metadata
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
-            description=self.entity_row.get("Description"),
+            description=(self.entity_row.get("Description") or '').strip(),
             # comments=self.entity_row.get("Comments"),
         )
+
+        if self.name != 'Entity':
+            cls.is_a = 'Entity'
 
         # Additional metadata
 
@@ -155,6 +156,112 @@ class Entity(ModelElement):
         return cls
 
 
+class Attribute:
+    """
+    An attribute represents a single property within an entity.
+
+    It is represented by a single row in a Google Sheet spreadsheet.
+    """
+
+    def __init__(self, model, entity, row: dict[str, str]):
+        """
+        Create an attribute based on a GSheetModel and a Google Sheet worksheet.
+
+        :param model: The GSheetModel that this attribute is a part of.
+        :param entity: The Entity that this attribute is a part of.
+        :param row: The row describing this attribute (as a dictionary of str -> str).
+        """
+
+        self.model = model
+        self.entity = entity
+        self.row = row
+
+    @property
+    def name(self):
+        """
+        :return: A name for this attribute.
+        """
+        return (
+            self.row.get(EntityWorksheet.COL_ATTRIBUTE_NAME)
+            or self.row.get("Name")
+            or self.row.get("name")
+        )
+
+    def __str__(self):
+        """
+        :return: A text description of this row.
+        """
+
+        return f'{self.__class__.__name__} named "{self.name}" containing {len(self.row)} properties'
+
+    def counts(self) -> (int, int):
+        """
+        Returns the minimum and maximum cardinality, determined by parsing the Cardinality column.
+        If the string is `?..m`, this indicates that there is no maximum cardinality -- which we
+        report by returning None instead of the maximum cardinality.
+
+        :return: The minimum and maximum cardinality by reading the 'Cardinality' column.
+        """
+
+        # A default cardinality to return if none can be parsed.
+        default = 0, None
+
+        cardinality = self.row.get(EntityWorksheet.COL_CARDINALITY)
+        if not cardinality:
+            return default
+
+        # We currently use `1..m` to indicate that there is no maximum cardinality.
+        # We might eventually need to support `1..*` as well.
+        m = re.compile("^(\\d+)\\.\\.(\\d+|m)$").match(str(cardinality))
+        if not m:
+            return default
+
+        min_count = int(m.group(1))
+        max_count = None
+        if (
+            m.group(2) != "m"
+        ):  # We use '..m' to indicate that there is no maximum value.
+            max_count = int(m.group(2))
+
+        return min_count, max_count
+
+    def as_linkml(self, root_uri) -> SlotDefinition:
+        """
+        Returns this attribute as a LinkML SlotDefinition.
+
+        :param root_uri: The root URI to use for this SlotDefinition.
+        :return: A LinkML SlotDefinition representing this attribute.
+        """
+
+        data = self.row
+        min_count, max_count = self.counts()
+
+        # Calculate the range.
+        attribute_range = "string"    # Default to linkml:string.
+        if EntityWorksheet.COL_TYPE in data:
+            attribute_range = data.get(EntityWorksheet.COL_TYPE) or "string"
+
+            # For primitive types, we need to add `ccdh_` to the start of the type name.
+            if attribute_range[0].islower():
+                attribute_range = f'ccdh_{attribute_range}'
+
+        slot: SlotDefinition = SlotDefinition(
+            name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
+            description=(data.get("Description") or '').strip(),
+            # comments=data.get("Comments"),
+            # notes=data.get("Developer Notes"),
+            required=(min_count > 0),
+            multivalued=(max_count is None or max_count > 1),
+            range=attribute_range
+        )
+
+        cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
+        if cardinality:
+            slot.notes.append(f"Cardinality: {cardinality}")
+
+        return slot
+
+
 class EntityWorksheet(ModelElement):
     """
     A Worksheet represents a single worksheet in a GSheetModel. A single sheet usually contains
@@ -165,7 +272,18 @@ class EntityWorksheet(ModelElement):
     # Some column names.
     COL_STATUS = "Status"
     COL_ENTITY_NAME = "Entity"
-    COL_ATTRIBUTE_NAME = "Attribute Name"
+    COL_ATTRIBUTE_NAME = "Attribute"
+    COL_CARDINALITY = "Cardinality"
+    COL_TYPE = "Type"
+
+    @staticmethod
+    def is_sheet_entity(worksheet: worksheet):
+        """Identify worksheets containing entities, i.e. those that have:
+            - COL_STATUS in cell A1, and
+            - COL_ENTITY_NAME in cell B1, and
+            - COL_ATTRIBUTE_NAME in cell C1.
+        """
+        return worksheet.get_values("A1", "C1") == [[EntityWorksheet.COL_STATUS, EntityWorksheet.COL_ENTITY_NAME, EntityWorksheet.COL_ATTRIBUTE_NAME]]
 
     def __init__(self, model, sheet: worksheet):
         """

@@ -1,165 +1,326 @@
-type CDM.BiologicallyDerivedProduct
+type BiologicallyDerivedProduct
   {
-    id: String
-    description: String
-    productType: String
-    passageNumber: [String]
-    growthRate: [String]
+    id: CcdhString
+    description: CcdhString
+    productType: CodeableConcept
+    passageNumber: [CcdhInteger]
+    growthRate: [CcdhString]
   }
 
-type CDM.Exposure
+type BodySite
   {
-    id: String!
-    identifier: [String]
-    tobaccoUse: String
-    alcoholUse: String
-    environmental: [String]
-    relatedPatient: String
+    id: CcdhString
+    site: CodeableConcept!
+    qualifier: [CodeableConcept]
   }
 
-type CDM.Organization
+type CancerGrade
   {
-    id: String!
-    identifier: [String]
-    name: String!
-    alias: String
-    organizationType: String
+    id: CcdhString
+    methodType: CodeableConcept
+    observations: [CancerGrade]
   }
 
-type CDM.Patient
+type CancerStage
   {
-    id: String!
-    identifier: [String]
-    givenName: String
-    taxon: String
-    adverseEvents: [String]
+    id: CcdhString
+    observationType: CodeableConcept!
+    valueCodeableConcept: CodeableConcept
   }
 
-type CDM.Report
+type CancerStageSet
   {
-    id: String
+    id: CcdhString
+    methodType: CodeableConcept
+    observations: [CancerStage]
   }
 
-type CDM.ResearchProject
+type CodeableConcept
   {
-    id: String
-    identifier: [String]
-    name: String
-    nameShortened: String
-    description: String
-    descriptionShortened: String
-    sponsor: [String]
-    dateStarted: String
-    dateEnded: String
-    primaryAnatomicSite: [String]
-    url: [String]
-    partOf: [String]
-    researchProjectType: String!
-    dateIacucApproval: String
+    id: CcdhString
+    coding: [Coding]
+    text: CcdhString
   }
 
-type CDM.ResearchSubject
+type Coding
   {
-    id: String!
-    identifier: [String]
-    description: String
-    primaryDiseaseType: String
-    primaryDiseaseSite: String
-    qualificationStatusFlag: String
-    associatedProject: [String]
-    memberOfCohort: [String]
-    memberOfStudy: [String]
-    indexTimepoint: String
-    referenceStatusFlag: String
-    processedAt: String
-    originatingSite: String
-    studyProgress: [String]
-    associatedPatient: String!
+    id: CcdhString
+    code: CcdhString!
+    system: CcdhString!
+    label: CcdhString
+    systemURL: CcdhString
+    systemVersion: CcdhString
   }
 
-type CDM.Specimen
+type Diagnosis
   {
-    id: String
-    identifier: [String]
-    description: String
-    specimenType: String
-    analyteType: String
-    associatedProject: String
-    providedBy: String
-    sourceMaterialType: String
-    parentSpecimen: [String]
-    sourcePatient: String
-    sourceModelSystem: String
-    conditionStatusAtCollection: String
-    relatedDiagnosis: [String]
-    creationActivity: String
-    processingActivity: [String]
-    storageActivity: String
-    transportActivity: String
-    containedIn: String
-    dimensionalMeasure: String
-    quantityMeasure: [String]
-    qualityMeasure: [String]
-    cellularCompositionType: String
-    cellularCompositionMeasure: [String]
-    tissueCompositionMeasure: [String]
-    generalTissueMorphology: String
-    specificTissueMorphology: String
-    relatedDocument?RelatedReport?: [String]
-    relatedSpecimen: [String]
-    derivedProduct: [String]
-    qualificationStatusFlag: String
-    referenceStatusFlag: String
-    matchedNormalFlag: [String]
-    selectedNormalFlag: String
-    pairedSpecimenGenotypeMatchFlag: String
-    sectionLocation: String
+    id: CcdhString
+    identifier: [Identifier]
+    ageAtDiagnosis: Quantity
+    yearAtDiagnosis: CcdhInteger
+    condition: CodeableConcept
+    primarySite: [BodySite]
+    metastaticSites: [BodySite]
+    stage: [CancerStageSet]
+    grade: [CancerGrade]
+    morphology: CodeableConcept
+    diseaseStatus: CodeableConcept
+    priorDiagnosis: Diagnosis
+    methodOfDiagnosis: CodeableConcept
+    relatedSpecimen: [Specimen]
   }
 
-type CDM.SpecimenContainer
+type Document
   {
-    containerType: [String]
-    containerNumber: [String]
-    additive: [String]
-    parentContainer: [String]
-    chargeType: String
+    id: CcdhString
+    identifier: [Identifier]
+    documentType: CodeableConcept
+    description: CcdhString
+    focus: Entity
+    url: [CcdhString]
   }
 
-type CDM.SpecimenCreationActivity
+type Entity
   {
-    id: String
-    activityType: String
-    dateStarted: String
-    dateEnded: String
-    performedBy: String
-    methodType: String
-    collectionSite: String
-    inputSpecimen: [String]
-    quantityCollected: String
-    executionCondition: [String]
-    collectedDuringVisit: String
-    relativeTiming: [String]
-    relativeOrder: String
+    id: CcdhString
   }
 
-type CDM.SpecimenProcessingActivity
+type Exposure
   {
-    duration: [String]
-    performedBy: String
+    id: CcdhString!
+    identifier: [Identifier]
+    tobaccoUse: Entity
+    alcoholUse: Entity
+    environmental: [Observation]
+    relatedPatient: Subject
   }
 
-type CDM.SpecimenStorageActivity
+type Identifier
   {
-    id: String
+    id: CcdhString
+    value: CcdhString!
+    system: CcdhString
+    type: CodeableConcept
   }
 
-type CDM.SpecimenTransportActivity
+type Observation
   {
-    id: String
-    dateStarted: String
-    dateEnded: String
-    transportDestination: String
-    executionConditions: [String]
+    id: CcdhString!
+    category: CodeableConcept!
+    observationType: CodeableConcept!
+    methodType: [CodeableConcept]
+    focus: [Entity]
+    patient: Subject
+    performedBy: Organization
+    valueString: CcdhString
+    valueDecimal: CcdhDecimal
+    valueQuantity: Quantity
+    valueBoolean: CcdhBoolean
+    valueCodeableConcept: CodeableConcept
+  }
+
+type Organization
+  {
+    id: CcdhString!
+    identifier: [Identifier]
+    name: CcdhString!
+    alias: CcdhString
+    organizationType: CcdhString
+  }
+
+type Quantity
+  {
+    id: CcdhString
+    valueDecimal: CcdhDecimal
+    valueCodeableConcept: CodeableConcept
+    unitCode: Coding
+    unit: CcdhString
+    comparator: Coding
+  }
+
+type ResearchProject
+  {
+    id: CcdhString
+    identifier: [Identifier]
+    name: CcdhString
+    nameShortened: CcdhString
+    description: CcdhString
+    descriptionShortened: CcdhString
+    sponsor: [CcdhString]
+    dateStarted: CcdhDateTime
+    dateEnded: CcdhDateTime
+    primaryAnatomicSite: [CodeableConcept]
+    url: [CcdhString]
+    partOf: [ResearchProject]
+    researchProjectType: CodeableConcept!
+    dateIacucApproval: CcdhDateTime
+  }
+
+type ResearchSubject
+  {
+    id: CcdhString!
+    identifier: [Identifier]
+    description: CcdhString
+    memberOfResearchProject: [ResearchProject]
+    ageAtEnrollment: Quantity
+    primaryDiagnosisCondition: CodeableConcept
+    primaryDiagnosisSite: CodeableConcept
+    primaryDiagnosis: [Diagnosis]
+    comorbidDiagnoses: [Diagnosis]
+    indexTimepoint: CodeableConcept
+    originatingSite: Organization
+    associatedSubject: Subject!
+  }
+
+type Specimen
+  {
+    id: CcdhString
+    identifier: [Identifier]
+    description: CcdhString
+    specimenType: CodeableConcept
+    analyteType: CodeableConcept
+    associatedProject: ResearchProject
+    dataProvider: Organization
+    sourceMaterialType: CodeableConcept
+    parentSpecimen: [Specimen]
+    sourceSubject: Subject
+    sourceModelSystem: Entity
+    conditionStatusAtCollection: CodeableConcept
+    creationActivity: SpecimenCreationActivity
+    processingActivity: [SpecimenProcessingActivity]
+    storageActivity: SpecimenStorageActivity
+    transportActivity: SpecimenTransportActivity
+    containedIn: SpecimenContainer
+    dimensionalMeasure: Entity
+    quantityMeasure: [Entity]
+    qualityMeasure: [Entity]
+    cellularCompositionType: CodeableConcept
+    cellularCompositionMeasure: [Entity]
+    tissueCompositionMeasure: [Entity]
+    generalTissueMorphology: CodeableConcept
+    specificTissueMorphology: CodeableConcept
+    preinvasiveTissueMorphology: CodeableConcept
+    morphologyPathologicallyConfirmed: CcdhBoolean
+    morphologyAssessorRole: CodeableConcept
+    morphlogyAssessmentMethod: CodeableConcept
+    degreeOfDysplasia: CodeableConcept
+    dysplasiaFraction: CcdhString
+    relatedDocument: [Document]
+    sectionLocation: CodeableConcept
+    derivedProduct: [BiologicallyDerivedProduct]
+    distanceFromPairedSpecimen: Quantity
+  }
+
+type SpecimenContainer
+  {
+    id: CcdhString
+    identifier: [Identifier]
+    containerType: CodeableConcept
+    containerNumber: CcdhString
+    additive: [Entity]
+    parentContainer: [SpecimenContainer]
+    chargeType: CodeableConcept
+  }
+
+type SpecimenCreationActivity
+  {
+    id: CcdhString
+    activityType: CodeableConcept
+    dateStarted: CcdhDateTime
+    dateEnded: CcdhDateTime
+    performedBy: Organization
+    collectionMethodType: CodeableConcept
+    derivationMethodType: CodeableConcept
+    additive: [Entity]
+    collectionSite: Entity
+    inputSpecimen: [Specimen]
+    quantityCollected: Quantity
+    executionCondition: [Entity]
+    specimenOrder: CcdhString
+  }
+
+type SpecimenProcessingActivity
+  {
+    id: CcdhString
+    activityType: CodeableConcept
+    dateStarted: CcdhDateTime
+    dateEnded: CcdhDateTime
+    duration: [CcdhString]
+    performedBy: Organization
+    methodType: CodeableConcept
+    additive: [Entity]
+    device: [CodeableConcept]
+    executionConditions: [Entity]
+  }
+
+type SpecimenStorageActivity
+  {
+    id: CcdhString
+    dateStarted: CcdhDateTime
+    dateEnded: CcdhDateTime
+    methodType: CodeableConcept
+    container: [SpecimenContainer]
+  }
+
+type SpecimenTransportActivity
+  {
+    id: CcdhString
+    dateStarted: CcdhDateTime
+    dateEnded: CcdhDateTime
+    transportDestination: Organization
+    executionConditions: [CcdhString]
+  }
+
+type Subject
+  {
+    id: CcdhString!
+    identifier: [Identifier]
+    species: CodeableConcept
+    breed: CodeableConcept
+    sex: CodeableConcept
+    ethnicity: CodeableConcept
+    race: [CodeableConcept]
+    yearOfBirth: CcdhInteger
+    vitalStatus: CodeableConcept
+    ageAtDeath: Quantity
+    yearOfDeath: CcdhInteger
+    causeOfDeath: CodeableConcept
+  }
+
+type TimePeriod
+  {
+    id: CcdhString
+    periodStartStart: TimePoint
+    periodEndEnd: TimePoint
+  }
+
+type TimePoint
+  {
+    id: CcdhString
+    dateTime: CcdhDateTime
+    indexDate: CcdhDateTime
+    indexEventType: CodeableConcept
+    offsetFromIndexIndexOffset: Quantity
+  }
+
+type Treatment
+  {
+    id: CcdhString
+    identifier: [Identifier]
+    regimen: CcdhString
+    type: CodeableConcept
+    therapeuticAgent: [Entity]
+    startDate: TimePoint
+    endDate: TimePoint
+    endReason: [CcdhString]
+    anatomicSite: BodySite
+    effect: CcdhString
+    intent: CcdhString
+    outcome: CcdhString
+    diagnosis: [Diagnosis]
+    numberOfCycles: CcdhInteger
+    concurrentTreatmentType: [CcdhString]
+    concurrentTreatment: [Treatment]
   }
 
 

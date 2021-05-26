@@ -2,6 +2,7 @@ import pygsheets
 
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
+from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
 from linkml_model.meta import SchemaDefinition
 from datetime import datetime, timezone
 import re
@@ -54,35 +55,52 @@ class GSheetModel(ModelElement):
         # Set a `development version`. This is initially None, but if set, we add this to the metadata we emit.
         self.development_version = None
 
+    @staticmethod
+    def is_sheet_normative(worksheet: pygsheets.worksheet):
+        """
+        Check if a sheet is an informative sheet that does not contain any model information.
+        There are three types of such sheets:
+            - O_* tabs are useful tabs that have other non Entity content (exclude)
+            - X_* tabs are tabs that might be deletable (exclude)
+            - R_* tabs can be created to hold some sort of reference material that should not be changed. (exclude)
+        """
+
+        result = not (
+            worksheet.title.startswith("O_") or
+            worksheet.title.startswith("X_") or
+            worksheet.title.startswith("R_"))
+
+        return result
+
     def entity_worksheets(self) -> list[EntityWorksheet]:
         """
         A list of worksheets available in this model.
 
-        We identify a worksheet containing entities based on having 'Status' as the first column header title.
+        We identify a worksheet containing entities based on its column header.
 
         :return: A list of entities available in this model.
         """
 
-        def is_sheet_entity(worksheet: pygsheets.worksheet):
-            """Identify worksheets containing entities, i.e. those that have:
-                - 'Status' in cell A1, and
-                - 'Name' in cell B1, and
-                - 'Attribute Name' in cell C1.
-            """
-            return worksheet.get_values("A1", "C1") == [["Status", "Entity", "Attribute Name"]]
-
-        def is_sheet_included(worksheet: pygsheets.worksheet):
-            """
-            Check if a sheet should be excluded. Eventually we should check whether A2 = 'included',
-            but for now we just check to see if the title starts with 'X_'.
-            """
-            return not worksheet.title.startswith("X_")
-
         # Identify entity worksheets among the list of all worksheets in this Google Sheets document.
         worksheets = self.sheet.worksheets()
-        entity_worksheets = filter(
-            is_sheet_entity, filter(is_sheet_included, worksheets)
-        )
+
+        tests_and_errors = {
+            'excluded by sheet type': GSheetModel.is_sheet_normative,
+            'not an entity worksheet': EntityWorksheet.is_sheet_entity
+        }
+
+        entity_worksheets = list()
+        for worksheet in worksheets:
+            flag_skip = False
+            for test_name, error in tests_and_errors.items():
+                if not error(worksheet):
+                    logging.debug(f'Skipping worksheet {worksheet.title}: {test_name}')
+                    flag_skip = True
+                    break
+
+            if not flag_skip:
+                entity_worksheets.append(worksheet)
+
         return [EntityWorksheet(self, worksheet) for worksheet in entity_worksheets]
 
     def entities(self) -> list[Entity]:
@@ -92,6 +110,26 @@ class GSheetModel(ModelElement):
         result = []
         for worksheet in self.entity_worksheets():
             result.extend(worksheet.entities)
+        return result
+
+    def datatype_worksheets(self) -> list[DatatypeWorksheet]:
+        """
+        A list of datatype worksheets available in this model.
+
+        We only have a single datatype worksheet: 'Primitives'. So we just return that.
+
+        :return: A list of datatype worksheets available in this model.
+        """
+
+        return [DatatypeWorksheet(self, self.sheet.worksheet('title', 'Primitives'))]
+
+    def datatypes(self) -> list[Datatype]:
+        """
+        :return: The list of Datatypes in this model.
+        """
+        result = []
+        for worksheet in self.datatype_worksheets():
+            result.extend(worksheet.datatypes)
         return result
 
     def __str__(self) -> str:
@@ -158,7 +196,29 @@ class GSheetModel(ModelElement):
         elif self.development_version:
             schema.version = self.development_version
 
+        # Generate all the datatypes.
+        schema.types = {datatype.name: datatype.as_linkml(root_uri) for datatype in self.datatypes()}
+
         # Generate all the entities.
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
+
+        # At this point, classes might refer to types that haven't been defined
+        # yet. So, for fields that refer to other classes in this model, we need to
+        # go through and:
+        #   - Warn the user about the missing type
+        #   - Replace the type with 'Entity' for now.
+        valid_types = set(schema.types.keys()).union(set(schema.classes.keys()))
+
+        def fix_type_name(entity, dict, propName):
+            value = dict[propName]
+            if value is not None and value not in valid_types:
+                logging.warning(f'Entity {entity}\'s {propName} refers to type {value}, which is not defined.')
+                dict[propName] = 'Entity'
+
+        for entity in schema.classes.values():
+            fix_type_name(entity.name, entity, 'is_a')
+            for attrName in entity.attributes:
+                attr = entity.attributes[attrName]
+                fix_type_name(f'{entity.name}.{attrName}', attr, 'range')
 
         return schema

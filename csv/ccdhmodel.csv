@@ -1,18 +1,33 @@
 id,mappings,description
-CDM.BiologicallyDerivedProduct,,"A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."
-CDM.Exposure,,"Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance."
-CDM.Organization,,"A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university"
-CDM.Patient,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
-CDM.Report,,
-CDM.ResearchProject,,"A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
+BiologicallyDerivedProduct,,"A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."
+BodySite,,
+CancerGrade,,"A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)."
+CancerStage,,"A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging."
+CancerStageSet,,"A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation)."
+CodeableConcept,,"A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text."
+Coding,,"A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system."
+Diagnosis,,
+Document,,
+Entity,,Any resource that has its own identifier
+Exposure,,"Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance."
+Identifier,,An Identifier is associated with a unique object or entity within a given system.
+Observation,,"A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation."
+Organization,,"A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university"
+Quantity,,"A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit."
+ResearchProject,,"A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
 This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
 and investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects."
-CDM.ResearchSubject,,"A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
+ResearchSubject,,"A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
 or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy."
-CDM.Specimen,,"Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation."
-CDM.SpecimenContainer,,
-CDM.SpecimenCreationActivity,,"The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported."
-CDM.SpecimenProcessingActivity,,
-CDM.SpecimenStorageActivity,,A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)
-CDM.SpecimenTransportActivity,,An activity through which a specimen is transported between locations.
+Specimen,,"Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation."
+SpecimenContainer,,A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)
+SpecimenCreationActivity,,"The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported."
+SpecimenProcessingActivity,,"An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen."
+SpecimenStorageActivity,,"An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
+intrinsic physical nature of a specimen."
+SpecimenTransportActivity,,An activity through which a specimen is transported between locations.
+Subject,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+TimePeriod,,
+TimePoint,,"A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index."
+Treatment,,Represent medication administration or other treatment types.
 
