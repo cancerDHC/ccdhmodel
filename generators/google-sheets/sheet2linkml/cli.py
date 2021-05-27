@@ -35,11 +35,11 @@ import click
     help="A file to write out mappings to."
 )
 @click.option(
-    '--skip-terminologies',
-    type=bool,
-    help="Do not use the CCDH Terminology Service to add enumerated values for attributes."
+    '--include-terminologies/--skip-terminologies',
+    default=True,
+    help="Controls whether we use the CCDH Terminology Service to add enumerated values for attributes."
 )
-def main(filter_entity, logging_config, write_mappings, skip_terminologies):
+def main(filter_entity, logging_config, write_mappings, include_terminologies):
     # Display INFO log entry and up.
     logging.config.fileConfig(logging_config)
 
@@ -52,7 +52,7 @@ def main(filter_entity, logging_config, write_mappings, skip_terminologies):
 
     # Load the Google Sheet model and add the development version number.
     model = GSheetModel(google_api_credentials, google_sheet_id)
-    if not skip_terminologies:
+    if include_terminologies:
         model.use_terminology_service(TCCMService('https://terminology.ccdh.io'))
     logging.info(f"Google Sheet loaded: {model}")
 
