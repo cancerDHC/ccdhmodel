@@ -4,6 +4,7 @@ from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
 from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
+from sheet2linkml.terminologies.service import TerminologyService
 from linkml_model.meta import SchemaDefinition
 from datetime import datetime, timezone
 import re
@@ -61,6 +62,9 @@ class GSheetModel(ModelElement):
         # requires a different scope than what we currently use.
         # return self.sheet.updated
         self.last_updated = datetime.now(timezone.utc).isoformat()
+
+        # Set the terminology_service to None, indicating that terminology services shouldn't be used.
+        self.terminology_service = None
 
     @property
     def version(self):
@@ -120,7 +124,7 @@ class GSheetModel(ModelElement):
             if not flag_skip:
                 entity_worksheets.append(worksheet)
 
-        return [EntityWorksheet(self, worksheet) for worksheet in entity_worksheets]
+        return [EntityWorksheet(self, worksheet, terminology_service=self.terminology_service) for worksheet in entity_worksheets]
 
     def entities(self) -> list[Entity]:
         """
@@ -251,3 +255,9 @@ class GSheetModel(ModelElement):
                 fix_type_name(f'{entity.name}.{attrName}', attr, 'range')
 
         return schema
+
+    def use_terminology_service(self, terminology_service: TerminologyService):
+        """
+        Activate terminology lookups using the specified base_url (e.g. https://terminology.ccdh.io/enumerations/CRDC-H.Specimen.analyte_type?value_only=false)
+        """
+        self.terminology_service = terminology_service
