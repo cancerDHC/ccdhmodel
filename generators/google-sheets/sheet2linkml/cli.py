@@ -80,7 +80,8 @@ def main(filter_entity, logging_config, write_mappings):
             with open(filename, "w") as f:
                 f.write(yamlutils.as_yaml(entity.as_linkml(crdch_root)))
 
-            mappings.extend(entity.mappings.mappings)
+            if write_mappings:
+                mappings.extend(entity.mappings.mappings)
 
         Mappings.write_to_file(mappings, filename=write_mappings)
 
@@ -91,7 +92,8 @@ def main(filter_entity, logging_config, write_mappings):
         with open(filename, "w") as f:
             f.write(yamlutils.as_yaml(model.as_linkml(crdch_root)))
 
-        Mappings.write_to_file(model.mappings(), filename=write_mappings, model=model)
+        if write_mappings:
+            Mappings.write_to_file(model.mappings(), filename=write_mappings, model=model)
 
 
 if __name__ == "__main__":
