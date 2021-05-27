@@ -110,11 +110,12 @@
 <h3 id="classes">Classes</h3>
 <ul>
 <li><a href="Entity/">Entity</a> - Any resource that has its own identifier<ul>
-<li><a href="BiologicallyDerivedProduct/">BiologicallyDerivedProduct</a> - A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
+<li><a href="BiologicProduct/">BiologicProduct</a> - A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
 <li><a href="BodySite/">BodySite</a></li>
-<li><a href="CancerGrade/">CancerGrade</a> - A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</li>
-<li><a href="CancerStage/">CancerStage</a> - A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.</li>
-<li><a href="CancerStageSet/">CancerStageSet</a> - A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).</li>
+<li><a href="CancerGradeObservation/">CancerGradeObservation</a> - A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation, such as ...</li>
+<li><a href="CancerGradeObservationSet/">CancerGradeObservationSet</a> - A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</li>
+<li><a href="CancerStageObservation/">CancerStageObservation</a> - A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.</li>
+<li><a href="CancerStageObservationSet/">CancerStageObservationSet</a> - A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).</li>
 <li><a href="CodeableConcept/">CodeableConcept</a> - A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.</li>
 <li><a href="Coding/">Coding</a> - A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.</li>
 <li><a href="Diagnosis/">Diagnosis</a></li>
@@ -133,6 +134,7 @@
 <li><a href="SpecimenStorageActivity/">SpecimenStorageActivity</a> - An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the </li>
 <li><a href="SpecimenTransportActivity/">SpecimenTransportActivity</a> - An activity through which a specimen is transported between locations.</li>
 <li><a href="Subject/">Subject</a> - Demographics and other administrative information about an individual or animal receiving care or other health-related services.</li>
+<li><a href="Substance/">Substance</a> - A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.</li>
 <li><a href="TimePeriod/">TimePeriod</a></li>
 <li><a href="TimePoint/">TimePoint</a> - A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.</li>
 <li><a href="Treatment/">Treatment</a> - Represent medication administration or other treatment types.</li>
@@ -142,19 +144,23 @@
 <h3 id="mixins">Mixins</h3>
 <h3 id="slots">Slots</h3>
 <ul>
-<li><a href="biologicallyDerivedProduct__description/">➞description</a> - A free text field to capture additional info/explanation about the model system</li>
-<li><a href="biologicallyDerivedProduct__growth_rate/">➞growth_rate</a> - When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.</li>
-<li><a href="biologicallyDerivedProduct__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
-<li><a href="biologicallyDerivedProduct__passage_number/">➞passage_number</a> - When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.</li>
-<li><a href="biologicallyDerivedProduct__product_type/">➞product_type</a> - The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)</li>
+<li><a href="biologicProduct__description/">➞description</a> - A free text field to capture additional info/explanation about the model system</li>
+<li><a href="biologicProduct__growth_rate/">➞growth_rate</a> - When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.</li>
+<li><a href="biologicProduct__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li><a href="biologicProduct__identifier/">➞identifier</a> - A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
+<li><a href="biologicProduct__passage_number/">➞passage_number</a> - When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.</li>
+<li><a href="biologicProduct__product_type/">➞product_type</a> - The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)</li>
 <li><a href="bodySite__qualifier/">➞qualifier</a> - A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).</li>
 <li><a href="bodySite__site/">➞site</a> - A term describing any site in the body.</li>
-<li><a href="cancerGrade__method_type/">➞method_type</a> - The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)</li>
-<li><a href="cancerGrade__observations/">➞observations</a> - The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
-<li><a href="cancerStageSet__method_type/">➞method_type</a> - A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.</li>
-<li><a href="cancerStageSet__observations/">➞observations</a> - A set of one or more more atomic observations about the cancer stage</li>
-<li><a href="cancerStage__observation_type/">➞observation_type</a> - The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')</li>
-<li><a href="cancerStage__valueCodeableConcept/">➞valueCodeableConcept</a> - The value for a cancer staging component being represented (e.g. 'M1')</li>
+<li><a href="cancerGradeObservationSet__method_type/">➞method_type</a> - The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)</li>
+<li><a href="cancerGradeObservationSet__observations/">➞observations</a> - The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
+<li><a href="cancerGradeObservation__observation_type/">➞observation_type</a> - The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)</li>
+<li><a href="cancerGradeObservation__valueCodeableConcept/">➞valueCodeableConcept</a> - The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
+<li><a href="cancerStageObservationSet__category/">➞category</a></li>
+<li><a href="cancerStageObservationSet__method_type/">➞method_type</a> - A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.</li>
+<li><a href="cancerStageObservationSet__observations/">➞observations</a> - A set of one or more more atomic observations about the cancer stage</li>
+<li><a href="cancerStageObservation__observation_type/">➞observation_type</a> - The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')</li>
+<li><a href="cancerStageObservation__valueCodeableConcept/">➞valueCodeableConcept</a> - The value for a cancer staging component being represented (e.g. 'M1')</li>
 <li><a href="codeableConcept__coding/">➞coding</a> - A reference to a code defined by a terminology system</li>
 <li><a href="codeableConcept__text/">➞text</a> - A human language representation of the concept represented by the Coding.</li>
 <li><a href="coding__code/">➞code</a> - The symbol/value of the code, as defined by the code system.</li>
@@ -187,7 +193,7 @@
 <li><a href="exposure__environmental/">➞environmental</a> - Observations about an individual's exposure to environmental substances that may impact clinical outcomes.</li>
 <li><a href="exposure__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li><a href="exposure__identifier/">➞identifier</a> - A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
-<li><a href="exposure__related_patient/">➞related_patient</a> - A reference to the Subject that is the subject of this Exposure</li>
+<li><a href="exposure__subject/">➞subject</a> - A reference to the Subject that is the subject of this Exposure</li>
 <li><a href="exposure__tobacco_use/">➞tobacco_use</a> - A container holding a set of observations about an individual's exposure to tobacco.</li>
 <li><a href="identifier__system/">➞system</a> - The system or namespace that defines the identifier.</li>
 <li><a href="identifier__type/">➞type</a> - A code that defines the type of the identifier.</li>
@@ -197,13 +203,15 @@
 <li><a href="observation__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li><a href="observation__method_type/">➞method_type</a> - A type of method used in generating the Observation result.</li>
 <li><a href="observation__observation_type/">➞observation_type</a> - The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
-<li><a href="observation__patient/">➞patient</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li><a href="observation__performed_by/">➞performed_by</a> - The organization or group that performed the observation activity.</li>
+<li><a href="observation__subject/">➞subject</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li><a href="observation__valueBoolean/">➞valueBoolean</a> - The result of the observation, encoded as a boolean.</li>
-<li><a href="observation__valueDateTime/">➞valueDateTime</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="observation__valueCodeableConcept/">➞valueCodeableConcept</a> - The result of the observation, encoded as a CodeableConcept.</li>
+<li><a href="observation__valueDateTime/">➞valueDateTime</a> - The result of the observation, encoded as a dateTime.</li>
 <li><a href="observation__valueDecimal/">➞valueDecimal</a> - The result of the observation, encoded as a decimal.</li>
 <li><a href="observation__valueEntity/">➞valueEntity</a> - The value of an observation</li>
 <li><a href="observation__valueInteger/">➞valueInteger</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="observation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
 <li><a href="observation__valueString/">➞valueString</a> - The result of the observation, encoded as a free-text string.</li>
 <li><a href="organization__alias/">➞alias</a> - A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')</li>
 <li><a href="organization__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
@@ -250,12 +258,12 @@
 <li><a href="specimenContainer__parent_container/">➞parent_container</a> - A larger container of which this container is a part (e.g. a single well in a 96-well plate)</li>
 <li><a href="specimenCreationActivity__activity_type/">➞activity_type</a> - The high-level type of creation activity</li>
 <li><a href="specimenCreationActivity__additive/">➞additive</a> - A type of material or reagent used as input when creating the specimen</li>
-<li><a href="specimenCreationActivity__collection_method_type/">➞collection_method_type</a> - A type of method followed in collecting a sample form its original source.</li>
+<li><a href="specimenCreationActivity__collection_method_type/">➞collection_method_type</a> - A type of method followed in collecting a sample from its original source.</li>
 <li><a href="specimenCreationActivity__collection_site/">➞collection_site</a> - A data container holding information about the anatomic source of a specimen, including its location in the body, and the approach route used to access it.</li>
 <li><a href="specimenCreationActivity__date_ended/">➞date_ended</a> - The date when the activity ended (in this case, a specimen creation event).</li>
 <li><a href="specimenCreationActivity__date_started/">➞date_started</a> - The date when the activity began (in this case, a specimen creation event).</li>
 <li><a href="specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a> - A type of method followed in deriving new specimens from an existing one.</li>
-<li><a href="specimenCreationActivity__execution_condition/">➞execution_condition</a> - Information describing the specified or observed conditions under which activity was executed</li>
+<li><a href="specimenCreationActivity__execution_observation/">➞execution_observation</a> - Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
 <li><a href="specimenCreationActivity__input_specimen/">➞input_specimen</a> - One or more existing specimens input into the specimen creation activity, from which a new specimen is derived (e.g. through portioning, aliquoting, sectioning, etc)</li>
 <li><a href="specimenCreationActivity__performed_by/">➞performed_by</a> - The organization or group that performed the activity.</li>
 <li><a href="specimenCreationActivity__quantity_collected/">➞quantity_collected</a> - The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)</li>
@@ -264,24 +272,27 @@
 <li><a href="specimenProcessingActivity__additive/">➞additive</a> - A type of material or reagent used as input when processing the specimen</li>
 <li><a href="specimenProcessingActivity__date_ended/">➞date_ended</a> - The date when the activity began (in this case, a specimen processing event).</li>
 <li><a href="specimenProcessingActivity__date_started/">➞date_started</a> - The date when the activity began (in this case, a specimen processing event).</li>
-<li><a href="specimenProcessingActivity__device/">➞device</a> - A type of instrument or tool used to perform the processing</li>
 <li><a href="specimenProcessingActivity__duration/">➞duration</a> - The length of time over which the activity was performed.</li>
-<li><a href="specimenProcessingActivity__executionConditions/">➞executionConditions</a> - Information describing the specified or observed conditions under which activity was executed</li>
+<li><a href="specimenProcessingActivity__execution_observation/">➞execution_observation</a> - Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
 <li><a href="specimenProcessingActivity__method_type/">➞method_type</a> - A specific type of method or procedure performed to process the specimen</li>
 <li><a href="specimenProcessingActivity__performed_by/">➞performed_by</a> - The organization or group that performed the activity.</li>
 <li><a href="specimenStorageActivity__container/">➞container</a> - A container in which the specimen is held or affixed during its storage.</li>
 <li><a href="specimenStorageActivity__date_ended/">➞date_ended</a> - The date when the activity ended (in this case, a storage event).</li>
 <li><a href="specimenStorageActivity__date_started/">➞date_started</a> - The date when the activity began (in this case, a storage event).</li>
+<li><a href="specimenStorageActivity__duration/">➞duration</a> - The length of time over which the activity was performed.</li>
 <li><a href="specimenStorageActivity__method_type/">➞method_type</a> - A specific type of method or procedure performed to store the specimen</li>
+<li><a href="specimenStorageActivity__performed_by/">➞performed_by</a> - The organization or group that performed the activity.</li>
 <li><a href="specimenTransportActivity__date_ended/">➞date_ended</a> - The date when the activity ended (in this case, a transport event).</li>
 <li><a href="specimenTransportActivity__date_started/">➞date_started</a> - The date when the activity began (in this case, a transport event).</li>
+<li><a href="specimenTransportActivity__duration/">➞duration</a> - The length of time over which the activity was performed.</li>
 <li><a href="specimenTransportActivity__execution_conditions/">➞execution_conditions</a> - An environmental condition under which the activity is executed (in this case, a transport activity).</li>
+<li><a href="specimenTransportActivity__execution_observation/">➞execution_observation</a> - Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
+<li><a href="specimenTransportActivity__performed_by/">➞performed_by</a> - The organization or group that performed the activity.</li>
 <li><a href="specimenTransportActivity__transport_destination/">➞transport_destination</a> - An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity.</li>
+<li><a href="specimenTransportActivity__transport_origin/">➞transport_origin</a> - An organization (facility, site, lab, etc) from which the specimen was transported as a result of the activity.</li>
 <li><a href="specimen__analyte_type/">➞analyte_type</a> - For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)</li>
 <li><a href="specimen__associated_project/">➞associated_project</a> - The Project associated with the specimen.</li>
-<li><a href="specimen__cellular_composition_measure/">➞cellular_composition_measure</a> - An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.</li>
 <li><a href="specimen__cellular_composition_type/">➞cellular_composition_type</a> - A term describing the type of material comprising a specimen at a celluar level.</li>
-<li><a href="specimen__condition_status_at_collection/">➞condition_status_at_collection</a> - The status of a patient's condition at the time the speimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
 <li><a href="specimen__contained_in/">➞contained_in</a> - A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)</li>
 <li><a href="specimen__creation_activity/">➞creation_activity</a> - An activity or procedure through which a specimen was created, through removing material from an biological subject, or deriving material from an existing specimen.</li>
 <li><a href="specimen__data_provider/">➞data_provider</a> - The organization/center that provided data associated with a specimen.</li>
@@ -292,6 +303,7 @@
 <li><a href="specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a> - The observed distance of the specimen from a 'paired specimen' in the body at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)</li>
 <li><a href="specimen__dysplasia_fraction/">➞dysplasia_fraction</a> - Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.</li>
 <li><a href="specimen__general_tissue_morphology/">➞general_tissue_morphology</a> - A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
+<li><a href="specimen__histological_composition_measure/">➞histological_composition_measure</a> - An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.</li>
 <li><a href="specimen__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li><a href="specimen__identifier/">➞identifier</a> - A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
 <li><a href="specimen__morphlogy_assessment_method/">➞morphlogy_assessment_method</a> - The general method used to assess a specimens specific tissue morphology</li>
@@ -300,19 +312,19 @@
 <li><a href="specimen__parent_specimen/">➞parent_specimen</a> - An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).</li>
 <li><a href="specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a> - A term describing the pathology exhibited by a pre-invasive tissue in a specimen.</li>
 <li><a href="specimen__processing_activity/">➞processing_activity</a> - An activity that modifies the physical structure, composition, or state of a specimen.</li>
-<li><a href="specimen__quality_measure/">➞quality_measure</a> - An observation about  specimen characteristics indicative of its quality or suitability for use.</li>
-<li><a href="specimen__quantity_measure/">➞quantity_measure</a> - An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration.</li>
+<li><a href="specimen__quality_measure/">➞quality_measure</a> - An observation about characteristics of a specimen that are indicative of its quality or suitability for use.</li>
+<li><a href="specimen__quantity_measure/">➞quantity_measure</a> - An observation related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.</li>
 <li><a href="specimen__related_document/">➞related_document
 </a> - A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected, or a catalog entry describing  related research resource)</li>
 <li><a href="specimen__section_location/">➞section_location</a> - The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)</li>
 <li><a href="specimen__source_material_type/">➞source_material_type</a> - The general kind of material from which the specimen was derived, based on the physical nature of the source material.</li>
-<li><a href="specimen__source_model_system/">➞source_model_system</a> - A Biologically Derived Material / model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
+<li><a href="specimen__source_model_system/">➞source_model_system</a> - A model biological system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
 <li><a href="specimen__source_subject/">➞source_subject</a> - A Subject from which the specimen was directly or indirectly derived.</li>
 <li><a href="specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a> - A term describing the specific pathology exhibited by the tissue in a specimen.</li>
 <li><a href="specimen__specimen_type/">➞specimen_type</a> - The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</li>
 <li><a href="specimen__storage_activity/">➞storage_activity</a> - An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.</li>
-<li><a href="specimen__tissue_composition_measure/">➞tissue_composition_measure</a> - An observation about the absolute area or relative proportion of a specific type of tissue in a specimen or other biological material</li>
 <li><a href="specimen__transport_activity/">➞transport_activity</a> - An activity through which the specimen is transported between locations.</li>
+<li><a href="specimen__tumor_status_at_collection/">➞tumor_status_at_collection</a> - The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
 <li><a href="subject__age_at_death/">➞age_at_death</a> - The age of an individual at the time of death, expressed in days since birth</li>
 <li><a href="subject__breed/">➞breed</a> - A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.</li>
 <li><a href="subject__cause_of_death/">➞cause_of_death</a> - Coded value indicating the circumstance or condition that results in the death of the subject.</li>
@@ -325,6 +337,8 @@
 <li><a href="subject__vital_status/">➞vital_status</a> - Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.</li>
 <li><a href="subject__year_of_birth/">➞year_of_birth</a> - Numeric value to represent the calendar year in which an individual was born.</li>
 <li><a href="subject__year_of_death/">➞year_of_death</a> - Numeric value to represent the calendar year in which an individual died.</li>
+<li><a href="substance__role/">➞role</a> - A role played by the subtance in a particular applicaton (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)</li>
+<li><a href="substance__substance_type/">➞substance_type</a> - The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds.</li>
 <li><a href="timePeriod__periodEnd_end/">➞periodEnd
 end</a> - When a period of time ended.</li>
 <li><a href="timePeriod__periodStart_start/">➞periodStart
@@ -332,8 +346,7 @@ start</a> - When a period of time started.</li>
 <li><a href="timePoint__dateTime/">➞dateTime</a> - An explicitly specified timepoint described in terms of a date and optionally a time on that date.</li>
 <li><a href="timePoint__indexDate/">➞indexDate</a> - An explicit dateTime that serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
 <li><a href="timePoint__indexEventType/">➞indexEventType</a> - A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
-<li><a href="timePoint__offsetFromIndex_indexOffset/">➞offsetFromIndex
-indexOffset</a> - A quantity of time that, together with the index date or event, can be used to derive a specific timepoint.</li>
+<li><a href="timePoint__offsetFromIndex/">➞offsetFromIndex</a> - A quantity of time that, together with the index date or event, can be used to derive a specific timepoint.</li>
 <li><a href="treatment__anatomic_site/">➞anatomic_site</a> - The anatomical site that the treatment targets.</li>
 <li><a href="treatment__concurrent_treatment/">➞concurrent_treatment</a> - The treatment(s) instance(s) that are concurrent with this treatment.</li>
 <li><a href="treatment__concurrent_treatment_type/">➞concurrent_treatment_type</a> - The type(s) of treatment(s) that are concurrent to this treatment.</li>
@@ -352,6 +365,65 @@ indexOffset</a> - A quantity of time that, together with the index date or event
 <li><a href="treatment__type/">➞type</a> - The treatment type including medication/theraputics or other procedures.</li>
 </ul>
 <h3 id="enums">Enums</h3>
+<ul>
+<li><a href="enum_CRDC-H.BiologicProduct.product_type/">enum_CRDC-H.BiologicProduct.product_type</a> - Autogenerated Enumeration for CRDC-H BiologicProduct product_type</li>
+<li><a href="enum_CRDC-H.BodySite.qualifier/">enum_CRDC-H.BodySite.qualifier</a> - Autogenerated Enumeration for CRDC-H BodySite qualifier</li>
+<li><a href="enum_CRDC-H.BodySite.site/">enum_CRDC-H.BodySite.site</a> - Autogenerated Enumeration for CRDC-H BodySite site</li>
+<li><a href="enum_CRDC-H.CancerGradeObservation.observation_type/">enum_CRDC-H.CancerGradeObservation.observation_type</a> - Autogenerated Enumeration for CRDC-H CancerGradeObservation observation_type</li>
+<li><a href="enum_CRDC-H.CancerGradeObservation.valueCodeableConcept/">enum_CRDC-H.CancerGradeObservation.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept</li>
+<li><a href="enum_CRDC-H.CancerGradeObservationSet.method_type/">enum_CRDC-H.CancerGradeObservationSet.method_type</a> - Autogenerated Enumeration for CRDC-H CancerGradeObservationSet method_type</li>
+<li><a href="enum_CRDC-H.CancerStageObservation.observation_type/">enum_CRDC-H.CancerStageObservation.observation_type</a> - Autogenerated Enumeration for CRDC-H CancerStageObservation observation_type</li>
+<li><a href="enum_CRDC-H.CancerStageObservation.valueCodeableConcept/">enum_CRDC-H.CancerStageObservation.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept</li>
+<li><a href="enum_CRDC-H.CancerStageObservationSet.category/">enum_CRDC-H.CancerStageObservationSet.category</a> - Autogenerated Enumeration for CRDC-H CancerStageObservationSet category</li>
+<li><a href="enum_CRDC-H.CancerStageObservationSet.method_type/">enum_CRDC-H.CancerStageObservationSet.method_type</a> - Autogenerated Enumeration for CRDC-H CancerStageObservationSet method_type</li>
+<li><a href="enum_CRDC-H.Diagnosis.condition/">enum_CRDC-H.Diagnosis.condition</a> - Autogenerated Enumeration for CRDC-H Diagnosis condition</li>
+<li><a href="enum_CRDC-H.Diagnosis.disease_status/">enum_CRDC-H.Diagnosis.disease_status</a> - Autogenerated Enumeration for CRDC-H Diagnosis disease_status</li>
+<li><a href="enum_CRDC-H.Diagnosis.method_of_diagnosis/">enum_CRDC-H.Diagnosis.method_of_diagnosis</a> - Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis</li>
+<li><a href="enum_CRDC-H.Diagnosis.morphology/">enum_CRDC-H.Diagnosis.morphology</a> - Autogenerated Enumeration for CRDC-H Diagnosis morphology</li>
+<li><a href="enum_CRDC-H.Document.document_type/">enum_CRDC-H.Document.document_type</a> - Autogenerated Enumeration for CRDC-H Document document_type</li>
+<li><a href="enum_CRDC-H.Identifier.type/">enum_CRDC-H.Identifier.type</a> - Autogenerated Enumeration for CRDC-H Identifier type</li>
+<li><a href="enum_CRDC-H.Observation.category/">enum_CRDC-H.Observation.category</a> - Autogenerated Enumeration for CRDC-H Observation category</li>
+<li><a href="enum_CRDC-H.Observation.method_type/">enum_CRDC-H.Observation.method_type</a> - Autogenerated Enumeration for CRDC-H Observation method_type</li>
+<li><a href="enum_CRDC-H.Observation.observation_type/">enum_CRDC-H.Observation.observation_type</a> - Autogenerated Enumeration for CRDC-H Observation observation_type</li>
+<li><a href="enum_CRDC-H.Observation.valueCodeableConcept/">enum_CRDC-H.Observation.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H Observation valueCodeableConcept</li>
+<li><a href="enum_CRDC-H.Quantity.valueCodeableConcept/">enum_CRDC-H.Quantity.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept</li>
+<li><a href="enum_CRDC-H.ResearchProject.primary_anatomic_site/">enum_CRDC-H.ResearchProject.primary_anatomic_site</a> - Autogenerated Enumeration for CRDC-H ResearchProject primary_anatomic_site</li>
+<li><a href="enum_CRDC-H.ResearchProject.research_project_type/">enum_CRDC-H.ResearchProject.research_project_type</a> - Autogenerated Enumeration for CRDC-H ResearchProject research_project_type</li>
+<li><a href="enum_CRDC-H.ResearchSubject.index_timepoint/">enum_CRDC-H.ResearchSubject.index_timepoint</a> - Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint</li>
+<li><a href="enum_CRDC-H.ResearchSubject.primary_diagnosis_condition/">enum_CRDC-H.ResearchSubject.primary_diagnosis_condition</a> - Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition</li>
+<li><a href="enum_CRDC-H.ResearchSubject.primary_diagnosis_site/">enum_CRDC-H.ResearchSubject.primary_diagnosis_site</a> - Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_site</li>
+<li><a href="enum_CRDC-H.Specimen.analyte_type/">enum_CRDC-H.Specimen.analyte_type</a> - Autogenerated Enumeration for CRDC-H Specimen analyte_type</li>
+<li><a href="enum_CRDC-H.Specimen.cellular_composition_type/">enum_CRDC-H.Specimen.cellular_composition_type</a> - Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type</li>
+<li><a href="enum_CRDC-H.Specimen.degree_of_dysplasia/">enum_CRDC-H.Specimen.degree_of_dysplasia</a> - Autogenerated Enumeration for CRDC-H Specimen degree_of_dysplasia</li>
+<li><a href="enum_CRDC-H.Specimen.general_tissue_morphology/">enum_CRDC-H.Specimen.general_tissue_morphology</a> - Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology</li>
+<li><a href="enum_CRDC-H.Specimen.morphlogy_assessment_method/">enum_CRDC-H.Specimen.morphlogy_assessment_method</a> - Autogenerated Enumeration for CRDC-H Specimen morphlogy_assessment_method</li>
+<li><a href="enum_CRDC-H.Specimen.morphology_assessor_role/">enum_CRDC-H.Specimen.morphology_assessor_role</a> - Autogenerated Enumeration for CRDC-H Specimen morphology_assessor_role</li>
+<li><a href="enum_CRDC-H.Specimen.preinvasive_tissue_morphology/">enum_CRDC-H.Specimen.preinvasive_tissue_morphology</a> - Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology</li>
+<li><a href="enum_CRDC-H.Specimen.section_location/">enum_CRDC-H.Specimen.section_location</a> - Autogenerated Enumeration for CRDC-H Specimen section_location</li>
+<li><a href="enum_CRDC-H.Specimen.source_material_type/">enum_CRDC-H.Specimen.source_material_type</a> - Autogenerated Enumeration for CRDC-H Specimen source_material_type</li>
+<li><a href="enum_CRDC-H.Specimen.specific_tissue_morphology/">enum_CRDC-H.Specimen.specific_tissue_morphology</a> - Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology</li>
+<li><a href="enum_CRDC-H.Specimen.specimen_type/">enum_CRDC-H.Specimen.specimen_type</a> - Autogenerated Enumeration for CRDC-H Specimen specimen_type</li>
+<li><a href="enum_CRDC-H.Specimen.tumor_status_at_collection/">enum_CRDC-H.Specimen.tumor_status_at_collection</a> - Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection</li>
+<li><a href="enum_CRDC-H.SpecimenContainer.charge_type/">enum_CRDC-H.SpecimenContainer.charge_type</a> - Autogenerated Enumeration for CRDC-H SpecimenContainer charge_type</li>
+<li><a href="enum_CRDC-H.SpecimenContainer.container_type/">enum_CRDC-H.SpecimenContainer.container_type</a> - Autogenerated Enumeration for CRDC-H SpecimenContainer container_type</li>
+<li><a href="enum_CRDC-H.SpecimenCreationActivity.activity_type/">enum_CRDC-H.SpecimenCreationActivity.activity_type</a> - Autogenerated Enumeration for CRDC-H SpecimenCreationActivity activity_type</li>
+<li><a href="enum_CRDC-H.SpecimenCreationActivity.collection_method_type/">enum_CRDC-H.SpecimenCreationActivity.collection_method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type</li>
+<li><a href="enum_CRDC-H.SpecimenCreationActivity.derivation_method_type/">enum_CRDC-H.SpecimenCreationActivity.derivation_method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type</li>
+<li><a href="enum_CRDC-H.SpecimenProcessingActivity.activity_type/">enum_CRDC-H.SpecimenProcessingActivity.activity_type</a> - Autogenerated Enumeration for CRDC-H SpecimenProcessingActivity activity_type</li>
+<li><a href="enum_CRDC-H.SpecimenProcessingActivity.method_type/">enum_CRDC-H.SpecimenProcessingActivity.method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenProcessingActivity method_type</li>
+<li><a href="enum_CRDC-H.SpecimenStorageActivity.method_type/">enum_CRDC-H.SpecimenStorageActivity.method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type</li>
+<li><a href="enum_CRDC-H.Subject.breed/">enum_CRDC-H.Subject.breed</a> - Autogenerated Enumeration for CRDC-H Subject breed</li>
+<li><a href="enum_CRDC-H.Subject.cause_of_death/">enum_CRDC-H.Subject.cause_of_death</a> - Autogenerated Enumeration for CRDC-H Subject cause_of_death</li>
+<li><a href="enum_CRDC-H.Subject.ethnicity/">enum_CRDC-H.Subject.ethnicity</a> - Autogenerated Enumeration for CRDC-H Subject ethnicity</li>
+<li><a href="enum_CRDC-H.Subject.race/">enum_CRDC-H.Subject.race</a> - Autogenerated Enumeration for CRDC-H Subject race</li>
+<li><a href="enum_CRDC-H.Subject.sex/">enum_CRDC-H.Subject.sex</a> - Autogenerated Enumeration for CRDC-H Subject sex</li>
+<li><a href="enum_CRDC-H.Subject.species/">enum_CRDC-H.Subject.species</a> - Autogenerated Enumeration for CRDC-H Subject species</li>
+<li><a href="enum_CRDC-H.Subject.vital_status/">enum_CRDC-H.Subject.vital_status</a> - Autogenerated Enumeration for CRDC-H Subject vital_status</li>
+<li><a href="enum_CRDC-H.Substance.role/">enum_CRDC-H.Substance.role</a> - Autogenerated Enumeration for CRDC-H Substance role</li>
+<li><a href="enum_CRDC-H.Substance.substance_type/">enum_CRDC-H.Substance.substance_type</a> - Autogenerated Enumeration for CRDC-H Substance substance_type</li>
+<li><a href="enum_CRDC-H.TimePoint.indexEventType/">enum_CRDC-H.TimePoint.indexEventType</a> - Autogenerated Enumeration for CRDC-H TimePoint indexEventType</li>
+<li><a href="enum_CRDC-H.Treatment.type/">enum_CRDC-H.Treatment.type</a> - Autogenerated Enumeration for CRDC-H Treatment type</li>
+</ul>
 <h3 id="types">Types</h3>
 <h4 id="built-in">Built in</h4>
 <ul>
@@ -450,5 +522,5 @@ indexOffset</a> - A quantity of time that, together with the index date or event
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-05-25 07:29:31.289075+00:00
+Build Date UTC : 2021-05-27 05:34:12.718156+00:00
 -->

@@ -93,7 +93,7 @@
 This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
 and investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects.</p>
 <p>URI: <a href="https://example.org/ccdh/ResearchProject">ccdh:ResearchProject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[CodeableConcept]&lt;research_project_type%201..1-++[ResearchProject&#124;id:ccdh_string%20%3F;name:ccdh_string%20%3F;name_shortened:ccdh_string%20%3F;description:ccdh_string%20%3F;description_shortened:ccdh_string%20%3F;sponsor:ccdh_string%20*;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;url:ccdh_string%20*;date_iacuc_approval:ccdh_dateTime%20%3F],[ResearchProject]&lt;part_of%200..*-++[ResearchProject],[CodeableConcept]&lt;primary_anatomic_site%200..*-++[ResearchProject],[Identifier]&lt;identifier%200..*-++[ResearchProject],[ResearchSubject]++-%20member_of_research_project%200..*&gt;[ResearchProject],[Specimen]++-%20associated_project%200..1&gt;[ResearchProject],[Entity]^-[ResearchProject],[Specimen],[ResearchSubject],[Identifier],[Entity],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[ResearchProject]&lt;part_of%200..*-++[ResearchProject&#124;id:ccdh_string%20%3F;name:ccdh_string%20%3F;name_shortened:ccdh_string%20%3F;description:ccdh_string%20%3F;description_shortened:ccdh_string%20%3F;sponsor:ccdh_string%20*;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;primary_anatomic_site:enum_CRDC-H.ResearchProject.primary_anatomic_site%20*;url:ccdh_string%20*;research_project_type:enum_CRDC-H.ResearchProject.research_project_type;date_iacuc_approval:ccdh_dateTime%20%3F],[Identifier]&lt;identifier%200..*-++[ResearchProject],[ResearchSubject]++-%20member_of_research_project%200..1&gt;[ResearchProject],[Specimen]++-%20associated_project%200..1&gt;[ResearchProject],[Entity]^-[ResearchProject],[Specimen],[ResearchSubject],[Identifier],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -101,7 +101,7 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong>None</strong> <em><a href="../researchProject__part_of/">➞part_of</a></em>  <sub>0..<em></sub>  </em><em><a href="./">ResearchProject</a></em>*</li>
-<li><strong>None</strong> <em><a href="../researchSubject__member_of_research_project/">➞member_of_research_project</a></em>  <sub>0..<em></sub>  </em><em><a href="./">ResearchProject</a></em>*</li>
+<li><strong>None</strong> <em><a href="../researchSubject__member_of_research_project/">➞member_of_research_project</a></em>  <sub>OPT</sub>  <strong><a href="./">ResearchProject</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimen__associated_project/">➞associated_project</a></em>  <sub>OPT</sub>  <strong><a href="./">ResearchProject</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
@@ -159,12 +159,12 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 </li>
 <li><a href="../researchProject__primary_anatomic_site/">➞primary_anatomic_site</a>  <sub>0..*</sub><ul>
 <li>Description: The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).  In the context of ResearchProject, this attribute captures the anatomic sites of research interest.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.ResearchProject.primary_anatomic_site/">enum_CRDC-H.ResearchProject.primary_anatomic_site</a></li>
 </ul>
 </li>
 <li><a href="../researchProject__research_project_type/">➞research_project_type</a>  <sub>REQ</sub><ul>
 <li>Description: The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.ResearchProject.research_project_type/">enum_CRDC-H.ResearchProject.research_project_type</a></li>
 </ul>
 </li>
 <li><a href="../researchProject__sponsor/">➞sponsor</a>  <sub>0..*</sub><ul>

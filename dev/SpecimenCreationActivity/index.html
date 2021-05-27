@@ -91,7 +91,7 @@
                 <h1 id="class-specimencreationactivity">Class: SpecimenCreationActivity</h1>
 <p>The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenCreationActivity">ccdh:SpecimenCreationActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;execution_condition%200..*-++[SpecimenCreationActivity&#124;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;specimen_order:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[Specimen]&lt;input_specimen%200..*-++[SpecimenCreationActivity],[BodySite]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Entity]&lt;additive%200..*-++[SpecimenCreationActivity],[CodeableConcept]&lt;derivation_method_type%200..1-++[SpecimenCreationActivity],[CodeableConcept]&lt;collection_method_type%200..1-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[CodeableConcept]&lt;activity_type%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[Entity],[CodeableConcept],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Observation]&lt;execution_observation%200..*-++[SpecimenCreationActivity&#124;activity_type:enum_CRDC-H.SpecimenCreationActivity.activity_type%20%3F;collection_method_type:enum_CRDC-H.SpecimenCreationActivity.collection_method_type%20%3F;derivation_method_type:enum_CRDC-H.SpecimenCreationActivity.derivation_method_type%20%3F;specimen_order:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[Specimen]&lt;input_specimen%200..*-++[SpecimenCreationActivity],[BodySite]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Substance]&lt;additive%200..*-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[Observation],[Entity],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -105,17 +105,17 @@
 <ul>
 <li><a href="../specimenCreationActivity__activity_type/">➞activity_type</a>  <sub>OPT</sub><ul>
 <li>Description: The high-level type of creation activity</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.activity_type/">enum_CRDC-H.SpecimenCreationActivity.activity_type</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
 <li>Description: A type of material or reagent used as input when creating the specimen</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../Substance/">Substance</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__collection_method_type/">➞collection_method_type</a>  <sub>OPT</sub><ul>
-<li>Description: A type of method followed in collecting a sample form its original source.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>Description: A type of method followed in collecting a sample from its original source.</li>
+<li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.collection_method_type/">enum_CRDC-H.SpecimenCreationActivity.collection_method_type</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__collection_site/">➞collection_site</a>  <sub>OPT</sub><ul>
@@ -125,22 +125,22 @@
 </li>
 <li><a href="../specimenCreationActivity__date_ended/">➞date_ended</a>  <sub>OPT</sub><ul>
 <li>Description: The date when the activity ended (in this case, a specimen creation event).</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__date_started/">➞date_started</a>  <sub>OPT</sub><ul>
 <li>Description: The date when the activity began (in this case, a specimen creation event).</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a>  <sub>OPT</sub><ul>
 <li>Description: A type of method followed in deriving new specimens from an existing one.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.derivation_method_type/">enum_CRDC-H.SpecimenCreationActivity.derivation_method_type</a></li>
 </ul>
 </li>
-<li><a href="../specimenCreationActivity__execution_condition/">➞execution_condition</a>  <sub>0..*</sub><ul>
-<li>Description: Information describing the specified or observed conditions under which activity was executed</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li><a href="../specimenCreationActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
+<li>Description: Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
+<li>range: <a href="../Observation/">Observation</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__input_specimen/">➞input_specimen</a>  <sub>0..*</sub><ul>

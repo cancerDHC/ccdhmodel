@@ -91,16 +91,23 @@
                 <h1 id="class-timepoint">Class: TimePoint</h1>
 <p>A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.</p>
 <p>URI: <a href="https://example.org/ccdh/TimePoint">ccdh:TimePoint</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex
-indexOffset%200..1-++[TimePoint&#124;dateTime:ccdh_dateTime%20%3F;indexDate:ccdh_dateTime%20%3F;id(i):ccdh_string%20%3F],[CodeableConcept]&lt;indexEventType%200..1-++[TimePoint],[TimePeriod]++-%20periodEnd
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex%200..1-++[TimePoint&#124;dateTime:ccdh_dateTime%20%3F;indexDate:ccdh_dateTime%20%3F;indexEventType:enum_CRDC-H.TimePoint.indexEventType%20%3F;id(i):ccdh_string%20%3F],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20periodEnd
 end%200..1&gt;[TimePoint],[TimePeriod]++-%20periodStart
-start%200..1&gt;[TimePoint],[Treatment]++-%20end_date%200..1&gt;[TimePoint],[Treatment]++-%20start_date%200..1&gt;[TimePoint],[Entity]^-[TimePoint],[Treatment],[TimePeriod],[Quantity],[Entity],[CodeableConcept]" /></p>
+start%200..1&gt;[TimePoint],[Treatment]++-%20end_date%200..1&gt;[TimePoint],[Treatment]++-%20start_date%200..1&gt;[TimePoint],[Entity]^-[TimePoint],[Treatment],[TimePeriod],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__date_ended/">➞date_ended</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenCreationActivity__date_started/">➞date_started</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__date_ended/">➞date_ended</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenProcessingActivity__date_started/">➞date_started</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenStorageActivity__date_ended/">➞date_ended</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenStorageActivity__date_started/">➞date_started</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenTransportActivity__date_ended/">➞date_ended</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenTransportActivity__date_started/">➞date_started</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
 <li><strong>None</strong> <em><a href="../timePeriod__periodEnd_end/">➞periodEnd
 end</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
 <li><strong>None</strong> <em><a href="../timePeriod__periodStart_start/">➞periodStart
@@ -123,11 +130,10 @@ start</a></em>  <sub>OPT</sub>  <strong><a href="./">TimePoint</a></strong></li>
 </li>
 <li><a href="../timePoint__indexEventType/">➞indexEventType</a>  <sub>OPT</sub><ul>
 <li>Description: A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.TimePoint.indexEventType/">enum_CRDC-H.TimePoint.indexEventType</a></li>
 </ul>
 </li>
-<li><a href="../timePoint__offsetFromIndex_indexOffset/">➞offsetFromIndex
-indexOffset</a>  <sub>OPT</sub><ul>
+<li><a href="../timePoint__offsetFromIndex/">➞offsetFromIndex</a>  <sub>OPT</sub><ul>
 <li>Description: A quantity of time that, together with the index date or event, can be used to derive a specific timepoint.</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>

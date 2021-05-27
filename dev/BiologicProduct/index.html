@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: BiologicProduct - CRDC-H Model in LinkML documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: BiologicProduct";
+    var mkdocs_page_input_path = "BiologicProduct.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CRDC-H Model in LinkML documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CRDC-H Model in LinkML documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: BiologicProduct</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-biologicproduct">Class: BiologicProduct</h1>
+<p>A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</p>
+<p>URI: <a href="https://example.org/ccdh/BiologicProduct">ccdh:BiologicProduct</a></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Identifier]&lt;identifier%200..*-++[BiologicProduct&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;product_type:enum_CRDC-H.BiologicProduct.product_type%20%3F;passage_number:ccdh_integer%20*;growth_rate:ccdh_string%20*],[Specimen]++-%20derived_product%200..*&gt;[BiologicProduct],[Entity]^-[BiologicProduct],[Specimen]" /></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong>None</strong> <em><a href="../specimen__derived_product/">➞derived_product</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BiologicProduct</a></em>*</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../biologicProduct__description/">➞description</a>  <sub>OPT</sub><ul>
+<li>Description: A free text field to capture additional info/explanation about the model system</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../biologicProduct__growth_rate/">➞growth_rate</a>  <sub>0..*</sub><ul>
+<li>Description: When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../biologicProduct__id/">➞id</a>  <sub>OPT</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../biologicProduct__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
+<li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
+</ul>
+</li>
+<li><a href="../biologicProduct__passage_number/">➞passage_number</a>  <sub>0..*</sub><ul>
+<li>Description: When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+</ul>
+</li>
+<li><a href="../biologicProduct__product_type/">➞product_type</a>  <sub>OPT</sub><ul>
+<li>Description: The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)</li>
+<li>range: <a href="../enum_CRDC-H.BiologicProduct.product_type/">enum_CRDC-H.BiologicProduct.product_type</a></li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

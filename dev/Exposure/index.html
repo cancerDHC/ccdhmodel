@@ -91,7 +91,7 @@
                 <h1 id="class-exposure">Class: Exposure</h1>
 <p>Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.</p>
 <p>URI: <a href="https://example.org/ccdh/Exposure">ccdh:Exposure</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Observation],[Identifier],[Subject]&lt;related_patient%200..1-++[Exposure&#124;id:ccdh_string],[Observation]&lt;environmental%200..*-++[Exposure],[Entity]&lt;alcohol_use%200..1-++[Exposure],[Entity]&lt;tobacco_use%200..1-++[Exposure],[Identifier]&lt;identifier%200..*-++[Exposure],[Entity]^-[Exposure],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Observation],[Identifier],[Subject]&lt;subject%200..1-++[Exposure&#124;id:ccdh_string],[Observation]&lt;environmental%200..*-++[Exposure],[Entity]&lt;alcohol_use%200..1-++[Exposure],[Entity]&lt;tobacco_use%200..*-++[Exposure],[Identifier]&lt;identifier%200..*-++[Exposure],[Entity]^-[Exposure],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -119,12 +119,12 @@
 <li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
-<li><a href="../exposure__related_patient/">➞related_patient</a>  <sub>OPT</sub><ul>
+<li><a href="../exposure__subject/">➞subject</a>  <sub>OPT</sub><ul>
 <li>Description: A reference to the Subject that is the subject of this Exposure</li>
 <li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
-<li><a href="../exposure__tobacco_use/">➞tobacco_use</a>  <sub>OPT</sub><ul>
+<li><a href="../exposure__tobacco_use/">➞tobacco_use</a>  <sub>0..*</sub><ul>
 <li>Description: A container holding a set of observations about an individual's exposure to tobacco.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>

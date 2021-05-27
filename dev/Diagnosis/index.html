@@ -90,7 +90,7 @@
               
                 <h1 id="class-diagnosis">Class: Diagnosis</h1>
 <p>URI: <a href="https://example.org/ccdh/Diagnosis">ccdh:Diagnosis</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Identifier],[Entity],[Specimen]&lt;related_specimen%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F],[CodeableConcept]&lt;method_of_diagnosis%200..1-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CodeableConcept]&lt;disease_status%200..1-++[Diagnosis],[CodeableConcept]&lt;morphology%200..1-++[Diagnosis],[CancerGrade]&lt;grade%200..*-++[Diagnosis],[CancerStageSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[CodeableConcept]&lt;condition%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnoses%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CodeableConcept],[CancerStageSet],[CancerGrade],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Identifier],[Entity],[Specimen]&lt;related_specimen%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F;condition:enum_CRDC-H.Diagnosis.condition%20%3F;morphology:enum_CRDC-H.Diagnosis.morphology%20%3F;disease_status:enum_CRDC-H.Diagnosis.disease_status%20%3F;method_of_diagnosis:enum_CRDC-H.Diagnosis.method_of_diagnosis%20%3F],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[Entity]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnoses%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CancerStageObservationSet],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -112,17 +112,17 @@
 </li>
 <li><a href="../diagnosis__condition/">➞condition</a>  <sub>OPT</sub><ul>
 <li>Description: Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.condition/">enum_CRDC-H.Diagnosis.condition</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__disease_status/">➞disease_status</a>  <sub>OPT</sub><ul>
 <li>Description: A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.disease_status/">enum_CRDC-H.Diagnosis.disease_status</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__grade/">➞grade</a>  <sub>0..*</sub><ul>
 <li>Description: The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.</li>
-<li>range: <a href="../CancerGrade/">CancerGrade</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__id/">➞id</a>  <sub>OPT</sub><ul>
@@ -142,12 +142,12 @@
 </li>
 <li><a href="../diagnosis__method_of_diagnosis/">➞method_of_diagnosis</a>  <sub>OPT</sub><ul>
 <li>Description: The method used to confirm the patients malignant diagnosis</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.method_of_diagnosis/">enum_CRDC-H.Diagnosis.method_of_diagnosis</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__morphology/">➞morphology</a>  <sub>OPT</sub><ul>
 <li>Description: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.morphology/">enum_CRDC-H.Diagnosis.morphology</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__primary_site/">➞primary_site</a>  <sub>0..*</sub><ul>
@@ -167,7 +167,7 @@
 </li>
 <li><a href="../diagnosis__stage/">➞stage</a>  <sub>0..*</sub><ul>
 <li>Description: The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.</li>
-<li>range: <a href="../CancerStageSet/">CancerStageSet</a></li>
+<li>range: <a href="../CancerStageObservationSet/">CancerStageObservationSet</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__year_at_diagnosis/">➞year_at_diagnosis</a>  <sub>OPT</sub><ul>

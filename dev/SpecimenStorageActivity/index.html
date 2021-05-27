@@ -92,7 +92,7 @@
 <p>An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
 intrinsic physical nature of a specimen.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenStorageActivity">ccdh:SpecimenStorageActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[SpecimenContainer]&lt;container%200..*-++[SpecimenStorageActivity&#124;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;id(i):ccdh_string%20%3F],[CodeableConcept]&lt;method_type%200..1-++[SpecimenStorageActivity],[Specimen]++-%20storage_activity%200..1&gt;[SpecimenStorageActivity],[Entity]^-[SpecimenStorageActivity],[SpecimenContainer],[Specimen],[Entity],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[SpecimenContainer]&lt;container%200..*-++[SpecimenStorageActivity&#124;method_type:enum_CRDC-H.SpecimenStorageActivity.method_type%20%3F;id(i):ccdh_string%20%3F],[Organization]&lt;performed_by%200..1-++[SpecimenStorageActivity],[Quantity]&lt;duration%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenStorageActivity],[Specimen]++-%20storage_activity%200..1&gt;[SpecimenStorageActivity],[Entity]^-[SpecimenStorageActivity],[SpecimenContainer],[Specimen],[Quantity],[Organization],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -111,17 +111,27 @@ intrinsic physical nature of a specimen.</p>
 </li>
 <li><a href="../specimenStorageActivity__date_ended/">➞date_ended</a>  <sub>OPT</sub><ul>
 <li>Description: The date when the activity ended (in this case, a storage event).</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
 <li><a href="../specimenStorageActivity__date_started/">➞date_started</a>  <sub>OPT</sub><ul>
 <li>Description: The date when the activity began (in this case, a storage event).</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../specimenStorageActivity__duration/">➞duration</a>  <sub>OPT</sub><ul>
+<li>Description: The length of time over which the activity was performed.</li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
 <li><a href="../specimenStorageActivity__method_type/">➞method_type</a>  <sub>OPT</sub><ul>
 <li>Description: A specific type of method or procedure performed to store the specimen</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.SpecimenStorageActivity.method_type/">enum_CRDC-H.SpecimenStorageActivity.method_type</a></li>
+</ul>
+</li>
+<li><a href="../specimenStorageActivity__performed_by/">➞performed_by</a>  <sub>OPT</sub><ul>
+<li>Description: The organization or group that performed the activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
 </ul>

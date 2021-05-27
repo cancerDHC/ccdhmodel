@@ -91,7 +91,7 @@
                 <h1 id="class-specimenprocessingactivity">Class: SpecimenProcessingActivity</h1>
 <p>An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenProcessingActivity">ccdh:SpecimenProcessingActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;executionConditions%200..*-++[SpecimenProcessingActivity&#124;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;duration:ccdh_string%20*;id(i):ccdh_string%20%3F],[CodeableConcept]&lt;device%200..*-++[SpecimenProcessingActivity],[Entity]&lt;additive%200..*-++[SpecimenProcessingActivity],[CodeableConcept]&lt;method_type%200..1-++[SpecimenProcessingActivity],[Organization]&lt;performed_by%200..1-++[SpecimenProcessingActivity],[CodeableConcept]&lt;activity_type%200..1-++[SpecimenProcessingActivity],[Specimen]++-%20processing_activity%200..*&gt;[SpecimenProcessingActivity],[Entity]^-[SpecimenProcessingActivity],[Specimen],[Organization],[Entity],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Entity]&lt;execution_observation%200..*-++[SpecimenProcessingActivity&#124;activity_type:enum_CRDC-H.SpecimenProcessingActivity.activity_type%20%3F;method_type:enum_CRDC-H.SpecimenProcessingActivity.method_type%20%3F;id(i):ccdh_string%20%3F],[Substance]&lt;additive%200..*-++[SpecimenProcessingActivity],[Organization]&lt;performed_by%200..1-++[SpecimenProcessingActivity],[Entity]&lt;duration%200..*-++[SpecimenProcessingActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenProcessingActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenProcessingActivity],[Specimen]++-%20processing_activity%200..*&gt;[SpecimenProcessingActivity],[Entity]^-[SpecimenProcessingActivity],[Specimen],[Organization],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -105,42 +105,37 @@
 <ul>
 <li><a href="../specimenProcessingActivity__activity_type/">➞activity_type</a>  <sub>OPT</sub><ul>
 <li>Description: The high-level type of processing activity</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.SpecimenProcessingActivity.activity_type/">enum_CRDC-H.SpecimenProcessingActivity.activity_type</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
 <li>Description: A type of material or reagent used as input when processing the specimen</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../Substance/">Substance</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__date_ended/">➞date_ended</a>  <sub>OPT</sub><ul>
 <li>Description: The date when the activity began (in this case, a specimen processing event).</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__date_started/">➞date_started</a>  <sub>OPT</sub><ul>
 <li>Description: The date when the activity began (in this case, a specimen processing event).</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
-</ul>
-</li>
-<li><a href="../specimenProcessingActivity__device/">➞device</a>  <sub>0..*</sub><ul>
-<li>Description: A type of instrument or tool used to perform the processing</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__duration/">➞duration</a>  <sub>0..*</sub><ul>
 <li>Description: The length of time over which the activity was performed.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../specimenProcessingActivity__executionConditions/">➞executionConditions</a>  <sub>0..*</sub><ul>
-<li>Description: Information describing the specified or observed conditions under which activity was executed</li>
+<li><a href="../specimenProcessingActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
+<li>Description: Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__method_type/">➞method_type</a>  <sub>OPT</sub><ul>
 <li>Description: A specific type of method or procedure performed to process the specimen</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.SpecimenProcessingActivity.method_type/">enum_CRDC-H.SpecimenProcessingActivity.method_type</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__performed_by/">➞performed_by</a>  <sub>OPT</sub><ul>

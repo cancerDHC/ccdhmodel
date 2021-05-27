@@ -91,13 +91,14 @@
                 <h1 id="class-identifier">Class: Identifier</h1>
 <p>An Identifier is associated with a unique object or entity within a given system.</p>
 <p>URI: <a href="https://example.org/ccdh/Identifier">ccdh:Identifier</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[CodeableConcept]&lt;type%200..1-++[Identifier&#124;value:ccdh_string;system:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[Exposure],[Entity],[Document],[Diagnosis],[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicProduct]++-%20identifier%200..*&gt;[Identifier&#124;value:ccdh_string;system:ccdh_string%20%3F;type:enum_CRDC-H.Identifier.type%20%3F;id(i):ccdh_string%20%3F],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[Exposure],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
+<li><strong>None</strong> <em><a href="../biologicProduct__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
 <li><strong>None</strong> <em><a href="../diagnosis__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
 <li><strong>None</strong> <em><a href="../document__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
 <li><strong>None</strong> <em><a href="../exposure__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
@@ -119,7 +120,7 @@
 </li>
 <li><a href="../identifier__type/">➞type</a>  <sub>OPT</sub><ul>
 <li>Description: A code that defines the type of the identifier.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Identifier.type/">enum_CRDC-H.Identifier.type</a></li>
 </ul>
 </li>
 <li><a href="../identifier__value/">➞value</a>  <sub>REQ</sub><ul>

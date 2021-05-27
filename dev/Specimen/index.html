@@ -91,8 +91,8 @@
                 <h1 id="class-specimen">Class: Specimen</h1>
 <p>Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.</p>
 <p>URI: <a href="https://example.org/ccdh/Specimen">ccdh:Specimen</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;morphology_pathologically_confirmed:ccdh_boolean%20%3F;dysplasia_fraction:ccdh_string%20%3F],[BiologicallyDerivedProduct]&lt;derived_product%200..*-++[Specimen],[CodeableConcept]&lt;section_location%200..1-++[Specimen],[Document]&lt;related_document
-%200..*-++[Specimen],[CodeableConcept]&lt;degree_of_dysplasia%200..1-++[Specimen],[CodeableConcept]&lt;morphlogy_assessment_method%200..1-++[Specimen],[CodeableConcept]&lt;morphology_assessor_role%200..1-++[Specimen],[CodeableConcept]&lt;preinvasive_tissue_morphology%200..1-++[Specimen],[CodeableConcept]&lt;specific_tissue_morphology%200..1-++[Specimen],[CodeableConcept]&lt;general_tissue_morphology%200..1-++[Specimen],[Entity]&lt;tissue_composition_measure%200..*-++[Specimen],[Entity]&lt;cellular_composition_measure%200..*-++[Specimen],[CodeableConcept]&lt;cellular_composition_type%200..1-++[Specimen],[Entity]&lt;quality_measure%200..*-++[Specimen],[Entity]&lt;quantity_measure%200..*-++[Specimen],[Entity]&lt;dimensional_measure%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[SpecimenTransportActivity]&lt;transport_activity%200..1-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..1-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[CodeableConcept]&lt;condition_status_at_collection%200..1-++[Specimen],[Entity]&lt;source_model_system%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[CodeableConcept]&lt;source_material_type%200..1-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[CodeableConcept]&lt;analyte_type%200..1-++[Specimen],[CodeableConcept]&lt;specimen_type%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[SpecimenCreationActivity]++-%20input_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[Identifier],[Entity],[Document],[Diagnosis],[CodeableConcept],[BiologicallyDerivedProduct]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;specimen_type:enum_CRDC-H.Specimen.specimen_type%20%3F;analyte_type:enum_CRDC-H.Specimen.analyte_type%20%3F;source_material_type:enum_CRDC-H.Specimen.source_material_type%20%3F;tumor_status_at_collection:enum_CRDC-H.Specimen.tumor_status_at_collection%20%3F;cellular_composition_type:enum_CRDC-H.Specimen.cellular_composition_type%20%3F;general_tissue_morphology:enum_CRDC-H.Specimen.general_tissue_morphology%20%3F;specific_tissue_morphology:enum_CRDC-H.Specimen.specific_tissue_morphology%20%3F;preinvasive_tissue_morphology:enum_CRDC-H.Specimen.preinvasive_tissue_morphology%20%3F;morphology_pathologically_confirmed:ccdh_boolean%20%3F;morphology_assessor_role:enum_CRDC-H.Specimen.morphology_assessor_role%20%3F;morphlogy_assessment_method:enum_CRDC-H.Specimen.morphlogy_assessment_method%20%3F;degree_of_dysplasia:enum_CRDC-H.Specimen.degree_of_dysplasia%20%3F;dysplasia_fraction:ccdh_string%20%3F;section_location:enum_CRDC-H.Specimen.section_location%20%3F],[BiologicProduct]&lt;derived_product%200..*-++[Specimen],[Document]&lt;related_document
+%200..*-++[Specimen],[Observation]&lt;histological_composition_measure%200..*-++[Specimen],[Observation]&lt;quality_measure%200..*-++[Specimen],[Observation]&lt;quantity_measure%200..*-++[Specimen],[Entity]&lt;dimensional_measure%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[SpecimenTransportActivity]&lt;transport_activity%200..1-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..1-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[Entity]&lt;source_model_system%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[SpecimenCreationActivity]++-%20input_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[Observation],[Identifier],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -108,7 +108,7 @@
 <ul>
 <li><a href="../specimen__analyte_type/">➞analyte_type</a>  <sub>OPT</sub><ul>
 <li>Description: For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.analyte_type/">enum_CRDC-H.Specimen.analyte_type</a></li>
 </ul>
 </li>
 <li><a href="../specimen__associated_project/">➞associated_project</a>  <sub>OPT</sub><ul>
@@ -116,19 +116,9 @@
 <li>range: <a href="../ResearchProject/">ResearchProject</a></li>
 </ul>
 </li>
-<li><a href="../specimen__cellular_composition_measure/">➞cellular_composition_measure</a>  <sub>0..*</sub><ul>
-<li>Description: An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
 <li><a href="../specimen__cellular_composition_type/">➞cellular_composition_type</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing the type of material comprising a specimen at a celluar level.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
-</ul>
-</li>
-<li><a href="../specimen__condition_status_at_collection/">➞condition_status_at_collection</a>  <sub>OPT</sub><ul>
-<li>Description: The status of a patient's condition at the time the speimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.cellular_composition_type/">enum_CRDC-H.Specimen.cellular_composition_type</a></li>
 </ul>
 </li>
 <li><a href="../specimen__contained_in/">➞contained_in</a>  <sub>OPT</sub><ul>
@@ -148,12 +138,12 @@
 </li>
 <li><a href="../specimen__degree_of_dysplasia/">➞degree_of_dysplasia</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.degree_of_dysplasia/">enum_CRDC-H.Specimen.degree_of_dysplasia</a></li>
 </ul>
 </li>
 <li><a href="../specimen__derived_product/">➞derived_product</a>  <sub>0..*</sub><ul>
 <li>Description: A 'living' biologically active product (e.g. a cell culture, tissue culture, or organoid) that was generated from the specimen</li>
-<li>range: <a href="../BiologicallyDerivedProduct/">BiologicallyDerivedProduct</a></li>
+<li>range: <a href="../BiologicProduct/">BiologicProduct</a></li>
 </ul>
 </li>
 <li><a href="../specimen__description/">➞description</a>  <sub>OPT</sub><ul>
@@ -178,7 +168,12 @@
 </li>
 <li><a href="../specimen__general_tissue_morphology/">➞general_tissue_morphology</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.general_tissue_morphology/">enum_CRDC-H.Specimen.general_tissue_morphology</a></li>
+</ul>
+</li>
+<li><a href="../specimen__histological_composition_measure/">➞histological_composition_measure</a>  <sub>0..*</sub><ul>
+<li>Description: An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.</li>
+<li>range: <a href="../Observation/">Observation</a></li>
 </ul>
 </li>
 <li><a href="../specimen__id/">➞id</a>  <sub>OPT</sub><ul>
@@ -193,12 +188,12 @@
 </li>
 <li><a href="../specimen__morphlogy_assessment_method/">➞morphlogy_assessment_method</a>  <sub>OPT</sub><ul>
 <li>Description: The general method used to assess a specimens specific tissue morphology</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.morphlogy_assessment_method/">enum_CRDC-H.Specimen.morphlogy_assessment_method</a></li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_assessor_role/">➞morphology_assessor_role</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.morphology_assessor_role/">enum_CRDC-H.Specimen.morphology_assessor_role</a></li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_pathologically_confirmed/">➞morphology_pathologically_confirmed</a>  <sub>OPT</sub><ul>
@@ -213,7 +208,7 @@
 </li>
 <li><a href="../specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing the pathology exhibited by a pre-invasive tissue in a specimen.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.preinvasive_tissue_morphology/">enum_CRDC-H.Specimen.preinvasive_tissue_morphology</a></li>
 </ul>
 </li>
 <li><a href="../specimen__processing_activity/">➞processing_activity</a>  <sub>0..*</sub><ul>
@@ -222,13 +217,13 @@
 </ul>
 </li>
 <li><a href="../specimen__quality_measure/">➞quality_measure</a>  <sub>0..*</sub><ul>
-<li>Description: An observation about  specimen characteristics indicative of its quality or suitability for use.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>Description: An observation about characteristics of a specimen that are indicative of its quality or suitability for use.</li>
+<li>range: <a href="../Observation/">Observation</a></li>
 </ul>
 </li>
 <li><a href="../specimen__quantity_measure/">➞quantity_measure</a>  <sub>0..*</sub><ul>
-<li>Description: An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>Description: An observation related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.</li>
+<li>range: <a href="../Observation/">Observation</a></li>
 </ul>
 </li>
 <li><a href="../specimen__related_document/">➞related_document
@@ -239,16 +234,16 @@
 </li>
 <li><a href="../specimen__section_location/">➞section_location</a>  <sub>OPT</sub><ul>
 <li>Description: The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.section_location/">enum_CRDC-H.Specimen.section_location</a></li>
 </ul>
 </li>
 <li><a href="../specimen__source_material_type/">➞source_material_type</a>  <sub>OPT</sub><ul>
 <li>Description: The general kind of material from which the specimen was derived, based on the physical nature of the source material.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.source_material_type/">enum_CRDC-H.Specimen.source_material_type</a></li>
 </ul>
 </li>
 <li><a href="../specimen__source_model_system/">➞source_model_system</a>  <sub>OPT</sub><ul>
-<li>Description: A Biologically Derived Material / model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
+<li>Description: A model biological system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
@@ -259,12 +254,12 @@
 </li>
 <li><a href="../specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a>  <sub>OPT</sub><ul>
 <li>Description: A term describing the specific pathology exhibited by the tissue in a specimen.</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.specific_tissue_morphology/">enum_CRDC-H.Specimen.specific_tissue_morphology</a></li>
 </ul>
 </li>
 <li><a href="../specimen__specimen_type/">➞specimen_type</a>  <sub>OPT</sub><ul>
 <li>Description: The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</li>
-<li>range: <a href="../CodeableConcept/">CodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.Specimen.specimen_type/">enum_CRDC-H.Specimen.specimen_type</a></li>
 </ul>
 </li>
 <li><a href="../specimen__storage_activity/">➞storage_activity</a>  <sub>OPT</sub><ul>
@@ -272,14 +267,14 @@
 <li>range: <a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></li>
 </ul>
 </li>
-<li><a href="../specimen__tissue_composition_measure/">➞tissue_composition_measure</a>  <sub>0..*</sub><ul>
-<li>Description: An observation about the absolute area or relative proportion of a specific type of tissue in a specimen or other biological material</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
 <li><a href="../specimen__transport_activity/">➞transport_activity</a>  <sub>OPT</sub><ul>
 <li>Description: An activity through which the specimen is transported between locations.</li>
 <li>range: <a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></li>
+</ul>
+</li>
+<li><a href="../specimen__tumor_status_at_collection/">➞tumor_status_at_collection</a>  <sub>OPT</sub><ul>
+<li>Description: The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
+<li>range: <a href="../enum_CRDC-H.Specimen.tumor_status_at_collection/">enum_CRDC-H.Specimen.tumor_status_at_collection</a></li>
 </ul>
 </li>
 </ul>
