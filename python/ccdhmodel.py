@@ -1,5 +1,5 @@
 # Auto generated from ccdhmodel.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-05-24 17:35
+# Generation date: 2021-05-25 03:29
 # Schema: CRDC-H
 #
 # id: https://example.org/ccdh
@@ -416,7 +416,7 @@ class Diagnosis(Entity):
     year_at_diagnosis: Optional[Union[int, CcdhInteger]] = None
     condition: Optional[Union[dict, CodeableConcept]] = None
     primary_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
-    metastatic_sites: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
+    metastatic_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
     stage: Optional[Union[Union[dict, CancerStageSet], List[Union[dict, CancerStageSet]]]] = empty_list()
     grade: Optional[Union[Union[dict, CancerGrade], List[Union[dict, CancerGrade]]]] = empty_list()
     morphology: Optional[Union[dict, CodeableConcept]] = None
@@ -450,11 +450,11 @@ class Diagnosis(Entity):
             self.primary_site = [self.primary_site]
         self._normalize_inlined_slot(slot_name="primary_site", slot_type=BodySite, key_name="site", inlined_as_list=True, keyed=False)
 
-        if self.metastatic_sites is None:
-            self.metastatic_sites = []
-        if not isinstance(self.metastatic_sites, list):
-            self.metastatic_sites = [self.metastatic_sites]
-        self._normalize_inlined_slot(slot_name="metastatic_sites", slot_type=BodySite, key_name="site", inlined_as_list=True, keyed=False)
+        if self.metastatic_site is None:
+            self.metastatic_site = []
+        if not isinstance(self.metastatic_site, list):
+            self.metastatic_site = [self.metastatic_site]
+        self._normalize_inlined_slot(slot_name="metastatic_site", slot_type=BodySite, key_name="site", inlined_as_list=True, keyed=False)
 
         if self.stage is None:
             self.stage = []
@@ -634,11 +634,12 @@ class Observation(Entity):
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     patient: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
+    valueEntity: Optional[Union[dict, Entity]] = None
     valueString: Optional[Union[str, CcdhString]] = None
+    valueInteger: Optional[Union[Decimal, CcdhDecimal]] = None
     valueDecimal: Optional[Union[Decimal, CcdhDecimal]] = None
-    valueQuantity: Optional[Union[dict, "Quantity"]] = None
     valueBoolean: Optional[Union[bool, CcdhBoolean]] = None
-    valueCodeableConcept: Optional[Union[dict, CodeableConcept]] = None
+    valueDateTime: Optional[Union[Decimal, CcdhDecimal]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is None:
@@ -674,20 +675,23 @@ class Observation(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**self.performed_by)
 
+        if self.valueEntity is not None and not isinstance(self.valueEntity, Entity):
+            self.valueEntity = Entity(**self.valueEntity)
+
         if self.valueString is not None and not isinstance(self.valueString, CcdhString):
             self.valueString = CcdhString(self.valueString)
+
+        if self.valueInteger is not None and not isinstance(self.valueInteger, CcdhDecimal):
+            self.valueInteger = CcdhDecimal(self.valueInteger)
 
         if self.valueDecimal is not None and not isinstance(self.valueDecimal, CcdhDecimal):
             self.valueDecimal = CcdhDecimal(self.valueDecimal)
 
-        if self.valueQuantity is not None and not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
-
         if self.valueBoolean is not None and not isinstance(self.valueBoolean, CcdhBoolean):
             self.valueBoolean = CcdhBoolean(self.valueBoolean)
 
-        if self.valueCodeableConcept is not None and not isinstance(self.valueCodeableConcept, CodeableConcept):
-            self.valueCodeableConcept = CodeableConcept(**self.valueCodeableConcept)
+        if self.valueDateTime is not None and not isinstance(self.valueDateTime, CcdhDecimal):
+            self.valueDateTime = CcdhDecimal(self.valueDateTime)
 
         super().__post_init__(**kwargs)
 
@@ -1161,7 +1165,7 @@ class SpecimenCreationActivity(Entity):
     collection_method_type: Optional[Union[dict, CodeableConcept]] = None
     derivation_method_type: Optional[Union[dict, CodeableConcept]] = None
     additive: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
-    collection_site: Optional[Union[dict, Entity]] = None
+    collection_site: Optional[Union[dict, BodySite]] = None
     input_specimen: Optional[Union[Union[dict, Specimen], List[Union[dict, Specimen]]]] = empty_list()
     quantity_collected: Optional[Union[dict, Quantity]] = None
     execution_condition: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
@@ -1192,8 +1196,8 @@ class SpecimenCreationActivity(Entity):
             self.additive = [self.additive]
         self.additive = [v if isinstance(v, Entity) else Entity(**v) for v in self.additive]
 
-        if self.collection_site is not None and not isinstance(self.collection_site, Entity):
-            self.collection_site = Entity(**self.collection_site)
+        if self.collection_site is not None and not isinstance(self.collection_site, BodySite):
+            self.collection_site = BodySite(**self.collection_site)
 
         if self.input_specimen is None:
             self.input_specimen = []
@@ -1692,8 +1696,8 @@ slots.diagnosis__condition = Slot(uri=CCDH.condition, name="diagnosis__condition
 slots.diagnosis__primary_site = Slot(uri=CCDH.primary_site, name="diagnosis__primary_site", curie=CCDH.curie('primary_site'),
                    model_uri=CCDH.diagnosis__primary_site, domain=None, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
 
-slots.diagnosis__metastatic_sites = Slot(uri=CCDH.metastatic_sites, name="diagnosis__metastatic_sites", curie=CCDH.curie('metastatic_sites'),
-                   model_uri=CCDH.diagnosis__metastatic_sites, domain=None, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
+slots.diagnosis__metastatic_site = Slot(uri=CCDH.metastatic_site, name="diagnosis__metastatic_site", curie=CCDH.curie('metastatic_site'),
+                   model_uri=CCDH.diagnosis__metastatic_site, domain=None, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
 
 slots.diagnosis__stage = Slot(uri=CCDH.stage, name="diagnosis__stage", curie=CCDH.curie('stage'),
                    model_uri=CCDH.diagnosis__stage, domain=None, range=Optional[Union[Union[dict, CancerStageSet], List[Union[dict, CancerStageSet]]]])
@@ -1785,20 +1789,23 @@ slots.observation__patient = Slot(uri=CCDH.patient, name="observation__patient",
 slots.observation__performed_by = Slot(uri=CCDH.performed_by, name="observation__performed_by", curie=CCDH.curie('performed_by'),
                    model_uri=CCDH.observation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
 
+slots.observation__valueEntity = Slot(uri=CCDH.valueEntity, name="observation__valueEntity", curie=CCDH.curie('valueEntity'),
+                   model_uri=CCDH.observation__valueEntity, domain=None, range=Optional[Union[dict, Entity]])
+
 slots.observation__valueString = Slot(uri=CCDH.valueString, name="observation__valueString", curie=CCDH.curie('valueString'),
                    model_uri=CCDH.observation__valueString, domain=None, range=Optional[Union[str, CcdhString]])
+
+slots.observation__valueInteger = Slot(uri=CCDH.valueInteger, name="observation__valueInteger", curie=CCDH.curie('valueInteger'),
+                   model_uri=CCDH.observation__valueInteger, domain=None, range=Optional[Union[Decimal, CcdhDecimal]])
 
 slots.observation__valueDecimal = Slot(uri=CCDH.valueDecimal, name="observation__valueDecimal", curie=CCDH.curie('valueDecimal'),
                    model_uri=CCDH.observation__valueDecimal, domain=None, range=Optional[Union[Decimal, CcdhDecimal]])
 
-slots.observation__valueQuantity = Slot(uri=CCDH.valueQuantity, name="observation__valueQuantity", curie=CCDH.curie('valueQuantity'),
-                   model_uri=CCDH.observation__valueQuantity, domain=None, range=Optional[Union[dict, Quantity]])
-
 slots.observation__valueBoolean = Slot(uri=CCDH.valueBoolean, name="observation__valueBoolean", curie=CCDH.curie('valueBoolean'),
                    model_uri=CCDH.observation__valueBoolean, domain=None, range=Optional[Union[bool, CcdhBoolean]])
 
-slots.observation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="observation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.observation__valueCodeableConcept, domain=None, range=Optional[Union[dict, CodeableConcept]])
+slots.observation__valueDateTime = Slot(uri=CCDH.valueDateTime, name="observation__valueDateTime", curie=CCDH.curie('valueDateTime'),
+                   model_uri=CCDH.observation__valueDateTime, domain=None, range=Optional[Union[Decimal, CcdhDecimal]])
 
 slots.organization__id = Slot(uri=CCDH.id, name="organization__id", curie=CCDH.curie('id'),
                    model_uri=CCDH.organization__id, domain=None, range=Union[str, CcdhString])
@@ -2035,7 +2042,7 @@ slots.specimenCreationActivity__additive = Slot(uri=CCDH.additive, name="specime
                    model_uri=CCDH.specimenCreationActivity__additive, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.specimenCreationActivity__collection_site = Slot(uri=CCDH.collection_site, name="specimenCreationActivity__collection_site", curie=CCDH.curie('collection_site'),
-                   model_uri=CCDH.specimenCreationActivity__collection_site, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.specimenCreationActivity__collection_site, domain=None, range=Optional[Union[dict, BodySite]])
 
 slots.specimenCreationActivity__input_specimen = Slot(uri=CCDH.input_specimen, name="specimenCreationActivity__input_specimen", curie=CCDH.curie('input_specimen'),
                    model_uri=CCDH.specimenCreationActivity__input_specimen, domain=None, range=Optional[Union[Union[dict, Specimen], List[Union[dict, Specimen]]]])

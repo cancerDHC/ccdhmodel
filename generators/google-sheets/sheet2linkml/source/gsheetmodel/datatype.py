@@ -1,7 +1,7 @@
 from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
-import linkml_model
-from linkml_model.meta import TypeDefinition, SchemaDefinition
+from linkml_model.meta import TypeDefinition
 import logging
 import re
 
@@ -59,6 +59,13 @@ class Datatype(ModelElement):
         """
         return f'ccdh_{self.datatype_name}'
 
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this datatype.
+        """
+        return f'CRDC-H.{self.name}'
+
     def get_filename(self) -> str:
         """
         Return this datatype as a filename, which we calculate by making the datatype name safe for file systems.
@@ -91,6 +98,13 @@ class Datatype(ModelElement):
         linkml_matches = re.findall(r"LINKML:(\w+)\W", mapping_string, flags=re.IGNORECASE)
         return linkml_matches
 
+    @property
+    def mappings(self) -> Mappings:
+        """
+        Returns the list of mappings for this datatype.
+        """
+        return Mappings(self, self.datatype_row.get("External Mappings"))
+
     def as_linkml(self, root_uri) -> TypeDefinition:
         """
         Returns a LinkML TypeDefinition describing this datatype.
@@ -120,7 +134,8 @@ class Datatype(ModelElement):
         else:
             typ.notes = derived_from
 
-        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
+        # Add mappings.
+        self.mappings.set_mappings_on_element(typ)
 
         return typ
 
@@ -239,6 +254,13 @@ class DatatypeWorksheet(ModelElement):
         :return: A name for this worksheet.
         """
         return self.worksheet.title
+
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this worksheet.
+        """
+        return self.worksheet.url
 
     def get_filename(self) -> str:
         """

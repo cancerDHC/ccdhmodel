@@ -60,7 +60,7 @@ type Diagnosis
     yearAtDiagnosis: CcdhInteger
     condition: CodeableConcept
     primarySite: [BodySite]
-    metastaticSites: [BodySite]
+    metastaticSite: [BodySite]
     stage: [CancerStageSet]
     grade: [CancerGrade]
     morphology: CodeableConcept
@@ -112,11 +112,12 @@ type Observation
     focus: [Entity]
     patient: Subject
     performedBy: Organization
+    valueEntity: Entity
     valueString: CcdhString
+    valueInteger: CcdhDecimal
     valueDecimal: CcdhDecimal
-    valueQuantity: Quantity
     valueBoolean: CcdhBoolean
-    valueCodeableConcept: CodeableConcept
+    valueDateTime: CcdhDecimal
   }
 
 type Organization
@@ -232,7 +233,7 @@ type SpecimenCreationActivity
     collectionMethodType: CodeableConcept
     derivationMethodType: CodeableConcept
     additive: [Entity]
-    collectionSite: Entity
+    collectionSite: BodySite
     inputSpecimen: [Specimen]
     quantityCollected: Quantity
     executionCondition: [Entity]

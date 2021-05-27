@@ -15,6 +15,14 @@ class ModelElement(ABC):
         """
         pass
 
+    @property
+    @abstractmethod
+    def full_name(self) -> str:
+        """
+        :return: The full name of this model element.
+        """
+        pass
+
     @abstractmethod
     def get_filename(self) -> str:
         """

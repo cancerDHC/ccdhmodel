@@ -1,9 +1,11 @@
 import pygsheets
 
 from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
 from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
 from linkml_model.meta import SchemaDefinition
+from functools import cached_property, cache
 from datetime import datetime, timezone
 import re
 import logging
@@ -50,10 +52,28 @@ class GSheetModel(ModelElement):
         self.sheet = self.client.open_by_key(google_sheet_id)
 
         # TODO: at some point, we should read the version number from the Google Sheets document... somehow.
-        self.version = None
+        self.release_version = None
 
         # Set a `development version`. This is initially None, but if set, we add this to the metadata we emit.
         self.development_version = None
+
+        # Set the 'last_updated' time to now.
+        # TODO: we should be able to get this from the Google Sheet, in RFC 3339 format, but this apparently
+        # requires a different scope than what we currently use.
+        # return self.sheet.updated
+        self.last_updated = datetime.now(timezone.utc).isoformat()
+
+    @property
+    def version(self):
+        """
+        Return the version of this GSheetModel.
+        """
+
+        # TODO: We should read this from the Google Sheet.
+        if self.release_version:
+            return self.release_version
+        else:
+            return self.development_version
 
     @staticmethod
     def is_sheet_normative(worksheet: pygsheets.worksheet):
@@ -72,6 +92,7 @@ class GSheetModel(ModelElement):
 
         return result
 
+    @cache
     def entity_worksheets(self) -> list[EntityWorksheet]:
         """
         A list of worksheets available in this model.
@@ -103,6 +124,7 @@ class GSheetModel(ModelElement):
 
         return [EntityWorksheet(self, worksheet) for worksheet in entity_worksheets]
 
+    @cache
     def entities(self) -> list[Entity]:
         """
         :return: The list of entities in this model.
@@ -132,6 +154,13 @@ class GSheetModel(ModelElement):
             result.extend(worksheet.datatypes)
         return result
 
+    @cached_property
+    def mappings(self) -> list[Mappings.Mapping]:
+        """ Return a list of all the mappings in this LinkML document. """
+        mappings = [mapping for datatype in self.datatypes() for mapping in datatype.mappings.mappings]
+        mappings.extend(mapping for entity in self.entities() for mapping in entity.mappings_including_attributes)
+        return mappings
+
     def __str__(self) -> str:
         """
         :return: A string representation of this Google Sheet model.
@@ -145,6 +174,13 @@ class GSheetModel(ModelElement):
         :return: The name of this model.
         """
         return self.sheet.title
+
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this model.
+        """
+        return self.sheet.url
 
     def get_filename(self) -> str:
         """
@@ -189,12 +225,9 @@ class GSheetModel(ModelElement):
 
         schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.notes.append(f"Derived from {self.to_markdown()}")
-        schema.generation_date = datetime.now(timezone.utc).isoformat()
+        schema.generation_date = self.last_updated
 
-        if self.version:
-            schema.version = self.version
-        elif self.development_version:
-            schema.version = self.development_version
+        schema.version = self.version
 
         # Generate all the datatypes.
         schema.types = {datatype.name: datatype.as_linkml(root_uri) for datatype in self.datatypes()}

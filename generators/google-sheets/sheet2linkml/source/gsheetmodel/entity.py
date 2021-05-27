@@ -1,6 +1,8 @@
 from linkml_model import SchemaDefinition
 
+from functools import cached_property
 from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
 from linkml_model.meta import ClassDefinition, SlotDefinition
 import logging
@@ -41,7 +43,7 @@ class Entity(ModelElement):
             row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
         ]
 
-    @property
+    @cached_property
     def attributes(self):
         """
         Returns a list of attributes in this entity. We construct this by wrapping the
@@ -97,6 +99,13 @@ class Entity(ModelElement):
         """
         return (self.entity_name or '(unnamed entity)').strip()
 
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this entity.
+        """
+        return f'CRDC-H.{self.entity_name}'
+
     def get_filename(self) -> str:
         """
         Return this entity as a filename, which we calculate by making the entity name safe for file systems.
@@ -116,6 +125,23 @@ class Entity(ModelElement):
         """
 
         return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
+
+    @cached_property
+    def mappings(self) -> Mappings:
+        """
+        Returns the list of mappings for this entity.
+        """
+        return Mappings(self, self.entity_row.get("Source Mapping"))
+
+    @property
+    def mappings_including_attributes(self) -> list[Mappings.Mapping]:
+        """
+        Returns the list of all mappings of this entity as well as all of its attributes.
+        """
+        mappings = self.mappings.mappings
+        for attr in self.attributes:
+            mappings.extend(attr.mappings.mappings)
+        return mappings
 
     def as_linkml(self, root_uri) -> ClassDefinition:
         """
@@ -148,7 +174,8 @@ class Entity(ModelElement):
         else:
             cls.notes = derived_from
 
-        # TODO: Add mappings (https://linkml.github.io/linkml-model/docs/mappings/)
+        # Add mappings
+        self.mappings.set_mappings_on_element(cls)
 
         # Now generate LinkML for all of the attributes.
         cls.attributes = {attribute.name: attribute.as_linkml(root_uri) for attribute in self.attributes}
@@ -186,6 +213,13 @@ class Attribute:
             or self.row.get("Name")
             or self.row.get("name")
         )
+
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this attribute.
+        """
+        return f'{self.entity.full_name}.{self.name}'
 
     def __str__(self):
         """
@@ -225,6 +259,29 @@ class Attribute:
 
         return min_count, max_count
 
+    @property
+    def mappings(self) -> Mappings:
+        """
+        Returns the list of mappings for this attribute.
+        """
+        return Mappings(self, self.row.get("Source Mapping"))
+
+    @property
+    def range(self):
+        """
+        Return the range of this attribute.
+        """
+
+        attribute_range = "string"  # Default to linkml:string.
+        if EntityWorksheet.COL_TYPE in self.row:
+            attribute_range = self.row.get(EntityWorksheet.COL_TYPE) or "string"
+
+            # For primitive types, we need to add `ccdh_` to the start of the type name.
+            if attribute_range[0].islower():
+                attribute_range = f'ccdh_{attribute_range}'
+
+        return attribute_range
+
     def as_linkml(self, root_uri) -> SlotDefinition:
         """
         Returns this attribute as a LinkML SlotDefinition.
@@ -236,15 +293,6 @@ class Attribute:
         data = self.row
         min_count, max_count = self.counts()
 
-        # Calculate the range.
-        attribute_range = "string"    # Default to linkml:string.
-        if EntityWorksheet.COL_TYPE in data:
-            attribute_range = data.get(EntityWorksheet.COL_TYPE) or "string"
-
-            # For primitive types, we need to add `ccdh_` to the start of the type name.
-            if attribute_range[0].islower():
-                attribute_range = f'ccdh_{attribute_range}'
-
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
             description=(data.get("Description") or '').strip(),
@@ -252,12 +300,15 @@ class Attribute:
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
-            range=attribute_range
+            range=self.range
         )
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
         if cardinality:
             slot.notes.append(f"Cardinality: {cardinality}")
+
+        # Add mappings
+        self.mappings.set_mappings_on_element(slot)
 
         return slot
 
@@ -388,6 +439,13 @@ class EntityWorksheet(ModelElement):
         :return: A name for this worksheet.
         """
         return self.worksheet.title
+
+    @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this worksheet.
+        """
+        return self.worksheet.url
 
     def get_filename(self) -> str:
         """

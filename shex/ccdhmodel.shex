@@ -131,7 +131,7 @@ linkml:Nodeidentifier NONLITERAL
           <year_at_diagnosis> @<CcdhInteger> ? ;
           <condition> @<CodeableConcept> ? ;
           <primary_site> @<BodySite> * ;
-          <metastatic_sites> @<BodySite> * ;
+          <metastatic_site> @<BodySite> * ;
           <stage> @<CancerStageSet> * ;
           <grade> @<CancerGrade> * ;
           <morphology> @<CodeableConcept> ? ;
@@ -205,11 +205,12 @@ linkml:Nodeidentifier NONLITERAL
           <focus> @<Entity> * ;
           <patient> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
+          <valueEntity> @<Entity> ? ;
           <valueString> @<CcdhString> ? ;
+          <valueInteger> @<CcdhDecimal> ? ;
           <valueDecimal> @<CcdhDecimal> ? ;
-          <valueQuantity> @<Quantity> ? ;
           <valueBoolean> @<CcdhBoolean> ? ;
-          <valueCodeableConcept> @<CodeableConcept> ?
+          <valueDateTime> @<CcdhDecimal> ?
        ) ;
        rdf:type [ <Observation> ] ?
     )
@@ -351,7 +352,7 @@ linkml:Nodeidentifier NONLITERAL
           <collection_method_type> @<CodeableConcept> ? ;
           <derivation_method_type> @<CodeableConcept> ? ;
           <additive> @<Entity> * ;
-          <collection_site> @<Entity> ? ;
+          <collection_site> @<BodySite> ? ;
           <input_specimen> @<Specimen> * ;
           <quantity_collected> @<Quantity> ? ;
           <execution_condition> @<Entity> * ;
