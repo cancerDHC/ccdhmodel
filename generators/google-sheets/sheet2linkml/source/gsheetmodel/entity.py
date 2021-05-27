@@ -4,9 +4,11 @@ from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
-from linkml_model.meta import ClassDefinition, SlotDefinition
+from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue
 import logging
 import re
+import urllib.parse
+
 
 class Entity(ModelElement):
     """
@@ -286,6 +288,33 @@ class Attribute:
 
         return attribute_range
 
+    def as_linkml_enum(self) -> EnumDefinition:
+        """
+        If this is an attribute with an enumeration of possible values,
+        this method will return this enumeration as a LinkML EnumDefinition.
+        """
+        if self.range != EntityWorksheet.ENTITY_CODEABLE_CONCEPT:
+            return None
+
+        # Look up enumerations on the Terminology Service.
+        enum_info = self.terminology_service.get_enum_values_for_field(self.full_name)
+        permissible_values = []
+        for pv in enum_info.get('permissible_values', []):
+            permissible_values.append(PermissibleValue(
+                text=pv.get('text'),
+                description=pv.get('description'),
+                meaning=pv.get('meaning')
+            ))
+
+        return EnumDefinition(
+            name=f'enum_{self.full_name}',
+            code_set=f'https://terminology.ccdh.io/enumerations/{urllib.parse.quote_plus(self.full_name)}',
+            code_set_version=enum_info.get("last_updated", ""),
+            comments=f'Name according to TCCM: "{enum_info.get("name", "")}"',
+            description=enum_info.get("description"),
+            permissible_values=permissible_values
+        )
+
     def as_linkml(self, root_uri) -> SlotDefinition:
         """
         Returns this attribute as a LinkML SlotDefinition.
@@ -297,6 +326,15 @@ class Attribute:
         data = self.row
         min_count, max_count = self.counts()
 
+        attribute_range = self.range
+        # For CodeableConcepts, we currently replace it with an enumeration.
+        # In future versions, we will instead constrain the CodeableConcept's codes in some way.
+        if attribute_range == 'CodeableConcept':
+            # Logically, we should be able to set `attribute_range` to the EnumDefinition.
+            # But LinkML doesn't support that yet. So instead, we'll refer to the enum definition
+            # here and enter it elsewhere in the YAML file.
+            attribute_range = f'enum_{self.full_name}'
+
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
             description=(data.get("Description") or '').strip(),
@@ -304,7 +342,7 @@ class Attribute:
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
-            range=self.range
+            range=attribute_range
         )
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
@@ -330,6 +368,9 @@ class EntityWorksheet(ModelElement):
     COL_ATTRIBUTE_NAME = "Attribute"
     COL_CARDINALITY = "Cardinality"
     COL_TYPE = "Type"
+
+    # Some entity names.
+    ENTITY_CODEABLE_CONCEPT = "CodeableConcept"
 
     @staticmethod
     def is_sheet_entity(worksheet: worksheet):
