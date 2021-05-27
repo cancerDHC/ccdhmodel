@@ -1,12 +1,15 @@
 from linkml_model import SchemaDefinition
 
 from functools import cached_property
+from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
-from linkml_model.meta import ClassDefinition, SlotDefinition
+from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue
 import logging
 import re
+import urllib.parse
+
 
 class Entity(ModelElement):
     """
@@ -15,7 +18,7 @@ class Entity(ModelElement):
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
 
-    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
+    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]], terminology_service: TerminologyService):
         """
         Create an entity based on a GSheetModel and a Google Sheet worksheet.
 
@@ -23,12 +26,14 @@ class Entity(ModelElement):
         :param sheet: A Google Sheet worksheet describing this entity.
         :param name: The name of this entity.
         :param rows: The rows in the spreadsheet describing this entity (as dictionaries of str -> str).
+        :param terminology_service: The TerminologyService to access the codesets we use.
         """
 
         self.model = model
         self.worksheet = sheet
         self.entity_name = name
         self.rows = rows
+        self.terminology_service = terminology_service
 
     @property
     def attribute_rows(self) -> list[dict[str, str]]:
@@ -52,7 +57,7 @@ class Entity(ModelElement):
         :return: A list of all the attributes in this entity.
         """
 
-        return [Attribute(self.model, self, dct) for dct in self.attribute_rows]
+        return [Attribute(self.model, self, dct, terminology_service=self.terminology_service) for dct in self.attribute_rows]
 
     @property
     def entity_row(self) -> dict[str, str]:
@@ -190,18 +195,20 @@ class Attribute:
     It is represented by a single row in a Google Sheet spreadsheet.
     """
 
-    def __init__(self, model, entity, row: dict[str, str]):
+    def __init__(self, model, entity, row: dict[str, str], terminology_service: TerminologyService):
         """
         Create an attribute based on a GSheetModel and a Google Sheet worksheet.
 
         :param model: The GSheetModel that this attribute is a part of.
         :param entity: The Entity that this attribute is a part of.
         :param row: The row describing this attribute (as a dictionary of str -> str).
+        :param terminology_service: The TerminologyService to use for accessing codeset information.
         """
 
         self.model = model
         self.entity = entity
         self.row = row
+        self.terminology_service = terminology_service
 
     @property
     def name(self):
@@ -282,6 +289,36 @@ class Attribute:
 
         return attribute_range
 
+    def as_linkml_enum(self) -> EnumDefinition:
+        """
+        If this is an attribute with an enumeration of possible values,
+        this method will return this enumeration as a LinkML EnumDefinition.
+        """
+        if not self.terminology_service:
+            return None
+
+        if self.range != EntityWorksheet.ENTITY_CODEABLE_CONCEPT:
+            return None
+
+        # Look up enumerations on the Terminology Service.
+        enum_info = self.terminology_service.get_enum_values_for_field(self.full_name)
+        permissible_values = []
+        for pv in enum_info.get('permissible_values', []):
+            permissible_values.append(PermissibleValue(
+                text=pv.get('text'),
+                description=pv.get('description'),
+                meaning=pv.get('meaning')
+            ))
+
+        return EnumDefinition(
+            name=f'enum_{self.full_name}',
+            code_set=f'https://terminology.ccdh.io/enumerations/{urllib.parse.quote_plus(self.full_name)}',
+            code_set_version=enum_info.get("last_updated", ""),
+            comments=f'Name according to TCCM: "{enum_info.get("name", "")}"',
+            description=enum_info.get("description"),
+            permissible_values=permissible_values
+        )
+
     def as_linkml(self, root_uri) -> SlotDefinition:
         """
         Returns this attribute as a LinkML SlotDefinition.
@@ -293,6 +330,15 @@ class Attribute:
         data = self.row
         min_count, max_count = self.counts()
 
+        attribute_range = self.range
+        # For CodeableConcepts, we currently replace it with an enumeration.
+        # In future versions, we will instead constrain the CodeableConcept's codes in some way.
+        if self.terminology_service and attribute_range == 'CodeableConcept':
+            # Logically, we should be able to set `attribute_range` to the EnumDefinition.
+            # But LinkML doesn't support that yet. So instead, we'll refer to the enum definition
+            # here and enter it elsewhere in the YAML file.
+            attribute_range = f'enum_{self.full_name}'
+
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
             description=(data.get("Description") or '').strip(),
@@ -300,7 +346,7 @@ class Attribute:
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
-            range=self.range
+            range=attribute_range
         )
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
@@ -327,6 +373,9 @@ class EntityWorksheet(ModelElement):
     COL_CARDINALITY = "Cardinality"
     COL_TYPE = "Type"
 
+    # Some entity names.
+    ENTITY_CODEABLE_CONCEPT = "CodeableConcept"
+
     @staticmethod
     def is_sheet_entity(worksheet: worksheet):
         """Identify worksheets containing entities, i.e. those that have:
@@ -336,7 +385,7 @@ class EntityWorksheet(ModelElement):
         """
         return worksheet.get_values("A1", "C1") == [[EntityWorksheet.COL_STATUS, EntityWorksheet.COL_ENTITY_NAME, EntityWorksheet.COL_ATTRIBUTE_NAME]]
 
-    def __init__(self, model, sheet: worksheet):
+    def __init__(self, model, sheet: worksheet, terminology_service: TerminologyService):
         """
         Create a worksheet based on a GSheetModel and a Google Sheet worksheet.
 
@@ -346,6 +395,7 @@ class EntityWorksheet(ModelElement):
 
         self.model = model
         self.worksheet = sheet
+        self.terminology_service = terminology_service
 
     @property
     def rows(self) -> list[dict]:
@@ -419,7 +469,7 @@ class EntityWorksheet(ModelElement):
         """
 
         return {
-            k: Entity(self.model, self.worksheet, k, v)
+            k: Entity(self.model, self.worksheet, k, v, terminology_service=self.terminology_service)
             for k, v in self.entities_as_included_rows.items()
         }
 

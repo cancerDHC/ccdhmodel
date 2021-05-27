@@ -4,6 +4,7 @@ from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
 from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
+from sheet2linkml.terminologies.service import TerminologyService
 from linkml_model.meta import SchemaDefinition
 from functools import cached_property, cache
 from datetime import datetime, timezone
@@ -62,6 +63,9 @@ class GSheetModel(ModelElement):
         # requires a different scope than what we currently use.
         # return self.sheet.updated
         self.last_updated = datetime.now(timezone.utc).isoformat()
+
+        # Set the terminology_service to None, indicating that terminology services shouldn't be used.
+        self.terminology_service = None
 
     @property
     def version(self):
@@ -122,7 +126,7 @@ class GSheetModel(ModelElement):
             if not flag_skip:
                 entity_worksheets.append(worksheet)
 
-        return [EntityWorksheet(self, worksheet) for worksheet in entity_worksheets]
+        return [EntityWorksheet(self, worksheet, terminology_service=self.terminology_service) for worksheet in entity_worksheets]
 
     @cache
     def entities(self) -> list[Entity]:
@@ -215,6 +219,7 @@ class GSheetModel(ModelElement):
         schema.prefixes = {
             "linkml": "https://w3id.org/linkml/",
             "ccdh": f"{root_uri}/",
+            "NCIT": "http://purl.obolibrary.org/obo/NCIT_"
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
@@ -235,12 +240,16 @@ class GSheetModel(ModelElement):
         # Generate all the entities.
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
 
+        schema.enums = {f'enum_{attribute.full_name}': attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
+
         # At this point, classes might refer to types that haven't been defined
         # yet. So, for fields that refer to other classes in this model, we need to
         # go through and:
         #   - Warn the user about the missing type
         #   - Replace the type with 'Entity' for now.
-        valid_types = set(schema.types.keys()).union(set(schema.classes.keys()))
+        valid_types = set(schema.types.keys())\
+            .union(set(schema.classes.keys()))\
+            .union(set(schema.enums.keys()))
 
         def fix_type_name(entity, dict, propName):
             value = dict[propName]
@@ -255,3 +264,9 @@ class GSheetModel(ModelElement):
                 fix_type_name(f'{entity.name}.{attrName}', attr, 'range')
 
         return schema
+
+    def use_terminology_service(self, terminology_service: TerminologyService):
+        """
+        Activate terminology lookups using the specified base_url (e.g. https://terminology.ccdh.io/enumerations/CRDC-H.Specimen.analyte_type?value_only=false)
+        """
+        self.terminology_service = terminology_service

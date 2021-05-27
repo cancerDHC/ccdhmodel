@@ -12,6 +12,7 @@ import logging.config
 from sheet2linkml import config
 from sheet2linkml.source.gsheetmodel.gsheetmodel import GSheetModel
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
+from sheet2linkml.terminologies.tccm.api import TCCMService
 from linkml.utils import yamlutils
 import click
 
@@ -33,7 +34,12 @@ import click
     type=click.Path(exists=False),
     help="A file to write out mappings to."
 )
-def main(filter_entity, logging_config, write_mappings):
+@click.option(
+    '--include-terminologies/--skip-terminologies',
+    default=True,
+    help="Controls whether we use the CCDH Terminology Service to add enumerated values for attributes."
+)
+def main(filter_entity, logging_config, write_mappings, include_terminologies):
     # Display INFO log entry and up.
     logging.config.fileConfig(logging_config)
 
@@ -46,6 +52,8 @@ def main(filter_entity, logging_config, write_mappings):
 
     # Load the Google Sheet model and add the development version number.
     model = GSheetModel(google_api_credentials, google_sheet_id)
+    if include_terminologies:
+        model.use_terminology_service(TCCMService('https://terminology.ccdh.io'))
     logging.info(f"Google Sheet loaded: {model}")
 
     # Determine the development version number. We can get this from git-describe.
