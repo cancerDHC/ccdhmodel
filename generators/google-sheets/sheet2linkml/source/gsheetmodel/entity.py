@@ -104,7 +104,7 @@ class Entity(ModelElement):
         """
         :return: The full name of this entity.
         """
-        return f'ccdh:{self.entity_name}'
+        return f'CRDC-H.{self.entity_name}'
 
     def get_filename(self) -> str:
         """
@@ -219,7 +219,7 @@ class Attribute:
         """
         :return: The full name of this attribute.
         """
-        return f'{self.entity.full_name}#{self.name}'
+        return f'{self.entity.full_name}.{self.name}'
 
     def __str__(self):
         """
