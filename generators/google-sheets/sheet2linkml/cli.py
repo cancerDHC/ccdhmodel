@@ -30,7 +30,7 @@ import click
 )
 @click.option(
     '--write-mappings',
-    type=str,
+    type=click.Path(exists=False),
     help="A file to write out mappings to."
 )
 def main(filter_entity, logging_config, write_mappings):
