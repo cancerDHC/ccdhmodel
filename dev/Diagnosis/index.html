@@ -89,8 +89,9 @@
             <div class="section">
               
                 <h1 id="class-diagnosis">Class: Diagnosis</h1>
+<p>A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</p>
 <p>URI: <a href="https://example.org/ccdh/Diagnosis">ccdh:Diagnosis</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Identifier],[Entity],[Specimen]&lt;related_specimen%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F;condition:enum_CRDC-H.Diagnosis.condition%20%3F;morphology:enum_CRDC-H.Diagnosis.morphology%20%3F;disease_status:enum_CRDC-H.Diagnosis.disease_status%20%3F;method_of_diagnosis:enum_CRDC-H.Diagnosis.method_of_diagnosis%20%3F],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[Entity]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnoses%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CancerStageObservationSet],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Identifier],[Entity],[Specimen]&lt;related_specimen%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F;condition:enum_CRDC-H.Diagnosis.condition%20%3F;morphology:enum_CRDC-H.Diagnosis.morphology%20%3F;disease_status:enum_CRDC-H.Diagnosis.disease_status%20%3F;method_of_diagnosis:enum_CRDC-H.Diagnosis.method_of_diagnosis%20%3F],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[Entity]&lt;grade%200..*-++[Diagnosis],[Entity]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnoses%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -167,7 +168,7 @@
 </li>
 <li><a href="../diagnosis__stage/">➞stage</a>  <sub>0..*</sub><ul>
 <li>Description: The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.</li>
-<li>range: <a href="../CancerStageObservationSet/">CancerStageObservationSet</a></li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__year_at_diagnosis/">➞year_at_diagnosis</a>  <sub>OPT</sub><ul>

@@ -91,17 +91,22 @@
                 <h1 id="class-subject">Class: Subject</h1>
 <p>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</p>
 <p>URI: <a href="https://example.org/ccdh/Subject">ccdh:Subject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;age_at_death%200..1-++[Subject&#124;id:ccdh_string;species:enum_CRDC-H.Subject.species%20%3F;breed:enum_CRDC-H.Subject.breed%20%3F;sex:enum_CRDC-H.Subject.sex%20%3F;ethnicity:enum_CRDC-H.Subject.ethnicity%20%3F;race:enum_CRDC-H.Subject.race%20*;year_of_birth:ccdh_integer%20%3F;vital_status:enum_CRDC-H.Subject.vital_status%20%3F;year_of_death:ccdh_integer%20%3F;cause_of_death:enum_CRDC-H.Subject.cause_of_death%20%3F],[Identifier]&lt;identifier%200..*-++[Subject],[Exposure]++-%20subject%200..1&gt;[Subject],[Observation]++-%20subject%200..1&gt;[Subject],[ResearchSubject]++-%20associated_subject%201..1&gt;[Subject],[Specimen]++-%20source_subject%200..1&gt;[Subject],[Entity]^-[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Exposure],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;age_at_death%200..1-++[Subject&#124;id:ccdh_string;species:enum_CRDC-H.Subject.species%20%3F;breed:enum_CRDC-H.Subject.breed%20%3F;sex:enum_CRDC-H.Subject.sex%20%3F;ethnicity:enum_CRDC-H.Subject.ethnicity%20%3F;race:enum_CRDC-H.Subject.race%20*;year_of_birth:ccdh_integer%20%3F;vital_status:enum_CRDC-H.Subject.vital_status%20%3F;year_of_death:ccdh_integer%20%3F;cause_of_death:enum_CRDC-H.Subject.cause_of_death%20%3F],[Identifier]&lt;identifier%200..*-++[Subject],[AlcoholExposureObservation]++-%20subject%200..1&gt;[Subject],[DimensionalObservation]++-%20subject%200..1&gt;[Subject],[EnvironmentalExposureObservation]++-%20subject%200..1&gt;[Subject],[Exposure]++-%20subject%200..1&gt;[Subject],[Observation]++-%20subject%200..1&gt;[Subject],[ResearchSubject]++-%20associated_subject%201..1&gt;[Subject],[SpecimenQuantityObservation]++-%20subject%200..1&gt;[Subject],[Specimen]++-%20source_subject%200..1&gt;[Subject],[TobaccoExposureObservation]++-%20subject%200..1&gt;[Subject],[Entity]^-[Subject],[TobaccoExposureObservation],[SpecimenQuantityObservation],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Exposure],[EnvironmentalExposureObservation],[Entity],[DimensionalObservation],[AlcoholExposureObservation]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
+<li><strong>None</strong> <em><a href="../alcoholExposureObservation__subject/">➞subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
+<li><strong>None</strong> <em><a href="../dimensionalObservation__subject/">➞subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
+<li><strong>None</strong> <em><a href="../environmentalExposureObservation__subject/">➞subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 <li><strong>None</strong> <em><a href="../exposure__subject/">➞subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 <li><strong>None</strong> <em><a href="../observation__subject/">➞subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 <li><strong>None</strong> <em><a href="../researchSubject__associated_subject/">➞associated_subject</a></em>  <sub>REQ</sub>  <strong><a href="./">Subject</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimenQuantityObservation__subject/">➞subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimen__source_subject/">➞source_subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
+<li><strong>None</strong> <em><a href="../tobaccoExposureObservation__subject/">➞subject</a></em>  <sub>OPT</sub>  <strong><a href="./">Subject</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
@@ -122,37 +127,51 @@
 </ul>
 </li>
 <li><a href="../subject__ethnicity/">➞ethnicity</a>  <sub>OPT</sub><ul>
-<li>Description: An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</li>
+<li>Description: An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau</li>
+<li>range: <a href="../enum_CRDC-H.Subject.ethnicity/">enum_CRDC-H.Subject.ethnicity</a></li>
+</ul>
+</li>
+<li><a href="../subject__id/">➞id</a>  <sub>REQ</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../subject__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
+<li>Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
+</ul>
+</li>
+<li><a href="../subject__race/">➞race</a>  <sub>0..*</sub><ul>
+<li>Description: An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</li>
+<li>range: <a href="../enum_CRDC-H.Subject.race/">enum_CRDC-H.Subject.race</a></li>
+</ul>
+</li>
+<li><a href="../subject__sex/">➞sex</a>  <sub>OPT</sub><ul>
+<li>Description: The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.</li>
+<li>range: <a href="../enum_CRDC-H.Subject.sex/">enum_CRDC-H.Subject.sex</a></li>
+</ul>
+</li>
+<li><a href="../subject__species/">➞species</a>  <sub>OPT</sub><ul>
+<li>Description: The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)</li>
+<li>range: <a href="../enum_CRDC-H.Subject.species/">enum_CRDC-H.Subject.species</a></li>
+</ul>
+</li>
+<li><a href="../subject__vital_status/">➞vital_status</a>  <sub>OPT</sub><ul>
+<li>Description: Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.</li>
+<li>range: <a href="../enum_CRDC-H.Subject.vital_status/">enum_CRDC-H.Subject.vital_status</a></li>
+</ul>
+</li>
+<li><a href="../subject__year_of_birth/">➞year_of_birth</a>  <sub>OPT</sub><ul>
+<li>Description: Numeric value to represent the calendar year in which an individual was born.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+</ul>
+</li>
+<li><a href="../subject__year_of_death/">➞year_of_death</a>  <sub>OPT</sub><ul>
+<li>Description: Numeric value to represent the calendar year in which an individual died.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
 </ul>
 </li>
 </ul>
-<p>Applicable only when Subject.species is Homo Sapiens
-     * range: <a href="../enum_CRDC-H.Subject.ethnicity/">enum_CRDC-H.Subject.ethnicity</a>
- * <a href="../subject__id/">➞id</a>  <sub>REQ</sub>
-     * Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.
-     * range: <a href="../types/CcdhString/">CcdhString</a>
- * <a href="../subject__identifier/">➞identifier</a>  <sub>0..<em></sub>
-     * Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.
-     * range: <a href="../Identifier/">Identifier</a>
- * <a href="../subject__race/">➞race</a>  <sub>0..</em></sub>
-     * Description: An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</p>
-<p>Applicable only when Subject.species is Homo Sapiens
-     * range: <a href="../enum_CRDC-H.Subject.race/">enum_CRDC-H.Subject.race</a>
- * <a href="../subject__sex/">➞sex</a>  <sub>OPT</sub>
-     * Description: The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.
-     * range: <a href="../enum_CRDC-H.Subject.sex/">enum_CRDC-H.Subject.sex</a>
- * <a href="../subject__species/">➞species</a>  <sub>OPT</sub>
-     * Description: The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)
-     * range: <a href="../enum_CRDC-H.Subject.species/">enum_CRDC-H.Subject.species</a>
- * <a href="../subject__vital_status/">➞vital_status</a>  <sub>OPT</sub>
-     * Description: Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.
-     * range: <a href="../enum_CRDC-H.Subject.vital_status/">enum_CRDC-H.Subject.vital_status</a>
- * <a href="../subject__year_of_birth/">➞year_of_birth</a>  <sub>OPT</sub>
-     * Description: Numeric value to represent the calendar year in which an individual was born.
-     * range: <a href="../types/CcdhInteger/">CcdhInteger</a>
- * <a href="../subject__year_of_death/">➞year_of_death</a>  <sub>OPT</sub>
-     * Description: Numeric value to represent the calendar year in which an individual died.
-     * range: <a href="../types/CcdhInteger/">CcdhInteger</a></p>
               
             </div>
           </div>

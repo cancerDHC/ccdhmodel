@@ -110,6 +110,7 @@
 <h3 id="classes">Classes</h3>
 <ul>
 <li><a href="Entity/">Entity</a> - Any resource that has its own identifier<ul>
+<li><a href="AlcoholExposureObservation/">AlcoholExposureObservation</a> - A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.</li>
 <li><a href="BiologicProduct/">BiologicProduct</a> - A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
 <li><a href="BodySite/">BodySite</a></li>
 <li><a href="CancerGradeObservation/">CancerGradeObservation</a> - A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation, such as ...</li>
@@ -118,8 +119,10 @@
 <li><a href="CancerStageObservationSet/">CancerStageObservationSet</a> - A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).</li>
 <li><a href="CodeableConcept/">CodeableConcept</a> - A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.</li>
 <li><a href="Coding/">Coding</a> - A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.</li>
-<li><a href="Diagnosis/">Diagnosis</a></li>
+<li><a href="Diagnosis/">Diagnosis</a> - A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</li>
+<li><a href="DimensionalObservation/">DimensionalObservation</a> - A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement.</li>
 <li><a href="Document/">Document</a></li>
+<li><a href="EnvironmentalExposureObservation/">EnvironmentalExposureObservation</a> - A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation.</li>
 <li><a href="Exposure/">Exposure</a> - Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.</li>
 <li><a href="Identifier/">Identifier</a> - An Identifier is associated with a unique object or entity within a given system.</li>
 <li><a href="Observation/">Observation</a> - A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.</li>
@@ -131,12 +134,14 @@
 <li><a href="SpecimenContainer/">SpecimenContainer</a> - A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)</li>
 <li><a href="SpecimenCreationActivity/">SpecimenCreationActivity</a> - The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.</li>
 <li><a href="SpecimenProcessingActivity/">SpecimenProcessingActivity</a> - An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.</li>
+<li><a href="SpecimenQuantityObservation/">SpecimenQuantityObservation</a> - A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.</li>
 <li><a href="SpecimenStorageActivity/">SpecimenStorageActivity</a> - An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the </li>
 <li><a href="SpecimenTransportActivity/">SpecimenTransportActivity</a> - An activity through which a specimen is transported between locations.</li>
 <li><a href="Subject/">Subject</a> - Demographics and other administrative information about an individual or animal receiving care or other health-related services.</li>
 <li><a href="Substance/">Substance</a> - A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.</li>
 <li><a href="TimePeriod/">TimePeriod</a></li>
 <li><a href="TimePoint/">TimePoint</a> - A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.</li>
+<li><a href="TobaccoExposureObservation/">TobaccoExposureObservation</a> - A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.</li>
 <li><a href="Treatment/">Treatment</a> - Represent medication administration or other treatment types.</li>
 </ul>
 </li>
@@ -144,6 +149,21 @@
 <h3 id="mixins">Mixins</h3>
 <h3 id="slots">Slots</h3>
 <ul>
+<li><a href="alcoholExposureObservation__category/">➞category</a> - The general category of observation described</li>
+<li><a href="alcoholExposureObservation__focus/">➞focus</a> - The entity or entities directly observed/measured in generating an observation result.</li>
+<li><a href="alcoholExposureObservation__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li><a href="alcoholExposureObservation__method_type/">➞method_type</a> - A type of method used in generating the Observation result.</li>
+<li><a href="alcoholExposureObservation__observation_type/">➞observation_type</a> - The specific type of alcohol exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
+<li><a href="alcoholExposureObservation__performed_by/">➞performed_by</a> - The organization or group that performed the observation activity.</li>
+<li><a href="alcoholExposureObservation__subject/">➞subject</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li><a href="alcoholExposureObservation__valueBoolean/">➞valueBoolean</a> - The result of the observation, encoded as a boolean.</li>
+<li><a href="alcoholExposureObservation__valueCodeableConcept/">➞valueCodeableConcept</a> - The result of the observation, encoded as a CodeableConcept.</li>
+<li><a href="alcoholExposureObservation__valueDateTime/">➞valueDateTime</a> - The result of the observation, encoded as a dateTime.</li>
+<li><a href="alcoholExposureObservation__valueDecimal/">➞valueDecimal</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="alcoholExposureObservation__valueEntity/">➞valueEntity</a> - The value of an observation</li>
+<li><a href="alcoholExposureObservation__valueInteger/">➞valueInteger</a> - The result of the observation, encoded as an integer.</li>
+<li><a href="alcoholExposureObservation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
+<li><a href="alcoholExposureObservation__valueString/">➞valueString</a> - The result of the observation, encoded as a free-text string.</li>
 <li><a href="biologicProduct__description/">➞description</a> - A free text field to capture additional info/explanation about the model system</li>
 <li><a href="biologicProduct__growth_rate/">➞growth_rate</a> - When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.</li>
 <li><a href="biologicProduct__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
@@ -182,13 +202,34 @@
 <li><a href="diagnosis__related_specimen/">➞related_specimen</a> - The specimen from which this diagnosis is made</li>
 <li><a href="diagnosis__stage/">➞stage</a> - The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.</li>
 <li><a href="diagnosis__year_at_diagnosis/">➞year_at_diagnosis</a> - Numeric value to represent the year of an individual's diagnosis.</li>
+<li><a href="dimensionalObservation__category/">➞category</a> - The general category of observation described</li>
+<li><a href="dimensionalObservation__focus/">➞focus</a> - The entity or entities directly observed/measured in generating an observation result.</li>
+<li><a href="dimensionalObservation__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li><a href="dimensionalObservation__method_type/">➞method_type</a> - A type of method used in generating the Observation result.</li>
+<li><a href="dimensionalObservation__observation_type/">➞observation_type</a> - The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.</li>
+<li><a href="dimensionalObservation__subject/">➞subject</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li><a href="dimensionalObservation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
 <li><a href="document__description/">➞description</a> - A free text description or summary of the report.</li>
 <li><a href="document__document_type/">➞document_type</a> - The high-level type of the report (e.g. 'pathology report')</li>
 <li><a href="document__focus/">➞focus</a> - The entity that the report is primarily about</li>
 <li><a href="document__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li><a href="document__identifier/">➞identifier</a> - A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
 <li><a href="document__url/">➞url</a> - A URL/web address where the document can be accessed.</li>
-<li><a href="entity__id/">➞id</a> - The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
+<li><a href="environmentalExposureObservation__category/">➞category</a> - The general category of observation described</li>
+<li><a href="environmentalExposureObservation__focus/">➞focus</a> - The entity or entities directly observed/measured in generating an observation result.</li>
+<li><a href="environmentalExposureObservation__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li><a href="environmentalExposureObservation__method_type/">➞method_type</a> - A type of method used in generating the Observation result.</li>
+<li><a href="environmentalExposureObservation__observation_type/">➞observation_type</a> - The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
+<li><a href="environmentalExposureObservation__performed_by/">➞performed_by</a> - The organization or group that performed the observation activity.</li>
+<li><a href="environmentalExposureObservation__subject/">➞subject</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li><a href="environmentalExposureObservation__valueBoolean/">➞valueBoolean</a> - The result of the observation, encoded as a boolean.</li>
+<li><a href="environmentalExposureObservation__valueCodeableConcept/">➞valueCodeableConcept</a> - The result of the observation, encoded as a CodeableConcept.</li>
+<li><a href="environmentalExposureObservation__valueDateTime/">➞valueDateTime</a> - The result of the observation, encoded as a dateTime.</li>
+<li><a href="environmentalExposureObservation__valueDecimal/">➞valueDecimal</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="environmentalExposureObservation__valueEntity/">➞valueEntity</a> - The value of an observation</li>
+<li><a href="environmentalExposureObservation__valueInteger/">➞valueInteger</a> - The result of the observation, encoded as an integer.</li>
+<li><a href="environmentalExposureObservation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
+<li><a href="environmentalExposureObservation__valueString/">➞valueString</a> - The result of the observation, encoded as a free-text string.</li>
 <li><a href="exposure__alcohol_use/">➞alcohol_use</a> - A container holding a set of observations about an individual's exposure to alcohol.</li>
 <li><a href="exposure__environmental/">➞environmental</a> - Observations about an individual's exposure to environmental substances that may impact clinical outcomes.</li>
 <li><a href="exposure__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
@@ -276,6 +317,21 @@
 <li><a href="specimenProcessingActivity__execution_observation/">➞execution_observation</a> - Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
 <li><a href="specimenProcessingActivity__method_type/">➞method_type</a> - A specific type of method or procedure performed to process the specimen</li>
 <li><a href="specimenProcessingActivity__performed_by/">➞performed_by</a> - The organization or group that performed the activity.</li>
+<li><a href="specimenQuantityObservation__category/">➞category</a> - The general category of observation described</li>
+<li><a href="specimenQuantityObservation__focus/">➞focus</a> - The entity or entities directly observed/measured in generating an observation result.</li>
+<li><a href="specimenQuantityObservation__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li><a href="specimenQuantityObservation__method_type/">➞method_type</a> - A type of method used in generating the Observation result.</li>
+<li><a href="specimenQuantityObservation__observation_type/">➞observation_type</a> - The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
+<li><a href="specimenQuantityObservation__performed_by/">➞performed_by</a> - The organization or group that performed the observation activity.</li>
+<li><a href="specimenQuantityObservation__subject/">➞subject</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li><a href="specimenQuantityObservation__valueBoolean/">➞valueBoolean</a> - The result of the observation, encoded as a boolean.</li>
+<li><a href="specimenQuantityObservation__valueCodeableConcept/">➞valueCodeableConcept</a> - The result of the observation, encoded as a CodeableConcept.</li>
+<li><a href="specimenQuantityObservation__valueDateTime/">➞valueDateTime</a> - The result of the observation, encoded as a dateTime.</li>
+<li><a href="specimenQuantityObservation__valueDecimal/">➞valueDecimal</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="specimenQuantityObservation__valueEntity/">➞valueEntity</a> - The value of an observation</li>
+<li><a href="specimenQuantityObservation__valueInteger/">➞valueInteger</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="specimenQuantityObservation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
+<li><a href="specimenQuantityObservation__valueString/">➞valueString</a> - The result of the observation, encoded as a free-text string.</li>
 <li><a href="specimenStorageActivity__container/">➞container</a> - A container in which the specimen is held or affixed during its storage.</li>
 <li><a href="specimenStorageActivity__date_ended/">➞date_ended</a> - The date when the activity ended (in this case, a storage event).</li>
 <li><a href="specimenStorageActivity__date_started/">➞date_started</a> - The date when the activity began (in this case, a storage event).</li>
@@ -328,7 +384,7 @@
 <li><a href="subject__age_at_death/">➞age_at_death</a> - The age of an individual at the time of death, expressed in days since birth</li>
 <li><a href="subject__breed/">➞breed</a> - A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.</li>
 <li><a href="subject__cause_of_death/">➞cause_of_death</a> - Coded value indicating the circumstance or condition that results in the death of the subject.</li>
-<li><a href="subject__ethnicity/">➞ethnicity</a> - An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</li>
+<li><a href="subject__ethnicity/">➞ethnicity</a> - An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau</li>
 <li><a href="subject__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li><a href="subject__identifier/">➞identifier</a> - A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
 <li><a href="subject__race/">➞race</a> - An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</li>
@@ -347,6 +403,21 @@ start</a> - When a period of time started.</li>
 <li><a href="timePoint__indexDate/">➞indexDate</a> - An explicit dateTime that serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
 <li><a href="timePoint__indexEventType/">➞indexEventType</a> - A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
 <li><a href="timePoint__offsetFromIndex/">➞offsetFromIndex</a> - A quantity of time that, together with the index date or event, can be used to derive a specific timepoint.</li>
+<li><a href="tobaccoExposureObservation__category/">➞category</a> - The general category of observation described</li>
+<li><a href="tobaccoExposureObservation__focus/">➞focus</a> - The entity or entities directly observed/measured in generating an observation result.</li>
+<li><a href="tobaccoExposureObservation__id/">➞id</a> - The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li><a href="tobaccoExposureObservation__method_type/">➞method_type</a> - A type of method used in generating the Observation result.</li>
+<li><a href="tobaccoExposureObservation__observation_type/">➞observation_type</a> - The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
+<li><a href="tobaccoExposureObservation__performed_by/">➞performed_by</a> - The organization or group that performed the observation activity.</li>
+<li><a href="tobaccoExposureObservation__subject/">➞subject</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li><a href="tobaccoExposureObservation__valueBoolean/">➞valueBoolean</a> - The result of the observation, encoded as a boolean.</li>
+<li><a href="tobaccoExposureObservation__valueCodeableConcept/">➞valueCodeableConcept</a> - The result of the observation, encoded as a CodeableConcept.</li>
+<li><a href="tobaccoExposureObservation__valueDateTime/">➞valueDateTime</a> - The result of the observation, encoded as a dateTime.</li>
+<li><a href="tobaccoExposureObservation__valueDecimal/">➞valueDecimal</a> - The result of the observation, encoded as a decimal.</li>
+<li><a href="tobaccoExposureObservation__valueEntity/">➞valueEntity</a> - The value of an observation</li>
+<li><a href="tobaccoExposureObservation__valueInteger/">➞valueInteger</a> - The result of the observation, encoded as an integer.</li>
+<li><a href="tobaccoExposureObservation__valueQuantity/">➞valueQuantity</a> - The result of the observation, encoded as a free-text Quantity.</li>
+<li><a href="tobaccoExposureObservation__valueString/">➞valueString</a> - The result of the observation, encoded as a free-text string.</li>
 <li><a href="treatment__anatomic_site/">➞anatomic_site</a> - The anatomical site that the treatment targets.</li>
 <li><a href="treatment__concurrent_treatment/">➞concurrent_treatment</a> - The treatment(s) instance(s) that are concurrent with this treatment.</li>
 <li><a href="treatment__concurrent_treatment_type/">➞concurrent_treatment_type</a> - The type(s) of treatment(s) that are concurrent to this treatment.</li>
@@ -366,6 +437,10 @@ start</a> - When a period of time started.</li>
 </ul>
 <h3 id="enums">Enums</h3>
 <ul>
+<li><a href="enum_CRDC-H.AlcoholExposureObservation.category/">enum_CRDC-H.AlcoholExposureObservation.category</a> - Autogenerated Enumeration for CRDC-H AlcoholExposureObservation category</li>
+<li><a href="enum_CRDC-H.AlcoholExposureObservation.method_type/">enum_CRDC-H.AlcoholExposureObservation.method_type</a> - Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type</li>
+<li><a href="enum_CRDC-H.AlcoholExposureObservation.observation_type/">enum_CRDC-H.AlcoholExposureObservation.observation_type</a> - Autogenerated Enumeration for CRDC-H AlcoholExposureObservation observation_type</li>
+<li><a href="enum_CRDC-H.AlcoholExposureObservation.valueCodeableConcept/">enum_CRDC-H.AlcoholExposureObservation.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept</li>
 <li><a href="enum_CRDC-H.BiologicProduct.product_type/">enum_CRDC-H.BiologicProduct.product_type</a> - Autogenerated Enumeration for CRDC-H BiologicProduct product_type</li>
 <li><a href="enum_CRDC-H.BodySite.qualifier/">enum_CRDC-H.BodySite.qualifier</a> - Autogenerated Enumeration for CRDC-H BodySite qualifier</li>
 <li><a href="enum_CRDC-H.BodySite.site/">enum_CRDC-H.BodySite.site</a> - Autogenerated Enumeration for CRDC-H BodySite site</li>
@@ -380,7 +455,14 @@ start</a> - When a period of time started.</li>
 <li><a href="enum_CRDC-H.Diagnosis.disease_status/">enum_CRDC-H.Diagnosis.disease_status</a> - Autogenerated Enumeration for CRDC-H Diagnosis disease_status</li>
 <li><a href="enum_CRDC-H.Diagnosis.method_of_diagnosis/">enum_CRDC-H.Diagnosis.method_of_diagnosis</a> - Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis</li>
 <li><a href="enum_CRDC-H.Diagnosis.morphology/">enum_CRDC-H.Diagnosis.morphology</a> - Autogenerated Enumeration for CRDC-H Diagnosis morphology</li>
+<li><a href="enum_CRDC-H.DimensionalObservation.category/">enum_CRDC-H.DimensionalObservation.category</a> - Autogenerated Enumeration for CRDC-H DimensionalObservation category</li>
+<li><a href="enum_CRDC-H.DimensionalObservation.method_type/">enum_CRDC-H.DimensionalObservation.method_type</a> - Autogenerated Enumeration for CRDC-H DimensionalObservation method_type</li>
+<li><a href="enum_CRDC-H.DimensionalObservation.observation_type/">enum_CRDC-H.DimensionalObservation.observation_type</a> - Autogenerated Enumeration for CRDC-H DimensionalObservation observation_type</li>
 <li><a href="enum_CRDC-H.Document.document_type/">enum_CRDC-H.Document.document_type</a> - Autogenerated Enumeration for CRDC-H Document document_type</li>
+<li><a href="enum_CRDC-H.EnvironmentalExposureObservation.category/">enum_CRDC-H.EnvironmentalExposureObservation.category</a> - Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category</li>
+<li><a href="enum_CRDC-H.EnvironmentalExposureObservation.method_type/">enum_CRDC-H.EnvironmentalExposureObservation.method_type</a> - Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type</li>
+<li><a href="enum_CRDC-H.EnvironmentalExposureObservation.observation_type/">enum_CRDC-H.EnvironmentalExposureObservation.observation_type</a> - Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation observation_type</li>
+<li><a href="enum_CRDC-H.EnvironmentalExposureObservation.valueCodeableConcept/">enum_CRDC-H.EnvironmentalExposureObservation.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept</li>
 <li><a href="enum_CRDC-H.Identifier.type/">enum_CRDC-H.Identifier.type</a> - Autogenerated Enumeration for CRDC-H Identifier type</li>
 <li><a href="enum_CRDC-H.Observation.category/">enum_CRDC-H.Observation.category</a> - Autogenerated Enumeration for CRDC-H Observation category</li>
 <li><a href="enum_CRDC-H.Observation.method_type/">enum_CRDC-H.Observation.method_type</a> - Autogenerated Enumeration for CRDC-H Observation method_type</li>
@@ -411,6 +493,10 @@ start</a> - When a period of time started.</li>
 <li><a href="enum_CRDC-H.SpecimenCreationActivity.derivation_method_type/">enum_CRDC-H.SpecimenCreationActivity.derivation_method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type</li>
 <li><a href="enum_CRDC-H.SpecimenProcessingActivity.activity_type/">enum_CRDC-H.SpecimenProcessingActivity.activity_type</a> - Autogenerated Enumeration for CRDC-H SpecimenProcessingActivity activity_type</li>
 <li><a href="enum_CRDC-H.SpecimenProcessingActivity.method_type/">enum_CRDC-H.SpecimenProcessingActivity.method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenProcessingActivity method_type</li>
+<li><a href="enum_CRDC-H.SpecimenQuantityObservation.category/">enum_CRDC-H.SpecimenQuantityObservation.category</a> - Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category</li>
+<li><a href="enum_CRDC-H.SpecimenQuantityObservation.method_type/">enum_CRDC-H.SpecimenQuantityObservation.method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type</li>
+<li><a href="enum_CRDC-H.SpecimenQuantityObservation.observation_type/">enum_CRDC-H.SpecimenQuantityObservation.observation_type</a> - Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation observation_type</li>
+<li><a href="enum_CRDC-H.SpecimenQuantityObservation.valueCodeableConcept/">enum_CRDC-H.SpecimenQuantityObservation.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation valueCodeableConcept</li>
 <li><a href="enum_CRDC-H.SpecimenStorageActivity.method_type/">enum_CRDC-H.SpecimenStorageActivity.method_type</a> - Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type</li>
 <li><a href="enum_CRDC-H.Subject.breed/">enum_CRDC-H.Subject.breed</a> - Autogenerated Enumeration for CRDC-H Subject breed</li>
 <li><a href="enum_CRDC-H.Subject.cause_of_death/">enum_CRDC-H.Subject.cause_of_death</a> - Autogenerated Enumeration for CRDC-H Subject cause_of_death</li>
@@ -422,6 +508,10 @@ start</a> - When a period of time started.</li>
 <li><a href="enum_CRDC-H.Substance.role/">enum_CRDC-H.Substance.role</a> - Autogenerated Enumeration for CRDC-H Substance role</li>
 <li><a href="enum_CRDC-H.Substance.substance_type/">enum_CRDC-H.Substance.substance_type</a> - Autogenerated Enumeration for CRDC-H Substance substance_type</li>
 <li><a href="enum_CRDC-H.TimePoint.indexEventType/">enum_CRDC-H.TimePoint.indexEventType</a> - Autogenerated Enumeration for CRDC-H TimePoint indexEventType</li>
+<li><a href="enum_CRDC-H.TobaccoExposureObservation.category/">enum_CRDC-H.TobaccoExposureObservation.category</a> - Autogenerated Enumeration for CRDC-H TobaccoExposureObservation category</li>
+<li><a href="enum_CRDC-H.TobaccoExposureObservation.method_type/">enum_CRDC-H.TobaccoExposureObservation.method_type</a> - Autogenerated Enumeration for CRDC-H TobaccoExposureObservation method_type</li>
+<li><a href="enum_CRDC-H.TobaccoExposureObservation.observation_type/">enum_CRDC-H.TobaccoExposureObservation.observation_type</a> - Autogenerated Enumeration for CRDC-H TobaccoExposureObservation observation_type</li>
+<li><a href="enum_CRDC-H.TobaccoExposureObservation.valueCodeableConcept/">enum_CRDC-H.TobaccoExposureObservation.valueCodeableConcept</a> - Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept</li>
 <li><a href="enum_CRDC-H.Treatment.type/">enum_CRDC-H.Treatment.type</a> - Autogenerated Enumeration for CRDC-H Treatment type</li>
 </ul>
 <h3 id="types">Types</h3>
@@ -522,5 +612,5 @@ start</a> - When a period of time started.</li>
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-05-27 15:49:10.920698+00:00
+Build Date UTC : 2021-05-27 20:08:02.690024+00:00
 -->
