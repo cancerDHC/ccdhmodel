@@ -36,7 +36,7 @@ class TCCMService(TerminologyService):
         time_of_request = datetime.now(timezone.utc).isoformat()
         response = requests.get(url,
                                 headers={'accept': 'application/x-yaml'},
-                                params={'value_only': 'false'})
+                                params={'value_only': 'true'})
         if not response.ok:
             logging.debug(f'Error accessing TCCM Terminology Service: {response}')
             return {}
