@@ -215,6 +215,7 @@ class GSheetModel(ModelElement):
         schema.prefixes = {
             "linkml": "https://w3id.org/linkml/",
             "ccdh": f"{root_uri}/",
+            "NCIT": "http://purl.obolibrary.org/obo/NCIT_"
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
@@ -235,12 +236,16 @@ class GSheetModel(ModelElement):
         # Generate all the entities.
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
 
+        schema.enums = {f'enum_{attribute.full_name}': attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
+
         # At this point, classes might refer to types that haven't been defined
         # yet. So, for fields that refer to other classes in this model, we need to
         # go through and:
         #   - Warn the user about the missing type
         #   - Replace the type with 'Entity' for now.
-        valid_types = set(schema.types.keys()).union(set(schema.classes.keys()))
+        valid_types = set(schema.types.keys())\
+            .union(set(schema.classes.keys()))\
+            .union(set(schema.enums.keys()))
 
         def fix_type_name(entity, dict, propName):
             value = dict[propName]
