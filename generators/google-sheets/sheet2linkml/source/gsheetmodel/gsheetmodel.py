@@ -5,6 +5,7 @@ from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
 from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
 from linkml_model.meta import SchemaDefinition
+from functools import cached_property, cache
 from datetime import datetime, timezone
 import re
 import logging
@@ -91,6 +92,7 @@ class GSheetModel(ModelElement):
 
         return result
 
+    @cache
     def entity_worksheets(self) -> list[EntityWorksheet]:
         """
         A list of worksheets available in this model.
@@ -122,6 +124,7 @@ class GSheetModel(ModelElement):
 
         return [EntityWorksheet(self, worksheet) for worksheet in entity_worksheets]
 
+    @cache
     def entities(self) -> list[Entity]:
         """
         :return: The list of entities in this model.
@@ -151,6 +154,7 @@ class GSheetModel(ModelElement):
             result.extend(worksheet.datatypes)
         return result
 
+    @cached_property
     def mappings(self) -> list[Mappings.Mapping]:
         """ Return a list of all the mappings in this LinkML document. """
         mappings = [mapping for datatype in self.datatypes() for mapping in datatype.mappings.mappings]

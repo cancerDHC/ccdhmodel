@@ -1,5 +1,6 @@
 from linkml_model import SchemaDefinition
 
+from functools import cached_property
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
@@ -42,7 +43,7 @@ class Entity(ModelElement):
             row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
         ]
 
-    @property
+    @cached_property
     def attributes(self):
         """
         Returns a list of attributes in this entity. We construct this by wrapping the
@@ -125,7 +126,7 @@ class Entity(ModelElement):
 
         return f"[{self.name} in sheet {self.worksheet.title}]({self.worksheet.url})"
 
-    @property
+    @cached_property
     def mappings(self) -> Mappings:
         """
         Returns the list of mappings for this entity.
