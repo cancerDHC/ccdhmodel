@@ -1,5 +1,6 @@
 from linkml_model import SchemaDefinition
 
+from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from pygsheets import worksheet
@@ -14,7 +15,7 @@ class Entity(ModelElement):
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
 
-    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]]):
+    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]], terminology_service: TerminologyService):
         """
         Create an entity based on a GSheetModel and a Google Sheet worksheet.
 
@@ -22,12 +23,14 @@ class Entity(ModelElement):
         :param sheet: A Google Sheet worksheet describing this entity.
         :param name: The name of this entity.
         :param rows: The rows in the spreadsheet describing this entity (as dictionaries of str -> str).
+        :param terminology_service: The TerminologyService to access the codesets we use.
         """
 
         self.model = model
         self.worksheet = sheet
         self.entity_name = name
         self.rows = rows
+        self.terminology_service = terminology_service
 
     @property
     def attribute_rows(self) -> list[dict[str, str]]:
@@ -51,7 +54,7 @@ class Entity(ModelElement):
         :return: A list of all the attributes in this entity.
         """
 
-        return [Attribute(self.model, self, dct) for dct in self.attribute_rows]
+        return [Attribute(self.model, self, dct, terminology_service=self.terminology_service) for dct in self.attribute_rows]
 
     @property
     def entity_row(self) -> dict[str, str]:
@@ -189,18 +192,20 @@ class Attribute:
     It is represented by a single row in a Google Sheet spreadsheet.
     """
 
-    def __init__(self, model, entity, row: dict[str, str]):
+    def __init__(self, model, entity, row: dict[str, str], terminology_service: TerminologyService):
         """
         Create an attribute based on a GSheetModel and a Google Sheet worksheet.
 
         :param model: The GSheetModel that this attribute is a part of.
         :param entity: The Entity that this attribute is a part of.
         :param row: The row describing this attribute (as a dictionary of str -> str).
+        :param terminology_service: The TerminologyService to use for accessing codeset information.
         """
 
         self.model = model
         self.entity = entity
         self.row = row
+        self.terminology_service = terminology_service
 
     @property
     def name(self):
@@ -335,7 +340,7 @@ class EntityWorksheet(ModelElement):
         """
         return worksheet.get_values("A1", "C1") == [[EntityWorksheet.COL_STATUS, EntityWorksheet.COL_ENTITY_NAME, EntityWorksheet.COL_ATTRIBUTE_NAME]]
 
-    def __init__(self, model, sheet: worksheet):
+    def __init__(self, model, sheet: worksheet, terminology_service: TerminologyService):
         """
         Create a worksheet based on a GSheetModel and a Google Sheet worksheet.
 
@@ -345,6 +350,7 @@ class EntityWorksheet(ModelElement):
 
         self.model = model
         self.worksheet = sheet
+        self.terminology_service = terminology_service
 
     @property
     def rows(self) -> list[dict]:
@@ -418,7 +424,7 @@ class EntityWorksheet(ModelElement):
         """
 
         return {
-            k: Entity(self.model, self.worksheet, k, v)
+            k: Entity(self.model, self.worksheet, k, v, terminology_service=self.terminology_service)
             for k, v in self.entities_as_included_rows.items()
         }
 
