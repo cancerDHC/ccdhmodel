@@ -31,7 +31,7 @@ import click
 )
 @click.option(
     '--write-mappings',
-    type=str,
+    type=click.Path(exists=False),
     help="A file to write out mappings to."
 )
 @click.option(
@@ -101,7 +101,7 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
             f.write(yamlutils.as_yaml(model.as_linkml(crdch_root)))
 
         if write_mappings:
-            Mappings.write_to_file(model.mappings(), filename=write_mappings, model=model)
+            Mappings.write_to_file(model.mappings, filename=write_mappings, model=model)
 
 
 if __name__ == "__main__":

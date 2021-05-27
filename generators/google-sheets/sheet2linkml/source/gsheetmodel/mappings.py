@@ -10,10 +10,10 @@ from dataclasses import dataclass
 
 
 class RelationsEnum(Enum):
-    SKOS_BROAD_MATCH = 'skos:broadMatch',
-    SKOS_NARROW_MATCH = 'skos:narrowMatch',
-    SKOS_EXACT_MATCH = 'skos:exactMatch',
-    SKOS_CLOSE_MATCH = 'skos:closeMatch',
+    SKOS_BROAD_MATCH = 'skos:broadMatch'
+    SKOS_NARROW_MATCH = 'skos:narrowMatch'
+    SKOS_EXACT_MATCH = 'skos:exactMatch'
+    SKOS_CLOSE_MATCH = 'skos:closeMatch'
     SKOS_RELATED_MATCH = 'skos:relatedMatch'
 
 

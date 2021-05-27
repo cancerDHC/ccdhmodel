@@ -64,7 +64,7 @@ class Datatype(ModelElement):
         """
         :return: The full name of this datatype.
         """
-        return f'{self.model.full_name}#{self.name}'
+        return f'CRDC-H.{self.name}'
 
     def get_filename(self) -> str:
         """
