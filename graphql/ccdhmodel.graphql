@@ -1,8 +1,9 @@
-type BiologicallyDerivedProduct
+type BiologicProduct
   {
     id: CcdhString
+    identifier: [Identifier]
     description: CcdhString
-    productType: CodeableConcept
+    productType: EnumCRDC-H.BiologicProduct.productType
     passageNumber: [CcdhInteger]
     growthRate: [CcdhString]
   }
@@ -10,29 +11,37 @@ type BiologicallyDerivedProduct
 type BodySite
   {
     id: CcdhString
-    site: CodeableConcept!
-    qualifier: [CodeableConcept]
+    site: EnumCRDC-H.BodySite.site!
+    qualifier: [EnumCRDC-H.BodySite.qualifier]
   }
 
-type CancerGrade
+type CancerGradeObservation
   {
     id: CcdhString
-    methodType: CodeableConcept
-    observations: [CancerGrade]
+    observationType: EnumCRDC-H.CancerGradeObservation.observationType!
+    valueCodeableConcept: EnumCRDC-H.CancerGradeObservation.valueCodeableConcept
   }
 
-type CancerStage
+type CancerGradeObservationSet
   {
     id: CcdhString
-    observationType: CodeableConcept!
-    valueCodeableConcept: CodeableConcept
+    methodType: EnumCRDC-H.CancerGradeObservationSet.methodType
+    observations: [Entity]
   }
 
-type CancerStageSet
+type CancerStageObservation
   {
     id: CcdhString
-    methodType: CodeableConcept
-    observations: [CancerStage]
+    observationType: EnumCRDC-H.CancerStageObservation.observationType!
+    valueCodeableConcept: EnumCRDC-H.CancerStageObservation.valueCodeableConcept
+  }
+
+type CancerStageObservationSet
+  {
+    id: CcdhString
+    category: EnumCRDC-H.CancerStageObservationSet.category!
+    methodType: EnumCRDC-H.CancerStageObservationSet.methodType
+    observations: [CancerStageObservation]
   }
 
 type CodeableConcept
@@ -58,15 +67,15 @@ type Diagnosis
     identifier: [Identifier]
     ageAtDiagnosis: Quantity
     yearAtDiagnosis: CcdhInteger
-    condition: CodeableConcept
+    condition: EnumCRDC-H.Diagnosis.condition
     primarySite: [BodySite]
     metastaticSite: [BodySite]
-    stage: [CancerStageSet]
-    grade: [CancerGrade]
-    morphology: CodeableConcept
-    diseaseStatus: CodeableConcept
+    stage: [CancerStageObservationSet]
+    grade: [Entity]
+    morphology: EnumCRDC-H.Diagnosis.morphology
+    diseaseStatus: EnumCRDC-H.Diagnosis.diseaseStatus
     priorDiagnosis: Diagnosis
-    methodOfDiagnosis: CodeableConcept
+    methodOfDiagnosis: EnumCRDC-H.Diagnosis.methodOfDiagnosis
     relatedSpecimen: [Specimen]
   }
 
@@ -74,7 +83,7 @@ type Document
   {
     id: CcdhString
     identifier: [Identifier]
-    documentType: CodeableConcept
+    documentType: EnumCRDC-H.Document.documentType
     description: CcdhString
     focus: Entity
     url: [CcdhString]
@@ -89,10 +98,10 @@ type Exposure
   {
     id: CcdhString!
     identifier: [Identifier]
-    tobaccoUse: Entity
+    tobaccoUse: [Entity]
     alcoholUse: Entity
     environmental: [Observation]
-    relatedPatient: Subject
+    subject: Subject
   }
 
 type Identifier
@@ -100,31 +109,33 @@ type Identifier
     id: CcdhString
     value: CcdhString!
     system: CcdhString
-    type: CodeableConcept
+    type: EnumCRDC-H.Identifier.type
   }
 
 type Observation
   {
     id: CcdhString!
-    category: CodeableConcept!
-    observationType: CodeableConcept!
-    methodType: [CodeableConcept]
+    category: EnumCRDC-H.Observation.category!
+    observationType: EnumCRDC-H.Observation.observationType!
+    methodType: [EnumCRDC-H.Observation.methodType]
     focus: [Entity]
-    patient: Subject
+    subject: Subject
     performedBy: Organization
     valueEntity: Entity
     valueString: CcdhString
     valueInteger: CcdhDecimal
     valueDecimal: CcdhDecimal
     valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDecimal
+    valueDateTime: CcdhDateTime
+    valueQuantity: Quantity
+    valueCodeableConcept: EnumCRDC-H.Observation.valueCodeableConcept
   }
 
 type Organization
   {
     id: CcdhString!
     identifier: [Identifier]
-    name: CcdhString!
+    name: CcdhString
     alias: CcdhString
     organizationType: CcdhString
   }
@@ -133,7 +144,7 @@ type Quantity
   {
     id: CcdhString
     valueDecimal: CcdhDecimal
-    valueCodeableConcept: CodeableConcept
+    valueCodeableConcept: EnumCRDC-H.Quantity.valueCodeableConcept
     unitCode: Coding
     unit: CcdhString
     comparator: Coding
@@ -150,10 +161,10 @@ type ResearchProject
     sponsor: [CcdhString]
     dateStarted: CcdhDateTime
     dateEnded: CcdhDateTime
-    primaryAnatomicSite: [CodeableConcept]
+    primaryAnatomicSite: [EnumCRDC-H.ResearchProject.primaryAnatomicSite]
     url: [CcdhString]
     partOf: [ResearchProject]
-    researchProjectType: CodeableConcept!
+    researchProjectType: EnumCRDC-H.ResearchProject.researchProjectType!
     dateIacucApproval: CcdhDateTime
   }
 
@@ -162,13 +173,13 @@ type ResearchSubject
     id: CcdhString!
     identifier: [Identifier]
     description: CcdhString
-    memberOfResearchProject: [ResearchProject]
+    memberOfResearchProject: ResearchProject
     ageAtEnrollment: Quantity
-    primaryDiagnosisCondition: CodeableConcept
-    primaryDiagnosisSite: CodeableConcept
+    primaryDiagnosisCondition: EnumCRDC-H.ResearchSubject.primaryDiagnosisCondition
+    primaryDiagnosisSite: EnumCRDC-H.ResearchSubject.primaryDiagnosisSite
     primaryDiagnosis: [Diagnosis]
     comorbidDiagnoses: [Diagnosis]
-    indexTimepoint: CodeableConcept
+    indexTimepoint: EnumCRDC-H.ResearchSubject.indexTimepoint
     originatingSite: Organization
     associatedSubject: Subject!
   }
@@ -178,37 +189,36 @@ type Specimen
     id: CcdhString
     identifier: [Identifier]
     description: CcdhString
-    specimenType: CodeableConcept
-    analyteType: CodeableConcept
+    specimenType: EnumCRDC-H.Specimen.specimenType
+    analyteType: EnumCRDC-H.Specimen.analyteType
     associatedProject: ResearchProject
     dataProvider: Organization
-    sourceMaterialType: CodeableConcept
+    sourceMaterialType: EnumCRDC-H.Specimen.sourceMaterialType
     parentSpecimen: [Specimen]
     sourceSubject: Subject
     sourceModelSystem: Entity
-    conditionStatusAtCollection: CodeableConcept
+    tumorStatusAtCollection: EnumCRDC-H.Specimen.tumorStatusAtCollection
     creationActivity: SpecimenCreationActivity
     processingActivity: [SpecimenProcessingActivity]
     storageActivity: SpecimenStorageActivity
     transportActivity: SpecimenTransportActivity
     containedIn: SpecimenContainer
     dimensionalMeasure: Entity
-    quantityMeasure: [Entity]
-    qualityMeasure: [Entity]
-    cellularCompositionType: CodeableConcept
-    cellularCompositionMeasure: [Entity]
-    tissueCompositionMeasure: [Entity]
-    generalTissueMorphology: CodeableConcept
-    specificTissueMorphology: CodeableConcept
-    preinvasiveTissueMorphology: CodeableConcept
+    quantityMeasure: [Observation]
+    qualityMeasure: [Observation]
+    cellularCompositionType: EnumCRDC-H.Specimen.cellularCompositionType
+    histologicalCompositionMeasure: [Observation]
+    generalTissueMorphology: EnumCRDC-H.Specimen.generalTissueMorphology
+    specificTissueMorphology: EnumCRDC-H.Specimen.specificTissueMorphology
+    preinvasiveTissueMorphology: EnumCRDC-H.Specimen.preinvasiveTissueMorphology
     morphologyPathologicallyConfirmed: CcdhBoolean
-    morphologyAssessorRole: CodeableConcept
-    morphlogyAssessmentMethod: CodeableConcept
-    degreeOfDysplasia: CodeableConcept
+    morphologyAssessorRole: EnumCRDC-H.Specimen.morphologyAssessorRole
+    morphlogyAssessmentMethod: EnumCRDC-H.Specimen.morphlogyAssessmentMethod
+    degreeOfDysplasia: EnumCRDC-H.Specimen.degreeOfDysplasia
     dysplasiaFraction: CcdhString
     relatedDocument: [Document]
-    sectionLocation: CodeableConcept
-    derivedProduct: [BiologicallyDerivedProduct]
+    sectionLocation: EnumCRDC-H.Specimen.sectionLocation
+    derivedProduct: [BiologicProduct]
     distanceFromPairedSpecimen: Quantity
   }
 
@@ -216,59 +226,64 @@ type SpecimenContainer
   {
     id: CcdhString
     identifier: [Identifier]
-    containerType: CodeableConcept
+    containerType: EnumCRDC-H.SpecimenContainer.containerType
     containerNumber: CcdhString
-    additive: [Entity]
+    additive: [Substance]
     parentContainer: [SpecimenContainer]
-    chargeType: CodeableConcept
+    chargeType: EnumCRDC-H.SpecimenContainer.chargeType
   }
 
 type SpecimenCreationActivity
   {
     id: CcdhString
-    activityType: CodeableConcept
-    dateStarted: CcdhDateTime
-    dateEnded: CcdhDateTime
+    activityType: EnumCRDC-H.SpecimenCreationActivity.activityType
+    dateStarted: TimePoint
+    dateEnded: TimePoint
     performedBy: Organization
-    collectionMethodType: CodeableConcept
-    derivationMethodType: CodeableConcept
-    additive: [Entity]
+    collectionMethodType: EnumCRDC-H.SpecimenCreationActivity.collectionMethodType
+    derivationMethodType: EnumCRDC-H.SpecimenCreationActivity.derivationMethodType
+    additive: [Substance]
     collectionSite: BodySite
     inputSpecimen: [Specimen]
     quantityCollected: Quantity
-    executionCondition: [Entity]
+    executionObservation: [Observation]
     specimenOrder: CcdhString
   }
 
 type SpecimenProcessingActivity
   {
     id: CcdhString
-    activityType: CodeableConcept
-    dateStarted: CcdhDateTime
-    dateEnded: CcdhDateTime
-    duration: [CcdhString]
+    activityType: EnumCRDC-H.SpecimenProcessingActivity.activityType
+    dateStarted: TimePoint
+    dateEnded: TimePoint
+    duration: [Entity]
     performedBy: Organization
-    methodType: CodeableConcept
-    additive: [Entity]
-    device: [CodeableConcept]
-    executionConditions: [Entity]
+    methodType: EnumCRDC-H.SpecimenProcessingActivity.methodType
+    additive: [Substance]
+    executionObservation: [Entity]
   }
 
 type SpecimenStorageActivity
   {
     id: CcdhString
-    dateStarted: CcdhDateTime
-    dateEnded: CcdhDateTime
-    methodType: CodeableConcept
+    dateStarted: TimePoint
+    dateEnded: TimePoint
+    duration: Quantity
+    performedBy: Organization
+    methodType: EnumCRDC-H.SpecimenStorageActivity.methodType
     container: [SpecimenContainer]
   }
 
 type SpecimenTransportActivity
   {
     id: CcdhString
-    dateStarted: CcdhDateTime
-    dateEnded: CcdhDateTime
+    dateStarted: TimePoint
+    dateEnded: TimePoint
+    duration: [CcdhString]
+    performedBy: Organization
+    transportOrigin: Organization
     transportDestination: Organization
+    executionObservation: [Entity]
     executionConditions: [CcdhString]
   }
 
@@ -276,16 +291,23 @@ type Subject
   {
     id: CcdhString!
     identifier: [Identifier]
-    species: CodeableConcept
-    breed: CodeableConcept
-    sex: CodeableConcept
-    ethnicity: CodeableConcept
-    race: [CodeableConcept]
+    species: EnumCRDC-H.Subject.species
+    breed: EnumCRDC-H.Subject.breed
+    sex: EnumCRDC-H.Subject.sex
+    ethnicity: EnumCRDC-H.Subject.ethnicity
+    race: [EnumCRDC-H.Subject.race]
     yearOfBirth: CcdhInteger
-    vitalStatus: CodeableConcept
+    vitalStatus: EnumCRDC-H.Subject.vitalStatus
     ageAtDeath: Quantity
     yearOfDeath: CcdhInteger
-    causeOfDeath: CodeableConcept
+    causeOfDeath: EnumCRDC-H.Subject.causeOfDeath
+  }
+
+type Substance
+  {
+    id: CcdhString
+    substanceType: EnumCRDC-H.Substance.substanceType
+    role: [EnumCRDC-H.Substance.role]
   }
 
 type TimePeriod
@@ -300,8 +322,8 @@ type TimePoint
     id: CcdhString
     dateTime: CcdhDateTime
     indexDate: CcdhDateTime
-    indexEventType: CodeableConcept
-    offsetFromIndexIndexOffset: Quantity
+    indexEventType: EnumCRDC-H.TimePoint.indexEventType
+    offsetFromIndex: Quantity
   }
 
 type Treatment
@@ -309,8 +331,8 @@ type Treatment
     id: CcdhString
     identifier: [Identifier]
     regimen: CcdhString
-    type: CodeableConcept
-    therapeuticAgent: [Entity]
+    type: EnumCRDC-H.Treatment.type
+    therapeuticAgent: [Substance]
     startDate: TimePoint
     endDate: TimePoint
     endReason: [CcdhString]

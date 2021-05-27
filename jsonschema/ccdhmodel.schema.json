@@ -2,7 +2,7 @@
    "$id": "https://example.org/ccdh",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "definitions": {
-      "BiologicallyDerivedProduct": {
+      "BiologicProduct": {
          "additionalProperties": false,
          "description": "A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.",
          "properties": {
@@ -21,6 +21,13 @@
                "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
                "type": "string"
             },
+            "identifier": {
+               "description": "A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
             "passage_number": {
                "description": "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.",
                "items": {
@@ -29,12 +36,12 @@
                "type": "array"
             },
             "product_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)"
+               "description": "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)",
+               "type": "string"
             }
          },
          "required": [],
-         "title": "BiologicallyDerivedProduct",
+         "title": "BiologicProduct",
          "type": "object"
       },
       "BodySite": {
@@ -48,13 +55,13 @@
             "qualifier": {
                "description": "A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).",
                "items": {
-                  "$ref": "#/definitions/CodeableConcept"
+                  "type": "string"
                },
                "type": "array"
             },
             "site": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term describing any site in the body."
+               "description": "A term describing any site in the body.",
+               "type": "string"
             }
          },
          "required": [
@@ -63,7 +70,30 @@
          "title": "BodySite",
          "type": "object"
       },
-      "CancerGrade": {
+      "CancerGradeObservation": {
+         "additionalProperties": false,
+         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation, such as ...",
+         "properties": {
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
+               "type": "string"
+            },
+            "valueCodeableConcept": {
+               "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type"
+         ],
+         "title": "CancerGradeObservation",
+         "type": "object"
+      },
+      "CancerGradeObservationSet": {
          "additionalProperties": false,
          "description": "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).",
          "properties": {
@@ -72,22 +102,22 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)"
+               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
+               "type": "string"
             },
             "observations": {
                "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)",
                "items": {
-                  "$ref": "#/definitions/CancerGrade"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             }
          },
          "required": [],
-         "title": "CancerGrade",
+         "title": "CancerGradeObservationSet",
          "type": "object"
       },
-      "CancerStage": {
+      "CancerStageObservation": {
          "additionalProperties": false,
          "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
          "properties": {
@@ -96,42 +126,47 @@
                "type": "string"
             },
             "observation_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')"
+               "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')",
+               "type": "string"
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The value for a cancer staging component being represented (e.g. 'M1')"
+               "description": "The value for a cancer staging component being represented (e.g. 'M1')",
+               "type": "string"
             }
          },
          "required": [
             "observation_type"
          ],
-         "title": "CancerStage",
+         "title": "CancerStageObservation",
          "type": "object"
       },
-      "CancerStageSet": {
+      "CancerStageObservationSet": {
          "additionalProperties": false,
          "description": "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).",
          "properties": {
+            "category": {
+               "type": "string"
+            },
             "id": {
                "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer."
+               "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
+               "type": "string"
             },
             "observations": {
                "description": "A set of one or more more atomic observations about the cancer stage",
                "items": {
-                  "$ref": "#/definitions/CancerStage"
+                  "$ref": "#/definitions/CancerStageObservation"
                },
                "type": "array"
             }
          },
-         "required": [],
-         "title": "CancerStageSet",
+         "required": [
+            "category"
+         ],
+         "title": "CancerStageObservationSet",
          "type": "object"
       },
       "CodeableConcept": {
@@ -203,17 +238,17 @@
                "description": "The age in days of the individual at the time of diagnosis"
             },
             "condition": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)"
+               "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)",
+               "type": "string"
             },
             "disease_status": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)"
+               "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)",
+               "type": "string"
             },
             "grade": {
                "description": "The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.",
                "items": {
-                  "$ref": "#/definitions/CancerGrade"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             },
@@ -236,12 +271,12 @@
                "type": "array"
             },
             "method_of_diagnosis": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The method used to confirm the patients malignant diagnosis"
+               "description": "The method used to confirm the patients malignant diagnosis",
+               "type": "string"
             },
             "morphology": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms."
+               "description": "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.",
+               "type": "string"
             },
             "primary_site": {
                "description": "The anatomical location of the primary condition",
@@ -264,7 +299,7 @@
             "stage": {
                "description": "The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.",
                "items": {
-                  "$ref": "#/definitions/CancerStageSet"
+                  "$ref": "#/definitions/CancerStageObservationSet"
                },
                "type": "array"
             },
@@ -286,8 +321,8 @@
                "type": "string"
             },
             "document_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The high-level type of the report (e.g. 'pathology report')"
+               "description": "The high-level type of the report (e.g. 'pathology report')",
+               "type": "string"
             },
             "focus": {
                "$ref": "#/definitions/Entity",
@@ -355,13 +390,16 @@
                },
                "type": "array"
             },
-            "related_patient": {
+            "subject": {
                "$ref": "#/definitions/Subject",
                "description": "A reference to the Subject that is the subject of this Exposure"
             },
             "tobacco_use": {
-               "$ref": "#/definitions/Entity",
-               "description": "A container holding a set of observations about an individual's exposure to tobacco."
+               "description": "A container holding a set of observations about an individual's exposure to tobacco.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
             }
          },
          "required": [
@@ -383,8 +421,8 @@
                "type": "string"
             },
             "type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A code that defines the type of the identifier."
+               "description": "A code that defines the type of the identifier.",
+               "type": "string"
             },
             "value": {
                "description": "The value of the identifier, as defined by the system.",
@@ -402,8 +440,8 @@
          "description": "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The general category of observation described"
+               "description": "The general category of observation described",
+               "type": "string"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
@@ -419,28 +457,32 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/CodeableConcept"
+                  "type": "string"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
-            },
-            "patient": {
-               "$ref": "#/definitions/Subject",
-               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
             },
             "performed_by": {
                "$ref": "#/definitions/Organization",
                "description": "The organization or group that performed the observation activity."
             },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
             "valueBoolean": {
                "description": "The result of the observation, encoded as a boolean.",
                "type": "boolean"
             },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
             "valueDateTime": {
-               "description": "The result of the observation, encoded as a decimal.",
+               "description": "The result of the observation, encoded as a dateTime.",
                "type": "string"
             },
             "valueDecimal": {
@@ -454,6 +496,10 @@
             "valueInteger": {
                "description": "The result of the observation, encoded as a decimal.",
                "type": "string"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
             },
             "valueString": {
                "description": "The result of the observation, encoded as a free-text string.",
@@ -497,8 +543,7 @@
             }
          },
          "required": [
-            "id",
-            "name"
+            "id"
          ],
          "title": "Organization",
          "type": "object"
@@ -524,8 +569,8 @@
                "description": "A coded representation of the unit."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")"
+               "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")",
+               "type": "string"
             },
             "valueDecimal": {
                "description": "An amount, in the given units (if specified)",
@@ -589,13 +634,13 @@
             "primary_anatomic_site": {
                "description": "The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).  In the context of ResearchProject, this attribute captures the anatomic sites of research interest.",
                "items": {
-                  "$ref": "#/definitions/CodeableConcept"
+                  "type": "string"
                },
                "type": "array"
             },
             "research_project_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')"
+               "description": "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')",
+               "type": "string"
             },
             "sponsor": {
                "description": "An entity that is responsible for the initiation, management, and/or financing of a research project.",
@@ -653,15 +698,12 @@
                "type": "array"
             },
             "index_timepoint": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date."
+               "description": "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date.",
+               "type": "string"
             },
             "member_of_research_project": {
-               "description": "A reference to the Study(s) of which this ResearchSubject is a member",
-               "items": {
-                  "$ref": "#/definitions/ResearchProject"
-               },
-               "type": "array"
+               "$ref": "#/definitions/ResearchProject",
+               "description": "A reference to the Study(s) of which this ResearchSubject is a member"
             },
             "originating_site": {
                "$ref": "#/definitions/Organization",
@@ -675,12 +717,12 @@
                "type": "array"
             },
             "primary_diagnosis_condition": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). \n\nRepresents the disease that qualified the subject for inclusion on the ResearchProject"
+               "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).   This attribute represents the disease that qualified the subject for inclusion on the ResearchProject",
+               "type": "string"
             },
             "primary_diagnosis_site": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.\n\nRepresents the primary site of disease that qualified the subject for inclusion on the ResearchProject."
+               "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.  This attribute represents the primary site of disease that qualified the subject for inclusion on the ResearchProject.",
+               "type": "string"
             }
          },
          "required": [
@@ -695,27 +737,16 @@
          "description": "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.",
          "properties": {
             "analyte_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)"
+               "description": "For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)",
+               "type": "string"
             },
             "associated_project": {
                "$ref": "#/definitions/ResearchProject",
                "description": "The Project associated with the specimen."
             },
-            "cellular_composition_measure": {
-               "description": "An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.",
-               "items": {
-                  "$ref": "#/definitions/Entity"
-               },
-               "type": "array"
-            },
             "cellular_composition_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term describing the type of material comprising a specimen at a celluar level."
-            },
-            "condition_status_at_collection": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The status of a patient's condition at the time the speimen was collected (e.g. if it was primary, recurrent, metastatic, etc)."
+               "description": "A term describing the type of material comprising a specimen at a celluar level.",
+               "type": "string"
             },
             "contained_in": {
                "$ref": "#/definitions/SpecimenContainer",
@@ -730,13 +761,13 @@
                "description": "The organization/center that provided data associated with a specimen."
             },
             "degree_of_dysplasia": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration."
+               "description": "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.",
+               "type": "string"
             },
             "derived_product": {
                "description": "A 'living' biologically active product (e.g. a cell culture, tissue culture, or organoid) that was generated from the specimen",
                "items": {
-                  "$ref": "#/definitions/BiologicallyDerivedProduct"
+                  "$ref": "#/definitions/BiologicProduct"
                },
                "type": "array"
             },
@@ -757,8 +788,15 @@
                "type": "string"
             },
             "general_tissue_morphology": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent)."
+               "description": "A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).",
+               "type": "string"
+            },
+            "histological_composition_measure": {
+               "description": "An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.",
+               "items": {
+                  "$ref": "#/definitions/Observation"
+               },
+               "type": "array"
             },
             "id": {
                "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
@@ -772,12 +810,12 @@
                "type": "array"
             },
             "morphlogy_assessment_method": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The general method used to assess a specimens specific tissue morphology"
+               "description": "The general method used to assess a specimens specific tissue morphology",
+               "type": "string"
             },
             "morphology_assessor_role": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen"
+               "description": "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen",
+               "type": "string"
             },
             "morphology_pathologically_confirmed": {
                "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by a pathologist review",
@@ -791,8 +829,8 @@
                "type": "array"
             },
             "preinvasive_tissue_morphology": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term describing the pathology exhibited by a pre-invasive tissue in a specimen."
+               "description": "A term describing the pathology exhibited by a pre-invasive tissue in a specimen.",
+               "type": "string"
             },
             "processing_activity": {
                "description": "An activity that modifies the physical structure, composition, or state of a specimen.",
@@ -802,16 +840,16 @@
                "type": "array"
             },
             "quality_measure": {
-               "description": "An observation about  specimen characteristics indicative of its quality or suitability for use.",
+               "description": "An observation about characteristics of a specimen that are indicative of its quality or suitability for use.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/Observation"
                },
                "type": "array"
             },
             "quantity_measure": {
-               "description": "An observation related to the current quantity of a specimen or analyte it contains - e.g. its weight, volume, or concentration.",
+               "description": "An observation related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/Observation"
                },
                "type": "array"
             },
@@ -823,43 +861,40 @@
                "type": "array"
             },
             "section_location": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)"
+               "description": "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)",
+               "type": "string"
             },
             "source_material_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The general kind of material from which the specimen was derived, based on the physical nature of the source material."
+               "description": "The general kind of material from which the specimen was derived, based on the physical nature of the source material.",
+               "type": "string"
             },
             "source_model_system": {
                "$ref": "#/definitions/Entity",
-               "description": "A Biologically Derived Material / model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived."
+               "description": "A model biological system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived."
             },
             "source_subject": {
                "$ref": "#/definitions/Subject",
                "description": "A Subject from which the specimen was directly or indirectly derived."
             },
             "specific_tissue_morphology": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A term describing the specific pathology exhibited by the tissue in a specimen."
+               "description": "A term describing the specific pathology exhibited by the tissue in a specimen.",
+               "type": "string"
             },
             "specimen_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source)."
+               "description": "The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).",
+               "type": "string"
             },
             "storage_activity": {
                "$ref": "#/definitions/SpecimenStorageActivity",
                "description": "An activity that results in the storage or maintenance of a specimen in a particular location, container, or state."
             },
-            "tissue_composition_measure": {
-               "description": "An observation about the absolute area or relative proportion of a specific type of tissue in a specimen or other biological material",
-               "items": {
-                  "$ref": "#/definitions/Entity"
-               },
-               "type": "array"
-            },
             "transport_activity": {
                "$ref": "#/definitions/SpecimenTransportActivity",
                "description": "An activity through which the specimen is transported between locations."
+            },
+            "tumor_status_at_collection": {
+               "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).",
+               "type": "string"
             }
          },
          "required": [],
@@ -873,21 +908,21 @@
             "additive": {
                "description": "A material substance added to the container (typically to support the primary object contained)",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/Substance"
                },
                "type": "array"
             },
             "charge_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A descripton of the type of charge on a slide on which a specimen is mounted"
+               "description": "A descripton of the type of charge on a slide on which a specimen is mounted",
+               "type": "string"
             },
             "container_number": {
                "description": "Informal number/identifier by which the container is referenced (e.g. a slide number, or a well number in a plate)",
                "type": "string"
             },
             "container_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The kind of container associated with the specimen."
+               "description": "The kind of container associated with the specimen.",
+               "type": "string"
             },
             "id": {
                "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
@@ -917,40 +952,40 @@
          "description": "The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The high-level type of creation activity"
+               "description": "The high-level type of creation activity",
+               "type": "string"
             },
             "additive": {
                "description": "A type of material or reagent used as input when creating the specimen",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/Substance"
                },
                "type": "array"
             },
             "collection_method_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A type of method followed in collecting a sample form its original source."
+               "description": "A type of method followed in collecting a sample from its original source.",
+               "type": "string"
             },
             "collection_site": {
                "$ref": "#/definitions/BodySite",
                "description": "A data container holding information about the anatomic source of a specimen, including its location in the body, and the approach route used to access it."
             },
             "date_ended": {
-               "description": "The date when the activity ended (in this case, a specimen creation event).",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity ended (in this case, a specimen creation event)."
             },
             "date_started": {
-               "description": "The date when the activity began (in this case, a specimen creation event).",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a specimen creation event)."
             },
             "derivation_method_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A type of method followed in deriving new specimens from an existing one."
+               "description": "A type of method followed in deriving new specimens from an existing one.",
+               "type": "string"
             },
-            "execution_condition": {
-               "description": "Information describing the specified or observed conditions under which activity was executed",
+            "execution_observation": {
+               "description": "Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/Observation"
                },
                "type": "array"
             },
@@ -987,40 +1022,33 @@
          "description": "An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The high-level type of processing activity"
+               "description": "The high-level type of processing activity",
+               "type": "string"
             },
             "additive": {
                "description": "A type of material or reagent used as input when processing the specimen",
+               "items": {
+                  "$ref": "#/definitions/Substance"
+               },
+               "type": "array"
+            },
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a specimen processing event)."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a specimen processing event)."
+            },
+            "duration": {
+               "description": "The length of time over which the activity was performed.",
                "items": {
                   "$ref": "#/definitions/Entity"
                },
                "type": "array"
             },
-            "date_ended": {
-               "description": "The date when the activity began (in this case, a specimen processing event).",
-               "type": "string"
-            },
-            "date_started": {
-               "description": "The date when the activity began (in this case, a specimen processing event).",
-               "type": "string"
-            },
-            "device": {
-               "description": "A type of instrument or tool used to perform the processing",
-               "items": {
-                  "$ref": "#/definitions/CodeableConcept"
-               },
-               "type": "array"
-            },
-            "duration": {
-               "description": "The length of time over which the activity was performed.",
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            },
-            "executionConditions": {
-               "description": "Information describing the specified or observed conditions under which activity was executed",
+            "execution_observation": {
+               "description": "Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
                "items": {
                   "$ref": "#/definitions/Entity"
                },
@@ -1031,8 +1059,8 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A specific type of method or procedure performed to process the specimen"
+               "description": "A specific type of method or procedure performed to process the specimen",
+               "type": "string"
             },
             "performed_by": {
                "$ref": "#/definitions/Organization",
@@ -1055,20 +1083,28 @@
                "type": "array"
             },
             "date_ended": {
-               "description": "The date when the activity ended (in this case, a storage event).",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity ended (in this case, a storage event)."
             },
             "date_started": {
-               "description": "The date when the activity began (in this case, a storage event).",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a storage event)."
+            },
+            "duration": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The length of time over which the activity was performed."
             },
             "id": {
                "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A specific type of method or procedure performed to store the specimen"
+               "description": "A specific type of method or procedure performed to store the specimen",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the activity."
             }
          },
          "required": [],
@@ -1080,12 +1116,19 @@
          "description": "An activity through which a specimen is transported between locations.",
          "properties": {
             "date_ended": {
-               "description": "The date when the activity ended (in this case, a transport event).",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity ended (in this case, a transport event)."
             },
             "date_started": {
-               "description": "The date when the activity began (in this case, a transport event).",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a transport event)."
+            },
+            "duration": {
+               "description": "The length of time over which the activity was performed.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "execution_conditions": {
                "description": "An environmental condition under which the activity is executed (in this case, a transport activity).",
@@ -1094,13 +1137,28 @@
                },
                "type": "array"
             },
+            "execution_observation": {
+               "description": "Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
             "id": {
                "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
                "type": "string"
             },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the activity."
+            },
             "transport_destination": {
                "$ref": "#/definitions/Organization",
                "description": "An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity."
+            },
+            "transport_origin": {
+               "$ref": "#/definitions/Organization",
+               "description": "An organization (facility, site, lab, etc) from which the specimen was transported as a result of the activity."
             }
          },
          "required": [],
@@ -1116,16 +1174,16 @@
                "description": "The age of an individual at the time of death, expressed in days since birth"
             },
             "breed": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species."
+               "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.",
+               "type": "string"
             },
             "cause_of_death": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "Coded value indicating the circumstance or condition that results in the death of the subject."
+               "description": "Coded value indicating the circumstance or condition that results in the death of the subject.",
+               "type": "string"
             },
             "ethnicity": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.\n\nApplicable only when Subject.species is Homo Sapiens"
+               "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.\n\nApplicable only when Subject.species is Homo Sapiens",
+               "type": "string"
             },
             "id": {
                "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
@@ -1141,21 +1199,21 @@
             "race": {
                "description": "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.\n\nApplicable only when Subject.species is Homo Sapiens",
                "items": {
-                  "$ref": "#/definitions/CodeableConcept"
+                  "type": "string"
                },
                "type": "array"
             },
             "sex": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics."
+               "description": "The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.",
+               "type": "string"
             },
             "species": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)"
+               "description": "The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)",
+               "type": "string"
             },
             "vital_status": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown."
+               "description": "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.",
+               "type": "string"
             },
             "year_of_birth": {
                "description": "Numeric value to represent the calendar year in which an individual was born.",
@@ -1170,6 +1228,30 @@
             "id"
          ],
          "title": "Subject",
+         "type": "object"
+      },
+      "Substance": {
+         "additionalProperties": false,
+         "description": "A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.",
+         "properties": {
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
+               "type": "string"
+            },
+            "role": {
+               "description": "A role played by the subtance in a particular applicaton (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "substance_type": {
+               "description": "The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Substance",
          "type": "object"
       },
       "TimePeriod": {
@@ -1210,10 +1292,10 @@
                "type": "string"
             },
             "indexEventType": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint."
+               "description": "A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint.",
+               "type": "string"
             },
-            "offsetFromIndex_indexOffset": {
+            "offsetFromIndex": {
                "$ref": "#/definitions/Quantity",
                "description": "A quantity of time that, together with the index date or event, can be used to derive a specific timepoint."
             }
@@ -1297,13 +1379,13 @@
             "therapeutic_agent": {
                "description": "One or more theraputic agents as part of this treatment.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/Substance"
                },
                "type": "array"
             },
             "type": {
-               "$ref": "#/definitions/CodeableConcept",
-               "description": "The treatment type including medication/theraputics or other procedures."
+               "description": "The treatment type including medication/theraputics or other procedures.",
+               "type": "string"
             }
          },
          "required": [],
