@@ -163,7 +163,10 @@ class Mappings:
         model: The GSheetModel these mappings are a part of.
         """
         if filename is None:
-            return
+            raise RuntimeError("Mappings.write_to_file() needs a `filename` parameter with the output file to write.")
+
+        if model is None:
+            raise RuntimeError("Mappings.write_to_file() needs a `model` parameter with the GSheetModel being used.")
 
         with open(filename, 'w') as csvfile:
             writer = csv.writer(csvfile, dialect='excel-tab')

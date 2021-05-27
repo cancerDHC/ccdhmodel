@@ -83,7 +83,7 @@ def main(filter_entity, logging_config, write_mappings):
             if write_mappings:
                 mappings.extend(entity.mappings.mappings)
 
-        Mappings.write_to_file(mappings, filename=write_mappings)
+        Mappings.write_to_file(mappings, filename=write_mappings, model=model)
 
     else:
         # Convert the entire model into YAML.
