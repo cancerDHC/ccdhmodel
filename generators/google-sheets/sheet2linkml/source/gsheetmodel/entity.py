@@ -5,7 +5,7 @@ from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
-from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue
+from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue, Example
 import logging
 import re
 import urllib.parse
@@ -336,6 +336,13 @@ class Attribute:
         data = self.row
         min_count, max_count = self.counts()
 
+        # Set up some complex fields.
+        examples = re.split(r'\s*[\r\n\|]\s*', (data.get("Example Values") or '').strip())
+        if len(examples) == 0:
+            examples = []
+        else:
+            examples = [Example(value=example) for example in examples]
+
         attribute_range = self.range
         # For CodeableConcepts, we currently replace it with an enumeration.
         # In future versions, we will instead constrain the CodeableConcept's codes in some way.
@@ -348,7 +355,8 @@ class Attribute:
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
             description=(data.get("Description") or '').strip(),
-            # comments=data.get("Comments"),
+            examples=", ".join(examples),
+            comments=data.get("Comments"),
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
