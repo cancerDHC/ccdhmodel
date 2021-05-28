@@ -1,5 +1,8 @@
 site_name: "CRDC-H Model in LinkML documentation"
-repo_url: https://github.com/cancerDHC/ccdhmodel/
+# repo_url: https://github.com/cancerDHC/ccdhmodel/
+# - This provides nice "Edit this page" links, but they don't work, since the
+#   Markdown files are actually in version directories in gh-pages are not in
+#   in the main branch at all.
 theme: readthedocs
 nav:
   - Home: home.md
