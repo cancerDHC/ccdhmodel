@@ -91,7 +91,7 @@
                 <h1 id="class-codeableconcept">Class: CodeableConcept</h1>
 <p>A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.</p>
 <p>URI: <a href="https://example.org/ccdh/CodeableConcept">ccdh:CodeableConcept</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Coding],[Coding]&lt;coding%200..*-++[CodeableConcept&#124;text:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Entity]^-[CodeableConcept]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Coding],[Coding]&lt;coding%200..*-++[CodeableConcept&#124;text:ccdh_string%20%3F],[Entity]^-[CodeableConcept]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -106,14 +106,6 @@
 </li>
 <li><a href="../codeableConcept__text/">➞text</a>  <sub>0..1</sub><ul>
 <li>Description: A human language representation of the concept represented by the Coding.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="inherited-from-entity">Inherited from Entity:</h3>
-<ul>
-<li><a href="../entity__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>

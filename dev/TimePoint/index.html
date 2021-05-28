@@ -91,9 +91,9 @@
                 <h1 id="class-timepoint">Class: TimePoint</h1>
 <p>A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.</p>
 <p>URI: <a href="https://example.org/ccdh/TimePoint">ccdh:TimePoint</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex%200..1-++[TimePoint&#124;dateTime:ccdh_dateTime%20%3F;indexDate:ccdh_dateTime%20%3F;indexEventType:enum_CRDC-H.TimePoint.indexEventType%20%3F;id(i):ccdh_string%20%3F],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20periodEnd
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex%200..1-++[TimePoint&#124;id:ccdh_string%20%3F;dateTime:ccdh_dateTime%20%3F;eventType:CCDH_TimePoint_eventType%20*],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20periodEnd
 end%200..1&gt;[TimePoint],[TimePeriod]++-%20periodStart
-start%200..1&gt;[TimePoint],[Treatment]++-%20end_date%200..1&gt;[TimePoint],[Treatment]++-%20start_date%200..1&gt;[TimePoint],[Entity]^-[TimePoint],[Treatment],[TimePeriod],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Entity]" /></p>
+start%200..1&gt;[TimePoint],[Treatment]++-%20date_ended%200..1&gt;[TimePoint],[Treatment]++-%20date_started%200..1&gt;[TimePoint],[Entity]^-[TimePoint],[Treatment],[TimePeriod],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -112,8 +112,8 @@ start%200..1&gt;[TimePoint],[Treatment]++-%20end_date%200..1&gt;[TimePoint],[Tre
 end</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
 <li><strong>None</strong> <em><a href="../timePeriod__periodStart_start/">➞periodStart
 start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
-<li><strong>None</strong> <em><a href="../treatment__end_date/">➞end_date</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
-<li><strong>None</strong> <em><a href="../treatment__start_date/">➞start_date</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../treatment__date_ended/">➞date_ended</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../treatment__date_started/">➞date_started</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
@@ -121,32 +121,24 @@ start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li
 <li><a href="../timePoint__dateTime/">➞dateTime</a>  <sub>0..1</sub><ul>
 <li>Description: An explicitly specified timepoint described in terms of a date and optionally a time on that date.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
-<li>Related mapping: GDC:Portion.creation_datetime</li>
-<li>Related mapping: PDC:Portion.creation_datetime</li>
-<li>Related mapping: ICDC:Sample.date_of_sample_collection</li>
+<li>Exact mapping: GDC:Portion.creation_datetime</li>
+<li>Exact mapping: PDC:Portion.creation_datetime</li>
+<li>Exact mapping: ICDC:Sample.date_of_sample_collection</li>
 </ul>
 </li>
-<li><a href="../timePoint__indexDate/">➞indexDate</a>  <sub>0..1</sub><ul>
-<li>Description: An explicit dateTime that serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+<li><a href="../timePoint__eventType/">➞eventType</a>  <sub>0..*</sub><ul>
+<li>Description: An event that occurred at the point in time specified by this TimePoint.</li>
+<li>range: <a href="../CCDH_TimePoint_eventType/">CCDH_TimePoint_eventType</a></li>
 </ul>
 </li>
-<li><a href="../timePoint__indexEventType/">➞indexEventType</a>  <sub>0..1</sub><ul>
-<li>Description: A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint.</li>
-<li>range: <a href="../enum_CRDC-H.TimePoint.indexEventType/">enum_CRDC-H.TimePoint.indexEventType</a></li>
+<li><a href="../timePoint__id/">➞id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../timePoint__offsetFromIndex/">➞offsetFromIndex</a>  <sub>0..1</sub><ul>
 <li>Description: A quantity of time that, together with the index date or event, can be used to derive a specific timepoint.</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="inherited-from-entity">Inherited from Entity:</h3>
-<ul>
-<li><a href="../entity__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>

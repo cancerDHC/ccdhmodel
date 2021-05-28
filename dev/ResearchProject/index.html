@@ -93,7 +93,7 @@
 This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
 and investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects.</p>
 <p>URI: <a href="https://example.org/ccdh/ResearchProject">ccdh:ResearchProject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[ResearchProject]&lt;part_of%200..*-++[ResearchProject&#124;id:ccdh_string%20%3F;name:ccdh_string%20%3F;name_shortened:ccdh_string%20%3F;description:ccdh_string%20%3F;description_shortened:ccdh_string%20%3F;sponsor:ccdh_string%20*;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;primary_anatomic_site:enum_CRDC-H.ResearchProject.primary_anatomic_site%20*;url:ccdh_string%20*;research_project_type:enum_CRDC-H.ResearchProject.research_project_type;date_iacuc_approval:ccdh_dateTime%20%3F],[Identifier]&lt;identifier%200..*-++[ResearchProject],[ResearchSubject]++-%20member_of_research_project%200..1&gt;[ResearchProject],[Specimen]++-%20associated_project%200..1&gt;[ResearchProject],[Entity]^-[ResearchProject],[Specimen],[ResearchSubject],[Identifier],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[ResearchProject]&lt;part_of%200..*-++[ResearchProject&#124;id:ccdh_string%20%3F;name:ccdh_string%20%3F;name_shortened:ccdh_string%20%3F;description:ccdh_string%20%3F;description_shortened:ccdh_string%20%3F;sponsor:ccdh_string%20*;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;url:ccdh_string%20*;research_project_type:CCDH_ResearchProject_research_project_type;date_iacuc_approval:ccdh_dateTime%20%3F],[BodySite]&lt;primary_anatomic_site%200..*-++[ResearchProject],[Identifier]&lt;identifier%200..*-++[ResearchProject],[ResearchSubject]++-%20member_of_research_project%200..1&gt;[ResearchProject],[Specimen]++-%20associated_project%200..1&gt;[ResearchProject],[Entity]^-[ResearchProject],[Specimen],[ResearchSubject],[Identifier],[Entity],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -110,69 +110,64 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <li><a href="../researchProject__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the research project ended.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
-<li>Related mapping: ICDC:Study.dates_of_conduct</li>
+<li>Exact mapping: ICDC:Study.dates_of_conduct</li>
 </ul>
 </li>
 <li><a href="../researchProject__date_iacuc_approval/">➞date_iacuc_approval</a>  <sub>0..1</sub><ul>
 <li>Description: The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
-<li>Related mapping: ICDC:Study.date_of_iacuc_approval</li>
+<li>Exact mapping: ICDC:Study.date_of_iacuc_approval</li>
 </ul>
 </li>
 <li><a href="../researchProject__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the research project began.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
-<li>Related mapping: ICDC:Study.dates_of_conduct</li>
+<li>Exact mapping: ICDC:Study.dates_of_conduct</li>
 </ul>
 </li>
 <li><a href="../researchProject__description/">➞description</a>  <sub>0..1</sub><ul>
 <li>Description: An unabridged description of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: ICDC:Program.program_full_description</li>
+<li>Exact mapping: ICDC:Program.program_full_description</li>
 </ul>
 </li>
 <li><a href="../researchProject__description_shortened/">➞description_shortened</a>  <sub>0..1</sub><ul>
 <li>Description: An abbreviated description of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: ICDC:Program.program_short_description</li>
+<li>Exact mapping: ICDC:Program.program_short_description</li>
 </ul>
 </li>
 <li><a href="../researchProject__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Program.id</li>
-<li>Related mapping: PDC:Program.program_id</li>
-<li>Related mapping: PDC:Project.project_id</li>
-<li>Related mapping: GDC:Project.id</li>
-<li>Related mapping: ICDC:Study.clinical_study_id</li>
+<li>Exact mapping: GDC:Program.id</li>
+<li>Exact mapping: PDC:Program.program_id</li>
+<li>Exact mapping: PDC:Project.project_id</li>
+<li>Exact mapping: GDC:Project.id</li>
+<li>Exact mapping: ICDC:Study.clinical_study_id</li>
 </ul>
 </li>
 <li><a href="../researchProject__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li>Related mapping: GDC:Program.dbgap_accession_number</li>
-<li>Related mapping: GDC:Project.dbgap_accession_number</li>
-<li>Related mapping: PDC:Program.program_submitter_id</li>
-<li>Related mapping: PDC:Project.project_submitter_id</li>
-<li>Related mapping: ICDC:Study.clinical_study_designation</li>
 </ul>
 </li>
 <li><a href="../researchProject__name/">➞name</a>  <sub>0..1</sub><ul>
 <li>Description: An unabridged name of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Program.name</li>
-<li>Related mapping: PDC:Program.name</li>
-<li>Related mapping: ICDC:Program.program_name</li>
-<li>Related mapping: GDC:Project.name</li>
-<li>Related mapping: PDC:Project.name</li>
-<li>Related mapping: ICDC:Study.clinical_study_name</li>
+<li>Exact mapping: GDC:Program.name</li>
+<li>Exact mapping: PDC:Program.name</li>
+<li>Exact mapping: ICDC:Program.program_name</li>
+<li>Exact mapping: GDC:Project.name</li>
+<li>Exact mapping: PDC:Project.name</li>
+<li>Exact mapping: ICDC:Study.clinical_study_name</li>
 </ul>
 </li>
 <li><a href="../researchProject__name_shortened/">➞name_shortened</a>  <sub>0..1</sub><ul>
 <li>Description: An abbreviated name of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: ICDC:Program.program_acronym</li>
-<li>Related mapping: PDC:Program.program_shortname</li>
+<li>Exact mapping: ICDC:Program.program_acronym</li>
+<li>Exact mapping: PDC:Program.program_shortname</li>
 </ul>
 </li>
 <li><a href="../researchProject__part_of/">➞part_of</a>  <sub>0..*</sub><ul>
@@ -182,26 +177,25 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 </li>
 <li><a href="../researchProject__primary_anatomic_site/">➞primary_anatomic_site</a>  <sub>0..*</sub><ul>
 <li>Description: The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).  In the context of ResearchProject, this attribute captures the anatomic sites of research interest.</li>
-<li>range: <a href="../enum_CRDC-H.ResearchProject.primary_anatomic_site/">enum_CRDC-H.ResearchProject.primary_anatomic_site</a></li>
-<li>Related mapping: GDC:Project.primary_site</li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
 </ul>
 </li>
 <li><a href="../researchProject__research_project_type/">➞research_project_type</a>  <sub>1..1</sub><ul>
 <li>Description: The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')</li>
-<li>range: <a href="../enum_CRDC-H.ResearchProject.research_project_type/">enum_CRDC-H.ResearchProject.research_project_type</a></li>
-<li>Related mapping: ICDC:Study.clinical_study_type</li>
+<li>range: <a href="../CCDH_ResearchProject_research_project_type/">CCDH_ResearchProject_research_project_type</a></li>
+<li>Exact mapping: ICDC:Study.clinical_study_type</li>
 </ul>
 </li>
 <li><a href="../researchProject__sponsor/">➞sponsor</a>  <sub>0..*</sub><ul>
 <li>Description: An entity that is responsible for the initiation, management, and/or financing of a research project.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: PDC:Program.sponsor</li>
+<li>Exact mapping: PDC:Program.sponsor</li>
 </ul>
 </li>
 <li><a href="../researchProject__url/">➞url</a>  <sub>0..*</sub><ul>
 <li>Description: A URL address for a resource that provides information about a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: ICDC:Program.program_external_url</li>
+<li>Exact mapping: ICDC:Program.program_external_url</li>
 </ul>
 </li>
 </ul>

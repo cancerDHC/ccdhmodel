@@ -91,7 +91,7 @@
                 <h1 id="class-specimencreationactivity">Class: SpecimenCreationActivity</h1>
 <p>The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenCreationActivity">ccdh:SpecimenCreationActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Observation]&lt;execution_observation%200..*-++[SpecimenCreationActivity&#124;activity_type:enum_CRDC-H.SpecimenCreationActivity.activity_type%20%3F;collection_method_type:enum_CRDC-H.SpecimenCreationActivity.collection_method_type%20%3F;derivation_method_type:enum_CRDC-H.SpecimenCreationActivity.derivation_method_type%20%3F;specimen_order:ccdh_string%20%3F;id(i):ccdh_string%20%3F],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[Specimen]&lt;input_specimen%200..*-++[SpecimenCreationActivity],[BodySite]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Substance]&lt;additive%200..*-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[Observation],[Entity],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Observation]&lt;execution_observation%200..*-++[SpecimenCreationActivity&#124;activity_type:CCDH_SpecimenCreationActivity_activity_type%20%3F;collection_method_type:CCDH_SpecimenCreationActivity_collection_method_type%20%3F;derivation_method_type:CCDH_SpecimenCreationActivity_derivation_method_type%20%3F;specimen_order:ccdh_string%20%3F],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[BodySite]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Substance]&lt;additive%200..*-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[Observation],[Entity],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -105,7 +105,7 @@
 <ul>
 <li><a href="../specimenCreationActivity__activity_type/">➞activity_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of creation activity</li>
-<li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.activity_type/">enum_CRDC-H.SpecimenCreationActivity.activity_type</a></li>
+<li>range: <a href="../CCDH_SpecimenCreationActivity_activity_type/">CCDH_SpecimenCreationActivity_activity_type</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
@@ -115,12 +115,12 @@
 </li>
 <li><a href="../specimenCreationActivity__collection_method_type/">➞collection_method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method followed in collecting a sample from its original source.</li>
-<li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.collection_method_type/">enum_CRDC-H.SpecimenCreationActivity.collection_method_type</a></li>
-<li>Related mapping: GDC:Sample.method_of_sample_procurement</li>
-<li>Related mapping: PDC:Sample.method_of_sample_procurement</li>
-<li>Related mapping: PDC:Sample.pool</li>
-<li>Related mapping: PDC:Aliquot.pool</li>
-<li>Related mapping: HTAN:Biospecimen.AcquisitionMethodType</li>
+<li>range: <a href="../CCDH_SpecimenCreationActivity_collection_method_type/">CCDH_SpecimenCreationActivity_collection_method_type</a></li>
+<li>Exact mapping: GDC:Sample.method_of_sample_procurement</li>
+<li>Exact mapping: PDC:Sample.method_of_sample_procurement</li>
+<li>Exact mapping: PDC:Sample.pool</li>
+<li>Exact mapping: PDC:Aliquot.pool</li>
+<li>Exact mapping: HTAN:Biospecimen.AcquisitionMethodType</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__collection_site/">➞collection_site</a>  <sub>0..1</sub><ul>
@@ -140,19 +140,14 @@
 </li>
 <li><a href="../specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method followed in deriving new specimens from an existing one.</li>
-<li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.derivation_method_type/">enum_CRDC-H.SpecimenCreationActivity.derivation_method_type</a></li>
-<li>Related mapping: HTAN:Biospecimen.SlicingMethod</li>
-<li>Related mapping: HTAN:Biospecimen.MethodofNucleicAcidIsolation</li>
+<li>range: <a href="../CCDH_SpecimenCreationActivity_derivation_method_type/">CCDH_SpecimenCreationActivity_derivation_method_type</a></li>
+<li>Exact mapping: HTAN:Biospecimen.SlicingMethod</li>
+<li>Exact mapping: HTAN:Biospecimen.MethodofNucleicAcidIsolation</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
 <li>Description: Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
 <li>range: <a href="../Observation/">Observation</a></li>
-</ul>
-</li>
-<li><a href="../specimenCreationActivity__input_specimen/">➞input_specimen</a>  <sub>0..*</sub><ul>
-<li>Description: One or more existing specimens input into the specimen creation activity, from which a new specimen is derived (e.g. through portioning, aliquoting, sectioning, etc)</li>
-<li>range: <a href="../Specimen/">Specimen</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
@@ -168,16 +163,8 @@
 <li><a href="../specimenCreationActivity__specimen_order/">➞specimen_order</a>  <sub>0..1</sub><ul>
 <li>Description: A numeric value that represents the sequential order of this creation activity relative to that of creation of other specimens from the same source material or parent specimen.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Portion.portion_number</li>
-<li>Related mapping: PDC:Portion.portion_number</li>
-</ul>
-</li>
-</ul>
-<h3 id="inherited-from-entity">Inherited from Entity:</h3>
-<ul>
-<li><a href="../entity__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Exact mapping: GDC:Portion.portion_number</li>
+<li>Exact mapping: PDC:Portion.portion_number</li>
 </ul>
 </li>
 </ul>

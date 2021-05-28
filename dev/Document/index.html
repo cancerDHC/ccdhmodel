@@ -90,7 +90,7 @@
               
                 <h1 id="class-document">Class: Document</h1>
 <p>URI: <a href="https://example.org/ccdh/Document">ccdh:Document</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:ccdh_string%20%3F;document_type:enum_CRDC-H.Document.document_type%20%3F;description:ccdh_string%20%3F;url:ccdh_string%20*],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:ccdh_string%20%3F;document_type:CCDH_Document_document_type%20%3F;description:ccdh_string%20%3F;url:ccdh_string%20*],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document
 %200..*&gt;[Document],[Entity]^-[Document],[Specimen]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
@@ -111,7 +111,7 @@
 </li>
 <li><a href="../document__document_type/">➞document_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of the report (e.g. 'pathology report')</li>
-<li>range: <a href="../enum_CRDC-H.Document.document_type/">enum_CRDC-H.Document.document_type</a></li>
+<li>range: <a href="../CCDH_Document_document_type/">CCDH_Document_document_type</a></li>
 </ul>
 </li>
 <li><a href="../document__focus/">➞focus</a>  <sub>0..1</sub><ul>
@@ -127,6 +127,9 @@
 <li><a href="../document__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
+<li>Close mappings: GDC:Sample.pathology_report_uuid</li>
+<li>Close mappings: PDC:Sample.pathology_report_uuid</li>
+<li>Close mappings: HTAN:Biospecimen.ProtocolLink</li>
 </ul>
 </li>
 <li><a href="../document__url/">➞url</a>  <sub>0..*</sub><ul>

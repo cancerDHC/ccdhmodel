@@ -91,7 +91,7 @@
                 <h1 id="class-treatment">Class: Treatment</h1>
 <p>Represent medication administration or other treatment types.</p>
 <p>URI: <a href="https://example.org/ccdh/Treatment">ccdh:Treatment</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Treatment]&lt;concurrent_treatment%200..*-++[Treatment&#124;id:ccdh_string%20%3F;regimen:ccdh_string%20%3F;type:enum_CRDC-H.Treatment.type%20%3F;end_reason:ccdh_string%20*;effect:ccdh_string%20%3F;intent:ccdh_string%20%3F;outcome:ccdh_string%20%3F;number_of_cycles:ccdh_integer%20%3F;concurrent_treatment_type:ccdh_string%20*],[Diagnosis]&lt;diagnosis%200..*-++[Treatment],[BodySite]&lt;anatomic_site%200..1-++[Treatment],[TimePoint]&lt;end_date%200..1-++[Treatment],[TimePoint]&lt;start_date%200..1-++[Treatment],[Substance]&lt;therapeutic_agent%200..*-++[Treatment],[Identifier]&lt;identifier%200..*-++[Treatment],[Entity]^-[Treatment],[TimePoint],[Substance],[Identifier],[Entity],[Diagnosis],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Treatment]&lt;concurrent_treatment%200..*-++[Treatment&#124;id:ccdh_string%20%3F;regimen:ccdh_string%20%3F;type:CCDH_Treatment_type%20%3F;end_reason:ccdh_string%20*;effect:ccdh_string%20%3F;intent:ccdh_string%20%3F;outcome:ccdh_string%20%3F;number_of_cycles:ccdh_integer%20%3F;concurrent_treatment_type:ccdh_string%20*],[Diagnosis]&lt;diagnosis%200..*-++[Treatment],[BodySite]&lt;anatomic_site%200..1-++[Treatment],[TimePoint]&lt;date_ended%200..1-++[Treatment],[TimePoint]&lt;date_started%200..1-++[Treatment],[Substance]&lt;therapeutic_agent%200..*-++[Treatment],[Identifier]&lt;identifier%200..*-++[Treatment],[Entity]^-[Treatment],[TimePoint],[Substance],[Identifier],[Entity],[Diagnosis],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -106,8 +106,8 @@
 <li><a href="../treatment__anatomic_site/">➞anatomic_site</a>  <sub>0..1</sub><ul>
 <li>Description: The anatomical site that the treatment targets.</li>
 <li>range: <a href="../BodySite/">BodySite</a></li>
-<li>Related mapping: GDC:Treatment.therapeutic_agents</li>
-<li>Related mapping: PDC:Treatment.therapeutic_agents</li>
+<li>Exact mapping: GDC:Treatment.therapeutic_agents</li>
+<li>Exact mapping: PDC:Treatment.therapeutic_agents</li>
 </ul>
 </li>
 <li><a href="../treatment__concurrent_treatment/">➞concurrent_treatment</a>  <sub>0..*</sub><ul>
@@ -118,31 +118,38 @@
 <li><a href="../treatment__concurrent_treatment_type/">➞concurrent_treatment_type</a>  <sub>0..*</sub><ul>
 <li>Description: The type(s) of treatment(s) that are concurrent to this treatment.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Treatment.chemo_concurrent_to_radiation</li>
+<li>Exact mapping: GDC:Treatment.chemo_concurrent_to_radiation</li>
+</ul>
+</li>
+<li><a href="../treatment__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
+<li>Description: The timepoint at which the treatment ended.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+<li>Exact mapping: GDC:Treatment.days_to_treatment_end</li>
+<li>Exact mapping: PDC:Treatment.days_to_treatment_end</li>
+</ul>
+</li>
+<li><a href="../treatment__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
+<li>Description: The timepoint at which the treatment started.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+<li>Exact mapping: GDC:Treatment.days_to_treatment_start</li>
+<li>Exact mapping: PDC:Treatment.days_to_treatment_start</li>
 </ul>
 </li>
 <li><a href="../treatment__diagnosis/">➞diagnosis</a>  <sub>0..*</sub><ul>
 <li>Description: The diagnosis for which this treatement is intended for</li>
 <li>range: <a href="../Diagnosis/">Diagnosis</a></li>
-<li>Related mapping: GDC:Treatment.diagnosis</li>
-<li>Related mapping: PDC:Treatment.Diagnosis</li>
-<li>Related mapping: GDC:Treatment.initial_disease_status</li>
-<li>Related mapping: PDC:Treatment.initial_disease_status</li>
+<li>Exact mapping: GDC:Treatment.diagnosis</li>
+<li>Exact mapping: PDC:Treatment.Diagnosis</li>
+<li>Exact mapping: GDC:Treatment.initial_disease_status</li>
+<li>Exact mapping: PDC:Treatment.initial_disease_status</li>
 </ul>
 </li>
 <li><a href="../treatment__effect/">➞effect</a>  <sub>0..1</sub><ul>
 <li>Description: The effect of a treatment on the diagnosis or tumor.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Treatment.treatment_effect</li>
-<li>Related mapping: PDC:Treatment.treatment_effect</li>
-<li>Related mapping: GDC:Treatment.reatment_effect_indicator</li>
-</ul>
-</li>
-<li><a href="../treatment__end_date/">➞end_date</a>  <sub>0..1</sub><ul>
-<li>Description: The timepoint at which the treatment ended.</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-<li>Related mapping: GDC:Treatment.days_to_treatment_end</li>
-<li>Related mapping: PDC:Treatment.days_to_treatment_end</li>
+<li>Exact mapping: GDC:Treatment.treatment_effect</li>
+<li>Exact mapping: PDC:Treatment.treatment_effect</li>
+<li>Exact mapping: GDC:Treatment.reatment_effect_indicator</li>
 </ul>
 </li>
 <li><a href="../treatment__end_reason/">➞end_reason</a>  <sub>0..*</sub><ul>
@@ -151,64 +158,57 @@
 </li>
 <li><a href="../treatment__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Treatment.id</li>
-<li>Related mapping: PDC:Treatment.id</li>
+<li>Exact mapping: GDC:Treatment.id</li>
+<li>Exact mapping: PDC:Treatment.id</li>
 </ul>
 </li>
 <li><a href="../treatment__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: The regimen or line of therapy</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li>Related mapping: GDC:Treatment.id</li>
-<li>Related mapping: PDC:Treatment.id</li>
+<li>Exact mapping: GDC:Treatment.id</li>
+<li>Exact mapping: PDC:Treatment.id</li>
 </ul>
 </li>
 <li><a href="../treatment__intent/">➞intent</a>  <sub>0..1</sub><ul>
 <li>Description: The intent of the treatment.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Treatment.treatment_intent_type</li>
-<li>Related mapping: PDC:Treatment.treatment_intent_type</li>
+<li>Exact mapping: GDC:Treatment.treatment_intent_type</li>
+<li>Exact mapping: PDC:Treatment.treatment_intent_type</li>
 </ul>
 </li>
 <li><a href="../treatment__number_of_cycles/">➞number_of_cycles</a>  <sub>0..1</sub><ul>
 <li>Description: The number of treatment cycles the patient received.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Related mapping: GDC:Treatment.number_of_cycles</li>
+<li>Exact mapping: GDC:Treatment.number_of_cycles</li>
 </ul>
 </li>
 <li><a href="../treatment__outcome/">➞outcome</a>  <sub>0..1</sub><ul>
 <li>Description: The final outcome of the treatment.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Treatment.treatment_outcome</li>
-<li>Related mapping: PDC:Treatment.treatment_outcome</li>
+<li>Exact mapping: GDC:Treatment.treatment_outcome</li>
+<li>Exact mapping: PDC:Treatment.treatment_outcome</li>
 </ul>
 </li>
 <li><a href="../treatment__regimen/">➞regimen</a>  <sub>0..1</sub><ul>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Treatment.regimen_or_line_of_therapy</li>
-<li>Related mapping: PDC:Treatment.regimen_or_line_of_therapy</li>
-</ul>
-</li>
-<li><a href="../treatment__start_date/">➞start_date</a>  <sub>0..1</sub><ul>
-<li>Description: The timepoint at which the treatment started.</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-<li>Related mapping: GDC:Treatment.days_to_treatment_start</li>
-<li>Related mapping: PDC:Treatment.days_to_treatment_start</li>
+<li>Exact mapping: GDC:Treatment.regimen_or_line_of_therapy</li>
+<li>Exact mapping: PDC:Treatment.regimen_or_line_of_therapy</li>
 </ul>
 </li>
 <li><a href="../treatment__therapeutic_agent/">➞therapeutic_agent</a>  <sub>0..*</sub><ul>
 <li>Description: One or more theraputic agents as part of this treatment.</li>
 <li>range: <a href="../Substance/">Substance</a></li>
-<li>Related mapping: GDC:Treatment.therapeutic_agents</li>
-<li>Related mapping: PDC:Treatment.therapeutic_agents</li>
-<li>Related mapping: GDC:Treatment.treatment_dose</li>
-<li>Related mapping: GDC:Treatment.treatment_dose_unit</li>
+<li>Exact mapping: GDC:Treatment.therapeutic_agents</li>
+<li>Exact mapping: PDC:Treatment.therapeutic_agents</li>
+<li>Exact mapping: GDC:Treatment.treatment_dose</li>
+<li>Exact mapping: GDC:Treatment.treatment_dose_unit</li>
 </ul>
 </li>
 <li><a href="../treatment__type/">➞type</a>  <sub>0..1</sub><ul>
 <li>Description: The treatment type including medication/theraputics or other procedures.</li>
-<li>range: <a href="../enum_CRDC-H.Treatment.type/">enum_CRDC-H.Treatment.type</a></li>
-<li>Related mapping: GDC:Treatment.treatment_type</li>
-<li>Related mapping: PDC:Treatment.treatment_type</li>
+<li>range: <a href="../CCDH_Treatment_type/">CCDH_Treatment_type</a></li>
+<li>Exact mapping: GDC:Treatment.treatment_type</li>
+<li>Exact mapping: PDC:Treatment.treatment_type</li>
 </ul>
 </li>
 </ul>

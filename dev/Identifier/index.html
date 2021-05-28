@@ -91,7 +91,7 @@
                 <h1 id="class-identifier">Class: Identifier</h1>
 <p>An Identifier is associated with a unique object or entity within a given system.</p>
 <p>URI: <a href="https://example.org/ccdh/Identifier">ccdh:Identifier</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicProduct]++-%20identifier%200..*&gt;[Identifier&#124;value:ccdh_string;system:ccdh_string%20%3F;type:enum_CRDC-H.Identifier.type%20%3F;id(i):ccdh_string%20%3F],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[Exposure],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[BiologicProduct]++-%20identifier%200..*&gt;[Identifier&#124;value:ccdh_string;system:ccdh_string%20%3F;type:CCDH_Identifier_type%20%3F],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[Exposure],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -120,32 +120,31 @@
 </li>
 <li><a href="../identifier__type/">➞type</a>  <sub>0..1</sub><ul>
 <li>Description: A code that defines the type of the identifier.</li>
-<li>range: <a href="../enum_CRDC-H.Identifier.type/">enum_CRDC-H.Identifier.type</a></li>
+<li>range: <a href="../CCDH_Identifier_type/">CCDH_Identifier_type</a></li>
 </ul>
 </li>
 <li><a href="../identifier__value/">➞value</a>  <sub>1..1</sub><ul>
 <li>Description: The value of the identifier, as defined by the system.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Related mapping: GDC:Sample.submitter_id</li>
-<li>Related mapping: GDC:Analyte.submitter_id</li>
-<li>Related mapping: GDC:Slide.submitter_id</li>
-<li>Related mapping: PDC:Sample.sample_submitter_id</li>
-<li>Related mapping: PDC:Analyte.analyte_submitter_id</li>
-<li>Related mapping: GDC:Sample.pathology_report_uuid</li>
-<li>Related mapping: PDC:Sample.pathology_report_uuid</li>
-<li>Related mapping: HTAN:Biospecimen.ProtocolLink</li>
-<li>Related mapping: GDC:Sample.distributor_reference</li>
-<li>Related mapping: PDC:Sample.distributor_reference</li>
-<li>Related mapping: GDC:Sample.catalog_reference</li>
-<li>Related mapping: PDC:Sample.catalog_reference</li>
-</ul>
-</li>
-</ul>
-<h3 id="inherited-from-entity">Inherited from Entity:</h3>
-<ul>
-<li><a href="../entity__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Exact mapping: GDC:Sample.submitter_id</li>
+<li>Exact mapping: GDC:Analyte.submitter_id</li>
+<li>Exact mapping: GDC:Slide.submitter_id</li>
+<li>Exact mapping: PDC:Sample.sample_submitter_id</li>
+<li>Exact mapping: PDC:Analyte.analyte_submitter_id</li>
+<li>Exact mapping: GDC:Sample.pathology_report_uuid</li>
+<li>Exact mapping: PDC:Sample.pathology_report_uuid</li>
+<li>Exact mapping: HTAN:Biospecimen.ProtocolLink</li>
+<li>Exact mapping: GDC:Sample.distributor_reference</li>
+<li>Exact mapping: PDC:Sample.distributor_reference</li>
+<li>Exact mapping: GDC:Sample.catalog_reference</li>
+<li>Exact mapping: PDC:Sample.catalog_reference</li>
+<li>Exact mapping: GDC:Program.dbgap_accession_number</li>
+<li>Exact mapping: GDC:Project.dbgap_accession_number</li>
+<li>Exact mapping: PDC:Program.program_submitter_id</li>
+<li>Exact mapping: PDC:Project.project_submitter_id</li>
+<li>Exact mapping: ICDC:Study.clinical_study_designation</li>
+<li>Exact mapping: GDC:Case.submitter_id</li>
+<li>Exact mapping: PDC:Case.case_submitter_id</li>
 </ul>
 </li>
 </ul>

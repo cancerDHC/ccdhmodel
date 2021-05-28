@@ -91,7 +91,7 @@
                 <h1 id="class-cancerstageobservationset">Class: CancerStageObservationSet</h1>
 <p>A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).</p>
 <p>URI: <a href="https://example.org/ccdh/CancerStageObservationSet">ccdh:CancerStageObservationSet</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CancerStageObservation]&lt;observations%200..*-++[CancerStageObservationSet&#124;category:enum_CRDC-H.CancerStageObservationSet.category;method_type:enum_CRDC-H.CancerStageObservationSet.method_type%20%3F;id(i):ccdh_string%20%3F],[Diagnosis]++-%20stage%200..*&gt;[CancerStageObservationSet],[Entity]^-[CancerStageObservationSet],[Diagnosis],[CancerStageObservation]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CancerStageObservation]&lt;observations%200..*-++[CancerStageObservationSet&#124;id:ccdh_string%20%3F;category:CCDH_CancerStageObservationSet_category%20%3F;method_type:CCDH_CancerStageObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[CancerStageObservationSet],[Subject]&lt;subject%200..1-++[CancerStageObservationSet],[Entity]&lt;focus%200..*-++[CancerStageObservationSet],[Diagnosis]++-%20stage%200..*&gt;[CancerStageObservationSet],[Entity]^-[CancerStageObservationSet],[Diagnosis],[CancerStageObservation]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -103,15 +103,24 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../cancerStageObservationSet__category/">➞category</a>  <sub>1..1</sub><ul>
-<li>range: <a href="../enum_CRDC-H.CancerStageObservationSet.category/">enum_CRDC-H.CancerStageObservationSet.category</a></li>
+<li><a href="../cancerStageObservationSet__category/">➞category</a>  <sub>0..1</sub><ul>
+<li>Description: The general category of observation set described</li>
+<li>range: <a href="../CCDH_CancerStageObservationSet_category/">CCDH_CancerStageObservationSet_category</a></li>
 </ul>
 </li>
-<li><a href="../cancerStageObservationSet__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
+<li><a href="../cancerStageObservationSet__focus/">➞focus</a>  <sub>0..*</sub><ul>
+<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../cancerStageObservationSet__id/">➞id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../cancerStageObservationSet__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
 <li>Description: A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.</li>
-<li>range: <a href="../enum_CRDC-H.CancerStageObservationSet.method_type/">enum_CRDC-H.CancerStageObservationSet.method_type</a></li>
-<li>Related mapping: GDC:Diagnosis.ajcc_staging_system_edition</li>
-<li>Related mapping: PDC:Diagnosis.ajcc_staging_system_edition</li>
+<li>range: <a href="../CCDH_CancerStageObservationSet_method_type/">CCDH_CancerStageObservationSet_method_type</a></li>
 </ul>
 </li>
 <li><a href="../cancerStageObservationSet__observations/">➞observations</a>  <sub>0..*</sub><ul>
@@ -119,12 +128,14 @@
 <li>range: <a href="../CancerStageObservation/">CancerStageObservation</a></li>
 </ul>
 </li>
+<li><a href="../cancerStageObservationSet__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the observation activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
 </ul>
-<h3 id="inherited-from-entity">Inherited from Entity:</h3>
-<ul>
-<li><a href="../entity__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</li>
+<li><a href="../cancerStageObservationSet__subject/">➞subject</a>  <sub>0..1</sub><ul>
+<li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
 </ul>
