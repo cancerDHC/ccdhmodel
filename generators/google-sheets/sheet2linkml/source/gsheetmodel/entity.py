@@ -371,7 +371,7 @@ class Attribute:
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
             description=(data.get("Description") or '').strip(),
-            examples=", ".join(examples),
+            examples=examples,
             comments=data.get("Comments"),
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
