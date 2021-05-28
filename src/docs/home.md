@@ -1,6 +1,4 @@
-# Introduction
-
-## The Harmonized CRDC Data Model (CRDC-H)
+# The Harmonized CRDC Data Model (CRDC-H)
 
 The goal of the [Center for Cancer Data Harmonization (CCDH)](https://harmonization.datacommons.cancer.gov/) is to support the harmonization of equivalent data elements in disparate models across NCI’s [Cancer Research Data Commons (CRDC)](https://datacommons.cancer.gov/) repositories (nodes) to enable cross-node querying and multi-modal analytics. Individual nodes’ data models have been developed largely independently to fit specific data types and/or use cases. The CCDH is tasked with defining a shared data model for use across the CRDC, leveraging existing standards where possible to support interoperability with external data.
 
