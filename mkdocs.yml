@@ -1,4 +1,5 @@
 site_name: "CRDC-H Model in LinkML documentation"
+repo_url: https://github.com/cancerDHC/ccdhmodel/
 theme: readthedocs
 nav:
   - Home: home.md
