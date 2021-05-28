@@ -108,16 +108,20 @@
 <li><a href="../specimenContainer__additive/">➞additive</a>  <sub>0..*</sub><ul>
 <li>Description: A material substance added to the container (typically to support the primary object contained)</li>
 <li>range: <a href="../Substance/">Substance</a></li>
+<li>Related mapping: HTAN:Biospecimen.CollectionMedia</li>
 </ul>
 </li>
 <li><a href="../specimenContainer__charge_type/">➞charge_type</a>  <sub>0..1</sub><ul>
 <li>Description: A descripton of the type of charge on a slide on which a specimen is mounted</li>
 <li>range: <a href="../enum_CRDC-H.SpecimenContainer.charge_type/">enum_CRDC-H.SpecimenContainer.charge_type</a></li>
+<li>Related mapping: GDC:Slide.charge_type</li>
 </ul>
 </li>
 <li><a href="../specimenContainer__container_number/">➞container_number</a>  <sub>0..1</sub><ul>
 <li>Description: Informal number/identifier by which the container is referenced (e.g. a slide number, or a well number in a plate)</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Related mapping: GDC:Analyte.well_number</li>
+<li>Related mapping: PDC:Analyte.well_number</li>
 </ul>
 </li>
 <li><a href="../specimenContainer__container_type/">➞container_type</a>  <sub>0..1</sub><ul>

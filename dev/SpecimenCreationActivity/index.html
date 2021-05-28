@@ -116,6 +116,11 @@
 <li><a href="../specimenCreationActivity__collection_method_type/">➞collection_method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method followed in collecting a sample from its original source.</li>
 <li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.collection_method_type/">enum_CRDC-H.SpecimenCreationActivity.collection_method_type</a></li>
+<li>Related mapping: GDC:Sample.method_of_sample_procurement</li>
+<li>Related mapping: PDC:Sample.method_of_sample_procurement</li>
+<li>Related mapping: PDC:Sample.pool</li>
+<li>Related mapping: PDC:Aliquot.pool</li>
+<li>Related mapping: HTAN:Biospecimen.AcquisitionMethodType</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__collection_site/">➞collection_site</a>  <sub>0..1</sub><ul>
@@ -136,6 +141,8 @@
 <li><a href="../specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method followed in deriving new specimens from an existing one.</li>
 <li>range: <a href="../enum_CRDC-H.SpecimenCreationActivity.derivation_method_type/">enum_CRDC-H.SpecimenCreationActivity.derivation_method_type</a></li>
+<li>Related mapping: HTAN:Biospecimen.SlicingMethod</li>
+<li>Related mapping: HTAN:Biospecimen.MethodofNucleicAcidIsolation</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
@@ -161,6 +168,8 @@
 <li><a href="../specimenCreationActivity__specimen_order/">➞specimen_order</a>  <sub>0..1</sub><ul>
 <li>Description: A numeric value that represents the sequential order of this creation activity relative to that of creation of other specimens from the same source material or parent specimen.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Related mapping: GDC:Portion.portion_number</li>
+<li>Related mapping: PDC:Portion.portion_number</li>
 </ul>
 </li>
 </ul>

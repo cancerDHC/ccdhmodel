@@ -114,11 +114,14 @@
 <li><a href="../subject__breed/">➞breed</a>  <sub>0..1</sub><ul>
 <li>Description: A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.</li>
 <li>range: <a href="../enum_CRDC-H.Subject.breed/">enum_CRDC-H.Subject.breed</a></li>
+<li>Related mapping: ICDC:Demographic.breed</li>
 </ul>
 </li>
 <li><a href="../subject__cause_of_death/">➞cause_of_death</a>  <sub>0..1</sub><ul>
 <li>Description: Coded value indicating the circumstance or condition that results in the death of the subject.</li>
 <li>range: <a href="../enum_CRDC-H.Subject.cause_of_death/">enum_CRDC-H.Subject.cause_of_death</a></li>
+<li>Related mapping: GDC:Demographic.cause_of_death</li>
+<li>Related mapping: PDC:Demographic.cause_of_death</li>
 </ul>
 </li>
 <li><a href="../subject__ethnicity/">➞ethnicity</a>  <sub>0..1</sub><ul>
@@ -128,31 +131,48 @@
 </ul>
 <p>Applicable only when Subject.species is Homo Sapiens
      * range: <a href="../enum_CRDC-H.Subject.ethnicity/">enum_CRDC-H.Subject.ethnicity</a>
+     * Related mapping: GDC:Clinical.ethnicity
+     * Related mapping: GDC:Demographic.ethnicity
+     * Related mapping: PDC:Demographic.ethnicity
  * <a href="../subject__id/">➞id</a>  <sub>1..1</sub>
      * Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.
      * range: <a href="../types/CcdhString/">CcdhString</a>
  * <a href="../subject__identifier/">➞identifier</a>  <sub>0..<em></sub>
      * Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.
      * range: <a href="../Identifier/">Identifier</a>
+     * Related mapping: ICDC:Case.patient_id
  * <a href="../subject__race/">➞race</a>  <sub>0..</em></sub>
      * Description: An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</p>
 <p>Applicable only when Subject.species is Homo Sapiens
      * range: <a href="../enum_CRDC-H.Subject.race/">enum_CRDC-H.Subject.race</a>
+     * Related mapping: GDC:Clinical.race
+     * Related mapping: GDC:Demographic.race
+     * Related mapping: PDC:Demographic.race
  * <a href="../subject__sex/">➞sex</a>  <sub>0..1</sub>
      * Description: The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.
      * range: <a href="../enum_CRDC-H.Subject.sex/">enum_CRDC-H.Subject.sex</a>
+     * Related mapping: ICDC:Demographic.sex
+     * Related mapping: GDC:Demographic.gender
+     * Related mapping: PDC:Demographic.gender
  * <a href="../subject__species/">➞species</a>  <sub>0..1</sub>
      * Description: The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)
      * range: <a href="../enum_CRDC-H.Subject.species/">enum_CRDC-H.Subject.species</a>
  * <a href="../subject__vital_status/">➞vital_status</a>  <sub>0..1</sub>
      * Description: Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.
      * range: <a href="../enum_CRDC-H.Subject.vital_status/">enum_CRDC-H.Subject.vital_status</a>
+     * Related mapping: GDC:Demographic.vital_status
+     * Related mapping: PDC:Demographic.vital_status
  * <a href="../subject__year_of_birth/">➞year_of_birth</a>  <sub>0..1</sub>
      * Description: Numeric value to represent the calendar year in which an individual was born.
      * range: <a href="../types/CcdhInteger/">CcdhInteger</a>
+     * Related mapping: GDC:Demographic.year_of_birth
+     * Related mapping: PDC:Demographic.year_of_birth
+     * Related mapping: ICDC:Demographic.date_of_birth
  * <a href="../subject__year_of_death/">➞year_of_death</a>  <sub>0..1</sub>
      * Description: Numeric value to represent the calendar year in which an individual died.
-     * range: <a href="../types/CcdhInteger/">CcdhInteger</a></p>
+     * range: <a href="../types/CcdhInteger/">CcdhInteger</a>
+     * Related mapping: GDC:Demographic.year_of_death
+     * Related mapping: PDC:Demographic.year_of_death</p>
               
             </div>
           </div>

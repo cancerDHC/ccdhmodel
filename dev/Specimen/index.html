@@ -109,16 +109,32 @@
 <li><a href="../specimen__analyte_type/">➞analyte_type</a>  <sub>0..1</sub><ul>
 <li>Description: For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.analyte_type/">enum_CRDC-H.Specimen.analyte_type</a></li>
+<li>Related mapping: GDC:Aliquot.analyte_type</li>
+<li>Related mapping: GDC:Aliquot.analyte_type_id</li>
+<li>Related mapping: GDC:Analyte.analyte_type</li>
+<li>Related mapping: GDC:Analyte.analyte_type_id</li>
+<li>Related mapping: PDC:Aliquot.analyte_type</li>
+<li>Related mapping: PDC:Aliquot.analyte_type_id</li>
+<li>Related mapping: PDC:Analyte.analyte_type</li>
+<li>Related mapping: PDC:Analyte.analyte_type_id</li>
+<li>Related mapping: HTAN:Biosepcimen.ANALYTE_TYPE</li>
 </ul>
 </li>
 <li><a href="../specimen__associated_project/">➞associated_project</a>  <sub>0..1</sub><ul>
 <li>Description: The Project associated with the specimen.</li>
 <li>range: <a href="../ResearchProject/">ResearchProject</a></li>
+<li>Related mapping: GDC:Sample.project_id</li>
+<li>Related mapping: GDC:Portion.project_id</li>
+<li>Related mapping: GDC:Aliquot.project_id</li>
+<li>Related mapping: GDC:Analyte.project_id</li>
+<li>Related mapping: PDC:Sample.gdc_project_id</li>
 </ul>
 </li>
 <li><a href="../specimen__cellular_composition_type/">➞cellular_composition_type</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the type of material comprising a specimen at a celluar level.</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.cellular_composition_type/">enum_CRDC-H.Specimen.cellular_composition_type</a></li>
+<li>Related mapping: GDC:Sample.composition</li>
+<li>Related mapping: PDC:Sample.composition</li>
 </ul>
 </li>
 <li><a href="../specimen__contained_in/">➞contained_in</a>  <sub>0..1</sub><ul>
@@ -139,6 +155,7 @@
 <li><a href="../specimen__degree_of_dysplasia/">➞degree_of_dysplasia</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.degree_of_dysplasia/">enum_CRDC-H.Specimen.degree_of_dysplasia</a></li>
+<li>Related mapping: HTAN:Biospecimen.DegreeofDysplasia</li>
 </ul>
 </li>
 <li><a href="../specimen__derived_product/">➞derived_product</a>  <sub>0..*</sub><ul>
@@ -149,6 +166,7 @@
 <li><a href="../specimen__description/">➞description</a>  <sub>0..1</sub><ul>
 <li>Description: A free text field to capture additional information or explanation about the specimen.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Related mapping: ICDC:Sample.comment</li>
 </ul>
 </li>
 <li><a href="../specimen__dimensional_measure/">➞dimensional_measure</a>  <sub>0..1</sub><ul>
@@ -164,11 +182,15 @@
 <li><a href="../specimen__dysplasia_fraction/">➞dysplasia_fraction</a>  <sub>0..1</sub><ul>
 <li>Description: Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Related mapping: HTAN:Biospecimen.DysplasiaFraction</li>
 </ul>
 </li>
 <li><a href="../specimen__general_tissue_morphology/">➞general_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.general_tissue_morphology/">enum_CRDC-H.Specimen.general_tissue_morphology</a></li>
+<li>Related mapping: GDC:Sample.tissue_type</li>
+<li>Related mapping: PDC:Sample.tissue_type</li>
+<li>Related mapping: ICDC:Sample.general_sample_pathology</li>
 </ul>
 </li>
 <li><a href="../specimen__histological_composition_measure/">➞histological_composition_measure</a>  <sub>0..*</sub><ul>
@@ -179,6 +201,17 @@
 <li><a href="../specimen__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Related mapping: GDC:Aliquot.id</li>
+<li>Related mapping: GDC:Analyte.id</li>
+<li>Related mapping: GDC:Portion.id</li>
+<li>Related mapping: GDC:Sample.id</li>
+<li>Related mapping: GDC:Slide.id</li>
+<li>Related mapping: PDC:Aliquot.aliquot_id</li>
+<li>Related mapping: PDC:Analyte.analyte_id</li>
+<li>Related mapping: PDC:Portion.portion_id</li>
+<li>Related mapping: PDC:Sample.sample_id</li>
+<li>Related mapping: ICDC:Sample.sample_id</li>
+<li>Related mapping: HTAN:Biospecimen.HTANBiospecimenID</li>
 </ul>
 </li>
 <li><a href="../specimen__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
@@ -189,26 +222,43 @@
 <li><a href="../specimen__morphlogy_assessment_method/">➞morphlogy_assessment_method</a>  <sub>0..1</sub><ul>
 <li>Description: The general method used to assess a specimens specific tissue morphology</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.morphlogy_assessment_method/">enum_CRDC-H.Specimen.morphlogy_assessment_method</a></li>
+<li>Related mapping: HTAN:Biospecimen.HistologyAssessmentMedium</li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_assessor_role/">➞morphology_assessor_role</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.morphology_assessor_role/">enum_CRDC-H.Specimen.morphology_assessor_role</a></li>
+<li>Related mapping: HTAN:Biospecimen.HistologyAssessmentBy</li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_pathologically_confirmed/">➞morphology_pathologically_confirmed</a>  <sub>0..1</sub><ul>
 <li>Description: A flag indicating whether the histologic assessment of specific morphology was confirmed by a pathologist review</li>
 <li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
+<li>Related mapping: GDC:Sample.diagnosis_pathologically_confirmed</li>
+<li>Related mapping: PDC:Sample.diagnosis_pathologically_confirmed</li>
 </ul>
 </li>
 <li><a href="../specimen__parent_specimen/">➞parent_specimen</a>  <sub>0..*</sub><ul>
 <li>Description: An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).</li>
 <li>range: <a href="./">Specimen</a></li>
+<li>Related mapping: GDC:Sample.derived_from</li>
+<li>Related mapping: GDC:Aliquot.derived_from</li>
+<li>Related mapping: GDC:Aliquot.derived_from</li>
+<li>Related mapping: GDC:Analyte.derived_from</li>
+<li>Related mapping: GDC:Analyte.derived_from</li>
+<li>Related mapping: GDC:Portion.derived_from</li>
+<li>Related mapping: GDC:Slide.derived_from</li>
+<li>Related mapping: PDC:Aliquot.Sample</li>
+<li>Related mapping: PDC:Analyte.Portion</li>
+<li>Related mapping: PDC:Analyte.Sample</li>
+<li>Related mapping: PDC:Portion.Sample</li>
+<li>Related mapping: HTAN:Biospecimen.HTANParentID</li>
 </ul>
 </li>
 <li><a href="../specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the pathology exhibited by a pre-invasive tissue in a specimen.</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.preinvasive_tissue_morphology/">enum_CRDC-H.Specimen.preinvasive_tissue_morphology</a></li>
+<li>Related mapping: HTAN:Biospecimen.PreinvasiveMorphology</li>
 </ul>
 </li>
 <li><a href="../specimen__processing_activity/">➞processing_activity</a>  <sub>0..*</sub><ul>
@@ -235,31 +285,53 @@
 <li><a href="../specimen__section_location/">➞section_location</a>  <sub>0..1</sub><ul>
 <li>Description: The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.section_location/">enum_CRDC-H.Specimen.section_location</a></li>
+<li>Related mapping: GDC:Slide.section_location</li>
 </ul>
 </li>
 <li><a href="../specimen__source_material_type/">➞source_material_type</a>  <sub>0..1</sub><ul>
 <li>Description: The general kind of material from which the specimen was derived, based on the physical nature of the source material.</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.source_material_type/">enum_CRDC-H.Specimen.source_material_type</a></li>
+<li>Related mapping: GDC:Sample.sample_type</li>
+<li>Related mapping: GDC:Sample.sample_type_id</li>
+<li>Related mapping: PDC:Sample.sample_type</li>
+<li>Related mapping: PDC:Sample.sample_type_id</li>
+<li>Related mapping: ICDC:Sample.physical_sample_type</li>
+<li>Related mapping: HTAN:Biospecimen.BiospecimenType</li>
 </ul>
 </li>
 <li><a href="../specimen__source_model_system/">➞source_model_system</a>  <sub>0..1</sub><ul>
 <li>Description: A model biological system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
+<li>Related mapping: PDC:Sample.Case</li>
+<li>Related mapping: GDC:Sample.derived_from</li>
+<li>Related mapping: ICDC:Sample.of_case</li>
+<li>Related mapping: HTAN:Biospecimen.HTANParentID</li>
 </ul>
 </li>
 <li><a href="../specimen__source_subject/">➞source_subject</a>  <sub>0..1</sub><ul>
 <li>Description: A Subject from which the specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
+<li>Related mapping: PDC:Sample.Case</li>
+<li>Related mapping: GDC:Sample.derived_from</li>
+<li>Related mapping: ICDC:Sample.of_case</li>
+<li>Related mapping: HTAN:Biospecimen.HTANParentID</li>
 </ul>
 </li>
 <li><a href="../specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the specific pathology exhibited by the tissue in a specimen.</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.specific_tissue_morphology/">enum_CRDC-H.Specimen.specific_tissue_morphology</a></li>
+<li>Related mapping: GDC:Sample.tumor_code</li>
+<li>Related mapping: GDC:Sample.tumor_code_id</li>
+<li>Related mapping: PDC:Sample.tumor_code</li>
+<li>Related mapping: PDC:Sample.tumor_code_id</li>
+<li>Related mapping: ICDC:Sample.specific_sample_pathology</li>
+<li>Related mapping: HTAN:Biospecimen.HistologicMorphologyCode</li>
 </ul>
 </li>
 <li><a href="../specimen__specimen_type/">➞specimen_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.specimen_type/">enum_CRDC-H.Specimen.specimen_type</a></li>
+<li>Related mapping: HTAN:Biospecimen.BiospecimenType</li>
 </ul>
 </li>
 <li><a href="../specimen__storage_activity/">➞storage_activity</a>  <sub>0..1</sub><ul>
@@ -275,6 +347,10 @@
 <li><a href="../specimen__tumor_status_at_collection/">➞tumor_status_at_collection</a>  <sub>0..1</sub><ul>
 <li>Description: The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
 <li>range: <a href="../enum_CRDC-H.Specimen.tumor_status_at_collection/">enum_CRDC-H.Specimen.tumor_status_at_collection</a></li>
+<li>Related mapping: GDC:Sample.tumor_descriptor</li>
+<li>Related mapping: PDC:Sample.tumor_descriptor</li>
+<li>Related mapping: HTAN:Biospecimen.TUMOR_TISSUE_TYPE</li>
+<li>Related mapping: ICDC:Sample.tumor_sample_origin</li>
 </ul>
 </li>
 </ul>
