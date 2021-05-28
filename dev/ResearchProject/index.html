@@ -101,38 +101,38 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong>None</strong> <em><a href="../researchProject__part_of/">➞part_of</a></em>  <sub>0..<em></sub>  </em><em><a href="./">ResearchProject</a></em>*</li>
-<li><strong>None</strong> <em><a href="../researchSubject__member_of_research_project/">➞member_of_research_project</a></em>  <sub>OPT</sub>  <strong><a href="./">ResearchProject</a></strong></li>
-<li><strong>None</strong> <em><a href="../specimen__associated_project/">➞associated_project</a></em>  <sub>OPT</sub>  <strong><a href="./">ResearchProject</a></strong></li>
+<li><strong>None</strong> <em><a href="../researchSubject__member_of_research_project/">➞member_of_research_project</a></em>  <sub>0..1</sub>  <strong><a href="./">ResearchProject</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__associated_project/">➞associated_project</a></em>  <sub>0..1</sub>  <strong><a href="./">ResearchProject</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../researchProject__date_ended/">➞date_ended</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the research project ended.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__date_iacuc_approval/">➞date_iacuc_approval</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__date_iacuc_approval/">➞date_iacuc_approval</a>  <sub>0..1</sub><ul>
 <li>Description: The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__date_started/">➞date_started</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the research project began.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__description/">➞description</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__description/">➞description</a>  <sub>0..1</sub><ul>
 <li>Description: An unabridged description of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__description_shortened/">➞description_shortened</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__description_shortened/">➞description_shortened</a>  <sub>0..1</sub><ul>
 <li>Description: An abbreviated description of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__id/">➞id</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
@@ -142,12 +142,12 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__name/">➞name</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__name/">➞name</a>  <sub>0..1</sub><ul>
 <li>Description: An unabridged name of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__name_shortened/">➞name_shortened</a>  <sub>OPT</sub><ul>
+<li><a href="../researchProject__name_shortened/">➞name_shortened</a>  <sub>0..1</sub><ul>
 <li>Description: An abbreviated name of a research program, project, or study.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
@@ -162,7 +162,7 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <li>range: <a href="../enum_CRDC-H.ResearchProject.primary_anatomic_site/">enum_CRDC-H.ResearchProject.primary_anatomic_site</a></li>
 </ul>
 </li>
-<li><a href="../researchProject__research_project_type/">➞research_project_type</a>  <sub>REQ</sub><ul>
+<li><a href="../researchProject__research_project_type/">➞research_project_type</a>  <sub>1..1</sub><ul>
 <li>Description: The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')</li>
 <li>range: <a href="../enum_CRDC-H.ResearchProject.research_project_type/">enum_CRDC-H.ResearchProject.research_project_type</a></li>
 </ul>

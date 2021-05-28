@@ -103,7 +103,7 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../treatment__anatomic_site/">➞anatomic_site</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__anatomic_site/">➞anatomic_site</a>  <sub>0..1</sub><ul>
 <li>Description: The anatomical site that the treatment targets.</li>
 <li>range: <a href="../BodySite/">BodySite</a></li>
 </ul>
@@ -123,12 +123,12 @@
 <li>range: <a href="../Diagnosis/">Diagnosis</a></li>
 </ul>
 </li>
-<li><a href="../treatment__effect/">➞effect</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__effect/">➞effect</a>  <sub>0..1</sub><ul>
 <li>Description: The effect of a treatment on the diagnosis or tumor.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../treatment__end_date/">➞end_date</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__end_date/">➞end_date</a>  <sub>0..1</sub><ul>
 <li>Description: The timepoint at which the treatment ended.</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
@@ -137,7 +137,7 @@
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../treatment__id/">➞id</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
@@ -146,26 +146,26 @@
 <li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
-<li><a href="../treatment__intent/">➞intent</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__intent/">➞intent</a>  <sub>0..1</sub><ul>
 <li>Description: The intent of the treatment.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../treatment__number_of_cycles/">➞number_of_cycles</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__number_of_cycles/">➞number_of_cycles</a>  <sub>0..1</sub><ul>
 <li>Description: The number of treatment cycles the patient received.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
 </ul>
 </li>
-<li><a href="../treatment__outcome/">➞outcome</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__outcome/">➞outcome</a>  <sub>0..1</sub><ul>
 <li>Description: The final outcome of the treatment.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../treatment__regimen/">➞regimen</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__regimen/">➞regimen</a>  <sub>0..1</sub><ul>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../treatment__start_date/">➞start_date</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__start_date/">➞start_date</a>  <sub>0..1</sub><ul>
 <li>Description: The timepoint at which the treatment started.</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
@@ -175,7 +175,7 @@
 <li>range: <a href="../Substance/">Substance</a></li>
 </ul>
 </li>
-<li><a href="../treatment__type/">➞type</a>  <sub>OPT</sub><ul>
+<li><a href="../treatment__type/">➞type</a>  <sub>0..1</sub><ul>
 <li>Description: The treatment type including medication/theraputics or other procedures.</li>
 <li>range: <a href="../enum_CRDC-H.Treatment.type/">enum_CRDC-H.Treatment.type</a></li>
 </ul>

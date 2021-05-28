@@ -91,24 +91,24 @@
                 <h1 id="class-specimentransportactivity">Class: SpecimenTransportActivity</h1>
 <p>An activity through which a specimen is transported between locations.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenTransportActivity">ccdh:SpecimenTransportActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Entity]&lt;execution_observation%200..*-++[SpecimenTransportActivity&#124;duration:ccdh_string%20*;execution_conditions:ccdh_string%20*],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..1&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Entity]&lt;execution_observation%200..*-++[SpecimenTransportActivity&#124;duration:ccdh_string%20*;execution_conditions:ccdh_string%20*;id(i):ccdh_string%20%3F],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..1&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../specimen__transport_activity/">➞transport_activity</a></em>  <sub>OPT</sub>  <strong><a href="./">SpecimenTransportActivity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__transport_activity/">➞transport_activity</a></em>  <sub>0..1</sub>  <strong><a href="./">SpecimenTransportActivity</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../specimenTransportActivity__date_ended/">➞date_ended</a>  <sub>OPT</sub><ul>
+<li><a href="../specimenTransportActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity ended (in this case, a transport event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__date_started/">➞date_started</a>  <sub>OPT</sub><ul>
+<li><a href="../specimenTransportActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity began (in this case, a transport event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
@@ -128,19 +128,27 @@
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__performed_by/">➞performed_by</a>  <sub>OPT</sub><ul>
+<li><a href="../specimenTransportActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__transport_destination/">➞transport_destination</a>  <sub>OPT</sub><ul>
+<li><a href="../specimenTransportActivity__transport_destination/">➞transport_destination</a>  <sub>0..1</sub><ul>
 <li>Description: An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__transport_origin/">➞transport_origin</a>  <sub>OPT</sub><ul>
+<li><a href="../specimenTransportActivity__transport_origin/">➞transport_origin</a>  <sub>0..1</sub><ul>
 <li>Description: An organization (facility, site, lab, etc) from which the specimen was transported as a result of the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="inherited-from-entity">Inherited from Entity:</h3>
+<ul>
+<li><a href="../entity__id/">➞id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same "identifier" value for example) may have a different 'id' in a different system.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>
