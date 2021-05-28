@@ -3,7 +3,6 @@ from linkml_model import SchemaDefinition
 from functools import cached_property
 from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
-from sheet2linkml.source.gsheetmodel.enum import Enum
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
 from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue, Example
@@ -295,6 +294,22 @@ class Attribute:
                 attribute_range = f'ccdh_{attribute_range}'
 
         return attribute_range
+
+    @staticmethod
+    def fix_enum_name(enum_name: str):
+        """
+        Transform enum names so that they can be accessed from Python.
+        Ideally, these transformations should be done in the LinkML
+        library somewhere, but for now, we can do that here.
+        """
+
+        # The hyphen in 'CRDC-H' doesn't work properly.
+        fixed_name = re.sub(r'^CRDC-H\.', 'CCDH.', enum_name)
+
+        # The '.'s in the name also mess up the generated Python code.
+        fixed_name = fixed_name.replace('.', '_')
+
+        return fixed_name
 
     def as_linkml_enum(self) -> EnumDefinition:
         """
