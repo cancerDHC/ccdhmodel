@@ -3,9 +3,9 @@ from linkml_model import SchemaDefinition
 from functools import cached_property
 from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
-from sheet2linkml.source.gsheetmodel.mappings import Mappings
+from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
-from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue
+from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue, Example
 import logging
 import re
 import urllib.parse
@@ -136,14 +136,17 @@ class Entity(ModelElement):
         """
         Returns the list of mappings for this entity.
         """
-        return Mappings(self, self.entity_row.get("Source Mapping"))
+        mappings = Mappings(self)
+        mappings.add_mappings(self.entity_row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH)
+        mappings.add_mappings(self.entity_row.get("Indirect Source Mappings"), MappingRelations.SKOS_CLOSE_MATCH)
+        return mappings
 
     @property
     def mappings_including_attributes(self) -> list[Mappings.Mapping]:
         """
         Returns the list of all mappings of this entity as well as all of its attributes.
         """
-        mappings = self.mappings.mappings
+        mappings = list(self.mappings.mappings)
         for attr in self.attributes:
             mappings.extend(attr.mappings.mappings)
         return mappings
@@ -266,12 +269,15 @@ class Attribute:
 
         return min_count, max_count
 
-    @property
+    @cached_property
     def mappings(self) -> Mappings:
         """
         Returns the list of mappings for this attribute.
         """
-        return Mappings(self, self.row.get("Source Mapping"))
+        mappings = Mappings(self)
+        mappings.add_mappings(self.row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH)
+        mappings.add_mappings(self.row.get("Indirect Source Mappings"), MappingRelations.SKOS_CLOSE_MATCH)
+        return mappings
 
     @property
     def range(self):
@@ -330,6 +336,13 @@ class Attribute:
         data = self.row
         min_count, max_count = self.counts()
 
+        # Set up some complex fields.
+        examples = re.split(r'\s*[\r\n\|]\s*', (data.get("Example Values") or '').strip())
+        if len(examples) == 0:
+            examples = []
+        else:
+            examples = [Example(value=example) for example in examples]
+
         attribute_range = self.range
         # For CodeableConcepts, we currently replace it with an enumeration.
         # In future versions, we will instead constrain the CodeableConcept's codes in some way.
@@ -342,7 +355,8 @@ class Attribute:
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
             description=(data.get("Description") or '').strip(),
-            # comments=data.get("Comments"),
+            examples=examples,
+            comments=data.get("Comments"),
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),

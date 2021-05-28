@@ -2,6 +2,77 @@
    "$id": "https://example.org/ccdh",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "definitions": {
+      "AlcoholExposureObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of alcohol exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type"
+         ],
+         "title": "AlcoholExposureObservation",
+         "type": "object"
+      },
       "BiologicProduct": {
          "additionalProperties": false,
          "description": "A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.",
@@ -48,10 +119,6 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
             "qualifier": {
                "description": "A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).",
                "items": {
@@ -72,18 +139,66 @@
       },
       "CancerGradeObservation": {
          "additionalProperties": false,
-         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation, such as ...",
+         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation",
          "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
             "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
                "type": "string"
             },
             "observation_type": {
                "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
                "type": "string"
             },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
             "valueCodeableConcept": {
                "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
                "type": "string"
             }
          },
@@ -97,20 +212,42 @@
          "additionalProperties": false,
          "description": "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).",
          "properties": {
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
+            "category": {
+               "description": "The general category of observation set described",
                "type": "string"
             },
-            "method_type": {
-               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
-               "type": "string"
-            },
-            "observations": {
-               "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)",
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
                   "$ref": "#/definitions/Entity"
                },
                "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)",
+               "items": {
+                  "$ref": "#/definitions/CancerGradeObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             }
          },
          "required": [],
@@ -121,16 +258,64 @@
          "additionalProperties": false,
          "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
          "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
             "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
                "type": "string"
             },
             "observation_type": {
                "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')",
                "type": "string"
             },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
             "valueCodeableConcept": {
-               "description": "The value for a cancer staging component being represented (e.g. 'M1')",
+               "description": "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
                "type": "string"
             }
          },
@@ -145,15 +330,26 @@
          "description": "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).",
          "properties": {
             "category": {
+               "description": "The general category of observation set described",
                "type": "string"
             },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
             "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
+               "description": "The 'logical' identifier of the entity in the system of record.",
                "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
-               "type": "string"
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
             },
             "observations": {
                "description": "A set of one or more more atomic observations about the cancer stage",
@@ -161,11 +357,17 @@
                   "$ref": "#/definitions/CancerStageObservation"
                },
                "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             }
          },
-         "required": [
-            "category"
-         ],
+         "required": [],
          "title": "CancerStageObservationSet",
          "type": "object"
       },
@@ -179,10 +381,6 @@
                   "$ref": "#/definitions/Coding"
                },
                "type": "array"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
             },
             "text": {
                "description": "A human language representation of the concept represented by the Coding.",
@@ -199,10 +397,6 @@
          "properties": {
             "code": {
                "description": "The symbol/value of the code, as defined by the code system.",
-               "type": "string"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
                "type": "string"
             },
             "label": {
@@ -231,7 +425,7 @@
       },
       "Diagnosis": {
          "additionalProperties": false,
-         "description": "",
+         "description": "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.",
          "properties": {
             "age_at_diagnosis": {
                "$ref": "#/definitions/Quantity",
@@ -303,6 +497,12 @@
                },
                "type": "array"
             },
+            "supporting_observations": {
+               "items": {
+                  "$ref": "#/definitions/Observation"
+               },
+               "type": "array"
+            },
             "year_at_diagnosis": {
                "description": "Numeric value to represent the year of an individual's diagnosis.",
                "type": "integer"
@@ -310,6 +510,52 @@
          },
          "required": [],
          "title": "Diagnosis",
+         "type": "object"
+      },
+      "DimensionalObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.",
+               "type": "string"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "DimensionalObservation",
          "type": "object"
       },
       "Document": {
@@ -354,28 +600,98 @@
       "Entity": {
          "additionalProperties": false,
          "description": "Any resource that has its own identifier",
+         "properties": {},
+         "required": [],
+         "title": "Entity",
+         "type": "object"
+      },
+      "EnvironmentalExposureObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
             "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
                "type": "string"
             }
          },
-         "required": [],
-         "title": "Entity",
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "EnvironmentalExposureObservation",
          "type": "object"
       },
       "Exposure": {
          "additionalProperties": false,
          "description": "Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.",
          "properties": {
-            "alcohol_use": {
-               "$ref": "#/definitions/Entity",
-               "description": "A container holding a set of observations about an individual's exposure to alcohol."
+            "alcohol_exposure": {
+               "description": "A container holding a set of observations about an individual's exposure to alcohol.",
+               "items": {
+                  "$ref": "#/definitions/AlcoholExposureObservation"
+               },
+               "type": "array"
             },
-            "environmental": {
+            "environmental_exposure": {
                "description": "Observations about an individual's exposure to environmental substances that may impact clinical outcomes.",
                "items": {
-                  "$ref": "#/definitions/Observation"
+                  "$ref": "#/definitions/EnvironmentalExposureObservation"
                },
                "type": "array"
             },
@@ -394,10 +710,10 @@
                "$ref": "#/definitions/Subject",
                "description": "A reference to the Subject that is the subject of this Exposure"
             },
-            "tobacco_use": {
+            "tobacco_exposure": {
                "description": "A container holding a set of observations about an individual's exposure to tobacco.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/TobaccoExposureObservation"
                },
                "type": "array"
             }
@@ -412,10 +728,6 @@
          "additionalProperties": false,
          "description": "An Identifier is associated with a unique object or entity within a given system.",
          "properties": {
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
             "system": {
                "description": "The system or namespace that defines the identifier.",
                "type": "string"
@@ -507,8 +819,6 @@
             }
          },
          "required": [
-            "id",
-            "category",
             "observation_type"
          ],
          "title": "Observation",
@@ -555,10 +865,6 @@
             "comparator": {
                "$ref": "#/definitions/Coding",
                "description": "How to understand the value (e.g.  <  |  <=  |  =  |   >=  |  > )"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
             },
             "unit": {
                "description": "The unit of the amount represented by the value (e.g. mg, mL, days).  This may be a free-text form of the unitCode.",
@@ -634,7 +940,7 @@
             "primary_anatomic_site": {
                "description": "The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).  In the context of ResearchProject, this attribute captures the anatomic sites of research interest.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/definitions/BodySite"
                },
                "type": "array"
             },
@@ -675,7 +981,7 @@
                "$ref": "#/definitions/Subject",
                "description": "A reference to the Subject that is this ResearchSubject"
             },
-            "comorbid_diagnoses": {
+            "comorbid_diagnosis": {
                "description": "One or more diagnosis instance that are comorbid with the primary_diagnosis that qualified a subject for inclusion on a ResearchProject",
                "items": {
                   "$ref": "#/definitions/Diagnosis"
@@ -721,8 +1027,8 @@
                "type": "string"
             },
             "primary_diagnosis_site": {
-               "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.  This attribute represents the primary site of disease that qualified the subject for inclusion on the ResearchProject.",
-               "type": "string"
+               "$ref": "#/definitions/BodySite",
+               "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.  This attribute represents the primary site of disease that qualified the subject for inclusion on the ResearchProject."
             }
          },
          "required": [
@@ -794,7 +1100,7 @@
             "histological_composition_measure": {
                "description": "An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.",
                "items": {
-                  "$ref": "#/definitions/Observation"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             },
@@ -849,7 +1155,7 @@
             "quantity_measure": {
                "description": "An observation related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.",
                "items": {
-                  "$ref": "#/definitions/Observation"
+                  "$ref": "#/definitions/SpecimenQuantityObservation"
                },
                "type": "array"
             },
@@ -989,17 +1295,6 @@
                },
                "type": "array"
             },
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
-            "input_specimen": {
-               "description": "One or more existing specimens input into the specimen creation activity, from which a new specimen is derived (e.g. through portioning, aliquoting, sectioning, etc)",
-               "items": {
-                  "$ref": "#/definitions/Specimen"
-               },
-               "type": "array"
-            },
             "performed_by": {
                "$ref": "#/definitions/Organization",
                "description": "The organization or group that performed the activity."
@@ -1054,10 +1349,6 @@
                },
                "type": "array"
             },
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
             "method_type": {
                "description": "A specific type of method or procedure performed to process the specimen",
                "type": "string"
@@ -1069,6 +1360,84 @@
          },
          "required": [],
          "title": "SpecimenProcessingActivity",
+         "type": "object"
+      },
+      "SpecimenQuantityObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "SpecimenQuantityObservation",
          "type": "object"
       },
       "SpecimenStorageActivity": {
@@ -1093,10 +1462,6 @@
             "duration": {
                "$ref": "#/definitions/Quantity",
                "description": "The length of time over which the activity was performed."
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
             },
             "method_type": {
                "description": "A specific type of method or procedure performed to store the specimen",
@@ -1144,10 +1509,6 @@
                },
                "type": "array"
             },
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
             "performed_by": {
                "$ref": "#/definitions/Organization",
                "description": "The organization or group that performed the activity."
@@ -1182,7 +1543,7 @@
                "type": "string"
             },
             "ethnicity": {
-               "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.\n\nApplicable only when Subject.species is Homo Sapiens",
+               "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau",
                "type": "string"
             },
             "id": {
@@ -1197,7 +1558,7 @@
                "type": "array"
             },
             "race": {
-               "description": "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.\n\nApplicable only when Subject.species is Homo Sapiens",
+               "description": "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.",
                "items": {
                   "type": "string"
                },
@@ -1234,10 +1595,6 @@
          "additionalProperties": false,
          "description": "A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.",
          "properties": {
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
             "role": {
                "description": "A role played by the subtance in a particular applicaton (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
                "items": {
@@ -1258,10 +1615,6 @@
          "additionalProperties": false,
          "description": "",
          "properties": {
-            "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
             "periodEnd_end": {
                "$ref": "#/definitions/TimePoint",
                "description": "When a period of time ended."
@@ -1283,16 +1636,15 @@
                "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date.",
                "type": "string"
             },
+            "eventType": {
+               "description": "An event that occurred at the point in time specified by this TimePoint.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
             "id": {
-               "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity (with same \"identifier\" value for example) may have a different 'id' in a different system.",
-               "type": "string"
-            },
-            "indexDate": {
-               "description": "An explicit dateTime that serves as a reference against which a specified offset compared to derive a specific timepoint.",
-               "type": "string"
-            },
-            "indexEventType": {
-               "description": "A type of event that is associated with a specific date, and which serves as a reference against which a specified offset compared to derive a specific timepoint.",
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
                "type": "string"
             },
             "offsetFromIndex": {
@@ -1302,6 +1654,77 @@
          },
          "required": [],
          "title": "TimePoint",
+         "type": "object"
+      },
+      "TobaccoExposureObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type"
+         ],
+         "title": "TobaccoExposureObservation",
          "type": "object"
       },
       "Treatment": {
@@ -1326,6 +1749,14 @@
                },
                "type": "array"
             },
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The timepoint at which the treatment ended."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The timepoint at which the treatment started."
+            },
             "diagnosis": {
                "description": "The diagnosis for which this treatement is intended for",
                "items": {
@@ -1336,10 +1767,6 @@
             "effect": {
                "description": "The effect of a treatment on the diagnosis or tumor.",
                "type": "string"
-            },
-            "end_date": {
-               "$ref": "#/definitions/TimePoint",
-               "description": "The timepoint at which the treatment ended."
             },
             "end_reason": {
                "items": {
@@ -1371,10 +1798,6 @@
             },
             "regimen": {
                "type": "string"
-            },
-            "start_date": {
-               "$ref": "#/definitions/TimePoint",
-               "description": "The timepoint at which the treatment started."
             },
             "therapeutic_agent": {
                "description": "One or more theraputic agents as part of this treatment.",
