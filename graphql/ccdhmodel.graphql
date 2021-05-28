@@ -220,9 +220,7 @@ type Quantity
   {
     valueDecimal: CcdhDecimal
     valueCodeableConcept: CCDHQuantityValueCodeableConcept
-    unitCode: Coding
-    unit: CcdhString
-    comparator: Coding
+    unit: CCDHQuantityUnit
   }
 
 type ResearchProject
@@ -396,6 +394,7 @@ type Substance
   {
     substanceType: CCDHSubstanceSubstanceType
     role: [CCDHSubstanceRole]
+    substanceQuantity: Quantity
   }
 
 type TimePeriod
@@ -433,6 +432,7 @@ type TobaccoExposureObservation
 
 type Treatment
   {
+    forDiagnosis: [Diagnosis]
     id: CcdhString
     identifier: [Identifier]
     regimen: CcdhString
@@ -445,7 +445,6 @@ type Treatment
     effect: CcdhString
     intent: CcdhString
     outcome: CcdhString
-    diagnosis: [Diagnosis]
     numberOfCycles: CcdhInteger
     concurrentTreatmentType: [CcdhString]
     concurrentTreatment: [Treatment]

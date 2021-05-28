@@ -862,17 +862,9 @@
          "additionalProperties": false,
          "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
          "properties": {
-            "comparator": {
-               "$ref": "#/definitions/Coding",
-               "description": "How to understand the value (e.g.  <  |  <=  |  =  |   >=  |  > )"
-            },
             "unit": {
-               "description": "The unit of the amount represented by the value (e.g. mg, mL, days).  This may be a free-text form of the unitCode.",
+               "description": "A coded or free text (in the .text field) representation of the unit.",
                "type": "string"
-            },
-            "unitCode": {
-               "$ref": "#/definitions/Coding",
-               "description": "A coded representation of the unit."
             },
             "valueCodeableConcept": {
                "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")",
@@ -1602,6 +1594,10 @@
                },
                "type": "array"
             },
+            "substance_quantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The quantity of substance this instance stands for."
+            },
             "substance_type": {
                "description": "The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds.",
                "type": "string"
@@ -1757,13 +1753,6 @@
                "$ref": "#/definitions/TimePoint",
                "description": "The timepoint at which the treatment started."
             },
-            "diagnosis": {
-               "description": "The diagnosis for which this treatement is intended for",
-               "items": {
-                  "$ref": "#/definitions/Diagnosis"
-               },
-               "type": "array"
-            },
             "effect": {
                "description": "The effect of a treatment on the diagnosis or tumor.",
                "type": "string"
@@ -1774,11 +1763,19 @@
                },
                "type": "array"
             },
+            "for_diagnosis": {
+               "description": "The diagnosis for which this treatement is intended for.",
+               "items": {
+                  "$ref": "#/definitions/Diagnosis"
+               },
+               "type": "array"
+            },
             "id": {
+               "description": "See common descriptions sheet.",
                "type": "string"
             },
             "identifier": {
-               "description": "The regimen or line of therapy",
+               "description": "See common descriptions sheet.",
                "items": {
                   "$ref": "#/definitions/Identifier"
                },
@@ -1797,6 +1794,7 @@
                "type": "string"
             },
             "regimen": {
+               "description": "The regimen or line of therapy",
                "type": "string"
             },
             "therapeutic_agent": {

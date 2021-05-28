@@ -347,9 +347,7 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <Entity> ] ? ;
           <valueDecimal> @<CcdhDecimal> ? ;
           <valueCodeableConcept> @<CCDHQuantityValueCodeableConcept> ? ;
-          <unitCode> @<Coding> ? ;
-          <unit> @<CcdhString> ? ;
-          <comparator> @<Coding> ?
+          <unit> @<CCDHQuantityUnit> ?
        ) ;
        rdf:type [ <Quantity> ] ?
     )
@@ -566,7 +564,8 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Substance_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <substance_type> @<CCDHSubstanceSubstanceType> ? ;
-          <role> @<CCDHSubstanceRole> *
+          <role> @<CCDHSubstanceRole> * ;
+          <substance_quantity> @<Quantity> ?
        ) ;
        rdf:type [ <Substance> ] ?
     )
@@ -620,6 +619,7 @@ linkml:Nodeidentifier NONLITERAL
 <Treatment> CLOSED {
     (  $<Treatment_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
+          <for_diagnosis> @<Diagnosis> * ;
           <id> @<CcdhString> ? ;
           <identifier> @<Identifier> * ;
           <regimen> @<CcdhString> ? ;
@@ -632,7 +632,6 @@ linkml:Nodeidentifier NONLITERAL
           <effect> @<CcdhString> ? ;
           <intent> @<CcdhString> ? ;
           <outcome> @<CcdhString> ? ;
-          <diagnosis> @<Diagnosis> * ;
           <number_of_cycles> @<CcdhInteger> ? ;
           <concurrent_treatment_type> @<CcdhString> * ;
           <concurrent_treatment> @<Treatment> *
