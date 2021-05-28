@@ -91,7 +91,7 @@
                 <h1 id="class-biologicproduct">Class: BiologicProduct</h1>
 <p>A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</p>
 <p>URI: <a href="https://example.org/ccdh/BiologicProduct">ccdh:BiologicProduct</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Identifier]&lt;identifier%200..*-++[BiologicProduct&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;product_type:CCDH_BiologicProduct_product_type%20%3F;passage_number:ccdh_integer%20*;growth_rate:ccdh_string%20*],[Specimen]++-%20derived_product%200..*&gt;[BiologicProduct],[Entity]^-[BiologicProduct],[Specimen]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Identifier]&lt;identifier%200..*-++[BiologicProduct&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;product_type:CCDH_BiologicProduct_product_type%20%3F;passage_number:ccdh_integer%20*;growth_rate:ccdh_string%20*],[Specimen]++-%20derived_product%200..*&gt;[BiologicProduct],[Entity]^-[BiologicProduct],[Specimen]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -111,8 +111,8 @@
 <li><a href="../biologicProduct__growth_rate/">➞growth_rate</a>  <sub>0..*</sub><ul>
 <li>Description: When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC:Sample.growth_rate</li>
-<li>Exact mapping: PDC:Sample.growth_rate</li>
+<li>Exact mapping: GDC.Sample.growth_rate</li>
+<li>Exact mapping: PDC.Sample.growth_rate</li>
 </ul>
 </li>
 <li><a href="../biologicProduct__id/">➞id</a>  <sub>0..1</sub><ul>
@@ -123,17 +123,17 @@
 <li><a href="../biologicProduct__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li>Close mappings: GDC:Sample.distributor_reference</li>
-<li>Close mappings: PDC:Sample.distributor_reference</li>
-<li>Close mappings: GDC:Sample.catalog_reference</li>
-<li>Close mappings: PDC:Sample.catalog_reference</li>
+<li>Close mappings: GDC.Sample.distributor_reference</li>
+<li>Close mappings: PDC.Sample.distributor_reference</li>
+<li>Close mappings: GDC.Sample.catalog_reference</li>
+<li>Close mappings: PDC.Sample.catalog_reference</li>
 </ul>
 </li>
 <li><a href="../biologicProduct__passage_number/">➞passage_number</a>  <sub>0..*</sub><ul>
 <li>Description: When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC:Sample.passage_count</li>
-<li>Exact mapping: PDC:Sample.passage_count</li>
+<li>Exact mapping: GDC.Sample.passage_count</li>
+<li>Exact mapping: PDC.Sample.passage_count</li>
 </ul>
 </li>
 <li><a href="../biologicProduct__product_type/">➞product_type</a>  <sub>0..1</sub><ul>

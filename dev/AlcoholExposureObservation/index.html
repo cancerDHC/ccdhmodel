@@ -91,7 +91,7 @@
                 <h1 id="class-alcoholexposureobservation">Class: AlcoholExposureObservation</h1>
 <p>A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.</p>
 <p>URI: <a href="https://example.org/ccdh/AlcoholExposureObservation">ccdh:AlcoholExposureObservation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Quantity],[Organization],[Entity],[Quantity]&lt;valueQuantity%200..1-++[AlcoholExposureObservation&#124;id:ccdh_string%20%3F;category:CCDH_AlcoholExposureObservation_category%20%3F;observation_type:CCDH_AlcoholExposureObservation_observation_type;method_type:CCDH_AlcoholExposureObservation_method_type%20%3F;valueString:ccdh_string%20%3F;valueInteger:ccdh_integer%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F;valueDateTime:ccdh_dateTime%20%3F;valueCodeableConcept:CCDH_AlcoholExposureObservation_valueCodeableConcept%20%3F],[Entity]&lt;valueEntity%200..1-++[AlcoholExposureObservation],[Organization]&lt;performed_by%200..1-++[AlcoholExposureObservation],[Subject]&lt;subject%200..1-++[AlcoholExposureObservation],[Entity]&lt;focus%200..1-++[AlcoholExposureObservation],[Exposure]++-%20alcohol_exposure%200..*&gt;[AlcoholExposureObservation],[Entity]^-[AlcoholExposureObservation],[Exposure]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Quantity],[Organization],[Entity],[Quantity]&lt;valueQuantity%200..1-++[AlcoholExposureObservation&#124;id:ccdh_string%20%3F;category:CCDH_AlcoholExposureObservation_category%20%3F;observation_type:CCDH_AlcoholExposureObservation_observation_type;method_type:CCDH_AlcoholExposureObservation_method_type%20%3F;valueString:ccdh_string%20%3F;valueInteger:ccdh_integer%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F;valueDateTime:ccdh_dateTime%20%3F;valueCodeableConcept:CCDH_AlcoholExposureObservation_valueCodeableConcept%20%3F],[Entity]&lt;valueEntity%200..1-++[AlcoholExposureObservation],[Organization]&lt;performed_by%200..1-++[AlcoholExposureObservation],[Subject]&lt;subject%200..1-++[AlcoholExposureObservation],[Entity]&lt;focus%200..1-++[AlcoholExposureObservation],[Exposure]++-%20alcohol_exposure%200..*&gt;[AlcoholExposureObservation],[Entity]^-[AlcoholExposureObservation],[Exposure]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -147,10 +147,10 @@
 <li><a href="../alcoholExposureObservation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a CodeableConcept.</li>
 <li>range: <a href="../CCDH_AlcoholExposureObservation_valueCodeableConcept/">CCDH_AlcoholExposureObservation_valueCodeableConcept</a></li>
-<li>Exact mapping: GDC:Exposure.alcohol_history</li>
-<li>Exact mapping: PDC:Exposure.alcohol_history</li>
-<li>Exact mapping: GDC:Exposure.alcohol_intensity</li>
-<li>Exact mapping: PDC:Exposure.alcohol_intensity</li>
+<li>Exact mapping: GDC.Exposure.alcohol_history</li>
+<li>Exact mapping: PDC.Exposure.alcohol_history</li>
+<li>Exact mapping: GDC.Exposure.alcohol_intensity</li>
+<li>Exact mapping: PDC.Exposure.alcohol_intensity</li>
 </ul>
 </li>
 <li><a href="../alcoholExposureObservation__valueDateTime/">➞valueDateTime</a>  <sub>0..1</sub><ul>
@@ -171,10 +171,10 @@
 <li><a href="../alcoholExposureObservation__valueInteger/">➞valueInteger</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as an integer.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC:Exposure.alcohol_days_per_week</li>
-<li>Exact mapping: PDC:Exposure.alcohol_days_per_week</li>
-<li>Exact mapping: GDC:Exposure.alcohol_drinks_per_day</li>
-<li>Exact mapping: PDC:Exposure.alcohol_drinks_per_day</li>
+<li>Exact mapping: GDC.Exposure.alcohol_days_per_week</li>
+<li>Exact mapping: PDC.Exposure.alcohol_days_per_week</li>
+<li>Exact mapping: GDC.Exposure.alcohol_drinks_per_day</li>
+<li>Exact mapping: PDC.Exposure.alcohol_drinks_per_day</li>
 </ul>
 </li>
 <li><a href="../alcoholExposureObservation__valueQuantity/">➞valueQuantity</a>  <sub>0..1</sub><ul>

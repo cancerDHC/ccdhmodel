@@ -91,7 +91,7 @@
                 <h1 id="class-specimentransportactivity">Class: SpecimenTransportActivity</h1>
 <p>An activity through which a specimen is transported between locations.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenTransportActivity">ccdh:SpecimenTransportActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Entity]&lt;execution_observation%200..*-++[SpecimenTransportActivity&#124;duration:ccdh_string%20*;execution_conditions:ccdh_string%20*],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..1&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[Entity]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Entity]&lt;execution_observation%200..*-++[SpecimenTransportActivity&#124;duration:ccdh_string%20*;execution_conditions:ccdh_string%20*],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..1&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -132,14 +132,14 @@
 <li><a href="../specimenTransportActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Case.processed_at</li>
+<li>Exact mapping: GDC.Case.processed_at</li>
 </ul>
 </li>
 <li><a href="../specimenTransportActivity__transport_destination/">➞transport_destination</a>  <sub>0..1</sub><ul>
 <li>Description: An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Portion.shipped_to</li>
-<li>Exact mapping: GDC:Aliquot.shipped_to</li>
+<li>Exact mapping: GDC.Portion.shipped_to</li>
+<li>Exact mapping: GDC.Aliquot.shipped_to</li>
 </ul>
 </li>
 <li><a href="../specimenTransportActivity__transport_origin/">➞transport_origin</a>  <sub>0..1</sub><ul>

@@ -92,7 +92,7 @@
 <p>An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
 intrinsic physical nature of a specimen.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenStorageActivity">ccdh:SpecimenStorageActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[SpecimenContainer]&lt;container%200..*-++[SpecimenStorageActivity&#124;method_type:CCDH_SpecimenStorageActivity_method_type%20%3F],[Organization]&lt;performed_by%200..1-++[SpecimenStorageActivity],[Quantity]&lt;duration%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenStorageActivity],[Specimen]++-%20storage_activity%200..1&gt;[SpecimenStorageActivity],[Entity]^-[SpecimenStorageActivity],[SpecimenContainer],[Specimen],[Quantity],[Organization],[Entity]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[SpecimenContainer]&lt;container%200..*-++[SpecimenStorageActivity&#124;method_type:CCDH_SpecimenStorageActivity_method_type%20%3F],[Organization]&lt;performed_by%200..1-++[SpecimenStorageActivity],[Quantity]&lt;duration%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenStorageActivity],[Specimen]++-%20storage_activity%200..1&gt;[SpecimenStorageActivity],[Entity]^-[SpecimenStorageActivity],[SpecimenContainer],[Specimen],[Quantity],[Organization],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -128,13 +128,13 @@ intrinsic physical nature of a specimen.</p>
 <li>Description: A specific type of method or procedure performed to store the specimen</li>
 <li>range: <a href="../CCDH_SpecimenStorageActivity_method_type/">CCDH_SpecimenStorageActivity_method_type</a></li>
 <li>Examples: ambient temperature, cut slide, fresh, frozen at -70C, frozen at -150C, frozen in liquid nitrogen, frozen in vapor phase, paraffin block, RNAlater at 4C</li>
-<li>Exact mapping: HTAN:Biospecimen.StorageMethod</li>
+<li>Exact mapping: HTAN.Biospecimen.StorageMethod</li>
 </ul>
 </li>
 <li><a href="../specimenStorageActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Case.processed_at</li>
+<li>Exact mapping: GDC.Case.processed_at</li>
 </ul>
 </li>
 </ul>

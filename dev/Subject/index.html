@@ -91,7 +91,7 @@
                 <h1 id="class-subject">Class: Subject</h1>
 <p>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</p>
 <p>URI: <a href="https://example.org/ccdh/Subject">ccdh:Subject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;age_at_death%200..1-++[Subject&#124;id:ccdh_string;species:CCDH_Subject_species%20%3F;breed:CCDH_Subject_breed%20%3F;sex:CCDH_Subject_sex%20%3F;ethnicity:CCDH_Subject_ethnicity%20%3F;race:CCDH_Subject_race%20*;year_of_birth:ccdh_integer%20%3F;vital_status:CCDH_Subject_vital_status%20%3F;year_of_death:ccdh_integer%20%3F;cause_of_death:CCDH_Subject_cause_of_death%20%3F],[Identifier]&lt;identifier%200..*-++[Subject],[AlcoholExposureObservation]++-%20subject%200..1&gt;[Subject],[CancerGradeObservationSet]++-%20subject%200..1&gt;[Subject],[CancerGradeObservation]++-%20subject%200..1&gt;[Subject],[CancerStageObservationSet]++-%20subject%200..1&gt;[Subject],[CancerStageObservation]++-%20subject%200..1&gt;[Subject],[DimensionalObservation]++-%20subject%200..1&gt;[Subject],[EnvironmentalExposureObservation]++-%20subject%200..1&gt;[Subject],[Exposure]++-%20subject%200..1&gt;[Subject],[Observation]++-%20subject%200..1&gt;[Subject],[ResearchSubject]++-%20associated_subject%201..1&gt;[Subject],[SpecimenQuantityObservation]++-%20subject%200..1&gt;[Subject],[Specimen]++-%20source_subject%200..1&gt;[Subject],[TobaccoExposureObservation]++-%20subject%200..1&gt;[Subject],[Entity]^-[Subject],[TobaccoExposureObservation],[SpecimenQuantityObservation],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Exposure],[EnvironmentalExposureObservation],[Entity],[DimensionalObservation],[CancerStageObservationSet],[CancerStageObservation],[CancerGradeObservationSet],[CancerGradeObservation],[AlcoholExposureObservation]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;age_at_death%200..1-++[Subject&#124;id:ccdh_string;species:CCDH_Subject_species%20%3F;breed:CCDH_Subject_breed%20%3F;sex:CCDH_Subject_sex%20%3F;ethnicity:CCDH_Subject_ethnicity%20%3F;race:CCDH_Subject_race%20*;year_of_birth:ccdh_integer%20%3F;vital_status:CCDH_Subject_vital_status%20%3F;year_of_death:ccdh_integer%20%3F;cause_of_death:CCDH_Subject_cause_of_death%20%3F],[Identifier]&lt;identifier%200..*-++[Subject],[AlcoholExposureObservation]++-%20subject%200..1&gt;[Subject],[CancerGradeObservationSet]++-%20subject%200..1&gt;[Subject],[CancerGradeObservation]++-%20subject%200..1&gt;[Subject],[CancerStageObservationSet]++-%20subject%200..1&gt;[Subject],[CancerStageObservation]++-%20subject%200..1&gt;[Subject],[DimensionalObservation]++-%20subject%200..1&gt;[Subject],[EnvironmentalExposureObservation]++-%20subject%200..1&gt;[Subject],[Exposure]++-%20subject%200..1&gt;[Subject],[Observation]++-%20subject%200..1&gt;[Subject],[ResearchSubject]++-%20associated_subject%201..1&gt;[Subject],[SpecimenQuantityObservation]++-%20subject%200..1&gt;[Subject],[Specimen]++-%20source_subject%200..1&gt;[Subject],[TobaccoExposureObservation]++-%20subject%200..1&gt;[Subject],[Entity]^-[Subject],[TobaccoExposureObservation],[SpecimenQuantityObservation],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Exposure],[EnvironmentalExposureObservation],[Entity],[DimensionalObservation],[CancerStageObservationSet],[CancerStageObservation],[CancerGradeObservationSet],[CancerGradeObservation],[AlcoholExposureObservation]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -124,24 +124,24 @@
 <li>Description: A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.</li>
 <li>range: <a href="../CCDH_Subject_breed/">CCDH_Subject_breed</a></li>
 <li>Examples: Affenpinscher, Afghan Hound, Airedale Terrier, Akita</li>
-<li>Exact mapping: ICDC:Demographic.breed</li>
+<li>Exact mapping: ICDC.Demographic.breed</li>
 </ul>
 </li>
 <li><a href="../subject__cause_of_death/">➞cause_of_death</a>  <sub>0..1</sub><ul>
 <li>Description: Coded value indicating the circumstance or condition that results in the death of the subject.</li>
 <li>range: <a href="../CCDH_Subject_cause_of_death/">CCDH_Subject_cause_of_death</a></li>
 <li>Examples: Cancer Related, Cardiovascular Disorder, NOS, End-stage Renal Disease</li>
-<li>Exact mapping: GDC:Demographic.cause_of_death</li>
-<li>Exact mapping: PDC:Demographic.cause_of_death</li>
+<li>Exact mapping: GDC.Demographic.cause_of_death</li>
+<li>Exact mapping: PDC.Demographic.cause_of_death</li>
 </ul>
 </li>
 <li><a href="../subject__ethnicity/">➞ethnicity</a>  <sub>0..1</sub><ul>
 <li>Description: An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau</li>
 <li>range: <a href="../CCDH_Subject_ethnicity/">CCDH_Subject_ethnicity</a></li>
 <li>Examples: Hispanic or Latino, Not Allowed To Collect, Not Hispanic or Latino, Not Reported, Unknown</li>
-<li>Exact mapping: GDC:Clinical.ethnicity</li>
-<li>Exact mapping: GDC:Demographic.ethnicity</li>
-<li>Exact mapping: PDC:Demographic.ethnicity</li>
+<li>Exact mapping: GDC.Clinical.ethnicity</li>
+<li>Exact mapping: GDC.Demographic.ethnicity</li>
+<li>Exact mapping: PDC.Demographic.ethnicity</li>
 </ul>
 </li>
 <li><a href="../subject__id/">➞id</a>  <sub>1..1</sub><ul>
@@ -152,25 +152,25 @@
 <li><a href="../subject__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li>Exact mapping: ICDC:Case.patient_id</li>
+<li>Exact mapping: ICDC.Case.patient_id</li>
 </ul>
 </li>
 <li><a href="../subject__race/">➞race</a>  <sub>0..*</sub><ul>
 <li>Description: An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.</li>
 <li>range: <a href="../CCDH_Subject_race/">CCDH_Subject_race</a></li>
 <li>Examples: American Indian or Alaska Native, Asian, Black or African American, Native Hawaiian or other Pacific Islander, Not Allowed To Collect, Not Reported, Unknown, White</li>
-<li>Exact mapping: GDC:Clinical.race</li>
-<li>Exact mapping: GDC:Demographic.race</li>
-<li>Exact mapping: PDC:Demographic.race</li>
+<li>Exact mapping: GDC.Clinical.race</li>
+<li>Exact mapping: GDC.Demographic.race</li>
+<li>Exact mapping: PDC.Demographic.race</li>
 </ul>
 </li>
 <li><a href="../subject__sex/">➞sex</a>  <sub>0..1</sub><ul>
 <li>Description: The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.</li>
 <li>range: <a href="../CCDH_Subject_sex/">CCDH_Subject_sex</a></li>
 <li>Examples: Female, Intersex, Male, Not Reported, Unknown, Unspecified</li>
-<li>Exact mapping: ICDC:Demographic.sex</li>
-<li>Exact mapping: GDC:Demographic.gender</li>
-<li>Exact mapping: PDC:Demographic.gender</li>
+<li>Exact mapping: ICDC.Demographic.sex</li>
+<li>Exact mapping: GDC.Demographic.gender</li>
+<li>Exact mapping: PDC.Demographic.gender</li>
 </ul>
 </li>
 <li><a href="../subject__species/">➞species</a>  <sub>0..1</sub><ul>
@@ -183,23 +183,23 @@
 <li>Description: Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.</li>
 <li>range: <a href="../CCDH_Subject_vital_status/">CCDH_Subject_vital_status</a></li>
 <li>Examples: Alive, Dead, Unknown, Not Reported</li>
-<li>Exact mapping: GDC:Demographic.vital_status</li>
-<li>Exact mapping: PDC:Demographic.vital_status</li>
+<li>Exact mapping: GDC.Demographic.vital_status</li>
+<li>Exact mapping: PDC.Demographic.vital_status</li>
 </ul>
 </li>
 <li><a href="../subject__year_of_birth/">➞year_of_birth</a>  <sub>0..1</sub><ul>
 <li>Description: Numeric value to represent the calendar year in which an individual was born.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC:Demographic.year_of_birth</li>
-<li>Exact mapping: PDC:Demographic.year_of_birth</li>
-<li>Exact mapping: ICDC:Demographic.date_of_birth</li>
+<li>Exact mapping: GDC.Demographic.year_of_birth</li>
+<li>Exact mapping: PDC.Demographic.year_of_birth</li>
+<li>Exact mapping: ICDC.Demographic.date_of_birth</li>
 </ul>
 </li>
 <li><a href="../subject__year_of_death/">➞year_of_death</a>  <sub>0..1</sub><ul>
 <li>Description: Numeric value to represent the calendar year in which an individual died.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC:Demographic.year_of_death</li>
-<li>Exact mapping: PDC:Demographic.year_of_death</li>
+<li>Exact mapping: GDC.Demographic.year_of_death</li>
+<li>Exact mapping: PDC.Demographic.year_of_death</li>
 </ul>
 </li>
 </ul>
