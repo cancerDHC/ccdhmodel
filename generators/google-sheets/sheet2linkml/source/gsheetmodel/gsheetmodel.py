@@ -2,7 +2,7 @@ import pygsheets
 
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
-from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet
+from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet, Attribute
 from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
 from sheet2linkml.terminologies.service import TerminologyService
 from linkml_model.meta import SchemaDefinition
@@ -240,7 +240,7 @@ class GSheetModel(ModelElement):
         # Generate all the entities.
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
 
-        schema.enums = {f'enum_{attribute.full_name}': attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
+        schema.enums = {Attribute.fix_enum_name(attribute.full_name): attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
 
         # At this point, classes might refer to types that haven't been defined
         # yet. So, for fields that refer to other classes in this model, we need to
