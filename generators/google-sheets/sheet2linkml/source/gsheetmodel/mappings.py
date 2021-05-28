@@ -57,7 +57,7 @@ class Mappings:
     def rows(self) -> list[str]:
         """ Return a list of rows in this string -- every row corresponds to a single mapping. """
 
-        return re.split(r'\s*[\r\n]+\s*', self.mapping_string)
+        return re.split(r'\s*[\r\n\|]+\s*', self.mapping_string)
 
     @dataclass
     class Mapping:
