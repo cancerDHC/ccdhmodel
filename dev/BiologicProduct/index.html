@@ -91,7 +91,7 @@
                 <h1 id="class-biologicproduct">Class: BiologicProduct</h1>
 <p>A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</p>
 <p>URI: <a href="https://example.org/ccdh/BiologicProduct">ccdh:BiologicProduct</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Identifier]&lt;identifier%200..*-++[BiologicProduct&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;product_type:enum_CRDC-H.BiologicProduct.product_type%20%3F;passage_number:ccdh_integer%20*;growth_rate:ccdh_string%20*],[Specimen]++-%20derived_product%200..*&gt;[BiologicProduct],[Entity]^-[BiologicProduct],[Specimen]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Identifier]&lt;identifier%200..*-++[BiologicProduct&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;product_type:CCDH_BiologicProduct_product_type%20%3F;passage_number:ccdh_integer%20*;growth_rate:ccdh_string%20*],[Specimen]++-%20derived_product%200..*&gt;[BiologicProduct],[Entity]^-[BiologicProduct],[Specimen]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -138,7 +138,7 @@
 </li>
 <li><a href="../biologicProduct__product_type/">➞product_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)</li>
-<li>range: <a href="../enum_CRDC-H.BiologicProduct.product_type/">enum_CRDC-H.BiologicProduct.product_type</a></li>
+<li>range: <a href="../CCDH_BiologicProduct_product_type/">CCDH_BiologicProduct_product_type</a></li>
 <li>Examples: cell line, cell culture, tissue culture, organoid</li>
 </ul>
 </li>

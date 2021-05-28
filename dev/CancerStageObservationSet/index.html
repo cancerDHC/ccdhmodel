@@ -91,7 +91,7 @@
                 <h1 id="class-cancerstageobservationset">Class: CancerStageObservationSet</h1>
 <p>A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).</p>
 <p>URI: <a href="https://example.org/ccdh/CancerStageObservationSet">ccdh:CancerStageObservationSet</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CancerStageObservation]&lt;observations%200..*-++[CancerStageObservationSet&#124;id:ccdh_string%20%3F;category:enum_CRDC-H.CancerStageObservationSet.category%20%3F;method_type:enum_CRDC-H.CancerStageObservationSet.method_type%20*],[Organization]&lt;performed_by%200..1-++[CancerStageObservationSet],[Subject]&lt;subject%200..1-++[CancerStageObservationSet],[Entity]&lt;focus%200..*-++[CancerStageObservationSet],[Diagnosis]++-%20stage%200..*&gt;[CancerStageObservationSet],[Entity]^-[CancerStageObservationSet],[Diagnosis],[CancerStageObservation]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CancerStageObservation]&lt;observations%200..*-++[CancerStageObservationSet&#124;id:ccdh_string%20%3F;category:CCDH_CancerStageObservationSet_category%20%3F;method_type:CCDH_CancerStageObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[CancerStageObservationSet],[Subject]&lt;subject%200..1-++[CancerStageObservationSet],[Entity]&lt;focus%200..*-++[CancerStageObservationSet],[Diagnosis]++-%20stage%200..*&gt;[CancerStageObservationSet],[Entity]^-[CancerStageObservationSet],[Diagnosis],[CancerStageObservation]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -105,7 +105,7 @@
 <ul>
 <li><a href="../cancerStageObservationSet__category/">➞category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation set described</li>
-<li>range: <a href="../enum_CRDC-H.CancerStageObservationSet.category/">enum_CRDC-H.CancerStageObservationSet.category</a></li>
+<li>range: <a href="../CCDH_CancerStageObservationSet_category/">CCDH_CancerStageObservationSet_category</a></li>
 </ul>
 </li>
 <li><a href="../cancerStageObservationSet__focus/">➞focus</a>  <sub>0..*</sub><ul>
@@ -120,7 +120,7 @@
 </li>
 <li><a href="../cancerStageObservationSet__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
 <li>Description: A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.</li>
-<li>range: <a href="../enum_CRDC-H.CancerStageObservationSet.method_type/">enum_CRDC-H.CancerStageObservationSet.method_type</a></li>
+<li>range: <a href="../CCDH_CancerStageObservationSet_method_type/">CCDH_CancerStageObservationSet_method_type</a></li>
 <li>Examples: AJCC staging system 1st edition, AJCC staging system 2nd edition, AJCC staging system 3rd edition, AJCC staging system 4th edition, AJCC staging system 5th edition, AJCC staging system 6th edition, AJCC staging system 7th edition, AJCC staging system 8th edition, Ann Arbor staging system, COG Liver staging system, COG Renal staging system, Enneking MSTS staging system, FIGO staging system, IGCCCG staging system, INRG staging system, INSS staging system, IRS staging system, ISS staging system, Masaoka staging system, Unspecified staging system</li>
 </ul>
 </li>

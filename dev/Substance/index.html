@@ -91,7 +91,7 @@
                 <h1 id="class-substance">Class: Substance</h1>
 <p>A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.</p>
 <p>URI: <a href="https://example.org/ccdh/Substance">ccdh:Substance</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[SpecimenContainer]++-%20additive%200..*&gt;[Substance&#124;substance_type:enum_CRDC-H.Substance.substance_type%20%3F;role:enum_CRDC-H.Substance.role%20*],[SpecimenCreationActivity]++-%20additive%200..*&gt;[Substance],[SpecimenProcessingActivity]++-%20additive%200..*&gt;[Substance],[Treatment]++-%20therapeutic_agent%200..*&gt;[Substance],[Entity]^-[Substance],[Treatment],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[SpecimenContainer]++-%20additive%200..*&gt;[Substance&#124;substance_type:CCDH_Substance_substance_type%20%3F;role:CCDH_Substance_role%20*],[SpecimenCreationActivity]++-%20additive%200..*&gt;[Substance],[SpecimenProcessingActivity]++-%20additive%200..*&gt;[Substance],[Treatment]++-%20therapeutic_agent%200..*&gt;[Substance],[Entity]^-[Substance],[Treatment],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -108,13 +108,13 @@
 <ul>
 <li><a href="../substance__role/">➞role</a>  <sub>0..*</sub><ul>
 <li>Description: A role played by the subtance in a particular applicaton (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)</li>
-<li>range: <a href="../enum_CRDC-H.Substance.role/">enum_CRDC-H.Substance.role</a></li>
+<li>range: <a href="../CCDH_Substance_role/">CCDH_Substance_role</a></li>
 <li>Examples: lysis buffer, fixative, mounting medium, collection media</li>
 </ul>
 </li>
 <li><a href="../substance__substance_type/">➞substance_type</a>  <sub>0..1</sub><ul>
 <li>Description: The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds.</li>
-<li>range: <a href="../enum_CRDC-H.Substance.substance_type/">enum_CRDC-H.Substance.substance_type</a></li>
+<li>range: <a href="../CCDH_Substance_substance_type/">CCDH_Substance_substance_type</a></li>
 <li>Examples: toluene, formalin, DMEM</li>
 <li>Exact mapping: HTAN:Biospecimen.LysisBuffer</li>
 <li>Exact mapping: HTAN:Biospecimen.FixativeType</li>

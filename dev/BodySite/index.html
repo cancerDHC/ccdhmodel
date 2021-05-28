@@ -90,7 +90,7 @@
               
                 <h1 id="class-bodysite">Class: BodySite</h1>
 <p>URI: <a href="https://example.org/ccdh/BodySite">ccdh:BodySite</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Diagnosis]++-%20metastatic_site%200..*&gt;[BodySite&#124;site:enum_CRDC-H.BodySite.site;qualifier:enum_CRDC-H.BodySite.qualifier%20*],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[ResearchProject]++-%20primary_anatomic_site%200..*&gt;[BodySite],[ResearchSubject]++-%20primary_diagnosis_site%200..1&gt;[BodySite],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[BodySite],[Treatment]++-%20anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite],[Treatment],[SpecimenCreationActivity],[ResearchSubject],[ResearchProject],[Diagnosis]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Diagnosis]++-%20metastatic_site%200..*&gt;[BodySite&#124;site:CCDH_BodySite_site;qualifier:CCDH_BodySite_qualifier%20*],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[ResearchProject]++-%20primary_anatomic_site%200..*&gt;[BodySite],[ResearchSubject]++-%20primary_diagnosis_site%200..1&gt;[BodySite],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[BodySite],[Treatment]++-%20anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite],[Treatment],[SpecimenCreationActivity],[ResearchSubject],[ResearchProject],[Diagnosis]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -109,7 +109,7 @@
 <ul>
 <li><a href="../bodySite__qualifier/">➞qualifier</a>  <sub>0..*</sub><ul>
 <li>Description: A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).</li>
-<li>range: <a href="../enum_CRDC-H.BodySite.qualifier/">enum_CRDC-H.BodySite.qualifier</a></li>
+<li>range: <a href="../CCDH_BodySite_qualifier/">CCDH_BodySite_qualifier</a></li>
 <li>Examples: left, right, bilateral</li>
 <li>Exact mapping: GDC:Sample.biospecimen_laterality</li>
 <li>Exact mapping: PDC:Sample.biospecimen_laterality</li>
@@ -117,7 +117,7 @@
 </li>
 <li><a href="../bodySite__site/">➞site</a>  <sub>1..1</sub><ul>
 <li>Description: A term describing any site in the body.</li>
-<li>range: <a href="../enum_CRDC-H.BodySite.site/">enum_CRDC-H.BodySite.site</a></li>
+<li>range: <a href="../CCDH_BodySite_site/">CCDH_BodySite_site</a></li>
 <li>Exact mapping: GDC:Sample.biospecimen_anatomic_site</li>
 <li>Exact mapping: PDC:Sample.biospecimen_anatomic_site</li>
 <li>Exact mapping: ICDC:Sample.sample_site</li>
