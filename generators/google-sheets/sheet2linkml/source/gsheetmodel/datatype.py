@@ -1,5 +1,5 @@
 from sheet2linkml.model import ModelElement
-from sheet2linkml.source.gsheetmodel.mappings import Mappings
+from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
 from linkml_model.meta import TypeDefinition
 import logging
@@ -103,7 +103,9 @@ class Datatype(ModelElement):
         """
         Returns the list of mappings for this datatype.
         """
-        return Mappings(self, self.datatype_row.get("External Mappings"))
+        mappings = Mappings(self)
+        mappings.add_mappings(self.datatype_row.get("External Mapping"), MappingRelations.SKOS_RELATED_MATCH)
+        return mappings
 
     def as_linkml(self, root_uri) -> TypeDefinition:
         """

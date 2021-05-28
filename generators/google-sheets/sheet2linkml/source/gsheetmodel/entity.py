@@ -3,7 +3,7 @@ from linkml_model import SchemaDefinition
 from functools import cached_property
 from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
-from sheet2linkml.source.gsheetmodel.mappings import Mappings
+from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
 from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue
 import logging
@@ -136,14 +136,17 @@ class Entity(ModelElement):
         """
         Returns the list of mappings for this entity.
         """
-        return Mappings(self, self.entity_row.get("Source Mapping"))
+        mappings = Mappings(self)
+        mappings.add_mappings(self.entity_row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH)
+        mappings.add_mappings(self.entity_row.get("Indirect Source Mappings"), MappingRelations.SKOS_CLOSE_MATCH)
+        return mappings
 
     @property
     def mappings_including_attributes(self) -> list[Mappings.Mapping]:
         """
         Returns the list of all mappings of this entity as well as all of its attributes.
         """
-        mappings = self.mappings.mappings
+        mappings = list(self.mappings.mappings)
         for attr in self.attributes:
             mappings.extend(attr.mappings.mappings)
         return mappings
@@ -266,12 +269,15 @@ class Attribute:
 
         return min_count, max_count
 
-    @property
+    @cached_property
     def mappings(self) -> Mappings:
         """
         Returns the list of mappings for this attribute.
         """
-        return Mappings(self, self.row.get("Source Mapping"))
+        mappings = Mappings(self)
+        mappings.add_mappings(self.row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH)
+        mappings.add_mappings(self.row.get("Indirect Source Mappings"), MappingRelations.SKOS_CLOSE_MATCH)
+        return mappings
 
     @property
     def range(self):

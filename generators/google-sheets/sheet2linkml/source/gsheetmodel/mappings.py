@@ -9,7 +9,7 @@ from enum import Enum
 from dataclasses import dataclass
 
 
-class RelationsEnum(Enum):
+class MappingRelations(Enum):
     SKOS_BROAD_MATCH = 'skos:broadMatch'
     SKOS_NARROW_MATCH = 'skos:narrowMatch'
     SKOS_EXACT_MATCH = 'skos:exactMatch'
@@ -46,18 +46,12 @@ class Mappings:
     which can provide a method to create a CSV containing *all* of the mapping information in the original file.
     """
 
-    def __init__(self, mapping_from: ModelElement, mapping_string: str):
+    def __init__(self, mapping_from: ModelElement):
         """
         Read sets of mappings from around a single text, presumably from a Google Sheet.
         """
         self.source_element = mapping_from
-        self.mapping_string = mapping_string or ""
-
-    @property
-    def rows(self) -> list[str]:
-        """ Return a list of rows in this string -- every row corresponds to a single mapping. """
-
-        return re.split(r'\s*[\r\n\|]+\s*', self.mapping_string)
+        self.mappings = []
 
     @dataclass
     class Mapping:
@@ -68,12 +62,19 @@ class Mappings:
         source: ModelElement
         target: Uriorcurie
         description: str
-        relation: RelationsEnum
+        relation: MappingRelations
 
-    @property
-    def mappings(self) -> list[Mapping]:
-        result = []
-        for row in self.rows:
+    def add_mappings(self, mapping_string: str, default_relation: MappingRelations = MappingRelations.SKOS_RELATED_MATCH) -> list[Mapping]:
+        """
+        Add mappings from the provided mapping string with the specified default relation.
+        """
+
+        if mapping_string is None or len(mapping_string.strip()) == 0:
+            return
+
+        rows = re.split(r'\s*[\r\n\|]+\s*', mapping_string)
+
+        for row in rows:
             # Is the row empty? If so, ignore it.
             if row.strip() == '':
                 continue
@@ -85,7 +86,7 @@ class Mappings:
             # We can use regular expression to differentiate between them.
             mapping_target = row
             description = None
-            relation = RelationsEnum.SKOS_RELATED_MATCH
+            relation = MappingRelations.SKOS_RELATED_MATCH
 
             match = re.match(r'^\s*(.*?)\s*\(\s*(.*)\s*\)\s*$', row)
             if match:
@@ -94,17 +95,18 @@ class Mappings:
 
             lower_desc = (description or "").lower()
             if lower_desc == 'skos:exactMatch' or lower_desc == 'exact' or lower_desc.startswith('exact match'):
-                relation = RelationsEnum.SKOS_EXACT_MATCH
+                relation = MappingRelations.SKOS_EXACT_MATCH
             elif lower_desc == 'skos:closeMatch' or lower_desc == 'close' or lower_desc.startswith('close match'):
-                relation = RelationsEnum.SKOS_CLOSE_MATCH
+                relation = MappingRelations.SKOS_CLOSE_MATCH
             elif lower_desc == 'skos:relatedMatch' or lower_desc == 'related' or lower_desc.startswith('related match'):
-                relation = RelationsEnum.SKOS_RELATED_MATCH
+                relation = MappingRelations.SKOS_RELATED_MATCH
             elif lower_desc == 'skos:broadMatch' or lower_desc == 'broad' or lower_desc.startswith('broad match'):
-                relation = RelationsEnum.SKOS_BROAD_MATCH
+                relation = MappingRelations.SKOS_BROAD_MATCH
             elif lower_desc == 'skos:narrowMatch' or lower_desc == 'narrow' or lower_desc.startswith('narrow match'):
-                relation = RelationsEnum.SKOS_NARROW_MATCH
+                relation = MappingRelations.SKOS_NARROW_MATCH
             elif lower_desc.strip() == '':
-                pass
+                # If no description is given, we'll use the default relation instead.
+                relation = default_relation
             else:
                 logging.warning(
                     f"In entity {self.source_element.name}: mapping type '{lower_desc}' could not be mapped to LinkML, " +
@@ -125,14 +127,12 @@ class Mappings:
             else:
                 uri_or_curie = Uriorcurie(f'example:{urllib.parse.quote_plus(mapping_target.strip())}')
 
-            result.append(Mappings.Mapping(
+            self.mappings.append(Mappings.Mapping(
                 source=self.source_element,
                 target=uri_or_curie,
                 description=description,
                 relation=relation
             ))
-
-        return result
 
     def set_mappings_on_element(self, element: Element):
         """
@@ -140,15 +140,15 @@ class Mappings:
         """
 
         for mapping in self.mappings:
-            if mapping.relation == RelationsEnum.SKOS_BROAD_MATCH:
+            if mapping.relation == MappingRelations.SKOS_BROAD_MATCH:
                 element.broad_mappings.append(mapping.target)
-            elif mapping.relation == RelationsEnum.SKOS_NARROW_MATCH:
+            elif mapping.relation == MappingRelations.SKOS_NARROW_MATCH:
                 element.narrow_mappings.append(mapping.target)
-            elif mapping.relation == RelationsEnum.SKOS_EXACT_MATCH:
+            elif mapping.relation == MappingRelations.SKOS_EXACT_MATCH:
                 element.exact_mappings.append(mapping.target)
-            elif mapping.relation == RelationsEnum.SKOS_CLOSE_MATCH:
+            elif mapping.relation == MappingRelations.SKOS_CLOSE_MATCH:
                 element.close_mappings.append(mapping.target)
-            elif mapping.relation == RelationsEnum.SKOS_RELATED_MATCH:
+            elif mapping.relation == MappingRelations.SKOS_RELATED_MATCH:
                 element.related_mappings.append(mapping.target)
             else:
                 element.mappings.append(mapping.target)
