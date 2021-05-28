@@ -92,13 +92,90 @@
 <p>The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')</p>
 <p>URI: <a href="https://example.org/ccdh/cancerStageObservation__observation_type">ccdh:cancerStageObservation__observation_type</a></p>
 <h2 id="domain-and-range">Domain and Range</h2>
-<p>None -&gt;  <sub>1..1</sub> <a href="../CCDH_CancerStageObservation_observation_type/">CCDH_CancerStageObservation_observation_type</a></p>
+<p>None -&gt;  <sub>1..1</sub> <a href="../enum_CRDC-H.CancerStageObservation.observation_type/">enum_CRDC-H.CancerStageObservation.observation_type</a></p>
 <h2 id="parents">Parents</h2>
 <h2 id="children">Children</h2>
 <h2 id="used-by">Used by</h2>
 <ul>
 <li><a href="../CancerStageObservation/">CancerStageObservation</a></li>
 </ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field.  'Overall' should be used when: the source staging value is not definitively 'Clinical' or 'Pathological' (e.g. a TNM staged cancer without a clear indication of clinical vs pathological), or the source staging system does not use T, N, or M components and only has a single overall staging value (e.g. FIGO staging)</td>
+</tr>
+<tr>
+<td><strong>Examples:</strong></td>
+<td></td>
+<td>Overall</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Tumor (T)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Node (N)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Metastasis (M)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Clinical Overall</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Clinical Tumor (T)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Clinical Node (N)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Clinical Metastasis (M)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Pathological Overall</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Pathological Tumor (T)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Pathological Node (N)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Pathological Metastasis (M)</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

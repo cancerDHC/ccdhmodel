@@ -91,7 +91,7 @@
                 <h1 id="class-cancergradeobservation">Class: CancerGradeObservation</h1>
 <p>A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation</p>
 <p>URI: <a href="https://example.org/ccdh/CancerGradeObservation">ccdh:CancerGradeObservation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Quantity],[Organization],[Entity],[Quantity]&lt;valueQuantity%200..1-++[CancerGradeObservation&#124;id:ccdh_string%20%3F;category:CCDH_CancerGradeObservation_category%20%3F;observation_type:CCDH_CancerGradeObservation_observation_type;method_type:CCDH_CancerGradeObservation_method_type%20%3F;valueString:ccdh_string%20%3F;valueInteger:ccdh_integer%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F;valueDateTime:ccdh_dateTime%20%3F;valueCodeableConcept:CCDH_CancerGradeObservation_valueCodeableConcept%20%3F],[Entity]&lt;valueEntity%200..1-++[CancerGradeObservation],[Organization]&lt;performed_by%200..1-++[CancerGradeObservation],[Subject]&lt;subject%200..1-++[CancerGradeObservation],[Entity]&lt;focus%200..1-++[CancerGradeObservation],[CancerGradeObservationSet]++-%20observations%200..*&gt;[CancerGradeObservation],[Entity]^-[CancerGradeObservation],[CancerGradeObservationSet]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Quantity],[Organization],[Entity],[Quantity]&lt;valueQuantity%200..1-++[CancerGradeObservation&#124;id:ccdh_string%20%3F;category:enum_CRDC-H.CancerGradeObservation.category%20%3F;observation_type:enum_CRDC-H.CancerGradeObservation.observation_type;method_type:enum_CRDC-H.CancerGradeObservation.method_type%20%3F;valueString:ccdh_string%20%3F;valueInteger:ccdh_integer%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F;valueDateTime:ccdh_dateTime%20%3F;valueCodeableConcept:enum_CRDC-H.CancerGradeObservation.valueCodeableConcept%20%3F],[Entity]&lt;valueEntity%200..1-++[CancerGradeObservation],[Organization]&lt;performed_by%200..1-++[CancerGradeObservation],[Subject]&lt;subject%200..1-++[CancerGradeObservation],[Entity]&lt;focus%200..1-++[CancerGradeObservation],[CancerGradeObservationSet]++-%20observations%200..*&gt;[CancerGradeObservation],[Entity]^-[CancerGradeObservation],[CancerGradeObservationSet]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -105,7 +105,7 @@
 <ul>
 <li><a href="../cancerGradeObservation__category/">➞category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
-<li>range: <a href="../CCDH_CancerGradeObservation_category/">CCDH_CancerGradeObservation_category</a></li>
+<li>range: <a href="../enum_CRDC-H.CancerGradeObservation.category/">enum_CRDC-H.CancerGradeObservation.category</a></li>
 </ul>
 </li>
 <li><a href="../cancerGradeObservation__focus/">➞focus</a>  <sub>0..1</sub><ul>
@@ -120,12 +120,13 @@
 </li>
 <li><a href="../cancerGradeObservation__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method used in generating the Observation result.</li>
-<li>range: <a href="../CCDH_CancerGradeObservation_method_type/">CCDH_CancerGradeObservation_method_type</a></li>
+<li>range: <a href="../enum_CRDC-H.CancerGradeObservation.method_type/">enum_CRDC-H.CancerGradeObservation.method_type</a></li>
 </ul>
 </li>
 <li><a href="../cancerGradeObservation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)</li>
-<li>range: <a href="../CCDH_CancerGradeObservation_observation_type/">CCDH_CancerGradeObservation_observation_type</a></li>
+<li>range: <a href="../enum_CRDC-H.CancerGradeObservation.observation_type/">enum_CRDC-H.CancerGradeObservation.observation_type</a></li>
+<li>Examples: enneking_msts_grade, esophageal_columnar_dysplasia_degree, inpc_grade, gleason_grade_group, primary_gleason_grade, secondary_gleason_grade, tumor_grade</li>
 </ul>
 </li>
 <li><a href="../cancerGradeObservation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
@@ -145,7 +146,7 @@
 </li>
 <li><a href="../cancerGradeObservation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>0..1</sub><ul>
 <li>Description: The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
-<li>range: <a href="../CCDH_CancerGradeObservation_valueCodeableConcept/">CCDH_CancerGradeObservation_valueCodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.CancerGradeObservation.valueCodeableConcept/">enum_CRDC-H.CancerGradeObservation.valueCodeableConcept</a></li>
 <li>Exact mapping: GDC:Diagnosis.enneking_msts_grade</li>
 <li>Exact mapping: PDC:Diagnosis.enneking_msts_grade</li>
 <li>Exact mapping: GDC:Diagnosis.esophageal_columnar_dysplasia_degree</li>

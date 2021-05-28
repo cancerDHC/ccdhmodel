@@ -91,7 +91,7 @@
                 <h1 id="class-timepoint">Class: TimePoint</h1>
 <p>A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.</p>
 <p>URI: <a href="https://example.org/ccdh/TimePoint">ccdh:TimePoint</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex%200..1-++[TimePoint&#124;id:ccdh_string%20%3F;dateTime:ccdh_dateTime%20%3F;eventType:CCDH_TimePoint_eventType%20*],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20periodEnd
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex%200..1-++[TimePoint&#124;id:ccdh_string%20%3F;dateTime:ccdh_dateTime%20%3F;eventType:enum_CRDC-H.TimePoint.eventType%20*],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20periodEnd
 end%200..1&gt;[TimePoint],[TimePeriod]++-%20periodStart
 start%200..1&gt;[TimePoint],[Treatment]++-%20date_ended%200..1&gt;[TimePoint],[Treatment]++-%20date_started%200..1&gt;[TimePoint],[Entity]^-[TimePoint],[Treatment],[TimePeriod],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
@@ -128,7 +128,7 @@ start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li
 </li>
 <li><a href="../timePoint__eventType/">➞eventType</a>  <sub>0..*</sub><ul>
 <li>Description: An event that occurred at the point in time specified by this TimePoint.</li>
-<li>range: <a href="../CCDH_TimePoint_eventType/">CCDH_TimePoint_eventType</a></li>
+<li>range: <a href="../enum_CRDC-H.TimePoint.eventType/">enum_CRDC-H.TimePoint.eventType</a></li>
 </ul>
 </li>
 <li><a href="../timePoint__id/">➞id</a>  <sub>0..1</sub><ul>

@@ -91,7 +91,7 @@
                 <h1 id="class-diagnosis">Class: Diagnosis</h1>
 <p>A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</p>
 <p>URI: <a href="https://example.org/ccdh/Diagnosis">ccdh:Diagnosis</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Observation],[Identifier],[Entity],[Observation]&lt;supporting_observations%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F;condition:CCDH_Diagnosis_condition%20%3F;morphology:CCDH_Diagnosis_morphology%20%3F;disease_status:CCDH_Diagnosis_disease_status%20%3F;method_of_diagnosis:CCDH_Diagnosis_method_of_diagnosis%20%3F],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[Entity]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CancerStageObservationSet],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Quantity],[Observation],[Identifier],[Entity],[Observation]&lt;supporting_observations%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F;condition:enum_CRDC-H.Diagnosis.condition%20%3F;morphology:enum_CRDC-H.Diagnosis.morphology%20%3F;disease_status:enum_CRDC-H.Diagnosis.disease_status%20%3F;method_of_diagnosis:enum_CRDC-H.Diagnosis.method_of_diagnosis%20%3F],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[Entity]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CancerStageObservationSet],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -113,7 +113,7 @@
 </li>
 <li><a href="../diagnosis__condition/">➞condition</a>  <sub>0..1</sub><ul>
 <li>Description: Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
-<li>range: <a href="../CCDH_Diagnosis_condition/">CCDH_Diagnosis_condition</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.condition/">enum_CRDC-H.Diagnosis.condition</a></li>
 <li>Exact mapping: GDC:Diagnosis.primary_diagnosis</li>
 <li>Exact mapping: PDC:Diagnosis.primary_diagnosis</li>
 <li>Exact mapping: ICDC:Diagnosis.disease_term</li>
@@ -123,7 +123,8 @@
 </li>
 <li><a href="../diagnosis__disease_status/">➞disease_status</a>  <sub>0..1</sub><ul>
 <li>Description: A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
-<li>range: <a href="../CCDH_Diagnosis_disease_status/">CCDH_Diagnosis_disease_status</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.disease_status/">enum_CRDC-H.Diagnosis.disease_status</a></li>
+<li>Examples: Primary, Metastatic</li>
 </ul>
 </li>
 <li><a href="../diagnosis__grade/">➞grade</a>  <sub>0..*</sub><ul>
@@ -152,14 +153,16 @@
 </li>
 <li><a href="../diagnosis__method_of_diagnosis/">➞method_of_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: The method used to confirm the patients malignant diagnosis</li>
-<li>range: <a href="../CCDH_Diagnosis_method_of_diagnosis/">CCDH_Diagnosis_method_of_diagnosis</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.method_of_diagnosis/">enum_CRDC-H.Diagnosis.method_of_diagnosis</a></li>
+<li>Examples: Autopsy, Biopsy, Blood Draw, Bone Marrow Aspirate, Core Biopsy, ..</li>
 <li>Exact mapping: GDC:Diagnosis.method_of_diagnosis</li>
 <li>Exact mapping: PDC:Diagnosis.method_of_diagnosis</li>
 </ul>
 </li>
 <li><a href="../diagnosis__morphology/">➞morphology</a>  <sub>0..1</sub><ul>
 <li>Description: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
-<li>range: <a href="../CCDH_Diagnosis_morphology/">CCDH_Diagnosis_morphology</a></li>
+<li>range: <a href="../enum_CRDC-H.Diagnosis.morphology/">enum_CRDC-H.Diagnosis.morphology</a></li>
+<li>Examples: 8001/3, 8002/3, 8003/3, 8004/3, 8005/3</li>
 <li>Exact mapping: GDC:Diagnosis.morphology</li>
 <li>Exact mapping: PDC:Diagnosis.morphology</li>
 </ul>

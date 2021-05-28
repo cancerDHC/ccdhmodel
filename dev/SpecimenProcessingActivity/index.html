@@ -91,7 +91,7 @@
                 <h1 id="class-specimenprocessingactivity">Class: SpecimenProcessingActivity</h1>
 <p>An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenProcessingActivity">ccdh:SpecimenProcessingActivity</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Entity]&lt;execution_observation%200..*-++[SpecimenProcessingActivity&#124;activity_type:CCDH_SpecimenProcessingActivity_activity_type%20%3F;method_type:CCDH_SpecimenProcessingActivity_method_type%20%3F],[Substance]&lt;additive%200..*-++[SpecimenProcessingActivity],[Organization]&lt;performed_by%200..1-++[SpecimenProcessingActivity],[Entity]&lt;duration%200..*-++[SpecimenProcessingActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenProcessingActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenProcessingActivity],[Specimen]++-%20processing_activity%200..*&gt;[SpecimenProcessingActivity],[Entity]^-[SpecimenProcessingActivity],[Specimen],[Organization],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Entity]&lt;execution_observation%200..*-++[SpecimenProcessingActivity&#124;activity_type:enum_CRDC-H.SpecimenProcessingActivity.activity_type%20%3F;method_type:enum_CRDC-H.SpecimenProcessingActivity.method_type%20%3F],[Substance]&lt;additive%200..*-++[SpecimenProcessingActivity],[Organization]&lt;performed_by%200..1-++[SpecimenProcessingActivity],[Entity]&lt;duration%200..*-++[SpecimenProcessingActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenProcessingActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenProcessingActivity],[Specimen]++-%20processing_activity%200..*&gt;[SpecimenProcessingActivity],[Entity]^-[SpecimenProcessingActivity],[Specimen],[Organization],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -105,12 +105,14 @@
 <ul>
 <li><a href="../specimenProcessingActivity__activity_type/">➞activity_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of processing activity</li>
-<li>range: <a href="../CCDH_SpecimenProcessingActivity_activity_type/">CCDH_SpecimenProcessingActivity_activity_type</a></li>
+<li>range: <a href="../enum_CRDC-H.SpecimenProcessingActivity.activity_type/">enum_CRDC-H.SpecimenProcessingActivity.activity_type</a></li>
+<li>Examples: Fixation, Freezing, Mounting, Preservation</li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
 <li>Description: A type of material or reagent used as input when processing the specimen</li>
 <li>range: <a href="../Substance/">Substance</a></li>
+<li>Example: Formalin</li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
@@ -135,7 +137,8 @@
 </li>
 <li><a href="../specimenProcessingActivity__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A specific type of method or procedure performed to process the specimen</li>
-<li>range: <a href="../CCDH_SpecimenProcessingActivity_method_type/">CCDH_SpecimenProcessingActivity_method_type</a></li>
+<li>range: <a href="../enum_CRDC-H.SpecimenProcessingActivity.method_type/">enum_CRDC-H.SpecimenProcessingActivity.method_type</a></li>
+<li>Examples: Snap Freezing, Cryopreservation in liquid nitrogen (dead tissue), Cryopreservation in dry ice (dead tissue), Formalin fixed paraffin embedded (FFPE), Formalin fixed-unbuffered, Formalin fixed-buffered, OCT</li>
 <li>Exact mapping: GDC:Sample.freezing_method</li>
 <li>Exact mapping: GDC:Sample.preservation_method</li>
 <li>Exact mapping: GDC:Sample.is_ffpe</li>

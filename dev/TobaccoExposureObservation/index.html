@@ -91,7 +91,7 @@
                 <h1 id="class-tobaccoexposureobservation">Class: TobaccoExposureObservation</h1>
 <p>A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.</p>
 <p>URI: <a href="https://example.org/ccdh/TobaccoExposureObservation">ccdh:TobaccoExposureObservation</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;valueQuantity%200..1-++[TobaccoExposureObservation&#124;id:ccdh_string%20%3F;category:CCDH_TobaccoExposureObservation_category%20%3F;observation_type:CCDH_TobaccoExposureObservation_observation_type;method_type:CCDH_TobaccoExposureObservation_method_type%20%3F;valueString:ccdh_string%20%3F;valueInteger:ccdh_integer%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F;valueDateTime:ccdh_dateTime%20%3F;valueCodeableConcept:CCDH_TobaccoExposureObservation_valueCodeableConcept%20%3F],[Entity]&lt;valueEntity%200..1-++[TobaccoExposureObservation],[Organization]&lt;performed_by%200..1-++[TobaccoExposureObservation],[Subject]&lt;subject%200..1-++[TobaccoExposureObservation],[Entity]&lt;focus%200..1-++[TobaccoExposureObservation],[Exposure]++-%20tobacco_exposure%200..*&gt;[TobaccoExposureObservation],[Entity]^-[TobaccoExposureObservation],[Subject],[Quantity],[Organization],[Exposure],[Entity]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;valueQuantity%200..1-++[TobaccoExposureObservation&#124;id:ccdh_string%20%3F;category:enum_CRDC-H.TobaccoExposureObservation.category%20%3F;observation_type:enum_CRDC-H.TobaccoExposureObservation.observation_type;method_type:enum_CRDC-H.TobaccoExposureObservation.method_type%20%3F;valueString:ccdh_string%20%3F;valueInteger:ccdh_integer%20%3F;valueDecimal:ccdh_decimal%20%3F;valueBoolean:ccdh_boolean%20%3F;valueDateTime:ccdh_dateTime%20%3F;valueCodeableConcept:enum_CRDC-H.TobaccoExposureObservation.valueCodeableConcept%20%3F],[Entity]&lt;valueEntity%200..1-++[TobaccoExposureObservation],[Organization]&lt;performed_by%200..1-++[TobaccoExposureObservation],[Subject]&lt;subject%200..1-++[TobaccoExposureObservation],[Entity]&lt;focus%200..1-++[TobaccoExposureObservation],[Exposure]++-%20tobacco_exposure%200..*&gt;[TobaccoExposureObservation],[Entity]^-[TobaccoExposureObservation],[Subject],[Quantity],[Organization],[Exposure],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -105,7 +105,7 @@
 <ul>
 <li><a href="../tobaccoExposureObservation__category/">➞category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
-<li>range: <a href="../CCDH_TobaccoExposureObservation_category/">CCDH_TobaccoExposureObservation_category</a></li>
+<li>range: <a href="../enum_CRDC-H.TobaccoExposureObservation.category/">enum_CRDC-H.TobaccoExposureObservation.category</a></li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__focus/">➞focus</a>  <sub>0..1</sub><ul>
@@ -120,12 +120,13 @@
 </li>
 <li><a href="../tobaccoExposureObservation__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method used in generating the Observation result.</li>
-<li>range: <a href="../CCDH_TobaccoExposureObservation_method_type/">CCDH_TobaccoExposureObservation_method_type</a></li>
+<li>range: <a href="../enum_CRDC-H.TobaccoExposureObservation.method_type/">enum_CRDC-H.TobaccoExposureObservation.method_type</a></li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
-<li>range: <a href="../CCDH_TobaccoExposureObservation_observation_type/">CCDH_TobaccoExposureObservation_observation_type</a></li>
+<li>range: <a href="../enum_CRDC-H.TobaccoExposureObservation.observation_type/">enum_CRDC-H.TobaccoExposureObservation.observation_type</a></li>
+<li>Examples: cigarettes_per_day, environmental_tobacco_smoke_exposure, pack_years_smoked, smoking_frequency, time_between_waking_and_first_smoke, tobacco_smoking_onset_year, tobacco_smoking_quit_year, tobacco_smoking_status, type_of_tobacco_used, years_smoked</li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
@@ -145,7 +146,7 @@
 </li>
 <li><a href="../tobaccoExposureObservation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a CodeableConcept.</li>
-<li>range: <a href="../CCDH_TobaccoExposureObservation_valueCodeableConcept/">CCDH_TobaccoExposureObservation_valueCodeableConcept</a></li>
+<li>range: <a href="../enum_CRDC-H.TobaccoExposureObservation.valueCodeableConcept/">enum_CRDC-H.TobaccoExposureObservation.valueCodeableConcept</a></li>
 <li>Exact mapping: GDC:Exposure.environmental_tobacco_smoke_exposure</li>
 <li>Exact mapping: PDC:Exposure.environmental_tobacco_smoke_exposure</li>
 <li>Exact mapping: GDC:Exposure.smoking_frequency</li>

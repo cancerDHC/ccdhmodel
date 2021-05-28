@@ -93,7 +93,7 @@
 This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
 and investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects.</p>
 <p>URI: <a href="https://example.org/ccdh/ResearchProject">ccdh:ResearchProject</a></p>
-<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[ResearchProject]&lt;part_of%200..*-++[ResearchProject&#124;id:ccdh_string%20%3F;name:ccdh_string%20%3F;name_shortened:ccdh_string%20%3F;description:ccdh_string%20%3F;description_shortened:ccdh_string%20%3F;sponsor:ccdh_string%20*;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;url:ccdh_string%20*;research_project_type:CCDH_ResearchProject_research_project_type;date_iacuc_approval:ccdh_dateTime%20%3F],[BodySite]&lt;primary_anatomic_site%200..*-++[ResearchProject],[Identifier]&lt;identifier%200..*-++[ResearchProject],[ResearchSubject]++-%20member_of_research_project%200..1&gt;[ResearchProject],[Specimen]++-%20associated_project%200..1&gt;[ResearchProject],[Entity]^-[ResearchProject],[Specimen],[ResearchSubject],[Identifier],[Entity],[BodySite]" /></p>
+<p><img alt="img" src="http://yuml.me/diagram/nofunky;dir:TB/class/[ResearchProject]&lt;part_of%200..*-++[ResearchProject&#124;id:ccdh_string%20%3F;name:ccdh_string%20%3F;name_shortened:ccdh_string%20%3F;description:ccdh_string%20%3F;description_shortened:ccdh_string%20%3F;sponsor:ccdh_string%20*;date_started:ccdh_dateTime%20%3F;date_ended:ccdh_dateTime%20%3F;url:ccdh_string%20*;research_project_type:enum_CRDC-H.ResearchProject.research_project_type;date_iacuc_approval:ccdh_dateTime%20%3F],[BodySite]&lt;primary_anatomic_site%200..*-++[ResearchProject],[Identifier]&lt;identifier%200..*-++[ResearchProject],[ResearchSubject]++-%20member_of_research_project%200..1&gt;[ResearchProject],[Specimen]++-%20associated_project%200..1&gt;[ResearchProject],[Entity]^-[ResearchProject],[Specimen],[ResearchSubject],[Identifier],[Entity],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -182,7 +182,8 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 </li>
 <li><a href="../researchProject__research_project_type/">➞research_project_type</a>  <sub>1..1</sub><ul>
 <li>Description: The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')</li>
-<li>range: <a href="../CCDH_ResearchProject_research_project_type/">CCDH_ResearchProject_research_project_type</a></li>
+<li>range: <a href="../enum_CRDC-H.ResearchProject.research_project_type/">enum_CRDC-H.ResearchProject.research_project_type</a></li>
+<li>Examples: Program, Project, Clinical Trial</li>
 <li>Exact mapping: ICDC:Study.clinical_study_type</li>
 </ul>
 </li>
