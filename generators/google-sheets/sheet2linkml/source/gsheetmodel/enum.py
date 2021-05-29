@@ -1,14 +1,12 @@
 from linkml_model import SchemaDefinition
 
 from functools import cached_property
-from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
-from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue, Example
+from linkml_model.meta import EnumDefinition, PermissibleValue
 import logging
 import re
-import urllib.parse
 
 
 class Enum(ModelElement):
