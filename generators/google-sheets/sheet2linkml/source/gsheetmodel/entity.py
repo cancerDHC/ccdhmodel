@@ -3,6 +3,7 @@ from linkml_model import SchemaDefinition
 from functools import cached_property
 from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.enum import Enum
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
 from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue, Example
@@ -295,23 +296,6 @@ class Attribute:
 
         return attribute_range
 
-    @staticmethod
-    def fix_enum_name(enum_name: str):
-        """
-        Transform enum names so that they can be accessed from Python.
-        Ideally, these transformations should be done in the LinkML
-        library somewhere, but for now, we can do that here.
-        """
-
-        # The hyphen in 'CRDC-H' doesn't work properly.
-        fixed_name = re.sub(r'^CRDC-H\.', 'CCDH.', enum_name)
-
-        # The '.'s in the name also mess up the generated Python code.
-        # But we might as well replace everything that isn't alphanumeric.
-        fixed_name = re.sub(r'\W', '_', fixed_name).strip('_')
-
-        return fixed_name
-
     def as_linkml_enum(self) -> EnumDefinition:
         """
         If this is an attribute with an enumeration of possible values,
@@ -334,7 +318,7 @@ class Attribute:
             ))
 
         return EnumDefinition(
-            name=Attribute.fix_enum_name(self.full_name),
+            name=Enum.fix_enum_name(self.full_name),
             code_set=f'https://terminology.ccdh.io/enumerations/{urllib.parse.quote_plus(self.full_name)}',
             code_set_version=enum_info.get("last_updated", ""),
             comments=f'Name according to TCCM: "{enum_info.get("name", "")}"',
@@ -367,7 +351,7 @@ class Attribute:
             # Logically, we should be able to set `attribute_range` to the EnumDefinition.
             # But LinkML doesn't support that yet. So instead, we'll refer to the enum definition
             # here and enter it elsewhere in the YAML file.
-            attribute_range = Attribute.fix_enum_name(self.full_name)
+            attribute_range = Enum.fix_enum_name(self.full_name)
 
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",

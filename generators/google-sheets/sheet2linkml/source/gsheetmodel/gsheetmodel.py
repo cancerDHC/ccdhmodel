@@ -260,7 +260,7 @@ class GSheetModel(ModelElement):
         schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
 
         # Load enums from the attributes themselves -- this will look things up in the terminology service.
-        schema.enums = {Attribute.fix_enum_name(attribute.full_name): attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
+        schema.enums = {Enum.fix_enum_name(attribute.full_name): attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
 
         # Add enums from the enum worksheets in this Google Doc.
         enum_worksheets = self.enum_worksheets()
