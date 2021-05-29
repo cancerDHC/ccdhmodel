@@ -3,7 +3,7 @@ import pygsheets
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet, Attribute
-from sheet2linkml.source.gsheetmodel.enum import EnumWorksheet
+from sheet2linkml.source.gsheetmodel.enum import EnumWorksheet, Enum
 from sheet2linkml.source.gsheetmodel.datatype import Datatype, DatatypeWorksheet
 from sheet2linkml.terminologies.service import TerminologyService
 from linkml_model.meta import SchemaDefinition
@@ -159,11 +159,29 @@ class GSheetModel(ModelElement):
             result.extend(worksheet.datatypes)
         return result
 
+    def enum_worksheets(self) -> list[EnumWorksheet]:
+        """
+        A list of enum worksheets available in this model.
+
+        We only have a single enum worksheet: 'O_CCDH Enums'. So we just return that.
+        """
+        return [EnumWorksheet(self, self.sheet.worksheet('title', 'O_CCDH Enums'))]
+
+    def enums_from_worksheets(self) -> list[Enum]:
+        """
+        A list of enums available from worksheets in this model.
+        """
+        result = []
+        for worksheet in self.enum_worksheets():
+            result.extend(worksheet.enums)
+        return result
+
     @cached_property
     def mappings(self) -> list[Mappings.Mapping]:
         """ Return a list of all the mappings in this LinkML document. """
         mappings = [mapping for datatype in self.datatypes() for mapping in datatype.mappings.mappings]
-        mappings.extend(mapping for entity in self.entities() for mapping in entity.mappings_including_values)
+        mappings.extend(mapping for entity in self.entities() for mapping in entity.mappings_including_attributes)
+        mappings.extend(mapping for enum in self.enums_from_worksheets() for mapping in enum.mappings_including_values)
         return mappings
 
     def __str__(self) -> str:
@@ -244,10 +262,11 @@ class GSheetModel(ModelElement):
         # Load enums from the attributes themselves -- this will look things up in the terminology service.
         schema.enums = {Attribute.fix_enum_name(attribute.full_name): attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
 
-        # Add enums from the 'O_CCDH Enums' worksheet.
-        enum_worksheet = EnumWorksheet(self, self.sheet.worksheet('title', 'O_CCDH Enums'))
-        for enum in enum_worksheet.enums:
-            schema.enums[enum.name] = enum.as_linkml(root_uri)
+        # Add enums from the enum worksheets in this Google Doc.
+        enum_worksheets = self.enum_worksheets()
+        for enum_worksheet in enum_worksheets:
+            for enum in enum_worksheet.enums:
+                schema.enums[enum.fixed_name] = enum.as_linkml(root_uri)
 
         # At this point, classes might refer to types that haven't been defined
         # yet. So, for fields that refer to other classes in this model, we need to
