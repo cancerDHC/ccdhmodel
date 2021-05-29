@@ -177,7 +177,7 @@ class Enum(ModelElement):
         # Basic metadata
         enum = EnumDefinition(
             name=self.fixed_name,
-            description=(self.enum_row.get("Description") or '').strip()
+            description=(self.enum_row.get(EnumWorksheet.COL_DEFINITION) or '').strip()
         )
 
         # Additional metadata
