@@ -11,6 +11,7 @@ import logging
 import logging.config
 from sheet2linkml import config
 from sheet2linkml.source.gsheetmodel.gsheetmodel import GSheetModel
+from sheet2linkml.source.gsheetmodel.enum import EnumWorksheet
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.terminologies.tccm.api import TCCMService
 from linkml.utils import yamlutils
