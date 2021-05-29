@@ -7,4 +7,5 @@ theme: readthedocs
 nav:
   - Home: home.md
   - Index: index.md
+  - Data Migration: data-migration.md
   - Credits: credits.md
