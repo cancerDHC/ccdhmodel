@@ -120,7 +120,7 @@ class Datatype(ModelElement):
         first_typeof = (self.linkml_type_mappings or ['string'])[0]
         typ: TypeDefinition = TypeDefinition(
             name=self.name,
-            description=self.datatype_row.get("Description"),
+            description=(self.datatype_row.get("Description") or "").strip(),
             typeof=first_typeof.lower()
         )
 
