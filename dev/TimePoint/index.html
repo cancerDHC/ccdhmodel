@@ -91,7 +91,7 @@
                 <h1 id="class-timepoint">Class: TimePoint</h1>
 <p>A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.</p>
 <p>URI: <a href="https://example.org/ccdh/TimePoint">ccdh:TimePoint</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex%200..1-++[TimePoint&#124;id:ccdh_string%20%3F;dateTime:ccdh_dateTime%20%3F;eventType:CCDH_TimePoint_eventType%20*],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20periodEnd
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Quantity]&lt;offsetFromIndex%200..1-++[TimePoint&#124;id:ccdh_string%20%3F;dateTime:ccdh_dateTime%20%3F;eventType:CCDH_TimePoint_eventType%20*],[TimePoint]&lt;indexTimePoint%200..1-++[TimePoint],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20periodEnd
 end%200..1&gt;[TimePoint],[TimePeriod]++-%20periodStart
 start%200..1&gt;[TimePoint],[Treatment]++-%20date_ended%200..1&gt;[TimePoint],[Treatment]++-%20date_started%200..1&gt;[TimePoint],[Entity]^-[TimePoint],[Treatment],[TimePeriod],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
@@ -112,6 +112,7 @@ start%200..1&gt;[TimePoint],[Treatment]++-%20date_ended%200..1&gt;[TimePoint],[T
 end</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
 <li><strong>None</strong> <em><a href="../timePeriod__periodStart_start/">➞periodStart
 start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
+<li><strong>None</strong> <em><a href="../timePoint__indexTimePoint/">➞indexTimePoint</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
 <li><strong>None</strong> <em><a href="../treatment__date_ended/">➞date_ended</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
 <li><strong>None</strong> <em><a href="../treatment__date_started/">➞date_started</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li>
 </ul>
@@ -134,6 +135,11 @@ start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li
 <li><a href="../timePoint__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../timePoint__indexTimePoint/">➞indexTimePoint</a>  <sub>0..1</sub><ul>
+<li>Description: Another TimePoint from which this point is offset.</li>
+<li>range: <a href="./">TimePoint</a></li>
 </ul>
 </li>
 <li><a href="../timePoint__offsetFromIndex/">➞offsetFromIndex</a>  <sub>0..1</sub><ul>

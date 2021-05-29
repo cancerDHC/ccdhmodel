@@ -92,14 +92,14 @@
 <p>An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
 intrinsic physical nature of a specimen.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenStorageActivity">ccdh:SpecimenStorageActivity</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[SpecimenContainer]&lt;container%200..*-++[SpecimenStorageActivity&#124;method_type:CCDH_SpecimenStorageActivity_method_type%20%3F],[Organization]&lt;performed_by%200..1-++[SpecimenStorageActivity],[Quantity]&lt;duration%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenStorageActivity],[Specimen]++-%20storage_activity%200..1&gt;[SpecimenStorageActivity],[Entity]^-[SpecimenStorageActivity],[SpecimenContainer],[Specimen],[Quantity],[Organization],[Entity]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[SpecimenContainer]&lt;container%200..*-++[SpecimenStorageActivity&#124;method_type:CCDH_SpecimenStorageActivity_method_type%20%3F],[Organization]&lt;performed_by%200..1-++[SpecimenStorageActivity],[Quantity]&lt;duration%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenStorageActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenStorageActivity],[Specimen]++-%20storage_activity%200..*&gt;[SpecimenStorageActivity],[Entity]^-[SpecimenStorageActivity],[SpecimenContainer],[Specimen],[Quantity],[Organization],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../specimen__storage_activity/">➞storage_activity</a></em>  <sub>0..1</sub>  <strong><a href="./">SpecimenStorageActivity</a></strong></li>
+<li><strong>None</strong> <em><a href="../specimen__storage_activity/">➞storage_activity</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenStorageActivity</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>

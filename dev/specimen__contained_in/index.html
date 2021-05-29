@@ -89,7 +89,7 @@
             <div class="section">
               
                 <h1 id="slot-specimen__contained_in">Slot: specimen__contained_in</h1>
-<p>A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)</p>
+<p>A physical container in which a specimen is presently held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)</p>
 <p>URI: <a href="https://example.org/ccdh/specimen__contained_in">ccdh:specimen__contained_in</a></p>
 <h2 id="domain-and-range">Domain and Range</h2>
 <p>None -&gt;  <sub>0..1</sub> <a href="../SpecimenContainer/">SpecimenContainer</a></p>
@@ -109,6 +109,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>The 0..1 cardinality on this attribute means that you cannot directly references mutiple nested containers holding a sample. To capture this scenario, use the 'parent_container' attribute of the Container entity.</td>
+</tr>
 <tr>
 <td><strong>Examples:</strong></td>
 <td></td>

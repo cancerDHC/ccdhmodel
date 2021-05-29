@@ -91,8 +91,8 @@
                 <h1 id="class-specimen">Class: Specimen</h1>
 <p>Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.</p>
 <p>URI: <a href="https://example.org/ccdh/Specimen">ccdh:Specimen</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;specimen_type:CCDH_Specimen_specimen_type%20%3F;analyte_type:CCDH_Specimen_analyte_type%20%3F;source_material_type:CCDH_Specimen_source_material_type%20%3F;tumor_status_at_collection:CCDH_Specimen_tumor_status_at_collection%20%3F;cellular_composition_type:CCDH_Specimen_cellular_composition_type%20%3F;general_tissue_morphology:CCDH_Specimen_general_tissue_morphology%20%3F;specific_tissue_morphology:CCDH_Specimen_specific_tissue_morphology%20%3F;preinvasive_tissue_morphology:CCDH_Specimen_preinvasive_tissue_morphology%20%3F;morphology_pathologically_confirmed:ccdh_boolean%20%3F;morphology_assessor_role:CCDH_Specimen_morphology_assessor_role%20%3F;morphlogy_assessment_method:CCDH_Specimen_morphlogy_assessment_method%20%3F;degree_of_dysplasia:CCDH_Specimen_degree_of_dysplasia%20%3F;dysplasia_fraction:ccdh_string%20%3F;section_location:CCDH_Specimen_section_location%20%3F],[BiologicProduct]&lt;derived_product%200..*-++[Specimen],[Document]&lt;related_document
-%200..*-++[Specimen],[Entity]&lt;histological_composition_measure%200..*-++[Specimen],[Observation]&lt;quality_measure%200..*-++[Specimen],[SpecimenQuantityObservation]&lt;quantity_measure%200..*-++[Specimen],[Entity]&lt;dimensional_measure%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[SpecimenTransportActivity]&lt;transport_activity%200..1-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..1-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[Entity]&lt;source_model_system%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[Observation],[Identifier],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;id:ccdh_string%20%3F;description:ccdh_string%20%3F;specimen_type:CCDH_Specimen_specimen_type%20%3F;analyte_type:CCDH_Specimen_analyte_type%20%3F;source_material_type:CCDH_Specimen_source_material_type%20%3F;tumor_status_at_collection:CCDH_Specimen_tumor_status_at_collection%20%3F;cellular_composition_type:CCDH_Specimen_cellular_composition_type%20%3F;general_tissue_morphology:CCDH_Specimen_general_tissue_morphology%20%3F;specific_tissue_morphology:CCDH_Specimen_specific_tissue_morphology%20%3F;preinvasive_tissue_morphology:CCDH_Specimen_preinvasive_tissue_morphology%20%3F;morphology_pathologically_confirmed:ccdh_boolean%20%3F;morphology_assessor_role:CCDH_Specimen_morphology_assessor_role%20%3F;morphlogy_assessment_method:CCDH_Specimen_morphlogy_assessment_method%20%3F;degree_of_dysplasia:CCDH_Specimen_degree_of_dysplasia%20%3F;dysplasia_fraction:ccdh_string%20%3F;section_location:CCDH_Specimen_section_location%20%3F],[BiologicProduct]&lt;derived_product%200..*-++[Specimen],[Document]&lt;related_document
+%200..*-++[Specimen],[ObservationSet]&lt;histological_composition_measure%200..*-++[Specimen],[SpecimenQualityObservation]&lt;quality_measure%200..*-++[Specimen],[SpecimenQuantityObservation]&lt;quantity_measure%200..*-++[Specimen],[DimensionalObservationSet]&lt;dimensional_measure%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[SpecimenTransportActivity]&lt;transport_activity%200..*-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..*-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[Entity]&lt;source_model_system%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[ObservationSet],[Identifier],[Entity],[Document],[DimensionalObservationSet],[Diagnosis],[BiologicProduct]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -131,7 +131,7 @@
 </ul>
 </li>
 <li><a href="../specimen__cellular_composition_type/">➞cellular_composition_type</a>  <sub>0..1</sub><ul>
-<li>Description: A term describing the type of material comprising a specimen at a celluar level.</li>
+<li>Description: A term describing the type of cell or cellular material comprising a specimen.</li>
 <li>range: <a href="../CCDH_Specimen_cellular_composition_type/">CCDH_Specimen_cellular_composition_type</a></li>
 <li>Examples: 2D Classical Conditionally Reprogrammed Cells, Adherent Cell Line, Bone Marrow Components, Buccal Cells, Buffy Coat, Derived Cell Line, Granulocytes, Pleural Effusion, Human Original Cells, Liquid Suspension Cell Line</li>
 <li>Exact mapping: GDC.Sample.composition</li>
@@ -139,7 +139,7 @@
 </ul>
 </li>
 <li><a href="../specimen__contained_in/">➞contained_in</a>  <sub>0..1</sub><ul>
-<li>Description: A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)</li>
+<li>Description: A physical container in which a specimen is presently held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)</li>
 <li>range: <a href="../SpecimenContainer/">SpecimenContainer</a></li>
 <li>Close mappings: GDC.Analyte.well_number</li>
 <li>Close mappings: PDC.Analyte.well_number</li>
@@ -148,7 +148,7 @@
 </ul>
 </li>
 <li><a href="../specimen__creation_activity/">➞creation_activity</a>  <sub>0..1</sub><ul>
-<li>Description: An activity or procedure through which a specimen was created, through removing material from an biological subject, or deriving material from an existing specimen.</li>
+<li>Description: The activity through which a specimen was created, by removing material from an biological subject, or deriving material from an existing specimen.</li>
 <li>range: <a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></li>
 <li>Close mappings: GDC.Portion.creation_datetime</li>
 <li>Close mappings: PDC.Portion.creation_datetime</li>
@@ -185,7 +185,7 @@
 </ul>
 </li>
 <li><a href="../specimen__data_provider/">➞data_provider</a>  <sub>0..1</sub><ul>
-<li>Description: The organization/center that provided data associated with a specimen.</li>
+<li>Description: The organization (e.g.a laboratory, processing center, or research site) that provided data associated with a specimen.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
 <li>Close mappings: GDC.Aliquot.source_center</li>
 <li>Close mappings: HTAN.Biospecimen.SiteDataSource</li>
@@ -199,7 +199,7 @@
 </ul>
 </li>
 <li><a href="../specimen__derived_product/">➞derived_product</a>  <sub>0..*</sub><ul>
-<li>Description: A 'living' biologically active product (e.g. a cell culture, tissue culture, or organoid) that was generated from the specimen</li>
+<li>Description: A 'living' biologically active product that was derived from the specimen (e.g. a cell culture, tissue culture, or organoid)</li>
 <li>range: <a href="../BiologicProduct/">BiologicProduct</a></li>
 <li>Close mappings: GDC.Sample.passage_count</li>
 <li>Close mappings: GDC.Sample.growth_rate</li>
@@ -214,8 +214,8 @@
 </ul>
 </li>
 <li><a href="../specimen__dimensional_measure/">➞dimensional_measure</a>  <sub>0..1</sub><ul>
-<li>Description: An observation about the dimensions of an object, including lengths, areas, and volumes.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>Description: A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</li>
+<li>range: <a href="../DimensionalObservationSet/">DimensionalObservationSet</a></li>
 <li>Close mappings: GDC.Sample.longest_dimension</li>
 <li>Close mappings: GDC.Sample.shortest_dimension</li>
 <li>Close mappings: GDC.Sample.intermediate_dimension</li>
@@ -228,7 +228,7 @@
 </ul>
 </li>
 <li><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a>  <sub>0..1</sub><ul>
-<li>Description: The observed distance of the specimen from a 'paired specimen' in the body at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)</li>
+<li>Description: The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
 <li>Close mappings: GDC.Specimen.distance_normal_to_tumor</li>
 <li>Close mappings: PDC.Specimen.distance_normal_to_tumor</li>
@@ -241,7 +241,7 @@
 </ul>
 </li>
 <li><a href="../specimen__general_tissue_morphology/">➞general_tissue_morphology</a>  <sub>0..1</sub><ul>
-<li>Description: A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
+<li>Description: The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
 <li>range: <a href="../CCDH_Specimen_general_tissue_morphology/">CCDH_Specimen_general_tissue_morphology</a></li>
 <li>Examples: Tumor, Normal, Abnormal, Peritumoral, not applicable</li>
 <li>Exact mapping: GDC.Sample.tissue_type</li>
@@ -250,8 +250,8 @@
 </ul>
 </li>
 <li><a href="../specimen__histological_composition_measure/">➞histological_composition_measure</a>  <sub>0..*</sub><ul>
-<li>Description: An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>Description: A set of one or more observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.</li>
+<li>range: <a href="../ObservationSet/">ObservationSet</a></li>
 <li>Close mappings: GDC.Slide.number_proliferating_cells</li>
 <li>Close mappings: GDC.Slide.percent_eosinophil_infiltration</li>
 <li>Close mappings: GDC.Slide.percent_granulocyte_infiltration</li>
@@ -329,7 +329,7 @@
 </ul>
 </li>
 <li><a href="../specimen__morphology_pathologically_confirmed/">➞morphology_pathologically_confirmed</a>  <sub>0..1</sub><ul>
-<li>Description: A flag indicating whether the histologic assessment of specific morphology was confirmed by a pathologist review</li>
+<li>Description: A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review.</li>
 <li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
 <li>Exact mapping: GDC.Sample.diagnosis_pathologically_confirmed</li>
 <li>Exact mapping: PDC.Sample.diagnosis_pathologically_confirmed</li>
@@ -353,7 +353,7 @@
 </ul>
 </li>
 <li><a href="../specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a>  <sub>0..1</sub><ul>
-<li>Description: A term describing the pathology exhibited by a pre-invasive tissue in a specimen.</li>
+<li>Description: A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen.</li>
 <li>range: <a href="../CCDH_Specimen_preinvasive_tissue_morphology/">CCDH_Specimen_preinvasive_tissue_morphology</a></li>
 <li>Exact mapping: HTAN.Biospecimen.PreinvasiveMorphology</li>
 </ul>
@@ -382,7 +382,7 @@
 </li>
 <li><a href="../specimen__quality_measure/">➞quality_measure</a>  <sub>0..*</sub><ul>
 <li>Description: An observation about characteristics of a specimen that are indicative of its quality or suitability for use.</li>
-<li>range: <a href="../Observation/">Observation</a></li>
+<li>range: <a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></li>
 <li>Close mappings: GDC.Analyte.a260_a280_ratio</li>
 <li>Close mappings: GDC.Analyte.ribosomal_rna_28s_16s_ratio</li>
 <li>Close mappings: PDC.Analyte.a260_a280_ratio</li>
@@ -390,7 +390,7 @@
 </ul>
 </li>
 <li><a href="../specimen__quantity_measure/">➞quantity_measure</a>  <sub>0..*</sub><ul>
-<li>Description: An observation related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.</li>
+<li>Description: An observation related to the present quantity of a specimen - e.g. its weight, volume, or analyte concentration.</li>
 <li>range: <a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></li>
 <li>Close mappings: GDC.Sample.current_weight</li>
 <li>Close mappings: GDC.Aliquot.amount</li>
@@ -422,7 +422,7 @@
 </li>
 <li><a href="../specimen__related_document/">➞related_document
 </a>  <sub>0..*</sub><ul>
-<li>Description: A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected, or a catalog entry describing  related research resource)</li>
+<li>Description: A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected)</li>
 <li>range: <a href="../Document/">Document</a></li>
 <li>Close mappings: GDC.Sample.pathology_report_uuid</li>
 <li>Close mappings: PDC.Sample.pathology_report_uuid</li>
@@ -437,7 +437,7 @@
 </ul>
 </li>
 <li><a href="../specimen__source_material_type/">➞source_material_type</a>  <sub>0..1</sub><ul>
-<li>Description: The general kind of material from which the specimen was derived, based on the physical nature of the source material.</li>
+<li>Description: The general kind of material from which the specimen was derived.</li>
 <li>range: <a href="../CCDH_Specimen_source_material_type/">CCDH_Specimen_source_material_type</a></li>
 <li>Examples: Tissue, Blood, Tumor Aspirate, Cell Line, Expanded Next Generation Cancer Model, Pleural Effusion, Xenograft Tissue</li>
 <li>Exact mapping: GDC.Sample.sample_type</li>
@@ -449,7 +449,7 @@
 </ul>
 </li>
 <li><a href="../specimen__source_model_system/">➞source_model_system</a>  <sub>0..1</sub><ul>
-<li>Description: A model biological system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
+<li>Description: A biological model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 <li>Exact mapping: PDC.Sample.Case</li>
 <li>Exact mapping: GDC.Sample.derived_from</li>
@@ -458,7 +458,7 @@
 </ul>
 </li>
 <li><a href="../specimen__source_subject/">➞source_subject</a>  <sub>0..1</sub><ul>
-<li>Description: A Subject from which the specimen was directly or indirectly derived.</li>
+<li>Description: A specific Subject from which the specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
 <li>Exact mapping: PDC.Sample.Case</li>
 <li>Exact mapping: GDC.Sample.derived_from</li>
@@ -467,7 +467,7 @@
 </ul>
 </li>
 <li><a href="../specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a>  <sub>0..1</sub><ul>
-<li>Description: A term describing the specific pathology exhibited by the tissue in a specimen.</li>
+<li>Description: A term describing the specific pathology exhibited by the tissue comprising a specimen.</li>
 <li>range: <a href="../CCDH_Specimen_specific_tissue_morphology/">CCDH_Specimen_specific_tissue_morphology</a></li>
 <li>Examples: Non cancerous tissue, Lung Cancer (all types), CNS, medulloblastoma, 00, 01, 02, Melanocytic hyperplasia, Atypical melanocytic proliferation, Melanoma in situ, superficial spreading</li>
 <li>Exact mapping: GDC.Sample.tumor_code</li>
@@ -496,14 +496,14 @@
 <li>Close mappings: ICDC.Sample</li>
 </ul>
 </li>
-<li><a href="../specimen__storage_activity/">➞storage_activity</a>  <sub>0..1</sub><ul>
+<li><a href="../specimen__storage_activity/">➞storage_activity</a>  <sub>0..*</sub><ul>
 <li>Description: An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.</li>
 <li>range: <a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></li>
 <li>Close mappings: GDC.Case.processed_at</li>
 <li>Close mappings: HTAN.Biospecimen.StorageMethod</li>
 </ul>
 </li>
-<li><a href="../specimen__transport_activity/">➞transport_activity</a>  <sub>0..1</sub><ul>
+<li><a href="../specimen__transport_activity/">➞transport_activity</a>  <sub>0..*</sub><ul>
 <li>Description: An activity through which the specimen is transported between locations.</li>
 <li>range: <a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></li>
 <li>Close mappings: GDC.Case.processed_at</li>

@@ -89,7 +89,7 @@
             <div class="section">
               
                 <h1 id="class-specimencontainer">Class: SpecimenContainer</h1>
-<p>A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)</p>
+<p>A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenContainer">ccdh:SpecimenContainer</a></p>
 <p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenContainer]&lt;parent_container%200..*-++[SpecimenContainer&#124;id:ccdh_string%20%3F;container_type:CCDH_SpecimenContainer_container_type%20%3F;container_number:ccdh_string%20%3F;charge_type:CCDH_SpecimenContainer_charge_type%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[SpecimenStorageActivity],[Specimen],[Identifier],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
@@ -106,28 +106,28 @@
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../specimenContainer__additive/">➞additive</a>  <sub>0..*</sub><ul>
-<li>Description: A material substance added to the container (typically to support the primary object contained)</li>
+<li>Description: A material substance added to the container (typically to support the primary contained object - e.g. culture media to support cell growth)</li>
 <li>range: <a href="../Substance/">Substance</a></li>
 <li>Examples: DMEM, DMEM+Serum, RPMI, RPMI+Serum</li>
 <li>Exact mapping: HTAN.Biospecimen.CollectionMedia</li>
 </ul>
 </li>
 <li><a href="../specimenContainer__charge_type/">➞charge_type</a>  <sub>0..1</sub><ul>
-<li>Description: A descripton of the type of charge on a slide on which a specimen is mounted</li>
+<li>Description: The type of charge on the surface of a container (e.g. a slide on which a specimen is mounted).</li>
 <li>range: <a href="../CCDH_SpecimenContainer_charge_type/">CCDH_SpecimenContainer_charge_type</a></li>
 <li>Examples: Uncharged, Charged, Other</li>
 <li>Exact mapping: GDC.Slide.charge_type</li>
 </ul>
 </li>
 <li><a href="../specimenContainer__container_number/">➞container_number</a>  <sub>0..1</sub><ul>
-<li>Description: Informal number/identifier by which the container is referenced (e.g. a slide number, or a well number in a plate)</li>
+<li>Description: Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 <li>Exact mapping: GDC.Analyte.well_number</li>
 <li>Exact mapping: PDC.Analyte.well_number</li>
 </ul>
 </li>
 <li><a href="../specimenContainer__container_type/">➞container_type</a>  <sub>0..1</sub><ul>
-<li>Description: The kind of container associated with the specimen.</li>
+<li>Description: The kind of the container.</li>
 <li>range: <a href="../CCDH_SpecimenContainer_container_type/">CCDH_SpecimenContainer_container_type</a></li>
 <li>Examples: Capillary blood collection tube, Sputum specimen container, Cell culture flask, Glass slide</li>
 </ul>
@@ -143,7 +143,7 @@
 </ul>
 </li>
 <li><a href="../specimenContainer__parent_container/">➞parent_container</a>  <sub>0..*</sub><ul>
-<li>Description: A larger container of which this container is a part (e.g. a single well in a 96-well plate)</li>
+<li>Description: A larger container of which this container is a part (e.g. the complete 96-well plate of whihc a single well is a part)</li>
 <li>range: <a href="./">SpecimenContainer</a></li>
 </ul>
 </li>
