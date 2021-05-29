@@ -178,7 +178,7 @@ class Enum(ModelElement):
 
         # Basic metadata
         enum = EnumDefinition(
-            name=self.name,
+            name=self.fixed_name,
             description=(self.enum_row.get("Description") or '').strip()
         )
 
