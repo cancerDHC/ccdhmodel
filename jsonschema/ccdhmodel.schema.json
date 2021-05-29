@@ -497,6 +497,10 @@
                },
                "type": "array"
             },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The subject of this diagnosis."
+            },
             "supporting_observations": {
                "items": {
                   "$ref": "#/definitions/Observation"
@@ -556,6 +560,52 @@
             "valueQuantity"
          ],
          "title": "DimensionalObservation",
+         "type": "object"
+      },
+      "DimensionalObservationSet": {
+         "additionalProperties": false,
+         "description": "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
+               "items": {
+                  "$ref": "#/definitions/DimensionalObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [],
+         "title": "DimensionalObservationSet",
          "type": "object"
       },
       "Document": {
@@ -824,6 +874,55 @@
          "title": "Observation",
          "type": "object"
       },
+      "ObservationSet": {
+         "additionalProperties": false,
+         "description": "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
+               "items": {
+                  "$ref": "#/definitions/Observation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [
+            "id",
+            "category"
+         ],
+         "title": "ObservationSet",
+         "type": "object"
+      },
       "Organization": {
          "additionalProperties": false,
          "description": "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university",
@@ -1043,27 +1142,27 @@
                "description": "The Project associated with the specimen."
             },
             "cellular_composition_type": {
-               "description": "A term describing the type of material comprising a specimen at a celluar level.",
+               "description": "A term describing the type of cell or cellular material comprising a specimen.",
                "type": "string"
             },
             "contained_in": {
                "$ref": "#/definitions/SpecimenContainer",
-               "description": "A physical container in which a specimen is held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)"
+               "description": "A physical container in which a specimen is presently held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)"
             },
             "creation_activity": {
                "$ref": "#/definitions/SpecimenCreationActivity",
-               "description": "An activity or procedure through which a specimen was created, through removing material from an biological subject, or deriving material from an existing specimen."
+               "description": "The activity through which a specimen was created, by removing material from an biological subject, or deriving material from an existing specimen."
             },
             "data_provider": {
                "$ref": "#/definitions/Organization",
-               "description": "The organization/center that provided data associated with a specimen."
+               "description": "The organization (e.g.a laboratory, processing center, or research site) that provided data associated with a specimen."
             },
             "degree_of_dysplasia": {
                "description": "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.",
                "type": "string"
             },
             "derived_product": {
-               "description": "A 'living' biologically active product (e.g. a cell culture, tissue culture, or organoid) that was generated from the specimen",
+               "description": "A 'living' biologically active product that was derived from the specimen (e.g. a cell culture, tissue culture, or organoid)",
                "items": {
                   "$ref": "#/definitions/BiologicProduct"
                },
@@ -1074,25 +1173,25 @@
                "type": "string"
             },
             "dimensional_measure": {
-               "$ref": "#/definitions/Entity",
-               "description": "An observation about the dimensions of an object, including lengths, areas, and volumes."
+               "$ref": "#/definitions/DimensionalObservationSet",
+               "description": "A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area)."
             },
             "distance_from_paired_specimen": {
                "$ref": "#/definitions/Quantity",
-               "description": "The observed distance of the specimen from a 'paired specimen' in the body at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)"
+               "description": "The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)"
             },
             "dysplasia_fraction": {
                "description": "Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.",
                "type": "string"
             },
             "general_tissue_morphology": {
-               "description": "A term describing at a high-level the kind of tissue collected in a specimen, with respect to disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).",
+               "description": "The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).",
                "type": "string"
             },
             "histological_composition_measure": {
-               "description": "An observation that quantifies the relative or absolute composition of a specimen at cellular level, - i.e. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype. This information is typically determined through microscopic analysis of a slide.",
+               "description": "A set of one or more observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/ObservationSet"
                },
                "type": "array"
             },
@@ -1116,7 +1215,7 @@
                "type": "string"
             },
             "morphology_pathologically_confirmed": {
-               "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by a pathologist review",
+               "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review.",
                "type": "boolean"
             },
             "parent_specimen": {
@@ -1127,7 +1226,7 @@
                "type": "array"
             },
             "preinvasive_tissue_morphology": {
-               "description": "A term describing the pathology exhibited by a pre-invasive tissue in a specimen.",
+               "description": "A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen.",
                "type": "string"
             },
             "processing_activity": {
@@ -1140,19 +1239,19 @@
             "quality_measure": {
                "description": "An observation about characteristics of a specimen that are indicative of its quality or suitability for use.",
                "items": {
-                  "$ref": "#/definitions/Observation"
+                  "$ref": "#/definitions/SpecimenQualityObservation"
                },
                "type": "array"
             },
             "quantity_measure": {
-               "description": "An observation related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.",
+               "description": "An observation related to the present quantity of a specimen - e.g. its weight, volume, or analyte concentration.",
                "items": {
                   "$ref": "#/definitions/SpecimenQuantityObservation"
                },
                "type": "array"
             },
             "related_document": {
-               "description": "A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected, or a catalog entry describing  related research resource)",
+               "description": "A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected)",
                "items": {
                   "$ref": "#/definitions/Document"
                },
@@ -1163,19 +1262,19 @@
                "type": "string"
             },
             "source_material_type": {
-               "description": "The general kind of material from which the specimen was derived, based on the physical nature of the source material.",
+               "description": "The general kind of material from which the specimen was derived.",
                "type": "string"
             },
             "source_model_system": {
                "$ref": "#/definitions/Entity",
-               "description": "A model biological system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived."
+               "description": "A biological model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived."
             },
             "source_subject": {
                "$ref": "#/definitions/Subject",
-               "description": "A Subject from which the specimen was directly or indirectly derived."
+               "description": "A specific Subject from which the specimen was directly or indirectly derived."
             },
             "specific_tissue_morphology": {
-               "description": "A term describing the specific pathology exhibited by the tissue in a specimen.",
+               "description": "A term describing the specific pathology exhibited by the tissue comprising a specimen.",
                "type": "string"
             },
             "specimen_type": {
@@ -1183,12 +1282,18 @@
                "type": "string"
             },
             "storage_activity": {
-               "$ref": "#/definitions/SpecimenStorageActivity",
-               "description": "An activity that results in the storage or maintenance of a specimen in a particular location, container, or state."
+               "description": "An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenStorageActivity"
+               },
+               "type": "array"
             },
             "transport_activity": {
-               "$ref": "#/definitions/SpecimenTransportActivity",
-               "description": "An activity through which the specimen is transported between locations."
+               "description": "An activity through which the specimen is transported between locations.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenTransportActivity"
+               },
+               "type": "array"
             },
             "tumor_status_at_collection": {
                "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).",
@@ -1201,25 +1306,25 @@
       },
       "SpecimenContainer": {
          "additionalProperties": false,
-         "description": "A vessel in which a specimen is held or attached - to store or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)",
+         "description": "A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)",
          "properties": {
             "additive": {
-               "description": "A material substance added to the container (typically to support the primary object contained)",
+               "description": "A material substance added to the container (typically to support the primary contained object - e.g. culture media to support cell growth)",
                "items": {
                   "$ref": "#/definitions/Substance"
                },
                "type": "array"
             },
             "charge_type": {
-               "description": "A descripton of the type of charge on a slide on which a specimen is mounted",
+               "description": "The type of charge on the surface of a container (e.g. a slide on which a specimen is mounted).",
                "type": "string"
             },
             "container_number": {
-               "description": "Informal number/identifier by which the container is referenced (e.g. a slide number, or a well number in a plate)",
+               "description": "Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)",
                "type": "string"
             },
             "container_type": {
-               "description": "The kind of container associated with the specimen.",
+               "description": "The kind of the container.",
                "type": "string"
             },
             "id": {
@@ -1234,7 +1339,7 @@
                "type": "array"
             },
             "parent_container": {
-               "description": "A larger container of which this container is a part (e.g. a single well in a 96-well plate)",
+               "description": "A larger container of which this container is a part (e.g. the complete 96-well plate of whihc a single well is a part)",
                "items": {
                   "$ref": "#/definitions/SpecimenContainer"
                },
@@ -1247,26 +1352,26 @@
       },
       "SpecimenCreationActivity": {
          "additionalProperties": false,
-         "description": "The process of creating a specimen through observing and/or removing material from an biological source or natural setting (e.g. from a person, animal, cell line, or environmental material), or through derivation from an existing specimen (e.g. through portioning or aliquoting). This activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.",
+         "description": "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting).",
          "properties": {
             "activity_type": {
-               "description": "The high-level type of creation activity",
+               "description": "The high-level type of creation activity.",
                "type": "string"
             },
             "additive": {
-               "description": "A type of material or reagent used as input when creating the specimen",
+               "description": "A type of material or reagent used applied as input when creating a specimen.",
                "items": {
                   "$ref": "#/definitions/Substance"
                },
                "type": "array"
             },
             "collection_method_type": {
-               "description": "A type of method followed in collecting a sample from its original source.",
+               "description": "The type of method applied in collecting a sample from its original source.",
                "type": "string"
             },
             "collection_site": {
                "$ref": "#/definitions/BodySite",
-               "description": "A data container holding information about the anatomic source of a specimen, including its location in the body, and the approach route used to access it."
+               "description": "The anatomic site from which a specimen was collected."
             },
             "date_ended": {
                "$ref": "#/definitions/TimePoint",
@@ -1277,11 +1382,11 @@
                "description": "The date when the activity began (in this case, a specimen creation event)."
             },
             "derivation_method_type": {
-               "description": "A type of method followed in deriving new specimens from an existing one.",
+               "description": "The type of method applied to derive a new specimen from an existing one.",
                "type": "string"
             },
             "execution_observation": {
-               "description": "Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
+               "description": "An observation or measurement that describes how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
                "items": {
                   "$ref": "#/definitions/Observation"
                },
@@ -1296,8 +1401,8 @@
                "description": "The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)"
             },
             "specimen_order": {
-               "description": "A numeric value that represents the sequential order of this creation activity relative to that of creation of other specimens from the same source material or parent specimen.",
-               "type": "string"
+               "description": "A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen.",
+               "type": "integer"
             }
          },
          "required": [],
@@ -1352,6 +1457,75 @@
          },
          "required": [],
          "title": "SpecimenProcessingActivity",
+         "type": "object"
+      },
+      "SpecimenQualityObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type"
+         ],
+         "title": "SpecimenQualityObservation",
          "type": "object"
       },
       "SpecimenQuantityObservation": {
@@ -1643,6 +1817,10 @@
                "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
                "type": "string"
             },
+            "indexTimePoint": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "Another TimePoint from which this point is offset."
+            },
             "offsetFromIndex": {
                "$ref": "#/definitions/Quantity",
                "description": "A quantity of time that, together with the index date or event, can be used to derive a specific timepoint."
@@ -1727,21 +1905,10 @@
          "additionalProperties": false,
          "description": "Represent medication administration or other treatment types.",
          "properties": {
-            "anatomic_site": {
-               "$ref": "#/definitions/BodySite",
-               "description": "The anatomical site that the treatment targets."
-            },
             "concurrent_treatment": {
                "description": "The treatment(s) instance(s) that are concurrent with this treatment.",
                "items": {
                   "$ref": "#/definitions/Treatment"
-               },
-               "type": "array"
-            },
-            "concurrent_treatment_type": {
-               "description": "The type(s) of treatment(s) that are concurrent to this treatment.",
-               "items": {
-                  "type": "string"
                },
                "type": "array"
             },
@@ -1753,58 +1920,68 @@
                "$ref": "#/definitions/TimePoint",
                "description": "The timepoint at which the treatment started."
             },
-            "effect": {
+            "id": {
+               "description": "See common attribute descriptions sheet.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "See common attribute  descriptions sheet.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "number_of_cycles": {
+               "description": "The number of treatment cycles the patient received.",
+               "type": "integer"
+            },
+            "regimen": {
+               "description": "The regimen or line of therapy",
+               "type": "string"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The subject of this treatment"
+            },
+            "therapeutic_agent": {
+               "$ref": "#/definitions/Substance",
+               "description": "One or more theraputic agents as part of this treatment."
+            },
+            "treatment_anatomic_site": {
+               "$ref": "#/definitions/BodySite",
+               "description": "The anatomical site that the treatment targets."
+            },
+            "treatment_effect": {
                "description": "The effect of a treatment on the diagnosis or tumor.",
                "type": "string"
             },
-            "end_reason": {
+            "treatment_end_reason": {
+               "description": "The reason the treatment ended",
                "items": {
                   "type": "string"
                },
                "type": "array"
             },
-            "for_diagnosis": {
+            "treatment_for_diagnosis": {
                "description": "The diagnosis for which this treatement is intended for.",
                "items": {
                   "$ref": "#/definitions/Diagnosis"
                },
                "type": "array"
             },
-            "id": {
-               "description": "See common descriptions sheet.",
+            "treatment_frequency": {
+               "description": "A term to describe the frequency of using the substance described by this instance.",
                "type": "string"
             },
-            "identifier": {
-               "description": "See common descriptions sheet.",
-               "items": {
-                  "$ref": "#/definitions/Identifier"
-               },
-               "type": "array"
-            },
-            "intent": {
+            "treatment_intent": {
                "description": "The intent of the treatment.",
                "type": "string"
             },
-            "number_of_cycles": {
-               "description": "The number of treatment cycles the patient received.",
-               "type": "integer"
-            },
-            "outcome": {
+            "treatment_outcome": {
                "description": "The final outcome of the treatment.",
                "type": "string"
             },
-            "regimen": {
-               "description": "The regimen or line of therapy",
-               "type": "string"
-            },
-            "therapeutic_agent": {
-               "description": "One or more theraputic agents as part of this treatment.",
-               "items": {
-                  "$ref": "#/definitions/Substance"
-               },
-               "type": "array"
-            },
-            "type": {
+            "treatment_type": {
                "description": "The treatment type including medication/theraputics or other procedures.",
                "type": "string"
             }

@@ -112,6 +112,7 @@ type Diagnosis
   {
     id: CcdhString
     identifier: [Identifier]
+    subject: Subject
     ageAtDiagnosis: Quantity
     yearAtDiagnosis: CcdhInteger
     condition: CCDHDiagnosisCondition
@@ -136,6 +137,17 @@ type DimensionalObservation
     focus: [Entity]
     subject: Subject
     valueQuantity: Quantity!
+  }
+
+type DimensionalObservationSet
+  {
+    id: CcdhString
+    category: CCDHDimensionalObservationSetCategory
+    focus: [Entity]
+    subject: Subject
+    methodType: [CCDHDimensionalObservationSetMethodType]
+    performedBy: Organization
+    observations: [DimensionalObservation]
   }
 
 type Document
@@ -207,6 +219,17 @@ type Observation
     valueCodeableConcept: CCDHObservationValueCodeableConcept
   }
 
+type ObservationSet
+  {
+    id: CcdhString!
+    category: CCDHObservationSetCategory!
+    focus: [Entity]
+    subject: Subject
+    methodType: [CCDHObservationSetMethodType]
+    performedBy: Organization
+    observations: [Observation]
+  }
+
 type Organization
   {
     id: CcdhString!
@@ -273,14 +296,14 @@ type Specimen
     tumorStatusAtCollection: CCDHSpecimenTumorStatusAtCollection
     creationActivity: SpecimenCreationActivity
     processingActivity: [SpecimenProcessingActivity]
-    storageActivity: SpecimenStorageActivity
-    transportActivity: SpecimenTransportActivity
+    storageActivity: [SpecimenStorageActivity]
+    transportActivity: [SpecimenTransportActivity]
     containedIn: SpecimenContainer
-    dimensionalMeasure: Entity
+    dimensionalMeasure: DimensionalObservationSet
     quantityMeasure: [SpecimenQuantityObservation]
-    qualityMeasure: [Observation]
+    qualityMeasure: [SpecimenQualityObservation]
     cellularCompositionType: CCDHSpecimenCellularCompositionType
-    histologicalCompositionMeasure: [Entity]
+    histologicalCompositionMeasure: [ObservationSet]
     generalTissueMorphology: CCDHSpecimenGeneralTissueMorphology
     specificTissueMorphology: CCDHSpecimenSpecificTissueMorphology
     preinvasiveTissueMorphology: CCDHSpecimenPreinvasiveTissueMorphology
@@ -318,7 +341,7 @@ type SpecimenCreationActivity
     collectionSite: BodySite
     quantityCollected: Quantity
     executionObservation: [Observation]
-    specimenOrder: CcdhString
+    specimenOrder: CcdhInteger
   }
 
 type SpecimenProcessingActivity
@@ -331,6 +354,23 @@ type SpecimenProcessingActivity
     methodType: CCDHSpecimenProcessingActivityMethodType
     additive: [Substance]
     executionObservation: [Entity]
+  }
+
+type SpecimenQualityObservation
+  {
+    id: CcdhString
+    category: CCDHSpecimenQualityObservationCategory
+    observationType: CCDHSpecimenQualityObservationObservationType!
+    methodType: [CCDHSpecimenQualityObservationMethodType]
+    focus: [Entity]
+    subject: Subject
+    performedBy: Organization
+    valueEntity: Entity
+    valueString: CcdhString
+    valueInteger: CcdhDecimal
+    valueDecimal: CcdhDecimal
+    valueBoolean: CcdhBoolean
+    valueDateTime: CcdhDateTime
   }
 
 type SpecimenQuantityObservation
@@ -407,6 +447,7 @@ type TimePoint
   {
     id: CcdhString
     dateTime: CcdhDateTime
+    indexTimePoint: TimePoint
     offsetFromIndex: Quantity
     eventType: [CCDHTimePointEventType]
   }
@@ -432,22 +473,23 @@ type TobaccoExposureObservation
 
 type Treatment
   {
-    forDiagnosis: [Diagnosis]
-    id: CcdhString
-    identifier: [Identifier]
-    regimen: CcdhString
-    type: CCDHTreatmentType
-    therapeuticAgent: [Substance]
+    treatmentForDiagnosis: [Diagnosis]
+    subject: Subject
     dateStarted: TimePoint
     dateEnded: TimePoint
-    endReason: [CcdhString]
-    anatomicSite: BodySite
-    effect: CcdhString
-    intent: CcdhString
-    outcome: CcdhString
-    numberOfCycles: CcdhInteger
-    concurrentTreatmentType: [CcdhString]
+    id: CcdhString
+    identifier: [Identifier]
+    regimen: CCDHTreatmentRegimen
+    therapeuticAgent: Substance
+    treatmentAnatomicSite: BodySite
+    treatmentEffect: CCDHTreatmentTreatmentEffect
+    treatmentIntent: CCDHTreatmentTreatmentIntent
+    treatmentOutcome: CCDHTreatmentTreatmentOutcome
+    treatmentType: CCDHTreatmentTreatmentType
+    treatmentFrequency: CCDHTreatmentTreatmentFrequency
     concurrentTreatment: [Treatment]
+    numberOfCycles: CcdhInteger
+    treatmentEndReason: [CCDHTreatmentTreatmentEndReason]
   }
 
 
