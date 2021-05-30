@@ -309,13 +309,17 @@ class Attribute:
 
         # Look up enumerations on the Terminology Service.
         enum_info = self.terminology_service.get_enum_values_for_field(self.full_name)
-        permissible_values = []
+        permissible_values = {}
         for pv in enum_info.get('permissible_values', []):
-            permissible_values.append(PermissibleValue(
-                text=pv.get('text'),
-                description=pv.get('description'),
-                meaning=pv.get('meaning')
-            ))
+            text = pv.get('text')
+            if text in permissible_values.keys():
+                logging.warning(f"Duplicate permissible value text: {text} in {pv} was previously assigned to {permissible_values[text]}")
+            else:
+                permissible_values[text] = PermissibleValue(
+                    text=text,
+                    description=pv.get('description'),
+                    meaning=pv.get('meaning')
+                )
 
         return EnumDefinition(
             name=Enum.fix_enum_name(self.full_name),
@@ -323,7 +327,7 @@ class Attribute:
             code_set_version=enum_info.get("last_updated", ""),
             comments=f'Name according to TCCM: "{enum_info.get("name", "")}"',
             description=enum_info.get("description"),
-            permissible_values=permissible_values
+            permissible_values=list(permissible_values.values())
         )
 
     def as_linkml(self, root_uri) -> SlotDefinition:
