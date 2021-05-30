@@ -103,19 +103,19 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
+<li><a href="../dimensionalObservation__id/">➞id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
 <li><a href="../dimensionalObservation__category/">➞category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
 <li>range: <a href="../CCDH_DimensionalObservation_category/">CCDH_DimensionalObservation_category</a></li>
 </ul>
 </li>
-<li><a href="../dimensionalObservation__focus/">➞focus</a>  <sub>0..*</sub><ul>
-<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
-<li><a href="../dimensionalObservation__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li><a href="../dimensionalObservation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
+<li>Description: The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.</li>
+<li>range: <a href="../CCDH_DimensionalObservation_observation_type/">CCDH_DimensionalObservation_observation_type</a></li>
 </ul>
 </li>
 <li><a href="../dimensionalObservation__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
@@ -123,9 +123,9 @@
 <li>range: <a href="../CCDH_DimensionalObservation_method_type/">CCDH_DimensionalObservation_method_type</a></li>
 </ul>
 </li>
-<li><a href="../dimensionalObservation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
-<li>Description: The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.</li>
-<li>range: <a href="../CCDH_DimensionalObservation_observation_type/">CCDH_DimensionalObservation_observation_type</a></li>
+<li><a href="../dimensionalObservation__focus/">➞focus</a>  <sub>0..*</sub><ul>
+<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../dimensionalObservation__subject/">➞subject</a>  <sub>0..1</sub><ul>

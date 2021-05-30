@@ -106,19 +106,6 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../substance__role/">➞role</a>  <sub>0..*</sub><ul>
-<li>Description: A role played by the subtance in a particular applicaton (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)</li>
-<li>range: <a href="../CCDH_Substance_role/">CCDH_Substance_role</a></li>
-<li>Examples: lysis buffer, fixative, mounting medium, collection media</li>
-</ul>
-</li>
-<li><a href="../substance__substance_quantity/">➞substance_quantity</a>  <sub>0..1</sub><ul>
-<li>Description: The quantity of substance this instance stands for.</li>
-<li>range: <a href="../Quantity/">Quantity</a></li>
-<li>Exact mapping: GDC:Treatment.treatment_dose</li>
-<li>Exact mapping: GDC:Treatment.treatment_dose_unit</li>
-</ul>
-</li>
 <li><a href="../substance__substance_type/">➞substance_type</a>  <sub>0..1</sub><ul>
 <li>Description: The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds.</li>
 <li>range: <a href="../CCDH_Substance_substance_type/">CCDH_Substance_substance_type</a></li>
@@ -131,6 +118,19 @@
 <li>Exact mapping: HTAN:Biospecimen.CollectionMedia</li>
 <li>Exact mapping: GDC:Treatment.therapeutic_agents</li>
 <li>Exact mapping: PDC:Treatment.therapeutic_agents</li>
+</ul>
+</li>
+<li><a href="../substance__role/">➞role</a>  <sub>0..*</sub><ul>
+<li>Description: A role played by the subtance in a particular applicaton (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)</li>
+<li>range: <a href="../CCDH_Substance_role/">CCDH_Substance_role</a></li>
+<li>Examples: lysis buffer, fixative, mounting medium, collection media</li>
+</ul>
+</li>
+<li><a href="../substance__substance_quantity/">➞substance_quantity</a>  <sub>0..1</sub><ul>
+<li>Description: The quantity of substance this instance stands for.</li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
+<li>Exact mapping: GDC:Treatment.treatment_dose</li>
+<li>Exact mapping: GDC:Treatment.treatment_dose_unit</li>
 </ul>
 </li>
 </ul>

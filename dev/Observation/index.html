@@ -105,28 +105,15 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../observation__category/">➞category</a>  <sub>0..1</sub><ul>
-<li>Description: The general category of observation described</li>
-<li>range: <a href="../CCDH_Observation_category/">CCDH_Observation_category</a></li>
-<li>Examples: DimensionMeasure, TissueCompositionMeasure, SpecimenQualityMeasure, CellularCompositionMeasure, TobbaccoExposureMeasure</li>
-</ul>
-</li>
-<li><a href="../observation__focus/">➞focus</a>  <sub>0..*</sub><ul>
-<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
 <li><a href="../observation__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../observation__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
-<li>Description: A type of method used in generating the Observation result.</li>
-<li>range: <a href="../CCDH_Observation_method_type/">CCDH_Observation_method_type</a></li>
-<li>Exact mapping: GDC:Analyte.spectrophotometer_method</li>
-<li>Exact mapping: PDC:Analyte.spectrophotometer_method</li>
-<li>Related mapping: HTAN:Biospecimen.HistologyAssessmentMedium</li>
+<li><a href="../observation__category/">➞category</a>  <sub>0..1</sub><ul>
+<li>Description: The general category of observation described</li>
+<li>range: <a href="../CCDH_Observation_category/">CCDH_Observation_category</a></li>
+<li>Examples: DimensionMeasure, TissueCompositionMeasure, SpecimenQualityMeasure, CellularCompositionMeasure, TobbaccoExposureMeasure</li>
 </ul>
 </li>
 <li><a href="../observation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
@@ -135,9 +122,17 @@
 <li>Examples: tumor_tissue_area, percentage_stroma, a260_a280_ratio, width_of_tumor, time_between_excision_and_freezing</li>
 </ul>
 </li>
-<li><a href="../observation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
-<li>Description: The organization or group that performed the observation activity.</li>
-<li>range: <a href="../Organization/">Organization</a></li>
+<li><a href="../observation__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
+<li>Description: A type of method used in generating the Observation result.</li>
+<li>range: <a href="../CCDH_Observation_method_type/">CCDH_Observation_method_type</a></li>
+<li>Exact mapping: GDC:Analyte.spectrophotometer_method</li>
+<li>Exact mapping: PDC:Analyte.spectrophotometer_method</li>
+<li>Exact mapping: HTAN:Biospecimen.HistologyAssessmentMedium</li>
+</ul>
+</li>
+<li><a href="../observation__focus/">➞focus</a>  <sub>0..*</sub><ul>
+<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../observation__subject/">➞subject</a>  <sub>0..1</sub><ul>
@@ -145,24 +140,9 @@
 <li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
-<li><a href="../observation__valueBoolean/">➞valueBoolean</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a boolean.</li>
-<li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
-</ul>
-</li>
-<li><a href="../observation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a CodeableConcept.</li>
-<li>range: <a href="../CCDH_Observation_valueCodeableConcept/">CCDH_Observation_valueCodeableConcept</a></li>
-</ul>
-</li>
-<li><a href="../observation__valueDateTime/">➞valueDateTime</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a dateTime.</li>
-<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
-</ul>
-</li>
-<li><a href="../observation__valueDecimal/">➞valueDecimal</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a decimal.</li>
-<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
+<li><a href="../observation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the observation activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
 <li><a href="../observation__valueEntity/">➞valueEntity</a>  <sub>0..1</sub><ul>
@@ -170,9 +150,29 @@
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
+<li><a href="../observation__valueString/">➞valueString</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a free-text string.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
 <li><a href="../observation__valueInteger/">➞valueInteger</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a decimal.</li>
 <li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueDecimal/">➞valueDecimal</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueBoolean/">➞valueBoolean</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a boolean.</li>
+<li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
+</ul>
+</li>
+<li><a href="../observation__valueDateTime/">➞valueDateTime</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a dateTime.</li>
+<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
 </ul>
 </li>
 <li><a href="../observation__valueQuantity/">➞valueQuantity</a>  <sub>0..1</sub><ul>
@@ -180,9 +180,9 @@
 <li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
-<li><a href="../observation__valueString/">➞valueString</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a free-text string.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li><a href="../observation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a CodeableConcept.</li>
+<li>range: <a href="../CCDH_Observation_valueCodeableConcept/">CCDH_Observation_valueCodeableConcept</a></li>
 </ul>
 </li>
 </ul>

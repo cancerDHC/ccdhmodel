@@ -103,24 +103,14 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../specimenQualityObservation__category/">➞category</a>  <sub>0..1</sub><ul>
-<li>Description: The general category of observation described</li>
-<li>range: <a href="../CCDH_SpecimenQualityObservation_category/">CCDH_SpecimenQualityObservation_category</a></li>
-</ul>
-</li>
-<li><a href="../specimenQualityObservation__focus/">➞focus</a>  <sub>0..*</sub><ul>
-<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
 <li><a href="../specimenQualityObservation__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../specimenQualityObservation__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
-<li>Description: A type of method used in generating the Observation result.</li>
-<li>range: <a href="../CCDH_SpecimenQualityObservation_method_type/">CCDH_SpecimenQualityObservation_method_type</a></li>
+<li><a href="../specimenQualityObservation__category/">➞category</a>  <sub>0..1</sub><ul>
+<li>Description: The general category of observation described</li>
+<li>range: <a href="../CCDH_SpecimenQualityObservation_category/">CCDH_SpecimenQualityObservation_category</a></li>
 </ul>
 </li>
 <li><a href="../specimenQualityObservation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
@@ -128,14 +118,44 @@
 <li>range: <a href="../CCDH_SpecimenQualityObservation_observation_type/">CCDH_SpecimenQualityObservation_observation_type</a></li>
 </ul>
 </li>
-<li><a href="../specimenQualityObservation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
-<li>Description: The organization or group that performed the observation activity.</li>
-<li>range: <a href="../Organization/">Organization</a></li>
+<li><a href="../specimenQualityObservation__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
+<li>Description: A type of method used in generating the Observation result.</li>
+<li>range: <a href="../CCDH_SpecimenQualityObservation_method_type/">CCDH_SpecimenQualityObservation_method_type</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__focus/">➞focus</a>  <sub>0..*</sub><ul>
+<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimenQualityObservation__subject/">➞subject</a>  <sub>0..1</sub><ul>
 <li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the observation activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueEntity/">➞valueEntity</a>  <sub>0..1</sub><ul>
+<li>Description: The value of an observation</li>
+<li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueString/">➞valueString</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a free-text string.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueInteger/">➞valueInteger</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueDecimal/">➞valueDecimal</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
 </ul>
 </li>
 <li><a href="../specimenQualityObservation__valueBoolean/">➞valueBoolean</a>  <sub>0..1</sub><ul>
@@ -146,26 +166,6 @@
 <li><a href="../specimenQualityObservation__valueDateTime/">➞valueDateTime</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a dateTime.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
-</ul>
-</li>
-<li><a href="../specimenQualityObservation__valueDecimal/">➞valueDecimal</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a decimal.</li>
-<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
-</ul>
-</li>
-<li><a href="../specimenQualityObservation__valueEntity/">➞valueEntity</a>  <sub>0..1</sub><ul>
-<li>Description: The value of an observation</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
-<li><a href="../specimenQualityObservation__valueInteger/">➞valueInteger</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a decimal.</li>
-<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
-</ul>
-</li>
-<li><a href="../specimenQualityObservation__valueString/">➞valueString</a>  <sub>0..1</sub><ul>
-<li>Description: The result of the observation, encoded as a free-text string.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 </ul>

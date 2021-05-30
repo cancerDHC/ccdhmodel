@@ -90,35 +90,18 @@
               
                 <h1 id="class-document">Class: Document</h1>
 <p>URI: <a href="https://example.org/ccdh/Document">ccdh:Document</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:ccdh_string%20%3F;document_type:CCDH_Document_document_type%20%3F;description:ccdh_string%20%3F;url:ccdh_string%20*],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document
-%200..*&gt;[Document],[Entity]^-[Document],[Specimen]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:ccdh_string%20%3F;document_type:CCDH_Document_document_type%20%3F;description:ccdh_string%20%3F;url:ccdh_string%20*],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document%200..*&gt;[Document],[Entity]^-[Document],[Specimen]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../specimen__related_document/">➞related_document
-</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Document</a></em>*</li>
+<li><strong>None</strong> <em><a href="../specimen__related_document/">➞related_document</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Document</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../document__description/">➞description</a>  <sub>0..1</sub><ul>
-<li>Description: A free text description or summary of the report.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-<li><a href="../document__document_type/">➞document_type</a>  <sub>0..1</sub><ul>
-<li>Description: The high-level type of the report (e.g. 'pathology report')</li>
-<li>range: <a href="../CCDH_Document_document_type/">CCDH_Document_document_type</a></li>
-</ul>
-</li>
-<li><a href="../document__focus/">➞focus</a>  <sub>0..1</sub><ul>
-<li>Description: The entity that the report is primarily about</li>
-<li>range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
 <li><a href="../document__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
@@ -130,6 +113,21 @@
 <li>Close mappings: GDC:Sample.pathology_report_uuid</li>
 <li>Close mappings: PDC:Sample.pathology_report_uuid</li>
 <li>Close mappings: HTAN:Biospecimen.ProtocolLink</li>
+</ul>
+</li>
+<li><a href="../document__document_type/">➞document_type</a>  <sub>0..1</sub><ul>
+<li>Description: The high-level type of the report (e.g. 'pathology report')</li>
+<li>range: <a href="../CCDH_Document_document_type/">CCDH_Document_document_type</a></li>
+</ul>
+</li>
+<li><a href="../document__description/">➞description</a>  <sub>0..1</sub><ul>
+<li>Description: A free text description or summary of the report.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../document__focus/">➞focus</a>  <sub>0..1</sub><ul>
+<li>Description: The entity that the report is primarily about</li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../document__url/">➞url</a>  <sub>0..*</sub><ul>

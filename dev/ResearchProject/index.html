@@ -107,36 +107,6 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../researchProject__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
-<li>Description: The date when the research project ended.</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-<li>Exact mapping: ICDC:Study.dates_of_conduct</li>
-</ul>
-</li>
-<li><a href="../researchProject__date_iacuc_approval/">➞date_iacuc_approval</a>  <sub>0..1</sub><ul>
-<li>Description: The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-<li>Exact mapping: ICDC:Study.date_of_iacuc_approval</li>
-</ul>
-</li>
-<li><a href="../researchProject__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
-<li>Description: The date when the research project began.</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-<li>Exact mapping: ICDC:Study.dates_of_conduct</li>
-</ul>
-</li>
-<li><a href="../researchProject__description/">➞description</a>  <sub>0..1</sub><ul>
-<li>Description: An unabridged description of a research program, project, or study.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: ICDC:Program.program_full_description</li>
-</ul>
-</li>
-<li><a href="../researchProject__description_shortened/">➞description_shortened</a>  <sub>0..1</sub><ul>
-<li>Description: An abbreviated description of a research program, project, or study.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: ICDC:Program.program_short_description</li>
-</ul>
-</li>
 <li><a href="../researchProject__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
@@ -170,14 +140,50 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <li>Exact mapping: PDC:Program.program_shortname</li>
 </ul>
 </li>
-<li><a href="../researchProject__part_of/">➞part_of</a>  <sub>0..*</sub><ul>
-<li>Description: A reference to a parent ResearchProject (e.g. a link to the overarching CPTAC ResearchProject from a substudy of CPTAC)</li>
-<li>range: <a href="./">ResearchProject</a></li>
+<li><a href="../researchProject__description/">➞description</a>  <sub>0..1</sub><ul>
+<li>Description: An unabridged description of a research program, project, or study.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Exact mapping: ICDC:Program.program_full_description</li>
+</ul>
+</li>
+<li><a href="../researchProject__description_shortened/">➞description_shortened</a>  <sub>0..1</sub><ul>
+<li>Description: An abbreviated description of a research program, project, or study.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Exact mapping: ICDC:Program.program_short_description</li>
+</ul>
+</li>
+<li><a href="../researchProject__sponsor/">➞sponsor</a>  <sub>0..*</sub><ul>
+<li>Description: An entity that is responsible for the initiation, management, and/or financing of a research project.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Exact mapping: PDC:Program.sponsor</li>
+</ul>
+</li>
+<li><a href="../researchProject__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
+<li>Description: The date when the research project began.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+<li>Exact mapping: ICDC:Study.dates_of_conduct</li>
+</ul>
+</li>
+<li><a href="../researchProject__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
+<li>Description: The date when the research project ended.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+<li>Exact mapping: ICDC:Study.dates_of_conduct</li>
 </ul>
 </li>
 <li><a href="../researchProject__primary_anatomic_site/">➞primary_anatomic_site</a>  <sub>0..*</sub><ul>
 <li>Description: The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).  In the context of ResearchProject, this attribute captures the anatomic sites of research interest.</li>
 <li>range: <a href="../BodySite/">BodySite</a></li>
+</ul>
+</li>
+<li><a href="../researchProject__url/">➞url</a>  <sub>0..*</sub><ul>
+<li>Description: A URL address for a resource that provides information about a research program, project, or study.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Exact mapping: ICDC:Program.program_external_url</li>
+</ul>
+</li>
+<li><a href="../researchProject__part_of/">➞part_of</a>  <sub>0..*</sub><ul>
+<li>Description: A reference to a parent ResearchProject (e.g. a link to the overarching CPTAC ResearchProject from a substudy of CPTAC)</li>
+<li>range: <a href="./">ResearchProject</a></li>
 </ul>
 </li>
 <li><a href="../researchProject__research_project_type/">➞research_project_type</a>  <sub>1..1</sub><ul>
@@ -187,16 +193,10 @@ and investigative techniques. A ResearchProject involves the gathering of inform
 <li>Exact mapping: ICDC:Study.clinical_study_type</li>
 </ul>
 </li>
-<li><a href="../researchProject__sponsor/">➞sponsor</a>  <sub>0..*</sub><ul>
-<li>Description: An entity that is responsible for the initiation, management, and/or financing of a research project.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: PDC:Program.sponsor</li>
-</ul>
-</li>
-<li><a href="../researchProject__url/">➞url</a>  <sub>0..*</sub><ul>
-<li>Description: A URL address for a resource that provides information about a research program, project, or study.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: ICDC:Program.program_external_url</li>
+<li><a href="../researchProject__date_iacuc_approval/">➞date_iacuc_approval</a>  <sub>0..1</sub><ul>
+<li>Description: The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+<li>Exact mapping: ICDC:Study.date_of_iacuc_approval</li>
 </ul>
 </li>
 </ul>

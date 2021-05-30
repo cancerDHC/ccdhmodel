@@ -103,18 +103,23 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../treatment__concurrent_treatment/">➞concurrent_treatment</a>  <sub>0..*</sub><ul>
-<li>Description: The treatment(s) instance(s) that are concurrent with this treatment.</li>
-<li>range: <a href="./">Treatment</a></li>
+<li><a href="../treatment__treatment_for_diagnosis/">➞treatment_for_diagnosis</a>  <sub>0..*</sub><ul>
+<li>Description: The diagnosis for which this treatement is intended for.</li>
+<li>range: <a href="../Diagnosis/">Diagnosis</a></li>
 </ul>
 </li>
-<li><a href="../treatment__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
-<li>Description: The timepoint at which the treatment ended.</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
+<li><a href="../treatment__subject/">➞subject</a>  <sub>0..1</sub><ul>
+<li>Description: The subject of this treatment</li>
+<li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
 <li><a href="../treatment__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
 <li>Description: The timepoint at which the treatment started.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../treatment__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
+<li>Description: The timepoint at which the treatment ended.</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
@@ -130,22 +135,11 @@
 <li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
-<li><a href="../treatment__number_of_cycles/">➞number_of_cycles</a>  <sub>0..1</sub><ul>
-<li>Description: The number of treatment cycles the patient received.</li>
-<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC:Treatment.number_of_cycles</li>
-</ul>
-</li>
 <li><a href="../treatment__regimen/">➞regimen</a>  <sub>0..1</sub><ul>
 <li>Description: The regimen or line of therapy</li>
 <li>range: <a href="../CCDH_Treatment_regimen/">CCDH_Treatment_regimen</a></li>
 <li>Exact mapping: GDC:Treatment.regimen_or_line_of_therapy</li>
 <li>Exact mapping: PDC:Treatment.regimen_or_line_of_therapy</li>
-</ul>
-</li>
-<li><a href="../treatment__subject/">➞subject</a>  <sub>0..1</sub><ul>
-<li>Description: The subject of this treatment</li>
-<li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
 <li><a href="../treatment__therapeutic_agent/">➞therapeutic_agent</a>  <sub>0..1</sub><ul>
@@ -165,25 +159,6 @@
 <li>Exact mapping: GDC:Treatment.treatment_effect</li>
 <li>Exact mapping: PDC:Treatment.treatment_effect</li>
 <li>Exact mapping: GDC:Treatment.reatment_effect_indicator</li>
-</ul>
-</li>
-<li><a href="../treatment__treatment_end_reason/">➞treatment_end_reason</a>  <sub>0..*</sub><ul>
-<li>Description: The reason the treatment ended</li>
-<li>range: <a href="../CCDH_Treatment_treatment_end_reason/">CCDH_Treatment_treatment_end_reason</a></li>
-<li>Examples: Adverse Event Course of Therapy Completed, Death, Disease Progression, Other</li>
-<li>Exact mapping: GDC:Treatment.reason_treatment_ended</li>
-</ul>
-</li>
-<li><a href="../treatment__treatment_for_diagnosis/">➞treatment_for_diagnosis</a>  <sub>0..*</sub><ul>
-<li>Description: The diagnosis for which this treatement is intended for.</li>
-<li>range: <a href="../Diagnosis/">Diagnosis</a></li>
-</ul>
-</li>
-<li><a href="../treatment__treatment_frequency/">➞treatment_frequency</a>  <sub>0..1</sub><ul>
-<li>Description: A term to describe the frequency of using the substance described by this instance.</li>
-<li>range: <a href="../CCDH_Treatment_treatment_frequency/">CCDH_Treatment_treatment_frequency</a></li>
-<li>Examples: Every Hour, Five Times Daily, Four Times Daily, Three Times Daily</li>
-<li>Exact mapping: GDC:Treatment.treatment_frequency</li>
 </ul>
 </li>
 <li><a href="../treatment__treatment_intent/">➞treatment_intent</a>  <sub>0..1</sub><ul>
@@ -208,6 +183,31 @@
 <li>Examples: Ablation, Radiofrequency, Stem Cell Transplantation, Ablation, Cryo Ablation, Ethanol Injection Ablation, Microwave Ablation</li>
 <li>Exact mapping: GDC:Treatment.treatment_type</li>
 <li>Exact mapping: PDC:Treatment.treatment_type</li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_frequency/">➞treatment_frequency</a>  <sub>0..1</sub><ul>
+<li>Description: A term to describe the frequency of using the substance described by this instance.</li>
+<li>range: <a href="../CCDH_Treatment_treatment_frequency/">CCDH_Treatment_treatment_frequency</a></li>
+<li>Examples: Every Hour, Five Times Daily, Four Times Daily, Three Times Daily</li>
+<li>Exact mapping: GDC:Treatment.treatment_frequency</li>
+</ul>
+</li>
+<li><a href="../treatment__concurrent_treatment/">➞concurrent_treatment</a>  <sub>0..*</sub><ul>
+<li>Description: The treatment(s) instance(s) that are concurrent with this treatment.</li>
+<li>range: <a href="./">Treatment</a></li>
+</ul>
+</li>
+<li><a href="../treatment__number_of_cycles/">➞number_of_cycles</a>  <sub>0..1</sub><ul>
+<li>Description: The number of treatment cycles the patient received.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+<li>Exact mapping: GDC:Treatment.number_of_cycles</li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_end_reason/">➞treatment_end_reason</a>  <sub>0..*</sub><ul>
+<li>Description: The reason the treatment ended</li>
+<li>range: <a href="../CCDH_Treatment_treatment_end_reason/">CCDH_Treatment_treatment_end_reason</a></li>
+<li>Examples: Adverse Event Course of Therapy Completed, Death, Disease Progression, Other</li>
+<li>Exact mapping: GDC:Treatment.reason_treatment_ended</li>
 </ul>
 </li>
 </ul>

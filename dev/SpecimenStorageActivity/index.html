@@ -104,9 +104,9 @@ intrinsic physical nature of a specimen.</p>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../specimenStorageActivity__container/">➞container</a>  <sub>0..*</sub><ul>
-<li>Description: A container in which the specimen is held or affixed during its storage.</li>
-<li>range: <a href="../SpecimenContainer/">SpecimenContainer</a></li>
+<li><a href="../specimenStorageActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
+<li>Description: The date when the activity began (in this case, a storage event).</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
 <li><a href="../specimenStorageActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
@@ -114,14 +114,15 @@ intrinsic physical nature of a specimen.</p>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../specimenStorageActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
-<li>Description: The date when the activity began (in this case, a storage event).</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-</ul>
-</li>
 <li><a href="../specimenStorageActivity__duration/">➞duration</a>  <sub>0..1</sub><ul>
 <li>Description: The length of time over which the activity was performed.</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
+</ul>
+</li>
+<li><a href="../specimenStorageActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
+<li>Exact mapping: GDC:Case.processed_at</li>
 </ul>
 </li>
 <li><a href="../specimenStorageActivity__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
@@ -131,10 +132,9 @@ intrinsic physical nature of a specimen.</p>
 <li>Exact mapping: HTAN:Biospecimen.StorageMethod</li>
 </ul>
 </li>
-<li><a href="../specimenStorageActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
-<li>Description: The organization or group that performed the activity.</li>
-<li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Case.processed_at</li>
+<li><a href="../specimenStorageActivity__container/">➞container</a>  <sub>0..*</sub><ul>
+<li>Description: A container in which the specimen is held or affixed during its storage.</li>
+<li>range: <a href="../SpecimenContainer/">SpecimenContainer</a></li>
 </ul>
 </li>
 </ul>

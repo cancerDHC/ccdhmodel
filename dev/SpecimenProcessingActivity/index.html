@@ -109,18 +109,12 @@
 <li>Examples: Fixation, Freezing, Mounting, Preservation</li>
 </ul>
 </li>
-<li><a href="../specimenProcessingActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
-<li>Description: A type of material or reagent used as input when processing the specimen</li>
-<li>range: <a href="../Substance/">Substance</a></li>
-<li>Example: Formalin</li>
-</ul>
-</li>
-<li><a href="../specimenProcessingActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenProcessingActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity began (in this case, a specimen processing event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../specimenProcessingActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenProcessingActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity began (in this case, a specimen processing event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
@@ -130,9 +124,11 @@
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../specimenProcessingActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
-<li>Description: Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li><a href="../specimenProcessingActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
+<li>Exact mapping: GDC:Sample.processed_at</li>
+<li>Exact mapping: HTAN:Biospecimen.ProcessingLocation</li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
@@ -152,11 +148,15 @@
 <li>Exact mapping: HTAN:Biospecimen.PRESERVATION_METHOD</li>
 </ul>
 </li>
-<li><a href="../specimenProcessingActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
-<li>Description: The organization or group that performed the activity.</li>
-<li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Sample.processed_at</li>
-<li>Exact mapping: HTAN:Biospecimen.ProcessingLocation</li>
+<li><a href="../specimenProcessingActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
+<li>Description: A type of material or reagent used as input when processing the specimen</li>
+<li>range: <a href="../Substance/">Substance</a></li>
+<li>Example: Formalin</li>
+</ul>
+</li>
+<li><a href="../specimenProcessingActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
+<li>Description: Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 </ul>

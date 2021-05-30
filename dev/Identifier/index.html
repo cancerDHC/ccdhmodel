@@ -113,16 +113,6 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../identifier__system/">➞system</a>  <sub>0..1</sub><ul>
-<li>Description: The system or namespace that defines the identifier.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-<li><a href="../identifier__type/">➞type</a>  <sub>0..1</sub><ul>
-<li>Description: A code that defines the type of the identifier.</li>
-<li>range: <a href="../CCDH_Identifier_type/">CCDH_Identifier_type</a></li>
-</ul>
-</li>
 <li><a href="../identifier__value/">➞value</a>  <sub>1..1</sub><ul>
 <li>Description: The value of the identifier, as defined by the system.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
@@ -145,6 +135,16 @@
 <li>Exact mapping: ICDC:Study.clinical_study_designation</li>
 <li>Exact mapping: GDC:Case.submitter_id</li>
 <li>Exact mapping: PDC:Case.case_submitter_id</li>
+</ul>
+</li>
+<li><a href="../identifier__system/">➞system</a>  <sub>0..1</sub><ul>
+<li>Description: The system or namespace that defines the identifier.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../identifier__type/">➞type</a>  <sub>0..1</sub><ul>
+<li>Description: A code that defines the type of the identifier.</li>
+<li>range: <a href="../CCDH_Identifier_type/">CCDH_Identifier_type</a></li>
 </ul>
 </li>
 </ul>

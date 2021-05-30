@@ -109,9 +109,19 @@
 <li>Examples: Collection from Source, Derivation from Specimen</li>
 </ul>
 </li>
-<li><a href="../specimenCreationActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
-<li>Description: A type of material or reagent used applied as input when creating a specimen.</li>
-<li>range: <a href="../Substance/">Substance</a></li>
+<li><a href="../specimenCreationActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
+<li>Description: The date when the activity began (in this case, a specimen creation event).</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
+<li>Description: The date when the activity ended (in this case, a specimen creation event).</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__collection_method_type/">➞collection_method_type</a>  <sub>0..1</sub><ul>
@@ -125,22 +135,6 @@
 <li>Exact mapping: HTAN:Biospecimen.AcquisitionMethodType</li>
 </ul>
 </li>
-<li><a href="../specimenCreationActivity__collection_site/">➞collection_site</a>  <sub>0..1</sub><ul>
-<li>Description: The anatomic site from which a specimen was collected.</li>
-<li>range: <a href="../BodySite/">BodySite</a></li>
-<li>Examples: Abdomen, Abdominal Wall, Acetabulum</li>
-</ul>
-</li>
-<li><a href="../specimenCreationActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
-<li>Description: The date when the activity ended (in this case, a specimen creation event).</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-</ul>
-</li>
-<li><a href="../specimenCreationActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
-<li>Description: The date when the activity began (in this case, a specimen creation event).</li>
-<li>range: <a href="../TimePoint/">TimePoint</a></li>
-</ul>
-</li>
 <li><a href="../specimenCreationActivity__derivation_method_type/">➞derivation_method_type</a>  <sub>0..1</sub><ul>
 <li>Description: The type of method applied to derive a new specimen from an existing one.</li>
 <li>range: <a href="../CCDH_SpecimenCreationActivity_derivation_method_type/">CCDH_SpecimenCreationActivity_derivation_method_type</a></li>
@@ -149,19 +143,25 @@
 <li>Exact mapping: HTAN:Biospecimen.MethodofNucleicAcidIsolation</li>
 </ul>
 </li>
-<li><a href="../specimenCreationActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
-<li>Description: An observation or measurement that describes how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
-<li>range: <a href="../Observation/">Observation</a></li>
+<li><a href="../specimenCreationActivity__additive/">➞additive</a>  <sub>0..*</sub><ul>
+<li>Description: A type of material or reagent used applied as input when creating a specimen.</li>
+<li>range: <a href="../Substance/">Substance</a></li>
 </ul>
 </li>
-<li><a href="../specimenCreationActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
-<li>Description: The organization or group that performed the activity.</li>
-<li>range: <a href="../Organization/">Organization</a></li>
+<li><a href="../specimenCreationActivity__collection_site/">➞collection_site</a>  <sub>0..1</sub><ul>
+<li>Description: The anatomic site from which a specimen was collected.</li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
+<li>Examples: Abdomen, Abdominal Wall, Acetabulum</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__quantity_collected/">➞quantity_collected</a>  <sub>0..1</sub><ul>
 <li>Description: The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
+<li>Description: An observation or measurement that describes how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
+<li>range: <a href="../Observation/">Observation</a></li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__specimen_order/">➞specimen_order</a>  <sub>0..1</sub><ul>

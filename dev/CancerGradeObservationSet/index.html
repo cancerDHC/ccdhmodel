@@ -99,6 +99,11 @@
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
+<li><a href="../cancerGradeObservationSet__id/">➞id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
 <li><a href="../cancerGradeObservationSet__category/">➞category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation set described</li>
 <li>range: <a href="../CCDH_CancerGradeObservationSet_category/">CCDH_CancerGradeObservationSet_category</a></li>
@@ -109,9 +114,9 @@
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../cancerGradeObservationSet__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li><a href="../cancerGradeObservationSet__subject/">➞subject</a>  <sub>0..1</sub><ul>
+<li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
 <li><a href="../cancerGradeObservationSet__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
@@ -120,19 +125,14 @@
 <li>Examples: Gleason, INPC, Unspecified grading system</li>
 </ul>
 </li>
-<li><a href="../cancerGradeObservationSet__observations/">➞observations</a>  <sub>0..*</sub><ul>
-<li>Description: A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
-<li>range: <a href="../CancerGradeObservation/">CancerGradeObservation</a></li>
-</ul>
-</li>
 <li><a href="../cancerGradeObservationSet__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the observation activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../cancerGradeObservationSet__subject/">➞subject</a>  <sub>0..1</sub><ul>
-<li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
-<li>range: <a href="../Subject/">Subject</a></li>
+<li><a href="../cancerGradeObservationSet__observations/">➞observations</a>  <sub>0..*</sub><ul>
+<li>Description: A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)</li>
+<li>range: <a href="../CancerGradeObservation/">CancerGradeObservation</a></li>
 </ul>
 </li>
 </ul>

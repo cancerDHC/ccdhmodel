@@ -122,22 +122,17 @@ start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
+<li><a href="../timePoint__id/">➞id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
 <li><a href="../timePoint__dateTime/">➞dateTime</a>  <sub>0..1</sub><ul>
 <li>Description: An explicitly specified timepoint described in terms of a date and optionally a time on that date.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
 <li>Exact mapping: GDC:Portion.creation_datetime</li>
 <li>Exact mapping: PDC:Portion.creation_datetime</li>
 <li>Exact mapping: ICDC:Sample.date_of_sample_collection</li>
-</ul>
-</li>
-<li><a href="../timePoint__eventType/">➞eventType</a>  <sub>0..*</sub><ul>
-<li>Description: An event that occurred at the point in time specified by this TimePoint.</li>
-<li>range: <a href="../CCDH_TimePoint_eventType/">CCDH_TimePoint_eventType</a></li>
-</ul>
-</li>
-<li><a href="../timePoint__id/">➞id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
 <li><a href="../timePoint__indexTimePoint/">➞indexTimePoint</a>  <sub>0..1</sub><ul>
@@ -148,6 +143,11 @@ start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li
 <li><a href="../timePoint__offsetFromIndex/">➞offsetFromIndex</a>  <sub>0..1</sub><ul>
 <li>Description: A quantity of time that, together with the index date or event, can be used to derive a specific timepoint.</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
+</ul>
+</li>
+<li><a href="../timePoint__eventType/">➞eventType</a>  <sub>0..*</sub><ul>
+<li>Description: An event that occurred at the point in time specified by this TimePoint.</li>
+<li>range: <a href="../CCDH_TimePoint_eventType/">CCDH_TimePoint_eventType</a></li>
 </ul>
 </li>
 </ul>
