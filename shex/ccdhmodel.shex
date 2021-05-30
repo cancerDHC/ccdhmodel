@@ -269,10 +269,11 @@ linkml:Nodeidentifier NONLITERAL
     } OR @<AlcoholExposureObservation> OR @<BiologicProduct> OR @<BodySite> OR @<CancerGradeObservation> OR
     @<CancerGradeObservationSet> OR @<CancerStageObservation> OR @<CancerStageObservationSet> OR @<CodeableConcept> OR @<Coding> OR
     @<Diagnosis> OR @<DimensionalObservation> OR @<DimensionalObservationSet> OR @<Document> OR @<EnvironmentalExposureObservation>
-    OR @<Exposure> OR @<Identifier> OR @<Observation> OR @<ObservationSet> OR @<Organization> OR @<Quantity> OR @<ResearchProject>
-    OR @<ResearchSubject> OR @<Specimen> OR @<SpecimenContainer> OR @<SpecimenCreationActivity> OR @<SpecimenProcessingActivity> OR
-    @<SpecimenQualityObservation> OR @<SpecimenQuantityObservation> OR @<SpecimenStorageActivity> OR @<SpecimenTransportActivity>
-    OR @<Subject> OR @<Substance> OR @<TimePeriod> OR @<TimePoint> OR @<TobaccoExposureObservation> OR @<Treatment>
+    OR @<Exposure> OR @<HistologicalCompositionObservation> OR @<Identifier> OR @<Observation> OR @<ObservationSet> OR
+    @<Organization> OR @<Quantity> OR @<ResearchProject> OR @<ResearchSubject> OR @<Specimen> OR @<SpecimenContainer> OR
+    @<SpecimenCreationActivity> OR @<SpecimenProcessingActivity> OR @<SpecimenQualityObservation> OR @<SpecimenQuantityObservation>
+    OR @<SpecimenStorageActivity> OR @<SpecimenTransportActivity> OR @<Subject> OR @<Substance> OR @<TimePeriod> OR @<TimePoint> OR
+    @<TobaccoExposureObservation> OR @<Treatment>
 )
 
 <EnvironmentalExposureObservation> CLOSED {
@@ -309,6 +310,29 @@ linkml:Nodeidentifier NONLITERAL
           <subject> @<Subject> ?
        ) ;
        rdf:type [ <Exposure> ] ?
+    )
+}
+
+<HistologicalCompositionObservation> CLOSED {
+    (  $<HistologicalCompositionObservation_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <category> @<CCDHHistologicalCompositionObservationCategory> ? ;
+          <observation_type> @<CCDHHistologicalCompositionObservationObservationType> ;
+          <method_type> @<CCDHHistologicalCompositionObservationMethodType> * ;
+          <focus> @<Entity> * ;
+          <subject> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
+          <valueEntity> @<Entity> ? ;
+          <valueString> @<CcdhString> ? ;
+          <valueInteger> @<CcdhDecimal> ? ;
+          <valueDecimal> @<CcdhDecimal> ? ;
+          <valueBoolean> @<CcdhBoolean> ? ;
+          <valueDateTime> @<CcdhDateTime> ? ;
+          <valueQuantity> @<Quantity> ;
+          <valueCodeableConcept> @<CCDHHistologicalCompositionObservationValueCodeableConcept> ?
+       ) ;
+       rdf:type [ <HistologicalCompositionObservation> ] ?
     )
 }
 

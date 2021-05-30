@@ -778,6 +778,84 @@
          "title": "Exposure",
          "type": "object"
       },
+      "HistologicalCompositionObservation": {
+         "additionalProperties": false,
+         "description": "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype).",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "HistologicalCompositionObservation",
+         "type": "object"
+      },
       "Identifier": {
          "additionalProperties": false,
          "description": "An Identifier is associated with a unique object or entity within a given system.",
