@@ -15,6 +15,7 @@ Document,,
 Entity,,Any resource that has its own identifier
 EnvironmentalExposureObservation,,"A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation."
 Exposure,,"Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance."
+HistologicalCompositionObservation,,"An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype)."
 Identifier,,An Identifier is associated with a unique object or entity within a given system.
 Observation,,"A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation."
 ObservationSet,,"A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation."

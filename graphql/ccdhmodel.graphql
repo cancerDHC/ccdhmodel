@@ -194,6 +194,25 @@ type Exposure
     subject: Subject
   }
 
+type HistologicalCompositionObservation
+  {
+    id: CcdhString
+    category: CCDHHistologicalCompositionObservationCategory
+    observationType: CCDHHistologicalCompositionObservationObservationType!
+    methodType: [CCDHHistologicalCompositionObservationMethodType]
+    focus: [Entity]
+    subject: Subject
+    performedBy: Organization
+    valueEntity: Entity
+    valueString: CcdhString
+    valueInteger: CcdhDecimal
+    valueDecimal: CcdhDecimal
+    valueBoolean: CcdhBoolean
+    valueDateTime: CcdhDateTime
+    valueQuantity: Quantity!
+    valueCodeableConcept: CCDHHistologicalCompositionObservationValueCodeableConcept
+  }
+
 type Identifier
   {
     value: CcdhString!
