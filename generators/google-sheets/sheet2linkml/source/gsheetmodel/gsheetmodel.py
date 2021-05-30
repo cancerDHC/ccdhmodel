@@ -238,7 +238,11 @@ class GSheetModel(ModelElement):
         schema.prefixes = {
             "linkml": "https://w3id.org/linkml/",
             "ccdh": f"{root_uri}/",
-            "NCIT": "http://purl.obolibrary.org/obo/NCIT_"
+            "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+            "GDC": "http://example.org/gdc/",
+            "PDC": "http://example.org/pdc/",
+            "ICDC": "http://example.org/icdc/",
+            "HTAN": "http://example.org/htan/"
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
