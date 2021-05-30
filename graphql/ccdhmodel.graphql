@@ -125,6 +125,7 @@ type Diagnosis
     priorDiagnosis: Diagnosis
     methodOfDiagnosis: CCDHDiagnosisMethodOfDiagnosis
     relatedSpecimen: [Specimen]
+    dimensionalMeasure: DimensionalObservationSet
     supportingObservations: [Observation]
   }
 
@@ -255,13 +256,13 @@ type ResearchProject
     description: CcdhString
     descriptionShortened: CcdhString
     sponsor: [CcdhString]
-    dateStarted: CcdhDateTime
-    dateEnded: CcdhDateTime
+    dateStarted: TimePoint
+    dateEnded: TimePoint
     primaryAnatomicSite: [BodySite]
     url: [CcdhString]
     partOf: [ResearchProject]
     researchProjectType: CCDHResearchProjectResearchProjectType!
-    dateIacucApproval: CcdhDateTime
+    dateIacucApproval: TimePoint
   }
 
 type ResearchSubject

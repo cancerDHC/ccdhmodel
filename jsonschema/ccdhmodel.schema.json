@@ -435,6 +435,10 @@
                "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)",
                "type": "string"
             },
+            "dimensional_measure": {
+               "$ref": "#/definitions/DimensionalObservationSet",
+               "description": "A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area)."
+            },
             "disease_status": {
                "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)",
                "type": "string"
@@ -983,16 +987,16 @@
          "description": "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. \nThis includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional \nand investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects.",
          "properties": {
             "date_ended": {
-               "description": "The date when the research project ended.",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the research project ended."
             },
             "date_iacuc_approval": {
-               "description": "The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified."
             },
             "date_started": {
-               "description": "The date when the research project began.",
-               "type": "string"
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the research project began."
             },
             "description": {
                "description": "An unabridged description of a research program, project, or study.",

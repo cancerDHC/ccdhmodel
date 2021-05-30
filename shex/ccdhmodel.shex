@@ -210,6 +210,7 @@ linkml:Nodeidentifier NONLITERAL
           <prior_diagnosis> @<Diagnosis> ? ;
           <method_of_diagnosis> @<CCDHDiagnosisMethodOfDiagnosis> ? ;
           <related_specimen> @<Specimen> * ;
+          <dimensional_measure> @<DimensionalObservationSet> ? ;
           <supporting_observations> @<Observation> *
        ) ;
        rdf:type [ <Diagnosis> ] ?
@@ -394,13 +395,13 @@ linkml:Nodeidentifier NONLITERAL
           <description> @<CcdhString> ? ;
           <description_shortened> @<CcdhString> ? ;
           <sponsor> @<CcdhString> * ;
-          <date_started> @<CcdhDateTime> ? ;
-          <date_ended> @<CcdhDateTime> ? ;
+          <date_started> @<TimePoint> ? ;
+          <date_ended> @<TimePoint> ? ;
           <primary_anatomic_site> @<BodySite> * ;
           <url> @<CcdhString> * ;
           <part_of> @<ResearchProject> * ;
           <research_project_type> @<CCDHResearchProjectResearchProjectType> ;
-          <date_iacuc_approval> @<CcdhDateTime> ?
+          <date_iacuc_approval> @<TimePoint> ?
        ) ;
        rdf:type [ <ResearchProject> ] ?
     )
