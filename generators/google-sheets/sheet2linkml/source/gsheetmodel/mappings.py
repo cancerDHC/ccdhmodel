@@ -91,7 +91,7 @@ class Mappings:
             # We can use regular expression to differentiate between them.
             mapping_target = row
             description = None
-            relation = MappingRelations.SKOS_RELATED_MATCH
+            relation = default_relation
 
             match = re.match(r"^\s*(.*?)\s*\(\s*(.*)\s*\)\s*$", row)
             if match:
