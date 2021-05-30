@@ -118,11 +118,11 @@
 <li>Description: The type of method applied in collecting a sample from its original source.</li>
 <li>range: <a href="../CCDH_SpecimenCreationActivity_collection_method_type/">CCDH_SpecimenCreationActivity_collection_method_type</a></li>
 <li>Examples: Anterior Resection of Rectum, Ascites Drainage, Excisional Biopsy, Specimen Pooling</li>
-<li>Exact mapping: GDC.Sample.method_of_sample_procurement</li>
-<li>Exact mapping: PDC.Sample.method_of_sample_procurement</li>
-<li>Exact mapping: PDC.Sample.pool</li>
-<li>Exact mapping: PDC.Aliquot.pool</li>
-<li>Exact mapping: HTAN.Biospecimen.AcquisitionMethodType</li>
+<li>Exact mapping: GDC:Sample.method_of_sample_procurement</li>
+<li>Exact mapping: PDC:Sample.method_of_sample_procurement</li>
+<li>Exact mapping: PDC:Sample.pool</li>
+<li>Exact mapping: PDC:Aliquot.pool</li>
+<li>Exact mapping: HTAN:Biospecimen.AcquisitionMethodType</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__collection_site/">➞collection_site</a>  <sub>0..1</sub><ul>
@@ -145,8 +145,8 @@
 <li>Description: The type of method applied to derive a new specimen from an existing one.</li>
 <li>range: <a href="../CCDH_SpecimenCreationActivity_derivation_method_type/">CCDH_SpecimenCreationActivity_derivation_method_type</a></li>
 <li>Examples: Vibratome, Cryosectioning, Tissuemolds, Slidingmicrotome, Sectioning, Other, Unknown, NotReported</li>
-<li>Exact mapping: HTAN.Biospecimen.SlicingMethod</li>
-<li>Exact mapping: HTAN.Biospecimen.MethodofNucleicAcidIsolation</li>
+<li>Exact mapping: HTAN:Biospecimen.SlicingMethod</li>
+<li>Exact mapping: HTAN:Biospecimen.MethodofNucleicAcidIsolation</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
@@ -167,8 +167,8 @@
 <li><a href="../specimenCreationActivity__specimen_order/">➞specimen_order</a>  <sub>0..1</sub><ul>
 <li>Description: A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC.Portion.portion_number</li>
-<li>Exact mapping: PDC.Portion.portion_number</li>
+<li>Exact mapping: GDC:Portion.portion_number</li>
+<li>Exact mapping: PDC:Portion.portion_number</li>
 </ul>
 </li>
 </ul>

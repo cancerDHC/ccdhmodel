@@ -123,8 +123,8 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
 <li><a href="../researchSubject__id/">➞id</a>  <sub>1..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC.Case.id</li>
-<li>Exact mapping: ICDC.Case.case_id</li>
+<li>Exact mapping: GDC:Case.id</li>
+<li>Exact mapping: ICDC:Case.case_id</li>
 </ul>
 </li>
 <li><a href="../researchSubject__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
@@ -136,23 +136,23 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
 <li>Description: The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date.</li>
 <li>range: <a href="../CCDH_ResearchSubject_index_timepoint/">CCDH_ResearchSubject_index_timepoint</a></li>
 <li>Examples: Diagnosis, First Patient Visit, First Treatment</li>
-<li>Exact mapping: GDC.Case.index_date</li>
-<li>Exact mapping: PDC.Case.index_date</li>
+<li>Exact mapping: GDC:Case.index_date</li>
+<li>Exact mapping: PDC:Case.index_date</li>
 </ul>
 </li>
 <li><a href="../researchSubject__member_of_research_project/">➞member_of_research_project</a>  <sub>0..1</sub><ul>
 <li>Description: A reference to the Study(s) of which this ResearchSubject is a member</li>
 <li>range: <a href="../ResearchProject/">ResearchProject</a></li>
-<li>Exact mapping: GDC.Case.member_of</li>
-<li>Exact mapping: GDC.Case.project_id</li>
-<li>Exact mapping: PDC.Case.Project</li>
-<li>Exact mapping: ICDC.Case.member_of</li>
+<li>Exact mapping: GDC:Case.member_of</li>
+<li>Exact mapping: GDC:Case.project_id</li>
+<li>Exact mapping: PDC:Case.Project</li>
+<li>Exact mapping: ICDC:Case.member_of</li>
 </ul>
 </li>
 <li><a href="../researchSubject__originating_site/">➞originating_site</a>  <sub>0..1</sub><ul>
 <li>Description: The Organization at which a subject was enrolled on a ResearchProject.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: PDC.Case.tissue_source_site_code</li>
+<li>Exact mapping: PDC:Case.tissue_source_site_code</li>
 </ul>
 </li>
 <li><a href="../researchSubject__primary_diagnosis/">➞primary_diagnosis</a>  <sub>0..*</sub><ul>
@@ -164,8 +164,8 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
 <li>Description: The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).   This attribute represents the disease that qualified the subject for inclusion on the ResearchProject</li>
 <li>range: <a href="../CCDH_ResearchSubject_primary_diagnosis_condition/">CCDH_ResearchSubject_primary_diagnosis_condition</a></li>
 <li>Examples: Acinar Cell Neoplasms, Adenomas and Adenocarcinomas, Adnexal and Skin Appendage Neoplasms</li>
-<li>Exact mapping: GDC.Case.disease_type</li>
-<li>Exact mapping: PDC.Case.disease_type</li>
+<li>Exact mapping: GDC:Case.disease_type</li>
+<li>Exact mapping: PDC:Case.disease_type</li>
 </ul>
 </li>
 <li><a href="../researchSubject__primary_diagnosis_site/">➞primary_diagnosis_site</a>  <sub>0..1</sub><ul>

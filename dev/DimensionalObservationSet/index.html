@@ -91,13 +91,14 @@
                 <h1 id="class-dimensionalobservationset">Class: DimensionalObservationSet</h1>
 <p>A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).</p>
 <p>URI: <a href="https://example.org/ccdh/DimensionalObservationSet">ccdh:DimensionalObservationSet</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[DimensionalObservation]&lt;observations%200..*-++[DimensionalObservationSet&#124;id:ccdh_string%20%3F;category:CCDH_DimensionalObservationSet_category%20%3F;method_type:CCDH_DimensionalObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[DimensionalObservationSet],[Subject]&lt;subject%200..1-++[DimensionalObservationSet],[Entity]&lt;focus%200..*-++[DimensionalObservationSet],[Specimen]++-%20dimensional_measure%200..1&gt;[DimensionalObservationSet],[Entity]^-[DimensionalObservationSet],[Specimen],[DimensionalObservation]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[DimensionalObservation]&lt;observations%200..*-++[DimensionalObservationSet&#124;id:ccdh_string%20%3F;category:CCDH_DimensionalObservationSet_category%20%3F;method_type:CCDH_DimensionalObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[DimensionalObservationSet],[Subject]&lt;subject%200..1-++[DimensionalObservationSet],[Entity]&lt;focus%200..*-++[DimensionalObservationSet],[Diagnosis]++-%20dimensional_measure%200..1&gt;[DimensionalObservationSet],[Specimen]++-%20dimensional_measure%200..1&gt;[DimensionalObservationSet],[Entity]^-[DimensionalObservationSet],[Specimen],[DimensionalObservation],[Diagnosis]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
+<li><strong>None</strong> <em><a href="../diagnosis__dimensional_measure/">➞dimensional_measure</a></em>  <sub>0..1</sub>  <strong><a href="./">DimensionalObservationSet</a></strong></li>
 <li><strong>None</strong> <em><a href="../specimen__dimensional_measure/">➞dimensional_measure</a></em>  <sub>0..1</sub>  <strong><a href="./">DimensionalObservationSet</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
@@ -121,9 +122,9 @@
 <li><a href="../dimensionalObservationSet__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
 <li>Description: A type of method used in generating each of the Observations bundled in the set.</li>
 <li>range: <a href="../CCDH_DimensionalObservationSet_method_type/">CCDH_DimensionalObservationSet_method_type</a></li>
-<li>Exact mapping: GDC.Analyte.spectrophotometer_method</li>
-<li>Exact mapping: PDC.Analyte.spectrophotometer_method</li>
-<li>Related mapping: HTAN.Biospecimen.HistologyAssessmentMedium</li>
+<li>Exact mapping: GDC:Analyte.spectrophotometer_method</li>
+<li>Exact mapping: PDC:Analyte.spectrophotometer_method</li>
+<li>Related mapping: HTAN:Biospecimen.HistologyAssessmentMedium</li>
 </ul>
 </li>
 <li><a href="../dimensionalObservationSet__observations/">➞observations</a>  <sub>0..*</sub><ul>

@@ -125,34 +125,34 @@
 <li><a href="../organization__alias/">➞alias</a>  <sub>0..1</sub><ul>
 <li>Description: A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC.Center.short_name</li>
+<li>Exact mapping: GDC:Center.short_name</li>
 </ul>
 </li>
 <li><a href="../organization__id/">➞id</a>  <sub>1..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC.Center.id</li>
+<li>Exact mapping: GDC:Center.id</li>
 </ul>
 </li>
 <li><a href="../organization__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li>Exact mapping: GDC.Center.code</li>
-<li>Exact mapping: HTAN.Biospecimen.SiteDataSource</li>
+<li>Exact mapping: GDC:Center.code</li>
+<li>Exact mapping: HTAN:Biospecimen.SiteDataSource</li>
 </ul>
 </li>
 <li><a href="../organization__name/">➞name</a>  <sub>0..1</sub><ul>
 <li>Description: The full legal name by which the organization is known (e.g. 'National Cancer Institute')</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC.Center.name</li>
-<li>Exact mapping: GDC.Aliquot.source_center</li>
-<li>Exact mapping: HTAN.Biospecimen.SiteDataSource</li>
+<li>Exact mapping: GDC:Center.name</li>
+<li>Exact mapping: GDC:Aliquot.source_center</li>
+<li>Exact mapping: HTAN:Biospecimen.SiteDataSource</li>
 </ul>
 </li>
 <li><a href="../organization__organization_type/">➞organization_type</a>  <sub>0..1</sub><ul>
 <li>Description: The type of the organization (e.g. 'Cancer Genome Characterization Center')</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC.Center.center_type</li>
+<li>Exact mapping: GDC:Center.center_type</li>
 </ul>
 </li>
 </ul>

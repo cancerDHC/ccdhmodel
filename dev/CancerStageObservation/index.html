@@ -126,7 +126,7 @@
 <li><a href="../cancerStageObservation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')</li>
 <li>range: <a href="../CCDH_CancerStageObservation_observation_type/">CCDH_CancerStageObservation_observation_type</a></li>
-<li>Examples: Overall, Tumor (T), Node (N), Metastasis (M), Clinical Overall, Clinical Tumor (T), Clinical Node (N), Clinical Metastasis (M), Pathological Overall, Pathological Tumor (T), Pathological Node (N), Pathological Metastasis (M)</li>
+<li>Examples: Overall, Tumor (T), Node (N), Metastasis (M), Clinical Overall, Clinical Tumor (T), Clinical Node (N), Clinical Metastasis (M), Pathological Overall, Pathological Tumor (T), Pathological Node (N), Pathological Metastasis (M), Ann Arbor Modifier</li>
 </ul>
 </li>
 <li><a href="../cancerStageObservation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
@@ -148,54 +148,58 @@
 <li>Description: The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept.</li>
 <li>range: <a href="../CCDH_CancerStageObservation_valueCodeableConcept/">CCDH_CancerStageObservation_valueCodeableConcept</a></li>
 <li>Examples: M0, M1, M1a, N0, N0 (i+), N0 (i-)</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_clinical_m</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_clinical_m</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_clinical_n</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_clinical_n</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_clinical_t</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_clinical_t</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_clinical_stage</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_clinical_stage</li>
-<li>Exact mapping: PDC.Diagnosis.tumor_stage</li>
-<li>Exact mapping: ICDC.Diagnosis.stage_of_disease</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_pathologic_m</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_pathologic_m</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_pathologic_n</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_pathologic_n</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_pathologic_t</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_pathologic_t</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_pathologic_stage</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_pathologic_stage</li>
-<li>Exact mapping: GDC.Diagnosis.ajcc_staging_system_edition</li>
-<li>Exact mapping: PDC.Diagnosis.ajcc_staging_system_edition</li>
-<li>Exact mapping: GDC.Diagnosis.ann_arbor_clinical_stage</li>
-<li>Exact mapping: PDC.Diagnosis.ann_arbor_clinical_stage</li>
-<li>Exact mapping: GDC.Diagnosis.ann_arbor_pathologic_stage</li>
-<li>Exact mapping: PDC.Diagnosis.ann_arbor_pathologic_stage</li>
-<li>Exact mapping: GDC.Diagnosis.figo_stage</li>
-<li>Exact mapping: PDC.Diagnosis.figo_stage</li>
-<li>Exact mapping: GDC.Diagnosis.igcccg_stage</li>
-<li>Exact mapping: PDC.Diagnosis.igcccg_stage</li>
-<li>Exact mapping: GDC.Diagnosis.inss_stage</li>
-<li>Exact mapping: PDC.Diagnosis.inss_stage</li>
-<li>Exact mapping: GDC.Diagnosis.iss_stage</li>
-<li>Exact mapping: PDC.Diagnosis.iss_stage</li>
-<li>Exact mapping: GDC.Diagnosis.masaoka_stage</li>
-<li>Exact mapping: PDC.Diagnosis.masaoka_stage</li>
-<li>Exact mapping: GDC.Diagnosis.cog_liver_stage</li>
-<li>Exact mapping: PDC.Diagnosis.cog_liver_stage</li>
-<li>Exact mapping: GDC.Diagnosis.cog_renal_stage</li>
-<li>Exact mapping: PDC.Diagnosis.cog_renal_stage</li>
-<li>Exact mapping: GDC.Diagnosis.enneking_msts_metastasis</li>
-<li>Exact mapping: PDC.Diagnosis.enneking_msts_metastasis</li>
-<li>Exact mapping: GDC.Diagnosis.enneking_msts_stage</li>
-<li>Exact mapping: PDC.Diagnosis.enneking_msts_stage</li>
-<li>Exact mapping: GDC.Diagnosis.enneking_msts_tumor_site</li>
-<li>Exact mapping: PDC.Diagnosis.enneking_msts_tumor_site</li>
-<li>Exact mapping: GDC.Diagnosis.inrg_stage</li>
-<li>Exact mapping: PDC.Diagnosis.inrg_stage</li>
-<li>Exact mapping: GDC.Diagnosis.irs_stage</li>
-<li>Exact mapping: PDC.Diagnosis.irs_stage</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_clinical_m</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_clinical_m</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_clinical_n</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_clinical_n</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_clinical_t</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_clinical_t</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_clinical_stage</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_clinical_stage</li>
+<li>Exact mapping: PDC:Diagnosis.tumor_stage</li>
+<li>Exact mapping: ICDC:Diagnosis.stage_of_disease</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_pathologic_m</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_pathologic_m</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_pathologic_n</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_pathologic_n</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_pathologic_t</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_pathologic_t</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_pathologic_stage</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_pathologic_stage</li>
+<li>Exact mapping: GDC:Diagnosis.ajcc_staging_system_edition</li>
+<li>Exact mapping: PDC:Diagnosis.ajcc_staging_system_edition</li>
+<li>Exact mapping: GDC:Diagnosis.ann_arbor_clinical_stage</li>
+<li>Exact mapping: PDC:Diagnosis.ann_arbor_clinical_stage</li>
+<li>Exact mapping: GDC:Diagnosis.ann_arbor_pathologic_stage</li>
+<li>Exact mapping: PDC:Diagnosis.ann_arbor_pathologic_stage</li>
+<li>Exact mapping: GDC:Diagnosis.figo_stage</li>
+<li>Exact mapping: PDC:Diagnosis.figo_stage</li>
+<li>Exact mapping: GDC:Diagnosis.igcccg_stage</li>
+<li>Exact mapping: PDC:Diagnosis.igcccg_stage</li>
+<li>Exact mapping: GDC:Diagnosis.inss_stage</li>
+<li>Exact mapping: PDC:Diagnosis.inss_stage</li>
+<li>Exact mapping: GDC:Diagnosis.iss_stage</li>
+<li>Exact mapping: PDC:Diagnosis.iss_stage</li>
+<li>Exact mapping: GDC:Diagnosis.masaoka_stage</li>
+<li>Exact mapping: PDC:Diagnosis.masaoka_stage</li>
+<li>Exact mapping: GDC:Diagnosis.cog_liver_stage</li>
+<li>Exact mapping: PDC:Diagnosis.cog_liver_stage</li>
+<li>Exact mapping: GDC:Diagnosis.cog_renal_stage</li>
+<li>Exact mapping: PDC:Diagnosis.cog_renal_stage</li>
+<li>Exact mapping: GDC:Diagnosis.enneking_msts_metastasis</li>
+<li>Exact mapping: PDC:Diagnosis.enneking_msts_metastasis</li>
+<li>Exact mapping: GDC:Diagnosis.enneking_msts_stage</li>
+<li>Exact mapping: PDC:Diagnosis.enneking_msts_stage</li>
+<li>Exact mapping: GDC:Diagnosis.enneking_msts_tumor_site</li>
+<li>Exact mapping: PDC:Diagnosis.enneking_msts_tumor_site</li>
+<li>Exact mapping: GDC:Diagnosis.inrg_stage</li>
+<li>Exact mapping: PDC:Diagnosis.inrg_stage</li>
+<li>Exact mapping: GDC:Diagnosis.irs_stage</li>
+<li>Exact mapping: PDC:Diagnosis.irs_stage</li>
+<li>Exact mapping: GDC:Diagnosis.ann_arbor_b_symptoms</li>
+<li>Exact mapping: PDC:Diagnosis.ann_arbor_b_symptoms</li>
+<li>Exact mapping: GDC:Diagnosis.ann_arbor_extranodal_involvement</li>
+<li>Exact mapping: PDC:Diagnosis.ann_arbor_extranodal_involvement</li>
 </ul>
 </li>
 <li><a href="../cancerStageObservation__valueDateTime/">➞valueDateTime</a>  <sub>0..1</sub><ul>

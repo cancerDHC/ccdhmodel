@@ -109,416 +109,416 @@
 <li>Description: For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)</li>
 <li>range: <a href="../CCDH_Specimen_analyte_type/">CCDH_Specimen_analyte_type</a></li>
 <li>Examples: DNA, FFPE DNA, GenomePlex (Rubicon) Amplified DNA, Repli-G (Qiagen) DNA, RNA, FFPE RNA</li>
-<li>Exact mapping: GDC.Aliquot.analyte_type</li>
-<li>Exact mapping: GDC.Aliquot.analyte_type_id</li>
-<li>Exact mapping: GDC.Analyte.analyte_type</li>
-<li>Exact mapping: GDC.Analyte.analyte_type_id</li>
-<li>Exact mapping: PDC.Aliquot.analyte_type</li>
-<li>Exact mapping: PDC.Aliquot.analyte_type_id</li>
-<li>Exact mapping: PDC.Analyte.analyte_type</li>
-<li>Exact mapping: PDC.Analyte.analyte_type_id</li>
-<li>Exact mapping: HTAN.Biosepcimen.ANALYTE_TYPE</li>
+<li>Exact mapping: GDC:Aliquot.analyte_type</li>
+<li>Exact mapping: GDC:Aliquot.analyte_type_id</li>
+<li>Exact mapping: GDC:Analyte.analyte_type</li>
+<li>Exact mapping: GDC:Analyte.analyte_type_id</li>
+<li>Exact mapping: PDC:Aliquot.analyte_type</li>
+<li>Exact mapping: PDC:Aliquot.analyte_type_id</li>
+<li>Exact mapping: PDC:Analyte.analyte_type</li>
+<li>Exact mapping: PDC:Analyte.analyte_type_id</li>
+<li>Exact mapping: HTAN:Biosepcimen.ANALYTE_TYPE</li>
 </ul>
 </li>
 <li><a href="../specimen__associated_project/">➞associated_project</a>  <sub>0..1</sub><ul>
 <li>Description: The Project associated with the specimen.</li>
 <li>range: <a href="../ResearchProject/">ResearchProject</a></li>
-<li>Exact mapping: GDC.Sample.project_id</li>
-<li>Exact mapping: GDC.Portion.project_id</li>
-<li>Exact mapping: GDC.Aliquot.project_id</li>
-<li>Exact mapping: GDC.Analyte.project_id</li>
-<li>Exact mapping: PDC.Sample.gdc_project_id</li>
+<li>Exact mapping: GDC:Sample.project_id</li>
+<li>Exact mapping: GDC:Portion.project_id</li>
+<li>Exact mapping: GDC:Aliquot.project_id</li>
+<li>Exact mapping: GDC:Analyte.project_id</li>
+<li>Exact mapping: PDC:Sample.gdc_project_id</li>
 </ul>
 </li>
 <li><a href="../specimen__cellular_composition_type/">➞cellular_composition_type</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the type of cell or cellular material comprising a specimen.</li>
 <li>range: <a href="../CCDH_Specimen_cellular_composition_type/">CCDH_Specimen_cellular_composition_type</a></li>
 <li>Examples: 2D Classical Conditionally Reprogrammed Cells, Adherent Cell Line, Bone Marrow Components, Buccal Cells, Buffy Coat, Derived Cell Line, Granulocytes, Pleural Effusion, Human Original Cells, Liquid Suspension Cell Line</li>
-<li>Exact mapping: GDC.Sample.composition</li>
-<li>Exact mapping: PDC.Sample.composition</li>
+<li>Exact mapping: GDC:Sample.composition</li>
+<li>Exact mapping: PDC:Sample.composition</li>
 </ul>
 </li>
 <li><a href="../specimen__contained_in/">➞contained_in</a>  <sub>0..1</sub><ul>
 <li>Description: A physical container in which a specimen is presently held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)</li>
 <li>range: <a href="../SpecimenContainer/">SpecimenContainer</a></li>
-<li>Close mappings: GDC.Analyte.well_number</li>
-<li>Close mappings: PDC.Analyte.well_number</li>
-<li>Close mappings: HTAN.Biospecimen.CollectionMedia</li>
-<li>Close mappings: GDC.Slide.charge_type</li>
+<li>Close mappings: GDC:Analyte.well_number</li>
+<li>Close mappings: PDC:Analyte.well_number</li>
+<li>Close mappings: HTAN:Biospecimen.CollectionMedia</li>
+<li>Close mappings: GDC:Slide.charge_type</li>
 </ul>
 </li>
 <li><a href="../specimen__creation_activity/">➞creation_activity</a>  <sub>0..1</sub><ul>
 <li>Description: The activity through which a specimen was created, by removing material from an biological subject, or deriving material from an existing specimen.</li>
 <li>range: <a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></li>
-<li>Close mappings: GDC.Portion.creation_datetime</li>
-<li>Close mappings: PDC.Portion.creation_datetime</li>
-<li>Close mappings: PDC.Sample.days_to_collection</li>
-<li>Close mappings: ICDC.Sample.date_of_sample_collection</li>
-<li>Close mappings: HTAN.Biospecimen.CollectionDaysfromIndex</li>
-<li>Close mappings: GDC.Sample.method_of_sample_procurement</li>
-<li>Close mappings: PDC.Sample.method_of_sample_procurement</li>
-<li>Close mappings: PDC.Sample.pool</li>
-<li>Close mappings: PDC.Aliquot.pool</li>
-<li>Close mappings: HTAN.Biospecimen.AcquisitionMethodType</li>
-<li>Close mappings: HTAN.Biospecimen.SlicingMethod</li>
-<li>Close mappings: HTAN.Biospecimen.MethodofNucleicAcidIsolation</li>
-<li>Close mappings: HTAN.Biospecimen.LysisBuffer</li>
-<li>Close mappings: GDC.Sample.biospecimen_anatomic_site</li>
-<li>Close mappings: GDC.Sample.biospecimen_laterality</li>
-<li>Close mappings: PDC.Sample.biospecimen_anatomic_site</li>
-<li>Close mappings: PDC.Sample.biospecimen_laterality</li>
-<li>Close mappings: ICDC.Sample.sample_site</li>
-<li>Close mappings: HTAN.Biospecimen.SiteofResectionorBiopsy</li>
-<li>Close mappings: GDC.Sample.initial_weight</li>
-<li>Close mappings: PDC.Sample.initial_weight</li>
-<li>Close mappings: GDC.Sample.time_between_excision_and_freezing</li>
-<li>Close mappings: GDC.Sample.time_between_clamping_and_freezing</li>
-<li>Close mappings: PDC.Sample.time_between_excision_and_freezing</li>
-<li>Close mappings: PDC.Sample.time_between_clamping_and_freezing</li>
-<li>Close mappings: HTAN.Biospecimen.ISCHEMIC_TEMPERATURE</li>
-<li>Close mappings: HTAN.Biospecimen.ISCHEMIC_TIME</li>
-<li>Close mappings: GDC.Portion.portion_number</li>
-<li>Close mappings: PDC.Portion.portion_number</li>
-<li>Close mappings: ICDC.Sample.on_visit</li>
-<li>Close mappings: ICDC.Sample.necropsy_sample</li>
-<li>Close mappings: HTAN.Biospecimen.TimepointLabel</li>
+<li>Close mappings: GDC:Portion.creation_datetime</li>
+<li>Close mappings: PDC:Portion.creation_datetime</li>
+<li>Close mappings: PDC:Sample.days_to_collection</li>
+<li>Close mappings: ICDC:Sample.date_of_sample_collection</li>
+<li>Close mappings: HTAN:Biospecimen.CollectionDaysfromIndex</li>
+<li>Close mappings: GDC:Sample.method_of_sample_procurement</li>
+<li>Close mappings: PDC:Sample.method_of_sample_procurement</li>
+<li>Close mappings: PDC:Sample.pool</li>
+<li>Close mappings: PDC:Aliquot.pool</li>
+<li>Close mappings: HTAN:Biospecimen.AcquisitionMethodType</li>
+<li>Close mappings: HTAN:Biospecimen.SlicingMethod</li>
+<li>Close mappings: HTAN:Biospecimen.MethodofNucleicAcidIsolation</li>
+<li>Close mappings: HTAN:Biospecimen.LysisBuffer</li>
+<li>Close mappings: GDC:Sample.biospecimen_anatomic_site</li>
+<li>Close mappings: GDC:Sample.biospecimen_laterality</li>
+<li>Close mappings: PDC:Sample.biospecimen_anatomic_site</li>
+<li>Close mappings: PDC:Sample.biospecimen_laterality</li>
+<li>Close mappings: ICDC:Sample.sample_site</li>
+<li>Close mappings: HTAN:Biospecimen.SiteofResectionorBiopsy</li>
+<li>Close mappings: GDC:Sample.initial_weight</li>
+<li>Close mappings: PDC:Sample.initial_weight</li>
+<li>Close mappings: GDC:Sample.time_between_excision_and_freezing</li>
+<li>Close mappings: GDC:Sample.time_between_clamping_and_freezing</li>
+<li>Close mappings: PDC:Sample.time_between_excision_and_freezing</li>
+<li>Close mappings: PDC:Sample.time_between_clamping_and_freezing</li>
+<li>Close mappings: HTAN:Biospecimen.ISCHEMIC_TEMPERATURE</li>
+<li>Close mappings: HTAN:Biospecimen.ISCHEMIC_TIME</li>
+<li>Close mappings: GDC:Portion.portion_number</li>
+<li>Close mappings: PDC:Portion.portion_number</li>
+<li>Close mappings: ICDC:Sample.on_visit</li>
+<li>Close mappings: ICDC:Sample.necropsy_sample</li>
+<li>Close mappings: HTAN:Biospecimen.TimepointLabel</li>
 </ul>
 </li>
 <li><a href="../specimen__data_provider/">➞data_provider</a>  <sub>0..1</sub><ul>
 <li>Description: The organization (e.g.a laboratory, processing center, or research site) that provided data associated with a specimen.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Close mappings: GDC.Aliquot.source_center</li>
-<li>Close mappings: HTAN.Biospecimen.SiteDataSource</li>
+<li>Close mappings: GDC:Aliquot.source_center</li>
+<li>Close mappings: HTAN:Biospecimen.SiteDataSource</li>
 </ul>
 </li>
 <li><a href="../specimen__degree_of_dysplasia/">➞degree_of_dysplasia</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.</li>
 <li>range: <a href="../CCDH_Specimen_degree_of_dysplasia/">CCDH_Specimen_degree_of_dysplasia</a></li>
 <li>Examples: Normal or basal cell hyperplasia or metaplasia, Mild dysplasia, Moderate dysplasia, Severe dysplasia, Carcinoma in Situ, Unknown</li>
-<li>Exact mapping: HTAN.Biospecimen.DegreeofDysplasia</li>
+<li>Exact mapping: HTAN:Biospecimen.DegreeofDysplasia</li>
 </ul>
 </li>
 <li><a href="../specimen__derived_product/">➞derived_product</a>  <sub>0..*</sub><ul>
 <li>Description: A 'living' biologically active product that was derived from the specimen (e.g. a cell culture, tissue culture, or organoid)</li>
 <li>range: <a href="../BiologicProduct/">BiologicProduct</a></li>
-<li>Close mappings: GDC.Sample.passage_count</li>
-<li>Close mappings: GDC.Sample.growth_rate</li>
-<li>Close mappings: PDC.Sample.passage_count</li>
-<li>Close mappings: PDC.Sample.growth_rate</li>
+<li>Close mappings: GDC:Sample.passage_count</li>
+<li>Close mappings: GDC:Sample.growth_rate</li>
+<li>Close mappings: PDC:Sample.passage_count</li>
+<li>Close mappings: PDC:Sample.growth_rate</li>
 </ul>
 </li>
 <li><a href="../specimen__description/">➞description</a>  <sub>0..1</sub><ul>
 <li>Description: A free text field to capture additional information or explanation about the specimen.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: ICDC.Sample.comment</li>
+<li>Exact mapping: ICDC:Sample.comment</li>
 </ul>
 </li>
 <li><a href="../specimen__dimensional_measure/">➞dimensional_measure</a>  <sub>0..1</sub><ul>
 <li>Description: A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</li>
 <li>range: <a href="../DimensionalObservationSet/">DimensionalObservationSet</a></li>
-<li>Close mappings: GDC.Sample.longest_dimension</li>
-<li>Close mappings: GDC.Sample.shortest_dimension</li>
-<li>Close mappings: GDC.Sample.intermediate_dimension</li>
-<li>Close mappings: PDC.Sample.longest_dimension</li>
-<li>Close mappings: PDC.Sample.shortest_dimension</li>
-<li>Close mappings: PDC.Sample.intermediate_dimension</li>
-<li>Close mappings: ICDC.Sample.length_of_tumor</li>
-<li>Close mappings: ICDC.Sample.width_of_tumor</li>
-<li>Close mappings: ICDC.Sample.total_tissue_area</li>
+<li>Close mappings: GDC:Sample.longest_dimension</li>
+<li>Close mappings: GDC:Sample.shortest_dimension</li>
+<li>Close mappings: GDC:Sample.intermediate_dimension</li>
+<li>Close mappings: PDC:Sample.longest_dimension</li>
+<li>Close mappings: PDC:Sample.shortest_dimension</li>
+<li>Close mappings: PDC:Sample.intermediate_dimension</li>
+<li>Close mappings: ICDC:Sample.length_of_tumor</li>
+<li>Close mappings: ICDC:Sample.width_of_tumor</li>
+<li>Close mappings: ICDC:Sample.total_tissue_area</li>
 </ul>
 </li>
 <li><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a>  <sub>0..1</sub><ul>
 <li>Description: The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
-<li>Close mappings: GDC.Specimen.distance_normal_to_tumor</li>
-<li>Close mappings: PDC.Specimen.distance_normal_to_tumor</li>
+<li>Close mappings: GDC:Specimen.distance_normal_to_tumor</li>
+<li>Close mappings: PDC:Specimen.distance_normal_to_tumor</li>
 </ul>
 </li>
 <li><a href="../specimen__dysplasia_fraction/">➞dysplasia_fraction</a>  <sub>0..1</sub><ul>
 <li>Description: Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: HTAN.Biospecimen.DysplasiaFraction</li>
+<li>Exact mapping: HTAN:Biospecimen.DysplasiaFraction</li>
 </ul>
 </li>
 <li><a href="../specimen__general_tissue_morphology/">➞general_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
 <li>range: <a href="../CCDH_Specimen_general_tissue_morphology/">CCDH_Specimen_general_tissue_morphology</a></li>
 <li>Examples: Tumor, Normal, Abnormal, Peritumoral, not applicable</li>
-<li>Exact mapping: GDC.Sample.tissue_type</li>
-<li>Exact mapping: PDC.Sample.tissue_type</li>
-<li>Exact mapping: ICDC.Sample.general_sample_pathology</li>
+<li>Exact mapping: GDC:Sample.tissue_type</li>
+<li>Exact mapping: PDC:Sample.tissue_type</li>
+<li>Exact mapping: ICDC:Sample.general_sample_pathology</li>
 </ul>
 </li>
 <li><a href="../specimen__histological_composition_measure/">➞histological_composition_measure</a>  <sub>0..*</sub><ul>
 <li>Description: A set of one or more observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.</li>
 <li>range: <a href="../ObservationSet/">ObservationSet</a></li>
-<li>Close mappings: GDC.Slide.number_proliferating_cells</li>
-<li>Close mappings: GDC.Slide.percent_eosinophil_infiltration</li>
-<li>Close mappings: GDC.Slide.percent_granulocyte_infiltration</li>
-<li>Close mappings: GDC.Slide.percent_inflam_infiltration</li>
-<li>Close mappings: GDC.Slide.percent_lymphocyte_infiltration</li>
-<li>Close mappings: GDC.Slide.percent_monocyte_infiltration</li>
-<li>Close mappings: GDC.Slide.percent_necrosis</li>
-<li>Close mappings: GDC.Slide.percent_neutrophil_infiltration</li>
-<li>Close mappings: GDC.Slide.percent_normal_cells</li>
-<li>Close mappings: GDC.Slide.percent_stromal_cells</li>
-<li>Close mappings: GDC.Slide.percent_tumor_cells</li>
-<li>Close mappings: GDC.Slide.percent_tumor_nuclei</li>
-<li>Close mappings: HTAN.Biospecimen.NumberProliferatingCells</li>
-<li>Close mappings: HTAN.Biospecimen.PercentEosinophilInfiltration</li>
-<li>Close mappings: HTAN.Biospecimen.PercentGranulocyteInfiltration</li>
-<li>Close mappings: HTAN.Biospecimen.PercentInflamInfiltration</li>
-<li>Close mappings: HTAN.Biospecimen.PercentLymphocyteInfiltration</li>
-<li>Close mappings: HTAN.Biospecimen.PercentMonocyteInfiltration</li>
-<li>Close mappings: HTAN.Biospecimen.PercentNecrosis</li>
-<li>Close mappings: HTAN.Biospecimen.PercentNeutrophilInfiltration</li>
-<li>Close mappings: HTAN.Biospecimen.PercentNormalCells</li>
-<li>Close mappings: HTAN.Biospecimen.PercentStromalCells</li>
-<li>Close mappings: HTAN.Biospecimen.PercentTumorCells</li>
-<li>Close mappings: HTAN.Biospecimen.PercentTumorNuclei</li>
-<li>Close mappings: HTAN.Biospecimen.TumorInfiltratingLymphocytes</li>
-<li>Close mappings: ICDC.Sample.non_tumor_tissue_area</li>
-<li>Close mappings: ICDC.Sample.tumor_tissue_area</li>
-<li>Close mappings: ICDC.Sample.percentage_tumor</li>
-<li>Close mappings: ICDC.Sample.percentage_stroma</li>
-<li>Close mappings: ICDC.Sample.analysis_area</li>
-<li>Close mappings: ICDC.Sample.analysis_area_percentage_stroma</li>
-<li>Close mappings: ICDC.Sample.analysis_area_percentage_tumor</li>
-<li>Close mappings: ICDC.Sample.analysis_area_percentage_glass</li>
-<li>Close mappings: ICDC.Sample.analysis_area_percentage_pigmented_tumor</li>
+<li>Close mappings: GDC:Slide.number_proliferating_cells</li>
+<li>Close mappings: GDC:Slide.percent_eosinophil_infiltration</li>
+<li>Close mappings: GDC:Slide.percent_granulocyte_infiltration</li>
+<li>Close mappings: GDC:Slide.percent_inflam_infiltration</li>
+<li>Close mappings: GDC:Slide.percent_lymphocyte_infiltration</li>
+<li>Close mappings: GDC:Slide.percent_monocyte_infiltration</li>
+<li>Close mappings: GDC:Slide.percent_necrosis</li>
+<li>Close mappings: GDC:Slide.percent_neutrophil_infiltration</li>
+<li>Close mappings: GDC:Slide.percent_normal_cells</li>
+<li>Close mappings: GDC:Slide.percent_stromal_cells</li>
+<li>Close mappings: GDC:Slide.percent_tumor_cells</li>
+<li>Close mappings: GDC:Slide.percent_tumor_nuclei</li>
+<li>Close mappings: HTAN:Biospecimen.NumberProliferatingCells</li>
+<li>Close mappings: HTAN:Biospecimen.PercentEosinophilInfiltration</li>
+<li>Close mappings: HTAN:Biospecimen.PercentGranulocyteInfiltration</li>
+<li>Close mappings: HTAN:Biospecimen.PercentInflamInfiltration</li>
+<li>Close mappings: HTAN:Biospecimen.PercentLymphocyteInfiltration</li>
+<li>Close mappings: HTAN:Biospecimen.PercentMonocyteInfiltration</li>
+<li>Close mappings: HTAN:Biospecimen.PercentNecrosis</li>
+<li>Close mappings: HTAN:Biospecimen.PercentNeutrophilInfiltration</li>
+<li>Close mappings: HTAN:Biospecimen.PercentNormalCells</li>
+<li>Close mappings: HTAN:Biospecimen.PercentStromalCells</li>
+<li>Close mappings: HTAN:Biospecimen.PercentTumorCells</li>
+<li>Close mappings: HTAN:Biospecimen.PercentTumorNuclei</li>
+<li>Close mappings: HTAN:Biospecimen.TumorInfiltratingLymphocytes</li>
+<li>Close mappings: ICDC:Sample.non_tumor_tissue_area</li>
+<li>Close mappings: ICDC:Sample.tumor_tissue_area</li>
+<li>Close mappings: ICDC:Sample.percentage_tumor</li>
+<li>Close mappings: ICDC:Sample.percentage_stroma</li>
+<li>Close mappings: ICDC:Sample.analysis_area</li>
+<li>Close mappings: ICDC:Sample.analysis_area_percentage_stroma</li>
+<li>Close mappings: ICDC:Sample.analysis_area_percentage_tumor</li>
+<li>Close mappings: ICDC:Sample.analysis_area_percentage_glass</li>
+<li>Close mappings: ICDC:Sample.analysis_area_percentage_pigmented_tumor</li>
 </ul>
 </li>
 <li><a href="../specimen__id/">➞id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC.Aliquot.id</li>
-<li>Exact mapping: GDC.Analyte.id</li>
-<li>Exact mapping: GDC.Portion.id</li>
-<li>Exact mapping: GDC.Sample.id</li>
-<li>Exact mapping: GDC.Slide.id</li>
-<li>Exact mapping: PDC.Aliquot.aliquot_id</li>
-<li>Exact mapping: PDC.Analyte.analyte_id</li>
-<li>Exact mapping: PDC.Portion.portion_id</li>
-<li>Exact mapping: PDC.Sample.sample_id</li>
-<li>Exact mapping: ICDC.Sample.sample_id</li>
-<li>Exact mapping: HTAN.Biospecimen.HTANBiospecimenID</li>
+<li>Exact mapping: GDC:Aliquot.id</li>
+<li>Exact mapping: GDC:Analyte.id</li>
+<li>Exact mapping: GDC:Portion.id</li>
+<li>Exact mapping: GDC:Sample.id</li>
+<li>Exact mapping: GDC:Slide.id</li>
+<li>Exact mapping: PDC:Aliquot.aliquot_id</li>
+<li>Exact mapping: PDC:Analyte.analyte_id</li>
+<li>Exact mapping: PDC:Portion.portion_id</li>
+<li>Exact mapping: PDC:Sample.sample_id</li>
+<li>Exact mapping: ICDC:Sample.sample_id</li>
+<li>Exact mapping: HTAN:Biospecimen.HTANBiospecimenID</li>
 </ul>
 </li>
 <li><a href="../specimen__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li>Close mappings: GDC.Sample.submitter_id</li>
-<li>Close mappings: GDC.Analyte.submitter_id</li>
-<li>Close mappings: GDC.Slide.submitter_id</li>
-<li>Close mappings: PDC.Sample.sample_submitter_id</li>
-<li>Close mappings: PDC.Analyte.analyte_submitter_id</li>
+<li>Close mappings: GDC:Sample.submitter_id</li>
+<li>Close mappings: GDC:Analyte.submitter_id</li>
+<li>Close mappings: GDC:Slide.submitter_id</li>
+<li>Close mappings: PDC:Sample.sample_submitter_id</li>
+<li>Close mappings: PDC:Analyte.analyte_submitter_id</li>
 </ul>
 </li>
 <li><a href="../specimen__morphlogy_assessment_method/">➞morphlogy_assessment_method</a>  <sub>0..1</sub><ul>
 <li>Description: The general method used to assess a specimens specific tissue morphology</li>
 <li>range: <a href="../CCDH_Specimen_morphlogy_assessment_method/">CCDH_Specimen_morphlogy_assessment_method</a></li>
 <li>Examples: Digital, Microscopy, Other, Unknown</li>
-<li>Exact mapping: HTAN.Biospecimen.HistologyAssessmentMedium</li>
+<li>Exact mapping: HTAN:Biospecimen.HistologyAssessmentMedium</li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_assessor_role/">➞morphology_assessor_role</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen</li>
 <li>range: <a href="../CCDH_Specimen_morphology_assessor_role/">CCDH_Specimen_morphology_assessor_role</a></li>
 <li>Examples: Pathologist, Research Scientist, Other, Unknown</li>
-<li>Exact mapping: HTAN.Biospecimen.HistologyAssessmentBy</li>
+<li>Exact mapping: HTAN:Biospecimen.HistologyAssessmentBy</li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_pathologically_confirmed/">➞morphology_pathologically_confirmed</a>  <sub>0..1</sub><ul>
 <li>Description: A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review.</li>
 <li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
-<li>Exact mapping: GDC.Sample.diagnosis_pathologically_confirmed</li>
-<li>Exact mapping: PDC.Sample.diagnosis_pathologically_confirmed</li>
+<li>Exact mapping: GDC:Sample.diagnosis_pathologically_confirmed</li>
+<li>Exact mapping: PDC:Sample.diagnosis_pathologically_confirmed</li>
 </ul>
 </li>
 <li><a href="../specimen__parent_specimen/">➞parent_specimen</a>  <sub>0..*</sub><ul>
 <li>Description: An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).</li>
 <li>range: <a href="./">Specimen</a></li>
-<li>Exact mapping: GDC.Sample.derived_from</li>
-<li>Exact mapping: GDC.Aliquot.derived_from</li>
-<li>Exact mapping: GDC.Aliquot.derived_from</li>
-<li>Exact mapping: GDC.Analyte.derived_from</li>
-<li>Exact mapping: GDC.Analyte.derived_from</li>
-<li>Exact mapping: GDC.Portion.derived_from</li>
-<li>Exact mapping: GDC.Slide.derived_from</li>
-<li>Exact mapping: PDC.Aliquot.Sample</li>
-<li>Exact mapping: PDC.Analyte.Portion</li>
-<li>Exact mapping: PDC.Analyte.Sample</li>
-<li>Exact mapping: PDC.Portion.Sample</li>
-<li>Exact mapping: HTAN.Biospecimen.HTANParentID</li>
+<li>Exact mapping: GDC:Sample.derived_from</li>
+<li>Exact mapping: GDC:Aliquot.derived_from</li>
+<li>Exact mapping: GDC:Aliquot.derived_from</li>
+<li>Exact mapping: GDC:Analyte.derived_from</li>
+<li>Exact mapping: GDC:Analyte.derived_from</li>
+<li>Exact mapping: GDC:Portion.derived_from</li>
+<li>Exact mapping: GDC:Slide.derived_from</li>
+<li>Exact mapping: PDC:Aliquot.Sample</li>
+<li>Exact mapping: PDC:Analyte.Portion</li>
+<li>Exact mapping: PDC:Analyte.Sample</li>
+<li>Exact mapping: PDC:Portion.Sample</li>
+<li>Exact mapping: HTAN:Biospecimen.HTANParentID</li>
 </ul>
 </li>
 <li><a href="../specimen__preinvasive_tissue_morphology/">➞preinvasive_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen.</li>
 <li>range: <a href="../CCDH_Specimen_preinvasive_tissue_morphology/">CCDH_Specimen_preinvasive_tissue_morphology</a></li>
-<li>Exact mapping: HTAN.Biospecimen.PreinvasiveMorphology</li>
+<li>Exact mapping: HTAN:Biospecimen.PreinvasiveMorphology</li>
 </ul>
 </li>
 <li><a href="../specimen__processing_activity/">➞processing_activity</a>  <sub>0..*</sub><ul>
 <li>Description: An activity that modifies the physical structure, composition, or state of a specimen.</li>
 <li>range: <a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></li>
-<li>Close mappings: HTAN.Biospecimen.ProcessingDaysfromIndex</li>
-<li>Close mappings: HTAN.Biospecimen.FIXATION_DURATION</li>
-<li>Close mappings: GDC.Sample.processed_at</li>
-<li>Close mappings: HTAN.Biospecimen.ProcessingLocation</li>
-<li>Close mappings: GDC.Sample.freezing_method</li>
-<li>Close mappings: GDC.Sample.preservation_method</li>
-<li>Close mappings: GDC.Sample.is_ffpe</li>
-<li>Close mappings: GDC.Portion.is_ffpe</li>
-<li>Close mappings: GDC.Sample.oct_embedded</li>
-<li>Close mappings: PDC.Sample.freezing_method</li>
-<li>Close mappings: PDC.Sample.preservation_method</li>
-<li>Close mappings: PDC.Sample.is_ffpe</li>
-<li>Close mappings: GDC.Portion.is_ffpe</li>
-<li>Close mappings: PDC.Sample.oct_embedded</li>
-<li>Close mappings: HTAN.Biospecimen.PRESERVATION_METHOD</li>
-<li>Close mappings: HTAN.Biospecimen.FixativeType</li>
-<li>Close mappings: HTAN.Biospecimen.MountingMedium</li>
+<li>Close mappings: HTAN:Biospecimen.ProcessingDaysfromIndex</li>
+<li>Close mappings: HTAN:Biospecimen.FIXATION_DURATION</li>
+<li>Close mappings: GDC:Sample.processed_at</li>
+<li>Close mappings: HTAN:Biospecimen.ProcessingLocation</li>
+<li>Close mappings: GDC:Sample.freezing_method</li>
+<li>Close mappings: GDC:Sample.preservation_method</li>
+<li>Close mappings: GDC:Sample.is_ffpe</li>
+<li>Close mappings: GDC:Portion.is_ffpe</li>
+<li>Close mappings: GDC:Sample.oct_embedded</li>
+<li>Close mappings: PDC:Sample.freezing_method</li>
+<li>Close mappings: PDC:Sample.preservation_method</li>
+<li>Close mappings: PDC:Sample.is_ffpe</li>
+<li>Close mappings: GDC:Portion.is_ffpe</li>
+<li>Close mappings: PDC:Sample.oct_embedded</li>
+<li>Close mappings: HTAN:Biospecimen.PRESERVATION_METHOD</li>
+<li>Close mappings: HTAN:Biospecimen.FixativeType</li>
+<li>Close mappings: HTAN:Biospecimen.MountingMedium</li>
 </ul>
 </li>
 <li><a href="../specimen__quality_measure/">➞quality_measure</a>  <sub>0..*</sub><ul>
 <li>Description: An observation about characteristics of a specimen that are indicative of its quality or suitability for use.</li>
 <li>range: <a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></li>
-<li>Close mappings: GDC.Analyte.a260_a280_ratio</li>
-<li>Close mappings: GDC.Analyte.ribosomal_rna_28s_16s_ratio</li>
-<li>Close mappings: PDC.Analyte.a260_a280_ratio</li>
-<li>Close mappings: PDC.Analyte.ribosomal_rna_28s_16s_ratio</li>
+<li>Close mappings: GDC:Analyte.a260_a280_ratio</li>
+<li>Close mappings: GDC:Analyte.ribosomal_rna_28s_16s_ratio</li>
+<li>Close mappings: PDC:Analyte.a260_a280_ratio</li>
+<li>Close mappings: PDC:Analyte.ribosomal_rna_28s_16s_ratio</li>
 </ul>
 </li>
 <li><a href="../specimen__quantity_measure/">➞quantity_measure</a>  <sub>0..*</sub><ul>
 <li>Description: An observation related to the present quantity of a specimen - e.g. its weight, volume, or analyte concentration.</li>
 <li>range: <a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></li>
-<li>Close mappings: GDC.Sample.current_weight</li>
-<li>Close mappings: GDC.Aliquot.amount</li>
-<li>Close mappings: GDC.Portion.weight</li>
-<li>Close mappings: GDC.Aliquot.aliquot_quantity</li>
-<li>Close mappings: GDC.Analyte.amount</li>
-<li>Close mappings: GDC.Analyte.analyte_quantity</li>
-<li>Close mappings: PDC.Sample.current_weight</li>
-<li>Close mappings: PDC.Aliquot.amount</li>
-<li>Close mappings: PDC.Portion.weight</li>
-<li>Close mappings: PDC.Aliquot.aliquot_quantity</li>
-<li>Close mappings: PDC.Analyte.amount</li>
-<li>Close mappings: PDC.Analyte.analyte_quantity</li>
-<li>Close mappings: GDC.Aliquot.aliquot_volume</li>
-<li>Close mappings: GDC.Aliquot.amount</li>
-<li>Close mappings: GDC.Analyte.amount</li>
-<li>Close mappings: GDC.Analyte.analyte_volume</li>
-<li>Close mappings: PDC.Aliquot.aliquot_volume</li>
-<li>Close mappings: PDC.Aliquot.amount</li>
-<li>Close mappings: PDC.Analyte.amount</li>
-<li>Close mappings: PDC.Analyte.analyte_volume</li>
-<li>Close mappings: GDC.Aliquot.concentration</li>
-<li>Close mappings: GDC.Analyte.concentration</li>
-<li>Close mappings: PDC.Aliquot.concentration</li>
-<li>Close mappings: PDC.Analyte.concentration</li>
-<li>Close mappings: GDC.Analyte.spectrophotometer_method</li>
-<li>Close mappings: PDC.Analyte.spectrophotometer_method</li>
+<li>Close mappings: GDC:Sample.current_weight</li>
+<li>Close mappings: GDC:Aliquot.amount</li>
+<li>Close mappings: GDC:Portion.weight</li>
+<li>Close mappings: GDC:Aliquot.aliquot_quantity</li>
+<li>Close mappings: GDC:Analyte.amount</li>
+<li>Close mappings: GDC:Analyte.analyte_quantity</li>
+<li>Close mappings: PDC:Sample.current_weight</li>
+<li>Close mappings: PDC:Aliquot.amount</li>
+<li>Close mappings: PDC:Portion.weight</li>
+<li>Close mappings: PDC:Aliquot.aliquot_quantity</li>
+<li>Close mappings: PDC:Analyte.amount</li>
+<li>Close mappings: PDC:Analyte.analyte_quantity</li>
+<li>Close mappings: GDC:Aliquot.aliquot_volume</li>
+<li>Close mappings: GDC:Aliquot.amount</li>
+<li>Close mappings: GDC:Analyte.amount</li>
+<li>Close mappings: GDC:Analyte.analyte_volume</li>
+<li>Close mappings: PDC:Aliquot.aliquot_volume</li>
+<li>Close mappings: PDC:Aliquot.amount</li>
+<li>Close mappings: PDC:Analyte.amount</li>
+<li>Close mappings: PDC:Analyte.analyte_volume</li>
+<li>Close mappings: GDC:Aliquot.concentration</li>
+<li>Close mappings: GDC:Analyte.concentration</li>
+<li>Close mappings: PDC:Aliquot.concentration</li>
+<li>Close mappings: PDC:Analyte.concentration</li>
+<li>Close mappings: GDC:Analyte.spectrophotometer_method</li>
+<li>Close mappings: PDC:Analyte.spectrophotometer_method</li>
 </ul>
 </li>
 <li><a href="../specimen__related_document/">➞related_document
 </a>  <sub>0..*</sub><ul>
 <li>Description: A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected)</li>
 <li>range: <a href="../Document/">Document</a></li>
-<li>Close mappings: GDC.Sample.pathology_report_uuid</li>
-<li>Close mappings: PDC.Sample.pathology_report_uuid</li>
-<li>Close mappings: HTAN.Biospecimen.ProtocolLink</li>
+<li>Close mappings: GDC:Sample.pathology_report_uuid</li>
+<li>Close mappings: PDC:Sample.pathology_report_uuid</li>
+<li>Close mappings: HTAN:Biospecimen.ProtocolLink</li>
 </ul>
 </li>
 <li><a href="../specimen__section_location/">➞section_location</a>  <sub>0..1</sub><ul>
 <li>Description: The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)</li>
 <li>range: <a href="../CCDH_Specimen_section_location/">CCDH_Specimen_section_location</a></li>
 <li>Examples: Top, Bottom, Unknown</li>
-<li>Exact mapping: GDC.Slide.section_location</li>
+<li>Exact mapping: GDC:Slide.section_location</li>
 </ul>
 </li>
 <li><a href="../specimen__source_material_type/">➞source_material_type</a>  <sub>0..1</sub><ul>
 <li>Description: The general kind of material from which the specimen was derived.</li>
 <li>range: <a href="../CCDH_Specimen_source_material_type/">CCDH_Specimen_source_material_type</a></li>
 <li>Examples: Tissue, Blood, Tumor Aspirate, Cell Line, Expanded Next Generation Cancer Model, Pleural Effusion, Xenograft Tissue</li>
-<li>Exact mapping: GDC.Sample.sample_type</li>
-<li>Exact mapping: GDC.Sample.sample_type_id</li>
-<li>Exact mapping: PDC.Sample.sample_type</li>
-<li>Exact mapping: PDC.Sample.sample_type_id</li>
-<li>Exact mapping: ICDC.Sample.physical_sample_type</li>
-<li>Exact mapping: HTAN.Biospecimen.BiospecimenType</li>
+<li>Exact mapping: GDC:Sample.sample_type</li>
+<li>Exact mapping: GDC:Sample.sample_type_id</li>
+<li>Exact mapping: PDC:Sample.sample_type</li>
+<li>Exact mapping: PDC:Sample.sample_type_id</li>
+<li>Exact mapping: ICDC:Sample.physical_sample_type</li>
+<li>Exact mapping: HTAN:Biospecimen.BiospecimenType</li>
 </ul>
 </li>
 <li><a href="../specimen__source_model_system/">➞source_model_system</a>  <sub>0..1</sub><ul>
 <li>Description: A biological model system (e.g. a cell line, tissue culture, organoid) from which a specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
-<li>Exact mapping: PDC.Sample.Case</li>
-<li>Exact mapping: GDC.Sample.derived_from</li>
-<li>Exact mapping: ICDC.Sample.of_case</li>
-<li>Exact mapping: HTAN.Biospecimen.HTANParentID</li>
+<li>Exact mapping: PDC:Sample.Case</li>
+<li>Exact mapping: GDC:Sample.derived_from</li>
+<li>Exact mapping: ICDC:Sample.of_case</li>
+<li>Exact mapping: HTAN:Biospecimen.HTANParentID</li>
 </ul>
 </li>
 <li><a href="../specimen__source_subject/">➞source_subject</a>  <sub>0..1</sub><ul>
 <li>Description: A specific Subject from which the specimen was directly or indirectly derived.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
-<li>Exact mapping: PDC.Sample.Case</li>
-<li>Exact mapping: GDC.Sample.derived_from</li>
-<li>Exact mapping: ICDC.Sample.of_case</li>
-<li>Exact mapping: HTAN.Biospecimen.HTANParentID</li>
+<li>Exact mapping: PDC:Sample.Case</li>
+<li>Exact mapping: GDC:Sample.derived_from</li>
+<li>Exact mapping: ICDC:Sample.of_case</li>
+<li>Exact mapping: HTAN:Biospecimen.HTANParentID</li>
 </ul>
 </li>
 <li><a href="../specimen__specific_tissue_morphology/">➞specific_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the specific pathology exhibited by the tissue comprising a specimen.</li>
 <li>range: <a href="../CCDH_Specimen_specific_tissue_morphology/">CCDH_Specimen_specific_tissue_morphology</a></li>
 <li>Examples: Non cancerous tissue, Lung Cancer (all types), CNS, medulloblastoma, 00, 01, 02, Melanocytic hyperplasia, Atypical melanocytic proliferation, Melanoma in situ, superficial spreading</li>
-<li>Exact mapping: GDC.Sample.tumor_code</li>
-<li>Exact mapping: GDC.Sample.tumor_code_id</li>
-<li>Exact mapping: PDC.Sample.tumor_code</li>
-<li>Exact mapping: PDC.Sample.tumor_code_id</li>
-<li>Exact mapping: ICDC.Sample.specific_sample_pathology</li>
-<li>Exact mapping: HTAN.Biospecimen.HistologicMorphologyCode</li>
+<li>Exact mapping: GDC:Sample.tumor_code</li>
+<li>Exact mapping: GDC:Sample.tumor_code_id</li>
+<li>Exact mapping: PDC:Sample.tumor_code</li>
+<li>Exact mapping: PDC:Sample.tumor_code_id</li>
+<li>Exact mapping: ICDC:Sample.specific_sample_pathology</li>
+<li>Exact mapping: HTAN:Biospecimen.HistologicMorphologyCode</li>
 </ul>
 </li>
 <li><a href="../specimen__specimen_type/">➞specimen_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</li>
 <li>range: <a href="../CCDH_Specimen_specimen_type/">CCDH_Specimen_specimen_type</a></li>
 <li>Examples: Initial Sample, Portion, Aliquot, Analyte, Slide</li>
-<li>Exact mapping: HTAN.Biospecimen.BiospecimenType</li>
-<li>Close mappings: GDC.Sample</li>
-<li>Close mappings: GDC.Portion</li>
-<li>Close mappings: GDC.Analyte</li>
-<li>Close mappings: GDC.Aliquot</li>
-<li>Close mappings: GDC.Slide</li>
-<li>Close mappings: PDC.Sample</li>
-<li>Close mappings: PDC.Portion</li>
-<li>Close mappings: PDC.Analyte</li>
-<li>Close mappings: PDC.Aliquot</li>
-<li>Close mappings: PDC.Slide</li>
-<li>Close mappings: ICDC.Sample</li>
+<li>Exact mapping: HTAN:Biospecimen.BiospecimenType</li>
+<li>Close mappings: GDC:Sample</li>
+<li>Close mappings: GDC:Portion</li>
+<li>Close mappings: GDC:Analyte</li>
+<li>Close mappings: GDC:Aliquot</li>
+<li>Close mappings: GDC:Slide</li>
+<li>Close mappings: PDC:Sample</li>
+<li>Close mappings: PDC:Portion</li>
+<li>Close mappings: PDC:Analyte</li>
+<li>Close mappings: PDC:Aliquot</li>
+<li>Close mappings: PDC:Slide</li>
+<li>Close mappings: ICDC:Sample</li>
 </ul>
 </li>
 <li><a href="../specimen__storage_activity/">➞storage_activity</a>  <sub>0..*</sub><ul>
 <li>Description: An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.</li>
 <li>range: <a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></li>
-<li>Close mappings: GDC.Case.processed_at</li>
-<li>Close mappings: HTAN.Biospecimen.StorageMethod</li>
+<li>Close mappings: GDC:Case.processed_at</li>
+<li>Close mappings: HTAN:Biospecimen.StorageMethod</li>
 </ul>
 </li>
 <li><a href="../specimen__transport_activity/">➞transport_activity</a>  <sub>0..*</sub><ul>
 <li>Description: An activity through which the specimen is transported between locations.</li>
 <li>range: <a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></li>
-<li>Close mappings: GDC.Case.processed_at</li>
-<li>Close mappings: GDC.Portion.shipped_to</li>
-<li>Close mappings: GDC.Aliquot.shipped_to</li>
+<li>Close mappings: GDC:Case.processed_at</li>
+<li>Close mappings: GDC:Portion.shipped_to</li>
+<li>Close mappings: GDC:Aliquot.shipped_to</li>
 </ul>
 </li>
 <li><a href="../specimen__tumor_status_at_collection/">➞tumor_status_at_collection</a>  <sub>0..1</sub><ul>
 <li>Description: The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
 <li>range: <a href="../CCDH_Specimen_tumor_status_at_collection/">CCDH_Specimen_tumor_status_at_collection</a></li>
 <li>Examples: Additional Primary, Local recurrence, Metastatic, NOS, Premalignant, Primary, Recurrent, Xenograft</li>
-<li>Exact mapping: GDC.Sample.tumor_descriptor</li>
-<li>Exact mapping: PDC.Sample.tumor_descriptor</li>
-<li>Exact mapping: HTAN.Biospecimen.TUMOR_TISSUE_TYPE</li>
-<li>Exact mapping: ICDC.Sample.tumor_sample_origin</li>
+<li>Exact mapping: GDC:Sample.tumor_descriptor</li>
+<li>Exact mapping: PDC:Sample.tumor_descriptor</li>
+<li>Exact mapping: HTAN:Biospecimen.TUMOR_TISSUE_TYPE</li>
+<li>Exact mapping: ICDC:Sample.tumor_sample_origin</li>
 </ul>
 </li>
 </ul>
