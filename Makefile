@@ -114,3 +114,7 @@ docserve:
 
 gh-deploy:
 	mike deploy dev -p
+
+# Regenerate from Google Sheets
+regen-google-sheets:
+	cd generators/google-sheets && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../src/schema/ccdhmodel.yaml && cd -
