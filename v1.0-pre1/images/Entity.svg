@@ -36,18 +36,18 @@
 <polygon fill='white' points='0,-257 0,-293 192,-293 192,-257 0,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='96' y='-271.3'>TobaccoExposureObservation</text>
 </g><g class='node' id='node29'><title>Entity</title>
-<polygon fill='white' points='2307,-385 2307,-421 2369,-421 2369,-385 2307,-385' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2338' y='-399.3'>Entity</text>
-</g><g class='edge' id='edge29'><title>TobaccoExposureObservation-&gt;Entity</title>
-<path d='M204.223,-294.279C1052.3,-387.174 2080.31,-400.027 2296.8,-401.745' fill='none' stroke='black'/>
-<polygon fill='black' points='203.993,-294.254 197.592,-297.573 192.065,-292.94 198.467,-289.621 203.993,-294.254' stroke='black'/>
-<polygon fill='black' points='2306.83,-401.821 2296.79,-406.245 2301.83,-401.783 2296.83,-401.745 2296.83,-401.745 2296.83,-401.745 2301.83,-401.783 2296.86,-397.245 2306.83,-401.821 2306.83,-401.821' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.09' y='-391.139'> focus 0..1</text>
-</g><g class='edge' id='edge30'><title>TobaccoExposureObservation-&gt;Entity</title>
-<path d='M203.967,-292.146C209.058,-292.831 214.088,-293.457 219,-294 1053.22,-386.252 2079.48,-399.791 2296.65,-401.698' fill='none' stroke='black'/>
-<polygon fill='black' points='203.886,-292.134 197.384,-295.252 192.005,-290.449 198.507,-287.331 203.886,-292.134' stroke='black'/>
-<polygon fill='black' points='2306.95,-401.785 2296.91,-406.201 2301.95,-401.743 2296.95,-401.701 2296.95,-401.701 2296.95,-401.701 2301.95,-401.743 2296.99,-397.201 2306.95,-401.785 2306.95,-401.785' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.21' y='-391.086'> valueEntity 0..1</text>
+<polygon fill='white' points='2650,-385 2650,-421 2712,-421 2712,-385 2650,-385' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2681' y='-399.3'>Entity</text>
+</g><g class='edge' id='edge23'><title>TobaccoExposureObservation-&gt;Entity</title>
+<path d='M204.084,-294.249C1195.69,-399.466 2402.32,-402.603 2639.46,-402.15' fill='none' stroke='black'/>
+<polygon fill='black' points='203.995,-294.24 197.605,-297.581 192.063,-292.967 198.453,-289.626 203.995,-294.24' stroke='black'/>
+<polygon fill='black' points='2649.74,-402.127 2639.76,-406.65 2644.74,-402.138 2639.74,-402.15 2639.74,-402.15 2639.74,-402.15 2644.74,-402.138 2639.73,-397.65 2649.74,-402.127 2649.74,-402.127' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2630.94' y='-391.629'> focus 0..1</text>
+</g><g class='edge' id='edge24'><title>TobaccoExposureObservation-&gt;Entity</title>
+<path d='M204.543,-292.264C209.437,-292.908 214.273,-293.494 219,-294 1197.05,-398.706 2402.45,-402.555 2639.59,-402.159' fill='none' stroke='black'/>
+<polygon fill='black' points='204.172,-292.212 197.677,-295.344 192.288,-290.552 198.783,-287.421 204.172,-292.212' stroke='black'/>
+<polygon fill='black' points='2649.84,-402.138 2639.84,-406.659 2644.84,-402.149 2639.84,-402.159 2639.84,-402.159 2639.84,-402.159 2644.84,-402.149 2639.83,-397.659 2649.84,-402.138 2649.84,-402.138' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.03' y='-391.636'> valueEntity 0..1</text>
 </g><g class='node' id='node3'><title>TimePoint</title>
 <polygon fill='white' points='2477,-257 2477,-293 2563,-293 2563,-257 2477,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2520' y='-271.3'>TimePoint</text>
@@ -69,51 +69,41 @@
 </g><g class='node' id='node9'><title>SpecimenQuantityObservation</title>
 <polygon fill='white' points='210,-257 210,-293 406,-293 406,-257 210,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='308' y='-271.3'>SpecimenQuantityObservation</text>
-</g><g class='edge' id='edge26'><title>SpecimenQuantityObservation-&gt;Entity</title>
-<path d='M418.241,-294.168C1177.42,-377.726 2093.52,-397.792 2296.79,-401.349' fill='none' stroke='black'/>
-<polygon fill='black' points='418.164,-294.159 411.76,-297.475 406.237,-292.839 412.64,-289.523 418.164,-294.159' stroke='black'/>
-<polygon fill='black' points='2306.79,-401.521 2296.71,-405.848 2301.79,-401.435 2296.79,-401.349 2296.79,-401.349 2296.79,-401.349 2301.79,-401.435 2296.87,-396.85 2306.79,-401.521 2306.79,-401.521' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.11' y='-390.659'> focus 0..*</text>
-</g><g class='edge' id='edge27'><title>SpecimenQuantityObservation-&gt;Entity</title>
-<path d='M418.548,-292.103C423.782,-292.799 428.952,-293.439 434,-294 1178.43,-376.702 2092.48,-397.374 2296.55,-401.24' fill='none' stroke='black'/>
-<polygon fill='black' points='418.137,-292.046 411.642,-295.178 406.252,-290.387 412.748,-287.255 418.137,-292.046' stroke='black'/>
-<polygon fill='black' points='2306.81,-401.432 2296.73,-405.744 2301.82,-401.338 2296.82,-401.245 2296.82,-401.245 2296.82,-401.245 2301.82,-401.338 2296.9,-396.746 2306.81,-401.432 2306.81,-401.432' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.15' y='-390.542'> valueEntity 0..1</text>
+</g><g class='edge' id='edge21'><title>SpecimenQuantityObservation-&gt;Entity</title>
+<path d='M418.313,-293.247C420.561,-293.513 422.792,-293.764 425,-294 1317.05,-389.271 2415.73,-400.507 2639.97,-401.826' fill='none' stroke='black'/>
+<polygon fill='black' points='418.06,-293.215 411.603,-296.427 406.155,-291.703 412.611,-288.491 418.06,-293.215' stroke='black'/>
+<polygon fill='black' points='2649.98,-401.881 2639.95,-406.325 2644.98,-401.853 2639.98,-401.826 2639.98,-401.826 2639.98,-401.826 2644.98,-401.853 2640,-397.326 2649.98,-401.881 2649.98,-401.881' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.22' y='-391.236'> focus 0..*</text>
 </g><g class='node' id='node10'><title>SpecimenQualityObservation</title>
 <polygon fill='white' points='424.5,-257 424.5,-293 613.5,-293 613.5,-257 424.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='519' y='-271.3'>SpecimenQualityObservation</text>
-</g><g class='edge' id='edge24'><title>SpecimenQualityObservation-&gt;Entity</title>
-<path d='M625.804,-293.746C626.538,-293.832 627.27,-293.917 628,-294 1291.54,-369.548 2106.4,-395.65 2296.85,-400.929' fill='none' stroke='black'/>
-<polygon fill='black' points='625.649,-293.727 619.197,-296.949 613.742,-292.233 620.193,-289.011 625.649,-293.727' stroke='black'/>
-<polygon fill='black' points='2306.98,-401.206 2296.86,-405.43 2301.98,-401.069 2296.98,-400.932 2296.98,-400.932 2296.98,-400.932 2301.98,-401.069 2297.11,-396.434 2306.98,-401.206 2306.98,-401.206' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.38' y='-390.154'> focus 0..*</text>
-</g><g class='edge' id='edge25'><title>SpecimenQualityObservation-&gt;Entity</title>
-<path d='M625.603,-291.401C632.523,-292.362 639.367,-293.245 646,-294 1302.29,-368.722 2106.61,-395.073 2296.64,-400.748' fill='none' stroke='black'/>
-<polygon fill='black' points='625.383,-291.369 618.874,-294.473 613.506,-289.657 620.015,-286.554 625.383,-291.369' stroke='black'/>
-<polygon fill='black' points='2306.75,-401.048 2296.62,-405.25 2301.76,-400.9 2296.76,-400.752 2296.76,-400.752 2296.76,-400.752 2301.76,-400.9 2296.89,-396.254 2306.75,-401.048 2306.75,-401.048' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.17' y='-389.954'> valueEntity 0..1</text>
+</g><g class='edge' id='edge20'><title>SpecimenQualityObservation-&gt;Entity</title>
+<path d='M625.748,-292.679C629.546,-293.156 633.306,-293.599 637,-294 1440,-381.152 2427.63,-398.616 2639.73,-401.496' fill='none' stroke='black'/>
+<polygon fill='black' points='625.419,-292.635 618.944,-295.808 613.524,-291.051 620,-287.878 625.419,-292.635' stroke='black'/>
+<polygon fill='black' points='2649.81,-401.629 2639.75,-405.996 2644.81,-401.563 2639.81,-401.496 2639.81,-401.496 2639.81,-401.496 2644.81,-401.563 2639.87,-396.997 2649.81,-401.629 2649.81,-401.629' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.11' y='-390.84'> focus 0..*</text>
 </g><g class='node' id='node11'><title>SpecimenProcessingActivity</title>
 <polygon fill='white' points='3263.5,-257 3263.5,-293 3448.5,-293 3448.5,-257 3263.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='3356' y='-271.3'>SpecimenProcessingActivity</text>
 </g><g class='node' id='node12'><title>SpecimenCreationActivity</title>
 <polygon fill='white' points='564.5,-1 564.5,-37 737.5,-37 737.5,-1 564.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='651' y='-15.3'>SpecimenCreationActivity</text>
-</g><g class='edge' id='edge23'><title>SpecimenCreationActivity-&gt;Entity</title>
-<path d='M652.337,-49.0329C650.849,-106.211 648.142,-233.12 721,-294 845.741,-398.233 2057.09,-402.358 2296.91,-402.113' fill='none' stroke='black'/>
-<polygon fill='black' points='652.337,-49.0013 648.483,-42.9069 652.626,-37.0047 656.48,-43.0992 652.337,-49.0013' stroke='black'/>
-<polygon fill='black' points='2306.95,-402.099 2296.96,-406.613 2301.95,-402.106 2296.95,-402.113 2296.95,-402.113 2296.95,-402.113 2301.95,-402.106 2296.94,-397.613 2306.95,-402.099 2306.95,-402.099' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2250.54' y='-377.954'> execution_condition_observation 0..*</text>
+</g><g class='edge' id='edge19'><title>SpecimenCreationActivity-&gt;Entity</title>
+<path d='M652.277,-49.105C650.682,-106.412 647.792,-233.541 721,-294 797.805,-357.429 2362.75,-394.799 2639.42,-401.06' fill='none' stroke='black'/>
+<polygon fill='black' points='652.278,-49.0447 648.435,-42.943 652.589,-37.0487 656.432,-43.1504 652.278,-49.0447' stroke='black'/>
+<polygon fill='black' points='2649.81,-401.294 2639.71,-405.568 2644.81,-401.182 2639.81,-401.069 2639.81,-401.069 2639.81,-401.069 2644.81,-401.182 2639.91,-396.57 2649.81,-401.294 2649.81,-401.294' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2593.91' y='-375.808'> execution_condition_observation 0..*</text>
 </g><g class='node' id='node13'><title>SpecimenContainer</title>
 <polygon fill='white' points='3467,-257 3467,-293 3603,-293 3603,-257 3467,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='3535' y='-271.3'>SpecimenContainer</text>
 </g><g class='node' id='node14'><title>Specimen</title>
 <polygon fill='white' points='688.5,-129 688.5,-165 771.5,-165 771.5,-129 688.5,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='730' y='-143.3'>Specimen</text>
-</g><g class='edge' id='edge28'><title>Specimen-&gt;Entity</title>
-<path d='M727.292,-177.197C721.456,-210.239 714.42,-263.426 744,-294 799.809,-351.684 2051.46,-392.956 2296.6,-400.688' fill='none' stroke='black'/>
-<polygon fill='black' points='727.326,-177.011 724.46,-170.394 729.465,-165.203 732.331,-171.82 727.326,-177.011' stroke='black'/>
-<polygon fill='black' points='2306.86,-401.011 2296.72,-405.194 2301.86,-400.854 2296.87,-400.696 2296.87,-400.696 2296.87,-400.696 2301.86,-400.854 2297.01,-396.199 2306.86,-401.011 2306.86,-401.011' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2269.72' y='-382.455'> source_model_system 0..1</text>
+</g><g class='edge' id='edge22'><title>Specimen-&gt;Entity</title>
+<path d='M727.228,-177.259C721.332,-210.36 714.24,-263.602 744,-294 812.836,-364.312 2363.65,-396.022 2639.32,-401.223' fill='none' stroke='black'/>
+<polygon fill='black' points='727.267,-177.047 724.411,-170.426 729.424,-165.243 732.28,-171.864 727.267,-177.047' stroke='black'/>
+<polygon fill='black' points='2649.68,-401.417 2639.6,-405.729 2644.68,-401.323 2639.68,-401.229 2639.68,-401.229 2639.68,-401.229 2644.68,-401.323 2639.76,-396.73 2649.68,-401.417 2649.68,-401.417' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2612.35' y='-383.334'> source_model_system 0..1</text>
 </g><g class='node' id='node15'><title>ResearchSubject</title>
 <polygon fill='white' points='3621.5,-257 3621.5,-293 3740.5,-293 3740.5,-257 3621.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='3681' y='-271.3'>ResearchSubject</text>
@@ -129,298 +119,278 @@
 </g><g class='node' id='node19'><title>ObservationSet</title>
 <polygon fill='white' points='744,-257 744,-293 856,-293 856,-257 744,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='800' y='-271.3'>ObservationSet</text>
-</g><g class='edge' id='edge20'><title>ObservationSet-&gt;Entity</title>
-<path d='M868.061,-292.701C870.399,-293.173 872.717,-293.609 875,-294 1432.5,-389.553 2123.01,-400.62 2296.88,-401.856' fill='none' stroke='black'/>
-<polygon fill='black' points='867.981,-292.683 861.257,-295.29 856.265,-290.086 862.989,-287.479 867.981,-292.683' stroke='black'/>
-<polygon fill='black' points='2306.88,-401.92 2296.85,-406.356 2301.88,-401.888 2296.88,-401.856 2296.88,-401.856 2296.88,-401.856 2301.88,-401.888 2296.91,-397.356 2306.88,-401.92 2306.88,-401.92' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.13' y='-391.259'> focus 0..*</text>
+</g><g class='edge' id='edge16'><title>ObservationSet-&gt;Entity</title>
+<path d='M868.054,-292.741C870.395,-293.202 872.715,-293.625 875,-294 1231.81,-352.624 2403.63,-392.817 2639.47,-400.615' fill='none' stroke='black'/>
+<polygon fill='black' points='867.976,-292.724 861.261,-295.353 856.252,-290.166 862.966,-287.537 867.976,-292.724' stroke='black'/>
+<polygon fill='black' points='2649.68,-400.952 2639.53,-405.12 2644.68,-400.787 2639.68,-400.622 2639.68,-400.622 2639.68,-400.622 2644.68,-400.787 2639.83,-396.125 2649.68,-400.952 2649.68,-400.952' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.12' y='-389.796'> focus 0..*</text>
 </g><g class='node' id='node20'><title>Observation</title>
 <polygon fill='white' points='874.5,-257 874.5,-293 969.5,-293 969.5,-257 874.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='922' y='-271.3'>Observation</text>
-</g><g class='edge' id='edge21'><title>Observation-&gt;Entity</title>
-<path d='M981.547,-294.221C1500.65,-393.97 2130.04,-401.823 2296.19,-402.108' fill='none' stroke='black'/>
-<polygon fill='black' points='981.471,-294.207 974.82,-296.992 969.691,-291.923 976.342,-289.138 981.471,-294.207' stroke='black'/>
-<polygon fill='black' points='2306.54,-402.116 2296.53,-406.608 2301.54,-402.112 2296.54,-402.108 2296.54,-402.108 2296.54,-402.108 2301.54,-402.112 2296.54,-397.608 2306.54,-402.116 2306.54,-402.116' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2287.75' y='-391.56'> focus 0..*</text>
-</g><g class='edge' id='edge22'><title>Observation-&gt;Entity</title>
-<path d='M981.389,-290.303C986.689,-291.73 991.936,-293.012 997,-294 1502.49,-392.575 2130.51,-401.603 2296.5,-402.093' fill='none' stroke='black'/>
-<polygon fill='black' points='981.3,-290.278 974.437,-292.493 969.753,-287.011 976.615,-284.796 981.3,-290.278' stroke='black'/>
-<polygon fill='black' points='2306.76,-402.114 2296.75,-406.593 2301.76,-402.103 2296.76,-402.093 2296.76,-402.093 2296.76,-402.093 2301.76,-402.103 2296.77,-397.593 2306.76,-402.114 2306.76,-402.114' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2287.98' y='-391.535'> valueEntity 0..1</text>
+</g><g class='edge' id='edge17'><title>Observation-&gt;Entity</title>
+<path d='M981.511,-294.136C1337.01,-357.1 2414.85,-393.665 2639.65,-400.737' fill='none' stroke='black'/>
+<polygon fill='black' points='981.485,-294.131 974.866,-296.991 969.68,-291.98 976.3,-289.12 981.485,-294.131' stroke='black'/>
+<polygon fill='black' points='2649.82,-401.055 2639.68,-405.24 2644.82,-400.898 2639.82,-400.742 2639.82,-400.742 2639.82,-400.742 2644.82,-400.898 2639.96,-396.244 2649.82,-401.055 2649.82,-401.055' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.24' y='-389.93'> focus 0..*</text>
+</g><g class='edge' id='edge18'><title>Observation-&gt;Entity</title>
+<path d='M981.374,-290.382C986.676,-291.795 991.928,-293.053 997,-294 1327.91,-355.798 2413.8,-393.022 2639.76,-400.57' fill='none' stroke='black'/>
+<polygon fill='black' points='981.286,-290.357 974.426,-292.58 969.735,-287.103 976.595,-284.88 981.286,-290.357' stroke='black'/>
+<polygon fill='black' points='2649.87,-400.907 2639.72,-405.071 2644.87,-400.741 2639.87,-400.574 2639.87,-400.574 2639.87,-400.574 2644.87,-400.741 2640.02,-396.076 2649.87,-400.907 2649.87,-400.907' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.31' y='-389.744'> valueEntity 0..1</text>
 </g><g class='node' id='node21'><title>Identifier</title>
 <polygon fill='white' points='4104.5,-257 4104.5,-293 4183.5,-293 4183.5,-257 4104.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4144' y='-271.3'>Identifier</text>
 </g><g class='node' id='node22'><title>HistologicalCompositionObservationSet</title>
 <polygon fill='white' points='988,-257 988,-293 1236,-293 1236,-257 988,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1112' y='-271.3'>HistologicalCompositionObservationSet</text>
-</g><g class='edge' id='edge17'><title>HistologicalCompositionObservationSet-&gt;Entity</title>
-<path d='M1248.28,-293.207C1250.54,-293.477 1252.78,-293.741 1255,-294 1660.67,-341.293 2152.72,-385.117 2296.69,-398.115' fill='none' stroke='black'/>
-<polygon fill='black' points='1248,-293.173 1241.56,-296.419 1236.08,-291.725 1242.52,-288.478 1248,-293.173' stroke='black'/>
-<polygon fill='black' points='2306.83,-399.033 2296.47,-402.614 2301.85,-398.582 2296.88,-398.132 2296.88,-398.132 2296.88,-398.132 2301.85,-398.582 2297.28,-393.65 2306.83,-399.033 2306.83,-399.033' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.73' y='-386.828'> focus 0..*</text>
+</g><g class='edge' id='edge14'><title>HistologicalCompositionObservationSet-&gt;Entity</title>
+<path d='M1248.27,-293.28C1250.53,-293.527 1252.78,-293.767 1255,-294 1802,-351.274 2469.38,-389.908 2639.89,-399.608' fill='none' stroke='black'/>
+<polygon fill='black' points='1247.99,-293.247 1241.58,-296.548 1236.06,-291.9 1242.48,-288.599 1247.99,-293.247' stroke='black'/>
+<polygon fill='black' points='2649.95,-400.179 2639.71,-404.104 2644.95,-399.895 2639.96,-399.611 2639.96,-399.611 2639.96,-399.611 2644.95,-399.895 2640.22,-395.119 2649.95,-400.179 2649.95,-400.179' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.57' y='-388.583'> focus 0..*</text>
 </g><g class='node' id='node23'><title>HistologicalCompositionObservation</title>
 <polygon fill='white' points='1254.5,-257 1254.5,-293 1485.5,-293 1485.5,-257 1254.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1370' y='-271.3'>HistologicalCompositionObservation</text>
-</g><g class='edge' id='edge18'><title>HistologicalCompositionObservation-&gt;Entity</title>
-<path d='M1497.87,-294.38C1812.32,-337.057 2176.31,-382.144 2296.94,-396.97' fill='none' stroke='black'/>
-<polygon fill='black' points='1497.66,-294.351 1491.17,-297.507 1485.77,-292.735 1492.25,-289.579 1497.66,-294.351' stroke='black'/>
-<polygon fill='black' points='2306.97,-398.203 2296.5,-401.45 2302.01,-397.593 2297.05,-396.983 2297.05,-396.983 2297.05,-396.983 2302.01,-397.593 2297.6,-392.517 2306.97,-398.203 2306.97,-398.203' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2289.16' y='-385.422'> focus 0..*</text>
-</g><g class='edge' id='edge19'><title>HistologicalCompositionObservation-&gt;Entity</title>
-<path d='M1497.87,-291.921C1502.99,-292.631 1508.05,-293.327 1513,-294 1813.82,-334.926 2175.64,-379.83 2296.74,-395.881' fill='none' stroke='black'/>
-<polygon fill='black' points='1497.71,-291.899 1491.22,-295.035 1485.83,-290.246 1492.32,-287.111 1497.71,-291.899' stroke='black'/>
-<polygon fill='black' points='2306.71,-397.21 2296.2,-400.349 2301.75,-396.549 2296.8,-395.889 2296.8,-395.889 2296.8,-395.889 2301.75,-396.549 2297.39,-391.428 2306.71,-397.21 2306.71,-397.21' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2288.98' y='-384.246'> valueEntity 0..1</text>
+</g><g class='edge' id='edge15'><title>HistologicalCompositionObservation-&gt;Entity</title>
+<path d='M1497.77,-293.255C1499.86,-293.51 1501.94,-293.758 1504,-294 1947.67,-346.11 2487.26,-387.191 2639.4,-398.74' fill='none' stroke='black'/>
+<polygon fill='black' points='1497.57,-293.23 1491.12,-296.454 1485.66,-291.74 1492.11,-288.516 1497.57,-293.23' stroke='black'/>
+<polygon fill='black' points='2649.68,-399.52 2639.37,-403.25 2644.69,-399.141 2639.71,-398.763 2639.71,-398.763 2639.71,-398.763 2644.69,-399.141 2640.05,-394.276 2649.68,-399.52 2649.68,-399.52' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.46' y='-387.576'> focus 0..*</text>
 </g><g class='node' id='node24'><title>Exposure</title>
 <polygon fill='white' points='4202,-257 4202,-293 4282,-293 4282,-257 4202,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4242' y='-271.3'>Exposure</text>
 </g><g class='node' id='node25'><title>ExecutionTimeObservation</title>
 <polygon fill='white' points='1503.5,-257 1503.5,-293 1682.5,-293 1682.5,-257 1503.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-271.3'>ExecutionTimeObservation</text>
-</g><g class='edge' id='edge15'><title>ExecutionTimeObservation-&gt;Entity</title>
-<path d='M1694.43,-294.413C1929.29,-335.307 2196.08,-378.947 2296.78,-395.317' fill='none' stroke='black'/>
-<polygon fill='black' points='1694.39,-294.405 1687.79,-297.315 1682.57,-292.344 1689.17,-289.434 1694.39,-294.405' stroke='black'/>
-<polygon fill='black' points='2306.71,-396.931 2296.12,-399.769 2301.78,-396.129 2296.84,-395.327 2296.84,-395.327 2296.84,-395.327 2301.78,-396.129 2297.56,-390.885 2306.71,-396.931 2306.71,-396.931' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2289.26' y='-383.465'> focus 0..1</text>
-</g><g class='edge' id='edge16'><title>ExecutionTimeObservation-&gt;Entity</title>
-<path d='M1694.85,-291.335C1699.99,-292.244 1705.06,-293.139 1710,-294 1931.24,-332.605 2195.63,-375.928 2296.62,-393.709' fill='none' stroke='black'/>
-<polygon fill='black' points='1694.57,-291.286 1687.96,-294.179 1682.75,-289.195 1689.36,-286.302 1694.57,-291.286' stroke='black'/>
-<polygon fill='black' points='2306.72,-395.499 2296.09,-398.184 2301.8,-394.626 2296.88,-393.753 2296.88,-393.753 2296.88,-393.753 2301.8,-394.626 2297.66,-389.323 2306.72,-395.499 2306.72,-395.499' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2289.41' y='-381.783'> valueEntity 0..1</text>
+</g><g class='edge' id='edge13'><title>ExecutionTimeObservation-&gt;Entity</title>
+<path d='M1694.79,-293.075C1696.88,-293.393 1698.95,-293.702 1701,-294 2063.38,-346.662 2503.85,-386.17 2639.41,-398.194' fill='none' stroke='black'/>
+<polygon fill='black' points='1694.53,-293.034 1687.98,-296.048 1682.67,-291.161 1689.22,-288.146 1694.53,-293.034' stroke='black'/>
+<polygon fill='black' points='2649.75,-399.11 2639.39,-402.709 2644.77,-398.668 2639.79,-398.227 2639.79,-398.227 2639.79,-398.227 2644.77,-398.668 2640.19,-393.744 2649.75,-399.11 2649.75,-399.11' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.63' y='-386.937'> focus 0..1</text>
 </g><g class='node' id='node26'><title>ExecutionConditionObservation</title>
 <polygon fill='white' points='1700.5,-257 1700.5,-293 1903.5,-293 1903.5,-257 1700.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1802' y='-271.3'>ExecutionConditionObservation</text>
-</g><g class='edge' id='edge13'><title>ExecutionConditionObservation-&gt;Entity</title>
-<path d='M1886.23,-295.799C2002.97,-323.244 2209.48,-371.787 2296.98,-392.358' fill='none' stroke='black'/>
-<polygon fill='black' points='1886.21,-295.795 1879.45,-298.315 1874.52,-293.048 1881.28,-290.528 1886.21,-295.795' stroke='black'/>
-<polygon fill='black' points='2306.87,-394.681 2296.1,-396.773 2302,-393.537 2297.13,-392.393 2297.13,-392.393 2297.13,-392.393 2302,-393.537 2298.16,-388.012 2306.87,-394.681 2306.87,-394.681' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2290.14' y='-380.021'> focus 0..1</text>
-</g><g class='edge' id='edge14'><title>ExecutionConditionObservation-&gt;Entity</title>
-<path d='M1896.09,-295.737C2014.33,-322.342 2211.56,-368.857 2296.94,-390.418' fill='none' stroke='black'/>
-<polygon fill='black' points='1895.91,-295.695 1889.18,-298.284 1884.2,-293.068 1890.93,-290.478 1895.91,-295.695' stroke='black'/>
-<polygon fill='black' points='2306.86,-392.938 2296.06,-394.836 2302.01,-391.706 2297.17,-390.475 2297.17,-390.475 2297.17,-390.475 2302.01,-391.706 2298.28,-386.113 2306.86,-392.938 2306.86,-392.938' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2290.33' y='-377.978'> valueEntity 0..1</text>
+</g><g class='edge' id='edge12'><title>ExecutionConditionObservation-&gt;Entity</title>
+<path d='M1915.77,-293.051C1917.87,-293.372 1919.94,-293.689 1922,-294 2195.69,-335.43 2525.08,-379.968 2639.55,-395.904' fill='none' stroke='black'/>
+<polygon fill='black' points='1915.49,-293.007 1908.95,-296.043 1903.63,-291.173 1910.17,-288.137 1915.49,-293.007' stroke='black'/>
+<polygon fill='black' points='2649.64,-397.312 2639.11,-400.386 2644.69,-396.62 2639.73,-395.929 2639.73,-395.929 2639.73,-395.929 2644.69,-396.62 2640.36,-391.472 2649.64,-397.312 2649.64,-397.312' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2631.97' y='-384.238'> focus 0..1</text>
 </g><g class='node' id='node27'><title>EnvironmentalExposureObservation</title>
 <polygon fill='white' points='1921.5,-257 1921.5,-293 2148.5,-293 2148.5,-257 1921.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2035' y='-271.3'>EnvironmentalExposureObservation</text>
 </g><g class='edge' id='edge11'><title>EnvironmentalExposureObservation-&gt;Entity</title>
-<path d='M2087.45,-297.811C2147.11,-322.621 2243.26,-362.605 2297.46,-385.143' fill='none' stroke='black'/>
-<polygon fill='black' points='2087.11,-297.669 2080.03,-299.058 2076.03,-293.061 2083.1,-291.671 2087.11,-297.669' stroke='black'/>
-<polygon fill='black' points='2307,-389.108 2296.04,-389.423 2302.38,-387.188 2297.76,-385.268 2297.76,-385.268 2297.76,-385.268 2302.38,-387.188 2299.49,-381.113 2307,-389.108 2307,-389.108' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2292.27' y='-371.876'> focus 0..1</text>
-</g><g class='edge' id='edge12'><title>EnvironmentalExposureObservation-&gt;Entity</title>
-<path d='M2096.87,-297.389C2156.97,-320.675 2245.95,-357.684 2297.58,-380.869' fill='none' stroke='black'/>
-<polygon fill='black' points='2096.83,-297.372 2089.79,-298.952 2085.63,-293.064 2092.66,-291.485 2096.83,-297.372' stroke='black'/>
-<polygon fill='black' points='2307,-385.138 2296.03,-385.11 2302.44,-383.075 2297.89,-381.011 2297.89,-381.011 2297.89,-381.011 2302.44,-383.075 2299.75,-376.912 2307,-385.138 2307,-385.138' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2292.7' y='-367.452'> valueEntity 0..1</text>
+<path d='M2138.99,-295.303C2284.09,-323.079 2540.53,-373.186 2640.03,-393.299' fill='none' stroke='black'/>
+<polygon fill='black' points='2138.81,-295.269 2132.17,-298.07 2127.03,-293.015 2133.67,-290.213 2138.81,-295.269' stroke='black'/>
+<polygon fill='black' points='2649.97,-395.315 2639.27,-397.737 2645.07,-394.321 2640.17,-393.327 2640.17,-393.327 2640.17,-393.327 2645.07,-394.321 2641.06,-388.917 2649.97,-395.315 2649.97,-395.315' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2632.91' y='-381.175'> focus 0..1</text>
 </g><g class='node' id='node28'><title>AlcoholExposureObservation</title>
 <polygon fill='white' points='2166.5,-257 2166.5,-293 2355.5,-293 2355.5,-257 2166.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2261' y='-271.3'>AlcoholExposureObservation</text>
 </g><g class='edge' id='edge1'><title>AlcoholExposureObservation-&gt;Entity</title>
-<path d='M2277.81,-303.507C2291.02,-325.122 2309.29,-355.012 2322.22,-376.181' fill='none' stroke='black'/>
-<polygon fill='black' points='2277.68,-303.287 2271.13,-300.253 2271.42,-293.047 2277.96,-296.081 2277.68,-303.287' stroke='black'/>
-<polygon fill='black' points='2327.45,-384.744 2318.4,-378.558 2324.85,-380.478 2322.24,-376.212 2322.24,-376.212 2322.24,-376.212 2324.85,-380.478 2326.08,-373.865 2327.45,-384.744 2327.45,-384.744' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2323.49' y='-361.441'> focus 0..1</text>
+<path d='M2329.65,-296.595C2417.85,-323.055 2568.14,-368.142 2640.16,-389.748' fill='none' stroke='black'/>
+<polygon fill='black' points='2329.39,-296.516 2322.49,-298.624 2317.89,-293.068 2324.79,-290.961 2329.39,-296.516' stroke='black'/>
+<polygon fill='black' points='2649.77,-392.632 2638.9,-394.069 2644.99,-391.196 2640.2,-389.759 2640.2,-389.759 2640.2,-389.759 2644.99,-391.196 2641.49,-385.449 2649.77,-392.632 2649.77,-392.632' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2633.74' y='-376.98'> focus 0..1</text>
 </g><g class='edge' id='edge2'><title>AlcoholExposureObservation-&gt;Entity</title>
-<path d='M2288.46,-302.529C2304.58,-323.993 2322.96,-354.074 2333.06,-375.524' fill='none' stroke='black'/>
-<polygon fill='black' points='2288.42,-302.483 2281.57,-300.236 2281.01,-293.047 2287.86,-295.293 2288.42,-302.483' stroke='black'/>
-<polygon fill='black' points='2337.09,-384.744 2328.96,-377.384 2335.09,-380.163 2333.08,-375.582 2333.08,-375.582 2333.08,-375.582 2335.09,-380.163 2337.21,-373.779 2337.09,-384.744 2337.09,-384.744' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2335.83' y='-361.084'> valueEntity 0..1</text>
-</g><g class='edge' id='edge31'><title>Entity-&gt;Treatment</title>
-<path d='M2353.98,-376.181C2369.37,-351.322 2392.21,-314.437 2405.45,-293.047' fill='none' stroke='black'/>
-<polygon fill='none' points='2350.97,-374.4 2348.68,-384.744 2356.92,-378.084 2350.97,-374.4' stroke='black'/>
-</g><g class='edge' id='edge32'><title>Entity-&gt;TobaccoExposureObservation</title>
-<path d='M2296.58,-401.782C2076.95,-400.211 1030.81,-387.754 183,-294 180.243,-293.695 177.448,-293.364 174.633,-293.011' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.68,-405.283 2306.7,-401.851 2296.73,-398.283 2296.68,-405.283' stroke='black'/>
-</g><g class='edge' id='edge33'><title>Entity-&gt;TimePoint</title>
-<path d='M2371.58,-378.752C2407.43,-353.93 2463.4,-315.187 2495.38,-293.047' fill='none' stroke='black'/>
-<polygon fill='none' points='2369.15,-376.175 2362.92,-384.744 2373.14,-381.93 2369.15,-376.175' stroke='black'/>
-</g><g class='edge' id='edge34'><title>Entity-&gt;TimePeriod</title>
-<path d='M2378.21,-384.528C2433.74,-360.403 2533.27,-317.159 2588.45,-293.186' fill='none' stroke='black'/>
-<polygon fill='none' points='2376.81,-381.321 2369.04,-388.516 2379.6,-387.741 2376.81,-381.321' stroke='black'/>
-</g><g class='edge' id='edge35'><title>Entity-&gt;Substance</title>
-<path d='M2378.86,-389.728C2443.6,-370.168 2573.62,-330.409 2683,-294 2686.03,-292.992 2689.15,-291.934 2692.29,-290.857' fill='none' stroke='black'/>
-<polygon fill='none' points='2377.61,-386.45 2369.05,-392.69 2379.63,-393.152 2377.61,-386.45' stroke='black'/>
-</g><g class='edge' id='edge36'><title>Entity-&gt;Subject</title>
-<path d='M2379.35,-394.159C2458.8,-378.622 2637.83,-341.299 2784,-294 2786.98,-293.034 2790.05,-291.959 2793.11,-290.827' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.42,-390.776 2369.27,-396.119 2379.75,-397.648 2378.42,-390.776' stroke='black'/>
-</g><g class='edge' id='edge37'><title>Entity-&gt;SpecimenTransportActivity</title>
-<path d='M2379.26,-393.774C2481.27,-373.436 2747.01,-320.456 2884.63,-293.02' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.46,-390.364 2369.34,-395.752 2379.83,-397.229 2378.46,-390.364' stroke='black'/>
-</g><g class='edge' id='edge38'><title>Entity-&gt;SpecimenStorageActivity</title>
-<path d='M2379.14,-396.535C2490.4,-381.622 2806.45,-338.37 3068,-294 3071.28,-293.444 3074.61,-292.865 3077.98,-292.271' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.47,-393.093 2369.03,-397.888 2379.4,-400.031 2378.47,-393.093' stroke='black'/>
-</g><g class='edge' id='edge39'><title>Entity-&gt;SpecimenQuantityObservation</title>
-<path d='M2296.71,-401.438C2090.52,-398.121 1156.27,-378.239 398,-294 395.261,-293.696 392.485,-293.368 389.689,-293.021' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.75,-404.939 2306.8,-401.597 2296.86,-397.94 2296.75,-404.939' stroke='black'/>
-</g><g class='edge' id='edge40'><title>Entity-&gt;SpecimenQualityObservation</title>
-<path d='M2296.48,-401.07C2103.55,-396.13 1279.71,-370.25 610,-294 607.332,-293.696 604.63,-293.372 601.908,-293.03' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.66,-404.576 2306.74,-401.328 2296.83,-397.578 2296.66,-404.576' stroke='black'/>
-</g><g class='edge' id='edge41'><title>Entity-&gt;SpecimenProcessingActivity</title>
-<path d='M2379.59,-397.954C2509.28,-385.155 2917.69,-343.459 3254,-294 3257.11,-293.542 3260.28,-293.063 3263.47,-292.567' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.93,-394.502 2369.32,-398.964 2379.62,-401.468 2378.93,-394.502' stroke='black'/>
-</g><g class='edge' id='edge42'><title>Entity-&gt;SpecimenCreationActivity</title>
-<path d='M2296.69,-402.107C2054.71,-402.407 828.544,-398.903 703,-294 624.466,-228.378 633.729,-86.039 644.562,-37.0047' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.83,-405.607 2306.82,-402.092 2296.82,-398.607 2296.83,-405.607' stroke='black'/>
-</g><g class='edge' id='edge43'><title>Entity-&gt;SpecimenContainer</title>
-<path d='M2379.75,-399.941C2527.6,-392.234 3039.79,-361.974 3457,-294 3460.15,-293.486 3463.37,-292.919 3466.62,-292.313' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.15,-396.468 2369.34,-400.478 2379.51,-403.458 2379.15,-396.468' stroke='black'/>
-</g><g class='edge' id='edge44'><title>Entity-&gt;Specimen</title>
-<path d='M2296.54,-400.833C2049.58,-393.485 782.168,-352.055 726,-294 692.493,-259.368 705.969,-195.72 718.824,-165.203' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.77,-404.341 2306.87,-401.138 2296.98,-397.344 2296.77,-404.341' stroke='black'/>
-</g><g class='edge' id='edge45'><title>Entity-&gt;ResearchSubject</title>
-<path d='M2379.65,-401.047C2540,-396.834 3132.41,-376.264 3612,-294 3615.05,-293.477 3618.16,-292.884 3621.3,-292.24' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.2,-397.557 2369.29,-401.312 2379.38,-404.555 2379.2,-397.557' stroke='black'/>
-</g><g class='edge' id='edge46'><title>Entity-&gt;ResearchProject</title>
-<path d='M2379.05,-401.586C2548.87,-399.3 3212.76,-384.714 3749,-294 3752.25,-293.45 3755.57,-292.816 3758.91,-292.121' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.99,-398.086 2369.04,-401.714 2379.08,-405.085 2378.99,-398.086' stroke='black'/>
-</g><g class='edge' id='edge47'><title>Entity-&gt;Quantity</title>
-<path d='M2379.28,-400.726C2593.88,-393.858 3583.77,-359.118 3883,-294 3886.22,-293.3 3889.51,-292.426 3892.78,-291.443' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.96,-397.234 2369.08,-401.05 2379.18,-404.231 2378.96,-397.234' stroke='black'/>
-</g><g class='edge' id='edge48'><title>Entity-&gt;Organization</title>
-<path d='M2379.58,-400.561C2602.45,-392.649 3657.31,-352.666 3978,-294 3981.05,-293.441 3984.17,-292.778 3987.31,-292.041' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.18,-397.073 2369.31,-400.923 2379.43,-404.068 2379.18,-397.073' stroke='black'/>
-</g><g class='edge' id='edge49'><title>Entity-&gt;ObservationSet</title>
-<path d='M2296.69,-401.895C2121.12,-400.866 1421,-390.666 857,-294 855.244,-293.699 853.467,-293.372 851.68,-293.022' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.77,-405.396 2306.79,-401.948 2296.81,-398.396 2296.77,-405.396' stroke='black'/>
-</g><g class='edge' id='edge50'><title>Entity-&gt;Observation</title>
-<path d='M2296.28,-402.115C2127.01,-402.009 1479.54,-395.119 961,-294 959.472,-293.702 957.928,-293.377 956.377,-293.03' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.51,-405.615 2306.51,-402.113 2296.51,-398.615 2296.51,-405.615' stroke='black'/>
-</g><g class='edge' id='edge51'><title>Entity-&gt;Identifier</title>
-<path d='M2379.26,-401.088C2610.91,-395.725 3751.63,-366.008 4095,-294 4098.1,-293.349 4101.28,-292.539 4104.44,-291.627' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.14,-397.59 2369.23,-401.319 2379.31,-404.588 2379.14,-397.59' stroke='black'/>
-</g><g class='edge' id='edge52'><title>Entity-&gt;HistologicalCompositionObservationSet</title>
-<path d='M2296.38,-398.713C2150.42,-386.512 1649.14,-342.046 1237,-294 1234.32,-293.687 1231.61,-293.367 1228.88,-293.039' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.41,-402.227 2306.67,-399.568 2296.99,-395.251 2296.41,-402.227' stroke='black'/>
-</g><g class='edge' id='edge53'><title>Entity-&gt;HistologicalCompositionObservation</title>
-<path d='M2296.46,-397.817C2171.37,-383.761 1790.96,-336.714 1477,-294 1474.61,-293.675 1472.2,-293.344 1469.76,-293.01' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.41,-401.333 2306.74,-398.961 2297.18,-394.376 2296.41,-401.333' stroke='black'/>
-</g><g class='edge' id='edge54'><title>Entity-&gt;Exposure</title>
-<path d='M2379.23,-401.206C2618.26,-396.357 3828.23,-368.449 4192,-294 4195.25,-293.334 4198.58,-292.499 4201.9,-291.557' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.14,-397.706 2369.21,-401.407 2379.28,-404.705 2379.14,-397.706' stroke='black'/>
-</g><g class='edge' id='edge55'><title>Entity-&gt;ExecutionTimeObservation</title>
-<path d='M2296.61,-396.616C2191.38,-381.122 1908.46,-334.912 1674,-294 1672.19,-293.685 1670.37,-293.365 1668.53,-293.042' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.42,-400.124 2306.82,-398.102 2297.42,-393.197 2296.42,-400.124' stroke='black'/>
-</g><g class='edge' id='edge56'><title>Entity-&gt;ExecutionConditionObservation</title>
-<path d='M2296.78,-393.963C2203.23,-373.773 1976.07,-320.575 1864.93,-293.046' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.21,-397.421 2306.72,-396.092 2297.68,-390.576 2296.21,-397.421' stroke='black'/>
-</g><g class='edge' id='edge57'><title>Entity-&gt;EnvironmentalExposureObservation</title>
-<path d='M2297.45,-388.745C2236.09,-365.77 2122.29,-318.574 2066.61,-293.14' fill='none' stroke='black'/>
-<polygon fill='none' points='2296.23,-392.028 2306.82,-392.218 2298.66,-385.464 2296.23,-392.028' stroke='black'/>
-</g><g class='edge' id='edge70'><title>Entity-&gt;AlcoholExposureObservation</title>
-<path d='M2311.57,-376.832C2292.68,-351.971 2270.34,-314.624 2261.83,-293.047' fill='none' stroke='black'/>
-<polygon fill='none' points='2308.88,-379.067 2317.82,-384.744 2314.37,-374.728 2308.88,-379.067' stroke='black'/>
+<path d='M2339.22,-296.388C2428.38,-321.737 2570.25,-364.408 2640.03,-386.97' fill='none' stroke='black'/>
+<polygon fill='black' points='2339.08,-296.35 2332.22,-298.565 2327.54,-293.082 2334.4,-290.867 2339.08,-296.35' stroke='black'/>
+<polygon fill='black' points='2649.78,-390.146 2638.88,-391.328 2645.03,-388.598 2640.27,-387.049 2640.27,-387.049 2640.27,-387.049 2645.03,-388.598 2641.67,-382.77 2649.78,-390.146 2649.78,-390.146' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2634.03' y='-374.121'> valueEntity 0..1</text>
+</g><g class='edge' id='edge25'><title>Entity-&gt;Treatment</title>
+<path d='M2640.68,-382.828C2589.33,-358.415 2501.38,-316.597 2452.13,-293.178' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.29,-386.042 2649.82,-387.176 2642.29,-379.721 2639.29,-386.042' stroke='black'/>
+</g><g class='edge' id='edge26'><title>Entity-&gt;TobaccoExposureObservation</title>
+<path d='M2639.6,-402.14C2400.3,-402.644 1174.77,-400.174 183,-294 180.15,-293.695 177.259,-293.361 174.349,-293.002' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.93,-405.64 2649.93,-402.115 2639.92,-398.64 2639.93,-405.64' stroke='black'/>
+</g><g class='edge' id='edge27'><title>Entity-&gt;TimePoint</title>
+<path d='M2650.89,-378.436C2619.16,-353.602 2569.95,-315.093 2541.78,-293.047' fill='none' stroke='black'/>
+<polygon fill='none' points='2648.92,-381.338 2658.95,-384.744 2653.23,-375.825 2648.92,-381.338' stroke='black'/>
+</g><g class='edge' id='edge28'><title>Entity-&gt;TimePeriod</title>
+<path d='M2669.86,-375.524C2659.41,-350.676 2644.09,-314.249 2635.17,-293.047' fill='none' stroke='black'/>
+<polygon fill='none' points='2666.64,-376.884 2673.74,-384.744 2673.09,-374.17 2666.64,-376.884' stroke='black'/>
+</g><g class='edge' id='edge29'><title>Entity-&gt;Substance</title>
+<path d='M2692.14,-375.524C2702.59,-350.676 2717.91,-314.249 2726.83,-293.047' fill='none' stroke='black'/>
+<polygon fill='none' points='2688.91,-374.17 2688.26,-384.744 2695.36,-376.884 2688.91,-374.17' stroke='black'/>
+</g><g class='edge' id='edge30'><title>Entity-&gt;Subject</title>
+<path d='M2708.86,-378.118C2737.85,-353.274 2782.5,-315 2808.11,-293.047' fill='none' stroke='black'/>
+<polygon fill='none' points='2706.45,-375.579 2701.13,-384.744 2711,-380.894 2706.45,-375.579' stroke='black'/>
+</g><g class='edge' id='edge31'><title>Entity-&gt;SpecimenTransportActivity</title>
+<path d='M2721.71,-384.251C2777.2,-360.06 2875.91,-317.021 2930.67,-293.147' fill='none' stroke='black'/>
+<polygon fill='none' points='2719.97,-381.191 2712.2,-388.396 2722.77,-387.608 2719.97,-381.191' stroke='black'/>
+</g><g class='edge' id='edge32'><title>Entity-&gt;SpecimenStorageActivity</title>
+<path d='M2722.08,-391.239C2805.68,-369.34 2996.19,-319.434 3096.87,-293.062' fill='none' stroke='black'/>
+<polygon fill='none' points='2720.98,-387.91 2712.19,-393.83 2722.75,-394.682 2720.98,-387.91' stroke='black'/>
+</g><g class='edge' id='edge33'><title>Entity-&gt;SpecimenQuantityObservation</title>
+<path d='M2639.89,-401.854C2414.36,-400.672 1305.79,-389.991 407,-294 404.165,-293.697 401.291,-293.368 398.395,-293.017' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.94,-405.354 2649.96,-401.903 2639.97,-398.354 2639.94,-405.354' stroke='black'/>
+</g><g class='edge' id='edge34'><title>Entity-&gt;SpecimenQualityObservation</title>
+<path d='M2639.85,-401.567C2426.81,-398.915 1428.98,-381.909 619,-294 616.235,-293.7 613.434,-293.376 610.611,-293.032' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.92,-405.068 2649.96,-401.69 2640.01,-398.069 2639.92,-405.068' stroke='black'/>
+</g><g class='edge' id='edge35'><title>Entity-&gt;SpecimenProcessingActivity</title>
+<path d='M2722.26,-394.298C2829.06,-374.363 3116.54,-320.7 3264.8,-293.024' fill='none' stroke='black'/>
+<polygon fill='none' points='2721.39,-390.9 2712.2,-396.175 2722.68,-397.781 2721.39,-390.9' stroke='black'/>
+</g><g class='edge' id='edge36'><title>Entity-&gt;SpecimenCreationActivity</title>
+<path d='M2639.87,-401.166C2362.94,-395.231 780.25,-357.797 703,-294 624.09,-228.832 633.594,-86.2021 644.525,-37.0487' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.82,-404.666 2649.9,-401.379 2639.97,-397.667 2639.82,-404.666' stroke='black'/>
+</g><g class='edge' id='edge37'><title>Entity-&gt;SpecimenContainer</title>
+<path d='M2722.44,-397.541C2838.79,-384.742 3178.12,-345.481 3457,-294 3460.14,-293.42 3463.35,-292.798 3466.59,-292.148' fill='none' stroke='black'/>
+<polygon fill='none' points='2721.77,-394.094 2712.21,-398.662 2722.53,-401.052 2721.77,-394.094' stroke='black'/>
+</g><g class='edge' id='edge38'><title>Entity-&gt;Specimen</title>
+<path d='M2639.73,-401.311C2363.69,-396.388 795.235,-364.72 726,-294 692.289,-259.567 705.864,-195.822 718.783,-165.243' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.67,-404.81 2649.73,-401.487 2639.8,-397.811 2639.67,-404.81' stroke='black'/>
+</g><g class='edge' id='edge39'><title>Entity-&gt;ResearchSubject</title>
+<path d='M2722.18,-399.286C2853.12,-390.216 3271.38,-357.862 3612,-294 3615.04,-293.43 3618.15,-292.799 3621.28,-292.125' fill='none' stroke='black'/>
+<polygon fill='none' points='2721.91,-395.796 2712.18,-399.972 2722.39,-402.779 2721.91,-395.796' stroke='black'/>
+</g><g class='edge' id='edge40'><title>Entity-&gt;ResearchProject</title>
+<path d='M2722.37,-400.171C2865.59,-393.341 3353.22,-365.928 3749,-294 3752.24,-293.41 3755.56,-292.745 3758.9,-292.026' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.09,-396.68 2712.27,-400.646 2722.42,-403.673 2722.09,-396.68' stroke='black'/>
+</g><g class='edge' id='edge41'><title>Entity-&gt;Quantity</title>
+<path d='M2722.13,-402.278C2876.69,-402.493 3436.69,-395.768 3883,-294 3886.21,-293.268 3889.5,-292.371 3892.77,-291.373' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.13,-398.779 2712.12,-402.254 2722.12,-405.779 2722.13,-398.779' stroke='black'/>
+</g><g class='edge' id='edge42'><title>Entity-&gt;Organization</title>
+<path d='M2722.48,-401.744C2884.61,-400.073 3490.53,-387.546 3978,-294 3981.05,-293.415 3984.17,-292.731 3987.29,-291.979' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.42,-398.244 2712.45,-401.839 2722.48,-405.244 2722.42,-398.244' stroke='black'/>
+</g><g class='edge' id='edge43'><title>Entity-&gt;ObservationSet</title>
+<path d='M2639.45,-400.774C2402.04,-393.377 1216.31,-353.033 857,-294 855.242,-293.711 853.464,-293.394 851.675,-293.054' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.61,-404.281 2649.72,-401.092 2639.83,-397.284 2639.61,-404.281' stroke='black'/>
+</g><g class='edge' id='edge44'><title>Entity-&gt;Observation</title>
+<path d='M2639.46,-400.882C2409.69,-394.105 1296.74,-356.7 961,-294 959.47,-293.714 957.923,-293.4 956.371,-293.062' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.63,-404.389 2649.73,-401.182 2639.84,-397.392 2639.63,-404.389' stroke='black'/>
+</g><g class='edge' id='edge45'><title>Entity-&gt;Identifier</title>
+<path d='M2722.29,-400.383C2925.72,-392.181 3822.61,-353.238 4095,-294 4098.1,-293.326 4101.27,-292.5 4104.43,-291.576' fill='none' stroke='black'/>
+<polygon fill='none' points='2721.89,-396.896 2712.04,-400.794 2722.17,-403.89 2721.89,-396.896' stroke='black'/>
+</g><g class='edge' id='edge46'><title>Entity-&gt;HistologicalCompositionObservationSet</title>
+<path d='M2639.8,-399.951C2467.73,-390.851 1790.7,-351.974 1237,-294 1233.97,-293.682 1230.89,-293.35 1227.8,-293.007' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.77,-403.454 2649.94,-400.483 2640.14,-396.463 2639.77,-403.454' stroke='black'/>
+</g><g class='edge' id='edge47'><title>Entity-&gt;HistologicalCompositionObservation</title>
+<path d='M2639.16,-399.229C2485.13,-388.395 1936.19,-346.875 1486,-294 1483.28,-293.68 1480.52,-293.349 1477.75,-293.008' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.34,-402.75 2649.56,-399.956 2639.83,-395.768 2639.34,-402.75' stroke='black'/>
+</g><g class='edge' id='edge48'><title>Entity-&gt;Exposure</title>
+<path d='M2722.38,-400.575C2934.3,-393.047 3899.43,-355.886 4192,-294 4195.25,-293.313 4198.57,-292.463 4201.89,-291.509' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.17,-397.081 2712.3,-400.931 2722.41,-404.076 2722.17,-397.081' stroke='black'/>
+</g><g class='edge' id='edge49'><title>Entity-&gt;ExecutionTimeObservation</title>
+<path d='M2639.78,-398.862C2502.96,-387.698 2052.41,-347.683 1683,-294 1680.84,-293.686 1678.65,-293.36 1676.45,-293.023' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.58,-402.357 2649.83,-399.676 2640.15,-395.38 2639.58,-402.357' stroke='black'/>
+</g><g class='edge' id='edge50'><title>Entity-&gt;ExecutionConditionObservation</title>
+<path d='M2639.69,-397.035C2523.43,-382.176 2184.47,-336.456 1904,-294 1901.88,-293.679 1899.73,-293.352 1897.57,-293.02' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.56,-400.546 2649.92,-398.335 2640.44,-393.602 2639.56,-400.546' stroke='black'/>
+</g><g class='edge' id='edge51'><title>Entity-&gt;EnvironmentalExposureObservation</title>
+<path d='M2639.99,-394.66C2535.37,-375.026 2257.4,-320.901 2117.61,-293.048' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.38,-398.107 2649.85,-396.505 2640.67,-391.226 2639.38,-398.107' stroke='black'/>
+</g><g class='edge' id='edge64'><title>Entity-&gt;AlcoholExposureObservation</title>
+<path d='M2639.82,-391.966C2561.12,-370.459 2391.35,-319.714 2308.24,-293.048' fill='none' stroke='black'/>
+<polygon fill='none' points='2639.29,-395.447 2649.85,-394.681 2641.11,-388.69 2639.29,-395.447' stroke='black'/>
 </g><g class='node' id='node30'><title>CancerGradeObservationSet</title>
 <polygon fill='white' points='4300.5,-257 4300.5,-293 4483.5,-293 4483.5,-257 4300.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4392' y='-271.3'>CancerGradeObservationSet</text>
-</g><g class='edge' id='edge66'><title>Entity-&gt;CancerGradeObservationSet</title>
-<path d='M2379.11,-401.537C2584.75,-398.893 3521.11,-382.51 4282,-294 4288.02,-293.3 4294.21,-292.469 4300.46,-291.553' fill='none' stroke='black'/>
-<polygon fill='none' points='2379,-398.038 2369.05,-401.663 2379.09,-405.037 2379,-398.038' stroke='black'/>
+</g><g class='edge' id='edge60'><title>Entity-&gt;CancerGradeObservationSet</title>
+<path d='M2722.09,-400.808C2905.17,-395.34 3663.82,-369.589 4282,-294 4288.01,-293.265 4294.21,-292.408 4300.45,-291.474' fill='none' stroke='black'/>
+<polygon fill='none' points='2721.97,-397.31 2712.08,-401.104 2722.18,-404.307 2721.97,-397.31' stroke='black'/>
 </g><g class='node' id='node31'><title>CancerGradeObservation</title>
 <polygon fill='white' points='4502,-257 4502,-293 4668,-293 4668,-257 4502,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4585' y='-271.3'>CancerGradeObservation</text>
-</g><g class='edge' id='edge67'><title>Entity-&gt;CancerGradeObservation</title>
-<path d='M2379.36,-402.094C2597.91,-402.094 3639.11,-396.305 4483,-294 4489.12,-293.258 4495.45,-292.347 4501.81,-291.332' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.29,-398.594 2369.29,-402.09 2379.29,-405.594 2379.29,-398.594' stroke='black'/>
+</g><g class='edge' id='edge61'><title>Entity-&gt;CancerGradeObservation</title>
+<path d='M2722.37,-401.504C2919.54,-398.78 3782.23,-382.322 4483,-294 4489.12,-293.229 4495.44,-292.297 4501.8,-291.269' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.12,-398.007 2712.17,-401.641 2722.22,-405.006 2722.12,-398.007' stroke='black'/>
 </g><g class='node' id='node32'><title>CancerStageObservationSet</title>
 <polygon fill='white' points='4686,-257 4686,-293 4866,-293 4866,-257 4686,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4776' y='-271.3'>CancerStageObservationSet</text>
-</g><g class='edge' id='edge64'><title>Entity-&gt;CancerStageObservationSet</title>
-<path d='M2379.37,-402.156C2608.71,-402.537 3746.05,-398.623 4668,-294 4673.81,-293.34 4679.8,-292.545 4685.84,-291.661' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.14,-398.656 2369.14,-402.135 2379.13,-405.656 2379.14,-398.656' stroke='black'/>
+</g><g class='edge' id='edge58'><title>Entity-&gt;CancerStageObservationSet</title>
+<path d='M2722.4,-401.664C2931.33,-399.598 3889.67,-385.447 4668,-294 4673.81,-293.317 4679.8,-292.505 4685.83,-291.608' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.15,-398.166 2712.18,-401.761 2722.22,-405.166 2722.15,-398.166' stroke='black'/>
 </g><g class='node' id='node33'><title>CancerStageObservation</title>
 <polygon fill='white' points='4884.5,-257 4884.5,-293 5047.5,-293 5047.5,-257 4884.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='4966' y='-271.3'>CancerStageObservation</text>
-</g><g class='edge' id='edge65'><title>Entity-&gt;CancerStageObservation</title>
-<path d='M2379.42,-401.007C2665.48,-394.373 4347.3,-354.897 4857,-294 4865.87,-292.94 4875.18,-291.493 4884.49,-289.877' fill='none' stroke='black'/>
-<polygon fill='none' points='2379,-397.515 2369.08,-401.246 2379.16,-404.513 2379,-397.515' stroke='black'/>
+</g><g class='edge' id='edge59'><title>Entity-&gt;CancerStageObservation</title>
+<path d='M2722.24,-402.224C2942.7,-402.814 3999.97,-399.283 4857,-294 4865.87,-292.91 4875.17,-291.447 4884.49,-289.823' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.1,-398.724 2712.09,-402.193 2722.08,-405.724 2722.1,-398.724' stroke='black'/>
 </g><g class='node' id='node34'><title>DimensionalObservationSet</title>
 <polygon fill='white' points='5066,-257 5066,-293 5248,-293 5248,-257 5066,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='5157' y='-271.3'>DimensionalObservationSet</text>
-</g><g class='edge' id='edge59'><title>Entity-&gt;DimensionalObservationSet</title>
-<path d='M2379.59,-401.084C2678.09,-394.556 4497.15,-353.638 5047,-294 5053.11,-293.337 5059.41,-292.526 5065.75,-291.619' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.14,-397.592 2369.22,-401.31 2379.3,-404.591 2379.14,-397.592' stroke='black'/>
+</g><g class='edge' id='edge53'><title>Entity-&gt;DimensionalObservationSet</title>
+<path d='M2722.32,-402.143C2953.58,-402.469 4109.7,-398.379 5047,-294 5053.11,-293.32 5059.4,-292.496 5065.75,-291.58' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.32,-398.643 2712.31,-402.125 2722.31,-405.643 2722.32,-398.643' stroke='black'/>
 </g><g class='node' id='node35'><title>DimensionalObservation</title>
 <polygon fill='white' points='5266,-257 5266,-293 5430,-293 5430,-257 5266,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='5348' y='-271.3'>DimensionalObservation</text>
-</g><g class='edge' id='edge60'><title>Entity-&gt;DimensionalObservation</title>
-<path d='M2379.37,-401.338C2689.69,-396.36 4655.93,-363.069 5248,-294 5253.76,-293.328 5259.7,-292.489 5265.68,-291.544' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.98,-397.844 2369.04,-401.504 2379.09,-404.843 2378.98,-397.844' stroke='black'/>
+</g><g class='edge' id='edge54'><title>Entity-&gt;DimensionalObservation</title>
+<path d='M2722.12,-401.096C3010.22,-394.797 4728.55,-355.892 5248,-294 5253.76,-293.314 5259.69,-292.465 5265.67,-291.512' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.02,-397.597 2712.1,-401.314 2722.18,-404.595 2722.02,-397.597' stroke='black'/>
 </g><g class='node' id='node36'><title>Document</title>
 <polygon fill='white' points='5448,-257 5448,-293 5534,-293 5534,-257 5448,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='5491' y='-271.3'>Document</text>
-</g><g class='edge' id='edge58'><title>Entity-&gt;Document</title>
-<path d='M2379.66,-402.262C2702.35,-403.975 4805.87,-410.172 5430,-294 5435.82,-292.916 5441.88,-291.301 5447.83,-289.477' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.38,-398.76 2369.36,-402.205 2379.34,-405.76 2379.38,-398.76' stroke='black'/>
+</g><g class='edge' id='edge52'><title>Entity-&gt;Document</title>
+<path d='M2722.44,-402.043C3023.54,-402.09 4877.94,-397.994 5430,-294 5435.82,-292.904 5441.87,-291.282 5447.83,-289.455' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.39,-398.544 2712.39,-402.04 2722.39,-405.544 2722.39,-398.544' stroke='black'/>
 </g><g class='node' id='node37'><title>Diagnosis</title>
 <polygon fill='white' points='5552.5,-257 5552.5,-293 5635.5,-293 5635.5,-257 5552.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='5594' y='-271.3'>Diagnosis</text>
-</g><g class='edge' id='edge61'><title>Entity-&gt;Diagnosis</title>
-<path d='M2379.42,-401.37C2731.55,-395.911 5217.78,-355.364 5543,-294 5546.04,-293.426 5549.15,-292.7 5552.26,-291.872' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.11,-397.874 2369.17,-401.528 2379.22,-404.873 2379.11,-397.874' stroke='black'/>
+</g><g class='edge' id='edge55'><title>Entity-&gt;Diagnosis</title>
+<path d='M2722.7,-402.146C3031.63,-402.968 4968.29,-403.638 5543,-294 5546.04,-293.419 5549.15,-292.689 5552.25,-291.858' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.42,-398.645 2712.41,-402.117 2722.4,-405.645 2722.42,-398.645' stroke='black'/>
 </g><g class='node' id='node38'><title>Coding</title>
 <polygon fill='white' points='5654,-257 5654,-293 5722,-293 5722,-257 5654,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='5688' y='-271.3'>Coding</text>
-</g><g class='edge' id='edge62'><title>Entity-&gt;Coding</title>
-<path d='M2379.36,-401.537C2737.57,-397.411 5309.72,-365.419 5644,-294 5647.23,-293.31 5650.52,-292.397 5653.78,-291.346' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.14,-398.039 2369.18,-401.654 2379.22,-405.039 2379.14,-398.039' stroke='black'/>
+</g><g class='edge' id='edge56'><title>Entity-&gt;Coding</title>
+<path d='M2722.4,-401.369C3059.26,-396.122 5345.8,-358.301 5644,-294 5647.23,-293.304 5650.52,-292.386 5653.78,-291.333' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.06,-397.874 2712.12,-401.529 2722.17,-404.873 2722.06,-397.874' stroke='black'/>
 </g><g class='node' id='node39'><title>CodeableConcept</title>
 <polygon fill='white' points='5740.5,-257 5740.5,-293 5865.5,-293 5865.5,-257 5740.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='5803' y='-271.3'>CodeableConcept</text>
-</g><g class='edge' id='edge63'><title>Entity-&gt;CodeableConcept</title>
-<path d='M2379.39,-401.897C2718.14,-400.875 5038.97,-390.393 5731,-294 5734.06,-293.573 5737.18,-293.069 5740.33,-292.504' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.28,-398.397 2369.29,-401.927 2379.3,-405.397 2379.28,-398.397' stroke='black'/>
+</g><g class='edge' id='edge57'><title>Entity-&gt;CodeableConcept</title>
+<path d='M2722.32,-401.727C3041.01,-399.445 5111.74,-381.386 5731,-294 5734.06,-293.568 5737.18,-293.059 5740.32,-292.49' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.12,-398.228 2712.15,-401.799 2722.17,-405.228 2722.12,-398.228' stroke='black'/>
 </g><g class='node' id='node40'><title>BodySite</title>
 <polygon fill='white' points='5883.5,-257 5883.5,-293 5962.5,-293 5962.5,-257 5883.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='5923' y='-271.3'>BodySite</text>
-</g><g class='edge' id='edge68'><title>Entity-&gt;BodySite</title>
-<path d='M2379.02,-401.545C2749.58,-397.333 5514.07,-363.702 5874,-294 5877.11,-293.397 5880.29,-292.622 5883.46,-291.734' fill='none' stroke='black'/>
-<polygon fill='none' points='2378.96,-398.046 2369,-401.659 2379.04,-405.045 2378.96,-398.046' stroke='black'/>
+</g><g class='edge' id='edge62'><title>Entity-&gt;BodySite</title>
+<path d='M2722.27,-401.398C3073.13,-396.175 5550.39,-357.219 5874,-294 5877.11,-293.392 5880.29,-292.613 5883.46,-291.723' fill='none' stroke='black'/>
+<polygon fill='none' points='2722,-397.901 2712.06,-401.549 2722.11,-404.9 2722,-397.901' stroke='black'/>
 </g><g class='node' id='node41'><title>BiologicProduct</title>
 <polygon fill='white' points='5980.5,-257 5980.5,-293 6097.5,-293 6097.5,-257 5980.5,-257' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='6039' y='-271.3'>BiologicProduct</text>
-</g><g class='edge' id='edge69'><title>Entity-&gt;BiologicProduct</title>
-<path d='M2379.28,-402.075C2730.92,-402.524 5228.57,-401.841 5971,-294 5974.02,-293.561 5977.1,-293.036 5980.2,-292.447' fill='none' stroke='black'/>
-<polygon fill='none' points='2379.05,-398.575 2369.04,-402.061 2379.04,-405.575 2379.05,-398.575' stroke='black'/>
+</g><g class='edge' id='edge63'><title>Entity-&gt;BiologicProduct</title>
+<path d='M2722.43,-401.927C3055.51,-401.153 5301.53,-392.302 5971,-294 5974.02,-293.556 5977.1,-293.028 5980.2,-292.435' fill='none' stroke='black'/>
+<polygon fill='none' points='2722.25,-398.428 2712.26,-401.95 2722.27,-405.428 2722.25,-398.428' stroke='black'/>
 </g><g class='edge' id='edge3'><title>CancerGradeObservationSet-&gt;Entity</title>
-<path d='M4296.11,-294.384C3522.8,-383.444 2585.36,-399.186 2379.26,-401.603' fill='none' stroke='black'/>
-<polygon fill='black' points='4296.13,-294.381 4301.63,-289.718 4308.05,-293.001 4302.55,-297.665 4296.13,-294.381' stroke='black'/>
-<polygon fill='black' points='2369.13,-401.718 2379.08,-397.105 2374.13,-401.661 2379.13,-401.604 2379.13,-401.604 2379.13,-401.604 2374.13,-401.661 2379.18,-406.104 2369.13,-401.718 2369.13,-401.718' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2388' y='-404.645'> focus 0..*</text>
+<path d='M4295.45,-294.5C3665.62,-370.704 2906.08,-395.906 2722.36,-400.974' fill='none' stroke='black'/>
+<polygon fill='black' points='4295.59,-294.482 4301.07,-289.787 4307.51,-293.033 4302.03,-297.728 4295.59,-294.482' stroke='black'/>
+<polygon fill='black' points='2712.26,-401.248 2722.13,-396.478 2717.26,-401.112 2722.25,-400.976 2722.25,-400.976 2722.25,-400.976 2717.26,-401.112 2722.38,-405.475 2712.26,-401.248 2712.26,-401.248' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2731.23' y='-403.876'> focus 0..*</text>
 </g><g class='edge' id='edge4'><title>CancerGradeObservation-&gt;Entity</title>
-<path d='M4496.47,-294.475C3640.52,-397.183 2597.96,-402.181 2379.33,-402.093' fill='none' stroke='black'/>
-<polygon fill='black' points='4496.52,-294.47 4501.99,-289.78 4508.43,-293.033 4502.95,-297.722 4496.52,-294.47' stroke='black'/>
-<polygon fill='black' points='2369.22,-402.085 2379.22,-397.593 2374.22,-402.089 2379.22,-402.093 2379.22,-402.093 2379.22,-402.093 2374.22,-402.089 2379.21,-406.593 2369.22,-402.085 2369.22,-402.085' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2388' y='-405.24'> focus 0..1</text>
+<path d='M4496.36,-294.514C3783.55,-383.37 2919.41,-399.111 2722.28,-401.581' fill='none' stroke='black'/>
+<polygon fill='black' points='4496.52,-294.495 4501.97,-289.779 4508.43,-293.002 4502.97,-297.717 4496.52,-294.495' stroke='black'/>
+<polygon fill='black' points='2712.03,-401.704 2721.97,-397.084 2717.03,-401.644 2722.03,-401.584 2722.03,-401.584 2722.03,-401.584 2717.03,-401.644 2722.08,-406.083 2712.03,-401.704 2712.03,-401.704' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2730.9' y='-404.617'> focus 0..1</text>
 </g><g class='edge' id='edge5'><title>CancerStageObservationSet-&gt;Entity</title>
-<path d='M4682.14,-294.36C3747.31,-399.44 2608.55,-402.588 2379.28,-402.147' fill='none' stroke='black'/>
-<polygon fill='black' points='4682.24,-294.349 4687.76,-289.701 4694.17,-293.002 4688.65,-297.65 4682.24,-294.349' stroke='black'/>
-<polygon fill='black' points='2369.01,-402.123 2379.02,-397.646 2374.01,-402.135 2379.01,-402.146 2379.01,-402.146 2379.01,-402.146 2374.01,-402.135 2379,-406.646 2369.01,-402.123 2369.01,-402.123' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2387.79' y='-405.307'> focus 0..*</text>
+<path d='M4681.98,-294.403C3891.22,-386.379 2931.58,-399.848 2722.43,-401.715' fill='none' stroke='black'/>
+<polygon fill='black' points='4681.98,-294.403 4687.47,-289.733 4693.9,-293.009 4688.4,-297.679 4681.98,-294.403' stroke='black'/>
+<polygon fill='black' points='2712.16,-401.803 2722.12,-397.217 2717.16,-401.76 2722.16,-401.717 2722.16,-401.717 2722.16,-401.717 2717.16,-401.76 2722.2,-406.217 2712.16,-401.803 2712.16,-401.803' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2731.01' y='-404.783'> focus 0..*</text>
 </g><g class='edge' id='edge6'><title>CancerStageObservation-&gt;Entity</title>
-<path d='M4872.2,-294.197C4337.28,-355.785 2665.23,-394.797 2379.67,-401.099' fill='none' stroke='black'/>
-<polygon fill='black' points='4872.32,-294.183 4877.82,-289.511 4884.24,-292.784 4878.75,-297.456 4872.32,-294.183' stroke='black'/>
-<polygon fill='black' points='2369.28,-401.328 2379.18,-396.609 2374.28,-401.218 2379.28,-401.108 2379.28,-401.108 2379.28,-401.108 2374.28,-401.218 2379.37,-405.607 2369.28,-401.328 2369.28,-401.328' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2388.22' y='-404.054'> focus 0..1</text>
+<path d='M4872.07,-294.246C4001.1,-400.166 2942.43,-402.862 2722.26,-402.209' fill='none' stroke='black'/>
+<polygon fill='black' points='4872.33,-294.215 4877.8,-289.516 4884.24,-292.758 4878.77,-297.457 4872.33,-294.215' stroke='black'/>
+<polygon fill='black' points='2712.08,-402.175 2722.09,-397.709 2717.08,-402.192 2722.08,-402.209 2722.08,-402.209 2722.08,-402.209 2717.08,-402.192 2722.06,-406.709 2712.08,-402.175 2712.08,-402.175' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2730.85' y='-405.379'> focus 0..1</text>
 </g><g class='edge' id='edge7'><title>CancerStageObservation-&gt;Entity</title>
-<path d='M4888.22,-294.474C4352.37,-356.107 2665.42,-395.209 2379.3,-401.196' fill='none' stroke='black'/>
-<polygon fill='black' points='4888.36,-294.458 4893.85,-289.786 4900.27,-293.06 4894.78,-297.732 4888.36,-294.458' stroke='black'/>
-<polygon fill='black' points='2369.27,-401.405 2379.17,-396.698 2374.27,-401.301 2379.27,-401.197 2379.27,-401.197 2379.27,-401.197 2374.27,-401.301 2379.36,-405.696 2369.27,-401.405 2369.27,-401.405' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2388.2' y='-404.154'> valueEntity 0..1</text>
+<path d='M4888.04,-294.533C4012.5,-400.959 2944.31,-402.897 2722.35,-402.194' fill='none' stroke='black'/>
+<polygon fill='black' points='4888.36,-294.495 4893.83,-289.796 4900.27,-293.039 4894.8,-297.737 4888.36,-294.495' stroke='black'/>
+<polygon fill='black' points='2712.09,-402.158 2722.1,-397.693 2717.09,-402.175 2722.09,-402.193 2722.09,-402.193 2722.09,-402.193 2717.09,-402.175 2722.07,-406.693 2712.09,-402.158 2712.09,-402.158' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2730.86' y='-405.365'> valueEntity 0..1</text>
 </g><g class='edge' id='edge8'><title>DimensionalObservationSet-&gt;Entity</title>
-<path d='M5061.23,-294.312C4486.65,-354.5 2676.68,-394.988 2379.46,-401.174' fill='none' stroke='black'/>
-<polygon fill='black' points='5061.4,-294.294 5066.94,-289.681 5073.33,-293.022 5067.79,-297.636 5061.4,-294.294' stroke='black'/>
-<polygon fill='black' points='2369.07,-401.389 2378.97,-396.683 2374.07,-401.286 2379.07,-401.182 2379.07,-401.182 2379.07,-401.182 2374.07,-401.286 2379.16,-405.681 2369.07,-401.389 2369.07,-401.389' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2388' y='-404.139'> focus 0..*</text>
+<path d='M5061.11,-294.356C4110.68,-399.195 2953.14,-402.523 2722.15,-402.135' fill='none' stroke='black'/>
+<polygon fill='black' points='5061.4,-294.323 5066.92,-289.687 5073.33,-293.001 5067.81,-297.638 5061.4,-294.323' stroke='black'/>
+<polygon fill='black' points='2712.12,-402.114 2722.13,-397.635 2717.12,-402.124 2722.12,-402.135 2722.12,-402.135 2722.12,-402.135 2717.12,-402.124 2722.11,-406.635 2712.12,-402.114 2712.12,-402.114' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2730.9' y='-405.293'> focus 0..*</text>
 </g><g class='edge' id='edge9'><title>DimensionalObservation-&gt;Entity</title>
-<path d='M5261.68,-294.397C4645.41,-363.797 2689.08,-396.671 2379.43,-401.4' fill='none' stroke='black'/>
-<polygon fill='black' points='5261.85,-294.378 5267.35,-289.72 5273.77,-293.011 5268.26,-297.668 5261.85,-294.378' stroke='black'/>
-<polygon fill='black' points='2369.05,-401.557 2378.98,-396.906 2374.05,-401.481 2379.05,-401.405 2379.05,-401.405 2379.05,-401.405 2374.05,-401.481 2379.12,-405.905 2369.05,-401.557 2369.05,-401.557' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2387.95' y='-404.412'> focus 0..*</text>
+<path d='M5261.06,-294.491C4717.95,-356.774 3009.66,-395.212 2722.22,-401.184' fill='none' stroke='black'/>
+<polygon fill='black' points='5261.36,-294.456 5266.85,-289.786 5273.28,-293.062 5267.78,-297.732 5261.36,-294.456' stroke='black'/>
+<polygon fill='black' points='2712.14,-401.391 2722.05,-396.686 2717.14,-401.288 2722.14,-401.185 2722.14,-401.185 2722.14,-401.185 2717.14,-401.288 2722.23,-405.684 2712.14,-401.391 2712.14,-401.391' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2731.07' y='-404.142'> focus 0..*</text>
 </g><g class='edge' id='edge10'><title>Document-&gt;Entity</title>
-<path d='M5440.34,-295.285C4794.43,-410.574 2700.63,-403.911 2379.47,-402.241' fill='none' stroke='black'/>
-<polygon fill='black' points='5440.74,-295.213 5445.92,-290.201 5452.54,-293.06 5447.36,-298.072 5440.74,-295.213' stroke='black'/>
-<polygon fill='black' points='2369.16,-402.185 2379.18,-397.739 2374.16,-402.212 2379.16,-402.239 2379.16,-402.239 2379.16,-402.239 2374.16,-402.212 2379.13,-406.739 2369.16,-402.185 2369.16,-402.185' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2387.92' y='-405.426'> focus 0..1</text>
+<path d='M5440.47,-295.276C4866.93,-398.539 3021.79,-402.126 2722.24,-402.043' fill='none' stroke='black'/>
+<polygon fill='black' points='5440.74,-295.226 5445.92,-290.205 5452.54,-293.052 5447.37,-298.073 5440.74,-295.226' stroke='black'/>
+<polygon fill='black' points='2712.17,-402.038 2722.17,-397.543 2717.17,-402.04 2722.17,-402.043 2722.17,-402.043 2722.17,-402.043 2717.17,-402.04 2722.17,-406.543 2712.17,-402.038 2712.17,-402.038' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2730.96' y='-405.187'> focus 0..1</text>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='6008' y='450'>CREATED WITH YUML</text></svg>
