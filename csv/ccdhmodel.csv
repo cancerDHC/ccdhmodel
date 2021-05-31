@@ -1,7 +1,7 @@
 id,mappings,description
 AlcoholExposureObservation,,"A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation."
 BiologicProduct,,"A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."
-BodySite,,
+BodySite,,"A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device."
 CancerGradeObservation,,A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation
 CancerGradeObservationSet,,"A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)."
 CancerStageObservation,,"A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging."
@@ -11,7 +11,7 @@ Coding,,"A structured representation of a coded/enumerated data value, that incl
 Diagnosis,,A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.
 DimensionalObservation,,"A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement."
 DimensionalObservationSet,,"A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area)."
-Document,,
+Document,,"A collection of information intented to be understood together as a whole, and codified in human-readable form."
 Entity,,Any resource that has its own identifier
 EnvironmentalExposureObservation,,"A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation."
 ExecutionConditionObservation,,"A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
@@ -44,7 +44,7 @@ intrinsic physical nature of a specimen."
 SpecimenTransportActivity,,An activity through which a specimen is transported between locations.
 Subject,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
 Substance,,"A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application."
-TimePeriod,,
+TimePeriod,,A span of time with a start and end.
 TimePoint,,"A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index."
 TobaccoExposureObservation,,"A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation."
 Treatment,,Represent medication administration or other treatment types.
