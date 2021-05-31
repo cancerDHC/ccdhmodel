@@ -91,7 +91,7 @@
                 <h1 id="class-specimenprocessingactivity">Class: SpecimenProcessingActivity</h1>
 <p>An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenProcessingActivity">ccdh:SpecimenProcessingActivity</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Entity]&lt;execution_condition_observation%200..*-++[SpecimenProcessingActivity&#124;activity_type:CCDH_SpecimenProcessingActivity_activity_type%20%3F;method_type:CCDH_SpecimenProcessingActivity_method_type%20%3F],[Entity]&lt;execution_time_observation%200..*-++[SpecimenProcessingActivity],[Substance]&lt;additive%200..*-++[SpecimenProcessingActivity],[Organization]&lt;performed_by%200..1-++[SpecimenProcessingActivity],[Entity]&lt;duration%200..*-++[SpecimenProcessingActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenProcessingActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenProcessingActivity],[Specimen]++-%20processing_activity%200..*&gt;[SpecimenProcessingActivity],[Entity]^-[SpecimenProcessingActivity],[Specimen],[Organization],[Entity]" /></p>
+<p><a href="../images/SpecimenProcessingActivity.svg"><img alt="img" src="../images/SpecimenProcessingActivity.svg" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -152,6 +152,23 @@
 </ul>
 </li>
 </ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>"Processing" as defined here alters the physical nature of a specimen, such that storage or transport activities do not qualify as porecessing activities. When instantiating this class, create a separate instances for each type/method of processing performed (e.g. each method of fixaiton, freezing, labeling, etc. that is applied).</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

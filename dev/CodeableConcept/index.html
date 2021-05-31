@@ -91,7 +91,7 @@
                 <h1 id="class-codeableconcept">Class: CodeableConcept</h1>
 <p>A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.</p>
 <p>URI: <a href="https://example.org/ccdh/CodeableConcept">ccdh:CodeableConcept</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Coding],[Coding]&lt;coding%200..*-++[CodeableConcept&#124;text:ccdh_string%20%3F],[Entity]^-[CodeableConcept]" /></p>
+<p><a href="../images/CodeableConcept.svg"><img alt="img" src="../images/CodeableConcept.svg" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -111,6 +111,23 @@
 </ul>
 </li>
 </ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>More than one code may be used in CodeableConcept. The concept may be coded multiple times in different code systems (or even multiple times in the same code systems, where multiple forms are possible). Each Coding is a representation of the concept as described above and may have slightly different granularity due to the differences in the definitions of the underlying codes. There is no meaning associated with the ordering of Coding within a CodeableConcept. A typical use of CodeableConcept is to send the local code that the concept was coded with, and also one or more translations to publicly defined code systems such as LOINC or SNOMED CT.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

@@ -91,7 +91,7 @@
                 <h1 id="class-treatment">Class: Treatment</h1>
 <p>Represent medication administration or other treatment types.</p>
 <p>URI: <a href="https://example.org/ccdh/Treatment">ccdh:Treatment</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment]&lt;concurrent_treatment%200..*-++[Treatment&#124;id:ccdh_string%20%3F;regimen:CCDH_Treatment_regimen%20%3F;treatment_effect:CCDH_Treatment_treatment_effect%20%3F;treatment_intent:CCDH_Treatment_treatment_intent%20%3F;treatment_outcome:CCDH_Treatment_treatment_outcome%20%3F;treatment_type:CCDH_Treatment_treatment_type%20%3F;treatment_frequency:CCDH_Treatment_treatment_frequency%20%3F;number_of_cycles:ccdh_integer%20%3F;treatment_end_reason:CCDH_Treatment_treatment_end_reason%20*],[BodySite]&lt;treatment_anatomic_site%200..1-++[Treatment],[Substance]&lt;therapeutic_agent%200..1-++[Treatment],[Identifier]&lt;identifier%200..*-++[Treatment],[TimePoint]&lt;date_ended%200..1-++[Treatment],[TimePoint]&lt;date_started%200..1-++[Treatment],[Subject]&lt;subject%200..1-++[Treatment],[Diagnosis]&lt;treatment_for_diagnosis%200..*-++[Treatment],[Entity]^-[Treatment],[TimePoint],[Substance],[Subject],[Identifier],[Entity],[Diagnosis],[BodySite]" /></p>
+<p><a href="../images/Treatment.svg"><img alt="img" src="../images/Treatment.svg" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -195,6 +195,23 @@
 </ul>
 </li>
 </ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>This entity is overloaded with the idea of medication/substance based treatments, and other more procedure-like interventions that are also considered to be a treatment. We should probably separate these concernse and it will be useful to have a "Procedure" entity long term. If that is done, this entity will be renamed to "MedicationTreatment" or something like that and the other concerns refactored out to other entities. Also, if we can consider a medication/substace based treatment as a procedure as well (wich is commonly the case in other models), we can make this entity more about the individual doeses for such treatments if that level of granularity is needed.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

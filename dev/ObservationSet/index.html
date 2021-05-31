@@ -91,7 +91,7 @@
                 <h1 id="class-observationset">Class: ObservationSet</h1>
 <p>A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation.</p>
 <p>URI: <a href="https://example.org/ccdh/ObservationSet">ccdh:ObservationSet</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Observation]&lt;observations%200..*-++[ObservationSet&#124;id:ccdh_string;category:CCDH_ObservationSet_category;method_type:CCDH_ObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[ObservationSet],[Subject]&lt;subject%200..1-++[ObservationSet],[Entity]&lt;focus%200..*-++[ObservationSet],[Entity]^-[ObservationSet],[Observation],[Entity]" /></p>
+<p><a href="../images/ObservationSet.svg"><img alt="img" src="../images/ObservationSet.svg" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -137,6 +137,23 @@
 </ul>
 </li>
 </ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>An Observation Set is comprised of one or more logically related Observations made about the same entity. The Observatons in a set may be grouped because they were generated on a single occasion using a common methodology (e.g. a blood panel), and/or or because describe aspects of the same underlying feature of an entity and as such are considered together as a logical unit of information (e.g. diastolic and systolic measuers that comprise a blood pressure observation, or T, N, and M componetns of a Cancer Staging observation).</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
