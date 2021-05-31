@@ -315,7 +315,7 @@ class Attribute:
             if text in permissible_values.keys():
                 logging.warning(f"Duplicate permissible value text: {text} in {pv} was previously assigned to {permissible_values[text]}")
             else:
-                permissible_values[text] = PermissibleValue(
+                permissible_values[str(text)] = PermissibleValue(
                     text=text,
                     description=pv.get('description'),
                     meaning=pv.get('meaning')

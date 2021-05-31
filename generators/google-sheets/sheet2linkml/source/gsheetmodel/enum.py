@@ -197,7 +197,7 @@ class Enum(ModelElement):
         self.mappings.set_mappings_on_element(enum)
 
         # Now generate LinkML for all of the values.
-        enum.permissible_values = {enum_value.name: enum_value.as_linkml(root_uri) for enum_value in self.values}
+        enum.permissible_values = {str(enum_value.name): enum_value.as_linkml(root_uri) for enum_value in self.values}
 
         return enum
 
