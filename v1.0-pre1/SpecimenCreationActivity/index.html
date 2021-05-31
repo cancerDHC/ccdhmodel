@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: SpecimenCreationActivity - CRDC-H Model in LinkML documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: SpecimenCreationActivity";
+    var mkdocs_page_input_path = "SpecimenCreationActivity.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CRDC-H Model in LinkML documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-migration/">Data Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CRDC-H Model in LinkML documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: SpecimenCreationActivity</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-specimencreationactivity">Class: SpecimenCreationActivity</h1>
+<p>The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting).</p>
+<p>URI: <a href="https://example.org/ccdh/SpecimenCreationActivity">ccdh:SpecimenCreationActivity</a></p>
+<p><a href="../images/SpecimenCreationActivity.svg"><img alt="img" src="../images/SpecimenCreationActivity.svg" /></a></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__creation_activity/">creation_activity</a></em>  <sub>0..1</sub>  <strong><a href="./">SpecimenCreationActivity</a></strong></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../specimenCreationActivity__activity_type/">activity_type</a>  <sub>0..1</sub><ul>
+<li>Description: The high-level type of creation activity.</li>
+<li>range: <a href="../enum_CCDH_SpecimenCreationActivity_activity_type/">enum_CCDH_SpecimenCreationActivity_activity_type</a></li>
+<li>Examples: Collection from Source, Derivation from Specimen</li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__date_started/">date_started</a>  <sub>0..1</sub><ul>
+<li>Description: The date when the activity began (in this case, a specimen creation event).</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__date_ended/">date_ended</a>  <sub>0..1</sub><ul>
+<li>Description: The date when the activity ended (in this case, a specimen creation event).</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__collection_method_type/">collection_method_type</a>  <sub>0..1</sub><ul>
+<li>Description: The type of method applied in collecting a sample from its original source.</li>
+<li>range: <a href="../enum_CCDH_SpecimenCreationActivity_collection_method_type/">enum_CCDH_SpecimenCreationActivity_collection_method_type</a></li>
+<li>Examples: Anterior Resection of Rectum, Ascites Drainage, Excisional Biopsy, Specimen Pooling</li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__derivation_method_type/">derivation_method_type</a>  <sub>0..1</sub><ul>
+<li>Description: The type of method applied to derive a new specimen from an existing one.</li>
+<li>range: <a href="../enum_CCDH_SpecimenCreationActivity_derivation_method_type/">enum_CCDH_SpecimenCreationActivity_derivation_method_type</a></li>
+<li>Examples: Vibratome, Cryosectioning, Tissuemolds, Slidingmicrotome, Sectioning, Other, Unknown, NotReported</li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__additive/">additive</a>  <sub>0..*</sub><ul>
+<li>Description: A type of material or reagent used applied as input when creating a specimen.</li>
+<li>range: <a href="../Substance/">Substance</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__collection_site/">collection_site</a>  <sub>0..1</sub><ul>
+<li>Description: The anatomic site from which a specimen was collected.</li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
+<li>Examples: Abdomen, Abdominal Wall, Acetabulum</li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__quantity_collected/">quantity_collected</a>  <sub>0..1</sub><ul>
+<li>Description: The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)</li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__execution_time_observation/">execution_time_observation</a>  <sub>0..*</sub><ul>
+<li>Description: Information describing how long certain parts on an activity took to complete.</li>
+<li>range: <a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__execution_condition_observation/">execution_condition_observation</a>  <sub>0..*</sub><ul>
+<li>Description: Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../specimenCreationActivity__specimen_order/">specimen_order</a>  <sub>0..1</sub><ul>
+<li>Description: A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>A creation' activity represents the entire process up to the point where the specimen is physically modified, stored, or transported.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

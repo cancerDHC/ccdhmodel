@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: Diagnosis - CRDC-H Model in LinkML documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: Diagnosis";
+    var mkdocs_page_input_path = "Diagnosis.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CRDC-H Model in LinkML documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-migration/">Data Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CRDC-H Model in LinkML documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: Diagnosis</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-diagnosis">Class: Diagnosis</h1>
+<p>A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</p>
+<p>URI: <a href="https://example.org/ccdh/Diagnosis">ccdh:Diagnosis</a></p>
+<p><a href="../images/Diagnosis.svg"><img alt="img" src="../images/Diagnosis.svg" /></a></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="./">Diagnosis</a></strong> ➞<em><a href="../diagnosis__prior_diagnosis/">prior_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">Diagnosis</a></strong></li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__comorbid_diagnosis/">comorbid_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__primary_diagnosis/">primary_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_for_diagnosis/">treatment_for_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../diagnosis__id/">id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__identifier/">identifier</a>  <sub>0..*</sub><ul>
+<li>Description: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows "identifier" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.</li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__subject/">subject</a>  <sub>0..1</sub><ul>
+<li>Description: The subject of this diagnosis.</li>
+<li>range: <a href="../Subject/">Subject</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__age_at_diagnosis/">age_at_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: The age in days of the individual at the time of diagnosis</li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__year_at_diagnosis/">year_at_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: Numeric value to represent the year of an individual's diagnosis.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__condition/">condition</a>  <sub>0..1</sub><ul>
+<li>Description: Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
+<li>range: <a href="../enum_CCDH_Diagnosis_condition/">enum_CCDH_Diagnosis_condition</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__primary_site/">primary_site</a>  <sub>0..*</sub><ul>
+<li>Description: The anatomical location of the primary condition</li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__metastatic_site/">metastatic_site</a>  <sub>0..*</sub><ul>
+<li>Description: The anatomical location(s) of metastatic disease</li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__stage/">stage</a>  <sub>0..*</sub><ul>
+<li>Description: The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.</li>
+<li>range: <a href="../CancerStageObservationSet/">CancerStageObservationSet</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__grade/">grade</a>  <sub>0..*</sub><ul>
+<li>Description: The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.</li>
+<li>range: <a href="../CancerGradeObservationSet/">CancerGradeObservationSet</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__morphology/">morphology</a>  <sub>0..1</sub><ul>
+<li>Description: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
+<li>range: <a href="../enum_CCDH_Diagnosis_morphology/">enum_CCDH_Diagnosis_morphology</a></li>
+<li>Examples: 8001/3, 8002/3, 8003/3, 8004/3, 8005/3</li>
+</ul>
+</li>
+<li><a href="../diagnosis__disease_status/">disease_status</a>  <sub>0..1</sub><ul>
+<li>Description: A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
+<li>range: <a href="../enum_CCDH_Diagnosis_disease_status/">enum_CCDH_Diagnosis_disease_status</a></li>
+<li>Examples: Initial Diagnosis, Progressive Disease, Recurrent Disease, Residual Disease, Unknown, Not Reported</li>
+</ul>
+</li>
+<li><a href="../diagnosis__prior_diagnosis/">prior_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis.</li>
+<li>range: <a href="./">Diagnosis</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__method_of_diagnosis/">method_of_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: The method used to confirm the patients malignant diagnosis</li>
+<li>range: <a href="../enum_CCDH_Diagnosis_method_of_diagnosis/">enum_CCDH_Diagnosis_method_of_diagnosis</a></li>
+<li>Examples: Autopsy, Biopsy, Blood Draw, Bone Marrow Aspirate, Core Biopsy, ..</li>
+</ul>
+</li>
+<li><a href="../diagnosis__related_specimen/">related_specimen</a>  <sub>0..*</sub><ul>
+<li>Description: The specimen from which this diagnosis is made</li>
+<li>range: <a href="../Specimen/">Specimen</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__dimensional_measure/">dimensional_measure</a>  <sub>0..1</sub><ul>
+<li>Description: A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</li>
+<li>range: <a href="../DimensionalObservationSet/">DimensionalObservationSet</a></li>
+</ul>
+</li>
+<li><a href="../diagnosis__supporting_observation/">supporting_observation</a>  <sub>0..*</sub><ul>
+<li>Description: One or more observations that capture information relevant to this condition or diagnosis.</li>
+<li>range: <a href="../Observation/">Observation</a></li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

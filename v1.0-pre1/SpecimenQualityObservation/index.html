@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: SpecimenQualityObservation - CRDC-H Model in LinkML documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: SpecimenQualityObservation";
+    var mkdocs_page_input_path = "SpecimenQualityObservation.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CRDC-H Model in LinkML documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-migration/">Data Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CRDC-H Model in LinkML documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: SpecimenQualityObservation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-specimenqualityobservation">Class: SpecimenQualityObservation</h1>
+<p>A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.</p>
+<p>URI: <a href="https://example.org/ccdh/SpecimenQualityObservation">ccdh:SpecimenQualityObservation</a></p>
+<p><a href="../images/SpecimenQualityObservation.svg"><img alt="img" src="../images/SpecimenQualityObservation.svg" /></a></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__quality_measure/">quality_measure</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenQualityObservation</a></em>*</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../specimenQualityObservation__id/">id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__category/">category</a>  <sub>0..1</sub><ul>
+<li>Description: The general category of observation described</li>
+<li>range: <a href="../enum_CCDH_SpecimenQualityObservation_category/">enum_CCDH_SpecimenQualityObservation_category</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__observation_type/">observation_type</a>  <sub>1..1</sub><ul>
+<li>Description: The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
+<li>range: <a href="../enum_CCDH_SpecimenQualityObservation_observation_type/">enum_CCDH_SpecimenQualityObservation_observation_type</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__method_type/">method_type</a>  <sub>0..*</sub><ul>
+<li>Description: A type of method used in generating the Observation result.</li>
+<li>range: <a href="../enum_CCDH_SpecimenQualityObservation_method_type/">enum_CCDH_SpecimenQualityObservation_method_type</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__focus/">focus</a>  <sub>0..*</sub><ul>
+<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
+<li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__subject/">subject</a>  <sub>0..1</sub><ul>
+<li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
+<li>range: <a href="../Subject/">Subject</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
+<li>Description: The organization or group that performed the observation activity.</li>
+<li>range: <a href="../Organization/">Organization</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueEntity/">valueEntity</a>  <sub>0..1</sub><ul>
+<li>Description: The value of an observation</li>
+<li>range: <a href="../Entity/">Entity</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueString/">valueString</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a free-text string.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueInteger/">valueInteger</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueDecimal/">valueDecimal</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a decimal.</li>
+<li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueBoolean/">valueBoolean</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a boolean.</li>
+<li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueDateTime/">valueDateTime</a>  <sub>0..1</sub><ul>
+<li>Description: The result of the observation, encoded as a dateTime.</li>
+<li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
