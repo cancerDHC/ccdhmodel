@@ -165,7 +165,7 @@ class Entity(ModelElement):
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
             description=(self.entity_row.get("Description") or '').strip(),
-            # comments=self.entity_row.get("Comments"),
+            comments=self.entity_row.get("Comments"),
         )
 
         if self.name != 'Entity':
