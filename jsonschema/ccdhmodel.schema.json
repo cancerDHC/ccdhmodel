@@ -75,7 +75,7 @@
       },
       "BiologicProduct": {
          "additionalProperties": false,
-         "description": "A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.",
+         "description": "A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.",
          "properties": {
             "description": {
                "description": "A free text field to capture additional info/explanation about the model system",
@@ -174,7 +174,7 @@
                "type": "boolean"
             },
             "valueCodeableConcept": {
-               "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)",
+               "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)",
                "type": "string"
             },
             "valueDateTime": {
@@ -235,7 +235,7 @@
                "type": "array"
             },
             "observations": {
-               "description": "A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differntiated, etc.)",
+               "description": "A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)",
                "items": {
                   "$ref": "#/definitions/CancerGradeObservation"
                },
@@ -446,7 +446,7 @@
             "grade": {
                "description": "The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/CancerGradeObservationSet"
                },
                "type": "array"
             },
@@ -485,7 +485,7 @@
             },
             "prior_diagnosis": {
                "$ref": "#/definitions/Diagnosis",
-               "description": "A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the intial diagnosis."
+               "description": "A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis."
             },
             "related_specimen": {
                "description": "The specimen from which this diagnosis is made",
@@ -505,7 +505,8 @@
                "$ref": "#/definitions/Subject",
                "description": "The subject of this diagnosis."
             },
-            "supporting_observations": {
+            "supporting_observation": {
+               "description": "One or more observations that capture information relevant to this condition or diagnosis.",
                "items": {
                   "$ref": "#/definitions/Observation"
                },
@@ -731,6 +732,150 @@
          "title": "EnvironmentalExposureObservation",
          "type": "object"
       },
+      "ExecutionConditionObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "ExecutionConditionObservation",
+         "type": "object"
+      },
+      "ExecutionTimeObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "ExecutionTimeObservation",
+         "type": "object"
+      },
       "Exposure": {
          "additionalProperties": false,
          "description": "Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.",
@@ -854,6 +999,55 @@
             "valueQuantity"
          ],
          "title": "HistologicalCompositionObservation",
+         "type": "object"
+      },
+      "HistologicalCompositionObservationSet": {
+         "additionalProperties": false,
+         "description": "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity in the system of record.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
+               "items": {
+                  "$ref": "#/definitions/HistologicalCompositionObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [
+            "id",
+            "category"
+         ],
+         "title": "HistologicalCompositionObservationSet",
          "type": "object"
       },
       "Identifier": {
@@ -1216,7 +1410,7 @@
          "description": "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.",
          "properties": {
             "analyte_type": {
-               "description": "For speciemens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)",
+               "description": "For specimens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)",
                "type": "string"
             },
             "associated_project": {
@@ -1273,7 +1467,7 @@
             "histological_composition_measure": {
                "description": "A set of one or more observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
                "items": {
-                  "$ref": "#/definitions/ObservationSet"
+                  "$ref": "#/definitions/HistologicalCompositionObservationSet"
                },
                "type": "array"
             },
@@ -1421,7 +1615,7 @@
                "type": "array"
             },
             "parent_container": {
-               "description": "A larger container of which this container is a part (e.g. the complete 96-well plate of whihc a single well is a part)",
+               "description": "A larger container of which this container is a part (e.g. the complete 96-well plate of which a single well is a part)",
                "items": {
                   "$ref": "#/definitions/SpecimenContainer"
                },
@@ -1467,10 +1661,17 @@
                "description": "The type of method applied to derive a new specimen from an existing one.",
                "type": "string"
             },
-            "execution_observation": {
-               "description": "An observation or measurement that describes how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
+            "execution_condition_observation": {
+               "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
                "items": {
-                  "$ref": "#/definitions/Observation"
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "execution_time_observation": {
+               "description": "Information describing how long certain parts on an activity took to complete.",
+               "items": {
+                  "$ref": "#/definitions/ExecutionTimeObservation"
                },
                "type": "array"
             },
@@ -1517,14 +1718,21 @@
             "duration": {
                "description": "The length of time over which the activity was performed.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/Quantity"
                },
                "type": "array"
             },
-            "execution_observation": {
-               "description": "Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
+            "execution_condition_observation": {
+               "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/ExecutionConditionObservation"
+               },
+               "type": "array"
+            },
+            "execution_time_observation": {
+               "description": "Information describing how long certain parts on an activity took to complete.",
+               "items": {
+                  "$ref": "#/definitions/ExecutionTimeObservation"
                },
                "type": "array"
             },
@@ -1753,7 +1961,7 @@
             "execution_observation": {
                "description": "Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/ExecutionConditionObservation"
                },
                "type": "array"
             },
@@ -1844,7 +2052,7 @@
          "description": "A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.",
          "properties": {
             "role": {
-               "description": "A role played by the subtance in a particular applicaton (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
+               "description": "A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
                "items": {
                   "type": "string"
                },
@@ -1882,7 +2090,7 @@
       },
       "TimePoint": {
          "additionalProperties": false,
-         "description": "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.",
+         "description": "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.",
          "properties": {
             "dateTime": {
                "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date.",
@@ -2027,7 +2235,7 @@
             },
             "therapeutic_agent": {
                "$ref": "#/definitions/Substance",
-               "description": "One or more theraputic agents as part of this treatment."
+               "description": "One or more therapeutic agents as part of this treatment."
             },
             "treatment_anatomic_site": {
                "$ref": "#/definitions/BodySite",
@@ -2045,7 +2253,7 @@
                "type": "array"
             },
             "treatment_for_diagnosis": {
-               "description": "The diagnosis for which this treatement is intended for.",
+               "description": "The diagnosis for which this treatment is intended for.",
                "items": {
                   "$ref": "#/definitions/Diagnosis"
                },
@@ -2064,7 +2272,7 @@
                "type": "string"
             },
             "treatment_type": {
-               "description": "The treatment type including medication/theraputics or other procedures.",
+               "description": "The treatment type including medication/therapeutics or other procedures.",
                "type": "string"
             }
          },
