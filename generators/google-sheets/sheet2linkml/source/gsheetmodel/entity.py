@@ -276,7 +276,7 @@ class Attribute:
         """
         mappings = Mappings(self)
         mappings.add_mappings(self.row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH)
-        mappings.add_mappings(self.row.get("Indirect Source Mappings"), MappingRelations.SKOS_CLOSE_MATCH)
+        mappings.add_mappings(self.row.get("Indirect Source Mapping"), MappingRelations.SKOS_CLOSE_MATCH)
         return mappings
 
     @property
