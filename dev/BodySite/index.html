@@ -90,44 +90,33 @@
               
                 <h1 id="class-bodysite">Class: BodySite</h1>
 <p>URI: <a href="https://example.org/ccdh/BodySite">ccdh:BodySite</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Diagnosis]++-%20metastatic_site%200..*&gt;[BodySite&#124;site:CCDH_BodySite_site;qualifier:CCDH_BodySite_qualifier%20*],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[ResearchProject]++-%20primary_anatomic_site%200..*&gt;[BodySite],[ResearchSubject]++-%20primary_diagnosis_site%200..1&gt;[BodySite],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[BodySite],[Treatment]++-%20treatment_anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite],[Treatment],[SpecimenCreationActivity],[ResearchSubject],[ResearchProject],[Diagnosis]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[SpecimenCreationActivity],[ResearchSubject],[ResearchProject],[Entity],[Diagnosis],[Diagnosis]++-%20metastatic_site%200..*&gt;[BodySite&#124;site:CCDH_BodySite_site;qualifier:CCDH_BodySite_qualifier%20*],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[ResearchProject]++-%20primary_anatomic_site%200..*&gt;[BodySite],[ResearchSubject]++-%20primary_diagnosis_site%200..1&gt;[BodySite],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[BodySite],[Treatment]++-%20treatment_anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../diagnosis__metastatic_site/">➞metastatic_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
-<li><strong>None</strong> <em><a href="../diagnosis__primary_site/">➞primary_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
-<li><strong>None</strong> <em><a href="../researchProject__primary_anatomic_site/">➞primary_anatomic_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
-<li><strong>None</strong> <em><a href="../researchSubject__primary_diagnosis_site/">➞primary_diagnosis_site</a></em>  <sub>0..1</sub>  <strong><a href="./">BodySite</a></strong></li>
-<li><strong>None</strong> <em><a href="../specimenCreationActivity__collection_site/">➞collection_site</a></em>  <sub>0..1</sub>  <strong><a href="./">BodySite</a></strong></li>
-<li><strong>None</strong> <em><a href="../treatment__treatment_anatomic_site/">➞treatment_anatomic_site</a></em>  <sub>0..1</sub>  <strong><a href="./">BodySite</a></strong></li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__metastatic_site/">metastatic_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__primary_site/">primary_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
+<li><strong><a href="../ResearchProject/">ResearchProject</a></strong> ➞<em><a href="../researchProject__primary_anatomic_site/">primary_anatomic_site</a></em>  <sub>0..<em></sub>  </em><em><a href="./">BodySite</a></em>*</li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__primary_diagnosis_site/">primary_diagnosis_site</a></em>  <sub>0..1</sub>  <strong><a href="./">BodySite</a></strong></li>
+<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__collection_site/">collection_site</a></em>  <sub>0..1</sub>  <strong><a href="./">BodySite</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_anatomic_site/">treatment_anatomic_site</a></em>  <sub>0..1</sub>  <strong><a href="./">BodySite</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../bodySite__site/">➞site</a>  <sub>1..1</sub><ul>
+<li><a href="../bodySite__site/">site</a>  <sub>1..1</sub><ul>
 <li>Description: A term describing any site in the body.</li>
 <li>range: <a href="../CCDH_BodySite_site/">CCDH_BodySite_site</a></li>
 <li>Examples: Adenoid, Adipose, Adrenal</li>
-<li>Exact mapping: GDC:Sample.biospecimen_anatomic_site</li>
-<li>Exact mapping: PDC:Sample.biospecimen_anatomic_site</li>
-<li>Exact mapping: ICDC:Sample.sample_site</li>
-<li>Exact mapping: HTAN:Biospecimen.SiteofResectionorBiopsy</li>
-<li>Exact mapping: GDC:Case.primary_site</li>
-<li>Exact mapping: PDC:Case.primary_site</li>
-<li>Exact mapping: GDC:Project.primary_site</li>
-<li>Exact mapping: GDC:Treatment.treatement_anatomic_site</li>
-<li>Exact mapping: PDC:Treatment.treatement_anatomic_site</li>
 </ul>
 </li>
-<li><a href="../bodySite__qualifier/">➞qualifier</a>  <sub>0..*</sub><ul>
+<li><a href="../bodySite__qualifier/">qualifier</a>  <sub>0..*</sub><ul>
 <li>Description: A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).</li>
 <li>range: <a href="../CCDH_BodySite_qualifier/">CCDH_BodySite_qualifier</a></li>
 <li>Examples: left, right, bilateral</li>
-<li>Exact mapping: GDC:Sample.biospecimen_laterality</li>
-<li>Exact mapping: PDC:Sample.biospecimen_laterality</li>
 </ul>
 </li>
 </ul>

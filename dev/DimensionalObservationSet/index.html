@@ -91,53 +91,50 @@
                 <h1 id="class-dimensionalobservationset">Class: DimensionalObservationSet</h1>
 <p>A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).</p>
 <p>URI: <a href="https://example.org/ccdh/DimensionalObservationSet">ccdh:DimensionalObservationSet</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[DimensionalObservation]&lt;observations%200..*-++[DimensionalObservationSet&#124;id:ccdh_string%20%3F;category:CCDH_DimensionalObservationSet_category%20%3F;method_type:CCDH_DimensionalObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[DimensionalObservationSet],[Subject]&lt;subject%200..1-++[DimensionalObservationSet],[Entity]&lt;focus%200..*-++[DimensionalObservationSet],[Diagnosis]++-%20dimensional_measure%200..1&gt;[DimensionalObservationSet],[Specimen]++-%20dimensional_measure%200..1&gt;[DimensionalObservationSet],[Entity]^-[DimensionalObservationSet],[Specimen],[DimensionalObservation],[Diagnosis]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Specimen],[Organization],[Entity],[DimensionalObservation]&lt;observations%200..*-++[DimensionalObservationSet&#124;id:ccdh_string%20%3F;category:CCDH_DimensionalObservationSet_category%20%3F;method_type:CCDH_DimensionalObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[DimensionalObservationSet],[Subject]&lt;subject%200..1-++[DimensionalObservationSet],[Entity]&lt;focus%200..*-++[DimensionalObservationSet],[Diagnosis]++-%20dimensional_measure%200..1&gt;[DimensionalObservationSet],[Specimen]++-%20dimensional_measure%200..1&gt;[DimensionalObservationSet],[Entity]^-[DimensionalObservationSet],[DimensionalObservation],[Diagnosis]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../diagnosis__dimensional_measure/">➞dimensional_measure</a></em>  <sub>0..1</sub>  <strong><a href="./">DimensionalObservationSet</a></strong></li>
-<li><strong>None</strong> <em><a href="../specimen__dimensional_measure/">➞dimensional_measure</a></em>  <sub>0..1</sub>  <strong><a href="./">DimensionalObservationSet</a></strong></li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__dimensional_measure/">dimensional_measure</a></em>  <sub>0..1</sub>  <strong><a href="./">DimensionalObservationSet</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__dimensional_measure/">dimensional_measure</a></em>  <sub>0..1</sub>  <strong><a href="./">DimensionalObservationSet</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../dimensionalObservationSet__id/">➞id</a>  <sub>0..1</sub><ul>
+<li><a href="../dimensionalObservationSet__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../dimensionalObservationSet__category/">➞category</a>  <sub>0..1</sub><ul>
+<li><a href="../dimensionalObservationSet__category/">category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation set described</li>
 <li>range: <a href="../CCDH_DimensionalObservationSet_category/">CCDH_DimensionalObservationSet_category</a></li>
 </ul>
 </li>
-<li><a href="../dimensionalObservationSet__focus/">➞focus</a>  <sub>0..*</sub><ul>
+<li><a href="../dimensionalObservationSet__focus/">focus</a>  <sub>0..*</sub><ul>
 <li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../dimensionalObservationSet__subject/">➞subject</a>  <sub>0..1</sub><ul>
+<li><a href="../dimensionalObservationSet__subject/">subject</a>  <sub>0..1</sub><ul>
 <li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
-<li><a href="../dimensionalObservationSet__method_type/">➞method_type</a>  <sub>0..*</sub><ul>
+<li><a href="../dimensionalObservationSet__method_type/">method_type</a>  <sub>0..*</sub><ul>
 <li>Description: A type of method used in generating each of the Observations bundled in the set.</li>
 <li>range: <a href="../CCDH_DimensionalObservationSet_method_type/">CCDH_DimensionalObservationSet_method_type</a></li>
-<li>Exact mapping: GDC:Analyte.spectrophotometer_method</li>
-<li>Exact mapping: PDC:Analyte.spectrophotometer_method</li>
-<li>Exact mapping: HTAN:Biospecimen.HistologyAssessmentMedium</li>
 </ul>
 </li>
-<li><a href="../dimensionalObservationSet__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li><a href="../dimensionalObservationSet__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the observation activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../dimensionalObservationSet__observations/">➞observations</a>  <sub>0..*</sub><ul>
+<li><a href="../dimensionalObservationSet__observations/">observations</a>  <sub>0..*</sub><ul>
 <li>Description: A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).</li>
 <li>range: <a href="../DimensionalObservation/">DimensionalObservation</a></li>
 </ul>

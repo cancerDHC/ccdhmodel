@@ -91,60 +91,56 @@
                 <h1 id="class-specimencontainer">Class: SpecimenContainer</h1>
 <p>A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenContainer">ccdh:SpecimenContainer</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenContainer]&lt;parent_container%200..*-++[SpecimenContainer&#124;id:ccdh_string%20%3F;container_type:CCDH_SpecimenContainer_container_type%20%3F;container_number:ccdh_string%20%3F;charge_type:CCDH_SpecimenContainer_charge_type%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[SpecimenStorageActivity],[Specimen],[Identifier],[Entity]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenStorageActivity],[SpecimenContainer]&lt;parent_container%200..*-++[SpecimenContainer&#124;id:ccdh_string%20%3F;container_type:CCDH_SpecimenContainer_container_type%20%3F;container_number:ccdh_string%20%3F;charge_type:CCDH_SpecimenContainer_charge_type%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[Specimen],[Identifier],[Entity]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../specimenContainer__parent_container/">➞parent_container</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenContainer</a></em>*</li>
-<li><strong>None</strong> <em><a href="../specimenStorageActivity__container/">➞container</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenContainer</a></em>*</li>
-<li><strong>None</strong> <em><a href="../specimen__contained_in/">➞contained_in</a></em>  <sub>0..1</sub>  <strong><a href="./">SpecimenContainer</a></strong></li>
+<li><strong><a href="./">SpecimenContainer</a></strong> ➞<em><a href="../specimenContainer__parent_container/">parent_container</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenContainer</a></em>*</li>
+<li><strong><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></strong> ➞<em><a href="../specimenStorageActivity__container/">container</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenContainer</a></em>*</li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__contained_in/">contained_in</a></em>  <sub>0..1</sub>  <strong><a href="./">SpecimenContainer</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../specimenContainer__id/">➞id</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenContainer__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../specimenContainer__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
+<li><a href="../specimenContainer__identifier/">identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that us globally unique and persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
 </ul>
 </li>
-<li><a href="../specimenContainer__container_type/">➞container_type</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenContainer__container_type/">container_type</a>  <sub>0..1</sub><ul>
 <li>Description: The kind of the container.</li>
 <li>range: <a href="../CCDH_SpecimenContainer_container_type/">CCDH_SpecimenContainer_container_type</a></li>
 <li>Examples: Capillary blood collection tube, Sputum specimen container, Cell culture flask, Glass slide</li>
 </ul>
 </li>
-<li><a href="../specimenContainer__container_number/">➞container_number</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenContainer__container_number/">container_number</a>  <sub>0..1</sub><ul>
 <li>Description: Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC:Analyte.well_number</li>
-<li>Exact mapping: PDC:Analyte.well_number</li>
 </ul>
 </li>
-<li><a href="../specimenContainer__additive/">➞additive</a>  <sub>0..*</sub><ul>
+<li><a href="../specimenContainer__additive/">additive</a>  <sub>0..*</sub><ul>
 <li>Description: A material substance added to the container (typically to support the primary contained object - e.g. culture media to support cell growth)</li>
 <li>range: <a href="../Substance/">Substance</a></li>
 <li>Examples: DMEM, DMEM+Serum, RPMI, RPMI+Serum</li>
-<li>Exact mapping: HTAN:Biospecimen.CollectionMedia</li>
 </ul>
 </li>
-<li><a href="../specimenContainer__parent_container/">➞parent_container</a>  <sub>0..*</sub><ul>
+<li><a href="../specimenContainer__parent_container/">parent_container</a>  <sub>0..*</sub><ul>
 <li>Description: A larger container of which this container is a part (e.g. the complete 96-well plate of whihc a single well is a part)</li>
 <li>range: <a href="./">SpecimenContainer</a></li>
 </ul>
 </li>
-<li><a href="../specimenContainer__charge_type/">➞charge_type</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenContainer__charge_type/">charge_type</a>  <sub>0..1</sub><ul>
 <li>Description: The type of charge on the surface of a container (e.g. a slide on which a specimen is mounted).</li>
 <li>range: <a href="../CCDH_SpecimenContainer_charge_type/">CCDH_SpecimenContainer_charge_type</a></li>
 <li>Examples: Uncharged, Charged, Other</li>
-<li>Exact mapping: GDC:Slide.charge_type</li>
 </ul>
 </li>
 </ul>

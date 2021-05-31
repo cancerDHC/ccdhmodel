@@ -99,40 +99,38 @@ intrinsic physical nature of a specimen.</p>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../specimen__storage_activity/">➞storage_activity</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenStorageActivity</a></em>*</li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__storage_activity/">storage_activity</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenStorageActivity</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../specimenStorageActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenStorageActivity__date_started/">date_started</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity began (in this case, a storage event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../specimenStorageActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenStorageActivity__date_ended/">date_ended</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity ended (in this case, a storage event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../specimenStorageActivity__duration/">➞duration</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenStorageActivity__duration/">duration</a>  <sub>0..1</sub><ul>
 <li>Description: The length of time over which the activity was performed.</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
-<li><a href="../specimenStorageActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenStorageActivity__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Case.processed_at</li>
 </ul>
 </li>
-<li><a href="../specimenStorageActivity__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenStorageActivity__method_type/">method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A specific type of method or procedure performed to store the specimen</li>
 <li>range: <a href="../CCDH_SpecimenStorageActivity_method_type/">CCDH_SpecimenStorageActivity_method_type</a></li>
 <li>Examples: ambient temperature, cut slide, fresh, frozen at -70C, frozen at -150C, frozen in liquid nitrogen, frozen in vapor phase, paraffin block, RNAlater at 4C</li>
-<li>Exact mapping: HTAN:Biospecimen.StorageMethod</li>
 </ul>
 </li>
-<li><a href="../specimenStorageActivity__container/">➞container</a>  <sub>0..*</sub><ul>
+<li><a href="../specimenStorageActivity__container/">container</a>  <sub>0..*</sub><ul>
 <li>Description: A container in which the specimen is held or affixed during its storage.</li>
 <li>range: <a href="../SpecimenContainer/">SpecimenContainer</a></li>
 </ul>

@@ -91,58 +91,39 @@
                 <h1 id="class-identifier">Class: Identifier</h1>
 <p>An Identifier is associated with a unique object or entity within a given system.</p>
 <p>URI: <a href="https://example.org/ccdh/Identifier">ccdh:Identifier</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[BiologicProduct]++-%20identifier%200..*&gt;[Identifier&#124;value:ccdh_string;system:ccdh_string%20%3F;type:CCDH_Identifier_type%20%3F],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[Exposure],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[BiologicProduct]++-%20identifier%200..*&gt;[Identifier&#124;value:ccdh_string;system:ccdh_string%20%3F;type:CCDH_Identifier_type%20%3F],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Exposure],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../biologicProduct__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../diagnosis__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../document__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../exposure__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../organization__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../researchProject__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../researchSubject__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../specimenContainer__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../specimen__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../subject__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
-<li><strong>None</strong> <em><a href="../treatment__identifier/">➞identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../BiologicProduct/">BiologicProduct</a></strong> ➞<em><a href="../biologicProduct__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../Document/">Document</a></strong> ➞<em><a href="../document__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../Exposure/">Exposure</a></strong> ➞<em><a href="../exposure__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../Organization/">Organization</a></strong> ➞<em><a href="../organization__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../ResearchProject/">ResearchProject</a></strong> ➞<em><a href="../researchProject__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../SpecimenContainer/">SpecimenContainer</a></strong> ➞<em><a href="../specimenContainer__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__identifier/">identifier</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Identifier</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../identifier__value/">➞value</a>  <sub>1..1</sub><ul>
+<li><a href="../identifier__value/">value</a>  <sub>1..1</sub><ul>
 <li>Description: The value of the identifier, as defined by the system.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC:Sample.submitter_id</li>
-<li>Exact mapping: GDC:Analyte.submitter_id</li>
-<li>Exact mapping: GDC:Slide.submitter_id</li>
-<li>Exact mapping: PDC:Sample.sample_submitter_id</li>
-<li>Exact mapping: PDC:Analyte.analyte_submitter_id</li>
-<li>Exact mapping: GDC:Sample.pathology_report_uuid</li>
-<li>Exact mapping: PDC:Sample.pathology_report_uuid</li>
-<li>Exact mapping: HTAN:Biospecimen.ProtocolLink</li>
-<li>Exact mapping: GDC:Sample.distributor_reference</li>
-<li>Exact mapping: PDC:Sample.distributor_reference</li>
-<li>Exact mapping: GDC:Sample.catalog_reference</li>
-<li>Exact mapping: PDC:Sample.catalog_reference</li>
-<li>Exact mapping: GDC:Program.dbgap_accession_number</li>
-<li>Exact mapping: GDC:Project.dbgap_accession_number</li>
-<li>Exact mapping: PDC:Program.program_submitter_id</li>
-<li>Exact mapping: PDC:Project.project_submitter_id</li>
-<li>Exact mapping: ICDC:Study.clinical_study_designation</li>
-<li>Exact mapping: GDC:Case.submitter_id</li>
-<li>Exact mapping: PDC:Case.case_submitter_id</li>
 </ul>
 </li>
-<li><a href="../identifier__system/">➞system</a>  <sub>0..1</sub><ul>
+<li><a href="../identifier__system/">system</a>  <sub>0..1</sub><ul>
 <li>Description: The system or namespace that defines the identifier.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../identifier__type/">➞type</a>  <sub>0..1</sub><ul>
+<li><a href="../identifier__type/">type</a>  <sub>0..1</sub><ul>
 <li>Description: A code that defines the type of the identifier.</li>
 <li>range: <a href="../CCDH_Identifier_type/">CCDH_Identifier_type</a></li>
 </ul>

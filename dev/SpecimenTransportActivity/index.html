@@ -98,50 +98,47 @@
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../specimen__transport_activity/">➞transport_activity</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenTransportActivity</a></em>*</li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__transport_activity/">transport_activity</a></em>  <sub>0..<em></sub>  </em><em><a href="./">SpecimenTransportActivity</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../specimenTransportActivity__date_started/">➞date_started</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenTransportActivity__date_started/">date_started</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity began (in this case, a transport event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__date_ended/">➞date_ended</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenTransportActivity__date_ended/">date_ended</a>  <sub>0..1</sub><ul>
 <li>Description: The date when the activity ended (in this case, a transport event).</li>
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__duration/">➞duration</a>  <sub>0..*</sub><ul>
+<li><a href="../specimenTransportActivity__duration/">duration</a>  <sub>0..*</sub><ul>
 <li>Description: The length of time over which the activity was performed.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenTransportActivity__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Case.processed_at</li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__transport_origin/">➞transport_origin</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenTransportActivity__transport_origin/">transport_origin</a>  <sub>0..1</sub><ul>
 <li>Description: An organization (facility, site, lab, etc) from which the specimen was transported as a result of the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__transport_destination/">➞transport_destination</a>  <sub>0..1</sub><ul>
+<li><a href="../specimenTransportActivity__transport_destination/">transport_destination</a>  <sub>0..1</sub><ul>
 <li>Description: An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
-<li>Exact mapping: GDC:Portion.shipped_to</li>
-<li>Exact mapping: GDC:Aliquot.shipped_to</li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__execution_observation/">➞execution_observation</a>  <sub>0..*</sub><ul>
+<li><a href="../specimenTransportActivity__execution_observation/">execution_observation</a>  <sub>0..*</sub><ul>
 <li>Description: Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__execution_conditions/">➞execution_conditions</a>  <sub>0..*</sub><ul>
+<li><a href="../specimenTransportActivity__execution_conditions/">execution_conditions</a>  <sub>0..*</sub><ul>
 <li>Description: An environmental condition under which the activity is executed (in this case, a transport activity).</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 <li>Examples: Ambient Pack, Cold Pack, Dry Ice, Ice Pack, Liquid Nitrogen</li>

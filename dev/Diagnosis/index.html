@@ -91,133 +91,107 @@
                 <h1 id="class-diagnosis">Class: Diagnosis</h1>
 <p>A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</p>
 <p>URI: <a href="https://example.org/ccdh/Diagnosis">ccdh:Diagnosis</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Specimen],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observations%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F;condition:CCDH_Diagnosis_condition%20%3F;morphology:CCDH_Diagnosis_morphology%20%3F;disease_status:CCDH_Diagnosis_disease_status%20%3F;method_of_diagnosis:CCDH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;dimensional_measure%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[Entity]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[Treatment],[ResearchSubject],[CancerStageObservationSet],[BodySite]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;id:ccdh_string%20%3F;year_at_diagnosis:ccdh_integer%20%3F;condition:CCDH_Diagnosis_condition%20%3F;morphology:CCDH_Diagnosis_morphology%20%3F;disease_status:CCDH_Diagnosis_disease_status%20%3F;method_of_diagnosis:CCDH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;dimensional_measure%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../diagnosis__prior_diagnosis/">➞prior_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">Diagnosis</a></strong></li>
-<li><strong>None</strong> <em><a href="../researchSubject__comorbid_diagnosis/">➞comorbid_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
-<li><strong>None</strong> <em><a href="../researchSubject__primary_diagnosis/">➞primary_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
-<li><strong>None</strong> <em><a href="../treatment__treatment_for_diagnosis/">➞treatment_for_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
+<li><strong><a href="./">Diagnosis</a></strong> ➞<em><a href="../diagnosis__prior_diagnosis/">prior_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">Diagnosis</a></strong></li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__comorbid_diagnosis/">comorbid_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__primary_diagnosis/">primary_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_for_diagnosis/">treatment_for_diagnosis</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Diagnosis</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../diagnosis__id/">➞id</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system of record. The identified entity may have a different 'id' in a different system.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Exact mapping: GDC:Diagnosis.id</li>
-<li>Exact mapping: PDC:Diagnosis.diagnosis_id</li>
 </ul>
 </li>
-<li><a href="../diagnosis__identifier/">➞identifier</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__identifier/">identifier</a>  <sub>0..*</sub><ul>
 <li>Description: A 'business' identifier  or accession number for the entity, typically as provided by an external system or authority, that persists across implementing systems.</li>
 <li>range: <a href="../Identifier/">Identifier</a></li>
-<li>Exact mapping: GDC:Diagnosis.submitter_id</li>
-<li>Exact mapping: PDC:Diagnosis.diagnosis_submitter_id</li>
 </ul>
 </li>
-<li><a href="../diagnosis__subject/">➞subject</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__subject/">subject</a>  <sub>0..1</sub><ul>
 <li>Description: The subject of this diagnosis.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__age_at_diagnosis/">➞age_at_diagnosis</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__age_at_diagnosis/">age_at_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: The age in days of the individual at the time of diagnosis</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__year_at_diagnosis/">➞year_at_diagnosis</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__year_at_diagnosis/">year_at_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: Numeric value to represent the year of an individual's diagnosis.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC:Diagnosis.year_of_diagnosis</li>
-<li>Exact mapping: PDC:Diagnosis.year_of_diagnosis</li>
-<li>Exact mapping: ICDC:Diagnosis.date_of_diagnosis</li>
 </ul>
 </li>
-<li><a href="../diagnosis__condition/">➞condition</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__condition/">condition</a>  <sub>0..1</sub><ul>
 <li>Description: Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
 <li>range: <a href="../CCDH_Diagnosis_condition/">CCDH_Diagnosis_condition</a></li>
-<li>Exact mapping: GDC:Diagnosis.primary_diagnosis</li>
-<li>Exact mapping: PDC:Diagnosis.primary_diagnosis</li>
-<li>Exact mapping: ICDC:Diagnosis.disease_term</li>
-<li>Exact mapping: ICDC:Diagnosis.concurrent_disease_type</li>
-<li>Exact mapping: GDC:Diagnosis.icd_10_code</li>
-<li>Exact mapping: PDC:Diagnosis.icd_10_code</li>
 </ul>
 </li>
-<li><a href="../diagnosis__primary_site/">➞primary_site</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__primary_site/">primary_site</a>  <sub>0..*</sub><ul>
 <li>Description: The anatomical location of the primary condition</li>
 <li>range: <a href="../BodySite/">BodySite</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__metastatic_site/">➞metastatic_site</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__metastatic_site/">metastatic_site</a>  <sub>0..*</sub><ul>
 <li>Description: The anatomical location(s) of metastatic disease</li>
 <li>range: <a href="../BodySite/">BodySite</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__stage/">➞stage</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__stage/">stage</a>  <sub>0..*</sub><ul>
 <li>Description: The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.</li>
 <li>range: <a href="../CancerStageObservationSet/">CancerStageObservationSet</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__grade/">➞grade</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__grade/">grade</a>  <sub>0..*</sub><ul>
 <li>Description: The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../CancerGradeObservationSet/">CancerGradeObservationSet</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__morphology/">➞morphology</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__morphology/">morphology</a>  <sub>0..1</sub><ul>
 <li>Description: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
 <li>range: <a href="../CCDH_Diagnosis_morphology/">CCDH_Diagnosis_morphology</a></li>
 <li>Examples: 8001/3, 8002/3, 8003/3, 8004/3, 8005/3</li>
-<li>Exact mapping: GDC:Diagnosis.morphology</li>
-<li>Exact mapping: PDC:Diagnosis.morphology</li>
 </ul>
 </li>
-<li><a href="../diagnosis__disease_status/">➞disease_status</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__disease_status/">disease_status</a>  <sub>0..1</sub><ul>
 <li>Description: A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
 <li>range: <a href="../CCDH_Diagnosis_disease_status/">CCDH_Diagnosis_disease_status</a></li>
-<li>Examples: Primary, Metastatic, where did the above 2 come from?, Progressive Disease, Recurrent Disease, Residual Disease</li>
-<li>Exact mapping: GDC:Treatment.initial_disease_status</li>
-<li>Exact mapping: PDC:Treatment.initial_disease_status</li>
+<li>Examples: Initial Diagnosis, Progressive Disease, Recurrent Disease, Residual Disease, Unknown, Not Reported</li>
 </ul>
 </li>
-<li><a href="../diagnosis__prior_diagnosis/">➞prior_diagnosis</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__prior_diagnosis/">prior_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the intial diagnosis.</li>
 <li>range: <a href="./">Diagnosis</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__method_of_diagnosis/">➞method_of_diagnosis</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__method_of_diagnosis/">method_of_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: The method used to confirm the patients malignant diagnosis</li>
 <li>range: <a href="../CCDH_Diagnosis_method_of_diagnosis/">CCDH_Diagnosis_method_of_diagnosis</a></li>
 <li>Examples: Autopsy, Biopsy, Blood Draw, Bone Marrow Aspirate, Core Biopsy, ..</li>
-<li>Exact mapping: GDC:Diagnosis.method_of_diagnosis</li>
-<li>Exact mapping: PDC:Diagnosis.method_of_diagnosis</li>
 </ul>
 </li>
-<li><a href="../diagnosis__related_specimen/">➞related_specimen</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__related_specimen/">related_specimen</a>  <sub>0..*</sub><ul>
 <li>Description: The specimen from which this diagnosis is made</li>
 <li>range: <a href="../Specimen/">Specimen</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__dimensional_measure/">➞dimensional_measure</a>  <sub>0..1</sub><ul>
+<li><a href="../diagnosis__dimensional_measure/">dimensional_measure</a>  <sub>0..1</sub><ul>
 <li>Description: A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</li>
 <li>range: <a href="../DimensionalObservationSet/">DimensionalObservationSet</a></li>
 </ul>
 </li>
-<li><a href="../diagnosis__supporting_observations/">➞supporting_observations</a>  <sub>0..*</sub><ul>
+<li><a href="../diagnosis__supporting_observation/">supporting_observation</a>  <sub>0..*</sub><ul>
+<li>Description: One or more observations that capture information relevant to this condition or diagnosis.</li>
 <li>range: <a href="../Observation/">Observation</a></li>
-<li>Exact mapping: GDC:Diagnosis.international_prognostic_index</li>
-<li>Exact mapping: PDC:Diagnosis.international_prognostic_index</li>
-<li>Exact mapping: GDC:Diagnosis.lymph_nodes_positive</li>
-<li>Exact mapping: PDC:Diagnosis.lymph_nodes_positive</li>
-<li>Exact mapping: GDC:Diagnosis.lymphatic_invasion_present</li>
-<li>Exact mapping: PDC:Diagnosis.lymphatic_invasion_present</li>
-<li>Exact mapping: GDC:Diagnosis.metastasis_at_diagnosis</li>
-<li>Exact mapping: PDC:Diagnosis.metastasis_at_diagnosis</li>
 </ul>
 </li>
 </ul>
@@ -232,7 +206,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Exact Mappings:</strong></td>
+<td><strong>Direct Mappings:</strong></td>
 <td></td>
 <td>GDC:Treatment.diagnosis</td>
 </tr>

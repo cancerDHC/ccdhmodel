@@ -91,134 +91,49 @@
                 <h1 id="class-quantity">Class: Quantity</h1>
 <p>A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.</p>
 <p>URI: <a href="https://example.org/ccdh/Quantity">ccdh:Quantity</a></p>
-<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[AlcoholExposureObservation]++-%20valueQuantity%200..1&gt;[Quantity&#124;valueDecimal:ccdh_decimal%20%3F;valueCodeableConcept:CCDH_Quantity_valueCodeableConcept%20%3F;unit:CCDH_Quantity_unit%20%3F],[CancerGradeObservation]++-%20valueQuantity%200..1&gt;[Quantity],[CancerStageObservation]++-%20valueQuantity%200..1&gt;[Quantity],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity],[DimensionalObservation]++-%20valueQuantity%201..1&gt;[Quantity],[EnvironmentalExposureObservation]++-%20valueQuantity%200..1&gt;[Quantity],[HistologicalCompositionObservation]++-%20valueQuantity%201..1&gt;[Quantity],[Observation]++-%20valueQuantity%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[SpecimenQuantityObservation]++-%20valueQuantity%201..1&gt;[Quantity],[SpecimenStorageActivity]++-%20duration%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[Substance]++-%20substance_quantity%200..1&gt;[Quantity],[TimePoint]++-%20offsetFromIndex%200..1&gt;[Quantity],[TobaccoExposureObservation]++-%20valueQuantity%200..1&gt;[Quantity],[Entity]^-[Quantity],[TobaccoExposureObservation],[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Observation],[HistologicalCompositionObservation],[EnvironmentalExposureObservation],[Entity],[DimensionalObservation],[Diagnosis],[CancerStageObservation],[CancerGradeObservation],[AlcoholExposureObservation]" /></p>
+<p><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TobaccoExposureObservation],[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[AlcoholExposureObservation]++-%20valueQuantity%200..1&gt;[Quantity&#124;valueDecimal:ccdh_decimal%20%3F;valueCodeableConcept:CCDH_Quantity_valueCodeableConcept%20%3F;unit:CCDH_Quantity_unit%20%3F],[CancerGradeObservation]++-%20valueQuantity%200..1&gt;[Quantity],[CancerStageObservation]++-%20valueQuantity%200..1&gt;[Quantity],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity],[DimensionalObservation]++-%20valueQuantity%201..1&gt;[Quantity],[EnvironmentalExposureObservation]++-%20valueQuantity%200..1&gt;[Quantity],[ExecutionConditionObservation]++-%20valueQuantity%200..1&gt;[Quantity],[ExecutionTimeObservation]++-%20valueQuantity%201..1&gt;[Quantity],[HistologicalCompositionObservation]++-%20valueQuantity%201..1&gt;[Quantity],[Observation]++-%20valueQuantity%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[SpecimenQuantityObservation]++-%20valueQuantity%201..1&gt;[Quantity],[SpecimenStorageActivity]++-%20duration%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[Substance]++-%20substance_quantity%200..1&gt;[Quantity],[TimePoint]++-%20offsetFromIndex%200..1&gt;[Quantity],[TobaccoExposureObservation]++-%20valueQuantity%200..1&gt;[Quantity],[Entity]^-[Quantity],[Observation],[HistologicalCompositionObservation],[ExecutionTimeObservation],[ExecutionConditionObservation],[EnvironmentalExposureObservation],[Entity],[DimensionalObservation],[Diagnosis],[CancerStageObservation],[CancerGradeObservation],[AlcoholExposureObservation]" /></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../alcoholExposureObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../cancerGradeObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../cancerStageObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../diagnosis__age_at_diagnosis/">➞age_at_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../dimensionalObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../environmentalExposureObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../histologicalCompositionObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../observation__valueQuantity/">➞valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../researchSubject__age_at_enrollment/">➞age_at_enrollment</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../specimenCreationActivity__quantity_collected/">➞quantity_collected</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../specimenQuantityObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../specimenStorageActivity__duration/">➞duration</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../specimen__distance_from_paired_specimen/">➞distance_from_paired_specimen</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../subject__age_at_death/">➞age_at_death</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../substance__substance_quantity/">➞substance_quantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../timePoint__offsetFromIndex/">➞offsetFromIndex</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong>None</strong> <em><a href="../tobaccoExposureObservation__valueQuantity/">➞valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../CancerGradeObservation/">CancerGradeObservation</a></strong> ➞<em><a href="../cancerGradeObservation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../CancerStageObservation/">CancerStageObservation</a></strong> ➞<em><a href="../cancerStageObservation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__age_at_diagnosis/">age_at_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../DimensionalObservation/">DimensionalObservation</a></strong> ➞<em><a href="../dimensionalObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../EnvironmentalExposureObservation/">EnvironmentalExposureObservation</a></strong> ➞<em><a href="../environmentalExposureObservation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></strong> ➞<em><a href="../executionConditionObservation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></strong> ➞<em><a href="../executionTimeObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../HistologicalCompositionObservation/">HistologicalCompositionObservation</a></strong> ➞<em><a href="../histologicalCompositionObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__age_at_enrollment/">age_at_enrollment</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__quantity_collected/">quantity_collected</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></strong> ➞<em><a href="../specimenStorageActivity__duration/">duration</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__distance_from_paired_specimen/">distance_from_paired_specimen</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__age_at_death/">age_at_death</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../Substance/">Substance</a></strong> ➞<em><a href="../substance__substance_quantity/">substance_quantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../TimePoint/">TimePoint</a></strong> ➞<em><a href="../timePoint__offsetFromIndex/">offsetFromIndex</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../quantity__valueDecimal/">➞valueDecimal</a>  <sub>0..1</sub><ul>
+<li><a href="../quantity__valueDecimal/">valueDecimal</a>  <sub>0..1</sub><ul>
 <li>Description: An amount, in the given units (if specified)</li>
 <li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
-<li>Exact mapping: GDC:Sample.initial_weight</li>
-<li>Exact mapping: PDC:Sample.initial_weight</li>
-<li>Exact mapping: GDC:Sample.current_weight</li>
-<li>Exact mapping: GDC:Aliquot.amount</li>
-<li>Exact mapping: GDC:Portion.weight</li>
-<li>Exact mapping: GDC:Aliquot.aliquot_quantity</li>
-<li>Exact mapping: GDC:Analyte.amount</li>
-<li>Exact mapping: GDC:Analyte.analyte_quantity</li>
-<li>Exact mapping: PDC:Sample.current_weight</li>
-<li>Exact mapping: PDC:Aliquot.amount</li>
-<li>Exact mapping: PDC:Portion.weight</li>
-<li>Exact mapping: PDC:Aliquot.aliquot_quantity</li>
-<li>Exact mapping: PDC:Analyte.amount</li>
-<li>Exact mapping: PDC:Analyte.analyte_quantity</li>
-<li>Exact mapping: GDC:Aliquot.aliquot_volume</li>
-<li>Exact mapping: GDC:Aliquot.amount</li>
-<li>Exact mapping: GDC:Analyte.amount</li>
-<li>Exact mapping: GDC:Analyte.analyte_volume</li>
-<li>Exact mapping: PDC:Aliquot.aliquot_volume</li>
-<li>Exact mapping: PDC:Aliquot.amount</li>
-<li>Exact mapping: PDC:Analyte.amount</li>
-<li>Exact mapping: PDC:Analyte.analyte_volume</li>
-<li>Exact mapping: GDC:Aliquot.concentration</li>
-<li>Exact mapping: GDC:Analyte.concentration</li>
-<li>Exact mapping: PDC:Aliquot.concentration</li>
-<li>Exact mapping: PDC:Analyte.concentration</li>
-<li>Exact mapping: GDC:Sample.longest_dimension</li>
-<li>Exact mapping: GDC:Sample.shortest_dimension</li>
-<li>Exact mapping: GDC:Sample.intermediate_dimension</li>
-<li>Exact mapping: PDC:Sample.longest_dimension</li>
-<li>Exact mapping: PDC:Sample.shortest_dimension</li>
-<li>Exact mapping: PDC:Sample.intermediate_dimension</li>
-<li>Exact mapping: ICDC:Sample.length_of_tumor</li>
-<li>Exact mapping: ICDC:Sample.width_of_tumor</li>
-<li>Exact mapping: ICDC:Sample.total_tissue_area</li>
-<li>Exact mapping: GDC:Slide.number_proliferating_cells</li>
-<li>Exact mapping: GDC:Slide.percent_eosinophil_infiltration</li>
-<li>Exact mapping: GDC:Slide.percent_granulocyte_infiltration</li>
-<li>Exact mapping: GDC:Slide.percent_inflam_infiltration</li>
-<li>Exact mapping: GDC:Slide.percent_lymphocyte_infiltration</li>
-<li>Exact mapping: GDC:Slide.percent_monocyte_infiltration</li>
-<li>Exact mapping: GDC:Slide.percent_necrosis</li>
-<li>Exact mapping: GDC:Slide.percent_neutrophil_infiltration</li>
-<li>Exact mapping: GDC:Slide.percent_normal_cells</li>
-<li>Exact mapping: GDC:Slide.percent_stromal_cells</li>
-<li>Exact mapping: GDC:Slide.percent_tumor_cells</li>
-<li>Exact mapping: GDC:Slide.percent_tumor_nuclei</li>
-<li>Exact mapping: HTAN:Biospecimen.NumberProliferatingCells</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentEosinophilInfiltration</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentGranulocyteInfiltration</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentInflamInfiltration</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentLymphocyteInfiltration</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentMonocyteInfiltration</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentNecrosis</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentNeutrophilInfiltration</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentNormalCells</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentStromalCells</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentTumorCells</li>
-<li>Exact mapping: HTAN:Biospecimen.PercentTumorNuclei</li>
-<li>Exact mapping: HTAN:Biospecimen.TumorInfiltratingLymphocytes</li>
-<li>Exact mapping: ICDC:Sample.non_tumor_tissue_area</li>
-<li>Exact mapping: ICDC:Sample.tumor_tissue_area</li>
-<li>Exact mapping: ICDC:Sample.percentage_tumor</li>
-<li>Exact mapping: ICDC:Sample.percentage_stroma</li>
-<li>Exact mapping: ICDC:Sample.analysis_area</li>
-<li>Exact mapping: ICDC:Sample.analysis_area_percentage_stroma</li>
-<li>Exact mapping: ICDC:Sample.analysis_area_percentage_tumor</li>
-<li>Exact mapping: ICDC:Sample.analysis_area_percentage_glass</li>
-<li>Exact mapping: ICDC:Sample.analysis_area_percentage_pigmented_tumor</li>
-<li>Exact mapping: HTAN:Biospecimen.CollectionDaysfromIndex</li>
-<li>Exact mapping: PDC:Sample.days_to_collection</li>
-<li>Exact mapping: GDC:Sample.time_between_excision_and_freezing</li>
-<li>Exact mapping: GDC:Sample.time_between_clamping_and_freezing</li>
-<li>Exact mapping: PDC:Sample.time_between_excision_and_freezing</li>
-<li>Exact mapping: PDC:Sample.time_between_clamping_and_freezing</li>
-<li>Exact mapping: HTAN:Biospecimen.ISCHEMIC_TIME</li>
-<li>Exact mapping: HTAN:Biospecimen.FIXATION_DURATION</li>
-<li>Exact mapping: GDC:Treatment.treatment_dose</li>
-<li>Exact mapping: GDC:Treatment.days_to_treatment_end</li>
-<li>Exact mapping: PDC:Treatment.days_to_treatment_end</li>
-<li>Exact mapping: GDC:Treatment.days_to_treatment_start</li>
-<li>Exact mapping: PDC:Treatment.days_to_treatment_start</li>
-<li>Exact mapping: GDC:Diagnosis.tumor_largest_dimension_diameter</li>
-<li>Exact mapping: PDC:Diagnosis.tumor_largest_dimension_diameter</li>
 </ul>
 </li>
-<li><a href="../quantity__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>0..1</sub><ul>
+<li><a href="../quantity__valueCodeableConcept/">valueCodeableConcept</a>  <sub>0..1</sub><ul>
 <li>Description: A coded value representing a quantity (e.g. "Adjacent (&lt; or = 2cm)")</li>
 <li>range: <a href="../CCDH_Quantity_valueCodeableConcept/">CCDH_Quantity_valueCodeableConcept</a></li>
-<li>Exact mapping: GDC:Specimen.distance_normal_to_tumor</li>
-<li>Exact mapping: PDC:Specimen.distance_normal_to_tumor</li>
 </ul>
 </li>
-<li><a href="../quantity__unit/">➞unit</a>  <sub>0..1</sub><ul>
+<li><a href="../quantity__unit/">unit</a>  <sub>0..1</sub><ul>
 <li>Description: A coded or free text (in the .text field) representation of the unit.</li>
 <li>range: <a href="../CCDH_Quantity_unit/">CCDH_Quantity_unit</a></li>
-<li>Exact mapping: GDC:Treatment.treatment_dose_unit</li>
 </ul>
 </li>
 </ul>

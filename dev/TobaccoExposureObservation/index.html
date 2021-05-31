@@ -98,105 +98,85 @@
 </ul>
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../exposure__tobacco_exposure/">➞tobacco_exposure</a></em>  <sub>0..<em></sub>  </em><em><a href="./">TobaccoExposureObservation</a></em>*</li>
+<li><strong><a href="../Exposure/">Exposure</a></strong> ➞<em><a href="../exposure__tobacco_exposure/">tobacco_exposure</a></em>  <sub>0..<em></sub>  </em><em><a href="./">TobaccoExposureObservation</a></em>*</li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../tobaccoExposureObservation__id/">➞id</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity in the system of record.  This 'id' is guaranteed to be unique only within a given system, but not globally. The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__category/">➞category</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__category/">category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
 <li>range: <a href="../CCDH_TobaccoExposureObservation_category/">CCDH_TobaccoExposureObservation_category</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__observation_type/">➞observation_type</a>  <sub>1..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__observation_type/">observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
 <li>range: <a href="../CCDH_TobaccoExposureObservation_observation_type/">CCDH_TobaccoExposureObservation_observation_type</a></li>
 <li>Examples: cigarettes_per_day, environmental_tobacco_smoke_exposure, pack_years_smoked, smoking_frequency, time_between_waking_and_first_smoke, tobacco_smoking_onset_year, tobacco_smoking_quit_year, tobacco_smoking_status, type_of_tobacco_used, years_smoked</li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__method_type/">➞method_type</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__method_type/">method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method used in generating the Observation result.</li>
 <li>range: <a href="../CCDH_TobaccoExposureObservation_method_type/">CCDH_TobaccoExposureObservation_method_type</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__focus/">➞focus</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__focus/">focus</a>  <sub>0..1</sub><ul>
 <li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__subject/">➞subject</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__subject/">subject</a>  <sub>0..1</sub><ul>
 <li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li>range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__performed_by/">➞performed_by</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the observation activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueEntity/">➞valueEntity</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueEntity/">valueEntity</a>  <sub>0..1</sub><ul>
 <li>Description: The value of an observation</li>
 <li>range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueString/">➞valueString</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueString/">valueString</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a free-text string.</li>
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueInteger/">➞valueInteger</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueInteger/">valueInteger</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as an integer.</li>
 <li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
-<li>Exact mapping: GDC:Exposure.cigarettes_per_day</li>
-<li>Exact mapping: PDC:Exposure.cigarettes_per_day</li>
-<li>Exact mapping: GDC:Exposure.pack_years_smoked</li>
-<li>Exact mapping: PDC:Exposure.pack_years_smoked</li>
-<li>Exact mapping: GDC:Exposure.tobacco_smoking_onset_year</li>
-<li>Exact mapping: PDC:Exposure.tobacco_smoking_onset_year</li>
-<li>Exact mapping: GDC:Exposure.tobacco_smoking_quit_year</li>
-<li>Exact mapping: PDC:Exposure.tobacco_smoking_quit_year</li>
-<li>Exact mapping: GDC:Exposure.years_smoked</li>
-<li>Exact mapping: PDC:Exposure.years_smoked</li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueDecimal/">➞valueDecimal</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueDecimal/">valueDecimal</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a decimal.</li>
 <li>range: <a href="../types/CcdhDecimal/">CcdhDecimal</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueBoolean/">➞valueBoolean</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueBoolean/">valueBoolean</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a boolean.</li>
 <li>range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueDateTime/">➞valueDateTime</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueDateTime/">valueDateTime</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a dateTime.</li>
 <li>range: <a href="../types/CcdhDateTime/">CcdhDateTime</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueQuantity/">➞valueQuantity</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueQuantity/">valueQuantity</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a free-text Quantity.</li>
 <li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
-<li><a href="../tobaccoExposureObservation__valueCodeableConcept/">➞valueCodeableConcept</a>  <sub>0..1</sub><ul>
+<li><a href="../tobaccoExposureObservation__valueCodeableConcept/">valueCodeableConcept</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a CodeableConcept.</li>
 <li>range: <a href="../CCDH_TobaccoExposureObservation_valueCodeableConcept/">CCDH_TobaccoExposureObservation_valueCodeableConcept</a></li>
-<li>Exact mapping: GDC:Exposure.environmental_tobacco_smoke_exposure</li>
-<li>Exact mapping: PDC:Exposure.environmental_tobacco_smoke_exposure</li>
-<li>Exact mapping: GDC:Exposure.smoking_frequency</li>
-<li>Exact mapping: PDC:Exposure.smoking_frequency</li>
-<li>Exact mapping: GDC:Exposure.time_between_waking_and_first_smoke</li>
-<li>Exact mapping: PDC:Exposure.time_between_waking_and_first_smoke</li>
-<li>Exact mapping: GDC:Exposure.tobacco_smoking_status</li>
-<li>Exact mapping: PDC:Exposure.tobacco_smoking_status</li>
-<li>Exact mapping: GDC:Exposure.type_of_tobacco_used</li>
-<li>Exact mapping: PDC:Exposure.type_of_tobacco_used</li>
 </ul>
 </li>
 </ul>
