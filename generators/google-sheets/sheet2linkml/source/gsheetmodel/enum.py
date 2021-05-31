@@ -98,7 +98,7 @@ class Enum(ModelElement):
         """
         :return: The name of this enum, modified to fit the format we use for other enums.
         """
-        return f'CCDH_{Enum.fix_enum_name(self.name)}'
+        return f'{Enum.fix_enum_name(self.full_name)}'
 
     @staticmethod
     def fix_enum_name(enum_name: str):
@@ -115,7 +115,8 @@ class Enum(ModelElement):
         # But we might as well replace everything that isn't alphanumeric.
         fixed_name = re.sub(r'\W', '_', fixed_name).strip('_')
 
-        return fixed_name
+        # All enumerations should be prefixed with `enum_` for clarity.
+        return f'enum_{fixed_name}'
 
     @property
     def full_name(self) -> str:
