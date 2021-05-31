@@ -365,6 +365,7 @@ class Attribute:
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
+            domain=self.entity.name,
             range=attribute_range
         )
 
