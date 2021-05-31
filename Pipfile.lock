@@ -207,7 +207,7 @@
         "linkml": {
             "editable": true,
             "git": "https://github.com/cancerDHC/linkml.git",
-            "ref": "025e9a4b75cbf093d0b7b773140cb0423436cb4e"
+            "ref": "84f88883255d1c4a8bb83ac77714ee35ef80125a"
         },
         "linkml-model": {
             "hashes": [
