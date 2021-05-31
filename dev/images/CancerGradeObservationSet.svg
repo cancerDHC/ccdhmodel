@@ -33,12 +33,12 @@
 <polygon fill='white' points='-0.5,-153 -0.5,-189 68.5,-189 68.5,-153 -0.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='34' y='-167.3'>Subject</text>
 </g><g class='node' id='node6'><title>CancerGradeObservationSet</title>
-<polygon fill='white' points='39.5,-1 39.5,-61 430.5,-61 430.5,-1 39.5,-1' stroke='black'/>
+<polygon fill='white' points='21,-1 21,-61 449,-61 449,-1 21,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='235' y='-49.8'>CancerGradeObservationSet</text>
-<polyline fill='none' points='39.5,-46 430.5,-46 ' stroke='black'/>
+<polyline fill='none' points='21,-46 449,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='235' y='-34.8'>id:ccdh_string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='235' y='-19.8'>category:CCDH_CancerGradeObservationSet_category ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='235' y='-4.8'>method_type:CCDH_CancerGradeObservationSet_method_type *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='235' y='-19.8'>category:enum_CCDH_CancerGradeObservationSet_category ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='235' y='-4.8'>method_type:enum_CCDH_CancerGradeObservationSet_method_type *</text>
 </g><g class='edge' id='edge3'><title>Subject-&gt;CancerGradeObservationSet</title>
 <path d='M67.3263,-147.119C98.6466,-125.616 146.022,-93.0895 182.434,-68.0899' fill='none' stroke='black'/>
 <polygon fill='black' points='59.0504,-152.801 64.7474,-143.431 63.1724,-149.971 67.2944,-147.141 67.2944,-147.141 67.2944,-147.141 63.1724,-149.971 69.8415,-150.851 59.0504,-152.801 59.0504,-152.801' stroke='black'/>

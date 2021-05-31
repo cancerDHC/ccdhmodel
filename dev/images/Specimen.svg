@@ -33,69 +33,69 @@
 <polygon fill='white' points='-0.5,-347 -0.5,-383 68.5,-383 68.5,-347 -0.5,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='34' y='-361.3'>Subject</text>
 </g><g class='node' id='node10'><title>Specimen</title>
-<polygon fill='white' points='1344,-0.5 1344,-255.5 1842,-255.5 1842,-0.5 1344,-0.5' stroke='black'/>
+<polygon fill='white' points='1325,-0.5 1325,-255.5 1861,-255.5 1861,-0.5 1325,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-244.3'>Specimen</text>
-<polyline fill='none' points='1344,-240.5 1842,-240.5 ' stroke='black'/>
+<polyline fill='none' points='1325,-240.5 1861,-240.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-229.3'>id:ccdh_string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-214.3'>description:ccdh_string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-199.3'>specimen_type:CCDH_Specimen_specimen_type ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-184.3'>analyte_type:CCDH_Specimen_analyte_type ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-169.3'>source_material_type:CCDH_Specimen_source_material_type ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-154.3'>tumor_status_at_collection:CCDH_Specimen_tumor_status_at_collection ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-139.3'>cellular_composition_type:CCDH_Specimen_cellular_composition_type ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-124.3'>general_tissue_morphology:CCDH_Specimen_general_tissue_morphology ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-109.3'>specific_tissue_morphology:CCDH_Specimen_specific_tissue_morphology ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-94.3'>preinvasive_tissue_morphology:CCDH_Specimen_preinvasive_tissue_morphology ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-199.3'>specimen_type:enum_CCDH_Specimen_specimen_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-184.3'>analyte_type:enum_CCDH_Specimen_analyte_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-169.3'>source_material_type:enum_CCDH_Specimen_source_material_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-154.3'>tumor_status_at_collection:enum_CCDH_Specimen_tumor_status_at_collection ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-139.3'>cellular_composition_type:enum_CCDH_Specimen_cellular_composition_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-124.3'>general_tissue_morphology:enum_CCDH_Specimen_general_tissue_morphology ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-109.3'>specific_tissue_morphology:enum_CCDH_Specimen_specific_tissue_morphology ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-94.3'>preinvasive_tissue_morphology:enum_CCDH_Specimen_preinvasive_tissue_morphology ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-79.3'>morphology_pathologically_confirmed:ccdh_boolean ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-64.3'>morphology_assessor_role:CCDH_Specimen_morphology_assessor_role ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-49.3'>morphlogy_assessment_method:CCDH_Specimen_morphlogy_assessment_method ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-34.3'>degree_of_dysplasia:CCDH_Specimen_degree_of_dysplasia ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-64.3'>morphology_assessor_role:enum_CCDH_Specimen_morphology_assessor_role ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-49.3'>morphlogy_assessment_method:enum_CCDH_Specimen_morphlogy_assessment_method ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-34.3'>degree_of_dysplasia:enum_CCDH_Specimen_degree_of_dysplasia ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-19.3'>dysplasia_fraction:ccdh_string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-4.3'>section_location:CCDH_Specimen_section_location ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-4.3'>section_location:enum_CCDH_Specimen_section_location ?</text>
 </g><g class='edge' id='edge14'><title>Subject-&gt;Specimen</title>
-<path d='M78.6021,-346.202C516.381,-228.141 1029.01,-171.88 1331.84,-146.797' fill='none' stroke='black'/>
+<path d='M78.725,-346.169C507.592,-230.518 1007.84,-174.232 1312.76,-148.396' fill='none' stroke='black'/>
 <polygon fill='black' points='68.7952,-348.861 77.2694,-341.901 73.621,-347.553 78.4468,-346.244 78.4468,-346.244 78.4468,-346.244 73.621,-347.553 79.6242,-350.588 68.7952,-348.861 68.7952,-348.861' stroke='black'/>
-<polygon fill='black' points='1331.91,-146.792 1337.56,-142.314 1343.87,-145.808 1338.22,-150.287 1331.91,-146.792' stroke='black'/>
+<polygon fill='black' points='1312.92,-148.383 1318.56,-143.894 1324.88,-147.376 1319.23,-151.865 1312.92,-148.383' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='88.7241' y='-346.846'>source_subject 0..1</text>
 </g><g class='node' id='node2'><title>SpecimenTransportActivity</title>
 <polygon fill='white' points='86.5,-347 86.5,-383 265.5,-383 265.5,-347 86.5,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='176' y='-361.3'>SpecimenTransportActivity</text>
 </g><g class='edge' id='edge9'><title>SpecimenTransportActivity-&gt;Specimen</title>
-<path d='M275.632,-345.903C648.722,-281.344 1068.04,-213.092 1331.75,-170.697' fill='none' stroke='black'/>
+<path d='M275.676,-345.896C640.146,-282.828 1048.27,-216.312 1312.79,-173.745' fill='none' stroke='black'/>
 <polygon fill='black' points='265.567,-347.646 274.652,-341.506 270.493,-346.793 275.42,-345.94 275.42,-345.94 275.42,-345.94 270.493,-346.793 276.188,-350.374 265.567,-347.646 265.567,-347.646' stroke='black'/>
-<polygon fill='black' points='1331.95,-170.665 1337.24,-165.763 1343.8,-168.76 1338.51,-173.662 1331.95,-170.665' stroke='black'/>
+<polygon fill='black' points='1313.04,-173.706 1318.33,-168.803 1324.89,-171.8 1319.6,-176.702 1313.04,-173.706' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='285.252' y='-347.48'>transport_activity 0..*</text>
 </g><g class='node' id='node3'><title>SpecimenStorageActivity</title>
 <polygon fill='white' points='284,-347 284,-383 452,-383 452,-347 284,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='368' y='-361.3'>SpecimenStorageActivity</text>
 </g><g class='edge' id='edge10'><title>SpecimenStorageActivity-&gt;Specimen</title>
-<path d='M462.238,-345.763C766.879,-287.089 1104.96,-222.331 1331.91,-178.913' fill='none' stroke='black'/>
+<path d='M462.414,-345.729C758.774,-288.65 1086.26,-225.914 1312.74,-182.58' fill='none' stroke='black'/>
 <polygon fill='black' points='452.148,-347.706 461.117,-341.396 457.058,-346.761 461.968,-345.815 461.968,-345.815 461.968,-345.815 457.058,-346.761 462.819,-350.234 452.148,-347.706 452.148,-347.706' stroke='black'/>
-<polygon fill='black' points='1332.2,-178.858 1337.34,-173.802 1343.98,-176.603 1338.84,-181.659 1332.2,-178.858' stroke='black'/>
+<polygon fill='black' points='1313.02,-182.528 1318.16,-177.472 1324.8,-180.273 1319.66,-185.329 1313.02,-182.528' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='471.897' y='-347.169'>storage_activity 0..*</text>
 </g><g class='node' id='node4'><title>SpecimenQuantityObservation</title>
 <polygon fill='white' points='470,-347 470,-383 666,-383 666,-347 470,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='568' y='-361.3'>SpecimenQuantityObservation</text>
 </g><g class='edge' id='edge6'><title>SpecimenQuantityObservation-&gt;Specimen</title>
-<path d='M652.595,-344.605C799.701,-310.878 1108.3,-240.127 1331.95,-188.85' fill='none' stroke='black'/>
+<path d='M652.312,-344.67C795.191,-311.912 1090.99,-244.095 1312.96,-193.204' fill='none' stroke='black'/>
 <polygon fill='black' points='642.541,-346.91 651.283,-340.289 647.415,-345.793 652.288,-344.675 652.288,-344.675 652.288,-344.675 647.415,-345.793 653.294,-349.062 642.541,-346.91 642.541,-346.91' stroke='black'/>
-<polygon fill='black' points='1332.18,-188.798 1337.13,-183.559 1343.87,-186.117 1338.92,-191.356 1332.18,-188.798' stroke='black'/>
+<polygon fill='black' points='1313.11,-193.17 1318.06,-187.93 1324.81,-190.488 1319.85,-195.728 1313.11,-193.17' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='662.388' y='-345.678'>quantity_measure 0..*</text>
 </g><g class='node' id='node5'><title>SpecimenQualityObservation</title>
 <polygon fill='white' points='684.5,-347 684.5,-383 873.5,-383 873.5,-347 684.5,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='779' y='-361.3'>SpecimenQualityObservation</text>
 </g><g class='edge' id='edge5'><title>SpecimenQualityObservation-&gt;Specimen</title>
-<path d='M848.039,-344.069C954.087,-313.453 1162.59,-253.259 1332.1,-204.321' fill='none' stroke='black'/>
+<path d='M847.991,-344.082C950.011,-314.63 1146.92,-257.782 1312.69,-209.926' fill='none' stroke='black'/>
 <polygon fill='black' points='838.197,-346.91 846.556,-339.813 843,-345.523 847.804,-344.136 847.804,-344.136 847.804,-344.136 843,-345.523 849.052,-348.46 838.197,-346.91 838.197,-346.91' stroke='black'/>
-<polygon fill='black' points='1332.19,-204.295 1336.85,-198.787 1343.72,-200.966 1339.07,-206.474 1332.19,-204.295' stroke='black'/>
+<polygon fill='black' points='1313.04,-209.825 1317.69,-204.317 1324.57,-206.496 1319.91,-212.003 1313.04,-209.825' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='858.15' y='-344.569'>quality_measure 0..*</text>
 </g><g class='node' id='node6'><title>SpecimenProcessingActivity</title>
 <polygon fill='white' points='891.5,-347 891.5,-383 1076.5,-383 1076.5,-347 891.5,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='984' y='-361.3'>SpecimenProcessingActivity</text>
 </g><g class='edge' id='edge11'><title>SpecimenProcessingActivity-&gt;Specimen</title>
-<path d='M1037.62,-343.308C1104.14,-317.641 1222.27,-272.056 1332.54,-229.507' fill='none' stroke='black'/>
+<path d='M1037.9,-343.2C1100.61,-319.004 1208.91,-277.21 1313.31,-236.928' fill='none' stroke='black'/>
 <polygon fill='black' points='1028.29,-346.91 1036,-339.112 1032.95,-345.11 1037.62,-343.31 1037.62,-343.31 1037.62,-343.31 1032.95,-345.11 1039.24,-347.508 1028.29,-346.91 1028.29,-346.91' stroke='black'/>
-<polygon fill='black' points='1332.67,-229.455 1336.83,-223.563 1343.87,-225.135 1339.71,-231.027 1332.67,-229.455' stroke='black'/>
+<polygon fill='black' points='1313.5,-236.851 1317.66,-230.959 1324.7,-232.531 1320.54,-238.423 1313.5,-236.851' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1048.28' y='-342.826'>processing_activity 0..*</text>
 </g><g class='node' id='node7'><title>SpecimenCreationActivity</title>
 <polygon fill='white' points='1094.5,-347 1094.5,-383 1267.5,-383 1267.5,-347 1094.5,-347' stroke='black'/>
@@ -122,10 +122,10 @@
 <polygon fill='black' points='1525.72,-266.48 1524.77,-259.332 1531,-255.701 1531.95,-262.849 1525.72,-266.48' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1500.86' y='-329.146'>distance_from_paired_specimen 0..1</text>
 </g><g class='edge' id='edge15'><title>Specimen-&gt;Specimen</title>
-<path d='M1849.99,-148.639C1855.78,-142.831 1859,-135.951 1859,-128 1859,-120.74 1856.32,-114.374 1851.44,-108.901' fill='none' stroke='black'/>
-<polygon fill='black' points='1842.05,-154.965 1847.07,-145.214 1845.96,-151.849 1849.87,-148.733 1849.87,-148.733 1849.87,-148.733 1845.96,-151.849 1852.68,-152.252 1842.05,-154.965 1842.05,-154.965' stroke='black'/>
-<polygon fill='black' points='1851.25,-108.741 1844.08,-107.954 1842.05,-101.035 1849.22,-101.821 1851.25,-108.741' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1861.01' y='-144.902'>parent_specimen 0..*</text>
+<path d='M1869.51,-148.457C1875.61,-142.687 1879,-135.868 1879,-128 1879,-120.645 1876.04,-114.207 1870.66,-108.685' fill='none' stroke='black'/>
+<polygon fill='black' points='1861.13,-154.748 1866.42,-145.143 1865.13,-151.744 1869.13,-148.74 1869.13,-148.74 1869.13,-148.74 1865.13,-151.744 1871.83,-152.337 1861.13,-154.748 1861.13,-154.748' stroke='black'/>
+<polygon fill='black' points='1870.6,-108.632 1863.41,-108.096 1861.13,-101.252 1868.33,-101.788 1870.6,-108.632' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1880.27' y='-145.225'>parent_specimen 0..*</text>
 </g><g class='node' id='node11'><title>BiologicProduct</title>
 <polygon fill='white' points='1534.5,-347 1534.5,-383 1651.5,-383 1651.5,-347 1534.5,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1593' y='-361.3'>BiologicProduct</text>
@@ -154,52 +154,52 @@
 <polygon fill='white' points='2040,-347 2040,-383 2222,-383 2222,-347 2040,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2131' y='-361.3'>DimensionalObservationSet</text>
 </g><g class='edge' id='edge7'><title>DimensionalObservationSet-&gt;Specimen</title>
-<path d='M2082.38,-342.761C2029.51,-319.669 1940.82,-280.93 1853.36,-242.724' fill='none' stroke='black'/>
+<path d='M2082.71,-342.906C2033.76,-321.526 1953.87,-286.627 1872.67,-251.161' fill='none' stroke='black'/>
 <polygon fill='black' points='2091.88,-346.91 2080.91,-347.031 2087.29,-344.909 2082.71,-342.907 2082.71,-342.907 2082.71,-342.907 2087.29,-344.909 2084.51,-338.783 2091.88,-346.91 2091.88,-346.91' stroke='black'/>
-<polygon fill='black' points='1853.14,-242.63 1846.04,-243.893 1842.14,-237.826 1849.24,-236.562 1853.14,-242.63' stroke='black'/>
+<polygon fill='black' points='1872.21,-250.958 1865.11,-252.222 1861.21,-246.154 1868.31,-244.891 1872.21,-250.958' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2077.39' y='-329.419'>dimensional_measure 0..1</text>
 </g><g class='node' id='node15'><title>Entity</title>
 <polygon fill='white' points='2240,-347 2240,-383 2302,-383 2302,-347 2240,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2271' y='-361.3'>Entity</text>
 </g><g class='edge' id='edge13'><title>Entity-&gt;Specimen</title>
-<path d='M2230.16,-349.334C2227.39,-348.173 2224.66,-347.047 2222,-346 2102.29,-298.832 1967.7,-252.144 1853.81,-214.227' fill='none' stroke='black'/>
+<path d='M2230.16,-349.334C2227.39,-348.173 2224.66,-347.047 2222,-346 2108.85,-301.417 1982.41,-257.262 1872.71,-220.539' fill='none' stroke='black'/>
 <polygon fill='black' points='2239.59,-353.342 2228.63,-353.572 2234.99,-351.386 2230.39,-349.43 2230.39,-349.43 2230.39,-349.43 2234.99,-351.386 2232.15,-345.289 2239.59,-353.342 2239.59,-353.342' stroke='black'/>
-<polygon fill='black' points='1853.54,-214.137 1846.58,-216.04 1842.15,-210.352 1849.11,-208.449 1853.54,-214.137' stroke='black'/>
+<polygon fill='black' points='1872.51,-220.472 1865.56,-222.363 1861.13,-216.668 1868.09,-214.776 1872.51,-220.472' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2224.97' y='-335.995'>source_model_system 0..1</text>
 </g><g class='edge' id='edge20'><title>Entity-&gt;Specimen</title>
-<path d='M2232.46,-343.052C2103.16,-292.446 1960.23,-243.414 1842.01,-204.948' fill='none' stroke='black'/>
-<polygon fill='none' points='2231.55,-346.456 2242.14,-346.854 2234.11,-339.94 2231.55,-346.456' stroke='black'/>
+<path d='M2232.59,-343.104C2110.11,-295.161 1975.61,-248.704 1861.29,-211.244' fill='none' stroke='black'/>
+<polygon fill='none' points='2231.55,-346.455 2242.14,-346.854 2234.11,-339.94 2231.55,-346.455' stroke='black'/>
 </g><g class='node' id='node16'><title>Organization</title>
 <polygon fill='white' points='2320.5,-347 2320.5,-383 2419.5,-383 2419.5,-347 2320.5,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2370' y='-361.3'>Organization</text>
 </g><g class='edge' id='edge16'><title>Organization-&gt;Specimen</title>
-<path d='M2310.39,-345.971C2213.7,-316.728 2017.07,-257.258 1854.08,-207.964' fill='none' stroke='black'/>
+<path d='M2310.47,-345.995C2217.52,-317.884 2032.08,-261.798 1873.02,-213.69' fill='none' stroke='black'/>
 <polygon fill='black' points='2320.21,-348.942 2309.34,-350.355 2315.43,-347.495 2310.64,-346.047 2310.64,-346.047 2310.64,-346.047 2315.43,-347.495 2311.94,-341.74 2320.21,-348.942 2320.21,-348.942' stroke='black'/>
-<polygon fill='black' points='1853.9,-207.907 1846.99,-209.998 1842.41,-204.433 1849.31,-202.341 1853.9,-207.907' stroke='black'/>
+<polygon fill='black' points='1872.61,-213.568 1865.71,-215.659 1861.13,-210.094 1868.03,-208.002 1872.61,-213.568' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2304.2' y='-333.254'>data_provider 0..1</text>
 </g><g class='node' id='node17'><title>ResearchProject</title>
 <polygon fill='white' points='2438,-347 2438,-383 2554,-383 2554,-347 2438,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2496' y='-361.3'>ResearchProject</text>
 </g><g class='edge' id='edge17'><title>ResearchProject-&gt;Specimen</title>
-<path d='M2428.3,-346.078C2428.2,-346.052 2428.1,-346.026 2428,-346 2235.94,-295.623 2018.87,-239.229 1854.21,-196.56' fill='none' stroke='black'/>
+<path d='M2428.3,-346.078C2428.2,-346.052 2428.1,-346.026 2428,-346 2243.19,-297.527 2035.25,-243.484 1873.1,-201.456' fill='none' stroke='black'/>
 <polygon fill='black' points='2437.77,-348.567 2426.95,-350.377 2432.93,-347.296 2428.09,-346.025 2428.09,-346.025 2428.09,-346.025 2432.93,-347.296 2429.24,-341.672 2437.77,-348.567 2437.77,-348.567' stroke='black'/>
-<polygon fill='black' points='1854.06,-196.522 1847.25,-198.889 1842.44,-193.512 1849.26,-191.145 1854.06,-196.522' stroke='black'/>
+<polygon fill='black' points='1872.63,-201.334 1865.82,-203.701 1861.01,-198.323 1867.83,-195.957 1872.63,-201.334' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2421.33' y='-333.474'>associated_project 0..1</text>
 </g><g class='node' id='node18'><title>Identifier</title>
 <polygon fill='white' points='2571.5,-347 2571.5,-383 2650.5,-383 2650.5,-347 2571.5,-347' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2611' y='-361.3'>Identifier</text>
 </g><g class='edge' id='edge18'><title>Identifier-&gt;Specimen</title>
-<path d='M2561.37,-346.001C2318.11,-274.81 2047.78,-216.235 1854.01,-177.743' fill='none' stroke='black'/>
-<polygon fill='black' points='2571.3,-348.919 2560.44,-350.418 2566.5,-347.51 2561.71,-346.1 2561.71,-346.1 2561.71,-346.1 2566.5,-347.51 2562.97,-341.783 2571.3,-348.919 2571.3,-348.919' stroke='black'/>
-<polygon fill='black' points='1854,-177.742 1847.34,-180.499 1842.23,-175.41 1848.89,-172.652 1854,-177.742' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2555.2' y='-333.358'>identifier 0..*</text>
+<path d='M2561.67,-346.089C2325.99,-277.093 2065.44,-220.077 1873.19,-181.57' fill='none' stroke='black'/>
+<polygon fill='black' points='2571.3,-348.919 2560.44,-350.417 2566.5,-347.509 2561.71,-346.1 2561.71,-346.1 2561.71,-346.1 2566.5,-347.509 2562.98,-341.782 2571.3,-348.919 2571.3,-348.919' stroke='black'/>
+<polygon fill='black' points='1872.98,-181.527 1866.31,-184.274 1861.21,-179.176 1867.88,-176.429 1872.98,-181.527' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2555.2' y='-333.357'>identifier 0..*</text>
 </g><g class='node' id='node19'><title>Diagnosis</title>
 <polygon fill='white' points='2637.5,-475 2637.5,-511 2720.5,-511 2720.5,-475 2637.5,-475' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='2679' y='-489.3'>Diagnosis</text>
 </g><g class='edge' id='edge19'><title>Diagnosis-&gt;Specimen</title>
-<path d='M2683.97,-463.066C2687.82,-430.268 2688.35,-377.309 2659,-346 2551.35,-231.154 2131.93,-173.865 1852.39,-147.871' fill='none' stroke='black'/>
+<path d='M2683.97,-463.066C2687.82,-430.268 2688.35,-377.309 2659,-346 2553.78,-233.748 2150.73,-176.483 1871.55,-149.681' fill='none' stroke='black'/>
 <polygon fill='black' points='2683.97,-463.076 2687.11,-469.568 2682.33,-474.963 2679.19,-468.471 2683.97,-463.076' stroke='black'/>
-<polygon fill='black' points='1842.09,-146.922 1852.47,-143.359 1847.07,-147.381 1852.05,-147.84 1852.05,-147.84 1852.05,-147.84 1847.07,-147.381 1851.64,-152.321 1842.09,-146.922 1842.09,-146.922' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1869.22' y='-156.027'> related_specimen 0..*</text>
+<polygon fill='black' points='1861.26,-148.702 1871.64,-145.169 1866.23,-149.175 1871.21,-149.649 1871.21,-149.649 1871.21,-149.649 1866.23,-149.175 1870.78,-154.129 1861.26,-148.702 1861.26,-148.702' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1888.35' y='-157.887'> related_specimen 0..*</text>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='2631' y='540'>CREATED WITH YUML</text></svg>

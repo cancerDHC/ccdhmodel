@@ -104,7 +104,7 @@
 <h3 id="own">Own</h3>
 <ul>
 <li><a href="../treatment__treatment_for_diagnosis/">treatment_for_diagnosis</a>  <sub>0..*</sub><ul>
-<li>Description: The diagnosis for which this treatement is intended for.</li>
+<li>Description: The diagnosis for which this treatment is intended for.</li>
 <li>range: <a href="../Diagnosis/">Diagnosis</a></li>
 </ul>
 </li>
@@ -135,11 +135,11 @@
 </li>
 <li><a href="../treatment__regimen/">regimen</a>  <sub>0..1</sub><ul>
 <li>Description: The regimen or line of therapy</li>
-<li>range: <a href="../CCDH_Treatment_regimen/">CCDH_Treatment_regimen</a></li>
+<li>range: <a href="../enum_CCDH_Treatment_regimen/">enum_CCDH_Treatment_regimen</a></li>
 </ul>
 </li>
 <li><a href="../treatment__therapeutic_agent/">therapeutic_agent</a>  <sub>0..1</sub><ul>
-<li>Description: One or more theraputic agents as part of this treatment.</li>
+<li>Description: One or more therapeutic agents as part of this treatment.</li>
 <li>range: <a href="../Substance/">Substance</a></li>
 </ul>
 </li>
@@ -150,31 +150,31 @@
 </li>
 <li><a href="../treatment__treatment_effect/">treatment_effect</a>  <sub>0..1</sub><ul>
 <li>Description: The effect of a treatment on the diagnosis or tumor.</li>
-<li>range: <a href="../CCDH_Treatment_treatment_effect/">CCDH_Treatment_treatment_effect</a></li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_effect/">enum_CCDH_Treatment_treatment_effect</a></li>
 <li>Examples: Complete Necrosis (No Viable Tumor), No Necrosis</li>
 </ul>
 </li>
 <li><a href="../treatment__treatment_intent/">treatment_intent</a>  <sub>0..1</sub><ul>
 <li>Description: The intent of the treatment.</li>
-<li>range: <a href="../CCDH_Treatment_treatment_intent/">CCDH_Treatment_treatment_intent</a></li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_intent/">enum_CCDH_Treatment_treatment_intent</a></li>
 <li>Examples: Adjuvant, Cure, Palliative</li>
 </ul>
 </li>
 <li><a href="../treatment__treatment_outcome/">treatment_outcome</a>  <sub>0..1</sub><ul>
 <li>Description: The final outcome of the treatment.</li>
-<li>range: <a href="../CCDH_Treatment_treatment_outcome/">CCDH_Treatment_treatment_outcome</a></li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_outcome/">enum_CCDH_Treatment_treatment_outcome</a></li>
 <li>Examples: Complete Response, Mixed Response, No Measurable Disease, No Response, Partial Response, Persistent Disease</li>
 </ul>
 </li>
 <li><a href="../treatment__treatment_type/">treatment_type</a>  <sub>0..1</sub><ul>
-<li>Description: The treatment type including medication/theraputics or other procedures.</li>
-<li>range: <a href="../CCDH_Treatment_treatment_type/">CCDH_Treatment_treatment_type</a></li>
+<li>Description: The treatment type including medication/therapeutics or other procedures.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_type/">enum_CCDH_Treatment_treatment_type</a></li>
 <li>Examples: Ablation, Radiofrequency, Stem Cell Transplantation, Ablation, Cryo Ablation, Ethanol Injection Ablation, Microwave Ablation</li>
 </ul>
 </li>
 <li><a href="../treatment__treatment_frequency/">treatment_frequency</a>  <sub>0..1</sub><ul>
 <li>Description: A term to describe the frequency of using the substance described by this instance.</li>
-<li>range: <a href="../CCDH_Treatment_treatment_frequency/">CCDH_Treatment_treatment_frequency</a></li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_frequency/">enum_CCDH_Treatment_treatment_frequency</a></li>
 <li>Examples: Every Hour, Five Times Daily, Four Times Daily, Three Times Daily</li>
 </ul>
 </li>
@@ -190,7 +190,7 @@
 </li>
 <li><a href="../treatment__treatment_end_reason/">treatment_end_reason</a>  <sub>0..*</sub><ul>
 <li>Description: The reason the treatment ended</li>
-<li>range: <a href="../CCDH_Treatment_treatment_end_reason/">CCDH_Treatment_treatment_end_reason</a></li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_end_reason/">enum_CCDH_Treatment_treatment_end_reason</a></li>
 <li>Examples: Adverse Event Course of Therapy Completed, Death, Disease Progression, Other</li>
 </ul>
 </li>
@@ -208,7 +208,7 @@
 <tr>
 <td><strong>Comments:</strong></td>
 <td></td>
-<td>This entity is overloaded with the idea of medication/substance based treatments, and other more procedure-like interventions that are also considered to be a treatment. We should probably separate these concernse and it will be useful to have a "Procedure" entity long term. If that is done, this entity will be renamed to "MedicationTreatment" or something like that and the other concerns refactored out to other entities. Also, if we can consider a medication/substace based treatment as a procedure as well (wich is commonly the case in other models), we can make this entity more about the individual doeses for such treatments if that level of granularity is needed.</td>
+<td>This entity is overloaded with the idea of medication/substance based treatments, and other more procedure-like interventions that are also considered to be a treatment. We should probably separate these concerns and it will be useful to have a "Procedure" entity long term. If that is done, this entity will be renamed to "MedicationTreatment" or something like that and the other concerns refactored out to other entities. Also, if we can consider a medication/substance based treatment as a procedure as well (which is commonly the case in other models), we can make this entity more about the individual doses for such treatments if that level of granularity is needed.</td>
 </tr>
 </tbody>
 </table>

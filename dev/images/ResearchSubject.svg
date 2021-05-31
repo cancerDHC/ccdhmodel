@@ -33,13 +33,13 @@
 <polygon fill='white' points='-0.5,-167 -0.5,-203 68.5,-203 68.5,-167 -0.5,-167' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='34' y='-181.3'>Subject</text>
 </g><g class='node' id='node2'><title>ResearchSubject</title>
-<polygon fill='white' points='93.5,-0.5 93.5,-75.5 594.5,-75.5 594.5,-0.5 93.5,-0.5' stroke='black'/>
+<polygon fill='white' points='74.5,-0.5 74.5,-75.5 613.5,-75.5 613.5,-0.5 74.5,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='344' y='-64.3'>ResearchSubject</text>
-<polyline fill='none' points='93.5,-60.5 594.5,-60.5 ' stroke='black'/>
+<polyline fill='none' points='74.5,-60.5 613.5,-60.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='344' y='-49.3'>id:ccdh_string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='344' y='-34.3'>description:ccdh_string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='344' y='-19.3'>primary_diagnosis_condition:CCDH_ResearchSubject_primary_diagnosis_condition ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='344' y='-4.3'>index_timepoint:CCDH_ResearchSubject_index_timepoint ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='344' y='-19.3'>primary_diagnosis_condition:enum_CCDH_ResearchSubject_primary_diagnosis_condition ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='344' y='-4.3'>index_timepoint:enum_CCDH_ResearchSubject_index_timepoint ?</text>
 </g><g class='edge' id='edge1'><title>Subject-&gt;ResearchSubject</title>
 <path d='M77.9875,-163.425C123.812,-141.991 196.874,-107.817 254.843,-80.7023' fill='none' stroke='black'/>
 <polygon fill='black' points='68.6586,-167.789 75.8101,-159.476 73.1876,-165.67 77.7167,-163.552 77.7167,-163.552 77.7167,-163.552 73.1876,-165.67 79.6233,-167.628 68.6586,-167.789 68.6586,-167.789' stroke='black'/>

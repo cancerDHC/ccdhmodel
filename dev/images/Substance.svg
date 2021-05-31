@@ -33,11 +33,11 @@
 <polygon fill='white' points='-0.5,-265 -0.5,-301 84.5,-301 84.5,-265 -0.5,-265' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='42' y='-279.3'>Treatment</text>
 </g><g class='node' id='node3'><title>Substance</title>
-<polygon fill='white' points='161.5,-0.5 161.5,-45.5 474.5,-45.5 474.5,-0.5 161.5,-0.5' stroke='black'/>
+<polygon fill='white' points='143,-0.5 143,-45.5 493,-45.5 493,-0.5 143,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='318' y='-34.3'>Substance</text>
-<polyline fill='none' points='161.5,-30.5 474.5,-30.5 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='318' y='-19.3'>substance_type:CCDH_Substance_substance_type ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='318' y='-4.3'>role:CCDH_Substance_role *</text>
+<polyline fill='none' points='143,-30.5 493,-30.5 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='318' y='-19.3'>substance_type:enum_CCDH_Substance_substance_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='318' y='-4.3'>role:enum_CCDH_Substance_role *</text>
 </g><g class='edge' id='edge5'><title>Treatment-&gt;Substance</title>
 <path d='M37.9007,-252.686C35.0883,-220.763 35.6212,-169.76 61,-136 94.1075,-91.9588 148.189,-64.967 198.222,-48.558' fill='none' stroke='black'/>
 <polygon fill='black' points='37.9095,-252.769 42.5304,-258.305 39.1975,-264.699 34.5766,-259.163 37.9095,-252.769' stroke='black'/>

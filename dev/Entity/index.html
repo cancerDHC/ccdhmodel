@@ -95,7 +95,7 @@
 <h2 id="children">Children</h2>
 <ul>
 <li><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a> - A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.</li>
-<li><a href="../BiologicProduct/">BiologicProduct</a> - A living organism, or a metabolocally active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
+<li><a href="../BiologicProduct/">BiologicProduct</a> - A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
 <li><a href="../BodySite/">BodySite</a></li>
 <li><a href="../CancerGradeObservation/">CancerGradeObservation</a> - A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation</li>
 <li><a href="../CancerGradeObservationSet/">CancerGradeObservationSet</a> - A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</li>
@@ -131,7 +131,7 @@
 <li><a href="../Subject/">Subject</a> - Demographics and other administrative information about an individual or animal receiving care or other health-related services.</li>
 <li><a href="../Substance/">Substance</a> - A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.</li>
 <li><a href="../TimePeriod/">TimePeriod</a></li>
-<li><a href="../TimePoint/">TimePoint</a> - A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defiend index.</li>
+<li><a href="../TimePoint/">TimePoint</a> - A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.</li>
 <li><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a> - A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.</li>
 <li><a href="../Treatment/">Treatment</a> - Represent medication administration or other treatment types.</li>
 </ul>
@@ -161,14 +161,10 @@
 <li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__valueEntity/">valueEntity</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__execution_condition_observation/">execution_condition_observation</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
-<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__duration/">duration</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
-<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__execution_condition_observation/">execution_condition_observation</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
-<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__execution_time_observation/">execution_time_observation</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__valueEntity/">valueEntity</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__valueEntity/">valueEntity</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
-<li><strong><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></strong> ➞<em><a href="../specimenTransportActivity__execution_observation/">execution_observation</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__source_model_system/">source_model_system</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__focus/">focus</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__valueEntity/">valueEntity</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>

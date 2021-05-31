@@ -33,12 +33,12 @@
 <polygon fill='white' points='-0.5,-153 -0.5,-189 68.5,-189 68.5,-153 -0.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='34' y='-167.3'>Subject</text>
 </g><g class='node' id='node5'><title>HistologicalCompositionObservationSet</title>
-<polygon fill='white' points='38,-1 38,-61 494,-61 494,-1 38,-1' stroke='black'/>
+<polygon fill='white' points='19,-1 19,-61 513,-61 513,-1 19,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='266' y='-49.8'>HistologicalCompositionObservationSet</text>
-<polyline fill='none' points='38,-46 494,-46 ' stroke='black'/>
+<polyline fill='none' points='19,-46 513,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='266' y='-34.8'>id:ccdh_string</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='266' y='-19.8'>category:CCDH_HistologicalCompositionObservationSet_category</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='266' y='-4.8'>method_type:CCDH_HistologicalCompositionObservationSet_method_type *</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='266' y='-19.8'>category:enum_CCDH_HistologicalCompositionObservationSet_category</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='266' y='-4.8'>method_type:enum_CCDH_HistologicalCompositionObservationSet_method_type *</text>
 </g><g class='edge' id='edge3'><title>Subject-&gt;HistologicalCompositionObservationSet</title>
 <path d='M71.9646,-147.418C108.404,-125.742 164.001,-92.6716 206.357,-67.4776' fill='none' stroke='black'/>
 <polygon fill='black' points='62.9139,-152.801 69.2078,-143.821 67.2111,-150.245 71.5084,-147.689 71.5084,-147.689 71.5084,-147.689 67.2111,-150.245 73.8089,-151.556 62.9139,-152.801 62.9139,-152.801' stroke='black'/>

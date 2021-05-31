@@ -33,25 +33,25 @@
 <polygon fill='white' points='-0.5,-153 -0.5,-189 84.5,-189 84.5,-153 -0.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='42' y='-167.3'>Treatment</text>
 </g><g class='node' id='node9'><title>Identifier</title>
-<polygon fill='white' points='609,-1 609,-61 799,-61 799,-1 609,-1' stroke='black'/>
+<polygon fill='white' points='590.5,-1 590.5,-61 817.5,-61 817.5,-1 590.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='704' y='-49.8'>Identifier</text>
-<polyline fill='none' points='609,-46 799,-46 ' stroke='black'/>
+<polyline fill='none' points='590.5,-46 817.5,-46 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='704' y='-34.8'>value:ccdh_string</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='704' y='-19.8'>system:ccdh_string ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='704' y='-4.8'>type:CCDH_Identifier_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='704' y='-4.8'>type:enum_CCDH_Identifier_type ?</text>
 </g><g class='edge' id='edge11'><title>Treatment-&gt;Identifier</title>
-<path d='M96.3198,-151.265C276.595,-102.708 478.863,-67.0655 598.884,-47.8707' fill='none' stroke='black'/>
-<polygon fill='black' points='96.2901,-151.273 91.5485,-156.706 84.7097,-154.419 89.4514,-148.986 96.2901,-151.273' stroke='black'/>
-<polygon fill='black' points='608.809,-46.2909 599.641,-52.307 603.871,-47.0769 598.933,-47.8629 598.933,-47.8629 598.933,-47.8629 603.871,-47.0769 598.226,-43.4189 608.809,-46.2909 608.809,-46.2909' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='589.174' y='-38.7898'> identifier 0..*</text>
+<path d='M96.2985,-151.27C267.873,-105.046 458.595,-70.6748 580.162,-50.8912' fill='none' stroke='black'/>
+<polygon fill='black' points='96.29,-151.273 91.5486,-156.706 84.7097,-154.419 89.4511,-148.986 96.29,-151.273' stroke='black'/>
+<polygon fill='black' points='590.248,-49.2574 581.097,-55.2985 585.313,-50.0569 580.377,-50.8564 580.377,-50.8564 580.377,-50.8564 585.313,-50.0569 579.657,-46.4143 590.248,-49.2574 590.248,-49.2574' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='570.603' y='-41.81'> identifier 0..*</text>
 </g><g class='node' id='node2'><title>Subject</title>
 <polygon fill='white' points='102.5,-153 102.5,-189 171.5,-189 171.5,-153 102.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='137' y='-167.3'>Subject</text>
 </g><g class='edge' id='edge10'><title>Subject-&gt;Identifier</title>
-<path d='M183.325,-151.521C331.484,-105.212 494.985,-70.7452 598.886,-50.8892' fill='none' stroke='black'/>
-<polygon fill='black' points='183.319,-151.523 178.801,-157.143 171.875,-155.134 176.394,-149.514 183.319,-151.523' stroke='black'/>
-<polygon fill='black' points='608.752,-49.0134 599.768,-55.3021 603.84,-49.9473 598.928,-50.8813 598.928,-50.8813 598.928,-50.8813 603.84,-49.9473 598.087,-46.4605 608.752,-49.0134 608.752,-49.0134' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='589.011' y='-42.1037'> identifier 0..*</text>
+<path d='M183.588,-151.438C323.621,-107.67 476.39,-74.7082 580.437,-54.448' fill='none' stroke='black'/>
+<polygon fill='black' points='183.319,-151.522 178.801,-157.143 171.875,-155.134 176.394,-149.513 183.319,-151.522' stroke='black'/>
+<polygon fill='black' points='590.352,-52.527 581.391,-58.847 585.444,-53.4781 580.535,-54.4292 580.535,-54.4292 580.535,-54.4292 585.444,-53.4781 579.679,-50.0113 590.352,-52.527 590.352,-52.527' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='570.6' y='-45.6862'> identifier 0..*</text>
 </g><g class='node' id='node3'><title>SpecimenContainer</title>
 <polygon fill='white' points='190,-153 190,-189 326,-189 326,-153 190,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='258' y='-167.3'>SpecimenContainer</text>
@@ -120,15 +120,15 @@
 <polygon fill='white' points='1175,-153 1175,-189 1255,-189 1255,-153 1175,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1215' y='-167.3'>Exposure</text>
 </g><g class='edge' id='edge4'><title>Exposure-&gt;Identifier</title>
-<path d='M1163.54,-151.37C1036.75,-112.098 900.244,-77.8799 808.814,-56.124' fill='none' stroke='black'/>
-<polygon fill='black' points='1163.54,-151.372 1170.46,-149.339 1175,-154.943 1168.08,-156.976 1163.54,-151.372' stroke='black'/>
-<polygon fill='black' points='799.001,-53.7958 809.77,-51.7261 803.866,-54.9501 808.731,-56.1045 808.731,-56.1045 808.731,-56.1045 803.866,-54.9501 807.692,-60.4829 799.001,-53.7958 799.001,-53.7958' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='815.708' y='-61.0902'> identifier 0..*</text>
+<path d='M1163.49,-151.354C1044.64,-114.534 918.272,-82.4265 827.613,-60.6213' fill='none' stroke='black'/>
+<polygon fill='black' points='1163.54,-151.371 1170.46,-149.338 1175,-154.943 1168.08,-156.976 1163.54,-151.371' stroke='black'/>
+<polygon fill='black' points='817.848,-58.2791 828.621,-56.2356 822.71,-59.4453 827.572,-60.6115 827.572,-60.6115 827.572,-60.6115 822.71,-59.4453 826.522,-64.9874 817.848,-58.2791 817.848,-58.2791' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='834.528' y='-65.6141'> identifier 0..*</text>
 </g><g class='node' id='node13'><title>Entity</title>
 <polygon fill='white' points='1273,-153 1273,-189 1335,-189 1335,-153 1273,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1304' y='-167.3'>Entity</text>
 </g><g class='edge' id='edge12'><title>Entity-&gt;Identifier</title>
-<path d='M1262.92,-151.979C1097.08,-98.3223 909.795,-63.8556 799.25,-46.0911' fill='none' stroke='black'/>
-<polygon fill='none' points='1262.21,-155.43 1272.81,-155.209 1264.39,-148.776 1262.21,-155.43' stroke='black'/>
+<path d='M1262.95,-151.986C1105.57,-101.046 929.814,-67.6017 817.685,-49.0939' fill='none' stroke='black'/>
+<polygon fill='none' points='1262.21,-155.429 1272.81,-155.209 1264.39,-148.775 1262.21,-155.429' stroke='black'/>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='1246' y='218'>CREATED WITH YUML</text></svg>

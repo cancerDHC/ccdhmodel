@@ -105,7 +105,7 @@
 <ul>
 <li><a href="../specimenProcessingActivity__activity_type/">activity_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of processing activity</li>
-<li>range: <a href="../CCDH_SpecimenProcessingActivity_activity_type/">CCDH_SpecimenProcessingActivity_activity_type</a></li>
+<li>range: <a href="../enum_CCDH_SpecimenProcessingActivity_activity_type/">enum_CCDH_SpecimenProcessingActivity_activity_type</a></li>
 <li>Examples: Fixation, Freezing, Mounting, Preservation</li>
 </ul>
 </li>
@@ -121,7 +121,7 @@
 </li>
 <li><a href="../specimenProcessingActivity__duration/">duration</a>  <sub>0..*</sub><ul>
 <li>Description: The length of time over which the activity was performed.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
@@ -131,7 +131,7 @@
 </li>
 <li><a href="../specimenProcessingActivity__method_type/">method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A specific type of method or procedure performed to process the specimen</li>
-<li>range: <a href="../CCDH_SpecimenProcessingActivity_method_type/">CCDH_SpecimenProcessingActivity_method_type</a></li>
+<li>range: <a href="../enum_CCDH_SpecimenProcessingActivity_method_type/">enum_CCDH_SpecimenProcessingActivity_method_type</a></li>
 <li>Examples: Snap Freezing, Cryopreservation in liquid nitrogen (dead tissue), Cryopreservation in dry ice (dead tissue), Formalin fixed paraffin embedded (FFPE), Formalin fixed-unbuffered, Formalin fixed-buffered, OCT</li>
 </ul>
 </li>
@@ -143,12 +143,12 @@
 </li>
 <li><a href="../specimenProcessingActivity__execution_time_observation/">execution_time_observation</a>  <sub>0..*</sub><ul>
 <li>Description: Information describing how long certain parts on an activity took to complete.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></li>
 </ul>
 </li>
 <li><a href="../specimenProcessingActivity__execution_condition_observation/">execution_condition_observation</a>  <sub>0..*</sub><ul>
 <li>Description: Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.</li>
-<li>range: <a href="../Entity/">Entity</a></li>
+<li>range: <a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></li>
 </ul>
 </li>
 </ul>
@@ -165,7 +165,7 @@
 <tr>
 <td><strong>Comments:</strong></td>
 <td></td>
-<td>"Processing" as defined here alters the physical nature of a specimen, such that storage or transport activities do not qualify as porecessing activities. When instantiating this class, create a separate instances for each type/method of processing performed (e.g. each method of fixaiton, freezing, labeling, etc. that is applied).</td>
+<td>"Processing" as defined here alters the physical nature of a specimen, such that storage or transport activities do not qualify as processing activities. When instantiating this class, create a separate instances for each type/method of processing performed (e.g. each method of fixation, freezing, labeling, etc. that is applied).</td>
 </tr>
 </tbody>
 </table>

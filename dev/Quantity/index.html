@@ -110,6 +110,7 @@
 <li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__age_at_enrollment/">age_at_enrollment</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__quantity_collected/">quantity_collected</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__duration/">duration</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Quantity</a></em>*</li>
 <li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></strong> ➞<em><a href="../specimenStorageActivity__duration/">duration</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__distance_from_paired_specimen/">distance_from_paired_specimen</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
@@ -128,12 +129,12 @@
 </li>
 <li><a href="../quantity__valueCodeableConcept/">valueCodeableConcept</a>  <sub>0..1</sub><ul>
 <li>Description: A coded value representing a quantity (e.g. "Adjacent (&lt; or = 2cm)")</li>
-<li>range: <a href="../CCDH_Quantity_valueCodeableConcept/">CCDH_Quantity_valueCodeableConcept</a></li>
+<li>range: <a href="../enum_CCDH_Quantity_valueCodeableConcept/">enum_CCDH_Quantity_valueCodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../quantity__unit/">unit</a>  <sub>0..1</sub><ul>
 <li>Description: A coded or free text (in the .text field) representation of the unit.</li>
-<li>range: <a href="../CCDH_Quantity_unit/">CCDH_Quantity_unit</a></li>
+<li>range: <a href="../enum_CCDH_Quantity_unit/">enum_CCDH_Quantity_unit</a></li>
 </ul>
 </li>
 </ul>

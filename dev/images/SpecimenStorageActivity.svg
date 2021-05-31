@@ -33,10 +33,10 @@
 <polygon fill='white' points='0,-129 0,-165 86,-165 86,-129 0,-129' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='43' y='-143.3'>TimePoint</text>
 </g><g class='node' id='node3'><title>SpecimenStorageActivity</title>
-<polygon fill='white' points='120.5,-1 120.5,-37 495.5,-37 495.5,-1 120.5,-1' stroke='black'/>
+<polygon fill='white' points='101.5,-1 101.5,-37 514.5,-37 514.5,-1 101.5,-1' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='308' y='-24.3'>SpecimenStorageActivity</text>
-<polyline fill='none' points='120.5,-19 495.5,-19 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='308' y='-6.3'>method_type:CCDH_SpecimenStorageActivity_method_type ?</text>
+<polyline fill='none' points='101.5,-19 514.5,-19 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='308' y='-6.3'>method_type:enum_CCDH_SpecimenStorageActivity_method_type ?</text>
 </g><g class='edge' id='edge4'><title>TimePoint-&gt;SpecimenStorageActivity</title>
 <path d='M83.4051,-124.294C129.744,-101.313 205.621,-65.2306 256.238,-42.101' fill='none' stroke='black'/>
 <polygon fill='black' points='74.2122,-128.876 81.1548,-120.388 78.6872,-126.646 83.1622,-124.415 83.1622,-124.415 83.1622,-124.415 78.6872,-126.646 85.1695,-128.443 74.2122,-128.876 74.2122,-128.876' stroke='black'/>

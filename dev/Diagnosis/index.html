@@ -133,7 +133,7 @@
 </li>
 <li><a href="../diagnosis__condition/">condition</a>  <sub>0..1</sub><ul>
 <li>Description: Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
-<li>range: <a href="../CCDH_Diagnosis_condition/">CCDH_Diagnosis_condition</a></li>
+<li>range: <a href="../enum_CCDH_Diagnosis_condition/">enum_CCDH_Diagnosis_condition</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__primary_site/">primary_site</a>  <sub>0..*</sub><ul>
@@ -158,24 +158,24 @@
 </li>
 <li><a href="../diagnosis__morphology/">morphology</a>  <sub>0..1</sub><ul>
 <li>Description: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
-<li>range: <a href="../CCDH_Diagnosis_morphology/">CCDH_Diagnosis_morphology</a></li>
+<li>range: <a href="../enum_CCDH_Diagnosis_morphology/">enum_CCDH_Diagnosis_morphology</a></li>
 <li>Examples: 8001/3, 8002/3, 8003/3, 8004/3, 8005/3</li>
 </ul>
 </li>
 <li><a href="../diagnosis__disease_status/">disease_status</a>  <sub>0..1</sub><ul>
 <li>Description: A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
-<li>range: <a href="../CCDH_Diagnosis_disease_status/">CCDH_Diagnosis_disease_status</a></li>
+<li>range: <a href="../enum_CCDH_Diagnosis_disease_status/">enum_CCDH_Diagnosis_disease_status</a></li>
 <li>Examples: Initial Diagnosis, Progressive Disease, Recurrent Disease, Residual Disease, Unknown, Not Reported</li>
 </ul>
 </li>
 <li><a href="../diagnosis__prior_diagnosis/">prior_diagnosis</a>  <sub>0..1</sub><ul>
-<li>Description: A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the intial diagnosis.</li>
+<li>Description: A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis.</li>
 <li>range: <a href="./">Diagnosis</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__method_of_diagnosis/">method_of_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: The method used to confirm the patients malignant diagnosis</li>
-<li>range: <a href="../CCDH_Diagnosis_method_of_diagnosis/">CCDH_Diagnosis_method_of_diagnosis</a></li>
+<li>range: <a href="../enum_CCDH_Diagnosis_method_of_diagnosis/">enum_CCDH_Diagnosis_method_of_diagnosis</a></li>
 <li>Examples: Autopsy, Biopsy, Blood Draw, Bone Marrow Aspirate, Core Biopsy, ..</li>
 </ul>
 </li>

@@ -33,12 +33,12 @@
 <polygon fill='white' points='0,-167 0,-203 86,-203 86,-167 0,-167' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='43' y='-181.3'>TimePoint</text>
 </g><g class='node' id='node4'><title>SpecimenCreationActivity</title>
-<polygon fill='white' points='54.5,-0.5 54.5,-75.5 557.5,-75.5 557.5,-0.5 54.5,-0.5' stroke='black'/>
+<polygon fill='white' points='35.5,-0.5 35.5,-75.5 576.5,-75.5 576.5,-0.5 35.5,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-64.3'>SpecimenCreationActivity</text>
-<polyline fill='none' points='54.5,-60.5 557.5,-60.5 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-49.3'>activity_type:CCDH_SpecimenCreationActivity_activity_type ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-34.3'>collection_method_type:CCDH_SpecimenCreationActivity_collection_method_type ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-19.3'>derivation_method_type:CCDH_SpecimenCreationActivity_derivation_method_type ?</text>
+<polyline fill='none' points='35.5,-60.5 576.5,-60.5 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-49.3'>activity_type:enum_CCDH_SpecimenCreationActivity_activity_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-34.3'>collection_method_type:enum_CCDH_SpecimenCreationActivity_collection_method_type ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-19.3'>derivation_method_type:enum_CCDH_SpecimenCreationActivity_derivation_method_type ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='306' y='-4.3'>specimen_order:ccdh_integer ?</text>
 </g><g class='edge' id='edge7'><title>TimePoint-&gt;SpecimenCreationActivity</title>
 <path d='M78.4312,-161.691C115.294,-140.381 174.158,-107.712 222.815,-81.4415' fill='none' stroke='black'/>

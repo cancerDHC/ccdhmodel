@@ -33,11 +33,11 @@
 <polygon fill='white' points='-0.5,-265 -0.5,-301 84.5,-301 84.5,-265 -0.5,-265' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='42' y='-279.3'>Treatment</text>
 </g><g class='node' id='node7'><title>BodySite</title>
-<polygon fill='white' points='362,-0.5 362,-45.5 598,-45.5 598,-0.5 362,-0.5' stroke='black'/>
+<polygon fill='white' points='343.5,-0.5 343.5,-45.5 616.5,-45.5 616.5,-0.5 343.5,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='480' y='-34.3'>BodySite</text>
-<polyline fill='none' points='362,-30.5 598,-30.5 ' stroke='black'/>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='480' y='-19.3'>site:CCDH_BodySite_site</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='480' y='-4.3'>qualifier:CCDH_BodySite_qualifier *</text>
+<polyline fill='none' points='343.5,-30.5 616.5,-30.5 ' stroke='black'/>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='480' y='-19.3'>site:enum_CCDH_BodySite_site</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='480' y='-4.3'>qualifier:enum_CCDH_BodySite_qualifier *</text>
 </g><g class='edge' id='edge6'><title>Treatment-&gt;BodySite</title>
 <path d='M81.4852,-258.742C162.805,-210.841 348.544,-101.433 434.638,-50.72' fill='none' stroke='black'/>
 <polygon fill='black' points='81.4172,-258.782 78.2776,-265.273 71.0776,-264.872 74.2172,-258.38 81.4172,-258.782' stroke='black'/>

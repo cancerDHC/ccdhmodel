@@ -33,20 +33,20 @@
 <polygon fill='white' points='-0.5,-325 -0.5,-361 84.5,-361 84.5,-325 -0.5,-325' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='42' y='-339.3'>Treatment</text>
 </g><g class='node' id='node10'><title>Diagnosis</title>
-<polygon fill='white' points='318.5,-0.5 318.5,-105.5 699.5,-105.5 699.5,-0.5 318.5,-0.5' stroke='black'/>
+<polygon fill='white' points='299.5,-0.5 299.5,-105.5 718.5,-105.5 718.5,-0.5 299.5,-0.5' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-94.3'>Diagnosis</text>
-<polyline fill='none' points='318.5,-90.5 699.5,-90.5 ' stroke='black'/>
+<polyline fill='none' points='299.5,-90.5 718.5,-90.5 ' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-79.3'>id:ccdh_string ?</text>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-64.3'>year_at_diagnosis:ccdh_integer ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-49.3'>condition:CCDH_Diagnosis_condition ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-34.3'>morphology:CCDH_Diagnosis_morphology ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-19.3'>disease_status:CCDH_Diagnosis_disease_status ?</text>
-<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-4.3'>method_of_diagnosis:CCDH_Diagnosis_method_of_diagnosis ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-49.3'>condition:enum_CCDH_Diagnosis_condition ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-34.3'>morphology:enum_CCDH_Diagnosis_morphology ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-19.3'>disease_status:enum_CCDH_Diagnosis_disease_status ?</text>
+<text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='509' y='-4.3'>method_of_diagnosis:enum_CCDH_Diagnosis_method_of_diagnosis ?</text>
 </g><g class='edge' id='edge14'><title>Treatment-&gt;Diagnosis</title>
-<path d='M37.306,-312.686C33.8683,-280.343 33.756,-228.567 61,-196 121.805,-123.314 219.652,-87.3538 308.413,-69.7559' fill='none' stroke='black'/>
+<path d='M37.306,-312.686C33.8683,-280.343 33.756,-228.567 61,-196 117.527,-128.428 206.068,-92.5954 289.561,-73.7491' fill='none' stroke='black'/>
 <polygon fill='black' points='37.3386,-312.943 42.064,-318.39 38.8534,-324.847 34.128,-319.4 37.3386,-312.943' stroke='black'/>
-<polygon fill='black' points='318.355,-67.8532 309.379,-74.1528 313.444,-68.7931 308.533,-69.733 308.533,-69.733 308.533,-69.733 313.444,-68.7931 307.687,-65.3132 318.355,-67.8532 318.355,-67.8532' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='278.866' y='-57.7817'> treatment_for_diagnosis 0..*</text>
+<polygon fill='black' points='299.452,-71.5895 290.642,-78.119 294.567,-72.656 289.682,-73.7226 289.682,-73.7226 289.682,-73.7226 294.567,-72.656 288.723,-69.3262 299.452,-71.5895 299.452,-71.5895' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='259.811' y='-62.5413'> treatment_for_diagnosis 0..*</text>
 </g><g class='node' id='node2'><title>Subject</title>
 <polygon fill='white' points='70.5,-197 70.5,-233 139.5,-233 139.5,-197 70.5,-197' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='105' y='-211.3'>Subject</text>
@@ -115,10 +115,10 @@
 <polygon fill='black' points='609.915,-111.461 602.722,-111.968 599.487,-105.523 606.68,-105.016 609.915,-111.461' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='746.981' y='-177.934'>dimensional_measure 0..1</text>
 </g><g class='edge' id='edge4'><title>Diagnosis-&gt;Diagnosis</title>
-<path d='M708.447,-68.4102C713.919,-64.1732 717,-59.0364 717,-53 717,-47.5123 714.454,-42.7682 709.88,-38.7677' fill='none' stroke='black'/>
-<polygon fill='black' points='699.567,-73.6302 705.907,-64.6831 703.878,-71.0964 708.188,-68.5625 708.188,-68.5625 708.188,-68.5625 703.878,-71.0964 710.468,-72.4419 699.567,-73.6302 699.567,-73.6302' stroke='black'/>
-<polygon fill='black' points='709.764,-38.696 702.557,-38.9319 699.567,-32.3698 706.774,-32.1339 709.764,-38.696' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='719.235' y='-66.3031'>prior_diagnosis 0..1</text>
+<path d='M727.457,-67.8321C732.934,-63.7086 736,-58.7645 736,-53 736,-47.7595 733.466,-43.1971 728.89,-39.3128' fill='none' stroke='black'/>
+<polygon fill='black' points='718.555,-72.9466 724.984,-64.063 722.89,-70.4557 727.226,-67.9649 727.226,-67.9649 727.226,-67.9649 722.89,-70.4557 729.468,-71.8667 718.555,-72.9466 718.555,-72.9466' stroke='black'/>
+<polygon fill='black' points='728.819,-39.2698 721.615,-39.5831 718.555,-33.0534 725.759,-32.7402 728.819,-39.2698' stroke='black'/>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='738.258' y='-65.8153'>prior_diagnosis 0..1</text>
 </g><g class='node' id='node11'><title>CancerGradeObservationSet</title>
 <polygon fill='white' points='899.5,-197 899.5,-233 1082.5,-233 1082.5,-197 899.5,-197' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='991' y='-211.3'>CancerGradeObservationSet</text>
@@ -131,22 +131,22 @@
 <polygon fill='white' points='1101,-197 1101,-233 1281,-233 1281,-197 1101,-197' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1191' y='-211.3'>CancerStageObservationSet</text>
 </g><g class='edge' id='edge6'><title>CancerStageObservationSet-&gt;Diagnosis</title>
-<path d='M1108.52,-194.65C1010.75,-171.713 844.36,-132.677 711.641,-101.54' fill='none' stroke='black'/>
+<path d='M1108.39,-194.62C1015.26,-172.77 859.969,-136.339 730.789,-106.033' fill='none' stroke='black'/>
 <polygon fill='black' points='1118.34,-196.953 1107.57,-199.05 1113.47,-195.811 1108.6,-194.669 1108.6,-194.669 1108.6,-194.669 1113.47,-195.811 1109.63,-190.288 1118.34,-196.953 1118.34,-196.953' stroke='black'/>
-<polygon fill='black' points='711.401,-101.484 704.646,-104.008 699.719,-98.7434 706.474,-96.2196 711.401,-101.484' stroke='black'/>
+<polygon fill='black' points='730.453,-105.954 723.698,-108.478 718.77,-103.213 725.525,-100.689 730.453,-105.954' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1101.6' y='-182.301'>stage 0..*</text>
 </g><g class='node' id='node13'><title>BodySite</title>
 <polygon fill='white' points='1299.5,-197 1299.5,-233 1378.5,-233 1378.5,-197 1299.5,-197' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1339' y='-211.3'>BodySite</text>
 </g><g class='edge' id='edge7'><title>BodySite-&gt;Diagnosis</title>
-<path d='M1289.8,-198.604C1286.83,-197.665 1283.88,-196.785 1281,-196 1090.5,-144.107 868.616,-105.823 711.718,-82.1684' fill='none' stroke='black'/>
+<path d='M1289.8,-198.604C1286.83,-197.665 1283.88,-196.785 1281,-196 1098.11,-146.181 886.302,-108.905 730.835,-85.0746' fill='none' stroke='black'/>
 <polygon fill='black' points='1299.32,-201.756 1288.42,-202.885 1294.58,-200.184 1289.83,-198.613 1289.83,-198.613 1289.83,-198.613 1294.58,-200.184 1291.25,-194.341 1299.32,-201.756 1299.32,-201.756' stroke='black'/>
-<polygon fill='black' points='711.456,-82.1293 704.929,-85.1952 699.589,-80.3495 706.116,-77.2836 711.456,-82.1293' stroke='black'/>
+<polygon fill='black' points='730.663,-85.0486 724.129,-88.0983 718.8,-83.2395 725.335,-80.1898 730.663,-85.0486' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1283.63' y='-185.656'>metastatic_site 0..*</text>
 </g><g class='edge' id='edge8'><title>BodySite-&gt;Diagnosis</title>
-<path d='M1292.51,-194.285C1095.09,-141.234 870.151,-103.072 711.838,-80.0077' fill='none' stroke='black'/>
-<polygon fill='black' points='1302.44,-196.972 1291.61,-198.703 1297.61,-195.665 1292.78,-194.359 1292.78,-194.359 1292.78,-194.359 1297.61,-195.665 1293.96,-190.015 1302.44,-196.972 1302.44,-196.972' stroke='black'/>
-<polygon fill='black' points='711.478,-79.9557 704.967,-83.0545 699.602,-78.2358 706.113,-75.137 711.478,-79.9557' stroke='black'/>
+<path d='M1292.6,-194.309C1102.82,-143.302 887.857,-106.105 730.863,-82.8053' fill='none' stroke='black'/>
+<polygon fill='black' points='1302.44,-196.972 1291.61,-198.703 1297.61,-195.665 1292.79,-194.359 1292.79,-194.359 1292.79,-194.359 1297.61,-195.665 1293.96,-190.015 1302.44,-196.972 1302.44,-196.972' stroke='black'/>
+<polygon fill='black' points='730.584,-82.7642 724.064,-85.8456 718.712,-81.0126 725.232,-77.9313 730.584,-82.7642' stroke='black'/>
 <text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='1286.08' y='-181.759'>primary_site 0..*</text>
 </g></g>
 <text style='fill: lightslategray; font-size: 6pt; font-family: Verdana' x='1289' y='390'>CREATED WITH YUML</text></svg>
