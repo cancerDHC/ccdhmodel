@@ -1,5 +1,6 @@
 # Outputs from various generators.
 /generators/google-sheets/output/*.yaml
+/docs
 
 # Google API authentication information
 google_api_credentials.json
