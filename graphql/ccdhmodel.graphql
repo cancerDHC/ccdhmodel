@@ -41,15 +41,7 @@ type CancerGradeObservation
     methodType: EnumCCDHCancerGradeObservationMethodType
     focus: Entity
     subject: Subject
-    performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhInteger
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
-    valueQuantity: Quantity
-    valueCodeableConcept: EnumCCDHCancerGradeObservationValueCodeableConcept
+    valueCodeableConcept: EnumCCDHCancerGradeObservationValueCodeableConcept!
   }
 
 type CancerGradeObservationSet
@@ -73,13 +65,7 @@ type CancerStageObservation
     subject: Subject
     performedBy: Organization
     valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhInteger
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
-    valueQuantity: Quantity
-    valueCodeableConcept: EnumCCDHCancerStageObservationValueCodeableConcept
+    valueCodeableConcept: EnumCCDHCancerStageObservationValueCodeableConcept!
   }
 
 type CancerStageObservationSet
@@ -174,13 +160,6 @@ type EnvironmentalExposureObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhInteger
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
-    valueQuantity: Quantity
     valueCodeableConcept: EnumCCDHEnvironmentalExposureObservationValueCodeableConcept!
   }
 
@@ -193,13 +172,6 @@ type ExecutionConditionObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhInteger
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
-    valueQuantity: Quantity
     valueCodeableConcept: EnumCCDHExecutionConditionObservationValueCodeableConcept!
   }
 
@@ -212,14 +184,7 @@ type ExecutionTimeObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhInteger
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
     valueQuantity: Quantity!
-    valueCodeableConcept: EnumCCDHExecutionTimeObservationValueCodeableConcept
   }
 
 type Exposure
@@ -241,14 +206,7 @@ type HistologicalCompositionObservation
     focus: [Entity]
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhDecimal
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
     valueQuantity: Quantity!
-    valueCodeableConcept: EnumCCDHHistologicalCompositionObservationValueCodeableConcept
   }
 
 type HistologicalCompositionObservationSet
@@ -330,7 +288,7 @@ type ResearchProject
     url: [CcdhString]
     partOf: [ResearchProject]
     researchProjectType: EnumCCDHResearchProjectResearchProjectType!
-    dateIacucApproval: TimePoint
+    associatedTimepoint: [TimePoint]
   }
 
 type ResearchSubject
@@ -394,8 +352,7 @@ type SpecimenContainer
     containerType: EnumCCDHSpecimenContainerContainerType
     containerNumber: CcdhString
     additive: [Substance]
-    parentContainer: [SpecimenContainer]
-    chargeType: EnumCCDHSpecimenContainerChargeType
+    parentContainer: SpecimenContainer
   }
 
 type SpecimenCreationActivity
@@ -436,12 +393,6 @@ type SpecimenQualityObservation
     focus: [Entity]
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhDecimal
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
   }
 
 type SpecimenQuantityObservation
@@ -453,14 +404,7 @@ type SpecimenQuantityObservation
     focus: [Entity]
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
-    valueInteger: CcdhDecimal
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
     valueQuantity: Quantity!
-    valueCodeableConcept: EnumCCDHSpecimenQuantityObservationValueCodeableConcept
   }
 
 type SpecimenStorageActivity
@@ -544,11 +488,11 @@ type TobaccoExposureObservation
 
 type Treatment
   {
+    id: CcdhString
     treatmentForDiagnosis: [Diagnosis]
     subject: Subject
     dateStarted: TimePoint
     dateEnded: TimePoint
-    id: CcdhString
     identifier: [Identifier]
     regimen: EnumCCDHTreatmentRegimen
     therapeuticAgent: Substance
