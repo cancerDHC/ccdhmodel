@@ -324,9 +324,25 @@
 <li>range: <a href="../types/CcdhString/">CcdhString</a></li>
 </ul>
 </li>
+<li><a href="../treatment__identifier/">identifier</a>  <sub>0..*</sub><ul>
+<li>Description: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows "identifier" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.</li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
+</ul>
+</li>
 <li><a href="../treatment__treatment_for_diagnosis/">treatment_for_diagnosis</a>  <sub>0..*</sub><ul>
 <li>Description: The diagnosis for which this treatment is intended for.</li>
 <li>range: <a href="../Diagnosis/">Diagnosis</a></li>
+</ul>
+</li>
+<li><a href="../treatment__concurrent_treatment/">concurrent_treatment</a>  <sub>0..*</sub><ul>
+<li>Description: The treatment(s) instance(s) that are concurrent with this treatment.</li>
+<li>range: <a href="./">Treatment</a></li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_type/">treatment_type</a>  <sub>0..1</sub><ul>
+<li>Description: The treatment type including medication/therapeutics or other procedures.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_type/">enum_CCDH_Treatment_treatment_type</a></li>
+<li>Examples: Ablation, Radiofrequency, Stem Cell Transplantation, Ablation, Cryo Ablation, Ethanol Injection Ablation, Microwave Ablation</li>
 </ul>
 </li>
 <li><a href="../treatment__subject/">subject</a>  <sub>0..1</sub><ul>
@@ -344,9 +360,10 @@
 <li>range: <a href="../TimePoint/">TimePoint</a></li>
 </ul>
 </li>
-<li><a href="../treatment__identifier/">identifier</a>  <sub>0..*</sub><ul>
-<li>Description: See common attribute  descriptions sheet.</li>
-<li>range: <a href="../Identifier/">Identifier</a></li>
+<li><a href="../treatment__treatment_end_reason/">treatment_end_reason</a>  <sub>0..*</sub><ul>
+<li>Description: The reason the treatment ended</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_end_reason/">enum_CCDH_Treatment_treatment_end_reason</a></li>
+<li>Examples: Adverse Event Course of Therapy Completed, Death, Disease Progression, Other</li>
 </ul>
 </li>
 <li><a href="../treatment__regimen/">regimen</a>  <sub>0..1</sub><ul>
@@ -359,33 +376,9 @@
 <li>range: <a href="../Substance/">Substance</a></li>
 </ul>
 </li>
-<li><a href="../treatment__treatment_anatomic_site/">treatment_anatomic_site</a>  <sub>0..1</sub><ul>
-<li>Description: The anatomical site that the treatment targets.</li>
-<li>range: <a href="../BodySite/">BodySite</a></li>
-</ul>
-</li>
-<li><a href="../treatment__treatment_effect/">treatment_effect</a>  <sub>0..1</sub><ul>
-<li>Description: The effect of a treatment on the diagnosis or tumor.</li>
-<li>range: <a href="../enum_CCDH_Treatment_treatment_effect/">enum_CCDH_Treatment_treatment_effect</a></li>
-<li>Examples: Complete Necrosis (No Viable Tumor), No Necrosis</li>
-</ul>
-</li>
-<li><a href="../treatment__treatment_intent/">treatment_intent</a>  <sub>0..1</sub><ul>
-<li>Description: The intent of the treatment.</li>
-<li>range: <a href="../enum_CCDH_Treatment_treatment_intent/">enum_CCDH_Treatment_treatment_intent</a></li>
-<li>Examples: Adjuvant, Cure, Palliative</li>
-</ul>
-</li>
-<li><a href="../treatment__treatment_outcome/">treatment_outcome</a>  <sub>0..1</sub><ul>
-<li>Description: The final outcome of the treatment.</li>
-<li>range: <a href="../enum_CCDH_Treatment_treatment_outcome/">enum_CCDH_Treatment_treatment_outcome</a></li>
-<li>Examples: Complete Response, Mixed Response, No Measurable Disease, No Response, Partial Response, Persistent Disease</li>
-</ul>
-</li>
-<li><a href="../treatment__treatment_type/">treatment_type</a>  <sub>0..1</sub><ul>
-<li>Description: The treatment type including medication/therapeutics or other procedures.</li>
-<li>range: <a href="../enum_CCDH_Treatment_treatment_type/">enum_CCDH_Treatment_treatment_type</a></li>
-<li>Examples: Ablation, Radiofrequency, Stem Cell Transplantation, Ablation, Cryo Ablation, Ethanol Injection Ablation, Microwave Ablation</li>
+<li><a href="../treatment__number_of_cycles/">number_of_cycles</a>  <sub>0..1</sub><ul>
+<li>Description: The number of treatment cycles the patient received.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
 </ul>
 </li>
 <li><a href="../treatment__treatment_frequency/">treatment_frequency</a>  <sub>0..1</sub><ul>
@@ -394,20 +387,27 @@
 <li>Examples: Every Hour, Five Times Daily, Four Times Daily, Three Times Daily</li>
 </ul>
 </li>
-<li><a href="../treatment__concurrent_treatment/">concurrent_treatment</a>  <sub>0..*</sub><ul>
-<li>Description: The treatment(s) instance(s) that are concurrent with this treatment.</li>
-<li>range: <a href="./">Treatment</a></li>
+<li><a href="../treatment__treatment_anatomic_site/">treatment_anatomic_site</a>  <sub>0..1</sub><ul>
+<li>Description: The anatomical site that the treatment targets.</li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
 </ul>
 </li>
-<li><a href="../treatment__number_of_cycles/">number_of_cycles</a>  <sub>0..1</sub><ul>
-<li>Description: The number of treatment cycles the patient received.</li>
-<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+<li><a href="../treatment__treatment_intent/">treatment_intent</a>  <sub>0..1</sub><ul>
+<li>Description: The intent of the treatment.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_intent/">enum_CCDH_Treatment_treatment_intent</a></li>
+<li>Examples: Adjuvant, Cure, Palliative</li>
 </ul>
 </li>
-<li><a href="../treatment__treatment_end_reason/">treatment_end_reason</a>  <sub>0..*</sub><ul>
-<li>Description: The reason the treatment ended</li>
-<li>range: <a href="../enum_CCDH_Treatment_treatment_end_reason/">enum_CCDH_Treatment_treatment_end_reason</a></li>
-<li>Examples: Adverse Event Course of Therapy Completed, Death, Disease Progression, Other</li>
+<li><a href="../treatment__treatment_effect/">treatment_effect</a>  <sub>0..1</sub><ul>
+<li>Description: The effect of a treatment on the diagnosis or tumor.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_effect/">enum_CCDH_Treatment_treatment_effect</a></li>
+<li>Examples: Complete Necrosis (No Viable Tumor), No Necrosis</li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_outcome/">treatment_outcome</a>  <sub>0..1</sub><ul>
+<li>Description: The final outcome of the treatment.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_outcome/">enum_CCDH_Treatment_treatment_outcome</a></li>
+<li>Examples: Complete Response, Mixed Response, No Measurable Disease, No Response, Partial Response, Persistent Disease</li>
 </ul>
 </li>
 </ul>

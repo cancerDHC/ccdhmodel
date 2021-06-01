@@ -305,7 +305,7 @@
                 
                 
                 <h1 id="class-specimentransportactivity">Class: SpecimenTransportActivity</h1>
-<p>An activity through which a specimen is transported between locations.</p>
+<p>An activity through which a specimen is transported between locations or organizations.</p>
 <p>URI: <a href="https://example.org/ccdh/SpecimenTransportActivity">ccdh:SpecimenTransportActivity</a></p>
 <p><a href="../images/SpecimenTransportActivity.svg"><img alt="img" src="../images/SpecimenTransportActivity.svg" /></a></p>
 <h2 id="parents">Parents</h2>
@@ -349,15 +349,9 @@
 <li>range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../specimenTransportActivity__execution_observation/">execution_observation</a>  <sub>0..*</sub><ul>
-<li>Description: Information describing how an activity was executed - e.g. environmental conditions in which it was performed, how long certain parts took to complete, etc.</li>
+<li><a href="../specimenTransportActivity__execution_condition_observation/">execution_condition_observation</a>  <sub>0..*</sub><ul>
+<li>Description: Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.</li>
 <li>range: <a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></li>
-</ul>
-</li>
-<li><a href="../specimenTransportActivity__execution_conditions/">execution_conditions</a>  <sub>0..*</sub><ul>
-<li>Description: An environmental condition under which the activity is executed (in this case, a transport activity).</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-<li>Examples: Ambient Pack, Cold Pack, Dry Ice, Ice Pack, Liquid Nitrogen</li>
 </ul>
 </li>
 </ul>

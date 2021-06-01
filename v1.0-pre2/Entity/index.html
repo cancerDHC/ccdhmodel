@@ -323,10 +323,10 @@
 <li><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a> - A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.</li>
 <li><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a> - A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.</li>
 <li><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a> - An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the </li>
-<li><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a> - An activity through which a specimen is transported between locations.</li>
+<li><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a> - An activity through which a specimen is transported between locations or organizations.</li>
 <li><a href="../Subject/">Subject</a> - Demographics and other administrative information about an individual or animal receiving care or other health-related services.</li>
 <li><a href="../Substance/">Substance</a> - A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.</li>
-<li><a href="../TimePeriod/">TimePeriod</a> - A span of time with a start and end.</li>
+<li><a href="../TimePeriod/">TimePeriod</a> - A period of time between a start and end time point.</li>
 <li><a href="../TimePoint/">TimePoint</a> - A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.</li>
 <li><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a> - A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.</li>
 <li><a href="../Treatment/">Treatment</a> - Represent medication administration or other treatment types.</li>
@@ -334,7 +334,6 @@
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__focus/">focus</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
-<li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__valueEntity/">valueEntity</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../CancerGradeObservationSet/">CancerGradeObservationSet</a></strong> ➞<em><a href="../cancerGradeObservationSet__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../CancerGradeObservation/">CancerGradeObservation</a></strong> ➞<em><a href="../cancerGradeObservation__focus/">focus</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../CancerStageObservationSet/">CancerStageObservationSet</a></strong> ➞<em><a href="../cancerStageObservationSet__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
@@ -354,9 +353,7 @@
 <li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__execution_condition_observation/">execution_condition_observation</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
-<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__source_model_system/">source_model_system</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__focus/">focus</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
-<li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__valueEntity/">valueEntity</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
                 

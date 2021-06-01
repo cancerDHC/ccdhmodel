@@ -322,14 +322,25 @@
 <tr>
 <td><strong>Comments:</strong></td>
 <td></td>
-<td>FHIR naming conventions are followed here, where 'id' is used for logical identifiers, and 'identifier' for business identifiers.   The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. If an "id" value can also be considered to be a business identifier, and should be transmissible to other systems, it should be duplicated in the "identifier" attribute along with the additional metadata needed to give context to the value of "id".</td>
+<td>FHIR naming conventions are followed here, where 'id' is used for logical identifiers, and 'identifier' for business identifiers.   The identified entity may have a different 'id' in a different system, and have many external business 'identifiers' associated with it. If an "id" value can also be considered to be a business identifier, and should be transmissible to other systems, it should be duplicated in the "identifier" attribute along with the additional metadata needed to give context to the value of "id". An entity in this model that does not have an "id" field is considered to be an embeddable entity that can not stand on its own.</td>
+</tr>
+<tr>
+<td><strong>Examples:</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Direct Mappings:</strong></td>
+<td></td>
+<td>GDC:Exposure.id</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>PDC:Exposure.id</td>
 </tr>
 </tbody>
 </table>
-<p>An entity in this model that does not have an "id" field is considered to be an embeddable entity that can not stand on its own.  |
-| <strong>Examples:</strong> | |  |
-| <strong>Direct Mappings:</strong> | | GDC:Exposure.id |
-|  | | PDC:Exposure.id |</p>
                 
               
               
