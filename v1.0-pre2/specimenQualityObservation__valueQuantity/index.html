@@ -14,7 +14,7 @@
     
     
       
-        <title>Class: Organization - CRDC-H Model in LinkML documentation</title>
+        <title>Slot: valueQuantity - CRDC-H Model in LinkML documentation</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-organization" class="md-skip">
+        <a href="#slot-valuequantity" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class: Organization
+              Slot: valueQuantity
             
           </span>
         </div>
@@ -251,6 +251,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#domain-and-range" class="md-nav__link">
+    Domain and Range
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#parents" class="md-nav__link">
     Parents
   </a>
@@ -258,29 +265,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#referenced-by-class" class="md-nav__link">
-    Referenced by class
+  <a href="#children" class="md-nav__link">
+    Children
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
-    Attributes
-  </a>
-  
-    <nav class="md-nav" aria-label="Attributes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#own" class="md-nav__link">
-    Own
+  <a href="#used-by" class="md-nav__link">
+    Used by
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#other-properties" class="md-nav__link">
+    Other properties
+  </a>
   
 </li>
       
@@ -297,70 +298,39 @@
               
                 
                 
-                <h1 id="class-organization">Class: Organization</h1>
-<p>A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university</p>
-<p>URI: <a href="https://example.org/ccdh/Organization">ccdh:Organization</a></p>
-<p><a href="../images/Organization.svg"><img alt="img" src="../images/Organization.svg" /></a></p>
+                <h1 id="slot-valuequantity">Slot: valueQuantity</h1>
+<p>The result of the observation, encoded as a free-text Quantity.</p>
+<p>URI: <a href="https://example.org/ccdh/specimenQualityObservation__valueQuantity">ccdh:specimenQualityObservation__valueQuantity</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a> &#8594;  <sub>1..1</sub> <a href="../Quantity/">Quantity</a></p>
 <h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+<li><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></li>
 </ul>
-<h2 id="referenced-by-class">Referenced by class</h2>
-<ul>
-<li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../CancerGradeObservationSet/">CancerGradeObservationSet</a></strong> ➞<em><a href="../cancerGradeObservationSet__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../CancerStageObservationSet/">CancerStageObservationSet</a></strong> ➞<em><a href="../cancerStageObservationSet__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../CancerStageObservation/">CancerStageObservation</a></strong> ➞<em><a href="../cancerStageObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../DimensionalObservationSet/">DimensionalObservationSet</a></strong> ➞<em><a href="../dimensionalObservationSet__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../DimensionalObservation/">DimensionalObservation</a></strong> ➞<em><a href="../dimensionalObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../EnvironmentalExposureObservation/">EnvironmentalExposureObservation</a></strong> ➞<em><a href="../environmentalExposureObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></strong> ➞<em><a href="../executionConditionObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></strong> ➞<em><a href="../executionTimeObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../HistologicalCompositionObservationSet/">HistologicalCompositionObservationSet</a></strong> ➞<em><a href="../histologicalCompositionObservationSet__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../HistologicalCompositionObservation/">HistologicalCompositionObservation</a></strong> ➞<em><a href="../histologicalCompositionObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../ObservationSet/">ObservationSet</a></strong> ➞<em><a href="../observationSet__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__originating_site/">originating_site</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></strong> ➞<em><a href="../specimenStorageActivity__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></strong> ➞<em><a href="../specimenTransportActivity__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></strong> ➞<em><a href="../specimenTransportActivity__transport_destination/">transport_destination</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></strong> ➞<em><a href="../specimenTransportActivity__transport_origin/">transport_origin</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__data_provider/">data_provider</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-<li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__performed_by/">performed_by</a></em>  <sub>0..1</sub>  <strong><a href="./">Organization</a></strong></li>
-</ul>
-<h2 id="attributes">Attributes</h2>
-<h3 id="own">Own</h3>
-<ul>
-<li><a href="../organization__id/">id</a>  <sub>1..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-<li><a href="../organization__identifier/">identifier</a>  <sub>0..*</sub><ul>
-<li>Description: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows "identifier" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.</li>
-<li>range: <a href="../Identifier/">Identifier</a></li>
-</ul>
-</li>
-<li><a href="../organization__name/">name</a>  <sub>0..1</sub><ul>
-<li>Description: The full legal name by which the organization is known (e.g. 'National Cancer Institute')</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-<li><a href="../organization__alias/">alias</a>  <sub>0..1</sub><ul>
-<li>Description: A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-<li><a href="../organization__organization_type/">organization_type</a>  <sub>0..1</sub><ul>
-<li>Description: The type of the organization (e.g. 'Cancer Genome Characterization Center')</li>
-<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
-</ul>
-</li>
-</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>One and only one of the value(x) fields must be populated.</td>
+</tr>
+<tr>
+<td><strong>Examples:</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
                 
               
               
