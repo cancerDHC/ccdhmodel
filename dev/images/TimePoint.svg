@@ -69,12 +69,12 @@
 <path d='M211.865,-268.77C208.42,-236.502 215.518,-184.794 244,-152 282.168,-108.053 338.892,-79.9307 393.565,-62.0609' fill='none' stroke='black'/>
 <polygon fill='black' points='211.912,-269.06 216.833,-274.331 213.861,-280.9 208.94,-275.63 211.912,-269.06' stroke='black'/>
 <polygon fill='black' points='403.386,-58.9518 395.211,-66.2601 398.619,-60.4609 393.853,-61.9699 393.853,-61.9699 393.853,-61.9699 398.619,-60.4609 392.494,-57.6798 403.386,-58.9518 403.386,-58.9518' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='383.404' y='-54.4025'> date_ended 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='363.422' y='-53.5532'> associated_timepoint 0..*</text>
 </g><g class='edge' id='edge4'><title>ResearchProject-&gt;TimePoint</title>
 <path d='M224.947,-268.77C226.42,-236.502 233.518,-184.794 262,-152 298.647,-109.804 352.401,-82.1974 403.892,-64.2466' fill='none' stroke='black'/>
 <polygon fill='black' points='224.944,-268.905 228.779,-275.011 224.617,-280.9 220.782,-274.794 224.944,-268.905' stroke='black'/>
 <polygon fill='black' points='413.476,-61.0059 405.444,-68.4722 408.739,-62.6076 404.003,-64.2093 404.003,-64.2093 404.003,-64.2093 408.739,-62.6076 402.561,-59.9464 413.476,-61.0059 413.476,-61.0059' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='373.487' y='-56.3867'> date_iacuc_approval 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='393.481' y='-56.8463'> date_ended 0..1</text>
 </g><g class='edge' id='edge5'><title>ResearchProject-&gt;TimePoint</title>
 <path d='M238.029,-268.77C244.42,-236.502 251.518,-184.794 280,-152 316.571,-109.892 370.178,-82.312 420.451,-64.3585' fill='none' stroke='black'/>
 <polygon fill='black' points='237.94,-269.178 240.565,-275.895 235.374,-280.9 232.75,-274.184 237.94,-269.178' stroke='black'/>

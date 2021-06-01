@@ -48,7 +48,7 @@
 <path d='M136.653,-217.414C143.726,-198.479 156.215,-171.99 169.656,-146.623' fill='none' stroke='black'/>
 <polygon fill='black' points='133.371,-226.902 132.388,-215.98 135.006,-222.176 136.64,-217.451 136.64,-217.451 136.64,-217.451 135.006,-222.176 140.893,-218.922 133.371,-226.902 133.371,-226.902' stroke='black'/>
 <polygon fill='black' points='169.771,-146.41 169.095,-139.231 175.462,-135.846 176.138,-143.025 169.771,-146.41' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='145.98' y='-207.677'>date_iacuc_approval 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='145.98' y='-207.677'>associated_timepoint 0..*</text>
 </g><g class='edge' id='edge4'><title>TimePoint-&gt;ResearchProject</title>
 <path d='M146.372,-217.999C156.117,-199.051 169.863,-172.321 183.029,-146.722' fill='none' stroke='black'/>
 <polygon fill='black' points='141.793,-226.902 142.365,-215.951 144.08,-222.455 146.367,-218.009 146.367,-218.009 146.367,-218.009 144.08,-222.455 150.369,-220.067 141.793,-226.902 141.793,-226.902' stroke='black'/>
