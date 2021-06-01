@@ -3,7 +3,10 @@ site_name: "CRDC-H Model in LinkML documentation"
 # - This provides nice "Edit this page" links, but they don't work, since the
 #   Markdown files are actually in version directories in gh-pages are not in
 #   in the main branch at all.
-theme: material
+theme:
+  name: material
+  palette:
+    primary: blue
 nav:
   - Home: home.md
   - Index: index.md
