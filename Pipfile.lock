@@ -335,11 +335,11 @@
         },
         "mike": {
             "hashes": [
-                "sha256:15819cef713366e58c85202a622871a0b62c85f227bc47e8525e17c7ad8198c6",
-                "sha256:521261cc1d72c07b995c0b80e0031c971d8839c9720c1a884203d9e4bdc6a47b"
+                "sha256:29b39a725510a67590db261ca8292f583dcfe06c6ea6842793c96ae631d6e2e1",
+                "sha256:7888f01d05d752bd43e03f6d971608a0b876f23787cf49a1f2b43be304b1789e"
             ],
             "index": "pypi",
-            "version": "==1.0.0"
+            "version": "==1.0.1"
         },
         "mkdocs": {
             "hashes": [
