@@ -534,7 +534,7 @@ linkml:Nodeidentifier NONLITERAL
           <collection_site> @<BodySite> ? ;
           <quantity_collected> @<Quantity> ? ;
           <execution_time_observation> @<ExecutionTimeObservation> * ;
-          <execution_condition_observation> @<Entity> * ;
+          <execution_condition_observation> @<ExecutionConditionObservation> * ;
           <specimen_order> @<CcdhInteger> ?
        ) ;
        rdf:type [ <SpecimenCreationActivity> ] ?

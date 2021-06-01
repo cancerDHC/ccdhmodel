@@ -1470,7 +1470,7 @@
             "execution_condition_observation": {
                "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/definitions/ExecutionConditionObservation"
                },
                "type": "array"
             },
