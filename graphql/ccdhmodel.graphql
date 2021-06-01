@@ -117,6 +117,7 @@ type DimensionalObservation
     methodType: [EnumCCDHDimensionalObservationMethodType]
     focus: [Entity]
     subject: Subject
+    performedBy: Organization
     valueQuantity: Quantity!
   }
 
@@ -386,6 +387,7 @@ type SpecimenQualityObservation
     focus: [Entity]
     subject: Subject
     performedBy: Organization
+    valueQuantity: Quantity!
   }
 
 type SpecimenQuantityObservation

@@ -206,6 +206,7 @@ linkml:Nodeidentifier NONLITERAL
           <method_type> @<EnumCCDHDimensionalObservationMethodType> * ;
           <focus> @<Entity> * ;
           <subject> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
           <valueQuantity> @<Quantity>
        ) ;
        rdf:type [ <DimensionalObservation> ] ?
@@ -566,7 +567,8 @@ linkml:Nodeidentifier NONLITERAL
           <method_type> @<EnumCCDHSpecimenQualityObservationMethodType> * ;
           <focus> @<Entity> * ;
           <subject> @<Subject> ? ;
-          <performed_by> @<Organization> ?
+          <performed_by> @<Organization> ? ;
+          <valueQuantity> @<Quantity>
        ) ;
        rdf:type [ <SpecimenQualityObservation> ] ?
     )
