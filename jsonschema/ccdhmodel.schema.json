@@ -473,6 +473,10 @@
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.",
                "type": "string"
             },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
             "subject": {
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
@@ -1588,10 +1592,15 @@
             "subject": {
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
          "required": [
-            "observation_type"
+            "observation_type",
+            "valueQuantity"
          ],
          "title": "SpecimenQualityObservation",
          "type": "object"
