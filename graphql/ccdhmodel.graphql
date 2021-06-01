@@ -361,7 +361,7 @@ type SpecimenCreationActivity
     collectionSite: BodySite
     quantityCollected: Quantity
     executionTimeObservation: [ExecutionTimeObservation]
-    executionConditionObservation: [Entity]
+    executionConditionObservation: [ExecutionConditionObservation]
     specimenOrder: CcdhInteger
   }
 
