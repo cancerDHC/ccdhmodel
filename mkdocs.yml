@@ -9,3 +9,6 @@ nav:
   - Index: index.md
   - Data Migration: data-migration.md
   - Credits: credits.md
+plugins:
+  - search
+  - mike
