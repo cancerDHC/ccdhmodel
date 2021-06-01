@@ -7,13 +7,7 @@ type AlcoholExposureObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
     valueInteger: CcdhInteger
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
-    valueQuantity: Quantity
     valueCodeableConcept: EnumCCDHAlcoholExposureObservationValueCodeableConcept
   }
 
@@ -319,18 +313,17 @@ type Specimen
     sourceMaterialType: EnumCCDHSpecimenSourceMaterialType
     parentSpecimen: [Specimen]
     sourceSubject: Subject
-    sourceModelSystem: Entity
     tumorStatusAtCollection: EnumCCDHSpecimenTumorStatusAtCollection
     creationActivity: SpecimenCreationActivity
     processingActivity: [SpecimenProcessingActivity]
     storageActivity: [SpecimenStorageActivity]
     transportActivity: [SpecimenTransportActivity]
     containedIn: SpecimenContainer
-    dimensionalMeasure: DimensionalObservationSet
+    dimensionalMeasures: DimensionalObservationSet
     quantityMeasure: [SpecimenQuantityObservation]
     qualityMeasure: [SpecimenQualityObservation]
     cellularCompositionType: EnumCCDHSpecimenCellularCompositionType
-    histologicalCompositionMeasure: [HistologicalCompositionObservationSet]
+    histologicalCompositionMeasures: [HistologicalCompositionObservationSet]
     generalTissueMorphology: EnumCCDHSpecimenGeneralTissueMorphology
     specificTissueMorphology: EnumCCDHSpecimenSpecificTissueMorphology
     preinvasiveTissueMorphology: EnumCCDHSpecimenPreinvasiveTissueMorphology
@@ -425,8 +418,7 @@ type SpecimenTransportActivity
     performedBy: Organization
     transportOrigin: Organization
     transportDestination: Organization
-    executionObservation: [ExecutionConditionObservation]
-    executionConditions: [CcdhString]
+    executionConditionObservation: [ExecutionConditionObservation]
   }
 
 type Subject
@@ -476,35 +468,29 @@ type TobaccoExposureObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
-    valueString: CcdhString
     valueInteger: CcdhInteger
-    valueDecimal: CcdhDecimal
-    valueBoolean: CcdhBoolean
-    valueDateTime: CcdhDateTime
-    valueQuantity: Quantity
     valueCodeableConcept: EnumCCDHTobaccoExposureObservationValueCodeableConcept
   }
 
 type Treatment
   {
     id: CcdhString
+    identifier: [Identifier]
     treatmentForDiagnosis: [Diagnosis]
+    concurrentTreatment: [Treatment]
+    treatmentType: EnumCCDHTreatmentTreatmentType
     subject: Subject
     dateStarted: TimePoint
     dateEnded: TimePoint
-    identifier: [Identifier]
+    treatmentEndReason: [EnumCCDHTreatmentTreatmentEndReason]
     regimen: EnumCCDHTreatmentRegimen
     therapeuticAgent: Substance
-    treatmentAnatomicSite: BodySite
-    treatmentEffect: EnumCCDHTreatmentTreatmentEffect
-    treatmentIntent: EnumCCDHTreatmentTreatmentIntent
-    treatmentOutcome: EnumCCDHTreatmentTreatmentOutcome
-    treatmentType: EnumCCDHTreatmentTreatmentType
-    treatmentFrequency: EnumCCDHTreatmentTreatmentFrequency
-    concurrentTreatment: [Treatment]
     numberOfCycles: CcdhInteger
-    treatmentEndReason: [EnumCCDHTreatmentTreatmentEndReason]
+    treatmentFrequency: EnumCCDHTreatmentTreatmentFrequency
+    treatmentAnatomicSite: BodySite
+    treatmentIntent: EnumCCDHTreatmentTreatmentIntent
+    treatmentEffect: EnumCCDHTreatmentTreatmentEffect
+    treatmentOutcome: EnumCCDHTreatmentTreatmentOutcome
   }
 
 

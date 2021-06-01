@@ -56,13 +56,7 @@ linkml:Nodeidentifier NONLITERAL
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
           <valueInteger> @<CcdhInteger> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ? ;
           <valueCodeableConcept> @<EnumCCDHAlcoholExposureObservationValueCodeableConcept> ?
        ) ;
        rdf:type [ <AlcoholExposureObservation> ] ?
@@ -484,18 +478,17 @@ linkml:Nodeidentifier NONLITERAL
           <source_material_type> @<EnumCCDHSpecimenSourceMaterialType> ? ;
           <parent_specimen> @<Specimen> * ;
           <source_subject> @<Subject> ? ;
-          <source_model_system> @<Entity> ? ;
           <tumor_status_at_collection> @<EnumCCDHSpecimenTumorStatusAtCollection> ? ;
           <creation_activity> @<SpecimenCreationActivity> ? ;
           <processing_activity> @<SpecimenProcessingActivity> * ;
           <storage_activity> @<SpecimenStorageActivity> * ;
           <transport_activity> @<SpecimenTransportActivity> * ;
           <contained_in> @<SpecimenContainer> ? ;
-          <dimensional_measure> @<DimensionalObservationSet> ? ;
+          <dimensional_measures> @<DimensionalObservationSet> ? ;
           <quantity_measure> @<SpecimenQuantityObservation> * ;
           <quality_measure> @<SpecimenQualityObservation> * ;
           <cellular_composition_type> @<EnumCCDHSpecimenCellularCompositionType> ? ;
-          <histological_composition_measure> @<HistologicalCompositionObservationSet> * ;
+          <histological_composition_measures> @<HistologicalCompositionObservationSet> * ;
           <general_tissue_morphology> @<EnumCCDHSpecimenGeneralTissueMorphology> ? ;
           <specific_tissue_morphology> @<EnumCCDHSpecimenSpecificTissueMorphology> ? ;
           <preinvasive_tissue_morphology> @<EnumCCDHSpecimenPreinvasiveTissueMorphology> ? ;
@@ -618,8 +611,7 @@ linkml:Nodeidentifier NONLITERAL
           <performed_by> @<Organization> ? ;
           <transport_origin> @<Organization> ? ;
           <transport_destination> @<Organization> ? ;
-          <execution_observation> @<ExecutionConditionObservation> * ;
-          <execution_conditions> @<CcdhString> *
+          <execution_condition_observation> @<ExecutionConditionObservation> *
        ) ;
        rdf:type [ <SpecimenTransportActivity> ] ?
     )
@@ -689,13 +681,7 @@ linkml:Nodeidentifier NONLITERAL
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
           <valueInteger> @<CcdhInteger> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ? ;
           <valueCodeableConcept> @<EnumCCDHTobaccoExposureObservationValueCodeableConcept> ?
        ) ;
        rdf:type [ <TobaccoExposureObservation> ] ?
@@ -706,22 +692,22 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Treatment_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
+          <identifier> @<Identifier> * ;
           <treatment_for_diagnosis> @<Diagnosis> * ;
+          <concurrent_treatment> @<Treatment> * ;
+          <treatment_type> @<EnumCCDHTreatmentTreatmentType> ? ;
           <subject> @<Subject> ? ;
           <date_started> @<TimePoint> ? ;
           <date_ended> @<TimePoint> ? ;
-          <identifier> @<Identifier> * ;
+          <treatment_end_reason> @<EnumCCDHTreatmentTreatmentEndReason> * ;
           <regimen> @<EnumCCDHTreatmentRegimen> ? ;
           <therapeutic_agent> @<Substance> ? ;
-          <treatment_anatomic_site> @<BodySite> ? ;
-          <treatment_effect> @<EnumCCDHTreatmentTreatmentEffect> ? ;
-          <treatment_intent> @<EnumCCDHTreatmentTreatmentIntent> ? ;
-          <treatment_outcome> @<EnumCCDHTreatmentTreatmentOutcome> ? ;
-          <treatment_type> @<EnumCCDHTreatmentTreatmentType> ? ;
-          <treatment_frequency> @<EnumCCDHTreatmentTreatmentFrequency> ? ;
-          <concurrent_treatment> @<Treatment> * ;
           <number_of_cycles> @<CcdhInteger> ? ;
-          <treatment_end_reason> @<EnumCCDHTreatmentTreatmentEndReason> *
+          <treatment_frequency> @<EnumCCDHTreatmentTreatmentFrequency> ? ;
+          <treatment_anatomic_site> @<BodySite> ? ;
+          <treatment_intent> @<EnumCCDHTreatmentTreatmentIntent> ? ;
+          <treatment_effect> @<EnumCCDHTreatmentTreatmentEffect> ? ;
+          <treatment_outcome> @<EnumCCDHTreatmentTreatmentOutcome> ?
        ) ;
        rdf:type [ <Treatment> ] ?
     )

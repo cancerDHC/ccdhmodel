@@ -41,10 +41,10 @@ SpecimenQualityObservation,,"A structured object that describes a characteristic
 SpecimenQuantityObservation,,"A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement."
 SpecimenStorageActivity,,"An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
 intrinsic physical nature of a specimen."
-SpecimenTransportActivity,,An activity through which a specimen is transported between locations.
+SpecimenTransportActivity,,An activity through which a specimen is transported between locations or organizations.
 Subject,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
 Substance,,"A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application."
-TimePeriod,,A span of time with a start and end.
+TimePeriod,,A period of time between a start and end time point.
 TimePoint,,"A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index."
 TobaccoExposureObservation,,"A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation."
 Treatment,,Represent medication administration or other treatment types.
