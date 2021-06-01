@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Class: Treatment - CRDC-H Model in LinkML documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/version-select.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class: Treatment";
+    var mkdocs_page_input_path = "Treatment.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CRDC-H Model in LinkML documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../home/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-migration/">Data Migration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../credits/">Credits</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CRDC-H Model in LinkML documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Class: Treatment</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-treatment">Class: Treatment</h1>
+<p>Represent medication administration or other treatment types.</p>
+<p>URI: <a href="https://example.org/ccdh/Treatment">ccdh:Treatment</a></p>
+<p><a href="../images/Treatment.svg"><img alt="img" src="../images/Treatment.svg" /></a></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="./">Treatment</a></strong> ➞<em><a href="../treatment__concurrent_treatment/">concurrent_treatment</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Treatment</a></em>*</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../treatment__id/">id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
+<li>range: <a href="../types/CcdhString/">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="../treatment__identifier/">identifier</a>  <sub>0..*</sub><ul>
+<li>Description: See common attribute  descriptions sheet.</li>
+<li>range: <a href="../Identifier/">Identifier</a></li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_for_diagnosis/">treatment_for_diagnosis</a>  <sub>0..*</sub><ul>
+<li>Description: The diagnosis for which this treatment is intended for.</li>
+<li>range: <a href="../Diagnosis/">Diagnosis</a></li>
+</ul>
+</li>
+<li><a href="../treatment__subject/">subject</a>  <sub>0..1</sub><ul>
+<li>Description: The subject of this treatment</li>
+<li>range: <a href="../Subject/">Subject</a></li>
+</ul>
+</li>
+<li><a href="../treatment__date_started/">date_started</a>  <sub>0..1</sub><ul>
+<li>Description: The timepoint at which the treatment started.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../treatment__date_ended/">date_ended</a>  <sub>0..1</sub><ul>
+<li>Description: The timepoint at which the treatment ended.</li>
+<li>range: <a href="../TimePoint/">TimePoint</a></li>
+</ul>
+</li>
+<li><a href="../treatment__regimen/">regimen</a>  <sub>0..1</sub><ul>
+<li>Description: The regimen or line of therapy</li>
+<li>range: <a href="../enum_CCDH_Treatment_regimen/">enum_CCDH_Treatment_regimen</a></li>
+</ul>
+</li>
+<li><a href="../treatment__therapeutic_agent/">therapeutic_agent</a>  <sub>0..1</sub><ul>
+<li>Description: One or more therapeutic agents as part of this treatment.</li>
+<li>range: <a href="../Substance/">Substance</a></li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_anatomic_site/">treatment_anatomic_site</a>  <sub>0..1</sub><ul>
+<li>Description: The anatomical site that the treatment targets.</li>
+<li>range: <a href="../BodySite/">BodySite</a></li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_effect/">treatment_effect</a>  <sub>0..1</sub><ul>
+<li>Description: The effect of a treatment on the diagnosis or tumor.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_effect/">enum_CCDH_Treatment_treatment_effect</a></li>
+<li>Examples: Complete Necrosis (No Viable Tumor), No Necrosis</li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_intent/">treatment_intent</a>  <sub>0..1</sub><ul>
+<li>Description: The intent of the treatment.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_intent/">enum_CCDH_Treatment_treatment_intent</a></li>
+<li>Examples: Adjuvant, Cure, Palliative</li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_outcome/">treatment_outcome</a>  <sub>0..1</sub><ul>
+<li>Description: The final outcome of the treatment.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_outcome/">enum_CCDH_Treatment_treatment_outcome</a></li>
+<li>Examples: Complete Response, Mixed Response, No Measurable Disease, No Response, Partial Response, Persistent Disease</li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_type/">treatment_type</a>  <sub>0..1</sub><ul>
+<li>Description: The treatment type including medication/therapeutics or other procedures.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_type/">enum_CCDH_Treatment_treatment_type</a></li>
+<li>Examples: Ablation, Radiofrequency, Stem Cell Transplantation, Ablation, Cryo Ablation, Ethanol Injection Ablation, Microwave Ablation</li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_frequency/">treatment_frequency</a>  <sub>0..1</sub><ul>
+<li>Description: A term to describe the frequency of using the substance described by this instance.</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_frequency/">enum_CCDH_Treatment_treatment_frequency</a></li>
+<li>Examples: Every Hour, Five Times Daily, Four Times Daily, Three Times Daily</li>
+</ul>
+</li>
+<li><a href="../treatment__concurrent_treatment/">concurrent_treatment</a>  <sub>0..*</sub><ul>
+<li>Description: The treatment(s) instance(s) that are concurrent with this treatment.</li>
+<li>range: <a href="./">Treatment</a></li>
+</ul>
+</li>
+<li><a href="../treatment__number_of_cycles/">number_of_cycles</a>  <sub>0..1</sub><ul>
+<li>Description: The number of treatment cycles the patient received.</li>
+<li>range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+</ul>
+</li>
+<li><a href="../treatment__treatment_end_reason/">treatment_end_reason</a>  <sub>0..*</sub><ul>
+<li>Description: The reason the treatment ended</li>
+<li>range: <a href="../enum_CCDH_Treatment_treatment_end_reason/">enum_CCDH_Treatment_treatment_end_reason</a></li>
+<li>Examples: Adverse Event Course of Therapy Completed, Death, Disease Progression, Other</li>
+</ul>
+</li>
+</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>This entity is overloaded with the idea of medication/substance based treatments, and other more procedure-like interventions that are also considered to be a treatment. We should probably separate these concerns and it will be useful to have a "Procedure" entity long term. If that is done, this entity will be renamed to "MedicationTreatment" or something like that and the other concerns refactored out to other entities. Also, if we can consider a medication/substance based treatment as a procedure as well (which is commonly the case in other models), we can make this entity more about the individual doses for such treatments if that level of granularity is needed.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+      <script src="../js/version-select.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
