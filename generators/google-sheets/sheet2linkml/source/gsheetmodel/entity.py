@@ -313,13 +313,13 @@ class Attribute:
         for pv in enum_info.get('permissible_values', []):
             text = pv.get('text')
             if text in permissible_values.keys():
-                logging.warning(f"Duplicate permissible value text: {text} in {pv} was previously assigned to {permissible_values[text]}")
-            else:
-                permissible_values[str(text)] = PermissibleValue(
-                    text=text,
-                    description=pv.get('description'),
-                    meaning=pv.get('meaning')
-                )
+                logging.warning(f"Duplicate permissible value text: {text} was previously assigned to {permissible_values[text]}, but will now be replaced with {pv}")
+
+            permissible_values[str(text)] = PermissibleValue(
+                text=text,
+                description=pv.get('description'),
+                meaning=pv.get('meaning')
+            )
 
         return EnumDefinition(
             name=Enum.fix_enum_name(self.full_name),
