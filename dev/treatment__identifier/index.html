@@ -23,6 +23,10 @@
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
       
     
     
@@ -48,7 +52,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -295,7 +299,7 @@
                 
                 
                 <h1 id="slot-identifier">Slot: identifier</h1>
-<p>See common attribute  descriptions sheet.</p>
+<p>A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows "identifier" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.</p>
 <p>URI: <a href="https://example.org/ccdh/treatment__identifier">ccdh:treatment__identifier</a></p>
 <h2 id="domain-and-range">Domain and Range</h2>
 <p><a href="../Treatment/">Treatment</a> &#8594;  <sub>0..*</sub> <a href="../Identifier/">Identifier</a></p>
@@ -315,6 +319,11 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>FHIR naming conventions are followed here, where 'id' is used for logical identifiers which are unique only within a given system, and 'identifier' for business identifiers, which are used to connect entities or share content across systems.  The complex 'Identifier' data type is used  to capture the identifier itself, along with metadata about its source.</td>
+</tr>
 <tr>
 <td><strong>Examples:</strong></td>
 <td></td>

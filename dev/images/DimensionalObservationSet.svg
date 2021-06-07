@@ -51,7 +51,7 @@
 <path d='M94.4433,-268.823C93.101,-237.758 95.0253,-188.185 116,-152 137.09,-115.617 174,-86.6431 206.844,-66.287' fill='none' stroke='black'/>
 <polygon fill='black' points='94.4498,-268.933 98.8039,-274.681 95.1725,-280.911 90.8184,-275.163 94.4498,-268.933' stroke='black'/>
 <polygon fill='black' points='215.538,-61.0372 209.304,-70.0587 211.257,-63.6219 206.977,-66.2067 206.977,-66.2067 206.977,-66.2067 211.257,-63.6219 204.651,-62.3546 215.538,-61.0372 215.538,-61.0372' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='176.29' y='-65.0569'> dimensional_measure 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='176.29' y='-65.0569'> dimensional_measures 0..1</text>
 </g><g class='node' id='node3'><title>Organization</title>
 <polygon fill='white' points='125.5,-153 125.5,-189 224.5,-189 224.5,-153 125.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='175' y='-167.3'>Organization</text>

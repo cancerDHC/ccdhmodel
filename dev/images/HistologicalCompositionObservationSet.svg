@@ -51,7 +51,7 @@
 <path d='M92.2889,-360.94C86.146,-313.964 80.0364,-219.774 116,-152 135.076,-116.052 170.048,-87.109 201.427,-66.6607' fill='none' stroke='black'/>
 <polygon fill='black' points='92.2968,-360.996 97.1023,-366.372 93.9875,-372.876 89.1821,-367.499 92.2968,-360.996' stroke='black'/>
 <polygon fill='black' points='210.167,-61.1197 204.131,-70.275 205.944,-63.7971 201.721,-66.4745 201.721,-66.4745 201.721,-66.4745 205.944,-63.7971 199.311,-62.674 210.167,-61.1197 210.167,-61.1197' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='151.561' y='-70.2794'> histological_composition_measure 0..*</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='151.561' y='-70.2794'> histological_composition_measures 0..*</text>
 </g><g class='node' id='node3'><title>Organization</title>
 <polygon fill='white' points='125.5,-153 125.5,-189 224.5,-189 224.5,-153 125.5,-153' stroke='black'/>
 <text style='font-size:10px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='175' y='-167.3'>Organization</text>

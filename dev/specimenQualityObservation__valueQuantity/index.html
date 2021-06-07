@@ -14,7 +14,7 @@
     
     
       
-        <title>Slot: dimensional_measure - CRDC-H Model in LinkML documentation</title>
+        <title>Slot: valueQuantity - CRDC-H Model in LinkML documentation</title>
       
     
     
@@ -22,6 +22,10 @@
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
         
       
     
@@ -48,7 +52,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -59,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-dimensional_measure" class="md-skip">
+        <a href="#slot-valuequantity" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: dimensional_measure
+              Slot: valueQuantity
             
           </span>
         </div>
@@ -294,16 +298,16 @@
               
                 
                 
-                <h1 id="slot-dimensional_measure">Slot: dimensional_measure</h1>
-<p>A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</p>
-<p>URI: <a href="https://example.org/ccdh/specimen__dimensional_measure">ccdh:specimen__dimensional_measure</a></p>
+                <h1 id="slot-valuequantity">Slot: valueQuantity</h1>
+<p>The result of the observation, encoded as a free-text Quantity.</p>
+<p>URI: <a href="https://example.org/ccdh/specimenQualityObservation__valueQuantity">ccdh:specimenQualityObservation__valueQuantity</a></p>
 <h2 id="domain-and-range">Domain and Range</h2>
-<p><a href="../Specimen/">Specimen</a> &#8594;  <sub>0..1</sub> <a href="../DimensionalObservationSet/">DimensionalObservationSet</a></p>
+<p><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a> &#8594;  <sub>1..1</sub> <a href="../Quantity/">Quantity</a></p>
 <h2 id="parents">Parents</h2>
 <h2 id="children">Children</h2>
 <h2 id="used-by">Used by</h2>
 <ul>
-<li><a href="../Specimen/">Specimen</a></li>
+<li><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></li>
 </ul>
 <h2 id="other-properties">Other properties</h2>
 <table>
@@ -318,57 +322,12 @@
 <tr>
 <td><strong>Comments:</strong></td>
 <td></td>
-<td>Observations are flexible containers for capturing a specific type of observation/measurement data about an object, along with metadata about how it was generated. The specific type of observation made is captured as data in the Observation object.</td>
+<td>One and only one of the value(x) fields must be populated.</td>
 </tr>
 <tr>
 <td><strong>Examples:</strong></td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><strong>Indirect Mappings:</strong></td>
-<td></td>
-<td>GDC:Sample.longest_dimension</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>GDC:Sample.shortest_dimension</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>GDC:Sample.intermediate_dimension</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>PDC:Sample.longest_dimension</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>PDC:Sample.shortest_dimension</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>PDC:Sample.intermediate_dimension</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>ICDC:Sample.length_of_tumor</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>ICDC:Sample.width_of_tumor</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>ICDC:Sample.total_tissue_area</td>
 </tr>
 </tbody>
 </table>

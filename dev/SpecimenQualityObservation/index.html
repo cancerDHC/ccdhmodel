@@ -23,6 +23,10 @@
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
       
     
     
@@ -48,7 +52,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -341,6 +345,11 @@
 <li><a href="../specimenQualityObservation__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
 <li>Description: The organization or group that performed the observation activity.</li>
 <li>range: <a href="../Organization/">Organization</a></li>
+</ul>
+</li>
+<li><a href="../specimenQualityObservation__valueQuantity/">valueQuantity</a>  <sub>1..1</sub><ul>
+<li>Description: The result of the observation, encoded as a free-text Quantity.</li>
+<li>range: <a href="../Quantity/">Quantity</a></li>
 </ul>
 </li>
 </ul>

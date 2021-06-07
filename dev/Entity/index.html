@@ -23,6 +23,10 @@
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
       
     
     
@@ -48,7 +52,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -319,7 +323,7 @@
 <li><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a> - A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.</li>
 <li><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a> - A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.</li>
 <li><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a> - An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the </li>
-<li><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a> - An activity through which a specimen is transported between locations.</li>
+<li><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a> - An activity through which a specimen is transported between locations or organizations.</li>
 <li><a href="../Subject/">Subject</a> - Demographics and other administrative information about an individual or animal receiving care or other health-related services.</li>
 <li><a href="../Substance/">Substance</a> - A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.</li>
 <li><a href="../TimePeriod/">TimePeriod</a> - A period of time between a start and end time point.</li>
@@ -346,10 +350,8 @@
 <li><strong><a href="../ObservationSet/">ObservationSet</a></strong> ➞<em><a href="../observationSet__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__valueEntity/">valueEntity</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
-<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__execution_condition_observation/">execution_condition_observation</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
 <li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__focus/">focus</a></em>  <sub>0..<em></sub>  </em><em><a href="./">Entity</a></em>*</li>
-<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__source_model_system/">source_model_system</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 <li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__focus/">focus</a></em>  <sub>0..1</sub>  <strong><a href="./">Entity</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
