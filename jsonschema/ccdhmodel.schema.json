@@ -1924,7 +1924,7 @@
          "description": "Represent medication administration or other treatment types.",
          "properties": {
             "concurrent_treatment": {
-               "description": "The treatment(s) instance(s) that are concurrent with this treatment.",
+               "description": "Treatment instance(s) that are concurrent with this treatment.",
                "items": {
                   "$ref": "#/definitions/Treatment"
                },
@@ -1950,7 +1950,7 @@
                "type": "array"
             },
             "number_of_cycles": {
-               "description": "The number of treatment cycles the patient received.",
+               "description": "The number of treatment cycles the subject received.",
                "type": "integer"
             },
             "regimen": {
@@ -1959,11 +1959,11 @@
             },
             "subject": {
                "$ref": "#/definitions/Subject",
-               "description": "The subject of this treatment"
+               "description": "The subject (person, animal, model system) to which the treatment was administered."
             },
             "therapeutic_agent": {
                "$ref": "#/definitions/Substance",
-               "description": "One or more therapeutic agents as part of this treatment."
+               "description": "One or more therapeutic agents that are administered as part of this treatment."
             },
             "treatment_anatomic_site": {
                "$ref": "#/definitions/BodySite",
@@ -1974,25 +1974,25 @@
                "type": "string"
             },
             "treatment_end_reason": {
-               "description": "The reason the treatment ended",
+               "description": "The reason the treatment ended.",
                "items": {
                   "type": "string"
                },
                "type": "array"
             },
             "treatment_for_diagnosis": {
-               "description": "The diagnosis for which this treatment is intended for.",
+               "description": "The diagnosis for which this treatment is intended.",
                "items": {
                   "$ref": "#/definitions/Diagnosis"
                },
                "type": "array"
             },
             "treatment_frequency": {
-               "description": "A term to describe the frequency of using the substance described by this instance.",
+               "description": "The frequency of using the substance described by this instance.",
                "type": "string"
             },
             "treatment_intent": {
-               "description": "The intent of the treatment.",
+               "description": "The medical intent of the treatment.",
                "type": "string"
             },
             "treatment_outcome": {
@@ -2000,7 +2000,7 @@
                "type": "string"
             },
             "treatment_type": {
-               "description": "The treatment type including medication/therapeutics or other procedures.",
+               "description": "The type of treatment administered, which may include medication/therapeutics or other procedures.",
                "type": "string"
             }
          },
