@@ -313,7 +313,7 @@ class Attribute:
         for pv in enum_info.get('permissible_values', []):
             text = pv.get('text')
             if text in permissible_values.keys():
-                logging.warning(f"Duplicate permissible value text: {text} was previously assigned to {permissible_values[text]}, but will now be replaced with {pv}")
+                logging.warning(f"In field '{self.full_name}', found duplicate permissible value text: {text} was previously assigned to {permissible_values[text]}, but will now be replaced with {pv}")
 
             permissible_values[str(text)] = PermissibleValue(
                 text=text,
