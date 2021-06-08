@@ -1,0 +1,449 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+    
+    
+      
+        <title>Class: Diagnosis - CRDC-H Model in LinkML documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-diagnosis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="CRDC-H Model in LinkML documentation" class="md-header__button md-logo" aria-label="CRDC-H Model in LinkML documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CRDC-H Model in LinkML documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class: Diagnosis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="CRDC-H Model in LinkML documentation" class="md-nav__button md-logo" aria-label="CRDC-H Model in LinkML documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CRDC-H Model in LinkML documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="home.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-migration.html" class="md-nav__link">
+        Data Migration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="credits.html" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parents" class="md-nav__link">
+    Parents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenced-by-class" class="md-nav__link">
+    Referenced by class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#own" class="md-nav__link">
+    Own
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="class-diagnosis">Class: Diagnosis</h1>
+<p>A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</p>
+<p>URI: <a href="https://example.org/ccdh/Diagnosis">ccdh:Diagnosis</a></p>
+<p><a href="images/Diagnosis.svg"><img alt="img" src="images/Diagnosis.svg" /></a></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="Entity.html">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="Diagnosis.html">Diagnosis</a></strong> ➞<em><a href="diagnosis__prior_diagnosis.html">prior_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="Diagnosis.html">Diagnosis</a></strong></li>
+<li><strong><a href="ResearchSubject.html">ResearchSubject</a></strong> ➞<em><a href="researchSubject__comorbid_diagnosis.html">comorbid_diagnosis</a></em>  <sub>0..*</sub>  <strong><a href="Diagnosis.html">Diagnosis</a></strong></li>
+<li><strong><a href="ResearchSubject.html">ResearchSubject</a></strong> ➞<em><a href="researchSubject__primary_diagnosis.html">primary_diagnosis</a></em>  <sub>0..*</sub>  <strong><a href="Diagnosis.html">Diagnosis</a></strong></li>
+<li><strong><a href="Treatment.html">Treatment</a></strong> ➞<em><a href="treatment__treatment_for_diagnosis.html">treatment_for_diagnosis</a></em>  <sub>0..*</sub>  <strong><a href="Diagnosis.html">Diagnosis</a></strong></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="diagnosis__id.html">id</a>  <sub>0..1</sub><ul>
+<li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
+<li>Range: <a href="types/CcdhString.html">CcdhString</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__identifier.html">identifier</a>  <sub>0..*</sub><ul>
+<li>Description: A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows "identifier" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.</li>
+<li>Range: <a href="Identifier.html">Identifier</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__subject.html">subject</a>  <sub>0..1</sub><ul>
+<li>Description: The subject of this diagnosis.</li>
+<li>Range: <a href="Subject.html">Subject</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__age_at_diagnosis.html">age_at_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: The age in days of the individual at the time of diagnosis</li>
+<li>Range: <a href="Quantity.html">Quantity</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__year_at_diagnosis.html">year_at_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: Numeric value to represent the year of an individual's diagnosis.</li>
+<li>Range: <a href="types/CcdhInteger.html">CcdhInteger</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__condition.html">condition</a>  <sub>0..1</sub><ul>
+<li>Description: Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
+<li>Range: <a href="enum_CCDH_Diagnosis_condition.html">enum_CCDH_Diagnosis_condition</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__primary_site.html">primary_site</a>  <sub>0..*</sub><ul>
+<li>Description: The anatomical location of the primary condition</li>
+<li>Range: <a href="BodySite.html">BodySite</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__metastatic_site.html">metastatic_site</a>  <sub>0..*</sub><ul>
+<li>Description: The anatomical location(s) of metastatic disease</li>
+<li>Range: <a href="BodySite.html">BodySite</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__stage.html">stage</a>  <sub>0..*</sub><ul>
+<li>Description: The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.</li>
+<li>Range: <a href="CancerStageObservationSet.html">CancerStageObservationSet</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__grade.html">grade</a>  <sub>0..*</sub><ul>
+<li>Description: The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.</li>
+<li>Range: <a href="CancerGradeObservationSet.html">CancerGradeObservationSet</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__morphology.html">morphology</a>  <sub>0..1</sub><ul>
+<li>Description: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
+<li>Range: <a href="enum_CCDH_Diagnosis_morphology.html">enum_CCDH_Diagnosis_morphology</a></li>
+<li>Examples: 8001/3, 8002/3, 8003/3, 8004/3, 8005/3</li>
+</ul>
+</li>
+<li><a href="diagnosis__disease_status.html">disease_status</a>  <sub>0..1</sub><ul>
+<li>Description: A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
+<li>Range: <a href="enum_CCDH_Diagnosis_disease_status.html">enum_CCDH_Diagnosis_disease_status</a></li>
+<li>Examples: Initial Diagnosis, Progressive Disease, Recurrent Disease, Residual Disease, Unknown, Not Reported</li>
+</ul>
+</li>
+<li><a href="diagnosis__prior_diagnosis.html">prior_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis.</li>
+<li>Range: <a href="Diagnosis.html">Diagnosis</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__method_of_diagnosis.html">method_of_diagnosis</a>  <sub>0..1</sub><ul>
+<li>Description: The method used to confirm the patients malignant diagnosis</li>
+<li>Range: <a href="enum_CCDH_Diagnosis_method_of_diagnosis.html">enum_CCDH_Diagnosis_method_of_diagnosis</a></li>
+<li>Examples: Autopsy, Biopsy, Blood Draw, Bone Marrow Aspirate, Core Biopsy, ..</li>
+</ul>
+</li>
+<li><a href="diagnosis__related_specimen.html">related_specimen</a>  <sub>0..*</sub><ul>
+<li>Description: The specimen from which this diagnosis is made</li>
+<li>Range: <a href="Specimen.html">Specimen</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__dimensional_measure.html">dimensional_measure</a>  <sub>0..1</sub><ul>
+<li>Description: A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</li>
+<li>Range: <a href="DimensionalObservationSet.html">DimensionalObservationSet</a></li>
+</ul>
+</li>
+<li><a href="diagnosis__supporting_observation.html">supporting_observation</a>  <sub>0..*</sub><ul>
+<li>Description: One or more observations that capture information relevant to this condition or diagnosis.</li>
+<li>Range: <a href="Observation.html">Observation</a></li>
+</ul>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      
+    
+  </body>
+</html>
