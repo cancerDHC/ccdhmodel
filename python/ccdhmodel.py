@@ -1,5 +1,5 @@
 # Auto generated from ccdhmodel.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-06-08 20:03
+# Generation date: 2021-06-10 22:33
 # Schema: CRDC-H
 #
 # id: https://example.org/ccdh
@@ -9,20 +9,21 @@
 import dataclasses
 import sys
 import re
+from jsonasobj2 import JsonObj
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
-from linkml.utils.slot import Slot
-from linkml.utils.metamodelcore import empty_list, empty_dict, bnode
-from linkml.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-from linkml.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from linkml.utils.formatutils import camelcase, underscore, sfx
-from linkml.utils.enumerations import EnumDefinitionImpl
+from linkml_runtime.utils.slot import Slot
+from linkml_runtime.utils.metamodelcore import empty_list, empty_dict, bnode
+from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
+from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
+from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
-from linkml.utils.curienamespace import CurieNamespace
-from linkml.utils.metamodelcore import Bool, Decimal, URIorCURIE, XSDDateTime
-from linkml_model.types import Boolean, Datetime, Decimal, Integer, String, Uriorcurie
+from linkml_runtime.utils.curienamespace import CurieNamespace
+from linkml_runtime.linkml_model.types import Boolean, Datetime, Decimal, Integer, String, Uriorcurie
+from linkml_runtime.utils.metamodelcore import Bool, Decimal, URIorCURIE, XSDDateTime
 
 metamodel_version = "1.7.0"
 
@@ -137,7 +138,7 @@ class AlcoholExposureObservation(Entity):
     valueCodeableConcept: Optional[Union[str, "EnumCCDHAlcoholExposureObservationValueCodeableConcept"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHAlcoholExposureObservationObservationType):
             self.observation_type = EnumCCDHAlcoholExposureObservationObservationType(self.observation_type)
@@ -187,13 +188,11 @@ class BodySite(Entity):
     qualifier: Optional[Union[Union[str, "EnumCCDHBodySiteQualifier"], List[Union[str, "EnumCCDHBodySiteQualifier"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.site is None:
+        if self._is_empty(self.site):
             raise ValueError("site must be supplied")
         if not isinstance(self.site, EnumCCDHBodySiteSite):
             self.site = EnumCCDHBodySiteSite(self.site)
 
-        if self.qualifier is None:
-            self.qualifier = []
         if not isinstance(self.qualifier, list):
             self.qualifier = [self.qualifier]
         self.qualifier = [v if isinstance(v, EnumCCDHBodySiteQualifier) else EnumCCDHBodySiteQualifier(v) for v in self.qualifier]
@@ -225,11 +224,7 @@ class BiologicProduct(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.description is not None and not isinstance(self.description, CcdhString):
             self.description = CcdhString(self.description)
@@ -237,14 +232,10 @@ class BiologicProduct(Entity):
         if self.product_type is not None and not isinstance(self.product_type, EnumCCDHBiologicProductProductType):
             self.product_type = EnumCCDHBiologicProductProductType(self.product_type)
 
-        if self.passage_number is None:
-            self.passage_number = []
         if not isinstance(self.passage_number, list):
             self.passage_number = [self.passage_number]
         self.passage_number = [v if isinstance(v, CcdhInteger) else CcdhInteger(v) for v in self.passage_number]
 
-        if self.growth_rate is None:
-            self.growth_rate = []
         if not isinstance(self.growth_rate, list):
             self.growth_rate = [self.growth_rate]
         self.growth_rate = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.growth_rate]
@@ -274,12 +265,12 @@ class CancerGradeObservation(Entity):
     subject: Optional[Union[dict, "Subject"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHCancerGradeObservationObservationType):
             self.observation_type = EnumCCDHCancerGradeObservationObservationType(self.observation_type)
 
-        if self.valueCodeableConcept is None:
+        if self._is_empty(self.valueCodeableConcept):
             raise ValueError("valueCodeableConcept must be supplied")
         if not isinstance(self.valueCodeableConcept, EnumCCDHCancerGradeObservationValueCodeableConcept):
             self.valueCodeableConcept = EnumCCDHCancerGradeObservationValueCodeableConcept(self.valueCodeableConcept)
@@ -330,8 +321,6 @@ class CancerGradeObservationSet(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHCancerGradeObservationSetCategory):
             self.category = EnumCCDHCancerGradeObservationSetCategory(self.category)
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -339,8 +328,6 @@ class CancerGradeObservationSet(Entity):
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**self.subject)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHCancerGradeObservationSetMethodType) else EnumCCDHCancerGradeObservationSetMethodType(v) for v in self.method_type]
@@ -348,11 +335,7 @@ class CancerGradeObservationSet(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**self.performed_by)
 
-        if self.observations is None:
-            self.observations = []
-        if not isinstance(self.observations, list):
-            self.observations = [self.observations]
-        self._normalize_inlined_slot(slot_name="observations", slot_type=CancerGradeObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="observations", slot_type=CancerGradeObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -381,12 +364,12 @@ class CancerStageObservation(Entity):
     valueEntity: Optional[Union[dict, "Entity"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHCancerStageObservationObservationType):
             self.observation_type = EnumCCDHCancerStageObservationObservationType(self.observation_type)
 
-        if self.valueCodeableConcept is None:
+        if self._is_empty(self.valueCodeableConcept):
             raise ValueError("valueCodeableConcept must be supplied")
         if not isinstance(self.valueCodeableConcept, EnumCCDHCancerStageObservationValueCodeableConcept):
             self.valueCodeableConcept = EnumCCDHCancerStageObservationValueCodeableConcept(self.valueCodeableConcept)
@@ -443,8 +426,6 @@ class CancerStageObservationSet(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHCancerStageObservationSetCategory):
             self.category = EnumCCDHCancerStageObservationSetCategory(self.category)
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -452,8 +433,6 @@ class CancerStageObservationSet(Entity):
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**self.subject)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHCancerStageObservationSetMethodType) else EnumCCDHCancerStageObservationSetMethodType(v) for v in self.method_type]
@@ -461,11 +440,7 @@ class CancerStageObservationSet(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**self.performed_by)
 
-        if self.observations is None:
-            self.observations = []
-        if not isinstance(self.observations, list):
-            self.observations = [self.observations]
-        self._normalize_inlined_slot(slot_name="observations", slot_type=CancerStageObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="observations", slot_type=CancerStageObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -487,11 +462,7 @@ class CodeableConcept(Entity):
     text: Optional[Union[str, CcdhString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.coding is None:
-            self.coding = []
-        if not isinstance(self.coding, list):
-            self.coding = [self.coding]
-        self._normalize_inlined_slot(slot_name="coding", slot_type=Coding, key_name="code", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="coding", slot_type=Coding, key_name="code", keyed=False)
 
         if self.text is not None and not isinstance(self.text, CcdhString):
             self.text = CcdhString(self.text)
@@ -519,12 +490,12 @@ class Coding(Entity):
     systemVersion: Optional[Union[str, CcdhString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.code is None:
+        if self._is_empty(self.code):
             raise ValueError("code must be supplied")
         if not isinstance(self.code, CcdhString):
             self.code = CcdhString(self.code)
 
-        if self.system is None:
+        if self._is_empty(self.system):
             raise ValueError("system must be supplied")
         if not isinstance(self.system, CcdhString):
             self.system = CcdhString(self.system)
@@ -576,11 +547,7 @@ class Diagnosis(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**self.subject)
@@ -594,26 +561,14 @@ class Diagnosis(Entity):
         if self.condition is not None and not isinstance(self.condition, EnumCCDHDiagnosisCondition):
             self.condition = EnumCCDHDiagnosisCondition(self.condition)
 
-        if self.primary_site is None:
-            self.primary_site = []
-        if not isinstance(self.primary_site, list):
-            self.primary_site = [self.primary_site]
-        self._normalize_inlined_slot(slot_name="primary_site", slot_type=BodySite, key_name="site", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="primary_site", slot_type=BodySite, key_name="site", keyed=False)
 
-        if self.metastatic_site is None:
-            self.metastatic_site = []
-        if not isinstance(self.metastatic_site, list):
-            self.metastatic_site = [self.metastatic_site]
-        self._normalize_inlined_slot(slot_name="metastatic_site", slot_type=BodySite, key_name="site", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="metastatic_site", slot_type=BodySite, key_name="site", keyed=False)
 
-        if self.stage is None:
-            self.stage = []
         if not isinstance(self.stage, list):
             self.stage = [self.stage]
         self.stage = [v if isinstance(v, CancerStageObservationSet) else CancerStageObservationSet(**v) for v in self.stage]
 
-        if self.grade is None:
-            self.grade = []
         if not isinstance(self.grade, list):
             self.grade = [self.grade]
         self.grade = [v if isinstance(v, CancerGradeObservationSet) else CancerGradeObservationSet(**v) for v in self.grade]
@@ -630,8 +585,6 @@ class Diagnosis(Entity):
         if self.method_of_diagnosis is not None and not isinstance(self.method_of_diagnosis, EnumCCDHDiagnosisMethodOfDiagnosis):
             self.method_of_diagnosis = EnumCCDHDiagnosisMethodOfDiagnosis(self.method_of_diagnosis)
 
-        if self.related_specimen is None:
-            self.related_specimen = []
         if not isinstance(self.related_specimen, list):
             self.related_specimen = [self.related_specimen]
         self.related_specimen = [v if isinstance(v, Specimen) else Specimen(**v) for v in self.related_specimen]
@@ -639,11 +592,7 @@ class Diagnosis(Entity):
         if self.dimensional_measure is not None and not isinstance(self.dimensional_measure, DimensionalObservationSet):
             self.dimensional_measure = DimensionalObservationSet(**self.dimensional_measure)
 
-        if self.supporting_observation is None:
-            self.supporting_observation = []
-        if not isinstance(self.supporting_observation, list):
-            self.supporting_observation = [self.supporting_observation]
-        self._normalize_inlined_slot(slot_name="supporting_observation", slot_type=Observation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="supporting_observation", slot_type=Observation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -671,12 +620,12 @@ class DimensionalObservation(Entity):
     performed_by: Optional[Union[dict, "Organization"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHDimensionalObservationObservationType):
             self.observation_type = EnumCCDHDimensionalObservationObservationType(self.observation_type)
 
-        if self.valueQuantity is None:
+        if self._is_empty(self.valueQuantity):
             raise ValueError("valueQuantity must be supplied")
         if not isinstance(self.valueQuantity, Quantity):
             self.valueQuantity = Quantity(**self.valueQuantity)
@@ -687,14 +636,10 @@ class DimensionalObservation(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHDimensionalObservationCategory):
             self.category = EnumCCDHDimensionalObservationCategory(self.category)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHDimensionalObservationMethodType) else EnumCCDHDimensionalObservationMethodType(v) for v in self.method_type]
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -735,8 +680,6 @@ class DimensionalObservationSet(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHDimensionalObservationSetCategory):
             self.category = EnumCCDHDimensionalObservationSetCategory(self.category)
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -744,8 +687,6 @@ class DimensionalObservationSet(Entity):
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**self.subject)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHDimensionalObservationSetMethodType) else EnumCCDHDimensionalObservationSetMethodType(v) for v in self.method_type]
@@ -753,11 +694,7 @@ class DimensionalObservationSet(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**self.performed_by)
 
-        if self.observations is None:
-            self.observations = []
-        if not isinstance(self.observations, list):
-            self.observations = [self.observations]
-        self._normalize_inlined_slot(slot_name="observations", slot_type=DimensionalObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="observations", slot_type=DimensionalObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -785,11 +722,7 @@ class Document(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.document_type is not None and not isinstance(self.document_type, EnumCCDHDocumentDocumentType):
             self.document_type = EnumCCDHDocumentDocumentType(self.document_type)
@@ -800,8 +733,6 @@ class Document(Entity):
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
 
-        if self.url is None:
-            self.url = []
         if not isinstance(self.url, list):
             self.url = [self.url]
         self.url = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.url]
@@ -832,12 +763,12 @@ class EnvironmentalExposureObservation(Entity):
     performed_by: Optional[Union[dict, "Organization"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHEnvironmentalExposureObservationObservationType):
             self.observation_type = EnumCCDHEnvironmentalExposureObservationObservationType(self.observation_type)
 
-        if self.valueCodeableConcept is None:
+        if self._is_empty(self.valueCodeableConcept):
             raise ValueError("valueCodeableConcept must be supplied")
         if not isinstance(self.valueCodeableConcept, EnumCCDHEnvironmentalExposureObservationValueCodeableConcept):
             self.valueCodeableConcept = EnumCCDHEnvironmentalExposureObservationValueCodeableConcept(self.valueCodeableConcept)
@@ -889,12 +820,12 @@ class ExecutionTimeObservation(Entity):
     performed_by: Optional[Union[dict, "Organization"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHExecutionTimeObservationObservationType):
             self.observation_type = EnumCCDHExecutionTimeObservationObservationType(self.observation_type)
 
-        if self.valueQuantity is None:
+        if self._is_empty(self.valueQuantity):
             raise ValueError("valueQuantity must be supplied")
         if not isinstance(self.valueQuantity, Quantity):
             self.valueQuantity = Quantity(**self.valueQuantity)
@@ -946,12 +877,12 @@ class ExecutionConditionObservation(Entity):
     performed_by: Optional[Union[dict, "Organization"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHExecutionConditionObservationObservationType):
             self.observation_type = EnumCCDHExecutionConditionObservationObservationType(self.observation_type)
 
-        if self.valueCodeableConcept is None:
+        if self._is_empty(self.valueCodeableConcept):
             raise ValueError("valueCodeableConcept must be supplied")
         if not isinstance(self.valueCodeableConcept, EnumCCDHExecutionConditionObservationValueCodeableConcept):
             self.valueCodeableConcept = EnumCCDHExecutionConditionObservationValueCodeableConcept(self.valueCodeableConcept)
@@ -998,34 +929,18 @@ class Exposure(Entity):
     subject: Optional[Union[dict, "Subject"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
+        if self._is_empty(self.id):
             raise ValueError("id must be supplied")
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.tobacco_exposure is None:
-            self.tobacco_exposure = []
-        if not isinstance(self.tobacco_exposure, list):
-            self.tobacco_exposure = [self.tobacco_exposure]
-        self._normalize_inlined_slot(slot_name="tobacco_exposure", slot_type=TobaccoExposureObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="tobacco_exposure", slot_type=TobaccoExposureObservation, key_name="observation_type", keyed=False)
 
-        if self.alcohol_exposure is None:
-            self.alcohol_exposure = []
-        if not isinstance(self.alcohol_exposure, list):
-            self.alcohol_exposure = [self.alcohol_exposure]
-        self._normalize_inlined_slot(slot_name="alcohol_exposure", slot_type=AlcoholExposureObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="alcohol_exposure", slot_type=AlcoholExposureObservation, key_name="observation_type", keyed=False)
 
-        if self.environmental_exposure is None:
-            self.environmental_exposure = []
-        if not isinstance(self.environmental_exposure, list):
-            self.environmental_exposure = [self.environmental_exposure]
-        self._normalize_inlined_slot(slot_name="environmental_exposure", slot_type=EnvironmentalExposureObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="environmental_exposure", slot_type=EnvironmentalExposureObservation, key_name="observation_type", keyed=False)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**self.subject)
@@ -1057,12 +972,12 @@ class HistologicalCompositionObservation(Entity):
     performed_by: Optional[Union[dict, "Organization"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHHistologicalCompositionObservationObservationType):
             self.observation_type = EnumCCDHHistologicalCompositionObservationObservationType(self.observation_type)
 
-        if self.valueQuantity is None:
+        if self._is_empty(self.valueQuantity):
             raise ValueError("valueQuantity must be supplied")
         if not isinstance(self.valueQuantity, Quantity):
             self.valueQuantity = Quantity(**self.valueQuantity)
@@ -1073,14 +988,10 @@ class HistologicalCompositionObservation(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHHistologicalCompositionObservationCategory):
             self.category = EnumCCDHHistologicalCompositionObservationCategory(self.category)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHHistologicalCompositionObservationMethodType) else EnumCCDHHistologicalCompositionObservationMethodType(v) for v in self.method_type]
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -1117,18 +1028,16 @@ class HistologicalCompositionObservationSet(Entity):
     observations: Optional[Union[Union[dict, HistologicalCompositionObservation], List[Union[dict, HistologicalCompositionObservation]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
+        if self._is_empty(self.id):
             raise ValueError("id must be supplied")
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.category is None:
+        if self._is_empty(self.category):
             raise ValueError("category must be supplied")
         if not isinstance(self.category, EnumCCDHHistologicalCompositionObservationSetCategory):
             self.category = EnumCCDHHistologicalCompositionObservationSetCategory(self.category)
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -1136,8 +1045,6 @@ class HistologicalCompositionObservationSet(Entity):
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**self.subject)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHHistologicalCompositionObservationSetMethodType) else EnumCCDHHistologicalCompositionObservationSetMethodType(v) for v in self.method_type]
@@ -1145,11 +1052,7 @@ class HistologicalCompositionObservationSet(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**self.performed_by)
 
-        if self.observations is None:
-            self.observations = []
-        if not isinstance(self.observations, list):
-            self.observations = [self.observations]
-        self._normalize_inlined_slot(slot_name="observations", slot_type=HistologicalCompositionObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="observations", slot_type=HistologicalCompositionObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1171,7 +1074,7 @@ class Identifier(Entity):
     type: Optional[Union[str, "EnumCCDHIdentifierType"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.value is None:
+        if self._is_empty(self.value):
             raise ValueError("value must be supplied")
         if not isinstance(self.value, CcdhString):
             self.value = CcdhString(self.value)
@@ -1215,7 +1118,7 @@ class Observation(Entity):
     valueCodeableConcept: Optional[Union[str, "EnumCCDHObservationValueCodeableConcept"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHObservationObservationType):
             self.observation_type = EnumCCDHObservationObservationType(self.observation_type)
@@ -1226,14 +1129,10 @@ class Observation(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHObservationCategory):
             self.category = EnumCCDHObservationCategory(self.category)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHObservationMethodType) else EnumCCDHObservationMethodType(v) for v in self.method_type]
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -1293,18 +1192,16 @@ class ObservationSet(Entity):
     observations: Optional[Union[Union[dict, Observation], List[Union[dict, Observation]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
+        if self._is_empty(self.id):
             raise ValueError("id must be supplied")
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.category is None:
+        if self._is_empty(self.category):
             raise ValueError("category must be supplied")
         if not isinstance(self.category, EnumCCDHObservationSetCategory):
             self.category = EnumCCDHObservationSetCategory(self.category)
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -1312,8 +1209,6 @@ class ObservationSet(Entity):
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**self.subject)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHObservationSetMethodType) else EnumCCDHObservationSetMethodType(v) for v in self.method_type]
@@ -1321,11 +1216,7 @@ class ObservationSet(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**self.performed_by)
 
-        if self.observations is None:
-            self.observations = []
-        if not isinstance(self.observations, list):
-            self.observations = [self.observations]
-        self._normalize_inlined_slot(slot_name="observations", slot_type=Observation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="observations", slot_type=Observation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1350,16 +1241,12 @@ class Organization(Entity):
     organization_type: Optional[Union[str, CcdhString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
+        if self._is_empty(self.id):
             raise ValueError("id must be supplied")
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.name is not None and not isinstance(self.name, CcdhString):
             self.name = CcdhString(self.name)
@@ -1436,7 +1323,7 @@ class ResearchProject(Entity):
     associated_timepoint: Optional[Union[Union[dict, "TimePoint"], List[Union[dict, "TimePoint"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.research_project_type is None:
+        if self._is_empty(self.research_project_type):
             raise ValueError("research_project_type must be supplied")
         if not isinstance(self.research_project_type, EnumCCDHResearchProjectResearchProjectType):
             self.research_project_type = EnumCCDHResearchProjectResearchProjectType(self.research_project_type)
@@ -1444,11 +1331,7 @@ class ResearchProject(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.name is not None and not isinstance(self.name, CcdhString):
             self.name = CcdhString(self.name)
@@ -1462,8 +1345,6 @@ class ResearchProject(Entity):
         if self.description_shortened is not None and not isinstance(self.description_shortened, CcdhString):
             self.description_shortened = CcdhString(self.description_shortened)
 
-        if self.sponsor is None:
-            self.sponsor = []
         if not isinstance(self.sponsor, list):
             self.sponsor = [self.sponsor]
         self.sponsor = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.sponsor]
@@ -1474,26 +1355,14 @@ class ResearchProject(Entity):
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
             self.date_ended = TimePoint(**self.date_ended)
 
-        if self.primary_anatomic_site is None:
-            self.primary_anatomic_site = []
-        if not isinstance(self.primary_anatomic_site, list):
-            self.primary_anatomic_site = [self.primary_anatomic_site]
-        self._normalize_inlined_slot(slot_name="primary_anatomic_site", slot_type=BodySite, key_name="site", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="primary_anatomic_site", slot_type=BodySite, key_name="site", keyed=False)
 
-        if self.url is None:
-            self.url = []
         if not isinstance(self.url, list):
             self.url = [self.url]
         self.url = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.url]
 
-        if self.part_of is None:
-            self.part_of = []
-        if not isinstance(self.part_of, list):
-            self.part_of = [self.part_of]
-        self._normalize_inlined_slot(slot_name="part_of", slot_type=ResearchProject, key_name="research_project_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="part_of", slot_type=ResearchProject, key_name="research_project_type", keyed=False)
 
-        if self.associated_timepoint is None:
-            self.associated_timepoint = []
         if not isinstance(self.associated_timepoint, list):
             self.associated_timepoint = [self.associated_timepoint]
         self.associated_timepoint = [v if isinstance(v, TimePoint) else TimePoint(**v) for v in self.associated_timepoint]
@@ -1530,21 +1399,17 @@ class ResearchSubject(Entity):
     originating_site: Optional[Union[dict, Organization]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
+        if self._is_empty(self.id):
             raise ValueError("id must be supplied")
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.associated_subject is None:
+        if self._is_empty(self.associated_subject):
             raise ValueError("associated_subject must be supplied")
         if not isinstance(self.associated_subject, Subject):
             self.associated_subject = Subject(**self.associated_subject)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.description is not None and not isinstance(self.description, CcdhString):
             self.description = CcdhString(self.description)
@@ -1561,14 +1426,10 @@ class ResearchSubject(Entity):
         if self.primary_diagnosis_site is not None and not isinstance(self.primary_diagnosis_site, BodySite):
             self.primary_diagnosis_site = BodySite(**self.primary_diagnosis_site)
 
-        if self.primary_diagnosis is None:
-            self.primary_diagnosis = []
         if not isinstance(self.primary_diagnosis, list):
             self.primary_diagnosis = [self.primary_diagnosis]
         self.primary_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.primary_diagnosis]
 
-        if self.comorbid_diagnosis is None:
-            self.comorbid_diagnosis = []
         if not isinstance(self.comorbid_diagnosis, list):
             self.comorbid_diagnosis = [self.comorbid_diagnosis]
         self.comorbid_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.comorbid_diagnosis]
@@ -1633,11 +1494,7 @@ class Specimen(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.description is not None and not isinstance(self.description, CcdhString):
             self.description = CcdhString(self.description)
@@ -1657,8 +1514,6 @@ class Specimen(Entity):
         if self.source_material_type is not None and not isinstance(self.source_material_type, EnumCCDHSpecimenSourceMaterialType):
             self.source_material_type = EnumCCDHSpecimenSourceMaterialType(self.source_material_type)
 
-        if self.parent_specimen is None:
-            self.parent_specimen = []
         if not isinstance(self.parent_specimen, list):
             self.parent_specimen = [self.parent_specimen]
         self.parent_specimen = [v if isinstance(v, Specimen) else Specimen(**v) for v in self.parent_specimen]
@@ -1672,20 +1527,14 @@ class Specimen(Entity):
         if self.creation_activity is not None and not isinstance(self.creation_activity, SpecimenCreationActivity):
             self.creation_activity = SpecimenCreationActivity(**self.creation_activity)
 
-        if self.processing_activity is None:
-            self.processing_activity = []
         if not isinstance(self.processing_activity, list):
             self.processing_activity = [self.processing_activity]
         self.processing_activity = [v if isinstance(v, SpecimenProcessingActivity) else SpecimenProcessingActivity(**v) for v in self.processing_activity]
 
-        if self.storage_activity is None:
-            self.storage_activity = []
         if not isinstance(self.storage_activity, list):
             self.storage_activity = [self.storage_activity]
         self.storage_activity = [v if isinstance(v, SpecimenStorageActivity) else SpecimenStorageActivity(**v) for v in self.storage_activity]
 
-        if self.transport_activity is None:
-            self.transport_activity = []
         if not isinstance(self.transport_activity, list):
             self.transport_activity = [self.transport_activity]
         self.transport_activity = [v if isinstance(v, SpecimenTransportActivity) else SpecimenTransportActivity(**v) for v in self.transport_activity]
@@ -1696,26 +1545,14 @@ class Specimen(Entity):
         if self.dimensional_measures is not None and not isinstance(self.dimensional_measures, DimensionalObservationSet):
             self.dimensional_measures = DimensionalObservationSet(**self.dimensional_measures)
 
-        if self.quantity_measure is None:
-            self.quantity_measure = []
-        if not isinstance(self.quantity_measure, list):
-            self.quantity_measure = [self.quantity_measure]
-        self._normalize_inlined_slot(slot_name="quantity_measure", slot_type=SpecimenQuantityObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="quantity_measure", slot_type=SpecimenQuantityObservation, key_name="observation_type", keyed=False)
 
-        if self.quality_measure is None:
-            self.quality_measure = []
-        if not isinstance(self.quality_measure, list):
-            self.quality_measure = [self.quality_measure]
-        self._normalize_inlined_slot(slot_name="quality_measure", slot_type=SpecimenQualityObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="quality_measure", slot_type=SpecimenQualityObservation, key_name="observation_type", keyed=False)
 
         if self.cellular_composition_type is not None and not isinstance(self.cellular_composition_type, EnumCCDHSpecimenCellularCompositionType):
             self.cellular_composition_type = EnumCCDHSpecimenCellularCompositionType(self.cellular_composition_type)
 
-        if self.histological_composition_measures is None:
-            self.histological_composition_measures = []
-        if not isinstance(self.histological_composition_measures, list):
-            self.histological_composition_measures = [self.histological_composition_measures]
-        self._normalize_inlined_slot(slot_name="histological_composition_measures", slot_type=HistologicalCompositionObservationSet, key_name="id", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="histological_composition_measures", slot_type=HistologicalCompositionObservationSet, key_name="id", keyed=False)
 
         if self.general_tissue_morphology is not None and not isinstance(self.general_tissue_morphology, EnumCCDHSpecimenGeneralTissueMorphology):
             self.general_tissue_morphology = EnumCCDHSpecimenGeneralTissueMorphology(self.general_tissue_morphology)
@@ -1741,8 +1578,6 @@ class Specimen(Entity):
         if self.dysplasia_fraction is not None and not isinstance(self.dysplasia_fraction, CcdhString):
             self.dysplasia_fraction = CcdhString(self.dysplasia_fraction)
 
-        if self.related_document is None:
-            self.related_document = []
         if not isinstance(self.related_document, list):
             self.related_document = [self.related_document]
         self.related_document = [v if isinstance(v, Document) else Document(**v) for v in self.related_document]
@@ -1750,8 +1585,6 @@ class Specimen(Entity):
         if self.section_location is not None and not isinstance(self.section_location, EnumCCDHSpecimenSectionLocation):
             self.section_location = EnumCCDHSpecimenSectionLocation(self.section_location)
 
-        if self.derived_product is None:
-            self.derived_product = []
         if not isinstance(self.derived_product, list):
             self.derived_product = [self.derived_product]
         self.derived_product = [v if isinstance(v, BiologicProduct) else BiologicProduct(**v) for v in self.derived_product]
@@ -1786,11 +1619,7 @@ class SpecimenContainer(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.container_type is not None and not isinstance(self.container_type, EnumCCDHSpecimenContainerContainerType):
             self.container_type = EnumCCDHSpecimenContainerContainerType(self.container_type)
@@ -1798,8 +1627,6 @@ class SpecimenContainer(Entity):
         if self.container_number is not None and not isinstance(self.container_number, CcdhString):
             self.container_number = CcdhString(self.container_number)
 
-        if self.additive is None:
-            self.additive = []
         if not isinstance(self.additive, list):
             self.additive = [self.additive]
         self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
@@ -1855,8 +1682,6 @@ class SpecimenCreationActivity(Entity):
         if self.derivation_method_type is not None and not isinstance(self.derivation_method_type, EnumCCDHSpecimenCreationActivityDerivationMethodType):
             self.derivation_method_type = EnumCCDHSpecimenCreationActivityDerivationMethodType(self.derivation_method_type)
 
-        if self.additive is None:
-            self.additive = []
         if not isinstance(self.additive, list):
             self.additive = [self.additive]
         self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
@@ -1867,17 +1692,9 @@ class SpecimenCreationActivity(Entity):
         if self.quantity_collected is not None and not isinstance(self.quantity_collected, Quantity):
             self.quantity_collected = Quantity(**self.quantity_collected)
 
-        if self.execution_time_observation is None:
-            self.execution_time_observation = []
-        if not isinstance(self.execution_time_observation, list):
-            self.execution_time_observation = [self.execution_time_observation]
-        self._normalize_inlined_slot(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
 
-        if self.execution_condition_observation is None:
-            self.execution_condition_observation = []
-        if not isinstance(self.execution_condition_observation, list):
-            self.execution_condition_observation = [self.execution_condition_observation]
-        self._normalize_inlined_slot(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
         if self.specimen_order is not None and not isinstance(self.specimen_order, CcdhInteger):
             self.specimen_order = CcdhInteger(self.specimen_order)
@@ -1908,12 +1725,12 @@ class SpecimenQualityObservation(Entity):
     performed_by: Optional[Union[dict, Organization]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHSpecimenQualityObservationObservationType):
             self.observation_type = EnumCCDHSpecimenQualityObservationObservationType(self.observation_type)
 
-        if self.valueQuantity is None:
+        if self._is_empty(self.valueQuantity):
             raise ValueError("valueQuantity must be supplied")
         if not isinstance(self.valueQuantity, Quantity):
             self.valueQuantity = Quantity(**self.valueQuantity)
@@ -1924,14 +1741,10 @@ class SpecimenQualityObservation(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHSpecimenQualityObservationCategory):
             self.category = EnumCCDHSpecimenQualityObservationCategory(self.category)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHSpecimenQualityObservationMethodType) else EnumCCDHSpecimenQualityObservationMethodType(v) for v in self.method_type]
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -1968,12 +1781,12 @@ class SpecimenQuantityObservation(Entity):
     performed_by: Optional[Union[dict, Organization]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHSpecimenQuantityObservationObservationType):
             self.observation_type = EnumCCDHSpecimenQuantityObservationObservationType(self.observation_type)
 
-        if self.valueQuantity is None:
+        if self._is_empty(self.valueQuantity):
             raise ValueError("valueQuantity must be supplied")
         if not isinstance(self.valueQuantity, Quantity):
             self.valueQuantity = Quantity(**self.valueQuantity)
@@ -1984,14 +1797,10 @@ class SpecimenQuantityObservation(Entity):
         if self.category is not None and not isinstance(self.category, EnumCCDHSpecimenQuantityObservationCategory):
             self.category = EnumCCDHSpecimenQuantityObservationCategory(self.category)
 
-        if self.method_type is None:
-            self.method_type = []
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type]
         self.method_type = [v if isinstance(v, EnumCCDHSpecimenQuantityObservationMethodType) else EnumCCDHSpecimenQuantityObservationMethodType(v) for v in self.method_type]
 
-        if self.focus is None:
-            self.focus = []
         if not isinstance(self.focus, list):
             self.focus = [self.focus]
         self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
@@ -2039,8 +1848,6 @@ class SpecimenProcessingActivity(Entity):
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
             self.date_ended = TimePoint(**self.date_ended)
 
-        if self.duration is None:
-            self.duration = []
         if not isinstance(self.duration, list):
             self.duration = [self.duration]
         self.duration = [v if isinstance(v, Quantity) else Quantity(**v) for v in self.duration]
@@ -2051,23 +1858,13 @@ class SpecimenProcessingActivity(Entity):
         if self.method_type is not None and not isinstance(self.method_type, EnumCCDHSpecimenProcessingActivityMethodType):
             self.method_type = EnumCCDHSpecimenProcessingActivityMethodType(self.method_type)
 
-        if self.additive is None:
-            self.additive = []
         if not isinstance(self.additive, list):
             self.additive = [self.additive]
         self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
 
-        if self.execution_time_observation is None:
-            self.execution_time_observation = []
-        if not isinstance(self.execution_time_observation, list):
-            self.execution_time_observation = [self.execution_time_observation]
-        self._normalize_inlined_slot(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
 
-        if self.execution_condition_observation is None:
-            self.execution_condition_observation = []
-        if not isinstance(self.execution_condition_observation, list):
-            self.execution_condition_observation = [self.execution_condition_observation]
-        self._normalize_inlined_slot(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -2109,8 +1906,6 @@ class SpecimenStorageActivity(Entity):
         if self.method_type is not None and not isinstance(self.method_type, EnumCCDHSpecimenStorageActivityMethodType):
             self.method_type = EnumCCDHSpecimenStorageActivityMethodType(self.method_type)
 
-        if self.container is None:
-            self.container = []
         if not isinstance(self.container, list):
             self.container = [self.container]
         self.container = [v if isinstance(v, SpecimenContainer) else SpecimenContainer(**v) for v in self.container]
@@ -2145,8 +1940,6 @@ class SpecimenTransportActivity(Entity):
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
             self.date_ended = TimePoint(**self.date_ended)
 
-        if self.duration is None:
-            self.duration = []
         if not isinstance(self.duration, list):
             self.duration = [self.duration]
         self.duration = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.duration]
@@ -2160,11 +1953,7 @@ class SpecimenTransportActivity(Entity):
         if self.transport_destination is not None and not isinstance(self.transport_destination, Organization):
             self.transport_destination = Organization(**self.transport_destination)
 
-        if self.execution_condition_observation is None:
-            self.execution_condition_observation = []
-        if not isinstance(self.execution_condition_observation, list):
-            self.execution_condition_observation = [self.execution_condition_observation]
-        self._normalize_inlined_slot(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -2196,16 +1985,12 @@ class Subject(Entity):
     cause_of_death: Optional[Union[str, "EnumCCDHSubjectCauseOfDeath"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is None:
+        if self._is_empty(self.id):
             raise ValueError("id must be supplied")
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.species is not None and not isinstance(self.species, EnumCCDHSubjectSpecies):
             self.species = EnumCCDHSubjectSpecies(self.species)
@@ -2219,8 +2004,6 @@ class Subject(Entity):
         if self.ethnicity is not None and not isinstance(self.ethnicity, EnumCCDHSubjectEthnicity):
             self.ethnicity = EnumCCDHSubjectEthnicity(self.ethnicity)
 
-        if self.race is None:
-            self.race = []
         if not isinstance(self.race, list):
             self.race = [self.race]
         self.race = [v if isinstance(v, EnumCCDHSubjectRace) else EnumCCDHSubjectRace(v) for v in self.race]
@@ -2264,8 +2047,6 @@ class Substance(Entity):
         if self.substance_type is not None and not isinstance(self.substance_type, EnumCCDHSubstanceSubstanceType):
             self.substance_type = EnumCCDHSubstanceSubstanceType(self.substance_type)
 
-        if self.role is None:
-            self.role = []
         if not isinstance(self.role, list):
             self.role = [self.role]
         self.role = [v if isinstance(v, EnumCCDHSubstanceRole) else EnumCCDHSubstanceRole(v) for v in self.role]
@@ -2308,8 +2089,6 @@ class TimePoint(Entity):
         if self.offsetFromIndex is not None and not isinstance(self.offsetFromIndex, Quantity):
             self.offsetFromIndex = Quantity(**self.offsetFromIndex)
 
-        if self.eventType is None:
-            self.eventType = []
         if not isinstance(self.eventType, list):
             self.eventType = [self.eventType]
         self.eventType = [v if isinstance(v, EnumCCDHTimePointEventType) else EnumCCDHTimePointEventType(v) for v in self.eventType]
@@ -2366,7 +2145,7 @@ class TobaccoExposureObservation(Entity):
     valueCodeableConcept: Optional[Union[str, "EnumCCDHTobaccoExposureObservationValueCodeableConcept"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.observation_type is None:
+        if self._is_empty(self.observation_type):
             raise ValueError("observation_type must be supplied")
         if not isinstance(self.observation_type, EnumCCDHTobaccoExposureObservationObservationType):
             self.observation_type = EnumCCDHTobaccoExposureObservationObservationType(self.observation_type)
@@ -2432,20 +2211,12 @@ class Treatment(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        if self.identifier is None:
-            self.identifier = []
-        if not isinstance(self.identifier, list):
-            self.identifier = [self.identifier]
-        self._normalize_inlined_slot(slot_name="identifier", slot_type=Identifier, key_name="value", inlined_as_list=True, keyed=False)
+        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.treatment_for_diagnosis is None:
-            self.treatment_for_diagnosis = []
         if not isinstance(self.treatment_for_diagnosis, list):
             self.treatment_for_diagnosis = [self.treatment_for_diagnosis]
         self.treatment_for_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.treatment_for_diagnosis]
 
-        if self.concurrent_treatment is None:
-            self.concurrent_treatment = []
         if not isinstance(self.concurrent_treatment, list):
             self.concurrent_treatment = [self.concurrent_treatment]
         self.concurrent_treatment = [v if isinstance(v, Treatment) else Treatment(**v) for v in self.concurrent_treatment]
@@ -2462,8 +2233,6 @@ class Treatment(Entity):
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
             self.date_ended = TimePoint(**self.date_ended)
 
-        if self.treatment_end_reason is None:
-            self.treatment_end_reason = []
         if not isinstance(self.treatment_end_reason, list):
             self.treatment_end_reason = [self.treatment_end_reason]
         self.treatment_end_reason = [v if isinstance(v, EnumCCDHTreatmentTreatmentEndReason) else EnumCCDHTreatmentTreatmentEndReason(v) for v in self.treatment_end_reason]
@@ -2504,7 +2273,7 @@ class EnumCCDHAlcoholExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHAlcoholExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:34.657367+00:00",
+        code_set_version="2021-06-09T19:18:20.680119+00:00",
     )
 
 class EnumCCDHAlcoholExposureObservationObservationType(EnumDefinitionImpl):
@@ -2533,7 +2302,7 @@ class EnumCCDHAlcoholExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHAlcoholExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:34.994186+00:00",
+        code_set_version="2021-06-09T19:18:21.445810+00:00",
     )
 
 class EnumCCDHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -2551,7 +2320,7 @@ class EnumCCDHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl)
         name="EnumCCDHAlcoholExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:35.145050+00:00",
+        code_set_version="2021-06-09T19:18:21.665606+00:00",
     )
 
     @classmethod
@@ -2885,7 +2654,7 @@ class EnumCCDHBodySiteSite(EnumDefinitionImpl):
         name="EnumCCDHBodySiteSite",
         description="Autogenerated Enumeration for CRDC-H BodySite site",
         code_set=None,
-        code_set_version="2021-06-08T21:46:35.307181+00:00",
+        code_set_version="2021-06-09T19:18:21.953319+00:00",
     )
 
     @classmethod
@@ -3909,7 +3678,7 @@ class EnumCCDHBodySiteQualifier(EnumDefinitionImpl):
         name="EnumCCDHBodySiteQualifier",
         description="Autogenerated Enumeration for CRDC-H BodySite qualifier",
         code_set=None,
-        code_set_version="2021-06-08T21:46:35.970279+00:00",
+        code_set_version="2021-06-09T19:18:22.883599+00:00",
     )
 
     @classmethod
@@ -3925,7 +3694,7 @@ class EnumCCDHBiologicProductProductType(EnumDefinitionImpl):
         name="EnumCCDHBiologicProductProductType",
         description="Autogenerated Enumeration for CRDC-H BiologicProduct product_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:36.125883+00:00",
+        code_set_version="2021-06-09T19:18:23.162527+00:00",
     )
 
 class EnumCCDHCancerGradeObservationCategory(EnumDefinitionImpl):
@@ -3936,7 +3705,7 @@ class EnumCCDHCancerGradeObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:36.275105+00:00",
+        code_set_version="2021-06-09T19:18:23.403830+00:00",
     )
 
 class EnumCCDHCancerGradeObservationObservationType(EnumDefinitionImpl):
@@ -3968,7 +3737,7 @@ class EnumCCDHCancerGradeObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:36.568736+00:00",
+        code_set_version="2021-06-09T19:18:23.981269+00:00",
     )
 
 class EnumCCDHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -3997,7 +3766,7 @@ class EnumCCDHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:36.725365+00:00",
+        code_set_version="2021-06-09T19:18:24.313695+00:00",
     )
 
     @classmethod
@@ -4061,7 +3830,7 @@ class EnumCCDHCancerGradeObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservationSet category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:36.909181+00:00",
+        code_set_version="2021-06-09T19:18:24.716842+00:00",
     )
 
 class EnumCCDHCancerGradeObservationSetMethodType(EnumDefinitionImpl):
@@ -4093,7 +3862,7 @@ class EnumCCDHCancerStageObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:37.208984+00:00",
+        code_set_version="2021-06-09T19:18:25.148075+00:00",
     )
 
 class EnumCCDHCancerStageObservationObservationType(EnumDefinitionImpl):
@@ -4155,7 +3924,7 @@ class EnumCCDHCancerStageObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:37.506605+00:00",
+        code_set_version="2021-06-09T19:18:25.648996+00:00",
     )
 
 class EnumCCDHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -4304,7 +4073,7 @@ class EnumCCDHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:37.645523+00:00",
+        code_set_version="2021-06-09T19:18:25.810475+00:00",
     )
 
     @classmethod
@@ -4543,7 +4312,7 @@ class EnumCCDHCancerStageObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservationSet category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:37.994626+00:00",
+        code_set_version="2021-06-09T19:18:26.194390+00:00",
     )
 
 class EnumCCDHCancerStageObservationSetMethodType(EnumDefinitionImpl):
@@ -4805,7 +4574,7 @@ class EnumCCDHDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H Diagnosis condition",
         code_set=None,
-        code_set_version="2021-06-08T21:46:38.301321+00:00",
+        code_set_version="2021-06-09T19:18:26.736812+00:00",
     )
 
     @classmethod
@@ -9766,7 +9535,7 @@ class EnumCCDHDiagnosisMorphology(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisMorphology",
         description="Autogenerated Enumeration for CRDC-H Diagnosis morphology",
         code_set=None,
-        code_set_version="2021-06-08T21:46:40.368732+00:00",
+        code_set_version="2021-06-09T19:18:29.026286+00:00",
     )
 
     @classmethod
@@ -12076,7 +11845,7 @@ class EnumCCDHDiagnosisDiseaseStatus(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisDiseaseStatus",
         description="Autogenerated Enumeration for CRDC-H Diagnosis disease_status",
         code_set=None,
-        code_set_version="2021-06-08T21:46:41.301442+00:00",
+        code_set_version="2021-06-09T19:18:30.011424+00:00",
     )
 
     @classmethod
@@ -12125,7 +11894,7 @@ class EnumCCDHDiagnosisMethodOfDiagnosis(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisMethodOfDiagnosis",
         description="Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis",
         code_set=None,
-        code_set_version="2021-06-08T21:46:41.452895+00:00",
+        code_set_version="2021-06-09T19:18:30.342077+00:00",
     )
 
     @classmethod
@@ -12183,7 +11952,7 @@ class EnumCCDHDimensionalObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:41.627216+00:00",
+        code_set_version="2021-06-09T19:18:30.596468+00:00",
     )
 
 class EnumCCDHDimensionalObservationObservationType(EnumDefinitionImpl):
@@ -12216,7 +11985,7 @@ class EnumCCDHDimensionalObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:41.940395+00:00",
+        code_set_version="2021-06-09T19:18:31.225714+00:00",
     )
 
 class EnumCCDHDimensionalObservationSetCategory(EnumDefinitionImpl):
@@ -12227,7 +11996,7 @@ class EnumCCDHDimensionalObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:42.100430+00:00",
+        code_set_version="2021-06-09T19:18:31.380818+00:00",
     )
 
 class EnumCCDHDimensionalObservationSetMethodType(EnumDefinitionImpl):
@@ -12238,7 +12007,7 @@ class EnumCCDHDimensionalObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:42.250179+00:00",
+        code_set_version="2021-06-09T19:18:31.537277+00:00",
     )
 
 class EnumCCDHDocumentDocumentType(EnumDefinitionImpl):
@@ -12267,7 +12036,7 @@ class EnumCCDHEnvironmentalExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHEnvironmentalExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:42.559897+00:00",
+        code_set_version="2021-06-09T19:18:32.146566+00:00",
     )
 
 class EnumCCDHEnvironmentalExposureObservationObservationType(EnumDefinitionImpl):
@@ -12298,7 +12067,7 @@ class EnumCCDHEnvironmentalExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHEnvironmentalExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:42.852526+00:00",
+        code_set_version="2021-06-09T19:18:32.687234+00:00",
     )
 
 class EnumCCDHEnvironmentalExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -12314,7 +12083,7 @@ class EnumCCDHEnvironmentalExposureObservationValueCodeableConcept(EnumDefinitio
         name="EnumCCDHEnvironmentalExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:43.004683+00:00",
+        code_set_version="2021-06-09T19:18:32.958975+00:00",
     )
 
     @classmethod
@@ -12428,7 +12197,7 @@ class EnumCCDHExecutionTimeObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHExecutionTimeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:43.196994+00:00",
+        code_set_version="2021-06-09T19:18:33.248536+00:00",
     )
 
 class EnumCCDHExecutionTimeObservationObservationType(EnumDefinitionImpl):
@@ -12439,7 +12208,7 @@ class EnumCCDHExecutionTimeObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHExecutionTimeObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation observation_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:43.356223+00:00",
+        code_set_version="2021-06-09T19:18:33.616058+00:00",
     )
 
 class EnumCCDHExecutionTimeObservationMethodType(EnumDefinitionImpl):
@@ -12450,7 +12219,7 @@ class EnumCCDHExecutionTimeObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHExecutionTimeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:43.501758+00:00",
+        code_set_version="2021-06-09T19:18:33.935938+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationCategory(EnumDefinitionImpl):
@@ -12461,7 +12230,7 @@ class EnumCCDHExecutionConditionObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHExecutionConditionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:43.653697+00:00",
+        code_set_version="2021-06-09T19:18:34.100345+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationObservationType(EnumDefinitionImpl):
@@ -12472,7 +12241,7 @@ class EnumCCDHExecutionConditionObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHExecutionConditionObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation observation_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:43.802685+00:00",
+        code_set_version="2021-06-09T19:18:34.316985+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationMethodType(EnumDefinitionImpl):
@@ -12483,7 +12252,7 @@ class EnumCCDHExecutionConditionObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHExecutionConditionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:43.946324+00:00",
+        code_set_version="2021-06-09T19:18:34.561592+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -12494,7 +12263,7 @@ class EnumCCDHExecutionConditionObservationValueCodeableConcept(EnumDefinitionIm
         name="EnumCCDHExecutionConditionObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:44.091888+00:00",
+        code_set_version="2021-06-09T19:18:34.830821+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
@@ -12505,7 +12274,7 @@ class EnumCCDHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHHistologicalCompositionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:44.248760+00:00",
+        code_set_version="2021-06-09T19:18:35.090866+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationObservationType(EnumDefinitionImpl):
@@ -12567,7 +12336,7 @@ class EnumCCDHHistologicalCompositionObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHHistologicalCompositionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:44.554661+00:00",
+        code_set_version="2021-06-09T19:18:35.557910+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl):
@@ -12578,7 +12347,7 @@ class EnumCCDHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHHistologicalCompositionObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:44.698914+00:00",
+        code_set_version="2021-06-09T19:18:35.893504+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationSetMethodType(EnumDefinitionImpl):
@@ -12589,7 +12358,7 @@ class EnumCCDHHistologicalCompositionObservationSetMethodType(EnumDefinitionImpl
         name="EnumCCDHHistologicalCompositionObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:44.844591+00:00",
+        code_set_version="2021-06-09T19:18:36.114328+00:00",
     )
 
 class EnumCCDHIdentifierType(EnumDefinitionImpl):
@@ -12600,7 +12369,7 @@ class EnumCCDHIdentifierType(EnumDefinitionImpl):
         name="EnumCCDHIdentifierType",
         description="Autogenerated Enumeration for CRDC-H Identifier type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:44.993350+00:00",
+        code_set_version="2021-06-09T19:18:36.546079+00:00",
     )
 
 class EnumCCDHObservationCategory(EnumDefinitionImpl):
@@ -12611,7 +12380,7 @@ class EnumCCDHObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHObservationCategory",
         description="Autogenerated Enumeration for CRDC-H Observation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:45.143553+00:00",
+        code_set_version="2021-06-09T19:18:36.816945+00:00",
     )
 
 class EnumCCDHObservationObservationType(EnumDefinitionImpl):
@@ -12622,7 +12391,7 @@ class EnumCCDHObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H Observation observation_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:45.290945+00:00",
+        code_set_version="2021-06-09T19:18:37.099469+00:00",
     )
 
 class EnumCCDHObservationMethodType(EnumDefinitionImpl):
@@ -12633,7 +12402,7 @@ class EnumCCDHObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H Observation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:45.438145+00:00",
+        code_set_version="2021-06-09T19:18:37.324144+00:00",
     )
 
 class EnumCCDHObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -12644,7 +12413,7 @@ class EnumCCDHObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Observation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:45.590905+00:00",
+        code_set_version="2021-06-09T19:18:37.585373+00:00",
     )
 
 class EnumCCDHObservationSetCategory(EnumDefinitionImpl):
@@ -12655,7 +12424,7 @@ class EnumCCDHObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H ObservationSet category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:45.742459+00:00",
+        code_set_version="2021-06-09T19:18:37.876178+00:00",
     )
 
 class EnumCCDHObservationSetMethodType(EnumDefinitionImpl):
@@ -12666,7 +12435,7 @@ class EnumCCDHObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCCDHObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H ObservationSet method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:45.901383+00:00",
+        code_set_version="2021-06-09T19:18:38.108081+00:00",
     )
 
 class EnumCCDHQuantityValueCodeableConcept(EnumDefinitionImpl):
@@ -12680,7 +12449,7 @@ class EnumCCDHQuantityValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHQuantityValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:46.052607+00:00",
+        code_set_version="2021-06-09T19:18:38.416078+00:00",
     )
 
     @classmethod
@@ -12703,7 +12472,7 @@ class EnumCCDHQuantityUnit(EnumDefinitionImpl):
         name="EnumCCDHQuantityUnit",
         description="Autogenerated Enumeration for CRDC-H Quantity unit",
         code_set=None,
-        code_set_version="2021-06-08T21:46:46.203685+00:00",
+        code_set_version="2021-06-09T19:18:38.589606+00:00",
     )
 
 class EnumCCDHResearchProjectResearchProjectType(EnumDefinitionImpl):
@@ -12751,7 +12520,7 @@ class EnumCCDHResearchSubjectPrimaryDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCCDHResearchSubjectPrimaryDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition",
         code_set=None,
-        code_set_version="2021-06-08T21:46:46.513868+00:00",
+        code_set_version="2021-06-09T19:18:39.071032+00:00",
     )
 
     @classmethod
@@ -13024,7 +12793,7 @@ class EnumCCDHResearchSubjectIndexTimepoint(EnumDefinitionImpl):
         name="EnumCCDHResearchSubjectIndexTimepoint",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint",
         code_set=None,
-        code_set_version="2021-06-08T21:46:46.740283+00:00",
+        code_set_version="2021-06-09T19:18:39.615532+00:00",
     )
 
     @classmethod
@@ -13101,7 +12870,7 @@ class EnumCCDHSpecimenAnalyteType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenAnalyteType",
         description="Autogenerated Enumeration for CRDC-H Specimen analyte_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:47.056667+00:00",
+        code_set_version="2021-06-09T19:18:40.160188+00:00",
     )
 
     @classmethod
@@ -13152,7 +12921,7 @@ class EnumCCDHSpecimenSourceMaterialType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenSourceMaterialType",
         description="Autogenerated Enumeration for CRDC-H Specimen source_material_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:47.234524+00:00",
+        code_set_version="2021-06-09T19:18:40.427375+00:00",
     )
 
     @classmethod
@@ -13338,7 +13107,7 @@ class EnumCCDHSpecimenTumorStatusAtCollection(EnumDefinitionImpl):
         name="EnumCCDHSpecimenTumorStatusAtCollection",
         description="Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection",
         code_set=None,
-        code_set_version="2021-06-08T21:46:47.439050+00:00",
+        code_set_version="2021-06-09T19:18:40.732499+00:00",
     )
 
     @classmethod
@@ -13376,7 +13145,7 @@ class EnumCCDHSpecimenCellularCompositionType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenCellularCompositionType",
         description="Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:47.605875+00:00",
+        code_set_version="2021-06-09T19:18:41.003583+00:00",
     )
 
     @classmethod
@@ -13467,7 +13236,7 @@ class EnumCCDHSpecimenGeneralTissueMorphology(EnumDefinitionImpl):
         name="EnumCCDHSpecimenGeneralTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
         code_set=None,
-        code_set_version="2021-06-08T21:46:47.794493+00:00",
+        code_set_version="2021-06-09T19:18:41.392442+00:00",
     )
 
     @classmethod
@@ -13487,7 +13256,7 @@ class EnumCCDHSpecimenSpecificTissueMorphology(EnumDefinitionImpl):
         name="EnumCCDHSpecimenSpecificTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
         code_set=None,
-        code_set_version="2021-06-08T21:46:47.955393+00:00",
+        code_set_version="2021-06-09T19:18:41.715648+00:00",
     )
 
     @classmethod
@@ -13599,7 +13368,7 @@ class EnumCCDHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
         name="EnumCCDHSpecimenPreinvasiveTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology",
         code_set=None,
-        code_set_version="2021-06-08T21:46:48.139512+00:00",
+        code_set_version="2021-06-09T19:18:42.086042+00:00",
     )
 
 class EnumCCDHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
@@ -13610,7 +13379,7 @@ class EnumCCDHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
         name="EnumCCDHSpecimenMorphologyAssessorRole",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessor_role",
         code_set=None,
-        code_set_version="2021-06-08T21:46:48.295277+00:00",
+        code_set_version="2021-06-09T19:18:42.370479+00:00",
     )
 
 class EnumCCDHSpecimenMorphlogyAssessmentMethod(EnumDefinitionImpl):
@@ -13621,7 +13390,7 @@ class EnumCCDHSpecimenMorphlogyAssessmentMethod(EnumDefinitionImpl):
         name="EnumCCDHSpecimenMorphlogyAssessmentMethod",
         description="Autogenerated Enumeration for CRDC-H Specimen morphlogy_assessment_method",
         code_set=None,
-        code_set_version="2021-06-08T21:46:48.451184+00:00",
+        code_set_version="2021-06-09T19:18:42.578430+00:00",
     )
 
 class EnumCCDHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
@@ -13632,7 +13401,7 @@ class EnumCCDHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
         name="EnumCCDHSpecimenDegreeOfDysplasia",
         description="Autogenerated Enumeration for CRDC-H Specimen degree_of_dysplasia",
         code_set=None,
-        code_set_version="2021-06-08T21:46:48.596314+00:00",
+        code_set_version="2021-06-09T19:18:42.730153+00:00",
     )
 
 class EnumCCDHSpecimenSectionLocation(EnumDefinitionImpl):
@@ -13659,7 +13428,7 @@ class EnumCCDHSpecimenContainerContainerType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenContainerContainerType",
         description="Autogenerated Enumeration for CRDC-H SpecimenContainer container_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:48.901516+00:00",
+        code_set_version="2021-06-09T19:18:43.053545+00:00",
     )
 
 class EnumCCDHSpecimenCreationActivityActivityType(EnumDefinitionImpl):
@@ -13719,7 +13488,7 @@ class EnumCCDHSpecimenCreationActivityCollectionMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenCreationActivityCollectionMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:49.208449+00:00",
+        code_set_version="2021-06-09T19:18:43.633713+00:00",
     )
 
     @classmethod
@@ -13885,7 +13654,7 @@ class EnumCCDHSpecimenCreationActivityDerivationMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenCreationActivityDerivationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:49.420777+00:00",
+        code_set_version="2021-06-09T19:18:43.997834+00:00",
     )
 
 class EnumCCDHSpecimenQualityObservationCategory(EnumDefinitionImpl):
@@ -13896,7 +13665,7 @@ class EnumCCDHSpecimenQualityObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHSpecimenQualityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQualityObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:49.572402+00:00",
+        code_set_version="2021-06-09T19:18:44.553015+00:00",
     )
 
 class EnumCCDHSpecimenQualityObservationObservationType(EnumDefinitionImpl):
@@ -13943,7 +13712,7 @@ class EnumCCDHSpecimenQuantityObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHSpecimenQuantityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:50.036695+00:00",
+        code_set_version="2021-06-09T19:18:45.810201+00:00",
     )
 
 class EnumCCDHSpecimenQuantityObservationObservationType(EnumDefinitionImpl):
@@ -13971,7 +13740,7 @@ class EnumCCDHSpecimenQuantityObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenQuantityObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:50.338589+00:00",
+        code_set_version="2021-06-09T19:18:46.496642+00:00",
     )
 
 class EnumCCDHSpecimenProcessingActivityActivityType(EnumDefinitionImpl):
@@ -14023,7 +13792,7 @@ class EnumCCDHSpecimenStorageActivityMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenStorageActivityMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:50.822681+00:00",
+        code_set_version="2021-06-09T19:18:47.426723+00:00",
     )
 
 class EnumCCDHSubjectSpecies(EnumDefinitionImpl):
@@ -14151,7 +13920,7 @@ class EnumCCDHSubjectSex(EnumDefinitionImpl):
         name="EnumCCDHSubjectSex",
         description="Autogenerated Enumeration for CRDC-H Subject sex",
         code_set=None,
-        code_set_version="2021-06-08T21:46:51.289679+00:00",
+        code_set_version="2021-06-09T19:18:48.112260+00:00",
     )
 
     @classmethod
@@ -14171,7 +13940,7 @@ class EnumCCDHSubjectEthnicity(EnumDefinitionImpl):
         name="EnumCCDHSubjectEthnicity",
         description="Autogenerated Enumeration for CRDC-H Subject ethnicity",
         code_set=None,
-        code_set_version="2021-06-08T21:46:51.443978+00:00",
+        code_set_version="2021-06-09T19:18:48.270045+00:00",
     )
 
     @classmethod
@@ -14200,7 +13969,7 @@ class EnumCCDHSubjectRace(EnumDefinitionImpl):
         name="EnumCCDHSubjectRace",
         description="Autogenerated Enumeration for CRDC-H Subject race",
         code_set=None,
-        code_set_version="2021-06-08T21:46:51.596778+00:00",
+        code_set_version="2021-06-09T19:18:48.506740+00:00",
     )
 
     @classmethod
@@ -14231,7 +14000,7 @@ class EnumCCDHSubjectVitalStatus(EnumDefinitionImpl):
         name="EnumCCDHSubjectVitalStatus",
         description="Autogenerated Enumeration for CRDC-H Subject vital_status",
         code_set=None,
-        code_set_version="2021-06-08T21:46:51.757431+00:00",
+        code_set_version="2021-06-09T19:18:48.743874+00:00",
     )
 
     @classmethod
@@ -14255,7 +14024,7 @@ class EnumCCDHSubjectCauseOfDeath(EnumDefinitionImpl):
         name="EnumCCDHSubjectCauseOfDeath",
         description="Autogenerated Enumeration for CRDC-H Subject cause_of_death",
         code_set=None,
-        code_set_version="2021-06-08T21:46:51.915847+00:00",
+        code_set_version="2021-06-09T19:18:48.997671+00:00",
     )
 
     @classmethod
@@ -15642,7 +15411,7 @@ class EnumCCDHSubstanceSubstanceType(EnumDefinitionImpl):
         name="EnumCCDHSubstanceSubstanceType",
         description="Autogenerated Enumeration for CRDC-H Substance substance_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:52.078830+00:00",
+        code_set_version="2021-06-09T19:18:49.264780+00:00",
     )
 
     @classmethod
@@ -21900,7 +21669,7 @@ class EnumCCDHSubstanceRole(EnumDefinitionImpl):
         name="EnumCCDHSubstanceRole",
         description="Autogenerated Enumeration for CRDC-H Substance role",
         code_set=None,
-        code_set_version="2021-06-08T21:46:54.954840+00:00",
+        code_set_version="2021-06-09T19:18:52.507750+00:00",
     )
 
 class EnumCCDHTimePointEventType(EnumDefinitionImpl):
@@ -21932,7 +21701,7 @@ class EnumCCDHTobaccoExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHTobaccoExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation category",
         code_set=None,
-        code_set_version="2021-06-08T21:46:55.266549+00:00",
+        code_set_version="2021-06-09T19:18:53.368823+00:00",
     )
 
 class EnumCCDHTobaccoExposureObservationObservationType(EnumDefinitionImpl):
@@ -21943,7 +21712,7 @@ class EnumCCDHTobaccoExposureObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHTobaccoExposureObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation observation_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:55.415486+00:00",
+        code_set_version="2021-06-09T19:18:53.707765+00:00",
     )
 
 class EnumCCDHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
@@ -21954,7 +21723,7 @@ class EnumCCDHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHTobaccoExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:55.566032+00:00",
+        code_set_version="2021-06-09T19:18:54.081676+00:00",
     )
 
 class EnumCCDHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -21975,7 +21744,7 @@ class EnumCCDHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl)
         name="EnumCCDHTobaccoExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-06-08T21:46:55.716410+00:00",
+        code_set_version="2021-06-09T19:18:54.528859+00:00",
     )
 
     @classmethod
@@ -22043,7 +21812,7 @@ class EnumCCDHTreatmentTreatmentType(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentType",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_type",
         code_set=None,
-        code_set_version="2021-06-08T21:46:55.875375+00:00",
+        code_set_version="2021-06-09T19:18:54.780456+00:00",
     )
 
     @classmethod
@@ -22171,7 +21940,7 @@ class EnumCCDHTreatmentTreatmentEndReason(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentEndReason",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason",
         code_set=None,
-        code_set_version="2021-06-08T21:46:56.055466+00:00",
+        code_set_version="2021-06-09T19:18:55.038978+00:00",
     )
 
     @classmethod
@@ -22193,7 +21962,7 @@ class EnumCCDHTreatmentRegimen(EnumDefinitionImpl):
         name="EnumCCDHTreatmentRegimen",
         description="Autogenerated Enumeration for CRDC-H Treatment regimen",
         code_set=None,
-        code_set_version="2021-06-08T21:46:56.205483+00:00",
+        code_set_version="2021-06-09T19:18:55.410519+00:00",
     )
 
 class EnumCCDHTreatmentTreatmentFrequency(EnumDefinitionImpl):
@@ -22206,7 +21975,7 @@ class EnumCCDHTreatmentTreatmentFrequency(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentFrequency",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_frequency",
         code_set=None,
-        code_set_version="2021-06-08T21:46:56.354022+00:00",
+        code_set_version="2021-06-09T19:18:55.761141+00:00",
     )
 
     @classmethod
@@ -22252,7 +22021,7 @@ class EnumCCDHTreatmentTreatmentIntent(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentIntent",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_intent",
         code_set=None,
-        code_set_version="2021-06-08T21:46:56.511599+00:00",
+        code_set_version="2021-06-09T19:18:56.005276+00:00",
     )
 
     @classmethod
@@ -22279,7 +22048,7 @@ class EnumCCDHTreatmentTreatmentEffect(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentEffect",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_effect",
         code_set=None,
-        code_set_version="2021-06-08T21:46:56.684600+00:00",
+        code_set_version="2021-06-09T19:18:56.280975+00:00",
     )
 
     @classmethod
@@ -22307,7 +22076,7 @@ class EnumCCDHTreatmentTreatmentOutcome(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentOutcome",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_outcome",
         code_set=None,
-        code_set_version="2021-06-08T21:46:56.843366+00:00",
+        code_set_version="2021-06-09T19:18:56.586377+00:00",
     )
 
     @classmethod
