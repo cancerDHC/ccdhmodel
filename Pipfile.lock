@@ -222,15 +222,15 @@
         "linkml": {
             "editable": true,
             "git": "https://github.com/cancerDHC/linkml.git",
-            "ref": "0fff7beaa20ed3b8b7585e0a21a5c2a03820a240"
+            "ref": "fbbbd00bfe15df7d7b3a2a4335660ca3117d356b"
         },
         "linkml-runtime": {
             "hashes": [
-                "sha256:0ed55f8766ce666360f8d6a1ecbb085a0a8a91f9f5a51f2f51227ec7805f222d",
-                "sha256:62e87a09cce51d9770671bf0d399e4e6009b5473ba16a385825e5d40ed5c05da"
+                "sha256:41a25481efeebf08b9cff9791ba501fe70a81e082bf1d059ac5f9e58b5b1d4d1",
+                "sha256:9c92d3f4dc630bb4950da7df07a4ba14f27f30555129d7c52b980f265dfc1360"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.0.8"
+            "version": "==1.0.10"
         },
         "lxml": {
             "hashes": [
@@ -358,11 +358,11 @@
         },
         "mkdocs-material": {
             "hashes": [
-                "sha256:1725d02efed5d989258fd1620673e78a7171f82028f30c2da8d21e7539150221",
-                "sha256:34d57af1e3e68ff4251feb82ced70545d8aa6064861ba76b1a15928399d21879"
+                "sha256:08eaf9f77c6d026706397bae2c50d202cfe3a81ef984027b671b4acd365dfc5b",
+                "sha256:e555c66ece5eab7023c4733270dc7627280e707e5082dab278d6a7a4881d2435"
             ],
             "index": "pypi",
-            "version": "==7.1.7"
+            "version": "==7.1.8"
         },
         "mkdocs-material-extensions": {
             "hashes": [
