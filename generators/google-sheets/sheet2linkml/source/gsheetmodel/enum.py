@@ -1,20 +1,13 @@
-from linkml_model import SchemaDefinition
-
-from functools import cached_property
-from sheet2linkml.terminologies.service import TerminologyService
-from sheet2linkml.model import ModelElement
-from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
-from pygsheets import worksheet
-from linkml_model.meta import (
-    ClassDefinition,
-    SlotDefinition,
-    EnumDefinition,
-    PermissibleValue,
-    Example,
-)
 import logging
 import re
-import urllib.parse
+from functools import cached_property
+
+from linkml_model import SchemaDefinition
+from linkml_model.meta import EnumDefinition, PermissibleValue
+from pygsheets import worksheet
+
+from sheet2linkml.model import ModelElement
+from sheet2linkml.source.gsheetmodel.mappings import MappingRelations, Mappings
 
 
 class Enum(ModelElement):
@@ -102,11 +95,18 @@ class Enum(ModelElement):
         return (self.enum_name or "(unnamed enum)").strip()
 
     @property
+    def full_name(self) -> str:
+        """
+        :return: The full name of this enum.
+        """
+        return f"CRDC-H.{self.enum_name}"
+
+    @property
     def fixed_name(self):
         """
         :return: The name of this enum, modified to fit the format we use for other enums.
         """
-        return f"{Enum.fix_enum_name(self.full_name)}"
+        return Enum.fix_enum_name(self.full_name)
 
     @staticmethod
     def fix_enum_name(enum_name: str):
@@ -125,13 +125,6 @@ class Enum(ModelElement):
 
         # All enumerations should be prefixed with `enum_` for clarity.
         return f"enum_{fixed_name}"
-
-    @property
-    def full_name(self) -> str:
-        """
-        :return: The full name of this enum.
-        """
-        return f"CRDC-H.{self.enum_name}"
 
     def get_filename(self) -> str:
         """
