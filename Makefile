@@ -45,7 +45,7 @@ gen-docs: target/docs/index.md copy-src-docs
 copy-src-docs:
 	cp $(SRC_DIR)/docs/*md target/docs/
 target/docs/%.md: $(SCHEMA_SRC) tdir-docs
-	pipenv run gen-markdown $(GEN_OPTS) --dir target/docs $<
+	pipenv run gen-markdown $(GEN_OPTS) --img --dir target/docs $<
 stage-docs: gen-docs
 	cp -pr target/docs .
 
@@ -114,3 +114,7 @@ docserve:
 
 gh-deploy:
 	mike deploy dev -p
+
+# Regenerate from Google Sheets
+regen-google-sheets:
+	cd generators/google-sheets && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../src/schema/ccdhmodel.yaml && cd -
