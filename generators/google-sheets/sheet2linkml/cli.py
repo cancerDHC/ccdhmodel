@@ -30,14 +30,14 @@ import click
     default=os.path.join(sys.path[0], "logging.ini"),
 )
 @click.option(
-    '--write-mappings',
+    "--write-mappings",
     type=click.Path(exists=False),
-    help="A file to write out mappings to."
+    help="A file to write out mappings to.",
 )
 @click.option(
-    '--include-terminologies/--skip-terminologies',
+    "--include-terminologies/--skip-terminologies",
     default=True,
-    help="Controls whether we use the CCDH Terminology Service to add enumerated values for attributes."
+    help="Controls whether we use the CCDH Terminology Service to add enumerated values for attributes.",
 )
 def main(filter_entity, logging_config, write_mappings, include_terminologies):
     # Display INFO log entry and up.
@@ -53,13 +53,17 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
     # Load the Google Sheet model and add the development version number.
     model = GSheetModel(google_api_credentials, google_sheet_id)
     if include_terminologies:
-        model.use_terminology_service(TCCMService('https://terminology.ccdh.io'))
+        model.use_terminology_service(TCCMService("https://terminology.ccdh.io"))
     logging.info(f"Google Sheet loaded: {model}")
 
     # Determine the development version number. We can get this from git-describe.
-    git_describe_result = subprocess.run(['git', 'describe', '--long', '--dirty'], capture_output=True)
+    git_describe_result = subprocess.run(
+        ["git", "describe", "--long", "--dirty"], capture_output=True
+    )
     if git_describe_result.returncode == 0:
-        model.development_version = re.sub('[^a-zA-Z0-9.\\-]', '_', git_describe_result.stdout.decode('utf8').strip())
+        model.development_version = re.sub(
+            "[^a-zA-Z0-9.\\-]", "_", git_describe_result.stdout.decode("utf8").strip()
+        )
 
     # We have two operating modes:
     # 1. If a `--filter-entity "<Entity Name>"` is specified on the command line,
