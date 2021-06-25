@@ -257,6 +257,10 @@ class GSheetModel(ModelElement):
             "linkml": "https://w3id.org/linkml/",
             "ccdh": f"{root_uri}/",
             "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+            "GDC": "http://example.org/gdc/",
+            "PDC": "http://example.org/pdc/",
+            "ICDC": "http://example.org/icdc/",
+            "HTAN": "http://example.org/htan/",
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
@@ -278,7 +282,7 @@ class GSheetModel(ModelElement):
         schema.classes = {
             entity.name: entity.as_linkml(root_uri) for entity in self.entities()
         }
-        
+
         # Load enums from the attributes themselves -- this will look things up in the terminology service.
         schema.enums = {
             Enum.fix_enum_name(attribute.full_name): attribute.as_linkml_enum()

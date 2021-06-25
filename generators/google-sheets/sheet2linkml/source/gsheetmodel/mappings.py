@@ -91,7 +91,7 @@ class Mappings:
             # We can use regular expression to differentiate between them.
             mapping_target = row
             description = None
-            relation = MappingRelations.SKOS_RELATED_MATCH
+            relation = default_relation
 
             match = re.match(r"^\s*(.*?)\s*\(\s*(.*)\s*\)\s*$", row)
             if match:
@@ -148,7 +148,7 @@ class Mappings:
             match = re.match(r"^([A-Z]+)(?:\.|:)(.*)$", mapping_target)
             if match:
                 # Note that in this case we don't sanitize the CURIE at all -- if there any spaces, they'll remain here!
-                uri_or_curie = Uriorcurie(f"{match.group(1)}.{match.group(2).strip()}")
+                uri_or_curie = Uriorcurie(f"{match.group(1)}:{match.group(2).strip()}")
             else:
                 uri_or_curie = Uriorcurie(
                     f"example:{urllib.parse.quote_plus(mapping_target.strip())}"
