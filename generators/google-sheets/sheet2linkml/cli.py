@@ -3,20 +3,18 @@ sheet2linkml.py
 A script for converting Google Sheets to a LinkML model.
 """
 
-import logging
-import logging.config
+import sys
 import os
 import re
 import subprocess
-import sys
-
-import click
-from linkml.utils import yamlutils
-
+import logging
+import logging.config
 from sheet2linkml import config
 from sheet2linkml.source.gsheetmodel.gsheetmodel import GSheetModel
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.terminologies.tccm.api import TCCMService
+from linkml.utils import yamlutils
+import click
 
 
 @click.command()
