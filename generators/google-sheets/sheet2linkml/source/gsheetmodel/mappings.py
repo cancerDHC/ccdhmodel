@@ -10,11 +10,11 @@ from dataclasses import dataclass
 
 
 class MappingRelations(Enum):
-    SKOS_BROAD_MATCH = 'skos:broadMatch'
-    SKOS_NARROW_MATCH = 'skos:narrowMatch'
-    SKOS_EXACT_MATCH = 'skos:exactMatch'
-    SKOS_CLOSE_MATCH = 'skos:closeMatch'
-    SKOS_RELATED_MATCH = 'skos:relatedMatch'
+    SKOS_BROAD_MATCH = "skos:broadMatch"
+    SKOS_NARROW_MATCH = "skos:narrowMatch"
+    SKOS_EXACT_MATCH = "skos:exactMatch"
+    SKOS_CLOSE_MATCH = "skos:closeMatch"
+    SKOS_RELATED_MATCH = "skos:relatedMatch"
 
 
 class Mappings:
@@ -59,12 +59,17 @@ class Mappings:
         An individual mapping represents the mapping between one ModelElement (such as a type or an entity)
         and some URIorCURIE, with an enum representating a relation and a textual description of the relationship.
         """
+
         source: ModelElement
         target: Uriorcurie
         description: str
         relation: MappingRelations
 
-    def add_mappings(self, mapping_string: str, default_relation: MappingRelations = MappingRelations.SKOS_RELATED_MATCH) -> list[Mapping]:
+    def add_mappings(
+        self,
+        mapping_string: str,
+        default_relation: MappingRelations = MappingRelations.SKOS_RELATED_MATCH,
+    ) -> list[Mapping]:
         """
         Add mappings from the provided mapping string with the specified default relation.
         """
@@ -72,11 +77,11 @@ class Mappings:
         if mapping_string is None or len(mapping_string.strip()) == 0:
             return
 
-        rows = re.split(r'\s*[\r\n\|]+\s*', mapping_string)
+        rows = re.split(r"\s*[\r\n\|]+\s*", mapping_string)
 
         for row in rows:
             # Is the row empty? If so, ignore it.
-            if row.strip() == '':
+            if row.strip() == "":
                 continue
 
             # There are three kinds of rows:
@@ -88,29 +93,49 @@ class Mappings:
             description = None
             relation = MappingRelations.SKOS_RELATED_MATCH
 
-            match = re.match(r'^\s*(.*?)\s*\(\s*(.*)\s*\)\s*$', row)
+            match = re.match(r"^\s*(.*?)\s*\(\s*(.*)\s*\)\s*$", row)
             if match:
                 mapping_target = match.group(1)
                 description = match.group(2)
 
             lower_desc = (description or "").lower()
-            if lower_desc == 'skos:exactMatch' or lower_desc == 'exact' or lower_desc.startswith('exact match'):
+            if (
+                lower_desc == "skos:exactMatch"
+                or lower_desc == "exact"
+                or lower_desc.startswith("exact match")
+            ):
                 relation = MappingRelations.SKOS_EXACT_MATCH
-            elif lower_desc == 'skos:closeMatch' or lower_desc == 'close' or lower_desc.startswith('close match'):
+            elif (
+                lower_desc == "skos:closeMatch"
+                or lower_desc == "close"
+                or lower_desc.startswith("close match")
+            ):
                 relation = MappingRelations.SKOS_CLOSE_MATCH
-            elif lower_desc == 'skos:relatedMatch' or lower_desc == 'related' or lower_desc.startswith('related match'):
+            elif (
+                lower_desc == "skos:relatedMatch"
+                or lower_desc == "related"
+                or lower_desc.startswith("related match")
+            ):
                 relation = MappingRelations.SKOS_RELATED_MATCH
-            elif lower_desc == 'skos:broadMatch' or lower_desc == 'broad' or lower_desc.startswith('broad match'):
+            elif (
+                lower_desc == "skos:broadMatch"
+                or lower_desc == "broad"
+                or lower_desc.startswith("broad match")
+            ):
                 relation = MappingRelations.SKOS_BROAD_MATCH
-            elif lower_desc == 'skos:narrowMatch' or lower_desc == 'narrow' or lower_desc.startswith('narrow match'):
+            elif (
+                lower_desc == "skos:narrowMatch"
+                or lower_desc == "narrow"
+                or lower_desc.startswith("narrow match")
+            ):
                 relation = MappingRelations.SKOS_NARROW_MATCH
-            elif lower_desc.strip() == '':
+            elif lower_desc.strip() == "":
                 # If no description is given, we'll use the default relation instead.
                 relation = default_relation
             else:
                 logging.warning(
-                    f"In entity {self.source_element.name}: mapping type '{lower_desc}' could not be mapped to LinkML, " +
-                    "assuming it is a description."
+                    f"In entity {self.source_element.name}: mapping type '{lower_desc}' could not be mapped to LinkML, "
+                    + "assuming it is a description."
                 )
 
             # TODO: Eventually, we should enforce that the input is already a Uriorcurie.
@@ -120,19 +145,23 @@ class Mappings:
             # For the former, we will map it to `GDC:(Entity).(property)...`.
             # For the latter, we will map it to `example:(URL-encoded string)`.
             uri_or_curie = None
-            match = re.match(r'^([A-Z]+)(?:\.|:)(.*)$', mapping_target)
+            match = re.match(r"^([A-Z]+)(?:\.|:)(.*)$", mapping_target)
             if match:
                 # Note that in this case we don't sanitize the CURIE at all -- if there any spaces, they'll remain here!
-                uri_or_curie = Uriorcurie(f'{match.group(1)}.{match.group(2).strip()}')
+                uri_or_curie = Uriorcurie(f"{match.group(1)}.{match.group(2).strip()}")
             else:
-                uri_or_curie = Uriorcurie(f'example:{urllib.parse.quote_plus(mapping_target.strip())}')
+                uri_or_curie = Uriorcurie(
+                    f"example:{urllib.parse.quote_plus(mapping_target.strip())}"
+                )
 
-            self.mappings.append(Mappings.Mapping(
-                source=self.source_element,
-                target=uri_or_curie,
-                description=description,
-                relation=relation
-            ))
+            self.mappings.append(
+                Mappings.Mapping(
+                    source=self.source_element,
+                    target=uri_or_curie,
+                    description=description,
+                    relation=relation,
+                )
+            )
 
     def set_mappings_on_element(self, element: Element):
         """
@@ -163,40 +192,48 @@ class Mappings:
         model: The GSheetModel these mappings are a part of.
         """
         if filename is None:
-            raise RuntimeError("Mappings.write_to_file() needs a `filename` parameter with the output file to write.")
+            raise RuntimeError(
+                "Mappings.write_to_file() needs a `filename` parameter with the output file to write."
+            )
 
         if model is None:
-            raise RuntimeError("Mappings.write_to_file() needs a `model` parameter with the GSheetModel being used.")
+            raise RuntimeError(
+                "Mappings.write_to_file() needs a `model` parameter with the GSheetModel being used."
+            )
 
-        with open(filename, 'w') as csvfile:
-            writer = csv.writer(csvfile, dialect='excel-tab')
-            writer.writerow([
-                'subject_id',
-                'subject_category',
-                'predicate_id',
-                'object_id',
-                'comment',
-                'match_type',
-                'mapping_set_id',
-                'mapping_set_version',
-                'creator_id',
-                'mapping_date'
-            ])
+        with open(filename, "w") as csvfile:
+            writer = csv.writer(csvfile, dialect="excel-tab")
+            writer.writerow(
+                [
+                    "subject_id",
+                    "subject_category",
+                    "predicate_id",
+                    "object_id",
+                    "comment",
+                    "match_type",
+                    "mapping_set_id",
+                    "mapping_set_version",
+                    "creator_id",
+                    "mapping_date",
+                ]
+            )
 
             for mapping in mappings:
                 # See if we can figure out the range of this datatype/entity/attribute.
                 source_range = None
-                if hasattr(mapping.source, 'range'):
+                if hasattr(mapping.source, "range"):
                     source_range = mapping.source.range
 
-                writer.writerow([
-                    mapping.source.full_name,
-                    source_range,
-                    mapping.relation.value,
-                    mapping.target,
-                    mapping.description,
-                    'SSSOMC:HumanCurated',
-                    model.full_name,
-                    model.version,
-                    model.last_updated
-                ])
+                writer.writerow(
+                    [
+                        mapping.source.full_name,
+                        source_range,
+                        mapping.relation.value,
+                        mapping.target,
+                        mapping.description,
+                        "SSSOMC:HumanCurated",
+                        model.full_name,
+                        model.version,
+                        model.last_updated,
+                    ]
+                )
