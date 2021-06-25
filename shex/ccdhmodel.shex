@@ -50,20 +50,14 @@ linkml:Nodeidentifier NONLITERAL
     (  $<AlcoholExposureObservation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHAlcoholExposureObservationCategory> ? ;
-          <observation_type> @<CCDHAlcoholExposureObservationObservationType> ;
-          <method_type> @<CCDHAlcoholExposureObservationMethodType> ? ;
+          <category> @<EnumCCDHAlcoholExposureObservationCategory> ? ;
+          <observation_type> @<EnumCCDHAlcoholExposureObservationObservationType> ;
+          <method_type> @<EnumCCDHAlcoholExposureObservationMethodType> ? ;
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
           <valueInteger> @<CcdhInteger> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ? ;
-          <valueCodeableConcept> @<CCDHAlcoholExposureObservationValueCodeableConcept> ?
+          <valueCodeableConcept> @<EnumCCDHAlcoholExposureObservationValueCodeableConcept> ?
        ) ;
        rdf:type [ <AlcoholExposureObservation> ] ?
     )
@@ -75,7 +69,7 @@ linkml:Nodeidentifier NONLITERAL
           <id> @<CcdhString> ? ;
           <identifier> @<Identifier> * ;
           <description> @<CcdhString> ? ;
-          <product_type> @<CCDHBiologicProductProductType> ? ;
+          <product_type> @<EnumCCDHBiologicProductProductType> ? ;
           <passage_number> @<CcdhInteger> * ;
           <growth_rate> @<CcdhString> *
        ) ;
@@ -86,8 +80,8 @@ linkml:Nodeidentifier NONLITERAL
 <BodySite> CLOSED {
     (  $<BodySite_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
-          <site> @<CCDHBodySiteSite> ;
-          <qualifier> @<CCDHBodySiteQualifier> *
+          <site> @<EnumCCDHBodySiteSite> ;
+          <qualifier> @<EnumCCDHBodySiteQualifier> *
        ) ;
        rdf:type [ <BodySite> ] ?
     )
@@ -97,20 +91,12 @@ linkml:Nodeidentifier NONLITERAL
     (  $<CancerGradeObservation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHCancerGradeObservationCategory> ? ;
-          <observation_type> @<CCDHCancerGradeObservationObservationType> ;
-          <method_type> @<CCDHCancerGradeObservationMethodType> ? ;
+          <category> @<EnumCCDHCancerGradeObservationCategory> ? ;
+          <observation_type> @<EnumCCDHCancerGradeObservationObservationType> ;
+          <method_type> @<EnumCCDHCancerGradeObservationMethodType> ? ;
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
-          <performed_by> @<Organization> ? ;
-          <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
-          <valueInteger> @<CcdhInteger> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ? ;
-          <valueCodeableConcept> @<CCDHCancerGradeObservationValueCodeableConcept> ?
+          <valueCodeableConcept> @<EnumCCDHCancerGradeObservationValueCodeableConcept>
        ) ;
        rdf:type [ <CancerGradeObservation> ] ?
     )
@@ -120,10 +106,10 @@ linkml:Nodeidentifier NONLITERAL
     (  $<CancerGradeObservationSet_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHCancerGradeObservationSetCategory> ? ;
+          <category> @<EnumCCDHCancerGradeObservationSetCategory> ? ;
           <focus> @<Entity> * ;
           <subject> @<Subject> ? ;
-          <method_type> @<CCDHCancerGradeObservationSetMethodType> * ;
+          <method_type> @<EnumCCDHCancerGradeObservationSetMethodType> * ;
           <performed_by> @<Organization> ? ;
           <observations> @<CancerGradeObservation> *
        ) ;
@@ -135,20 +121,14 @@ linkml:Nodeidentifier NONLITERAL
     (  $<CancerStageObservation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHCancerStageObservationCategory> ? ;
-          <observation_type> @<CCDHCancerStageObservationObservationType> ;
-          <method_type> @<CCDHCancerStageObservationMethodType> ? ;
+          <category> @<EnumCCDHCancerStageObservationCategory> ? ;
+          <observation_type> @<EnumCCDHCancerStageObservationObservationType> ;
+          <method_type> @<EnumCCDHCancerStageObservationMethodType> ? ;
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
           <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
-          <valueInteger> @<CcdhInteger> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ? ;
-          <valueCodeableConcept> @<CCDHCancerStageObservationValueCodeableConcept> ?
+          <valueCodeableConcept> @<EnumCCDHCancerStageObservationValueCodeableConcept>
        ) ;
        rdf:type [ <CancerStageObservation> ] ?
     )
@@ -158,10 +138,10 @@ linkml:Nodeidentifier NONLITERAL
     (  $<CancerStageObservationSet_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHCancerStageObservationSetCategory> ? ;
+          <category> @<EnumCCDHCancerStageObservationSetCategory> ? ;
           <focus> @<Entity> * ;
           <subject> @<Subject> ? ;
-          <method_type> @<CCDHCancerStageObservationSetMethodType> * ;
+          <method_type> @<EnumCCDHCancerStageObservationSetMethodType> * ;
           <performed_by> @<Organization> ? ;
           <observations> @<CancerStageObservation> *
        ) ;
@@ -197,19 +177,21 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
           <identifier> @<Identifier> * ;
+          <subject> @<Subject> ? ;
           <age_at_diagnosis> @<Quantity> ? ;
           <year_at_diagnosis> @<CcdhInteger> ? ;
-          <condition> @<CCDHDiagnosisCondition> ? ;
+          <condition> @<EnumCCDHDiagnosisCondition> ? ;
           <primary_site> @<BodySite> * ;
           <metastatic_site> @<BodySite> * ;
           <stage> @<CancerStageObservationSet> * ;
-          <grade> @<Entity> * ;
-          <morphology> @<CCDHDiagnosisMorphology> ? ;
-          <disease_status> @<CCDHDiagnosisDiseaseStatus> ? ;
+          <grade> @<CancerGradeObservationSet> * ;
+          <morphology> @<EnumCCDHDiagnosisMorphology> ? ;
+          <disease_status> @<EnumCCDHDiagnosisDiseaseStatus> ? ;
           <prior_diagnosis> @<Diagnosis> ? ;
-          <method_of_diagnosis> @<CCDHDiagnosisMethodOfDiagnosis> ? ;
+          <method_of_diagnosis> @<EnumCCDHDiagnosisMethodOfDiagnosis> ? ;
           <related_specimen> @<Specimen> * ;
-          <supporting_observations> @<Observation> *
+          <dimensional_measure> @<DimensionalObservationSet> ? ;
+          <supporting_observation> @<Observation> *
        ) ;
        rdf:type [ <Diagnosis> ] ?
     )
@@ -219,14 +201,30 @@ linkml:Nodeidentifier NONLITERAL
     (  $<DimensionalObservation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHDimensionalObservationCategory> ? ;
-          <observation_type> @<CCDHDimensionalObservationObservationType> ;
-          <method_type> @<CCDHDimensionalObservationMethodType> * ;
+          <category> @<EnumCCDHDimensionalObservationCategory> ? ;
+          <observation_type> @<EnumCCDHDimensionalObservationObservationType> ;
+          <method_type> @<EnumCCDHDimensionalObservationMethodType> * ;
           <focus> @<Entity> * ;
           <subject> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
           <valueQuantity> @<Quantity>
        ) ;
        rdf:type [ <DimensionalObservation> ] ?
+    )
+}
+
+<DimensionalObservationSet> CLOSED {
+    (  $<DimensionalObservationSet_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <category> @<EnumCCDHDimensionalObservationSetCategory> ? ;
+          <focus> @<Entity> * ;
+          <subject> @<Subject> ? ;
+          <method_type> @<EnumCCDHDimensionalObservationSetMethodType> * ;
+          <performed_by> @<Organization> ? ;
+          <observations> @<DimensionalObservation> *
+       ) ;
+       rdf:type [ <DimensionalObservationSet> ] ?
     )
 }
 
@@ -235,7 +233,7 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
           <identifier> @<Identifier> * ;
-          <document_type> @<CCDHDocumentDocumentType> ? ;
+          <document_type> @<EnumCCDHDocumentDocumentType> ? ;
           <description> @<CcdhString> ? ;
           <focus> @<Entity> ? ;
           <url> @<CcdhString> *
@@ -251,9 +249,11 @@ linkml:Nodeidentifier NONLITERAL
        )
     } OR @<AlcoholExposureObservation> OR @<BiologicProduct> OR @<BodySite> OR @<CancerGradeObservation> OR
     @<CancerGradeObservationSet> OR @<CancerStageObservation> OR @<CancerStageObservationSet> OR @<CodeableConcept> OR @<Coding> OR
-    @<Diagnosis> OR @<DimensionalObservation> OR @<Document> OR @<EnvironmentalExposureObservation> OR @<Exposure> OR @<Identifier>
-    OR @<Observation> OR @<Organization> OR @<Quantity> OR @<ResearchProject> OR @<ResearchSubject> OR @<Specimen> OR
-    @<SpecimenContainer> OR @<SpecimenCreationActivity> OR @<SpecimenProcessingActivity> OR @<SpecimenQuantityObservation> OR
+    @<Diagnosis> OR @<DimensionalObservation> OR @<DimensionalObservationSet> OR @<Document> OR @<EnvironmentalExposureObservation>
+    OR @<ExecutionConditionObservation> OR @<ExecutionTimeObservation> OR @<Exposure> OR @<HistologicalCompositionObservation> OR
+    @<HistologicalCompositionObservationSet> OR @<Identifier> OR @<Observation> OR @<ObservationSet> OR @<Organization> OR
+    @<Quantity> OR @<ResearchProject> OR @<ResearchSubject> OR @<Specimen> OR @<SpecimenContainer> OR @<SpecimenCreationActivity>
+    OR @<SpecimenProcessingActivity> OR @<SpecimenQualityObservation> OR @<SpecimenQuantityObservation> OR
     @<SpecimenStorageActivity> OR @<SpecimenTransportActivity> OR @<Subject> OR @<Substance> OR @<TimePeriod> OR @<TimePoint> OR
     @<TobaccoExposureObservation> OR @<Treatment>
 )
@@ -262,22 +262,47 @@ linkml:Nodeidentifier NONLITERAL
     (  $<EnvironmentalExposureObservation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHEnvironmentalExposureObservationCategory> ? ;
-          <observation_type> @<CCDHEnvironmentalExposureObservationObservationType> ;
-          <method_type> @<CCDHEnvironmentalExposureObservationMethodType> ? ;
+          <category> @<EnumCCDHEnvironmentalExposureObservationCategory> ? ;
+          <observation_type> @<EnumCCDHEnvironmentalExposureObservationObservationType> ;
+          <method_type> @<EnumCCDHEnvironmentalExposureObservationMethodType> ? ;
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
-          <valueInteger> @<CcdhInteger> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ? ;
-          <valueCodeableConcept> @<CCDHEnvironmentalExposureObservationValueCodeableConcept>
+          <valueCodeableConcept> @<EnumCCDHEnvironmentalExposureObservationValueCodeableConcept>
        ) ;
        rdf:type [ <EnvironmentalExposureObservation> ] ?
+    )
+}
+
+<ExecutionConditionObservation> CLOSED {
+    (  $<ExecutionConditionObservation_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <category> @<EnumCCDHExecutionConditionObservationCategory> ? ;
+          <observation_type> @<EnumCCDHExecutionConditionObservationObservationType> ;
+          <method_type> @<EnumCCDHExecutionConditionObservationMethodType> ? ;
+          <focus> @<Entity> ? ;
+          <subject> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
+          <valueCodeableConcept> @<EnumCCDHExecutionConditionObservationValueCodeableConcept>
+       ) ;
+       rdf:type [ <ExecutionConditionObservation> ] ?
+    )
+}
+
+<ExecutionTimeObservation> CLOSED {
+    (  $<ExecutionTimeObservation_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <category> @<EnumCCDHExecutionTimeObservationCategory> ? ;
+          <observation_type> @<EnumCCDHExecutionTimeObservationObservationType> ;
+          <method_type> @<EnumCCDHExecutionTimeObservationMethodType> ? ;
+          <focus> @<Entity> ? ;
+          <subject> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
+          <valueQuantity> @<Quantity>
+       ) ;
+       rdf:type [ <ExecutionTimeObservation> ] ?
     )
 }
 
@@ -295,12 +320,43 @@ linkml:Nodeidentifier NONLITERAL
     )
 }
 
+<HistologicalCompositionObservation> CLOSED {
+    (  $<HistologicalCompositionObservation_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <category> @<EnumCCDHHistologicalCompositionObservationCategory> ? ;
+          <observation_type> @<EnumCCDHHistologicalCompositionObservationObservationType> ;
+          <method_type> @<EnumCCDHHistologicalCompositionObservationMethodType> * ;
+          <focus> @<Entity> * ;
+          <subject> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
+          <valueQuantity> @<Quantity>
+       ) ;
+       rdf:type [ <HistologicalCompositionObservation> ] ?
+    )
+}
+
+<HistologicalCompositionObservationSet> CLOSED {
+    (  $<HistologicalCompositionObservationSet_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ;
+          <category> @<EnumCCDHHistologicalCompositionObservationSetCategory> ;
+          <focus> @<Entity> * ;
+          <subject> @<Subject> ? ;
+          <method_type> @<EnumCCDHHistologicalCompositionObservationSetMethodType> * ;
+          <performed_by> @<Organization> ? ;
+          <observations> @<HistologicalCompositionObservation> *
+       ) ;
+       rdf:type [ <HistologicalCompositionObservationSet> ] ?
+    )
+}
+
 <Identifier> CLOSED {
     (  $<Identifier_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <value> @<CcdhString> ;
           <system> @<CcdhString> ? ;
-          <type> @<CCDHIdentifierType> ?
+          <type> @<EnumCCDHIdentifierType> ?
        ) ;
        rdf:type [ <Identifier> ] ?
     )
@@ -310,9 +366,9 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Observation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHObservationCategory> ? ;
-          <observation_type> @<CCDHObservationObservationType> ;
-          <method_type> @<CCDHObservationMethodType> * ;
+          <category> @<EnumCCDHObservationCategory> ? ;
+          <observation_type> @<EnumCCDHObservationObservationType> ;
+          <method_type> @<EnumCCDHObservationMethodType> * ;
           <focus> @<Entity> * ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
@@ -323,9 +379,24 @@ linkml:Nodeidentifier NONLITERAL
           <valueBoolean> @<CcdhBoolean> ? ;
           <valueDateTime> @<CcdhDateTime> ? ;
           <valueQuantity> @<Quantity> ? ;
-          <valueCodeableConcept> @<CCDHObservationValueCodeableConcept> ?
+          <valueCodeableConcept> @<EnumCCDHObservationValueCodeableConcept> ?
        ) ;
        rdf:type [ <Observation> ] ?
+    )
+}
+
+<ObservationSet> CLOSED {
+    (  $<ObservationSet_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ;
+          <category> @<EnumCCDHObservationSetCategory> ;
+          <focus> @<Entity> * ;
+          <subject> @<Subject> ? ;
+          <method_type> @<EnumCCDHObservationSetMethodType> * ;
+          <performed_by> @<Organization> ? ;
+          <observations> @<Observation> *
+       ) ;
+       rdf:type [ <ObservationSet> ] ?
     )
 }
 
@@ -346,8 +417,8 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Quantity_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <valueDecimal> @<CcdhDecimal> ? ;
-          <valueCodeableConcept> @<CCDHQuantityValueCodeableConcept> ? ;
-          <unit> @<CCDHQuantityUnit> ?
+          <valueCodeableConcept> @<EnumCCDHQuantityValueCodeableConcept> ? ;
+          <unit> @<EnumCCDHQuantityUnit> ?
        ) ;
        rdf:type [ <Quantity> ] ?
     )
@@ -363,13 +434,13 @@ linkml:Nodeidentifier NONLITERAL
           <description> @<CcdhString> ? ;
           <description_shortened> @<CcdhString> ? ;
           <sponsor> @<CcdhString> * ;
-          <date_started> @<CcdhDateTime> ? ;
-          <date_ended> @<CcdhDateTime> ? ;
+          <date_started> @<TimePoint> ? ;
+          <date_ended> @<TimePoint> ? ;
           <primary_anatomic_site> @<BodySite> * ;
           <url> @<CcdhString> * ;
           <part_of> @<ResearchProject> * ;
-          <research_project_type> @<CCDHResearchProjectResearchProjectType> ;
-          <date_iacuc_approval> @<CcdhDateTime> ?
+          <research_project_type> @<EnumCCDHResearchProjectResearchProjectType> ;
+          <associated_timepoint> @<TimePoint> *
        ) ;
        rdf:type [ <ResearchProject> ] ?
     )
@@ -383,11 +454,11 @@ linkml:Nodeidentifier NONLITERAL
           <description> @<CcdhString> ? ;
           <member_of_research_project> @<ResearchProject> ? ;
           <age_at_enrollment> @<Quantity> ? ;
-          <primary_diagnosis_condition> @<CCDHResearchSubjectPrimaryDiagnosisCondition> ? ;
+          <primary_diagnosis_condition> @<EnumCCDHResearchSubjectPrimaryDiagnosisCondition> ? ;
           <primary_diagnosis_site> @<BodySite> ? ;
           <primary_diagnosis> @<Diagnosis> * ;
           <comorbid_diagnosis> @<Diagnosis> * ;
-          <index_timepoint> @<CCDHResearchSubjectIndexTimepoint> ? ;
+          <index_timepoint> @<EnumCCDHResearchSubjectIndexTimepoint> ? ;
           <originating_site> @<Organization> ? ;
           <associated_subject> @<Subject>
        ) ;
@@ -401,35 +472,34 @@ linkml:Nodeidentifier NONLITERAL
           <id> @<CcdhString> ? ;
           <identifier> @<Identifier> * ;
           <description> @<CcdhString> ? ;
-          <specimen_type> @<CCDHSpecimenSpecimenType> ? ;
-          <analyte_type> @<CCDHSpecimenAnalyteType> ? ;
+          <specimen_type> @<EnumCCDHSpecimenSpecimenType> ? ;
+          <analyte_type> @<EnumCCDHSpecimenAnalyteType> ? ;
           <associated_project> @<ResearchProject> ? ;
           <data_provider> @<Organization> ? ;
-          <source_material_type> @<CCDHSpecimenSourceMaterialType> ? ;
+          <source_material_type> @<EnumCCDHSpecimenSourceMaterialType> ? ;
           <parent_specimen> @<Specimen> * ;
           <source_subject> @<Subject> ? ;
-          <source_model_system> @<Entity> ? ;
-          <tumor_status_at_collection> @<CCDHSpecimenTumorStatusAtCollection> ? ;
+          <tumor_status_at_collection> @<EnumCCDHSpecimenTumorStatusAtCollection> ? ;
           <creation_activity> @<SpecimenCreationActivity> ? ;
           <processing_activity> @<SpecimenProcessingActivity> * ;
-          <storage_activity> @<SpecimenStorageActivity> ? ;
-          <transport_activity> @<SpecimenTransportActivity> ? ;
+          <storage_activity> @<SpecimenStorageActivity> * ;
+          <transport_activity> @<SpecimenTransportActivity> * ;
           <contained_in> @<SpecimenContainer> ? ;
-          <dimensional_measure> @<Entity> ? ;
+          <dimensional_measures> @<DimensionalObservationSet> ? ;
           <quantity_measure> @<SpecimenQuantityObservation> * ;
-          <quality_measure> @<Observation> * ;
-          <cellular_composition_type> @<CCDHSpecimenCellularCompositionType> ? ;
-          <histological_composition_measure> @<Entity> * ;
-          <general_tissue_morphology> @<CCDHSpecimenGeneralTissueMorphology> ? ;
-          <specific_tissue_morphology> @<CCDHSpecimenSpecificTissueMorphology> ? ;
-          <preinvasive_tissue_morphology> @<CCDHSpecimenPreinvasiveTissueMorphology> ? ;
+          <quality_measure> @<SpecimenQualityObservation> * ;
+          <cellular_composition_type> @<EnumCCDHSpecimenCellularCompositionType> ? ;
+          <histological_composition_measures> @<HistologicalCompositionObservationSet> * ;
+          <general_tissue_morphology> @<EnumCCDHSpecimenGeneralTissueMorphology> ? ;
+          <specific_tissue_morphology> @<EnumCCDHSpecimenSpecificTissueMorphology> ? ;
+          <preinvasive_tissue_morphology> @<EnumCCDHSpecimenPreinvasiveTissueMorphology> ? ;
           <morphology_pathologically_confirmed> @<CcdhBoolean> ? ;
-          <morphology_assessor_role> @<CCDHSpecimenMorphologyAssessorRole> ? ;
-          <morphlogy_assessment_method> @<CCDHSpecimenMorphlogyAssessmentMethod> ? ;
-          <degree_of_dysplasia> @<CCDHSpecimenDegreeOfDysplasia> ? ;
+          <morphology_assessor_role> @<EnumCCDHSpecimenMorphologyAssessorRole> ? ;
+          <morphlogy_assessment_method> @<EnumCCDHSpecimenMorphlogyAssessmentMethod> ? ;
+          <degree_of_dysplasia> @<EnumCCDHSpecimenDegreeOfDysplasia> ? ;
           <dysplasia_fraction> @<CcdhString> ? ;
           <related_document> @<Document> * ;
-          <section_location> @<CCDHSpecimenSectionLocation> ? ;
+          <section_location> @<EnumCCDHSpecimenSectionLocation> ? ;
           <derived_product> @<BiologicProduct> * ;
           <distance_from_paired_specimen> @<Quantity> ?
        ) ;
@@ -442,11 +512,10 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
           <identifier> @<Identifier> * ;
-          <container_type> @<CCDHSpecimenContainerContainerType> ? ;
+          <container_type> @<EnumCCDHSpecimenContainerContainerType> ? ;
           <container_number> @<CcdhString> ? ;
           <additive> @<Substance> * ;
-          <parent_container> @<SpecimenContainer> * ;
-          <charge_type> @<CCDHSpecimenContainerChargeType> ?
+          <parent_container> @<SpecimenContainer> ?
        ) ;
        rdf:type [ <SpecimenContainer> ] ?
     )
@@ -455,17 +524,18 @@ linkml:Nodeidentifier NONLITERAL
 <SpecimenCreationActivity> CLOSED {
     (  $<SpecimenCreationActivity_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
-          <activity_type> @<CCDHSpecimenCreationActivityActivityType> ? ;
+          <activity_type> @<EnumCCDHSpecimenCreationActivityActivityType> ? ;
           <date_started> @<TimePoint> ? ;
           <date_ended> @<TimePoint> ? ;
           <performed_by> @<Organization> ? ;
-          <collection_method_type> @<CCDHSpecimenCreationActivityCollectionMethodType> ? ;
-          <derivation_method_type> @<CCDHSpecimenCreationActivityDerivationMethodType> ? ;
+          <collection_method_type> @<EnumCCDHSpecimenCreationActivityCollectionMethodType> ? ;
+          <derivation_method_type> @<EnumCCDHSpecimenCreationActivityDerivationMethodType> ? ;
           <additive> @<Substance> * ;
           <collection_site> @<BodySite> ? ;
           <quantity_collected> @<Quantity> ? ;
-          <execution_observation> @<Observation> * ;
-          <specimen_order> @<CcdhString> ?
+          <execution_time_observation> @<ExecutionTimeObservation> * ;
+          <execution_condition_observation> @<ExecutionConditionObservation> * ;
+          <specimen_order> @<CcdhInteger> ?
        ) ;
        rdf:type [ <SpecimenCreationActivity> ] ?
     )
@@ -474,16 +544,33 @@ linkml:Nodeidentifier NONLITERAL
 <SpecimenProcessingActivity> CLOSED {
     (  $<SpecimenProcessingActivity_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
-          <activity_type> @<CCDHSpecimenProcessingActivityActivityType> ? ;
+          <activity_type> @<EnumCCDHSpecimenProcessingActivityActivityType> ? ;
           <date_started> @<TimePoint> ? ;
           <date_ended> @<TimePoint> ? ;
-          <duration> @<Entity> * ;
+          <duration> @<Quantity> * ;
           <performed_by> @<Organization> ? ;
-          <method_type> @<CCDHSpecimenProcessingActivityMethodType> ? ;
+          <method_type> @<EnumCCDHSpecimenProcessingActivityMethodType> ? ;
           <additive> @<Substance> * ;
-          <execution_observation> @<Entity> *
+          <execution_time_observation> @<ExecutionTimeObservation> * ;
+          <execution_condition_observation> @<ExecutionConditionObservation> *
        ) ;
        rdf:type [ <SpecimenProcessingActivity> ] ?
+    )
+}
+
+<SpecimenQualityObservation> CLOSED {
+    (  $<SpecimenQualityObservation_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <id> @<CcdhString> ? ;
+          <category> @<EnumCCDHSpecimenQualityObservationCategory> ? ;
+          <observation_type> @<EnumCCDHSpecimenQualityObservationObservationType> ;
+          <method_type> @<EnumCCDHSpecimenQualityObservationMethodType> * ;
+          <focus> @<Entity> * ;
+          <subject> @<Subject> ? ;
+          <performed_by> @<Organization> ? ;
+          <valueQuantity> @<Quantity>
+       ) ;
+       rdf:type [ <SpecimenQualityObservation> ] ?
     )
 }
 
@@ -491,20 +578,13 @@ linkml:Nodeidentifier NONLITERAL
     (  $<SpecimenQuantityObservation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHSpecimenQuantityObservationCategory> ? ;
-          <observation_type> @<CCDHSpecimenQuantityObservationObservationType> ;
-          <method_type> @<CCDHSpecimenQuantityObservationMethodType> * ;
+          <category> @<EnumCCDHSpecimenQuantityObservationCategory> ? ;
+          <observation_type> @<EnumCCDHSpecimenQuantityObservationObservationType> ;
+          <method_type> @<EnumCCDHSpecimenQuantityObservationMethodType> * ;
           <focus> @<Entity> * ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
-          <valueInteger> @<CcdhDecimal> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ;
-          <valueCodeableConcept> @<CCDHSpecimenQuantityObservationValueCodeableConcept> ?
+          <valueQuantity> @<Quantity>
        ) ;
        rdf:type [ <SpecimenQuantityObservation> ] ?
     )
@@ -517,7 +597,7 @@ linkml:Nodeidentifier NONLITERAL
           <date_ended> @<TimePoint> ? ;
           <duration> @<Quantity> ? ;
           <performed_by> @<Organization> ? ;
-          <method_type> @<CCDHSpecimenStorageActivityMethodType> ? ;
+          <method_type> @<EnumCCDHSpecimenStorageActivityMethodType> ? ;
           <container> @<SpecimenContainer> *
        ) ;
        rdf:type [ <SpecimenStorageActivity> ] ?
@@ -533,8 +613,7 @@ linkml:Nodeidentifier NONLITERAL
           <performed_by> @<Organization> ? ;
           <transport_origin> @<Organization> ? ;
           <transport_destination> @<Organization> ? ;
-          <execution_observation> @<Entity> * ;
-          <execution_conditions> @<CcdhString> *
+          <execution_condition_observation> @<ExecutionConditionObservation> *
        ) ;
        rdf:type [ <SpecimenTransportActivity> ] ?
     )
@@ -545,16 +624,16 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ;
           <identifier> @<Identifier> * ;
-          <species> @<CCDHSubjectSpecies> ? ;
-          <breed> @<CCDHSubjectBreed> ? ;
-          <sex> @<CCDHSubjectSex> ? ;
-          <ethnicity> @<CCDHSubjectEthnicity> ? ;
-          <race> @<CCDHSubjectRace> * ;
+          <species> @<EnumCCDHSubjectSpecies> ? ;
+          <breed> @<EnumCCDHSubjectBreed> ? ;
+          <sex> @<EnumCCDHSubjectSex> ? ;
+          <ethnicity> @<EnumCCDHSubjectEthnicity> ? ;
+          <race> @<EnumCCDHSubjectRace> * ;
           <year_of_birth> @<CcdhInteger> ? ;
-          <vital_status> @<CCDHSubjectVitalStatus> ? ;
+          <vital_status> @<EnumCCDHSubjectVitalStatus> ? ;
           <age_at_death> @<Quantity> ? ;
           <year_of_death> @<CcdhInteger> ? ;
-          <cause_of_death> @<CCDHSubjectCauseOfDeath> ?
+          <cause_of_death> @<EnumCCDHSubjectCauseOfDeath> ?
        ) ;
        rdf:type [ <Subject> ] ?
     )
@@ -563,8 +642,8 @@ linkml:Nodeidentifier NONLITERAL
 <Substance> CLOSED {
     (  $<Substance_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
-          <substance_type> @<CCDHSubstanceSubstanceType> ? ;
-          <role> @<CCDHSubstanceRole> * ;
+          <substance_type> @<EnumCCDHSubstanceSubstanceType> ? ;
+          <role> @<EnumCCDHSubstanceRole> * ;
           <substance_quantity> @<Quantity> ?
        ) ;
        rdf:type [ <Substance> ] ?
@@ -586,8 +665,9 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
           <dateTime> @<CcdhDateTime> ? ;
+          <indexTimePoint> @<TimePoint> ? ;
           <offsetFromIndex> @<Quantity> ? ;
-          <eventType> @<CCDHTimePointEventType> *
+          <eventType> @<EnumCCDHTimePointEventType> *
        ) ;
        rdf:type [ <TimePoint> ] ?
     )
@@ -597,20 +677,14 @@ linkml:Nodeidentifier NONLITERAL
     (  $<TobaccoExposureObservation_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <id> @<CcdhString> ? ;
-          <category> @<CCDHTobaccoExposureObservationCategory> ? ;
-          <observation_type> @<CCDHTobaccoExposureObservationObservationType> ;
-          <method_type> @<CCDHTobaccoExposureObservationMethodType> ? ;
+          <category> @<EnumCCDHTobaccoExposureObservationCategory> ? ;
+          <observation_type> @<EnumCCDHTobaccoExposureObservationObservationType> ;
+          <method_type> @<EnumCCDHTobaccoExposureObservationMethodType> ? ;
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <valueEntity> @<Entity> ? ;
-          <valueString> @<CcdhString> ? ;
           <valueInteger> @<CcdhInteger> ? ;
-          <valueDecimal> @<CcdhDecimal> ? ;
-          <valueBoolean> @<CcdhBoolean> ? ;
-          <valueDateTime> @<CcdhDateTime> ? ;
-          <valueQuantity> @<Quantity> ? ;
-          <valueCodeableConcept> @<CCDHTobaccoExposureObservationValueCodeableConcept> ?
+          <valueCodeableConcept> @<EnumCCDHTobaccoExposureObservationValueCodeableConcept> ?
        ) ;
        rdf:type [ <TobaccoExposureObservation> ] ?
     )
@@ -619,22 +693,23 @@ linkml:Nodeidentifier NONLITERAL
 <Treatment> CLOSED {
     (  $<Treatment_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
-          <for_diagnosis> @<Diagnosis> * ;
           <id> @<CcdhString> ? ;
           <identifier> @<Identifier> * ;
-          <regimen> @<CcdhString> ? ;
-          <type> @<CCDHTreatmentType> ? ;
-          <therapeutic_agent> @<Substance> * ;
+          <treatment_for_diagnosis> @<Diagnosis> * ;
+          <concurrent_treatment> @<Treatment> * ;
+          <treatment_type> @<EnumCCDHTreatmentTreatmentType> ? ;
+          <subject> @<Subject> ? ;
           <date_started> @<TimePoint> ? ;
           <date_ended> @<TimePoint> ? ;
-          <end_reason> @<CcdhString> * ;
-          <anatomic_site> @<BodySite> ? ;
-          <effect> @<CcdhString> ? ;
-          <intent> @<CcdhString> ? ;
-          <outcome> @<CcdhString> ? ;
+          <treatment_end_reason> @<EnumCCDHTreatmentTreatmentEndReason> * ;
+          <regimen> @<EnumCCDHTreatmentRegimen> ? ;
+          <therapeutic_agent> @<Substance> ? ;
           <number_of_cycles> @<CcdhInteger> ? ;
-          <concurrent_treatment_type> @<CcdhString> * ;
-          <concurrent_treatment> @<Treatment> *
+          <treatment_frequency> @<EnumCCDHTreatmentTreatmentFrequency> ? ;
+          <treatment_anatomic_site> @<BodySite> ? ;
+          <treatment_intent> @<EnumCCDHTreatmentTreatmentIntent> ? ;
+          <treatment_effect> @<EnumCCDHTreatmentTreatmentEffect> ? ;
+          <treatment_outcome> @<EnumCCDHTreatmentTreatmentOutcome> ?
        ) ;
        rdf:type [ <Treatment> ] ?
     )

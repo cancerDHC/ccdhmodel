@@ -4,6 +4,7 @@ from functools import cached_property
 from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
+from sheet2linkml.source.gsheetmodel.enum import Enum
 from pygsheets import worksheet
 from linkml_model.meta import (
     ClassDefinition,
@@ -347,7 +348,8 @@ class Attribute:
         fixed_name = re.sub(r"^CRDC-H\.", "CCDH.", enum_name)
 
         # The '.'s in the name also mess up the generated Python code.
-        fixed_name = fixed_name.replace(".", "_")
+        # But we might as well replace everything that isn't alphanumeric.
+        fixed_name = re.sub(r"\W", "_", fixed_name).strip("_")
 
         return fixed_name
 
