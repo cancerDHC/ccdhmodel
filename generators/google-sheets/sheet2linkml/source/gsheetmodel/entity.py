@@ -4,6 +4,7 @@ from functools import cached_property
 from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
+from sheet2linkml.source.gsheetmodel.enum import Enum
 from pygsheets import worksheet
 from linkml_model.meta import (
     ClassDefinition,
@@ -365,23 +366,25 @@ class Attribute:
 
         # Look up enumerations on the Terminology Service.
         enum_info = self.terminology_service.get_enum_values_for_field(self.full_name)
-        permissible_values = []
+        permissible_values = {}
         for pv in enum_info.get("permissible_values", []):
-            permissible_values.append(
-                PermissibleValue(
-                    text=pv.get("text"),
-                    description=pv.get("description"),
-                    meaning=pv.get("meaning"),
+            text = pv.get("text")
+            if text in permissible_values.keys():
+                logging.warning(
+                    f"In field '{self.full_name}', found duplicate permissible value text: {text} was previously assigned to {permissible_values[text]}, but will now be replaced with {pv}"
                 )
+
+            permissible_values[str(text)] = PermissibleValue(
+                text=text, description=pv.get("description"), meaning=pv.get("meaning")
             )
 
         return EnumDefinition(
-            name=Attribute.fix_enum_name(self.full_name),
+            name=Enum.fix_enum_name(self.full_name),
             code_set=f"https://terminology.ccdh.io/enumerations/{urllib.parse.quote_plus(self.full_name)}",
             code_set_version=enum_info.get("last_updated", ""),
             comments=f'Name according to TCCM: "{enum_info.get("name", "")}"',
             description=enum_info.get("description"),
-            permissible_values=permissible_values,
+            permissible_values=list(permissible_values.values()),
         )
 
     def as_linkml(self, root_uri) -> SlotDefinition:
@@ -411,7 +414,7 @@ class Attribute:
             # Logically, we should be able to set `attribute_range` to the EnumDefinition.
             # But LinkML doesn't support that yet. So instead, we'll refer to the enum definition
             # here and enter it elsewhere in the YAML file.
-            attribute_range = Attribute.fix_enum_name(self.full_name)
+            attribute_range = Enum.fix_enum_name(self.full_name)
 
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
