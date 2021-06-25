@@ -192,7 +192,7 @@ class Entity(ModelElement):
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
             description=(self.entity_row.get("Description") or "").strip(),
-            # comments=self.entity_row.get("Comments"),
+            comments=self.entity_row.get("Comments"),
         )
 
         if self.name != "Entity":
@@ -550,6 +550,13 @@ class EntityWorksheet(ModelElement):
                 logging.warning(
                     f"- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row."
                 )
+
+        # Make sure that we only have a single entity name in this Worksheet -- the name of the sheet itself.
+        entity_names = list(filtered.keys())
+        if not (len(entity_names) == 1 and entity_names[0] == self.name):
+            logging.warning(
+                f"Expected entity worksheet {self.name} to contain a single entity, but found {len(entity_names)}: {', '.join(entity_names)}"
+            )
 
         return filtered
 
