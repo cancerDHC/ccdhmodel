@@ -347,7 +347,8 @@ class Attribute:
         fixed_name = re.sub(r"^CRDC-H\.", "CCDH.", enum_name)
 
         # The '.'s in the name also mess up the generated Python code.
-        fixed_name = fixed_name.replace(".", "_")
+        # But we might as well replace everything that isn't alphanumeric.
+        fixed_name = re.sub(r"\W", "_", fixed_name).strip("_")
 
         return fixed_name
 
