@@ -7,7 +7,7 @@
          "description": "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHAlcoholExposureObservationCategory",
+               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -19,11 +19,11 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CCDHAlcoholExposureObservationMethodType",
+               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHAlcoholExposureObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationObservationType",
                "description": "The specific type of alcohol exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -35,7 +35,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHAlcoholExposureObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "valueInteger": {
@@ -83,7 +83,7 @@
                "type": "array"
             },
             "product_type": {
-               "$ref": "#/definitions/CCDHBiologicProductProductType",
+               "$ref": "#/definitions/EnumCCDHBiologicProductProductType",
                "description": "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)"
             }
          },
@@ -98,12 +98,12 @@
             "qualifier": {
                "description": "A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).",
                "items": {
-                  "$ref": "#/definitions/CCDHBodySiteQualifier"
+                  "$ref": "#/definitions/EnumCCDHBodySiteQualifier"
                },
                "type": "array"
             },
             "site": {
-               "$ref": "#/definitions/CCDHBodySiteSite",
+               "$ref": "#/definitions/EnumCCDHBodySiteSite",
                "description": "A term describing any site in the body."
             }
          },
@@ -113,7 +113,480 @@
          "title": "BodySite",
          "type": "object"
       },
-      "CCDHAlcoholExposureObservationObservationType": {
+      "CancerGradeObservation": {
+         "additionalProperties": false,
+         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation",
+         "properties": {
+            "category": {
+               "$ref": "#/definitions/EnumCCDHCancerGradeObservationCategory",
+               "description": "The general category of observation described"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "$ref": "#/definitions/EnumCCDHCancerGradeObservationMethodType",
+               "description": "A type of method used in generating the Observation result."
+            },
+            "observation_type": {
+               "$ref": "#/definitions/EnumCCDHCancerGradeObservationObservationType",
+               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "$ref": "#/definitions/EnumCCDHCancerGradeObservationValueCodeableConcept",
+               "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "CancerGradeObservation",
+         "type": "object"
+      },
+      "CancerGradeObservationSet": {
+         "additionalProperties": false,
+         "description": "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).",
+         "properties": {
+            "category": {
+               "$ref": "#/definitions/EnumCCDHCancerGradeObservationSetCategory",
+               "description": "The general category of observation set described"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
+               "items": {
+                  "$ref": "#/definitions/EnumCCDHCancerGradeObservationSetMethodType"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)",
+               "items": {
+                  "$ref": "#/definitions/CancerGradeObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [],
+         "title": "CancerGradeObservationSet",
+         "type": "object"
+      },
+      "CancerStageObservation": {
+         "additionalProperties": false,
+         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
+         "properties": {
+            "category": {
+               "$ref": "#/definitions/EnumCCDHCancerStageObservationCategory",
+               "description": "The general category of observation described"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "$ref": "#/definitions/EnumCCDHCancerStageObservationMethodType",
+               "description": "A type of method used in generating the Observation result."
+            },
+            "observation_type": {
+               "$ref": "#/definitions/EnumCCDHCancerStageObservationObservationType",
+               "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "$ref": "#/definitions/EnumCCDHCancerStageObservationValueCodeableConcept",
+               "description": "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept."
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "CancerStageObservation",
+         "type": "object"
+      },
+      "CancerStageObservationSet": {
+         "additionalProperties": false,
+         "description": "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).",
+         "properties": {
+            "category": {
+               "$ref": "#/definitions/EnumCCDHCancerStageObservationSetCategory",
+               "description": "The general category of observation set described"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
+               "items": {
+                  "$ref": "#/definitions/EnumCCDHCancerStageObservationSetMethodType"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations about the cancer stage",
+               "items": {
+                  "$ref": "#/definitions/CancerStageObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [],
+         "title": "CancerStageObservationSet",
+         "type": "object"
+      },
+      "CodeableConcept": {
+         "additionalProperties": false,
+         "description": "A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.",
+         "properties": {
+            "coding": {
+               "description": "A reference to a code defined by a terminology system",
+               "items": {
+                  "$ref": "#/definitions/Coding"
+               },
+               "type": "array"
+            },
+            "text": {
+               "description": "A human language representation of the concept represented by the Coding.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "CodeableConcept",
+         "type": "object"
+      },
+      "Coding": {
+         "additionalProperties": false,
+         "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
+         "properties": {
+            "code": {
+               "description": "The symbol/value of the code, as defined by the code system.",
+               "type": "string"
+            },
+            "label": {
+               "description": "A human-readable name for the code, as defined by the code system.",
+               "type": "string"
+            },
+            "system": {
+               "description": "The code system where the code is defined.",
+               "type": "string"
+            },
+            "systemURL": {
+               "description": "A URL where the code system can be found.",
+               "type": "string"
+            },
+            "systemVersion": {
+               "description": "The version of the code system.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "code",
+            "system"
+         ],
+         "title": "Coding",
+         "type": "object"
+      },
+      "Diagnosis": {
+         "additionalProperties": false,
+         "description": "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.",
+         "properties": {
+            "age_at_diagnosis": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The age in days of the individual at the time of diagnosis"
+            },
+            "condition": {
+               "$ref": "#/definitions/EnumCCDHDiagnosisCondition",
+               "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)"
+            },
+            "dimensional_measure": {
+               "$ref": "#/definitions/DimensionalObservationSet",
+               "description": "A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area)."
+            },
+            "disease_status": {
+               "$ref": "#/definitions/EnumCCDHDiagnosisDiseaseStatus",
+               "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)"
+            },
+            "grade": {
+               "description": "The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.",
+               "items": {
+                  "$ref": "#/definitions/CancerGradeObservationSet"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "metastatic_site": {
+               "description": "The anatomical location(s) of metastatic disease",
+               "items": {
+                  "$ref": "#/definitions/BodySite"
+               },
+               "type": "array"
+            },
+            "method_of_diagnosis": {
+               "$ref": "#/definitions/EnumCCDHDiagnosisMethodOfDiagnosis",
+               "description": "The method used to confirm the patients malignant diagnosis"
+            },
+            "morphology": {
+               "$ref": "#/definitions/EnumCCDHDiagnosisMorphology",
+               "description": "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms."
+            },
+            "primary_site": {
+               "description": "The anatomical location of the primary condition",
+               "items": {
+                  "$ref": "#/definitions/BodySite"
+               },
+               "type": "array"
+            },
+            "prior_diagnosis": {
+               "$ref": "#/definitions/Diagnosis",
+               "description": "A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis."
+            },
+            "related_specimen": {
+               "description": "The specimen from which this diagnosis is made",
+               "items": {
+                  "$ref": "#/definitions/Specimen"
+               },
+               "type": "array"
+            },
+            "stage": {
+               "description": "The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.",
+               "items": {
+                  "$ref": "#/definitions/CancerStageObservationSet"
+               },
+               "type": "array"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The subject of this diagnosis."
+            },
+            "supporting_observation": {
+               "description": "One or more observations that capture information relevant to this condition or diagnosis.",
+               "items": {
+                  "$ref": "#/definitions/Observation"
+               },
+               "type": "array"
+            },
+            "year_at_diagnosis": {
+               "description": "Numeric value to represent the year of an individual's diagnosis.",
+               "type": "integer"
+            }
+         },
+         "required": [],
+         "title": "Diagnosis",
+         "type": "object"
+      },
+      "DimensionalObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement.",
+         "properties": {
+            "category": {
+               "$ref": "#/definitions/EnumCCDHDimensionalObservationCategory",
+               "description": "The general category of observation described"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "$ref": "#/definitions/EnumCCDHDimensionalObservationMethodType"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "$ref": "#/definitions/EnumCCDHDimensionalObservationObservationType",
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc."
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "DimensionalObservation",
+         "type": "object"
+      },
+      "DimensionalObservationSet": {
+         "additionalProperties": false,
+         "description": "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).",
+         "properties": {
+            "category": {
+               "$ref": "#/definitions/EnumCCDHDimensionalObservationSetCategory",
+               "description": "The general category of observation set described"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set.",
+               "items": {
+                  "$ref": "#/definitions/EnumCCDHDimensionalObservationSetMethodType"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
+               "items": {
+                  "$ref": "#/definitions/DimensionalObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [],
+         "title": "DimensionalObservationSet",
+         "type": "object"
+      },
+      "Document": {
+         "additionalProperties": false,
+         "description": "A collection of information intented to be understood together as a whole, and codified in human-readable form.",
+         "properties": {
+            "description": {
+               "description": "A free text description or summary of the report.",
+               "type": "string"
+            },
+            "document_type": {
+               "$ref": "#/definitions/EnumCCDHDocumentDocumentType",
+               "description": "The high-level type of the document (e.g.  'publication', 'pathology report')"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity that the report is primarily about"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "url": {
+               "description": "A URL/web address where the document can be accessed.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Document",
+         "type": "object"
+      },
+      "Entity": {
+         "additionalProperties": false,
+         "description": "Any resource that has its own identifier",
+         "properties": {},
+         "required": [],
+         "title": "Entity",
+         "type": "object"
+      },
+      "EnumCCDHAlcoholExposureObservationObservationType": {
          "description": "Types of observations about a Subject's exposure to alcohol.",
          "enum": [
             "alcohol_days_per_week",
@@ -121,10 +594,10 @@
             "alcohol_history",
             "alcohol_intensity"
          ],
-         "title": "CCDHAlcoholExposureObservationObservationType",
+         "title": "EnumCCDHAlcoholExposureObservationObservationType",
          "type": "string"
       },
-      "CCDHAlcoholExposureObservationValueCodeableConcept": {
+      "EnumCCDHAlcoholExposureObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept",
          "enum": [
             "Unknown",
@@ -137,10 +610,10 @@
             "No",
             "Yes"
          ],
-         "title": "CCDHAlcoholExposureObservationValueCodeableConcept",
+         "title": "EnumCCDHAlcoholExposureObservationValueCodeableConcept",
          "type": "string"
       },
-      "CCDHBodySiteQualifier": {
+      "EnumCCDHBodySiteQualifier": {
          "description": "Autogenerated Enumeration for CRDC-H BodySite qualifier",
          "enum": [
             "Bilateral",
@@ -149,10 +622,10 @@
             "Right",
             "Not Reported"
          ],
-         "title": "CCDHBodySiteQualifier",
+         "title": "EnumCCDHBodySiteQualifier",
          "type": "string"
       },
-      "CCDHBodySiteSite": {
+      "EnumCCDHBodySiteSite": {
          "description": "Autogenerated Enumeration for CRDC-H BodySite site",
          "enum": [
             "Eye and adnexa",
@@ -789,10 +1262,10 @@
             "Paranasal Sinuses",
             "Submandibular Gland"
          ],
-         "title": "CCDHBodySiteSite",
+         "title": "EnumCCDHBodySiteSite",
          "type": "string"
       },
-      "CCDHCancerGradeObservationObservationType": {
+      "EnumCCDHCancerGradeObservationObservationType": {
          "description": "",
          "enum": [
             "enneking_msts_grade",
@@ -803,20 +1276,20 @@
             "secondary_gleason_grade",
             "tumor_grade"
          ],
-         "title": "CCDHCancerGradeObservationObservationType",
+         "title": "EnumCCDHCancerGradeObservationObservationType",
          "type": "string"
       },
-      "CCDHCancerGradeObservationSetMethodType": {
+      "EnumCCDHCancerGradeObservationSetMethodType": {
          "description": "A morphologic classification system of malignant tumors, usually relating to disease progression and clinical outcome. It is based upon the presence or absence of several morphologic parameters, including tumor cell necrosis, cytologic atypia, nuclear pleomorphism and mitotic figures, the architectural infiltrating patterns, and the degree of tumor cell differentiation. Malignant tumors usually are graded I-III",
          "enum": [
             "Gleason",
             "INPC",
             "Unspecified grading system"
          ],
-         "title": "CCDHCancerGradeObservationSetMethodType",
+         "title": "EnumCCDHCancerGradeObservationSetMethodType",
          "type": "string"
       },
-      "CCDHCancerGradeObservationValueCodeableConcept": {
+      "EnumCCDHCancerGradeObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept",
          "enum": [
             "Pattern 1",
@@ -851,10 +1324,10 @@
             "Undifferentiated",
             "Poorly Differentiated"
          ],
-         "title": "CCDHCancerGradeObservationValueCodeableConcept",
+         "title": "EnumCCDHCancerGradeObservationValueCodeableConcept",
          "type": "string"
       },
-      "CCDHCancerStageObservationObservationType": {
+      "EnumCCDHCancerStageObservationObservationType": {
          "description": "Types of observations or components of a cancer staging assessment.",
          "enum": [
             "Overall",
@@ -871,10 +1344,10 @@
             "Pathological Metastasis (M)",
             "Ann Arbor Substage Modifier"
          ],
-         "title": "CCDHCancerStageObservationObservationType",
+         "title": "EnumCCDHCancerStageObservationObservationType",
          "type": "string"
       },
-      "CCDHCancerStageObservationSetMethodType": {
+      "EnumCCDHCancerStageObservationSetMethodType": {
          "description": "Classification systems used for defining the point in the natural history of a malignant disease a patient is when a diagnosis is made",
          "enum": [
             "AJCC staging system 1st edition",
@@ -898,10 +1371,10 @@
             "Masaoka staging system",
             "Unspecified staging system"
          ],
-         "title": "CCDHCancerStageObservationSetMethodType",
+         "title": "EnumCCDHCancerStageObservationSetMethodType",
          "type": "string"
       },
-      "CCDHCancerStageObservationValueCodeableConcept": {
+      "EnumCCDHCancerStageObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept",
          "enum": [
             "N2",
@@ -1056,10 +1529,10 @@
             "Stage IIIAi",
             "Stage IIIA2"
          ],
-         "title": "CCDHCancerStageObservationValueCodeableConcept",
+         "title": "EnumCCDHCancerStageObservationValueCodeableConcept",
          "type": "string"
       },
-      "CCDHDiagnosisCondition": {
+      "EnumCCDHDiagnosisCondition": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis condition",
          "enum": [
             "Von Recklinghausen disease",
@@ -3685,10 +4158,10 @@
             "Medulloblastoma, group 4",
             "Malignant lymphoma, small lymphocytic, diffuse"
          ],
-         "title": "CCDHDiagnosisCondition",
+         "title": "EnumCCDHDiagnosisCondition",
          "type": "string"
       },
-      "CCDHDiagnosisDiseaseStatus": {
+      "EnumCCDHDiagnosisDiseaseStatus": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis disease_status",
          "enum": [
             "Initial Diagnosis",
@@ -3698,10 +4171,10 @@
             "Recurrent Disease",
             "Progressive Disease"
          ],
-         "title": "CCDHDiagnosisDiseaseStatus",
+         "title": "EnumCCDHDiagnosisDiseaseStatus",
          "type": "string"
       },
-      "CCDHDiagnosisMethodOfDiagnosis": {
+      "EnumCCDHDiagnosisMethodOfDiagnosis": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis",
          "enum": [
             "Surgical Resection",
@@ -3732,10 +4205,10 @@
             "Autopsy",
             "Imaging"
          ],
-         "title": "CCDHDiagnosisMethodOfDiagnosis",
+         "title": "EnumCCDHDiagnosisMethodOfDiagnosis",
          "type": "string"
       },
-      "CCDHDiagnosisMorphology": {
+      "EnumCCDHDiagnosisMorphology": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis morphology",
          "enum": [
             "9261/3",
@@ -4887,10 +5360,10 @@
             "8950/6",
             "8310/6"
          ],
-         "title": "CCDHDiagnosisMorphology",
+         "title": "EnumCCDHDiagnosisMorphology",
          "type": "string"
       },
-      "CCDHDimensionalObservationObservationType": {
+      "EnumCCDHDimensionalObservationObservationType": {
          "description": "Types of measurements that describe the physical dimensions of an entity (e.g. a Specimen)",
          "enum": [
             "length",
@@ -4900,19 +5373,19 @@
             "intermediate_dimension",
             "surface_area"
          ],
-         "title": "CCDHDimensionalObservationObservationType",
+         "title": "EnumCCDHDimensionalObservationObservationType",
          "type": "string"
       },
-      "CCDHDocumentDocumentType": {
+      "EnumCCDHDocumentDocumentType": {
          "description": "The high-level type of the report (e.g. 'pathology report')",
          "enum": [
             "pathology report",
             "protocol"
          ],
-         "title": "CCDHDocumentDocumentType",
+         "title": "EnumCCDHDocumentDocumentType",
          "type": "string"
       },
-      "CCDHEnvironmentalExposureObservationObservationType": {
+      "EnumCCDHEnvironmentalExposureObservationObservationType": {
          "description": "Types of observations about a Subject's environmental exposures.",
          "enum": [
             "asbestos_exposure",
@@ -4921,10 +5394,10 @@
             "respirable_crystalline_silica_exposure",
             "type_of_smoke_exposure"
          ],
-         "title": "CCDHEnvironmentalExposureObservationObservationType",
+         "title": "EnumCCDHEnvironmentalExposureObservationObservationType",
          "type": "string"
       },
-      "CCDHEnvironmentalExposureObservationValueCodeableConcept": {
+      "EnumCCDHEnvironmentalExposureObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept",
          "enum": [
             "Work-related smoke, plumbing",
@@ -4981,28 +5454,28 @@
             "Yes",
             "Tobacco smoke, NOS"
          ],
-         "title": "CCDHEnvironmentalExposureObservationValueCodeableConcept",
+         "title": "EnumCCDHEnvironmentalExposureObservationValueCodeableConcept",
          "type": "string"
       },
-      "CCDHExecutionConditionObservation": {
+      "EnumCCDHExecutionConditionObservation": {
          "description": "Types of observations about the environmental conditions under which specific aspects of an activity were performed.",
          "enum": [
             "ischemic_temperature"
          ],
-         "title": "CCDHExecutionConditionObservation",
+         "title": "EnumCCDHExecutionConditionObservation",
          "type": "string"
       },
-      "CCDHExecutionTimeObservation": {
+      "EnumCCDHExecutionTimeObservation": {
          "description": "An observation about the duration of specific aspects / parts of an activity.",
          "enum": [
             "time_between_excision_and_freezing",
             "time_between_clamping_and_freezing",
             "ischemic_time"
          ],
-         "title": "CCDHExecutionTimeObservation",
+         "title": "EnumCCDHExecutionTimeObservation",
          "type": "string"
       },
-      "CCDHHistologicalCompositionObservationObservationType": {
+      "EnumCCDHHistologicalCompositionObservationObservationType": {
          "description": "Types of measurements that describe microscopic characteristics of a specimen - typically related to its cellular and tissue composition.",
          "enum": [
             "number_proliferating_cells",
@@ -5026,10 +5499,10 @@
             "analysis_area_percentage_glass",
             "analysis_area_percentage_pigmented_tumor"
          ],
-         "title": "CCDHHistologicalCompositionObservationObservationType",
+         "title": "EnumCCDHHistologicalCompositionObservationObservationType",
          "type": "string"
       },
-      "CCDHQuantityValueCodeableConcept": {
+      "EnumCCDHQuantityValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept",
          "enum": [
             "Not Reported",
@@ -5037,20 +5510,20 @@
             "Unknown",
             "Adjacent (< or = 2cm)"
          ],
-         "title": "CCDHQuantityValueCodeableConcept",
+         "title": "EnumCCDHQuantityValueCodeableConcept",
          "type": "string"
       },
-      "CCDHResearchProjectResearchProjectType": {
+      "EnumCCDHResearchProjectResearchProjectType": {
          "description": "A high-level type of research activity",
          "enum": [
             "Program",
             "Project",
             "Clinical Trial"
          ],
-         "title": "CCDHResearchProjectResearchProjectType",
+         "title": "EnumCCDHResearchProjectResearchProjectType",
          "type": "string"
       },
-      "CCDHResearchSubjectIndexTimepoint": {
+      "EnumCCDHResearchSubjectIndexTimepoint": {
          "description": "Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint",
          "enum": [
             "Diagnosis",
@@ -5061,10 +5534,10 @@
             "Initial Genomic Sequencing",
             "Recurrence"
          ],
-         "title": "CCDHResearchSubjectIndexTimepoint",
+         "title": "EnumCCDHResearchSubjectIndexTimepoint",
          "type": "string"
       },
-      "CCDHResearchSubjectPrimaryDiagnosisCondition": {
+      "EnumCCDHResearchSubjectPrimaryDiagnosisCondition": {
          "description": "Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition",
          "enum": [
             "Soft Tissue Tumors and Sarcomas, NOS",
@@ -5181,10 +5654,10 @@
             "Colon Adenocarcinoma",
             "Other"
          ],
-         "title": "CCDHResearchSubjectPrimaryDiagnosisCondition",
+         "title": "EnumCCDHResearchSubjectPrimaryDiagnosisCondition",
          "type": "string"
       },
-      "CCDHSpecimenAnalyteType": {
+      "EnumCCDHSpecimenAnalyteType": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen analyte_type",
          "enum": [
             "Repli-G (Qiagen) DNA",
@@ -5211,10 +5684,10 @@
             "Y",
             "Protein"
          ],
-         "title": "CCDHSpecimenAnalyteType",
+         "title": "EnumCCDHSpecimenAnalyteType",
          "type": "string"
       },
-      "CCDHSpecimenCellularCompositionType": {
+      "EnumCCDHSpecimenCellularCompositionType": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type",
          "enum": [
             "Lymphocytes",
@@ -5252,19 +5725,19 @@
             "Serum",
             "Not Allowed To Collect"
          ],
-         "title": "CCDHSpecimenCellularCompositionType",
+         "title": "EnumCCDHSpecimenCellularCompositionType",
          "type": "string"
       },
-      "CCDHSpecimenCreationActivityActivityType": {
+      "EnumCCDHSpecimenCreationActivityActivityType": {
          "description": "The high-level type of activity through which the specimen was generated (i.e. via collection from the original source, or via derivation from an existing specimen)",
          "enum": [
             "collection from source",
             "derivation from specimen"
          ],
-         "title": "CCDHSpecimenCreationActivityActivityType",
+         "title": "EnumCCDHSpecimenCreationActivityActivityType",
          "type": "string"
       },
-      "CCDHSpecimenCreationActivityCollectionMethodType": {
+      "EnumCCDHSpecimenCreationActivityCollectionMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type",
          "enum": [
             "Yes",
@@ -5373,10 +5846,10 @@
             "Transoral Laser Excision",
             "Palatectomy"
          ],
-         "title": "CCDHSpecimenCreationActivityCollectionMethodType",
+         "title": "EnumCCDHSpecimenCreationActivityCollectionMethodType",
          "type": "string"
       },
-      "CCDHSpecimenGeneralTissueMorphology": {
+      "EnumCCDHSpecimenGeneralTissueMorphology": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
          "enum": [
             "Peritumoral",
@@ -5387,10 +5860,10 @@
             "Tumor",
             "Not Reported"
          ],
-         "title": "CCDHSpecimenGeneralTissueMorphology",
+         "title": "EnumCCDHSpecimenGeneralTissueMorphology",
          "type": "string"
       },
-      "CCDHSpecimenProcessingActivityActivityType": {
+      "EnumCCDHSpecimenProcessingActivityActivityType": {
          "description": "The high-level type of processing activity performed.",
          "enum": [
             "Fixation",
@@ -5398,10 +5871,10 @@
             "Mounting",
             "Preservation"
          ],
-         "title": "CCDHSpecimenProcessingActivityActivityType",
+         "title": "EnumCCDHSpecimenProcessingActivityActivityType",
          "type": "string"
       },
-      "CCDHSpecimenProcessingActivityMethodType": {
+      "EnumCCDHSpecimenProcessingActivityMethodType": {
          "description": "A type of method used to process a specimen (e.g. freezing, fixing, treating, preserving, labeling, etc.).",
          "enum": [
             "-80",
@@ -5409,48 +5882,48 @@
             "LN2",
             "isopentane"
          ],
-         "title": "CCDHSpecimenProcessingActivityMethodType",
+         "title": "EnumCCDHSpecimenProcessingActivityMethodType",
          "type": "string"
       },
-      "CCDHSpecimenQualityObservationMethodType": {
+      "EnumCCDHSpecimenQualityObservationMethodType": {
          "description": "A type of method used in determining the quantity of a specimen.",
          "enum": [
             "UV Spec",
             "Pico Green"
          ],
-         "title": "CCDHSpecimenQualityObservationMethodType",
+         "title": "EnumCCDHSpecimenQualityObservationMethodType",
          "type": "string"
       },
-      "CCDHSpecimenQualityObservationObservationType": {
+      "EnumCCDHSpecimenQualityObservationObservationType": {
          "description": "Types of measurements that reflect the quality of a specimen or its suitability for use.",
          "enum": [
             "a260_a280_ratio  ",
             "ribosomal_rna_28s_16s_ratio"
          ],
-         "title": "CCDHSpecimenQualityObservationObservationType",
+         "title": "EnumCCDHSpecimenQualityObservationObservationType",
          "type": "string"
       },
-      "CCDHSpecimenQuantityObservationObservationType": {
+      "EnumCCDHSpecimenQuantityObservationObservationType": {
          "description": "Measures related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.",
          "enum": [
             "weight",
             "volume",
             "concentration"
          ],
-         "title": "CCDHSpecimenQuantityObservationObservationType",
+         "title": "EnumCCDHSpecimenQuantityObservationObservationType",
          "type": "string"
       },
-      "CCDHSpecimenSectionLocation": {
+      "EnumCCDHSpecimenSectionLocation": {
          "description": "The location in a parent specimen from which a section/portion was excised.",
          "enum": [
             "top",
             "unknown",
             "bottom"
          ],
-         "title": "CCDHSpecimenSectionLocation",
+         "title": "EnumCCDHSpecimenSectionLocation",
          "type": "string"
       },
-      "CCDHSpecimenSourceMaterialType": {
+      "EnumCCDHSpecimenSourceMaterialType": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen source_material_type",
          "enum": [
             "Recurrent Blood Derived Cancer - Bone Marrow",
@@ -5538,10 +6011,10 @@
             "12",
             "40"
          ],
-         "title": "CCDHSpecimenSourceMaterialType",
+         "title": "EnumCCDHSpecimenSourceMaterialType",
          "type": "string"
       },
-      "CCDHSpecimenSpecificTissueMorphology": {
+      "EnumCCDHSpecimenSpecificTissueMorphology": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
          "enum": [
             "61",
@@ -5595,10 +6068,10 @@
             "Osteosarcoma (OS)",
             "Wilms tumor (WT)"
          ],
-         "title": "CCDHSpecimenSpecificTissueMorphology",
+         "title": "EnumCCDHSpecimenSpecificTissueMorphology",
          "type": "string"
       },
-      "CCDHSpecimenSpecimenType": {
+      "EnumCCDHSpecimenSpecimenType": {
          "description": "A high-level type of specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).",
          "enum": [
             "initial sample",
@@ -5607,10 +6080,10 @@
             "analyte",
             "slide"
          ],
-         "title": "CCDHSpecimenSpecimenType",
+         "title": "EnumCCDHSpecimenSpecimenType",
          "type": "string"
       },
-      "CCDHSpecimenTumorStatusAtCollection": {
+      "EnumCCDHSpecimenTumorStatusAtCollection": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection",
          "enum": [
             "recurrence",
@@ -5630,10 +6103,10 @@
             "Not Reported",
             "Progression"
          ],
-         "title": "CCDHSpecimenTumorStatusAtCollection",
+         "title": "EnumCCDHSpecimenTumorStatusAtCollection",
          "type": "string"
       },
-      "CCDHSubjectBreed": {
+      "EnumCCDHSubjectBreed": {
          "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.",
          "enum": [
             "Akita",
@@ -5684,10 +6157,10 @@
             "West Highland White Terrier",
             "Yorkshire Terrier"
          ],
-         "title": "CCDHSubjectBreed",
+         "title": "EnumCCDHSubjectBreed",
          "type": "string"
       },
-      "CCDHSubjectCauseOfDeath": {
+      "EnumCCDHSubjectCauseOfDeath": {
          "description": "Autogenerated Enumeration for CRDC-H Subject cause_of_death",
          "enum": [
             "Infection",
@@ -5702,10 +6175,10 @@
             "Cancer Related",
             "Unknown"
          ],
-         "title": "CCDHSubjectCauseOfDeath",
+         "title": "EnumCCDHSubjectCauseOfDeath",
          "type": "string"
       },
-      "CCDHSubjectEthnicity": {
+      "EnumCCDHSubjectEthnicity": {
          "description": "Autogenerated Enumeration for CRDC-H Subject ethnicity",
          "enum": [
             "not hispanic or latino",
@@ -5715,10 +6188,10 @@
             "unknown",
             "not allowed to collect"
          ],
-         "title": "CCDHSubjectEthnicity",
+         "title": "EnumCCDHSubjectEthnicity",
          "type": "string"
       },
-      "CCDHSubjectRace": {
+      "EnumCCDHSubjectRace": {
          "description": "Autogenerated Enumeration for CRDC-H Subject race",
          "enum": [
             "not allowed to collect",
@@ -5732,10 +6205,10 @@
             "other",
             "black or african american"
          ],
-         "title": "CCDHSubjectRace",
+         "title": "EnumCCDHSubjectRace",
          "type": "string"
       },
-      "CCDHSubjectSex": {
+      "EnumCCDHSubjectSex": {
          "description": "Autogenerated Enumeration for CRDC-H Subject sex",
          "enum": [
             "unknown",
@@ -5744,20 +6217,20 @@
             "male",
             "unspecified"
          ],
-         "title": "CCDHSubjectSex",
+         "title": "EnumCCDHSubjectSex",
          "type": "string"
       },
-      "CCDHSubjectSpecies": {
+      "EnumCCDHSubjectSpecies": {
          "description": "The scientific binomial name for the species of the subject",
          "enum": [
             "Homo sapiens",
             "Canis familiaris",
             "Mus musculus"
          ],
-         "title": "CCDHSubjectSpecies",
+         "title": "EnumCCDHSubjectSpecies",
          "type": "string"
       },
-      "CCDHSubjectVitalStatus": {
+      "EnumCCDHSubjectVitalStatus": {
          "description": "Autogenerated Enumeration for CRDC-H Subject vital_status",
          "enum": [
             "Unknown",
@@ -5765,10 +6238,10 @@
             "Dead",
             "Alive"
          ],
-         "title": "CCDHSubjectVitalStatus",
+         "title": "EnumCCDHSubjectVitalStatus",
          "type": "string"
       },
-      "CCDHSubstanceRole": {
+      "EnumCCDHSubstanceRole": {
          "description": "A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
          "enum": [
             "lysis buffer",
@@ -5776,10 +6249,10 @@
             "fixative",
             "collection media"
          ],
-         "title": "CCDHSubstanceRole",
+         "title": "EnumCCDHSubstanceRole",
          "type": "string"
       },
-      "CCDHSubstanceSubstanceType": {
+      "EnumCCDHSubstanceSubstanceType": {
          "description": "Autogenerated Enumeration for CRDC-H Substance substance_type",
          "enum": [
             "Anti-PTK7/Auristatin-0101 Antibody-drug Conjugate PF-06647020",
@@ -10255,20 +10728,20 @@
             "Phosphatidylcholine-Bound Silybin",
             "Anti-CSF1 Monoclonal Antibody PD-0360324"
          ],
-         "title": "CCDHSubstanceSubstanceType",
+         "title": "EnumCCDHSubstanceSubstanceType",
          "type": "string"
       },
-      "CCDHTimePointEventType": {
+      "EnumCCDHTimePointEventType": {
          "description": "A specific type of event for which a timepoint is captured",
          "enum": [
             "IACUC approval",
             "IRB approval",
             "Histological confirmation of diagnosis"
          ],
-         "title": "CCDHTimePointEventType",
+         "title": "EnumCCDHTimePointEventType",
          "type": "string"
       },
-      "CCDHTobaccoExposureObservationValueCodeableConcept": {
+      "EnumCCDHTobaccoExposureObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept",
          "enum": [
             "Some days",
@@ -10296,10 +10769,10 @@
             "6",
             "Cigarettes"
          ],
-         "title": "CCDHTobaccoExposureObservationValueCodeableConcept",
+         "title": "EnumCCDHTobaccoExposureObservationValueCodeableConcept",
          "type": "string"
       },
-      "CCDHTobbaccoExposureObservationObservationType": {
+      "EnumCCDHTobbaccoExposureObservationObservationType": {
          "description": "Types of observations about a Subject's exposure to or use of tobacco.",
          "enum": [
             "cigarettes_per_day",
@@ -10313,10 +10786,10 @@
             "tobacco_smoking_status",
             "type_of_tobacco_used"
          ],
-         "title": "CCDHTobbaccoExposureObservationObservationType",
+         "title": "EnumCCDHTobbaccoExposureObservationObservationType",
          "type": "string"
       },
-      "CCDHTreatmentTreatmentEffect": {
+      "EnumCCDHTreatmentTreatmentEffect": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_effect",
          "enum": [
             "Yes",
@@ -10328,10 +10801,10 @@
             "No Known Treatment Effect",
             "Complete Necrosis (No Viable Tumor)"
          ],
-         "title": "CCDHTreatmentTreatmentEffect",
+         "title": "EnumCCDHTreatmentTreatmentEffect",
          "type": "string"
       },
-      "CCDHTreatmentTreatmentEndReason": {
+      "EnumCCDHTreatmentTreatmentEndReason": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason",
          "enum": [
             "Other",
@@ -10341,10 +10814,10 @@
             "Course of Therapy Completed",
             "Death"
          ],
-         "title": "CCDHTreatmentTreatmentEndReason",
+         "title": "EnumCCDHTreatmentTreatmentEndReason",
          "type": "string"
       },
-      "CCDHTreatmentTreatmentFrequency": {
+      "EnumCCDHTreatmentTreatmentFrequency": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_frequency",
          "enum": [
             "Every Other Day",
@@ -10359,10 +10832,10 @@
             "Every 24 Hours",
             "Four Times Daily"
          ],
-         "title": "CCDHTreatmentTreatmentFrequency",
+         "title": "EnumCCDHTreatmentTreatmentFrequency",
          "type": "string"
       },
-      "CCDHTreatmentTreatmentIntent": {
+      "EnumCCDHTreatmentTreatmentIntent": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_intent",
          "enum": [
             "Neoadjuvant",
@@ -10376,10 +10849,10 @@
             "Cure",
             "Palliative"
          ],
-         "title": "CCDHTreatmentTreatmentIntent",
+         "title": "EnumCCDHTreatmentTreatmentIntent",
          "type": "string"
       },
-      "CCDHTreatmentTreatmentOutcome": {
+      "EnumCCDHTreatmentTreatmentOutcome": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_outcome",
          "enum": [
             "Treatment Ongoing",
@@ -10396,10 +10869,10 @@
             "Partial Response",
             "No Response"
          ],
-         "title": "CCDHTreatmentTreatmentOutcome",
+         "title": "EnumCCDHTreatmentTreatmentOutcome",
          "type": "string"
       },
-      "CCDHTreatmentTreatmentType": {
+      "EnumCCDHTreatmentTreatmentType": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_type",
          "enum": [
             "Radiation, Cyberknife",
@@ -10466,488 +10939,15 @@
             "Radioembolization",
             "Radiation, Radioisotope"
          ],
-         "title": "CCDHTreatmentTreatmentType",
+         "title": "EnumCCDHTreatmentTreatmentType",
          "type": "string"
-      },
-      "CancerGradeObservation": {
-         "additionalProperties": false,
-         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation",
-         "properties": {
-            "category": {
-               "$ref": "#/definitions/CCDHCancerGradeObservationCategory",
-               "description": "The general category of observation described"
-            },
-            "focus": {
-               "$ref": "#/definitions/Entity",
-               "description": "The entity or entities directly observed/measured in generating an observation result."
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "method_type": {
-               "$ref": "#/definitions/CCDHCancerGradeObservationMethodType",
-               "description": "A type of method used in generating the Observation result."
-            },
-            "observation_type": {
-               "$ref": "#/definitions/CCDHCancerGradeObservationObservationType",
-               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)"
-            },
-            "subject": {
-               "$ref": "#/definitions/Subject",
-               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
-            },
-            "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHCancerGradeObservationValueCodeableConcept",
-               "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)"
-            }
-         },
-         "required": [
-            "observation_type",
-            "valueCodeableConcept"
-         ],
-         "title": "CancerGradeObservation",
-         "type": "object"
-      },
-      "CancerGradeObservationSet": {
-         "additionalProperties": false,
-         "description": "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).",
-         "properties": {
-            "category": {
-               "$ref": "#/definitions/CCDHCancerGradeObservationSetCategory",
-               "description": "The general category of observation set described"
-            },
-            "focus": {
-               "description": "The entity or entities directly observed/measured in generating an observation result.",
-               "items": {
-                  "$ref": "#/definitions/Entity"
-               },
-               "type": "array"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "method_type": {
-               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
-               "items": {
-                  "$ref": "#/definitions/CCDHCancerGradeObservationSetMethodType"
-               },
-               "type": "array"
-            },
-            "observations": {
-               "description": "A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)",
-               "items": {
-                  "$ref": "#/definitions/CancerGradeObservation"
-               },
-               "type": "array"
-            },
-            "performed_by": {
-               "$ref": "#/definitions/Organization",
-               "description": "The organization or group that performed the observation activity."
-            },
-            "subject": {
-               "$ref": "#/definitions/Subject",
-               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
-            }
-         },
-         "required": [],
-         "title": "CancerGradeObservationSet",
-         "type": "object"
-      },
-      "CancerStageObservation": {
-         "additionalProperties": false,
-         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
-         "properties": {
-            "category": {
-               "$ref": "#/definitions/CCDHCancerStageObservationCategory",
-               "description": "The general category of observation described"
-            },
-            "focus": {
-               "$ref": "#/definitions/Entity",
-               "description": "The entity or entities directly observed/measured in generating an observation result."
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "method_type": {
-               "$ref": "#/definitions/CCDHCancerStageObservationMethodType",
-               "description": "A type of method used in generating the Observation result."
-            },
-            "observation_type": {
-               "$ref": "#/definitions/CCDHCancerStageObservationObservationType",
-               "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')"
-            },
-            "performed_by": {
-               "$ref": "#/definitions/Organization",
-               "description": "The organization or group that performed the observation activity."
-            },
-            "subject": {
-               "$ref": "#/definitions/Subject",
-               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
-            },
-            "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHCancerStageObservationValueCodeableConcept",
-               "description": "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept."
-            },
-            "valueEntity": {
-               "$ref": "#/definitions/Entity",
-               "description": "The value of an observation"
-            }
-         },
-         "required": [
-            "observation_type",
-            "valueCodeableConcept"
-         ],
-         "title": "CancerStageObservation",
-         "type": "object"
-      },
-      "CancerStageObservationSet": {
-         "additionalProperties": false,
-         "description": "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).",
-         "properties": {
-            "category": {
-               "$ref": "#/definitions/CCDHCancerStageObservationSetCategory",
-               "description": "The general category of observation set described"
-            },
-            "focus": {
-               "description": "The entity or entities directly observed/measured in generating an observation result.",
-               "items": {
-                  "$ref": "#/definitions/Entity"
-               },
-               "type": "array"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "method_type": {
-               "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
-               "items": {
-                  "$ref": "#/definitions/CCDHCancerStageObservationSetMethodType"
-               },
-               "type": "array"
-            },
-            "observations": {
-               "description": "A set of one or more more atomic observations about the cancer stage",
-               "items": {
-                  "$ref": "#/definitions/CancerStageObservation"
-               },
-               "type": "array"
-            },
-            "performed_by": {
-               "$ref": "#/definitions/Organization",
-               "description": "The organization or group that performed the observation activity."
-            },
-            "subject": {
-               "$ref": "#/definitions/Subject",
-               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
-            }
-         },
-         "required": [],
-         "title": "CancerStageObservationSet",
-         "type": "object"
-      },
-      "CodeableConcept": {
-         "additionalProperties": false,
-         "description": "A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.",
-         "properties": {
-            "coding": {
-               "description": "A reference to a code defined by a terminology system",
-               "items": {
-                  "$ref": "#/definitions/Coding"
-               },
-               "type": "array"
-            },
-            "text": {
-               "description": "A human language representation of the concept represented by the Coding.",
-               "type": "string"
-            }
-         },
-         "required": [],
-         "title": "CodeableConcept",
-         "type": "object"
-      },
-      "Coding": {
-         "additionalProperties": false,
-         "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
-         "properties": {
-            "code": {
-               "description": "The symbol/value of the code, as defined by the code system.",
-               "type": "string"
-            },
-            "label": {
-               "description": "A human-readable name for the code, as defined by the code system.",
-               "type": "string"
-            },
-            "system": {
-               "description": "The code system where the code is defined.",
-               "type": "string"
-            },
-            "systemURL": {
-               "description": "A URL where the code system can be found.",
-               "type": "string"
-            },
-            "systemVersion": {
-               "description": "The version of the code system.",
-               "type": "string"
-            }
-         },
-         "required": [
-            "code",
-            "system"
-         ],
-         "title": "Coding",
-         "type": "object"
-      },
-      "Diagnosis": {
-         "additionalProperties": false,
-         "description": "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.",
-         "properties": {
-            "age_at_diagnosis": {
-               "$ref": "#/definitions/Quantity",
-               "description": "The age in days of the individual at the time of diagnosis"
-            },
-            "condition": {
-               "$ref": "#/definitions/CCDHDiagnosisCondition",
-               "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)"
-            },
-            "dimensional_measure": {
-               "$ref": "#/definitions/DimensionalObservationSet",
-               "description": "A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area)."
-            },
-            "disease_status": {
-               "$ref": "#/definitions/CCDHDiagnosisDiseaseStatus",
-               "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)"
-            },
-            "grade": {
-               "description": "The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.",
-               "items": {
-                  "$ref": "#/definitions/CancerGradeObservationSet"
-               },
-               "type": "array"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "identifier": {
-               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
-               "items": {
-                  "$ref": "#/definitions/Identifier"
-               },
-               "type": "array"
-            },
-            "metastatic_site": {
-               "description": "The anatomical location(s) of metastatic disease",
-               "items": {
-                  "$ref": "#/definitions/BodySite"
-               },
-               "type": "array"
-            },
-            "method_of_diagnosis": {
-               "$ref": "#/definitions/CCDHDiagnosisMethodOfDiagnosis",
-               "description": "The method used to confirm the patients malignant diagnosis"
-            },
-            "morphology": {
-               "$ref": "#/definitions/CCDHDiagnosisMorphology",
-               "description": "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms."
-            },
-            "primary_site": {
-               "description": "The anatomical location of the primary condition",
-               "items": {
-                  "$ref": "#/definitions/BodySite"
-               },
-               "type": "array"
-            },
-            "prior_diagnosis": {
-               "$ref": "#/definitions/Diagnosis",
-               "description": "A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis."
-            },
-            "related_specimen": {
-               "description": "The specimen from which this diagnosis is made",
-               "items": {
-                  "$ref": "#/definitions/Specimen"
-               },
-               "type": "array"
-            },
-            "stage": {
-               "description": "The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.",
-               "items": {
-                  "$ref": "#/definitions/CancerStageObservationSet"
-               },
-               "type": "array"
-            },
-            "subject": {
-               "$ref": "#/definitions/Subject",
-               "description": "The subject of this diagnosis."
-            },
-            "supporting_observation": {
-               "description": "One or more observations that capture information relevant to this condition or diagnosis.",
-               "items": {
-                  "$ref": "#/definitions/Observation"
-               },
-               "type": "array"
-            },
-            "year_at_diagnosis": {
-               "description": "Numeric value to represent the year of an individual's diagnosis.",
-               "type": "integer"
-            }
-         },
-         "required": [],
-         "title": "Diagnosis",
-         "type": "object"
-      },
-      "DimensionalObservation": {
-         "additionalProperties": false,
-         "description": "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement.",
-         "properties": {
-            "category": {
-               "$ref": "#/definitions/CCDHDimensionalObservationCategory",
-               "description": "The general category of observation described"
-            },
-            "focus": {
-               "description": "The entity or entities directly observed/measured in generating an observation result.",
-               "items": {
-                  "$ref": "#/definitions/Entity"
-               },
-               "type": "array"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "method_type": {
-               "description": "A type of method used in generating the Observation result.",
-               "items": {
-                  "$ref": "#/definitions/CCDHDimensionalObservationMethodType"
-               },
-               "type": "array"
-            },
-            "observation_type": {
-               "$ref": "#/definitions/CCDHDimensionalObservationObservationType",
-               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc."
-            },
-            "performed_by": {
-               "$ref": "#/definitions/Organization",
-               "description": "The organization or group that performed the observation activity."
-            },
-            "subject": {
-               "$ref": "#/definitions/Subject",
-               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
-            },
-            "valueQuantity": {
-               "$ref": "#/definitions/Quantity",
-               "description": "The result of the observation, encoded as a free-text Quantity."
-            }
-         },
-         "required": [
-            "observation_type",
-            "valueQuantity"
-         ],
-         "title": "DimensionalObservation",
-         "type": "object"
-      },
-      "DimensionalObservationSet": {
-         "additionalProperties": false,
-         "description": "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).",
-         "properties": {
-            "category": {
-               "$ref": "#/definitions/CCDHDimensionalObservationSetCategory",
-               "description": "The general category of observation set described"
-            },
-            "focus": {
-               "description": "The entity or entities directly observed/measured in generating an observation result.",
-               "items": {
-                  "$ref": "#/definitions/Entity"
-               },
-               "type": "array"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "method_type": {
-               "description": "A type of method used in generating each of the Observations bundled in the set.",
-               "items": {
-                  "$ref": "#/definitions/CCDHDimensionalObservationSetMethodType"
-               },
-               "type": "array"
-            },
-            "observations": {
-               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
-               "items": {
-                  "$ref": "#/definitions/DimensionalObservation"
-               },
-               "type": "array"
-            },
-            "performed_by": {
-               "$ref": "#/definitions/Organization",
-               "description": "The organization or group that performed the observation activity."
-            },
-            "subject": {
-               "$ref": "#/definitions/Subject",
-               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
-            }
-         },
-         "required": [],
-         "title": "DimensionalObservationSet",
-         "type": "object"
-      },
-      "Document": {
-         "additionalProperties": false,
-         "description": "A collection of information intented to be understood together as a whole, and codified in human-readable form.",
-         "properties": {
-            "description": {
-               "description": "A free text description or summary of the report.",
-               "type": "string"
-            },
-            "document_type": {
-               "$ref": "#/definitions/CCDHDocumentDocumentType",
-               "description": "The high-level type of the document (e.g.  'publication', 'pathology report')"
-            },
-            "focus": {
-               "$ref": "#/definitions/Entity",
-               "description": "The entity that the report is primarily about"
-            },
-            "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
-            },
-            "identifier": {
-               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
-               "items": {
-                  "$ref": "#/definitions/Identifier"
-               },
-               "type": "array"
-            },
-            "url": {
-               "description": "A URL/web address where the document can be accessed.",
-               "items": {
-                  "type": "string"
-               },
-               "type": "array"
-            }
-         },
-         "required": [],
-         "title": "Document",
-         "type": "object"
-      },
-      "Entity": {
-         "additionalProperties": false,
-         "description": "Any resource that has its own identifier",
-         "properties": {},
-         "required": [],
-         "title": "Entity",
-         "type": "object"
       },
       "EnvironmentalExposureObservation": {
          "additionalProperties": false,
          "description": "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHEnvironmentalExposureObservationCategory",
+               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -10959,11 +10959,11 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CCDHEnvironmentalExposureObservationMethodType",
+               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHEnvironmentalExposureObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationObservationType",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -10975,7 +10975,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHEnvironmentalExposureObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
@@ -10991,7 +10991,7 @@
          "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHExecutionConditionObservationCategory",
+               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11003,11 +11003,11 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CCDHExecutionConditionObservationMethodType",
+               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHExecutionConditionObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationObservationType",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11019,7 +11019,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHExecutionConditionObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
@@ -11035,7 +11035,7 @@
          "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHExecutionTimeObservationCategory",
+               "$ref": "#/definitions/EnumCCDHExecutionTimeObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11047,11 +11047,11 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CCDHExecutionTimeObservationMethodType",
+               "$ref": "#/definitions/EnumCCDHExecutionTimeObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHExecutionTimeObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHExecutionTimeObservationObservationType",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11126,7 +11126,7 @@
          "description": "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHHistologicalCompositionObservationCategory",
+               "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11143,12 +11143,12 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/CCDHHistologicalCompositionObservationMethodType"
+                  "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHHistologicalCompositionObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11176,7 +11176,7 @@
          "description": "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHHistologicalCompositionObservationSetCategory",
+               "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationSetCategory",
                "description": "The general category of observation set described"
             },
             "focus": {
@@ -11193,7 +11193,7 @@
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/CCDHHistologicalCompositionObservationSetMethodType"
+                  "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationSetMethodType"
                },
                "type": "array"
             },
@@ -11229,7 +11229,7 @@
                "type": "string"
             },
             "type": {
-               "$ref": "#/definitions/CCDHIdentifierType",
+               "$ref": "#/definitions/EnumCCDHIdentifierType",
                "description": "A code that defines the type of the identifier."
             },
             "value": {
@@ -11248,7 +11248,7 @@
          "description": "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHObservationCategory",
+               "$ref": "#/definitions/EnumCCDHObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11265,12 +11265,12 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/CCDHObservationMethodType"
+                  "$ref": "#/definitions/EnumCCDHObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11286,7 +11286,7 @@
                "type": "boolean"
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCCDHObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "valueDateTime": {
@@ -11325,7 +11325,7 @@
          "description": "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHObservationSetCategory",
+               "$ref": "#/definitions/EnumCCDHObservationSetCategory",
                "description": "The general category of observation set described"
             },
             "focus": {
@@ -11342,7 +11342,7 @@
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/CCDHObservationSetMethodType"
+                  "$ref": "#/definitions/EnumCCDHObservationSetMethodType"
                },
                "type": "array"
             },
@@ -11408,11 +11408,11 @@
          "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
          "properties": {
             "unit": {
-               "$ref": "#/definitions/CCDHQuantityUnit",
+               "$ref": "#/definitions/EnumCCDHQuantityUnit",
                "description": "A coded or free text (in the .text field) representation of the unit."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHQuantityValueCodeableConcept",
+               "$ref": "#/definitions/EnumCCDHQuantityValueCodeableConcept",
                "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")"
             },
             "valueDecimal": {
@@ -11485,7 +11485,7 @@
                "type": "array"
             },
             "research_project_type": {
-               "$ref": "#/definitions/CCDHResearchProjectResearchProjectType",
+               "$ref": "#/definitions/EnumCCDHResearchProjectResearchProjectType",
                "description": "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')"
             },
             "sponsor": {
@@ -11544,7 +11544,7 @@
                "type": "array"
             },
             "index_timepoint": {
-               "$ref": "#/definitions/CCDHResearchSubjectIndexTimepoint",
+               "$ref": "#/definitions/EnumCCDHResearchSubjectIndexTimepoint",
                "description": "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date."
             },
             "member_of_research_project": {
@@ -11563,7 +11563,7 @@
                "type": "array"
             },
             "primary_diagnosis_condition": {
-               "$ref": "#/definitions/CCDHResearchSubjectPrimaryDiagnosisCondition",
+               "$ref": "#/definitions/EnumCCDHResearchSubjectPrimaryDiagnosisCondition",
                "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).   This attribute represents the disease that qualified the subject for inclusion on the ResearchProject"
             },
             "primary_diagnosis_site": {
@@ -11583,7 +11583,7 @@
          "description": "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.",
          "properties": {
             "analyte_type": {
-               "$ref": "#/definitions/CCDHSpecimenAnalyteType",
+               "$ref": "#/definitions/EnumCCDHSpecimenAnalyteType",
                "description": "For specimens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)"
             },
             "associated_project": {
@@ -11591,7 +11591,7 @@
                "description": "The Project associated with the specimen."
             },
             "cellular_composition_type": {
-               "$ref": "#/definitions/CCDHSpecimenCellularCompositionType",
+               "$ref": "#/definitions/EnumCCDHSpecimenCellularCompositionType",
                "description": "A term describing the type of cell or cellular material comprising a specimen."
             },
             "contained_in": {
@@ -11607,7 +11607,7 @@
                "description": "The organization (e.g.a laboratory, processing center, or research site) that provided data associated with a specimen."
             },
             "degree_of_dysplasia": {
-               "$ref": "#/definitions/CCDHSpecimenDegreeOfDysplasia",
+               "$ref": "#/definitions/EnumCCDHSpecimenDegreeOfDysplasia",
                "description": "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration."
             },
             "derived_product": {
@@ -11634,7 +11634,7 @@
                "type": "string"
             },
             "general_tissue_morphology": {
-               "$ref": "#/definitions/CCDHSpecimenGeneralTissueMorphology",
+               "$ref": "#/definitions/EnumCCDHSpecimenGeneralTissueMorphology",
                "description": "The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent)."
             },
             "histological_composition_measures": {
@@ -11656,11 +11656,11 @@
                "type": "array"
             },
             "morphlogy_assessment_method": {
-               "$ref": "#/definitions/CCDHSpecimenMorphlogyAssessmentMethod",
+               "$ref": "#/definitions/EnumCCDHSpecimenMorphlogyAssessmentMethod",
                "description": "The general method used to assess a specimens specific tissue morphology"
             },
             "morphology_assessor_role": {
-               "$ref": "#/definitions/CCDHSpecimenMorphologyAssessorRole",
+               "$ref": "#/definitions/EnumCCDHSpecimenMorphologyAssessorRole",
                "description": "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen"
             },
             "morphology_pathologically_confirmed": {
@@ -11675,7 +11675,7 @@
                "type": "array"
             },
             "preinvasive_tissue_morphology": {
-               "$ref": "#/definitions/CCDHSpecimenPreinvasiveTissueMorphology",
+               "$ref": "#/definitions/EnumCCDHSpecimenPreinvasiveTissueMorphology",
                "description": "A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen."
             },
             "processing_activity": {
@@ -11707,11 +11707,11 @@
                "type": "array"
             },
             "section_location": {
-               "$ref": "#/definitions/CCDHSpecimenSectionLocation",
+               "$ref": "#/definitions/EnumCCDHSpecimenSectionLocation",
                "description": "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)"
             },
             "source_material_type": {
-               "$ref": "#/definitions/CCDHSpecimenSourceMaterialType",
+               "$ref": "#/definitions/EnumCCDHSpecimenSourceMaterialType",
                "description": "The general kind of material from which the specimen was derived."
             },
             "source_subject": {
@@ -11719,11 +11719,11 @@
                "description": "A specific Subject from which the specimen was directly or indirectly derived."
             },
             "specific_tissue_morphology": {
-               "$ref": "#/definitions/CCDHSpecimenSpecificTissueMorphology",
+               "$ref": "#/definitions/EnumCCDHSpecimenSpecificTissueMorphology",
                "description": "A term describing the specific pathology exhibited by the tissue comprising a specimen."
             },
             "specimen_type": {
-               "$ref": "#/definitions/CCDHSpecimenSpecimenType",
+               "$ref": "#/definitions/EnumCCDHSpecimenSpecimenType",
                "description": "The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source)."
             },
             "storage_activity": {
@@ -11741,7 +11741,7 @@
                "type": "array"
             },
             "tumor_status_at_collection": {
-               "$ref": "#/definitions/CCDHSpecimenTumorStatusAtCollection",
+               "$ref": "#/definitions/EnumCCDHSpecimenTumorStatusAtCollection",
                "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc)."
             }
          },
@@ -11765,7 +11765,7 @@
                "type": "string"
             },
             "container_type": {
-               "$ref": "#/definitions/CCDHSpecimenContainerContainerType",
+               "$ref": "#/definitions/EnumCCDHSpecimenContainerContainerType",
                "description": "The kind of the container."
             },
             "id": {
@@ -11793,7 +11793,7 @@
          "description": "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting).",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/CCDHSpecimenCreationActivityActivityType",
+               "$ref": "#/definitions/EnumCCDHSpecimenCreationActivityActivityType",
                "description": "The high-level type of creation activity."
             },
             "additive": {
@@ -11804,7 +11804,7 @@
                "type": "array"
             },
             "collection_method_type": {
-               "$ref": "#/definitions/CCDHSpecimenCreationActivityCollectionMethodType",
+               "$ref": "#/definitions/EnumCCDHSpecimenCreationActivityCollectionMethodType",
                "description": "The type of method applied in collecting a sample from its original source."
             },
             "collection_site": {
@@ -11820,7 +11820,7 @@
                "description": "The date when the activity began (in this case, a specimen creation event)."
             },
             "derivation_method_type": {
-               "$ref": "#/definitions/CCDHSpecimenCreationActivityDerivationMethodType",
+               "$ref": "#/definitions/EnumCCDHSpecimenCreationActivityDerivationMethodType",
                "description": "The type of method applied to derive a new specimen from an existing one."
             },
             "execution_condition_observation": {
@@ -11859,7 +11859,7 @@
          "description": "An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/CCDHSpecimenProcessingActivityActivityType",
+               "$ref": "#/definitions/EnumCCDHSpecimenProcessingActivityActivityType",
                "description": "The high-level type of processing activity"
             },
             "additive": {
@@ -11899,7 +11899,7 @@
                "type": "array"
             },
             "method_type": {
-               "$ref": "#/definitions/CCDHSpecimenProcessingActivityMethodType",
+               "$ref": "#/definitions/EnumCCDHSpecimenProcessingActivityMethodType",
                "description": "A specific type of method or procedure performed to process the specimen"
             },
             "performed_by": {
@@ -11916,7 +11916,7 @@
          "description": "A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHSpecimenQualityObservationCategory",
+               "$ref": "#/definitions/EnumCCDHSpecimenQualityObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11933,12 +11933,12 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/CCDHSpecimenQualityObservationMethodType"
+                  "$ref": "#/definitions/EnumCCDHSpecimenQualityObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHSpecimenQualityObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHSpecimenQualityObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11966,7 +11966,7 @@
          "description": "A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHSpecimenQuantityObservationCategory",
+               "$ref": "#/definitions/EnumCCDHSpecimenQuantityObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11983,12 +11983,12 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/CCDHSpecimenQuantityObservationMethodType"
+                  "$ref": "#/definitions/EnumCCDHSpecimenQuantityObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHSpecimenQuantityObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHSpecimenQuantityObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -12035,7 +12035,7 @@
                "description": "The length of time over which the activity was performed."
             },
             "method_type": {
-               "$ref": "#/definitions/CCDHSpecimenStorageActivityMethodType",
+               "$ref": "#/definitions/EnumCCDHSpecimenStorageActivityMethodType",
                "description": "A specific type of method or procedure performed to store the specimen"
             },
             "performed_by": {
@@ -12099,15 +12099,15 @@
                "description": "The age of an individual at the time of death, expressed in days since birth"
             },
             "breed": {
-               "$ref": "#/definitions/CCDHSubjectBreed",
+               "$ref": "#/definitions/EnumCCDHSubjectBreed",
                "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species."
             },
             "cause_of_death": {
-               "$ref": "#/definitions/CCDHSubjectCauseOfDeath",
+               "$ref": "#/definitions/EnumCCDHSubjectCauseOfDeath",
                "description": "Coded value indicating the circumstance or condition that results in the death of the subject."
             },
             "ethnicity": {
-               "$ref": "#/definitions/CCDHSubjectEthnicity",
+               "$ref": "#/definitions/EnumCCDHSubjectEthnicity",
                "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau"
             },
             "id": {
@@ -12124,20 +12124,20 @@
             "race": {
                "description": "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.",
                "items": {
-                  "$ref": "#/definitions/CCDHSubjectRace"
+                  "$ref": "#/definitions/EnumCCDHSubjectRace"
                },
                "type": "array"
             },
             "sex": {
-               "$ref": "#/definitions/CCDHSubjectSex",
+               "$ref": "#/definitions/EnumCCDHSubjectSex",
                "description": "The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics."
             },
             "species": {
-               "$ref": "#/definitions/CCDHSubjectSpecies",
+               "$ref": "#/definitions/EnumCCDHSubjectSpecies",
                "description": "The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)"
             },
             "vital_status": {
-               "$ref": "#/definitions/CCDHSubjectVitalStatus",
+               "$ref": "#/definitions/EnumCCDHSubjectVitalStatus",
                "description": "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown."
             },
             "year_of_birth": {
@@ -12162,7 +12162,7 @@
             "role": {
                "description": "A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
                "items": {
-                  "$ref": "#/definitions/CCDHSubstanceRole"
+                  "$ref": "#/definitions/EnumCCDHSubstanceRole"
                },
                "type": "array"
             },
@@ -12171,7 +12171,7 @@
                "description": "The quantity of substance this instance stands for."
             },
             "substance_type": {
-               "$ref": "#/definitions/CCDHSubstanceSubstanceType",
+               "$ref": "#/definitions/EnumCCDHSubstanceSubstanceType",
                "description": "The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds."
             }
          },
@@ -12207,7 +12207,7 @@
             "eventType": {
                "description": "An event that occurred at the point in time specified by this TimePoint.",
                "items": {
-                  "$ref": "#/definitions/CCDHTimePointEventType"
+                  "$ref": "#/definitions/EnumCCDHTimePointEventType"
                },
                "type": "array"
             },
@@ -12233,7 +12233,7 @@
          "description": "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/CCDHTobaccoExposureObservationCategory",
+               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -12245,11 +12245,11 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/CCDHTobaccoExposureObservationMethodType",
+               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/CCDHTobaccoExposureObservationObservationType",
+               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationObservationType",
                "description": "The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -12261,7 +12261,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/CCDHTobaccoExposureObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "valueInteger": {
@@ -12310,7 +12310,7 @@
                "type": "integer"
             },
             "regimen": {
-               "$ref": "#/definitions/CCDHTreatmentRegimen",
+               "$ref": "#/definitions/EnumCCDHTreatmentRegimen",
                "description": "The regimen or line of therapy"
             },
             "subject": {
@@ -12326,13 +12326,13 @@
                "description": "The anatomical site that the treatment targets."
             },
             "treatment_effect": {
-               "$ref": "#/definitions/CCDHTreatmentTreatmentEffect",
+               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentEffect",
                "description": "The effect of a treatment on the diagnosis or tumor."
             },
             "treatment_end_reason": {
                "description": "The reason the treatment ended.",
                "items": {
-                  "$ref": "#/definitions/CCDHTreatmentTreatmentEndReason"
+                  "$ref": "#/definitions/EnumCCDHTreatmentTreatmentEndReason"
                },
                "type": "array"
             },
@@ -12344,19 +12344,19 @@
                "type": "array"
             },
             "treatment_frequency": {
-               "$ref": "#/definitions/CCDHTreatmentTreatmentFrequency",
+               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentFrequency",
                "description": "The frequency of using the substance described by this instance."
             },
             "treatment_intent": {
-               "$ref": "#/definitions/CCDHTreatmentTreatmentIntent",
+               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentIntent",
                "description": "The medical intent of the treatment."
             },
             "treatment_outcome": {
-               "$ref": "#/definitions/CCDHTreatmentTreatmentOutcome",
+               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentOutcome",
                "description": "The final outcome of the treatment."
             },
             "treatment_type": {
-               "$ref": "#/definitions/CCDHTreatmentTreatmentType",
+               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentType",
                "description": "The type of treatment administered, which may include medication/therapeutics or other procedures."
             }
          },

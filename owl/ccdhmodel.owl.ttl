@@ -9,11 +9,11 @@
     rdfs:label "CRDC-H" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     skos:editorialNote "Derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)" ;
-    linkml:generation_date "2021-06-25 00:59" ;
+    linkml:generation_date "2021-06-25 01:05" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "ccdhmodel.yaml" ;
-    linkml:source_file_date "Fri Jun 25 00:58:28 2021" ;
-    linkml:source_file_size 1057889 .
+    linkml:source_file_date "Fri Jun 25 01:04:44 2021" ;
+    linkml:source_file_size 1059484 .
 
 <https://example.org/ccdh/CcdhCode> a owl:Class,
         linkml:TypeDefinition ;
@@ -32,12 +32,12 @@
         linkml:ClassDefinition ;
     rdfs:label "CodeableConcept" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Coding> ;
+            owl:onProperty linkml:coding ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:text ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Coding> ;
-            owl:onProperty linkml:coding ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text." ;
     skos:editorialNote "Derived from [CodeableConcept in sheet CodeableConcept](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1820375300)" .
@@ -46,9 +46,16 @@
         linkml:ClassDefinition ;
     rdfs:label "Exposure" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/TobaccoExposureObservation> ;
+            owl:onProperty linkml:tobacco_exposure ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/AlcoholExposureObservation> ;
             owl:onProperty linkml:alcohol_exposure ],
@@ -56,15 +63,8 @@
             owl:allValuesFrom <https://example.org/ccdh/EnvironmentalExposureObservation> ;
             owl:onProperty linkml:environmental_exposure ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/TobaccoExposureObservation> ;
-            owl:onProperty linkml:tobacco_exposure ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
             owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ;
-            owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance." ;
     skos:editorialNote "Derived from [Exposure in sheet Exposure](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931)" .
@@ -73,30 +73,30 @@
         linkml:ClassDefinition ;
     rdfs:label "ObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_ObservationSet_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ObservationSet_category> ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ObservationSet_category> ;
             owl:onProperty linkml:category ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Observation> ;
             owl:onProperty linkml:observations ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_ObservationSet_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [ObservationSet in sheet ObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1243450201)" .
@@ -105,12 +105,21 @@
         linkml:ClassDefinition ;
     rdfs:label "ResearchSubject" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:associated_subject ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ResearchSubject_index_timepoint> ;
+            owl:onProperty linkml:index_timepoint ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Diagnosis> ;
-            owl:onProperty linkml:primary_diagnosis ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/ResearchProject> ;
+            owl:onProperty linkml:member_of_research_project ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:originating_site ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Quantity> ;
+            owl:onProperty linkml:age_at_enrollment ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/BodySite> ;
@@ -120,35 +129,26 @@
             owl:onProperty linkml:comorbid_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Quantity> ;
-            owl:onProperty linkml:age_at_enrollment ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ResearchSubject_primary_diagnosis_condition> ;
+            owl:onProperty linkml:primary_diagnosis_condition ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:description ],
+            owl:allValuesFrom <https://example.org/ccdh/Diagnosis> ;
+            owl:onProperty linkml:primary_diagnosis ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
             owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/ResearchProject> ;
-            owl:onProperty linkml:member_of_research_project ],
         [ a owl:Restriction ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ResearchSubject_index_timepoint> ;
-            owl:onProperty linkml:index_timepoint ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:description ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:originating_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ResearchSubject_primary_diagnosis_condition> ;
-            owl:onProperty linkml:primary_diagnosis_condition ],
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:associated_subject ;
+            owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
     skos:definition """A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
 or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.""" ;
@@ -160,11 +160,11 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:periodEnd_end ],
+            owl:onProperty linkml:periodStart_start ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:periodStart_start ],
+            owl:onProperty linkml:periodEnd_end ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A period of time between a start and end time point." ;
     skos:editorialNote "Derived from [TimePeriod in sheet TimePeriod](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1590126992)" .
@@ -251,7 +251,7 @@ linkml:Uri a owl:Class,
 linkml:alcoholExposureObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "alcoholExposureObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     linkml:examples "Example(value='', description=None)" .
@@ -277,7 +277,7 @@ linkml:alcoholExposureObservation__id a owl:ObjectProperty,
 linkml:alcoholExposureObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "alcoholExposureObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -286,7 +286,7 @@ linkml:alcoholExposureObservation__method_type a owl:ObjectProperty,
 linkml:alcoholExposureObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "alcoholExposureObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_observation_type> ;
     skos:definition "The specific type of alcohol exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -314,7 +314,7 @@ linkml:alcoholExposureObservation__subject a owl:ObjectProperty,
 linkml:alcoholExposureObservation__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "alcoholExposureObservation__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_valueCodeableConcept> ;
     skos:definition "The result of the observation, encoded as a CodeableConcept." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "One and only one of the value(x) fields must be populated." ;
@@ -372,7 +372,7 @@ linkml:biologicProduct__passage_number a owl:ObjectProperty,
 linkml:biologicProduct__product_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "biologicProduct__product_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_BiologicProduct_product_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_BiologicProduct_product_type> ;
     skos:definition "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='cell culture', description=None)",
@@ -383,7 +383,7 @@ linkml:biologicProduct__product_type a owl:ObjectProperty,
 linkml:bodySite__qualifier a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "bodySite__qualifier" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_BodySite_qualifier> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_BodySite_qualifier> ;
     skos:definition "A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc)." ;
     skos:editorialNote "Cardinality: 0..m" ;
     linkml:examples "Example(value='bilateral', description=None)",
@@ -393,7 +393,7 @@ linkml:bodySite__qualifier a owl:ObjectProperty,
 linkml:bodySite__site a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "bodySite__site" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_BodySite_site> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_BodySite_site> ;
     skos:definition "A term describing any site in the body." ;
     skos:editorialNote "Cardinality: 1..1" ;
     linkml:examples "Example(value='Adenoid', description=None)",
@@ -403,7 +403,7 @@ linkml:bodySite__site a owl:ObjectProperty,
 linkml:cancerGradeObservationSet__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerGradeObservationSet__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerGradeObservationSet_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerGradeObservationSet_category> ;
     skos:definition "The general category of observation set described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "FHIR naming conventions are followed here, where 'id' is used for logical identifiers which are unique only within a given system, and 'identifier' for business identifiers, which are used to connect entities or share content across systems.  The complex 'Identifier' data type is used  to capture the identifier itself, along with metadata about its source." ;
@@ -430,7 +430,7 @@ linkml:cancerGradeObservationSet__id a owl:ObjectProperty,
 linkml:cancerGradeObservationSet__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerGradeObservationSet__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerGradeObservationSet_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerGradeObservationSet_method_type> ;
     skos:definition "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)" ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy'). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -465,7 +465,7 @@ linkml:cancerGradeObservationSet__subject a owl:ObjectProperty,
 linkml:cancerGradeObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerGradeObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerGradeObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     linkml:examples "Example(value='', description=None)" .
@@ -491,7 +491,7 @@ linkml:cancerGradeObservation__id a owl:ObjectProperty,
 linkml:cancerGradeObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerGradeObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerGradeObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -500,7 +500,7 @@ linkml:cancerGradeObservation__method_type a owl:ObjectProperty,
 linkml:cancerGradeObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerGradeObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerGradeObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_observation_type> ;
     skos:definition "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)" ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field.  " ;
@@ -523,7 +523,7 @@ linkml:cancerGradeObservation__subject a owl:ObjectProperty,
 linkml:cancerGradeObservation__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerGradeObservation__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerGradeObservation_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_valueCodeableConcept> ;
     skos:definition "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)" ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "One and only one of the value(x) fields must be populated." ;
@@ -532,7 +532,7 @@ linkml:cancerGradeObservation__valueCodeableConcept a owl:ObjectProperty,
 linkml:cancerStageObservationSet__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerStageObservationSet__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerStageObservationSet_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerStageObservationSet_category> ;
     skos:definition "The general category of observation set described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "FHIR naming conventions are followed here, where 'id' is used for logical identifiers which are unique only within a given system, and 'identifier' for business identifiers, which are used to connect entities or share content across systems.  The complex 'Identifier' data type is used  to capture the identifier itself, along with metadata about its source." ;
@@ -559,7 +559,7 @@ linkml:cancerStageObservationSet__id a owl:ObjectProperty,
 linkml:cancerStageObservationSet__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerStageObservationSet__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerStageObservationSet_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerStageObservationSet_method_type> ;
     skos:definition "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy'). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -611,7 +611,7 @@ linkml:cancerStageObservationSet__subject a owl:ObjectProperty,
 linkml:cancerStageObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerStageObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerStageObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     linkml:examples "Example(value='', description=None)" .
@@ -637,7 +637,7 @@ linkml:cancerStageObservation__id a owl:ObjectProperty,
 linkml:cancerStageObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerStageObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerStageObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -646,7 +646,7 @@ linkml:cancerStageObservation__method_type a owl:ObjectProperty,
 linkml:cancerStageObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerStageObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerStageObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_observation_type> ;
     skos:definition "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')" ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field.  'Overall' should be used when: the source staging value is not definitively 'Clinical' or 'Pathological' (e.g. a TNM staged cancer without a clear indication of clinical vs pathological), or the source staging system does not use T, N, or M components and only has a single overall staging value (e.g. FIGO staging)" ;
@@ -683,7 +683,7 @@ linkml:cancerStageObservation__subject a owl:ObjectProperty,
 linkml:cancerStageObservation__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "cancerStageObservation__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_CancerStageObservation_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_valueCodeableConcept> ;
     skos:definition "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "One and only one of the value(x) fields must be populated." ;
@@ -770,7 +770,7 @@ linkml:diagnosis__age_at_diagnosis a owl:ObjectProperty,
 linkml:diagnosis__condition a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "diagnosis__condition" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Diagnosis_condition> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Diagnosis_condition> ;
     skos:definition "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)" ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "This attribute will subsume source attributes that are bound to ICD-O and ICD-10 classification systems." ;
@@ -787,7 +787,7 @@ linkml:diagnosis__dimensional_measure a owl:ObjectProperty,
 linkml:diagnosis__disease_status a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "diagnosis__disease_status" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Diagnosis_disease_status> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Diagnosis_disease_status> ;
     skos:definition "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Initial Diagnosis', description=None)",
@@ -834,7 +834,7 @@ linkml:diagnosis__metastatic_site a owl:ObjectProperty,
 linkml:diagnosis__method_of_diagnosis a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "diagnosis__method_of_diagnosis" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Diagnosis_method_of_diagnosis> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Diagnosis_method_of_diagnosis> ;
     skos:definition "The method used to confirm the patients malignant diagnosis" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='..', description=None)",
@@ -847,7 +847,7 @@ linkml:diagnosis__method_of_diagnosis a owl:ObjectProperty,
 linkml:diagnosis__morphology a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "diagnosis__morphology" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Diagnosis_morphology> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Diagnosis_morphology> ;
     skos:definition "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='8001/3', description=None)",
@@ -915,7 +915,7 @@ linkml:diagnosis__year_at_diagnosis a owl:ObjectProperty,
 linkml:dimensionalObservationSet__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "dimensionalObservationSet__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_DimensionalObservationSet_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_DimensionalObservationSet_category> ;
     skos:definition "The general category of observation set described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "FHIR naming conventions are followed here, where 'id' is used for logical identifiers which are unique only within a given system, and 'identifier' for business identifiers, which are used to connect entities or share content across systems.  The complex 'Identifier' data type is used  to capture the identifier itself, along with metadata about its source." ;
@@ -942,7 +942,7 @@ linkml:dimensionalObservationSet__id a owl:ObjectProperty,
 linkml:dimensionalObservationSet__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "dimensionalObservationSet__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_DimensionalObservationSet_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_DimensionalObservationSet_method_type> ;
     skos:definition "A type of method used in generating each of the Observations bundled in the set." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy'). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -975,7 +975,7 @@ linkml:dimensionalObservationSet__subject a owl:ObjectProperty,
 linkml:dimensionalObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "dimensionalObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_DimensionalObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_DimensionalObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "Use only if we don't define named subtypes of Observation for specific categories." ;
@@ -1002,7 +1002,7 @@ linkml:dimensionalObservation__id a owl:ObjectProperty,
 linkml:dimensionalObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "dimensionalObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_DimensionalObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_DimensionalObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1011,7 +1011,7 @@ linkml:dimensionalObservation__method_type a owl:ObjectProperty,
 linkml:dimensionalObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "dimensionalObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_DimensionalObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_DimensionalObservation_observation_type> ;
     skos:definition "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -1052,7 +1052,7 @@ linkml:document__description a owl:ObjectProperty,
 linkml:document__document_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "document__document_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Document_document_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Document_document_type> ;
     skos:definition "The high-level type of the document (e.g.  'publication', 'pathology report')" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1094,7 +1094,7 @@ linkml:document__url a owl:ObjectProperty,
 linkml:environmentalExposureObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "environmentalExposureObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1120,7 +1120,7 @@ linkml:environmentalExposureObservation__id a owl:ObjectProperty,
 linkml:environmentalExposureObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "environmentalExposureObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1129,7 +1129,7 @@ linkml:environmentalExposureObservation__method_type a owl:ObjectProperty,
 linkml:environmentalExposureObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "environmentalExposureObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_observation_type> ;
     skos:definition "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -1158,7 +1158,7 @@ linkml:environmentalExposureObservation__subject a owl:ObjectProperty,
 linkml:environmentalExposureObservation__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "environmentalExposureObservation__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_valueCodeableConcept> ;
     skos:definition "The result of the observation, encoded as a CodeableConcept." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "One and only one of the value(x) fields must be populated." ;
@@ -1167,7 +1167,7 @@ linkml:environmentalExposureObservation__valueCodeableConcept a owl:ObjectProper
 linkml:executionConditionObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "executionConditionObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1193,7 +1193,7 @@ linkml:executionConditionObservation__id a owl:ObjectProperty,
 linkml:executionConditionObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "executionConditionObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1202,7 +1202,7 @@ linkml:executionConditionObservation__method_type a owl:ObjectProperty,
 linkml:executionConditionObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "executionConditionObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_observation_type> ;
     skos:definition "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -1227,7 +1227,7 @@ linkml:executionConditionObservation__subject a owl:ObjectProperty,
 linkml:executionConditionObservation__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "executionConditionObservation__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_valueCodeableConcept> ;
     skos:definition "The result of the observation, encoded as a CodeableConcept." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "One and only one of the value(x) fields must be populated." ;
@@ -1236,7 +1236,7 @@ linkml:executionConditionObservation__valueCodeableConcept a owl:ObjectProperty,
 linkml:executionTimeObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "executionTimeObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ExecutionTimeObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ExecutionTimeObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1262,7 +1262,7 @@ linkml:executionTimeObservation__id a owl:ObjectProperty,
 linkml:executionTimeObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "executionTimeObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ExecutionTimeObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ExecutionTimeObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1271,7 +1271,7 @@ linkml:executionTimeObservation__method_type a owl:ObjectProperty,
 linkml:executionTimeObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "executionTimeObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ExecutionTimeObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ExecutionTimeObservation_observation_type> ;
     skos:definition "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -1355,7 +1355,7 @@ linkml:exposure__tobacco_exposure a owl:ObjectProperty,
 linkml:histologicalCompositionObservationSet__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "histologicalCompositionObservationSet__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_HistologicalCompositionObservationSet_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservationSet_category> ;
     skos:definition "The general category of observation set described" ;
     skos:editorialNote "Cardinality: 1..1" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1381,7 +1381,7 @@ linkml:histologicalCompositionObservationSet__id a owl:ObjectProperty,
 linkml:histologicalCompositionObservationSet__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "histologicalCompositionObservationSet__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_HistologicalCompositionObservationSet_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservationSet_method_type> ;
     skos:definition "A type of method used in generating each of the Observations bundled in the set." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy'). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1414,7 +1414,7 @@ linkml:histologicalCompositionObservationSet__subject a owl:ObjectProperty,
 linkml:histologicalCompositionObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "histologicalCompositionObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_HistologicalCompositionObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "Use only if we don't define named subtypes of Observation for specific categories." ;
@@ -1441,7 +1441,7 @@ linkml:histologicalCompositionObservation__id a owl:ObjectProperty,
 linkml:histologicalCompositionObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "histologicalCompositionObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_HistologicalCompositionObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy,). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1450,7 +1450,7 @@ linkml:histologicalCompositionObservation__method_type a owl:ObjectProperty,
 linkml:histologicalCompositionObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "histologicalCompositionObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_HistologicalCompositionObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservation_observation_type> ;
     skos:definition "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -1492,7 +1492,7 @@ linkml:identifier__system a owl:ObjectProperty,
 linkml:identifier__type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "identifier__type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Identifier_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Identifier_type> ;
     skos:definition "A code that defines the type of the identifier." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1508,7 +1508,7 @@ linkml:identifier__value a owl:ObjectProperty,
 linkml:observationSet__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "observationSet__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ObservationSet_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ObservationSet_category> ;
     skos:definition "The general category of observation set described" ;
     skos:editorialNote "Cardinality: 1..1" ;
     linkml:examples "Example(value='CellularCompositionMeasureSet', description=None)",
@@ -1536,7 +1536,7 @@ linkml:observationSet__id a owl:ObjectProperty,
 linkml:observationSet__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "observationSet__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ObservationSet_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ObservationSet_method_type> ;
     skos:definition "A type of method used in generating each of the Observations bundled in the set." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy'). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1569,7 +1569,7 @@ linkml:observationSet__subject a owl:ObjectProperty,
 linkml:observation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "observation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Observation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Observation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "Use only if we don't define named subtypes of Observation for specific categories." ;
@@ -1600,7 +1600,7 @@ linkml:observation__id a owl:ObjectProperty,
 linkml:observation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "observation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Observation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Observation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy'). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -1609,7 +1609,7 @@ linkml:observation__method_type a owl:ObjectProperty,
 linkml:observation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "observation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Observation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Observation_observation_type> ;
     skos:definition "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -1647,7 +1647,7 @@ linkml:observation__valueBoolean a owl:ObjectProperty,
 linkml:observation__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "observation__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Observation_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Observation_valueCodeableConcept> ;
     skos:definition "The result of the observation, encoded as a CodeableConcept." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "One and only one of the value(x) fields must be populated." ;
@@ -1751,7 +1751,7 @@ linkml:organization__organization_type a owl:ObjectProperty,
 linkml:quantity__unit a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "quantity__unit" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Quantity_unit> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Quantity_unit> ;
     skos:definition "A coded or free text (in the .text field) representation of the unit." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1759,7 +1759,7 @@ linkml:quantity__unit a owl:ObjectProperty,
 linkml:quantity__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "quantity__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Quantity_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Quantity_valueCodeableConcept> ;
     skos:definition "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
@@ -1865,7 +1865,7 @@ linkml:researchProject__primary_anatomic_site a owl:ObjectProperty,
 linkml:researchProject__research_project_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "researchProject__research_project_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ResearchProject_research_project_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ResearchProject_research_project_type> ;
     skos:definition "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')" ;
     skos:editorialNote "Cardinality: 1..1" ;
     linkml:examples "Example(value='Clinical Trial', description=None)",
@@ -1942,7 +1942,7 @@ linkml:researchSubject__identifier a owl:ObjectProperty,
 linkml:researchSubject__index_timepoint a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "researchSubject__index_timepoint" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ResearchSubject_index_timepoint> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ResearchSubject_index_timepoint> ;
     skos:definition "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)",
@@ -1978,7 +1978,7 @@ linkml:researchSubject__primary_diagnosis a owl:ObjectProperty,
 linkml:researchSubject__primary_diagnosis_condition a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "researchSubject__primary_diagnosis_condition" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_ResearchSubject_primary_diagnosis_condition> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_ResearchSubject_primary_diagnosis_condition> ;
     skos:definition "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).   This attribute represents the disease that qualified the subject for inclusion on the ResearchProject" ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "In cases where a data source does not have sufficiently detailed information on the diagnosis that qualified a subject for inclusion on a ResearchProject in order to instantiate a Diagnosis entity, the primary_diagnosis_condition attribute should be populated when available." ;
@@ -2021,7 +2021,7 @@ linkml:specimenContainer__container_number a owl:ObjectProperty,
 linkml:specimenContainer__container_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenContainer__container_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenContainer_container_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenContainer_container_type> ;
     skos:definition "The kind of the container." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Capillary blood collection tube', description=None)",
@@ -2058,7 +2058,7 @@ linkml:specimenContainer__parent_container a owl:ObjectProperty,
 linkml:specimenCreationActivity__activity_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenCreationActivity__activity_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenCreationActivity_activity_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenCreationActivity_activity_type> ;
     skos:definition "The high-level type of creation activity." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "At present our model collapses two types of processes through which specimens are created (initial collection from source, and derivation from an existing specimen).  The 'category' is a flag to indicate which applies to a given instance, so that more specific recommendations about data entry in certain fields can be specified." ;
@@ -2076,7 +2076,7 @@ linkml:specimenCreationActivity__additive a owl:ObjectProperty,
 linkml:specimenCreationActivity__collection_method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenCreationActivity__collection_method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenCreationActivity_collection_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenCreationActivity_collection_method_type> ;
     skos:definition "The type of method applied in collecting a sample from its original source." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "This attribute applies only when the Specimen.category = 'original'." ;
@@ -2117,7 +2117,7 @@ linkml:specimenCreationActivity__date_started a owl:ObjectProperty,
 linkml:specimenCreationActivity__derivation_method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenCreationActivity__derivation_method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenCreationActivity_derivation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenCreationActivity_derivation_method_type> ;
     skos:definition "The type of method applied to derive a new specimen from an existing one." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "This attribute applies only when Specimen.category = 'portion', 'aliquot', 'analyte', or 'slide'." ;
@@ -2174,7 +2174,7 @@ linkml:specimenCreationActivity__specimen_order a owl:ObjectProperty,
 linkml:specimenProcessingActivity__activity_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenProcessingActivity__activity_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenProcessingActivity_activity_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenProcessingActivity_activity_type> ;
     skos:definition "The high-level type of processing activity" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Fixation', description=None)",
@@ -2234,7 +2234,7 @@ linkml:specimenProcessingActivity__execution_time_observation a owl:ObjectProper
 linkml:specimenProcessingActivity__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenProcessingActivity__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenProcessingActivity_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenProcessingActivity_method_type> ;
     skos:definition "A specific type of method or procedure performed to process the specimen" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Cryopreservation in dry ice (dead tissue)', description=None)",
@@ -2256,7 +2256,7 @@ linkml:specimenProcessingActivity__performed_by a owl:ObjectProperty,
 linkml:specimenQualityObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenQualityObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenQualityObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenQualityObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "Use only if we don't define named subtypes of Observation for specific categories." ;
@@ -2283,7 +2283,7 @@ linkml:specimenQualityObservation__id a owl:ObjectProperty,
 linkml:specimenQualityObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenQualityObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenQualityObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenQualityObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -2292,7 +2292,7 @@ linkml:specimenQualityObservation__method_type a owl:ObjectProperty,
 linkml:specimenQualityObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenQualityObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenQualityObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenQualityObservation_observation_type> ;
     skos:definition "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -2326,7 +2326,7 @@ linkml:specimenQualityObservation__valueQuantity a owl:ObjectProperty,
 linkml:specimenQuantityObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenQuantityObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenQuantityObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenQuantityObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "Use only if we don't define named subtypes of Observation for specific categories." ;
@@ -2353,7 +2353,7 @@ linkml:specimenQuantityObservation__id a owl:ObjectProperty,
 linkml:specimenQuantityObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenQuantityObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenQuantityObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenQuantityObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -2362,7 +2362,7 @@ linkml:specimenQuantityObservation__method_type a owl:ObjectProperty,
 linkml:specimenQuantityObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenQuantityObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenQuantityObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenQuantityObservation_observation_type> ;
     skos:definition "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -2431,7 +2431,7 @@ linkml:specimenStorageActivity__duration a owl:ObjectProperty,
 linkml:specimenStorageActivity__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimenStorageActivity__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_SpecimenStorageActivity_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_SpecimenStorageActivity_method_type> ;
     skos:definition "A specific type of method or procedure performed to store the specimen" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='RNAlater at 4C', description=None)",
@@ -2513,7 +2513,7 @@ linkml:specimenTransportActivity__transport_origin a owl:ObjectProperty,
 linkml:specimen__analyte_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__analyte_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_analyte_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_analyte_type> ;
     skos:definition "For specimens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='DNA', description=None)",
@@ -2534,7 +2534,7 @@ linkml:specimen__associated_project a owl:ObjectProperty,
 linkml:specimen__cellular_composition_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__cellular_composition_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_cellular_composition_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_cellular_composition_type> ;
     skos:definition "A term describing the type of cell or cellular material comprising a specimen." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='2D Classical Conditionally Reprogrammed Cells', description=None)",
@@ -2577,7 +2577,7 @@ linkml:specimen__data_provider a owl:ObjectProperty,
 linkml:specimen__degree_of_dysplasia a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__degree_of_dysplasia" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_degree_of_dysplasia> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_degree_of_dysplasia> ;
     skos:definition "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Carcinoma in Situ', description=None)",
@@ -2631,7 +2631,7 @@ linkml:specimen__dysplasia_fraction a owl:ObjectProperty,
 linkml:specimen__general_tissue_morphology a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__general_tissue_morphology" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_general_tissue_morphology> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_general_tissue_morphology> ;
     skos:definition "The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent)." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Abnormal', description=None)",
@@ -2670,7 +2670,7 @@ linkml:specimen__identifier a owl:ObjectProperty,
 linkml:specimen__morphlogy_assessment_method a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__morphlogy_assessment_method" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_morphlogy_assessment_method> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_morphlogy_assessment_method> ;
     skos:definition "The general method used to assess a specimens specific tissue morphology" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Digital', description=None)",
@@ -2681,7 +2681,7 @@ linkml:specimen__morphlogy_assessment_method a owl:ObjectProperty,
 linkml:specimen__morphology_assessor_role a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__morphology_assessor_role" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_morphology_assessor_role> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_morphology_assessor_role> ;
     skos:definition "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Other', description=None)",
@@ -2709,7 +2709,7 @@ linkml:specimen__parent_specimen a owl:ObjectProperty,
 linkml:specimen__preinvasive_tissue_morphology a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__preinvasive_tissue_morphology" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_preinvasive_tissue_morphology> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_preinvasive_tissue_morphology> ;
     skos:definition "A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
@@ -2752,7 +2752,7 @@ linkml:specimen__related_document a owl:ObjectProperty,
 linkml:specimen__section_location a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__section_location" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_section_location> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_section_location> ;
     skos:definition "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)" ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "This attribute applies only to Specimens that are of type 'portion' or 'slide'." ;
@@ -2763,7 +2763,7 @@ linkml:specimen__section_location a owl:ObjectProperty,
 linkml:specimen__source_material_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__source_material_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_source_material_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_source_material_type> ;
     skos:definition "The general kind of material from which the specimen was derived." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "Values captured here may describe the type of molecular mixture, cell, tissue, organ, body fluid, embryo, excretory substance, or experimental system from which a specimen was derived." ;
@@ -2784,7 +2784,7 @@ linkml:specimen__source_subject a owl:ObjectProperty,
 linkml:specimen__specific_tissue_morphology a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__specific_tissue_morphology" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_specific_tissue_morphology> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_specific_tissue_morphology> ;
     skos:definition "A term describing the specific pathology exhibited by the tissue comprising a specimen." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='00', description=None)",
@@ -2800,7 +2800,7 @@ linkml:specimen__specific_tissue_morphology a owl:ObjectProperty,
 linkml:specimen__specimen_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__specimen_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_specimen_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_specimen_type> ;
     skos:definition "The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source)." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "Our model defines a single 'Specimen' type to cover speific subtypes of specimens delineated in some CRDC node models (e.g. GDC 'Sample', 'Portion', 'Aliquot', 'Analyte', and 'Slide'). The 'specimen_type' field is used to indicate which subtype a given Specimen instance represents.  The enumerated values are meant to be mutually exclusive, such that only one can be applied to a given specimen." ;
@@ -2831,7 +2831,7 @@ linkml:specimen__transport_activity a owl:ObjectProperty,
 linkml:specimen__tumor_status_at_collection a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specimen__tumor_status_at_collection" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Specimen_tumor_status_at_collection> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Specimen_tumor_status_at_collection> ;
     skos:definition "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc)." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Additional Primary', description=None)",
@@ -2854,7 +2854,7 @@ linkml:subject__age_at_death a owl:ObjectProperty,
 linkml:subject__breed a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject__breed" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Subject_breed> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Subject_breed> ;
     skos:definition "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Affenpinscher', description=None)",
@@ -2865,7 +2865,7 @@ linkml:subject__breed a owl:ObjectProperty,
 linkml:subject__cause_of_death a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject__cause_of_death" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Subject_cause_of_death> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Subject_cause_of_death> ;
     skos:definition "Coded value indicating the circumstance or condition that results in the death of the subject." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)",
@@ -2876,7 +2876,7 @@ linkml:subject__cause_of_death a owl:ObjectProperty,
 linkml:subject__ethnicity a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject__ethnicity" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Subject_ethnicity> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Subject_ethnicity> ;
     skos:definition "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau" ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "Applicable only when Subject.species is Homo Sapiens" ;
@@ -2907,7 +2907,7 @@ linkml:subject__identifier a owl:ObjectProperty,
 linkml:subject__race a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject__race" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Subject_race> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Subject_race> ;
     skos:definition "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau." ;
     skos:editorialNote "Cardinality: 0..m" ;
     linkml:examples "Example(value='American Indian or Alaska Native', description=None)",
@@ -2922,7 +2922,7 @@ linkml:subject__race a owl:ObjectProperty,
 linkml:subject__sex a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject__sex" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Subject_sex> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Subject_sex> ;
     skos:definition "The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Female', description=None)",
@@ -2935,7 +2935,7 @@ linkml:subject__sex a owl:ObjectProperty,
 linkml:subject__species a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject__species" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Subject_species> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Subject_species> ;
     skos:definition "The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Canis familiaris', description=None)",
@@ -2945,7 +2945,7 @@ linkml:subject__species a owl:ObjectProperty,
 linkml:subject__vital_status a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "subject__vital_status" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Subject_vital_status> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Subject_vital_status> ;
     skos:definition "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Alive', description=None)",
@@ -2973,7 +2973,7 @@ linkml:subject__year_of_death a owl:ObjectProperty,
 linkml:substance__role a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "substance__role" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Substance_role> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Substance_role> ;
     skos:definition "A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)" ;
     skos:editorialNote "Cardinality: 0..m" ;
     linkml:examples "Example(value='collection media', description=None)",
@@ -2992,7 +2992,7 @@ linkml:substance__substance_quantity a owl:ObjectProperty,
 linkml:substance__substance_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "substance__substance_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Substance_substance_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Substance_substance_type> ;
     skos:definition "The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='DMEM', description=None)",
@@ -3027,7 +3027,7 @@ linkml:timePoint__dateTime a owl:ObjectProperty,
 linkml:timePoint__eventType a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "timePoint__eventType" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_TimePoint_eventType> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_TimePoint_eventType> ;
     skos:definition "An event that occurred at the point in time specified by this TimePoint." ;
     skos:editorialNote "Cardinality: 0..m" ;
     skos:note "eventType can be used to associate a label for a particular event (e.g. IACUC approval, embargo lifted, etc.) to a dateTime." ;
@@ -3062,7 +3062,7 @@ linkml:timePoint__offsetFromIndex a owl:ObjectProperty,
 linkml:tobaccoExposureObservation__category a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "tobaccoExposureObservation__category" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_category> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_category> ;
     skos:definition "The general category of observation described" ;
     skos:editorialNote "Cardinality: 0..0" ;
     linkml:examples "Example(value='', description=None)" .
@@ -3088,7 +3088,7 @@ linkml:tobaccoExposureObservation__id a owl:ObjectProperty,
 linkml:tobaccoExposureObservation__method_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "tobaccoExposureObservation__method_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_method_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_method_type> ;
     skos:definition "A type of method used in generating the Observation result." ;
     skos:editorialNote "Cardinality: 0..0" ;
     skos:note "This may be a type of observational, measurement, experimental, or computational method specifying how to generate data (e.g. 'manual counting', 'bright field microscopy',). Or a Guideline or SOP specifying how to interpret data and/or encode the result of an  Observation (e.g. a Cancer Staging system such as that defined by the AJCC, or variant interpretation guideline such as that provided by the ACMG)." ;
@@ -3097,7 +3097,7 @@ linkml:tobaccoExposureObservation__method_type a owl:ObjectProperty,
 linkml:tobaccoExposureObservation__observation_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "tobaccoExposureObservation__observation_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_observation_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_observation_type> ;
     skos:definition "The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.." ;
     skos:editorialNote "Cardinality: 1..1" ;
     skos:note "This field holds the 'key' in the core key-value pair comprised of the observation_type field and the relevant value(s) field." ;
@@ -3131,7 +3131,7 @@ linkml:tobaccoExposureObservation__subject a owl:ObjectProperty,
 linkml:tobaccoExposureObservation__valueCodeableConcept a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "tobaccoExposureObservation__valueCodeableConcept" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_valueCodeableConcept> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_valueCodeableConcept> ;
     skos:definition "The result of the observation, encoded as a CodeableConcept." ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "One and only one of the value(x) fields must be populated." ;
@@ -3199,7 +3199,7 @@ linkml:treatment__number_of_cycles a owl:ObjectProperty,
 linkml:treatment__regimen a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "treatment__regimen" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Treatment_regimen> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Treatment_regimen> ;
     skos:definition "The regimen or line of therapy" ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
@@ -3231,7 +3231,7 @@ linkml:treatment__treatment_anatomic_site a owl:ObjectProperty,
 linkml:treatment__treatment_effect a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "treatment__treatment_effect" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Treatment_treatment_effect> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_effect> ;
     skos:definition "The effect of a treatment on the diagnosis or tumor." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Complete Necrosis (No Viable Tumor)', description=None)",
@@ -3240,7 +3240,7 @@ linkml:treatment__treatment_effect a owl:ObjectProperty,
 linkml:treatment__treatment_end_reason a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "treatment__treatment_end_reason" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Treatment_treatment_end_reason> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_end_reason> ;
     skos:definition "The reason the treatment ended." ;
     skos:editorialNote "Cardinality: 0..m" ;
     linkml:examples "Example(value='Adverse Event Course of Therapy Completed', description=None)",
@@ -3259,7 +3259,7 @@ linkml:treatment__treatment_for_diagnosis a owl:ObjectProperty,
 linkml:treatment__treatment_frequency a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "treatment__treatment_frequency" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Treatment_treatment_frequency> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_frequency> ;
     skos:definition "The frequency of using the substance described by this instance." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Every Hour', description=None)",
@@ -3270,7 +3270,7 @@ linkml:treatment__treatment_frequency a owl:ObjectProperty,
 linkml:treatment__treatment_intent a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "treatment__treatment_intent" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Treatment_treatment_intent> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_intent> ;
     skos:definition "The medical intent of the treatment." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Adjuvant', description=None)",
@@ -3280,7 +3280,7 @@ linkml:treatment__treatment_intent a owl:ObjectProperty,
 linkml:treatment__treatment_outcome a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "treatment__treatment_outcome" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Treatment_treatment_outcome> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_outcome> ;
     skos:definition "The final outcome of the treatment." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Complete Response', description=None)",
@@ -3293,7 +3293,7 @@ linkml:treatment__treatment_outcome a owl:ObjectProperty,
 linkml:treatment__treatment_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "treatment__treatment_type" ;
-    rdfs:range <http://UNKNOWN.org/CCDH_Treatment_treatment_type> ;
+    rdfs:range <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_type> ;
     skos:definition "The type of treatment administered, which may include medication/therapeutics or other procedures." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='Ablation', description=None)",
@@ -3352,41 +3352,41 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "AlcoholExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_valueCodeableConcept> ;
-            owl:onProperty linkml:valueCodeableConcept ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_observation_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_AlcoholExposureObservation_category> ;
-            owl:onProperty linkml:category ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhInteger> ;
             owl:onProperty linkml:valueInteger ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_valueCodeableConcept> ;
+            owl:onProperty linkml:valueCodeableConcept ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_AlcoholExposureObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [AlcoholExposureObservation in sheet AlcoholExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1894439514)" .
@@ -3395,26 +3395,26 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "BiologicProduct" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:description ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:growth_rate ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_BiologicProduct_product_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_BiologicProduct_product_type> ;
             owl:onProperty linkml:product_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
             owl:onProperty linkml:identifier ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/CcdhInteger> ;
             owl:onProperty linkml:passage_number ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:description ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro." ;
     skos:editorialNote "Derived from [BiologicProduct in sheet BiologicProduct](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080)" .
@@ -3424,30 +3424,30 @@ linkml:Uriorcurie a owl:Class,
     rdfs:label "CancerGradeObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerGradeObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerGradeObservation_valueCodeableConcept> ;
-            owl:onProperty linkml:valueCodeableConcept ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerGradeObservation_category> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_category> ;
             owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_valueCodeableConcept> ;
+            owl:onProperty linkml:valueCodeableConcept ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerGradeObservation_observation_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerGradeObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
@@ -3459,29 +3459,29 @@ linkml:Uriorcurie a owl:Class,
     rdfs:label "CancerGradeObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerGradeObservationSet_category> ;
-            owl:onProperty linkml:category ],
+            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/CancerGradeObservation> ;
+            owl:onProperty linkml:observations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerGradeObservationSet_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_CancerGradeObservationSet_method_type> ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_CancerGradeObservationSet_method_type> ;
             owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/CancerGradeObservation> ;
-            owl:onProperty linkml:observations ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)." ;
     skos:editorialNote "Derived from [CancerGradeObservationSet in sheet CancerGradeObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1025765903)" .
@@ -3490,13 +3490,29 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "CancerStageObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerStageObservation_valueCodeableConcept> ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_valueCodeableConcept> ;
             owl:onProperty linkml:valueCodeableConcept ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerStageObservation_category> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_category> ;
             owl:onProperty linkml:category ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:valueEntity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Entity> ;
@@ -3506,25 +3522,9 @@ linkml:Uriorcurie a owl:Class,
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerStageObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerStageObservation_method_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerStageObservation_method_type> ;
             owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:valueEntity ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging." ;
     skos:editorialNote "Derived from [CancerStageObservation in sheet CancerStageObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1189722404)" .
@@ -3533,30 +3533,30 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "CancerStageObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_CancerStageObservationSet_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_CancerStageObservationSet_method_type> ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_CancerStageObservationSet_method_type> ;
             owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/CancerStageObservation> ;
-            owl:onProperty linkml:observations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/CancerStageObservation> ;
+            owl:onProperty linkml:observations ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_CancerStageObservationSet_category> ;
-            owl:onProperty linkml:category ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation)." ;
     skos:editorialNote "Derived from [CancerStageObservationSet in sheet CancerStageObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1668576212)" .
@@ -3571,19 +3571,19 @@ linkml:Uriorcurie a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:systemURL ],
-        [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:code ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:label ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:systemURL ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:systemVersion ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:code ;
+            owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system." ;
     skos:editorialNote "Derived from [Coding in sheet Coding](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1218588936)" .
@@ -3592,32 +3592,32 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DimensionalObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_DimensionalObservation_method_type> ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_DimensionalObservation_category> ;
+            owl:onProperty linkml:category ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/ccdh/Quantity> ;
+            owl:onProperty linkml:valueQuantity ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_DimensionalObservation_method_type> ;
             owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_DimensionalObservation_observation_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_DimensionalObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_DimensionalObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/Quantity> ;
-            owl:onProperty linkml:valueQuantity ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Entity> ;
             owl:onProperty linkml:focus ],
@@ -3629,27 +3629,27 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Document" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:url ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
             owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:url ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Document_document_type> ;
+            owl:onProperty linkml:document_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:description ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Document_document_type> ;
-            owl:onProperty linkml:document_type ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A collection of information intented to be understood together as a whole, and codified in human-readable form." ;
     skos:editorialNote "Derived from [Document in sheet Document](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)" .
@@ -3659,12 +3659,8 @@ linkml:Uriorcurie a owl:Class,
     rdfs:label "EnvironmentalExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Entity> ;
@@ -3674,21 +3670,25 @@ linkml:Uriorcurie a owl:Class,
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_observation_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_category> ;
-            owl:onProperty linkml:category ],
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_EnvironmentalExposureObservation_valueCodeableConcept> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_valueCodeableConcept> ;
             owl:onProperty linkml:valueCodeableConcept ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_EnvironmentalExposureObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [EnvironmentalExposureObservation in sheet EnvironmentalExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=274611680)" .
@@ -3697,35 +3697,35 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "HistologicalCompositionObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/Quantity> ;
-            owl:onProperty linkml:valueQuantity ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Entity> ;
             owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_HistologicalCompositionObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_HistologicalCompositionObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/ccdh/Quantity> ;
+            owl:onProperty linkml:valueQuantity ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_HistologicalCompositionObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype)." ;
     skos:editorialNote "Derived from [HistologicalCompositionObservation in sheet HistologicalCompositionObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1411171873)" .
@@ -3734,30 +3734,30 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "HistologicalCompositionObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_HistologicalCompositionObservationSet_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_HistologicalCompositionObservationSet_category> ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservationSet_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_HistologicalCompositionObservationSet_category> ;
             owl:onProperty linkml:category ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/HistologicalCompositionObservation> ;
             owl:onProperty linkml:observations ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype." ;
     skos:editorialNote "Derived from [HistologicalCompositionObservationSet in sheet HistologicalCompositionObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=815777747)" .
@@ -3766,50 +3766,50 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenCreationActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/ExecutionConditionObservation> ;
-            owl:onProperty linkml:execution_condition_observation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
-            owl:onProperty linkml:specimen_order ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenCreationActivity_collection_method_type> ;
-            owl:onProperty linkml:collection_method_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/ExecutionTimeObservation> ;
-            owl:onProperty linkml:execution_time_observation ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
             owl:onProperty linkml:date_started ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:date_ended ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenCreationActivity_activity_type> ;
-            owl:onProperty linkml:activity_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Substance> ;
-            owl:onProperty linkml:additive ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenCreationActivity_derivation_method_type> ;
-            owl:onProperty linkml:derivation_method_type ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenCreationActivity_collection_method_type> ;
+            owl:onProperty linkml:collection_method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:quantity_collected ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
+            owl:onProperty linkml:specimen_order ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/BodySite> ;
             owl:onProperty linkml:collection_site ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/TimePoint> ;
+            owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenCreationActivity_activity_type> ;
+            owl:onProperty linkml:activity_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Substance> ;
+            owl:onProperty linkml:additive ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/ExecutionTimeObservation> ;
+            owl:onProperty linkml:execution_time_observation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/ExecutionConditionObservation> ;
+            owl:onProperty linkml:execution_condition_observation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenCreationActivity_derivation_method_type> ;
+            owl:onProperty linkml:derivation_method_type ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting)." ;
     skos:editorialNote "Derived from [SpecimenCreationActivity in sheet SpecimenCreationActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130)" .
@@ -3819,36 +3819,36 @@ linkml:Uriorcurie a owl:Class,
     rdfs:label "SpecimenProcessingActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:date_ended ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenProcessingActivity_activity_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenProcessingActivity_activity_type> ;
             owl:onProperty linkml:activity_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
             owl:onProperty linkml:date_started ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/ExecutionConditionObservation> ;
-            owl:onProperty linkml:execution_condition_observation ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:duration ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Substance> ;
+            owl:onProperty linkml:additive ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/ExecutionConditionObservation> ;
+            owl:onProperty linkml:execution_condition_observation ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenProcessingActivity_method_type> ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenProcessingActivity_method_type> ;
             owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/ExecutionTimeObservation> ;
             owl:onProperty linkml:execution_time_observation ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Substance> ;
-            owl:onProperty linkml:additive ],
+            owl:onClass <https://example.org/ccdh/TimePoint> ;
+            owl:onProperty linkml:date_ended ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen." ;
     skos:editorialNote "Derived from [SpecimenProcessingActivity in sheet SpecimenProcessingActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1726416617)" .
@@ -3857,9 +3857,12 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenQualityObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenQualityObservation_category> ;
-            owl:onProperty linkml:category ],
+            owl:onClass <https://example.org/ccdh/Quantity> ;
+            owl:onProperty linkml:valueQuantity ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_SpecimenQualityObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
@@ -3868,24 +3871,21 @@ linkml:Uriorcurie a owl:Class,
             owl:allValuesFrom <https://example.org/ccdh/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/Quantity> ;
-            owl:onProperty linkml:valueQuantity ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenQualityObservation_category> ;
+            owl:onProperty linkml:category ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenQualityObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_SpecimenQualityObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenQualityObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement." ;
     skos:editorialNote "Derived from [SpecimenQualityObservation in sheet SpecimenQualityObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=97281875)" .
@@ -3894,31 +3894,31 @@ linkml:Uriorcurie a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenQuantityObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenQuantityObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_SpecimenQuantityObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenQuantityObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_SpecimenQuantityObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenQuantityObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenQuantityObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:valueQuantity ;
@@ -3932,6 +3932,13 @@ linkml:Uriorcurie a owl:Class,
     rdfs:label "SpecimenStorageActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenStorageActivity_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/SpecimenContainer> ;
+            owl:onProperty linkml:container ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
             owl:onProperty linkml:date_started ],
         [ a owl:Restriction ;
@@ -3940,15 +3947,8 @@ linkml:Uriorcurie a owl:Class,
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenStorageActivity_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:duration ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/SpecimenContainer> ;
-            owl:onProperty linkml:container ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
@@ -3962,31 +3962,31 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "SpecimenTransportActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:duration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:transport_destination ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:date_started ],
+            owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/ExecutionConditionObservation> ;
+            owl:onProperty linkml:execution_condition_observation ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/TimePoint> ;
+            owl:onProperty linkml:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:transport_origin ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:transport_destination ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/ExecutionConditionObservation> ;
-            owl:onProperty linkml:execution_condition_observation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:date_ended ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:duration ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "An activity through which a specimen is transported between locations or organizations." ;
     skos:editorialNote "Derived from [SpecimenTransportActivity in sheet SpecimenTransportActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)" .
@@ -4000,36 +4000,36 @@ intrinsic physical nature of a specimen.""" ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_valueCodeableConcept> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_valueCodeableConcept> ;
             owl:onProperty linkml:valueCodeableConcept ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhInteger> ;
             owl:onProperty linkml:valueInteger ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_TobaccoExposureObservation_method_type> ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_method_type> ;
             owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_TobaccoExposureObservation_category> ;
+            owl:onProperty linkml:category ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [TobaccoExposureObservation in sheet TobaccoExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1464668175)" .
@@ -4039,68 +4039,68 @@ intrinsic physical nature of a specimen.""" ;
     rdfs:label "Treatment" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Treatment_treatment_frequency> ;
-            owl:onProperty linkml:treatment_frequency ],
+            owl:onClass <https://example.org/ccdh/Substance> ;
+            owl:onProperty linkml:therapeutic_agent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Diagnosis> ;
+            owl:onProperty linkml:treatment_for_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
             owl:onProperty linkml:date_started ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
-            owl:onProperty linkml:number_of_cycles ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/BodySite> ;
             owl:onProperty linkml:treatment_anatomic_site ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
-            owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Diagnosis> ;
-            owl:onProperty linkml:treatment_for_diagnosis ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Treatment_treatment_outcome> ;
-            owl:onProperty linkml:treatment_outcome ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_Treatment_treatment_end_reason> ;
-            owl:onProperty linkml:treatment_end_reason ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Treatment_treatment_effect> ;
-            owl:onProperty linkml:treatment_effect ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_intent> ;
+            owl:onProperty linkml:treatment_intent ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Treatment_treatment_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_frequency> ;
+            owl:onProperty linkml:treatment_frequency ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_type> ;
             owl:onProperty linkml:treatment_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
             owl:onProperty linkml:date_ended ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Treatment_treatment_intent> ;
-            owl:onProperty linkml:treatment_intent ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Treatment> ;
             owl:onProperty linkml:concurrent_treatment ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Substance> ;
-            owl:onProperty linkml:therapeutic_agent ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_effect> ;
+            owl:onProperty linkml:treatment_effect ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_end_reason> ;
+            owl:onProperty linkml:treatment_end_reason ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Treatment_regimen> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Treatment_treatment_outcome> ;
+            owl:onProperty linkml:treatment_outcome ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Treatment_regimen> ;
             owl:onProperty linkml:regimen ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
+            owl:onProperty linkml:number_of_cycles ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "Represent medication administration or other treatment types." ;
     skos:editorialNote "Derived from [Treatment in sheet Treatment](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=2111784779)" .
@@ -4132,30 +4132,30 @@ linkml:String a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DimensionalObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_DimensionalObservationSet_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/DimensionalObservation> ;
+            owl:onProperty linkml:observations ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_DimensionalObservationSet_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_DimensionalObservationSet_category> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_DimensionalObservationSet_category> ;
             owl:onProperty linkml:category ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/DimensionalObservation> ;
-            owl:onProperty linkml:observations ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area)." ;
     skos:editorialNote "Derived from [DimensionalObservationSet in sheet DimensionalObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1118507095)" .
@@ -4165,36 +4165,36 @@ linkml:String a owl:Class,
     rdfs:label "ExecutionTimeObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ExecutionTimeObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ExecutionTimeObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ExecutionTimeObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ExecutionTimeObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ExecutionTimeObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:valueQuantity ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ExecutionTimeObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:performed_by ],
         <https://example.org/ccdh/Entity> ;
     skos:definition """A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
 
@@ -4206,62 +4206,62 @@ Information describing the environmental conditions in which an activity, or a s
     rdfs:label "Observation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhDateTime> ;
-            owl:onProperty linkml:valueDateTime ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
+            owl:onClass <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:valueEntity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhBoolean> ;
             owl:onProperty linkml:valueBoolean ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Observation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:valueEntity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhDecimal> ;
-            owl:onProperty linkml:valueDecimal ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_Observation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:valueString ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhDateTime> ;
+            owl:onProperty linkml:valueDateTime ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_Observation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhDecimal> ;
-            owl:onProperty linkml:valueInteger ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Observation_category> ;
+            owl:onProperty linkml:category ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Observation_valueCodeableConcept> ;
+            owl:onProperty linkml:valueCodeableConcept ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:valueQuantity ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Observation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Observation_valueCodeableConcept> ;
-            owl:onProperty linkml:valueCodeableConcept ],
+            owl:onClass <https://example.org/ccdh/CcdhDecimal> ;
+            owl:onProperty linkml:valueInteger ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:valueString ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Observation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhDecimal> ;
+            owl:onProperty linkml:valueDecimal ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [Observation in sheet Observation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=550424063)" .
@@ -4271,126 +4271,126 @@ Information describing the environmental conditions in which an activity, or a s
     rdfs:label "Specimen" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/ResearchProject> ;
-            owl:onProperty linkml:associated_project ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_specimen_type> ;
-            owl:onProperty linkml:specimen_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_degree_of_dysplasia> ;
-            owl:onProperty linkml:degree_of_dysplasia ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Organization> ;
-            owl:onProperty linkml:data_provider ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/SpecimenProcessingActivity> ;
-            owl:onProperty linkml:processing_activity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/DimensionalObservationSet> ;
-            owl:onProperty linkml:dimensional_measures ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/SpecimenStorageActivity> ;
-            owl:onProperty linkml:storage_activity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_morphology_assessor_role> ;
-            owl:onProperty linkml:morphology_assessor_role ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/SpecimenContainer> ;
-            owl:onProperty linkml:contained_in ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_specific_tissue_morphology> ;
-            owl:onProperty linkml:specific_tissue_morphology ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_section_location> ;
-            owl:onProperty linkml:section_location ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/SpecimenCreationActivity> ;
-            owl:onProperty linkml:creation_activity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhBoolean> ;
             owl:onProperty linkml:morphology_pathologically_confirmed ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_source_material_type> ;
-            owl:onProperty linkml:source_material_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
-            owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Specimen> ;
-            owl:onProperty linkml:parent_specimen ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_degree_of_dysplasia> ;
+            owl:onProperty linkml:degree_of_dysplasia ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_preinvasive_tissue_morphology> ;
-            owl:onProperty linkml:preinvasive_tissue_morphology ],
+            owl:onClass <https://example.org/ccdh/ResearchProject> ;
+            owl:onProperty linkml:associated_project ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_tumor_status_at_collection> ;
-            owl:onProperty linkml:tumor_status_at_collection ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_cellular_composition_type> ;
-            owl:onProperty linkml:cellular_composition_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:source_subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:description ],
+            owl:allValuesFrom <https://example.org/ccdh/SpecimenProcessingActivity> ;
+            owl:onProperty linkml:processing_activity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_general_tissue_morphology> ;
-            owl:onProperty linkml:general_tissue_morphology ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/SpecimenQuantityObservation> ;
-            owl:onProperty linkml:quantity_measure ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/SpecimenQualityObservation> ;
-            owl:onProperty linkml:quality_measure ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:dysplasia_fraction ],
+            owl:onProperty linkml:description ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_analyte_type> ;
-            owl:onProperty linkml:analyte_type ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_section_location> ;
+            owl:onProperty linkml:section_location ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/BiologicProduct> ;
-            owl:onProperty linkml:derived_product ],
+            owl:allValuesFrom <https://example.org/ccdh/SpecimenStorageActivity> ;
+            owl:onProperty linkml:storage_activity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:distance_from_paired_specimen ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Specimen_morphlogy_assessment_method> ;
-            owl:onProperty linkml:morphlogy_assessment_method ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_morphology_assessor_role> ;
+            owl:onProperty linkml:morphology_assessor_role ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_specimen_type> ;
+            owl:onProperty linkml:specimen_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/SpecimenCreationActivity> ;
+            owl:onProperty linkml:creation_activity ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/HistologicalCompositionObservationSet> ;
             owl:onProperty linkml:histological_composition_measures ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/SpecimenContainer> ;
+            owl:onProperty linkml:contained_in ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Specimen> ;
+            owl:onProperty linkml:parent_specimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_preinvasive_tissue_morphology> ;
+            owl:onProperty linkml:preinvasive_tissue_morphology ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_morphlogy_assessment_method> ;
+            owl:onProperty linkml:morphlogy_assessment_method ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Organization> ;
+            owl:onProperty linkml:data_provider ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_specific_tissue_morphology> ;
+            owl:onProperty linkml:specific_tissue_morphology ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_tumor_status_at_collection> ;
+            owl:onProperty linkml:tumor_status_at_collection ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/SpecimenTransportActivity> ;
             owl:onProperty linkml:transport_activity ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/DimensionalObservationSet> ;
+            owl:onProperty linkml:dimensional_measures ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/SpecimenQuantityObservation> ;
+            owl:onProperty linkml:quantity_measure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_general_tissue_morphology> ;
+            owl:onProperty linkml:general_tissue_morphology ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_analyte_type> ;
+            owl:onProperty linkml:analyte_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Document> ;
             owl:onProperty linkml:related_document ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/SpecimenQualityObservation> ;
+            owl:onProperty linkml:quality_measure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:source_subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/BiologicProduct> ;
+            owl:onProperty linkml:derived_product ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_source_material_type> ;
+            owl:onProperty linkml:source_material_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:dysplasia_fraction ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Specimen_cellular_composition_type> ;
+            owl:onProperty linkml:cellular_composition_type ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation." ;
     skos:editorialNote "Derived from [Specimen in sheet Specimen](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281)" .
@@ -4406,13 +4406,17 @@ Information describing the environmental conditions in which an activity, or a s
         linkml:ClassDefinition ;
     rdfs:label "ExecutionConditionObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_observation_type> ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Entity> ;
-            owl:onProperty linkml:focus ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Organization> ;
@@ -4422,20 +4426,16 @@ Information describing the environmental conditions in which an activity, or a s
             owl:onClass <https://example.org/ccdh/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_valueCodeableConcept> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_valueCodeableConcept> ;
             owl:onProperty linkml:valueCodeableConcept ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ExecutionConditionObservation_category> ;
+            owl:onClass <https://example.org/ccdh/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ExecutionConditionObservation_category> ;
             owl:onProperty linkml:category ],
         <https://example.org/ccdh/Entity> ;
     skos:definition """A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
@@ -4449,53 +4449,53 @@ Information describing the environmental conditions in which an activity, or a s
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:description_shortened ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_ResearchProject_research_project_type> ;
-            owl:onProperty linkml:research_project_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:associated_timepoint ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:name_shortened ],
+            owl:onProperty linkml:name ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:date_ended ],
+            owl:onProperty linkml:date_started ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
             owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/BodySite> ;
-            owl:onProperty linkml:primary_anatomic_site ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:sponsor ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:description ],
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:url ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
-            owl:onProperty linkml:date_started ],
+            owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/BodySite> ;
+            owl:onProperty linkml:primary_anatomic_site ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/ResearchProject> ;
             owl:onProperty linkml:part_of ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:name_shortened ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_ResearchProject_research_project_type> ;
+            owl:onProperty linkml:research_project_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/TimePoint> ;
+            owl:onProperty linkml:associated_timepoint ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:description_shortened ],
         <https://example.org/ccdh/Entity> ;
     skos:definition """A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
 This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
@@ -4506,23 +4506,23 @@ and investigative techniques. A ResearchProject involves the gathering of inform
         linkml:ClassDefinition ;
     rdfs:label "SpecimenContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Substance> ;
-            owl:onProperty linkml:additive ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_SpecimenContainer_container_type> ;
-            owl:onProperty linkml:container_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:container_number ],
+            owl:onClass <https://example.org/ccdh/SpecimenContainer> ;
+            owl:onProperty linkml:parent_container ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
             owl:onProperty linkml:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/SpecimenContainer> ;
-            owl:onProperty linkml:parent_container ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:container_number ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Substance> ;
+            owl:onProperty linkml:additive ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_SpecimenContainer_container_type> ;
+            owl:onProperty linkml:container_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
@@ -4536,65 +4536,65 @@ and investigative techniques. A ResearchProject involves the gathering of inform
     rdfs:label "Diagnosis" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Diagnosis_disease_status> ;
-            owl:onProperty linkml:disease_status ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/BodySite> ;
-            owl:onProperty linkml:primary_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/CancerStageObservationSet> ;
-            owl:onProperty linkml:stage ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Diagnosis> ;
-            owl:onProperty linkml:prior_diagnosis ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Quantity> ;
-            owl:onProperty linkml:age_at_diagnosis ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Diagnosis_method_of_diagnosis> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Diagnosis_method_of_diagnosis> ;
             owl:onProperty linkml:method_of_diagnosis ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Specimen> ;
+            owl:onProperty linkml:related_specimen ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/DimensionalObservationSet> ;
             owl:onProperty linkml:dimensional_measure ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Specimen> ;
-            owl:onProperty linkml:related_specimen ],
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Diagnosis_morphology> ;
+            owl:onProperty linkml:morphology ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
-            owl:onProperty linkml:year_at_diagnosis ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/CancerGradeObservationSet> ;
+            owl:onProperty linkml:grade ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Diagnosis_disease_status> ;
+            owl:onProperty linkml:disease_status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/CancerStageObservationSet> ;
+            owl:onProperty linkml:stage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/BodySite> ;
+            owl:onProperty linkml:metastatic_site ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/BodySite> ;
+            owl:onProperty linkml:primary_site ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/Quantity> ;
+            owl:onProperty linkml:age_at_diagnosis ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Observation> ;
             owl:onProperty linkml:supporting_observation ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Diagnosis_condition> ;
-            owl:onProperty linkml:condition ],
+            owl:onClass <https://example.org/ccdh/Diagnosis> ;
+            owl:onProperty linkml:prior_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Diagnosis_morphology> ;
-            owl:onProperty linkml:morphology ],
+            owl:onClass <https://example.org/ccdh/Subject> ;
+            owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/CancerGradeObservationSet> ;
-            owl:onProperty linkml:grade ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
+            owl:onProperty linkml:year_at_diagnosis ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
-            owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/BodySite> ;
-            owl:onProperty linkml:metastatic_site ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Diagnosis_condition> ;
+            owl:onProperty linkml:condition ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions." ;
     skos:editorialNote "Derived from [Diagnosis in sheet Diagnosis](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1015759209)" .
@@ -4603,15 +4603,15 @@ and investigative techniques. A ResearchProject involves the gathering of inform
         linkml:ClassDefinition ;
     rdfs:label "Substance" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_Substance_role> ;
-            owl:onProperty linkml:role ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:substance_quantity ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_Substance_role> ;
+            owl:onProperty linkml:role ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Substance_substance_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Substance_substance_type> ;
             owl:onProperty linkml:substance_type ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application." ;
@@ -4621,12 +4621,12 @@ and investigative techniques. A ResearchProject involves the gathering of inform
         linkml:ClassDefinition ;
     rdfs:label "BodySite" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_BodySite_qualifier> ;
-            owl:onProperty linkml:qualifier ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/CCDH_BodySite_site> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_BodySite_site> ;
             owl:onProperty linkml:site ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_BodySite_qualifier> ;
+            owl:onProperty linkml:qualifier ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device." ;
     skos:editorialNote "Derived from [BodySite in sheet BodySite](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097478901)" .
@@ -4659,7 +4659,7 @@ linkml:TypeDefinition a owl:Class ;
             owl:onProperty linkml:system ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Identifier_type> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Identifier_type> ;
             owl:onProperty linkml:type ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "An Identifier is associated with a unique object or entity within a given system." ;
@@ -4670,16 +4670,16 @@ linkml:TypeDefinition a owl:Class ;
     rdfs:label "Quantity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Quantity_valueCodeableConcept> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Quantity_valueCodeableConcept> ;
             owl:onProperty linkml:valueCodeableConcept ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Quantity_unit> ;
-            owl:onProperty linkml:unit ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhDecimal> ;
             owl:onProperty linkml:valueDecimal ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Quantity_unit> ;
+            owl:onProperty linkml:unit ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit." ;
     skos:editorialNote "Derived from [Quantity in sheet Quantity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1941950611)" .
@@ -4693,19 +4693,19 @@ linkml:TypeDefinition a owl:Class ;
             owl:onProperty linkml:dateTime ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/Quantity> ;
-            owl:onProperty linkml:offsetFromIndex ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_TimePoint_eventType> ;
-            owl:onProperty linkml:eventType ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/TimePoint> ;
             owl:onProperty linkml:indexTimePoint ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <https://example.org/ccdh/Quantity> ;
+            owl:onProperty linkml:offsetFromIndex ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_TimePoint_eventType> ;
+            owl:onProperty linkml:eventType ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index." ;
     skos:editorialNote "Derived from [TimePoint in sheet TimePoint](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=300932847)" .
@@ -4718,51 +4718,51 @@ linkml:ClassDefinition a owl:Class ;
         linkml:ClassDefinition ;
     rdfs:label "Subject" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Subject_species> ;
-            owl:onProperty linkml:species ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/CCDH_Subject_race> ;
-            owl:onProperty linkml:race ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Subject_sex> ;
-            owl:onProperty linkml:sex ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Subject_ethnicity> ;
-            owl:onProperty linkml:ethnicity ],
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/Quantity> ;
             owl:onProperty linkml:age_at_death ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Subject_cause_of_death> ;
+            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
+            owl:onProperty linkml:year_of_birth ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Subject_sex> ;
+            owl:onProperty linkml:sex ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Subject_species> ;
+            owl:onProperty linkml:species ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Subject_cause_of_death> ;
             owl:onProperty linkml:cause_of_death ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhInteger> ;
             owl:onProperty linkml:year_of_death ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
-            owl:onProperty linkml:identifier ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Subject_ethnicity> ;
+            owl:onProperty linkml:ethnicity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CCDH_Subject_race> ;
+            owl:onProperty linkml:race ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/ccdh/CcdhInteger> ;
-            owl:onProperty linkml:year_of_birth ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Subject_breed> ;
-            owl:onProperty linkml:breed ],
-        [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/CCDH_Subject_vital_status> ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Subject_vital_status> ;
             owl:onProperty linkml:vital_status ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CCDH_Subject_breed> ;
+            owl:onProperty linkml:breed ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "Demographics and other administrative information about an individual or animal receiving care or other health-related services." ;
     skos:editorialNote "Derived from [Subject in sheet Subject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379)" .
@@ -4773,6 +4773,10 @@ linkml:ClassDefinition a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/ccdh/Identifier> ;
             owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/ccdh/CcdhString> ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
@@ -4785,10 +4789,6 @@ linkml:ClassDefinition a owl:Class ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/ccdh/CcdhString> ;
             owl:onProperty linkml:alias ],
-        [ a owl:Restriction ;
-            owl:onClass <https://example.org/ccdh/CcdhString> ;
-            owl:onProperty linkml:id ;
-            owl:qualifiedCardinality 1 ],
         <https://example.org/ccdh/Entity> ;
     skos:definition "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university" ;
     skos:editorialNote "Derived from [Organization in sheet Organization](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710)" .
