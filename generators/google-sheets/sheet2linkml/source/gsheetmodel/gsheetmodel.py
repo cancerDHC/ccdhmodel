@@ -260,7 +260,7 @@ class GSheetModel(ModelElement):
             "GDC": "http://example.org/gdc/",
             "PDC": "http://example.org/pdc/",
             "ICDC": "http://example.org/icdc/",
-            "HTAN": "http://example.org/htan/"
+            "HTAN": "http://example.org/htan/",
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']

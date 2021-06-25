@@ -124,7 +124,7 @@ class Enum(ModelElement):
         """
         :return: The name of this enum, modified to fit the format we use for other enums.
         """
-        return f'CCDH_{Enum.fix_enum_name(self.name)}'
+        return f"CCDH_{Enum.fix_enum_name(self.name)}"
 
     @staticmethod
     def fix_enum_name(enum_name: str):
@@ -135,11 +135,11 @@ class Enum(ModelElement):
         """
 
         # The hyphen in 'CRDC-H' doesn't work properly.
-        fixed_name = re.sub(r'^CRDC-H\.', 'CCDH.', enum_name)
+        fixed_name = re.sub(r"^CRDC-H\.", "CCDH.", enum_name)
 
         # The '.'s in the name also mess up the generated Python code.
         # But we might as well replace everything that isn't alphanumeric.
-        fixed_name = re.sub(r'\W', '_', fixed_name).strip('_')
+        fixed_name = re.sub(r"\W", "_", fixed_name).strip("_")
 
         return fixed_name
 
