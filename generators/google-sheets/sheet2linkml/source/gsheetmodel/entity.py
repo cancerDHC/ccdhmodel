@@ -5,7 +5,13 @@ from sheet2linkml.terminologies.service import TerminologyService
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
-from linkml_model.meta import ClassDefinition, SlotDefinition, EnumDefinition, PermissibleValue, Example
+from linkml_model.meta import (
+    ClassDefinition,
+    SlotDefinition,
+    EnumDefinition,
+    PermissibleValue,
+    Example,
+)
 import logging
 import re
 import urllib.parse
@@ -18,7 +24,14 @@ class Entity(ModelElement):
     It is represented by a single worksheet in a Google Sheet spreadsheet.
     """
 
-    def __init__(self, model, sheet: worksheet, name: str, rows: list[dict[str, str]], terminology_service: TerminologyService):
+    def __init__(
+        self,
+        model,
+        sheet: worksheet,
+        name: str,
+        rows: list[dict[str, str]],
+        terminology_service: TerminologyService,
+    ):
         """
         Create an entity based on a GSheetModel and a Google Sheet worksheet.
 
@@ -45,7 +58,9 @@ class Entity(ModelElement):
         :return: A list of named rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
+            row
+            for row in self.rows
+            if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is not None
         ]
 
     @cached_property
@@ -57,7 +72,12 @@ class Entity(ModelElement):
         :return: A list of all the attributes in this entity.
         """
 
-        return [Attribute(self.model, self, dct, terminology_service=self.terminology_service) for dct in self.attribute_rows]
+        return [
+            Attribute(
+                self.model, self, dct, terminology_service=self.terminology_service
+            )
+            for dct in self.attribute_rows
+        ]
 
     @property
     def entity_row(self) -> dict[str, str]:
@@ -71,7 +91,9 @@ class Entity(ModelElement):
 
         # Find all entity rows
         entity_rows = [
-            row for row in self.rows if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None
+            row
+            for row in self.rows
+            if row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None
         ]
 
         # Report an error if no rows were found.
@@ -102,14 +124,14 @@ class Entity(ModelElement):
         """
         :return: A name for this entity.
         """
-        return (self.entity_name or '(unnamed entity)').strip()
+        return (self.entity_name or "(unnamed entity)").strip()
 
     @property
     def full_name(self) -> str:
         """
         :return: The full name of this entity.
         """
-        return f'CRDC-H.{self.entity_name}'
+        return f"CRDC-H.{self.entity_name}"
 
     def get_filename(self) -> str:
         """
@@ -137,8 +159,13 @@ class Entity(ModelElement):
         Returns the list of mappings for this entity.
         """
         mappings = Mappings(self)
-        mappings.add_mappings(self.entity_row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH)
-        mappings.add_mappings(self.entity_row.get("Indirect Source Mapping"), MappingRelations.SKOS_CLOSE_MATCH)
+        mappings.add_mappings(
+            self.entity_row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH
+        )
+        mappings.add_mappings(
+            self.entity_row.get("Indirect Source Mapping"),
+            MappingRelations.SKOS_CLOSE_MATCH,
+        )
         return mappings
 
     @property
@@ -163,12 +190,12 @@ class Entity(ModelElement):
         # Basic metadata
         cls: ClassDefinition = ClassDefinition(
             name=self.name,
-            description=(self.entity_row.get("Description") or '').strip(),
+            description=(self.entity_row.get("Description") or "").strip(),
             # comments=self.entity_row.get("Comments"),
         )
 
-        if self.name != 'Entity':
-            cls.is_a = 'Entity'
+        if self.name != "Entity":
+            cls.is_a = "Entity"
 
         # Additional metadata
 
@@ -186,7 +213,10 @@ class Entity(ModelElement):
         self.mappings.set_mappings_on_element(cls)
 
         # Now generate LinkML for all of the attributes.
-        cls.attributes = {attribute.name: attribute.as_linkml(root_uri) for attribute in self.attributes}
+        cls.attributes = {
+            attribute.name: attribute.as_linkml(root_uri)
+            for attribute in self.attributes
+        }
 
         return cls
 
@@ -198,7 +228,13 @@ class Attribute:
     It is represented by a single row in a Google Sheet spreadsheet.
     """
 
-    def __init__(self, model, entity, row: dict[str, str], terminology_service: TerminologyService):
+    def __init__(
+        self,
+        model,
+        entity,
+        row: dict[str, str],
+        terminology_service: TerminologyService,
+    ):
         """
         Create an attribute based on a GSheetModel and a Google Sheet worksheet.
 
@@ -229,7 +265,7 @@ class Attribute:
         """
         :return: The full name of this attribute.
         """
-        return f'{self.entity.full_name}.{self.name}'
+        return f"{self.entity.full_name}.{self.name}"
 
     def __str__(self):
         """
@@ -275,8 +311,12 @@ class Attribute:
         Returns the list of mappings for this attribute.
         """
         mappings = Mappings(self)
-        mappings.add_mappings(self.row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH)
-        mappings.add_mappings(self.row.get("Indirect Source Mapping"), MappingRelations.SKOS_CLOSE_MATCH)
+        mappings.add_mappings(
+            self.row.get("Source Mapping"), MappingRelations.SKOS_EXACT_MATCH
+        )
+        mappings.add_mappings(
+            self.row.get("Indirect Source Mapping"), MappingRelations.SKOS_CLOSE_MATCH
+        )
         return mappings
 
     @property
@@ -291,7 +331,7 @@ class Attribute:
 
             # For primitive types, we need to add `ccdh_` to the start of the type name.
             if attribute_range[0].islower():
-                attribute_range = f'ccdh_{attribute_range}'
+                attribute_range = f"ccdh_{attribute_range}"
 
         return attribute_range
 
@@ -304,10 +344,10 @@ class Attribute:
         """
 
         # The hyphen in 'CRDC-H' doesn't work properly.
-        fixed_name = re.sub(r'^CRDC-H\.', 'CCDH.', enum_name)
+        fixed_name = re.sub(r"^CRDC-H\.", "CCDH.", enum_name)
 
         # The '.'s in the name also mess up the generated Python code.
-        fixed_name = fixed_name.replace('.', '_')
+        fixed_name = fixed_name.replace(".", "_")
 
         return fixed_name
 
@@ -325,24 +365,24 @@ class Attribute:
         # Look up enumerations on the Terminology Service.
         enum_info = self.terminology_service.get_enum_values_for_field(self.full_name)
         permissible_values = {}
-        for pv in enum_info.get('permissible_values', []):
-            text = pv.get('text')
+        for pv in enum_info.get("permissible_values", []):
+            text = pv.get("text")
             if text in permissible_values.keys():
-                logging.warning(f"In field '{self.full_name}', found duplicate permissible value text: {text} was previously assigned to {permissible_values[text]}, but will now be replaced with {pv}")
+                logging.warning(
+                    f"In field '{self.full_name}', found duplicate permissible value text: {text} was previously assigned to {permissible_values[text]}, but will now be replaced with {pv}"
+                )
 
             permissible_values[str(text)] = PermissibleValue(
-                text=text,
-                description=pv.get('description'),
-                meaning=pv.get('meaning')
+                text=text, description=pv.get("description"), meaning=pv.get("meaning")
             )
 
         return EnumDefinition(
             name=Enum.fix_enum_name(self.full_name),
-            code_set=f'https://terminology.ccdh.io/enumerations/{urllib.parse.quote_plus(self.full_name)}',
+            code_set=f"https://terminology.ccdh.io/enumerations/{urllib.parse.quote_plus(self.full_name)}",
             code_set_version=enum_info.get("last_updated", ""),
             comments=f'Name according to TCCM: "{enum_info.get("name", "")}"',
             description=enum_info.get("description"),
-            permissible_values=list(permissible_values.values())
+            permissible_values=list(permissible_values.values()),
         )
 
     def as_linkml(self, root_uri) -> SlotDefinition:
@@ -357,7 +397,9 @@ class Attribute:
         min_count, max_count = self.counts()
 
         # Set up some complex fields.
-        examples = re.split(r'\s*[\r\n\|]\s*', (data.get("Example Values") or '').strip())
+        examples = re.split(
+            r"\s*[\r\n\|]\s*", (data.get("Example Values") or "").strip()
+        )
         if len(examples) == 0:
             examples = []
         else:
@@ -366,7 +408,7 @@ class Attribute:
         attribute_range = self.range
         # For CodeableConcepts, we currently replace it with an enumeration.
         # In future versions, we will instead constrain the CodeableConcept's codes in some way.
-        if self.terminology_service and attribute_range == 'CodeableConcept':
+        if self.terminology_service and attribute_range == "CodeableConcept":
             # Logically, we should be able to set `attribute_range` to the EnumDefinition.
             # But LinkML doesn't support that yet. So instead, we'll refer to the enum definition
             # here and enter it elsewhere in the YAML file.
@@ -374,13 +416,13 @@ class Attribute:
 
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
-            description=(data.get("Description") or '').strip(),
+            description=(data.get("Description") or "").strip(),
             examples=examples,
             comments=data.get("Comments"),
             # notes=data.get("Developer Notes"),
             required=(min_count > 0),
             multivalued=(max_count is None or max_count > 1),
-            range=attribute_range
+            range=attribute_range,
         )
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
@@ -413,13 +455,21 @@ class EntityWorksheet(ModelElement):
     @staticmethod
     def is_sheet_entity(worksheet: worksheet):
         """Identify worksheets containing entities, i.e. those that have:
-            - COL_STATUS in cell A1, and
-            - COL_ENTITY_NAME in cell B1, and
-            - COL_ATTRIBUTE_NAME in cell C1.
+        - COL_STATUS in cell A1, and
+        - COL_ENTITY_NAME in cell B1, and
+        - COL_ATTRIBUTE_NAME in cell C1.
         """
-        return worksheet.get_values("A1", "C1") == [[EntityWorksheet.COL_STATUS, EntityWorksheet.COL_ENTITY_NAME, EntityWorksheet.COL_ATTRIBUTE_NAME]]
+        return worksheet.get_values("A1", "C1") == [
+            [
+                EntityWorksheet.COL_STATUS,
+                EntityWorksheet.COL_ENTITY_NAME,
+                EntityWorksheet.COL_ATTRIBUTE_NAME,
+            ]
+        ]
 
-    def __init__(self, model, sheet: worksheet, terminology_service: TerminologyService):
+    def __init__(
+        self, model, sheet: worksheet, terminology_service: TerminologyService
+    ):
         """
         Create a worksheet based on a GSheetModel and a Google Sheet worksheet.
 
@@ -450,7 +500,9 @@ class EntityWorksheet(ModelElement):
         :return: A list of included rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(EntityWorksheet.COL_STATUS, "") == "include"
+            row
+            for row in self.rows
+            if row.get(EntityWorksheet.COL_STATUS, "") == "include"
         ]
 
     @property
@@ -461,7 +513,10 @@ class EntityWorksheet(ModelElement):
         :return: A list of all the entity names in this worksheet.
         """
 
-        return [(row.get(EntityWorksheet.COL_ENTITY_NAME) or "") for row in self.included_rows()]
+        return [
+            (row.get(EntityWorksheet.COL_ENTITY_NAME) or "")
+            for row in self.included_rows()
+        ]
 
     @property
     def entities_as_included_rows(self) -> dict[str, list[dict]]:
@@ -490,7 +545,9 @@ class EntityWorksheet(ModelElement):
             if any(row.get(EntityWorksheet.COL_ATTRIBUTE_NAME) is None for row in rows):
                 filtered[name] = rows
             else:
-                logging.warning(f'- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row.')
+                logging.warning(
+                    f"- Ignoring entity {name} in worksheet {self.name} as it does not have an entity row."
+                )
 
         return filtered
 
@@ -503,7 +560,13 @@ class EntityWorksheet(ModelElement):
         """
 
         return {
-            k: Entity(self.model, self.worksheet, k, v, terminology_service=self.terminology_service)
+            k: Entity(
+                self.model,
+                self.worksheet,
+                k,
+                v,
+                terminology_service=self.terminology_service,
+            )
             for k, v in self.entities_as_included_rows.items()
         }
 
