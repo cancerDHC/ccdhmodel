@@ -39,14 +39,14 @@ class Enum(ModelElement):
         :return: A list of named rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(EnumWorksheet.COL_VALUE_NAME) is not None
+            row
+            for row in self.rows
+            if row.get(EnumWorksheet.COL_VALUE_NAME) is not None
         ]
 
     @property
     def values(self) -> list:
-        return [
-            EnumValue(self.model, self, row) for row in self.value_rows
-        ]
+        return [EnumValue(self.model, self, row) for row in self.value_rows]
 
     @property
     def enum_row(self) -> dict[str, str]:
@@ -91,14 +91,14 @@ class Enum(ModelElement):
         """
         :return: A name for this enum.
         """
-        return (self.enum_name or '(unnamed enum)').strip()
+        return (self.enum_name or "(unnamed enum)").strip()
 
     @property
     def fixed_name(self):
         """
         :return: The name of this enum, modified to fit the format we use for other enums.
         """
-        return f'{Enum.fix_enum_name(self.full_name)}'
+        return f"{Enum.fix_enum_name(self.full_name)}"
 
     @staticmethod
     def fix_enum_name(enum_name: str):
@@ -109,21 +109,21 @@ class Enum(ModelElement):
         """
 
         # The hyphen in 'CRDC-H' doesn't work properly.
-        fixed_name = re.sub(r'^CRDC-H\.', 'CCDH.', enum_name)
+        fixed_name = re.sub(r"^CRDC-H\.", "CCDH.", enum_name)
 
         # The '.'s in the name also mess up the generated Python code.
         # But we might as well replace everything that isn't alphanumeric.
-        fixed_name = re.sub(r'\W', '_', fixed_name).strip('_')
+        fixed_name = re.sub(r"\W", "_", fixed_name).strip("_")
 
         # All enumerations should be prefixed with `enum_` for clarity.
-        return f'enum_{fixed_name}'
+        return f"enum_{fixed_name}"
 
     @property
     def full_name(self) -> str:
         """
         :return: The full name of this enum.
         """
-        return f'CRDC-H.{self.enum_name}'
+        return f"CRDC-H.{self.enum_name}"
 
     def get_filename(self) -> str:
         """
@@ -151,9 +151,17 @@ class Enum(ModelElement):
         Returns the list of mappings for this enum.
         """
         mappings = Mappings(self)
-        mappings.add_mappings(self.enum_row.get("Source Entity"), MappingRelations.SKOS_RELATED_MATCH)
-        mappings.add_mappings(self.enum_row.get("Source Attribute (Name)"), MappingRelations.SKOS_RELATED_MATCH)
-        mappings.add_mappings(self.enum_row.get("Source Attribute (Values)"), MappingRelations.SKOS_RELATED_MATCH)
+        mappings.add_mappings(
+            self.enum_row.get("Source Entity"), MappingRelations.SKOS_RELATED_MATCH
+        )
+        mappings.add_mappings(
+            self.enum_row.get("Source Attribute (Name)"),
+            MappingRelations.SKOS_RELATED_MATCH,
+        )
+        mappings.add_mappings(
+            self.enum_row.get("Source Attribute (Values)"),
+            MappingRelations.SKOS_RELATED_MATCH,
+        )
         return mappings
 
     @property
@@ -178,7 +186,7 @@ class Enum(ModelElement):
         # Basic metadata
         enum = EnumDefinition(
             name=self.fixed_name,
-            description=(self.enum_row.get(EnumWorksheet.COL_DEFINITION) or '').strip()
+            description=(self.enum_row.get(EnumWorksheet.COL_DEFINITION) or "").strip(),
         )
 
         # Additional metadata
@@ -197,7 +205,10 @@ class Enum(ModelElement):
         self.mappings.set_mappings_on_element(enum)
 
         # Now generate LinkML for all of the values.
-        enum.permissible_values = {str(enum_value.name): enum_value.as_linkml(root_uri) for enum_value in self.values}
+        enum.permissible_values = {
+            str(enum_value.name): enum_value.as_linkml(root_uri)
+            for enum_value in self.values
+        }
 
         return enum
 
@@ -238,7 +249,7 @@ class EnumValue:
         """
         :return: The full name of this enum value.
         """
-        return f'{self.enum.full_name}.{self.name}'
+        return f"{self.enum.full_name}.{self.name}"
 
     def __str__(self):
         """
@@ -253,9 +264,16 @@ class EnumValue:
         Returns the list of mappings for this enum value.
         """
         mappings = Mappings(self)
-        mappings.add_mappings(self.row.get("Source Entity"), MappingRelations.SKOS_RELATED_MATCH)
-        mappings.add_mappings(self.row.get("Source Attribute (Name)"), MappingRelations.SKOS_RELATED_MATCH)
-        mappings.add_mappings(self.row.get("Source Attribute (Values)"), MappingRelations.SKOS_RELATED_MATCH)
+        mappings.add_mappings(
+            self.row.get("Source Entity"), MappingRelations.SKOS_RELATED_MATCH
+        )
+        mappings.add_mappings(
+            self.row.get("Source Attribute (Name)"), MappingRelations.SKOS_RELATED_MATCH
+        )
+        mappings.add_mappings(
+            self.row.get("Source Attribute (Values)"),
+            MappingRelations.SKOS_RELATED_MATCH,
+        )
         return mappings
 
     def as_linkml(self, root_uri) -> PermissibleValue:
@@ -270,8 +288,8 @@ class EnumValue:
 
         pv = PermissibleValue(
             text=data.get(EnumWorksheet.COL_VALUE_NAME) or "",
-            description=(data.get(EnumWorksheet.COL_DEFINITION) or '').strip(),
-            comments=data.get("Comments")
+            description=(data.get(EnumWorksheet.COL_DEFINITION) or "").strip(),
+            comments=data.get("Comments"),
         )
 
         # Add mappings
@@ -297,14 +315,19 @@ class EnumWorksheet(ModelElement):
     @staticmethod
     def is_sheet_entity(worksheet: worksheet):
         """Identify worksheets containing enums, i.e. those that have:
-            - COL_STATUS in cell A1, and
-            - COL_ENUM_NAME in cell B1, and
-            - COL_VALUE_NAME in cell C1, and
-            - COL_DEFINITION in cell D1
+        - COL_STATUS in cell A1, and
+        - COL_ENUM_NAME in cell B1, and
+        - COL_VALUE_NAME in cell C1, and
+        - COL_DEFINITION in cell D1
         """
-        return worksheet.get_values("A1", "D1") == [[
-            EnumWorksheet.COL_STATUS, EnumWorksheet.COL_ENUM_NAME, EnumWorksheet.COL_VALUE_NAME, EnumWorksheet.COL_DEFINITION
-        ]]
+        return worksheet.get_values("A1", "D1") == [
+            [
+                EnumWorksheet.COL_STATUS,
+                EnumWorksheet.COL_ENUM_NAME,
+                EnumWorksheet.COL_VALUE_NAME,
+                EnumWorksheet.COL_DEFINITION,
+            ]
+        ]
 
     def __init__(self, model, sheet: worksheet):
         """
@@ -336,7 +359,9 @@ class EnumWorksheet(ModelElement):
         :return: A list of included rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(EnumWorksheet.COL_STATUS, "") == "include"
+            row
+            for row in self.rows
+            if row.get(EnumWorksheet.COL_STATUS, "") == "include"
         ]
 
     @property
@@ -347,7 +372,9 @@ class EnumWorksheet(ModelElement):
         :return: A list of all the entity names in this worksheet.
         """
 
-        return [(row.get(EnumWorksheet.COL_ENUM_NAME) or "") for row in self.included_rows()]
+        return [
+            (row.get(EnumWorksheet.COL_ENUM_NAME) or "") for row in self.included_rows()
+        ]
 
     @property
     def enums_as_included_rows(self) -> dict[str, list[dict]]:
@@ -376,7 +403,9 @@ class EnumWorksheet(ModelElement):
             if any(row.get(EnumWorksheet.COL_VALUE_NAME) is None for row in rows):
                 filtered[name] = rows
             else:
-                logging.warning(f'- Ignoring enum {name} in worksheet {self.name} as it does not have an enum row.')
+                logging.warning(
+                    f"- Ignoring enum {name} in worksheet {self.name} as it does not have an enum row."
+                )
 
         return filtered
 
