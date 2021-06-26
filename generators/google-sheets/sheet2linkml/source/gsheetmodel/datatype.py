@@ -36,10 +36,12 @@ class Datatype(ModelElement):
     @property
     def datatype_row(self):
         if len(self.rows) == 0:
-            raise RuntimeError(f'Unexpected lack of rows for {self}')
+            raise RuntimeError(f"Unexpected lack of rows for {self}")
 
         if len(self.rows) > 1:
-            logging.error(f'Expected exactly one row for {self} but found {len(self.rows)} rows, using first row: {self.rows[0]}')
+            logging.error(
+                f"Expected exactly one row for {self} but found {len(self.rows)} rows, using first row: {self.rows[0]}"
+            )
 
         return self.rows[0]
 
@@ -57,14 +59,14 @@ class Datatype(ModelElement):
 
         :return: A name for this datatype.
         """
-        return f'ccdh_{self.datatype_name}'
+        return f"ccdh_{self.datatype_name}"
 
     @property
     def full_name(self) -> str:
         """
         :return: The full name of this datatype.
         """
-        return f'CRDC-H.{self.name}'
+        return f"CRDC-H.{self.name}"
 
     def get_filename(self) -> str:
         """
@@ -88,14 +90,21 @@ class Datatype(ModelElement):
 
     @property
     def linkml_type_mappings(self):
-        mapping_rows = list(filter(lambda r: r is not None, [row.get(DatatypeWorksheet.COL_EXTERNAL_MAPPINGS) for row in self.rows]))
+        mapping_rows = list(
+            filter(
+                lambda r: r is not None,
+                [row.get(DatatypeWorksheet.COL_EXTERNAL_MAPPINGS) for row in self.rows],
+            )
+        )
         if len(mapping_rows) > 0:
             mapping_string = "\n".join(mapping_rows)
         else:
             mapping_string = ""
 
         # TODO: parse all external mappings and include them.
-        linkml_matches = re.findall(r"LINKML:(\w+)\W", mapping_string, flags=re.IGNORECASE)
+        linkml_matches = re.findall(
+            r"LINKML:(\w+)\W", mapping_string, flags=re.IGNORECASE
+        )
         return linkml_matches
 
     @property
@@ -104,7 +113,10 @@ class Datatype(ModelElement):
         Returns the list of mappings for this datatype.
         """
         mappings = Mappings(self)
-        mappings.add_mappings(self.datatype_row.get("External Mapping"), MappingRelations.SKOS_RELATED_MATCH)
+        mappings.add_mappings(
+            self.datatype_row.get("External Mapping"),
+            MappingRelations.SKOS_RELATED_MATCH,
+        )
         return mappings
 
     def as_linkml(self, root_uri) -> TypeDefinition:
@@ -117,11 +129,11 @@ class Datatype(ModelElement):
         logging.info(f"Generating LinkML for {self}")
 
         # Basic metadata
-        first_typeof = (self.linkml_type_mappings or ['string'])[0]
+        first_typeof = (self.linkml_type_mappings or ["string"])[0]
         typ: TypeDefinition = TypeDefinition(
             name=self.name,
             description=(self.datatype_row.get("Description") or "").strip(),
-            typeof=first_typeof.lower()
+            typeof=first_typeof.lower(),
         )
 
         # Additional metadata
@@ -161,9 +173,13 @@ class DatatypeWorksheet(ModelElement):
             - COL_DATATYPE_NAME in cell B1, and
             - COL_DESCRIPTION in cell C1.
         """
-        return worksheet.get_values("A1", "C1") == [[
-            DatatypeWorksheet.COL_STATUS, DatatypeWorksheet.COL_DATATYPE_NAME, DatatypeWorksheet.COL_DESCRIPTION
-        ]]
+        return worksheet.get_values("A1", "C1") == [
+            [
+                DatatypeWorksheet.COL_STATUS,
+                DatatypeWorksheet.COL_DATATYPE_NAME,
+                DatatypeWorksheet.COL_DESCRIPTION,
+            ]
+        ]
 
     def __init__(self, model, sheet: worksheet):
         """
@@ -195,7 +211,9 @@ class DatatypeWorksheet(ModelElement):
         :return: A list of included rows in this sheet.
         """
         return [
-            row for row in self.rows if row.get(DatatypeWorksheet.COL_STATUS, "") == "include"
+            row
+            for row in self.rows
+            if row.get(DatatypeWorksheet.COL_STATUS, "") == "include"
         ]
 
     @property
@@ -206,7 +224,10 @@ class DatatypeWorksheet(ModelElement):
         :return: A list of all the datatype names in this worksheet.
         """
 
-        return [(row.get(DatatypeWorksheet.COL_DATATYPE_NAME) or "") for row in self.included_rows()]
+        return [
+            (row.get(DatatypeWorksheet.COL_DATATYPE_NAME) or "")
+            for row in self.included_rows()
+        ]
 
     @property
     def datatypes_as_included_rows(self) -> dict[str, list[dict]]:

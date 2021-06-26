@@ -91,9 +91,10 @@ class GSheetModel(ModelElement):
         """
 
         result = not (
-            worksheet.title.startswith("O_") or
-            worksheet.title.startswith("X_") or
-            worksheet.title.startswith("R_"))
+            worksheet.title.startswith("O_")
+            or worksheet.title.startswith("X_")
+            or worksheet.title.startswith("R_")
+        )
 
         return result
 
@@ -111,8 +112,8 @@ class GSheetModel(ModelElement):
         worksheets = self.sheet.worksheets()
 
         tests_and_errors = {
-            'excluded by sheet type': GSheetModel.is_sheet_normative,
-            'not an entity worksheet': EntityWorksheet.is_sheet_entity
+            "excluded by sheet type": GSheetModel.is_sheet_normative,
+            "not an entity worksheet": EntityWorksheet.is_sheet_entity,
         }
 
         entity_worksheets = list()
@@ -120,14 +121,19 @@ class GSheetModel(ModelElement):
             flag_skip = False
             for test_name, error in tests_and_errors.items():
                 if not error(worksheet):
-                    logging.debug(f'Skipping worksheet {worksheet.title}: {test_name}')
+                    logging.debug(f"Skipping worksheet {worksheet.title}: {test_name}")
                     flag_skip = True
                     break
 
             if not flag_skip:
                 entity_worksheets.append(worksheet)
 
-        return [EntityWorksheet(self, worksheet, terminology_service=self.terminology_service) for worksheet in entity_worksheets]
+        return [
+            EntityWorksheet(
+                self, worksheet, terminology_service=self.terminology_service
+            )
+            for worksheet in entity_worksheets
+        ]
 
     @cache
     def entities(self) -> list[Entity]:
@@ -148,7 +154,7 @@ class GSheetModel(ModelElement):
         :return: A list of datatype worksheets available in this model.
         """
 
-        return [DatatypeWorksheet(self, self.sheet.worksheet('title', 'Primitives'))]
+        return [DatatypeWorksheet(self, self.sheet.worksheet("title", "Primitives"))]
 
     def datatypes(self) -> list[Datatype]:
         """
@@ -165,7 +171,7 @@ class GSheetModel(ModelElement):
 
         We only have a single enum worksheet: 'O_CCDH Enums'. So we just return that.
         """
-        return [EnumWorksheet(self, self.sheet.worksheet('title', 'O_CCDH Enums'))]
+        return [EnumWorksheet(self, self.sheet.worksheet("title", "O_CCDH Enums"))]
 
     def enums_from_worksheets(self) -> list[Enum]:
         """
@@ -178,10 +184,22 @@ class GSheetModel(ModelElement):
 
     @cached_property
     def mappings(self) -> list[Mappings.Mapping]:
-        """ Return a list of all the mappings in this LinkML document. """
-        mappings = [mapping for datatype in self.datatypes() for mapping in datatype.mappings.mappings]
-        mappings.extend(mapping for entity in self.entities() for mapping in entity.mappings_including_attributes)
-        mappings.extend(mapping for enum in self.enums_from_worksheets() for mapping in enum.mappings_including_values)
+        """Return a list of all the mappings in this LinkML document."""
+        mappings = [
+            mapping
+            for datatype in self.datatypes()
+            for mapping in datatype.mappings.mappings
+        ]
+        mappings.extend(
+            mapping
+            for entity in self.entities()
+            for mapping in entity.mappings_including_attributes
+        )
+        mappings.extend(
+            mapping
+            for enum in self.enums_from_worksheets()
+            for mapping in enum.mappings_including_values
+        )
         return mappings
 
     def __str__(self) -> str:
@@ -242,13 +260,11 @@ class GSheetModel(ModelElement):
             "GDC": "http://example.org/gdc/",
             "PDC": "http://example.org/pdc/",
             "ICDC": "http://example.org/icdc/",
-            "HTAN": "http://example.org/htan/"
+            "HTAN": "http://example.org/htan/",
         }
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
-        schema.imports = [
-            'linkml:types'
-        ]
+        schema.imports = ["linkml:types"]
         schema.default_prefix = "ccdh"
 
         schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
@@ -258,13 +274,22 @@ class GSheetModel(ModelElement):
         schema.version = self.version
 
         # Generate all the datatypes.
-        schema.types = {datatype.name: datatype.as_linkml(root_uri) for datatype in self.datatypes()}
+        schema.types = {
+            datatype.name: datatype.as_linkml(root_uri) for datatype in self.datatypes()
+        }
 
         # Generate all the entities.
-        schema.classes = {entity.name: entity.as_linkml(root_uri) for entity in self.entities()}
+        schema.classes = {
+            entity.name: entity.as_linkml(root_uri) for entity in self.entities()
+        }
 
         # Load enums from the attributes themselves -- this will look things up in the terminology service.
-        schema.enums = {Enum.fix_enum_name(attribute.full_name): attribute.as_linkml_enum() for entity in self.entities() for attribute in entity.attributes if attribute.as_linkml_enum() is not None}
+        schema.enums = {
+            Enum.fix_enum_name(attribute.full_name): attribute.as_linkml_enum()
+            for entity in self.entities()
+            for attribute in entity.attributes
+            if attribute.as_linkml_enum() is not None
+        }
 
         # Add enums from the enum worksheets in this Google Doc.
         enum_worksheets = self.enum_worksheets()
@@ -277,21 +302,25 @@ class GSheetModel(ModelElement):
         # go through and:
         #   - Warn the user about the missing type
         #   - Replace the type with 'Entity' for now.
-        valid_types = set(schema.types.keys())\
-            .union(set(schema.classes.keys()))\
+        valid_types = (
+            set(schema.types.keys())
+            .union(set(schema.classes.keys()))
             .union(set(schema.enums.keys()))
+        )
 
         def fix_type_name(entity, dict, propName):
             value = dict[propName]
             if value is not None and value not in valid_types:
-                logging.warning(f'Entity {entity}\'s {propName} refers to type {value}, which is not defined.')
-                dict[propName] = 'Entity'
+                logging.warning(
+                    f"Entity {entity}'s {propName} refers to type {value}, which is not defined."
+                )
+                dict[propName] = "Entity"
 
         for entity in schema.classes.values():
-            fix_type_name(entity.name, entity, 'is_a')
+            fix_type_name(entity.name, entity, "is_a")
             for attrName in entity.attributes:
                 attr = entity.attributes[attrName]
-                fix_type_name(f'{entity.name}.{attrName}', attr, 'range')
+                fix_type_name(f"{entity.name}.{attrName}", attr, "range")
 
         return schema
 
