@@ -13,15 +13,14 @@ GEN_OPTS =
 # We run all commands in the Pipenv.
 RUN = pipenv run
 
-all: pipenv-update gen stage
+all: pipenv-install gen stage
+pipenv-install:
+	pipenv install
 gen: $(patsubst %,gen-%,$(TGTS))
 clean:
 	rm -rf target/
 	rm -rf docs/
 	pipenv clean
-
-pipenv-update:
-	pipenv update
 
 t:
 	echo $(SCHEMA_NAMES)
