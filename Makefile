@@ -118,6 +118,10 @@ target/linkml/%.yaml: $(SCHEMA_DIR)/%.yaml tdir-limkml
 docserve: stage-docs
 	${RUN} mkdocs serve
 
+# Deploy changes to the `dev` version on the gh-pages branch.
+# Note that this is not dependent on stage-docs, since you
+# would generate the docs (usually as part of a `make all`)
+# before you deploy it in a separate step.
 gh-deploy:
 	${RUN} mike deploy dev -p
 
