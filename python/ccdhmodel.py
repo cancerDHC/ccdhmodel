@@ -1,5 +1,5 @@
 # Auto generated from ccdhmodel.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-06-26 22:00
+# Generation date: 2021-07-06 19:29
 # Schema: CRDC-H
 #
 # id: https://example.org/ccdh

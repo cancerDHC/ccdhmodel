@@ -11,6 +11,7 @@ linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC
 mkdocs = "*"
 mkdocs-material = "*"
 mike = "*"
+rdflib-pyld-compat = "*"
 
 [requires]
 python_version = "3.8"
