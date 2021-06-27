@@ -116,7 +116,7 @@ target/linkml/%.yaml: $(SCHEMA_DIR)/%.yaml tdir-limkml
 	cp $< > $@
 
 # test docs locally.
-docserve:
+docserve: stage-docs
 	${RUN} mkdocs serve
 
 gh-deploy:
