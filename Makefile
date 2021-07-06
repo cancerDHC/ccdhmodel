@@ -12,10 +12,10 @@ GEN_OPTS =
 
 # We run all commands in the Pipenv.
 RUN = pipenv run
-.PHONY: all gen clean t echo test install pipenv-install
 all: gen stage
 gen: $(patsubst %,gen-%,$(TGTS))
 clean:
+	rm pipenv-install
 	rm -rf target/
 	rm -rf docs/
 	pipenv clean
@@ -34,6 +34,10 @@ install: pipenv-install
 
 pipenv-install:
 	pipenv install --dev
+	touch $@
+
+# Mark the targets above as phony.
+.PHONY: all gen clean t echo test install pipenv-install
 
 tdir-%:
 	mkdir -p target/$*
@@ -52,7 +56,7 @@ gen-docs: target/docs/index.md copy-src-docs
 .PHONY: gen-docs
 copy-src-docs:
 	cp $(SRC_DIR)/docs/*md target/docs/
-target/docs/%.md: pipenv-install $(SCHEMA_SRC) tdir-docs
+target/docs/%.md: $(SCHEMA_SRC) tdir-docs pipenv-install
 	${RUN} gen-markdown $(GEN_OPTS) --img --dir target/docs $<
 stage-docs: gen-docs
 	cp -pr target/docs .
@@ -61,52 +65,52 @@ stage-docs: gen-docs
 # TODO: modularize imports
 gen-python: $(patsubst %, target/python/%.py, $(SCHEMA_NAMES))
 .PHONY: gen-python
-target/python/%.py: pipenv-install $(SCHEMA_DIR)/%.yaml  tdir-python
+target/python/%.py: $(SCHEMA_DIR)/%.yaml tdir-python pipenv-install
 	${RUN} gen-py-classes --no-mergeimports $(GEN_OPTS) $< > $@
 
 ###  -- MARKDOWN DOCS --
 # TODO: modularize imports. For now imports are merged.
 gen-graphql:target/graphql/$(SCHEMA_NAME).graphql
-target/graphql/%.graphql: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-graphql
+target/graphql/%.graphql: $(SCHEMA_DIR)/%.yaml tdir-graphql pipenv-install
 	${RUN} gen-graphql $(GEN_OPTS) $< > $@
 
 ###  -- JSON schema --
 # TODO: modularize imports. For now imports are merged.
 gen-jsonschema: target/jsonschema/$(SCHEMA_NAME).schema.json
-target/jsonschema/%.schema.json: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-jsonschema
+target/jsonschema/%.schema.json: $(SCHEMA_DIR)/%.yaml tdir-jsonschema pipenv-install
 	${RUN} gen-json-schema $(GEN_OPTS) -t transaction $< > $@
 
 ###  -- JSON-LD --
 # TWO files per module
 gen-jsonld: $(patsubst %, target/jsonld/%.jsonld, $(SCHEMA_NAMES)) $(patsubst %, target/jsonld/%.context.jsonld, $(SCHEMA_NAMES))
-target/jsonld/%.jsonld: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-jsonld
+target/jsonld/%.jsonld: $(SCHEMA_DIR)/%.yaml tdir-jsonld pipenv-install
 	${RUN} gen-jsonld $(GEN_OPTS) $< > $@
-target/jsonld/%.context.jsonld: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-jsonld
+target/jsonld/%.context.jsonld: $(SCHEMA_DIR)/%.yaml tdir-jsonld pipenv-install
 	${RUN} gen-jsonld-context $(GEN_OPTS) $< > $@
 
 ###  -- Shex --
 # one file per module
 gen-shex: $(patsubst %, target/shex/%.shex, $(SCHEMA_NAMES))
-target/shex/%.shex: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-shex
+target/shex/%.shex: $(SCHEMA_DIR)/%.yaml tdir-shex pipenv-install
 	${RUN} gen-shex --no-mergeimports $(GEN_OPTS) $< > $@
 
 ###  -- CSV --
 # one file per module
 gen-csv: $(patsubst %, target/csv/%.csv, $(SCHEMA_NAMES))
-target/csv/%.csv: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-csv
+target/csv/%.csv: $(SCHEMA_DIR)/%.yaml tdir-csv pipenv-install
 	${RUN} gen-csv $(GEN_OPTS) $< > $@
 
 ###  -- OWL --
 # TODO: modularize imports. For now imports are merged.
 gen-owl: target/owl/$(SCHEMA_NAME).owl.ttl
 .PHONY: gen-owl
-target/owl/%.owl.ttl: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-owl
+target/owl/%.owl.ttl: $(SCHEMA_DIR)/%.yaml tdir-owl pipenv-install
 	${RUN} gen-owl $(GEN_OPTS) $< > $@
 
 ###  -- RDF (direct mapping) --
 # TODO: modularize imports. For now imports are merged.
 gen-rdf: target/rdf/$(SCHEMA_NAME).ttl
-target/rdf/%.ttl: pipenv-install $(SCHEMA_DIR)/%.yaml tdir-rdf
+target/rdf/%.ttl: $(SCHEMA_DIR)/%.yaml tdir-rdf pipenv-install
 	${RUN} gen-rdf $(GEN_OPTS) $< > $@
 
 ###  -- LinkML --
@@ -117,7 +121,7 @@ target/linkml/%.yaml: $(SCHEMA_DIR)/%.yaml tdir-limkml
 	cp $< > $@
 
 # test docs locally.
-docserve: pipenv-install stage-docs
+docserve: stage-docs pipenv-install
 	${RUN} mkdocs serve
 
 # Deploy changes to the `dev` version on the gh-pages branch.
