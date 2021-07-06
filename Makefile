@@ -15,7 +15,6 @@ RUN = pipenv run
 all: gen stage
 gen: $(patsubst %,gen-%,$(TGTS))
 clean:
-	rm pipenv-install
 	rm -rf target/
 	rm -rf docs/
 	pipenv clean
@@ -34,7 +33,6 @@ install: pipenv-install
 
 pipenv-install:
 	pipenv install --dev
-	touch $@
 
 # Mark the targets above as phony.
 .PHONY: all gen clean t echo test install pipenv-install
