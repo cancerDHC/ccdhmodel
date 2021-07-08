@@ -1,0 +1,36 @@
+name: Refresh Terminology Service and CCDH Model
+on:
+  workflow_dispatch:
+jobs:
+  ccdh-terminology-service__build:
+    runs-on: ubuntu-latest
+
+    # TODO: Temporary just for testing
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # {owner}/{repo}@{ref}
+      # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses
+      # - uses: actions/checkout@v2
+#      - name: testIntegrationEcho
+#        run: |
+#          echo Running integration test.
+#          echo Step 1/3: (Model)-->Service-->Model
+##      - name: testIntegration
+##        uses: joeflack4/ccdhmodel@main
+
+      - uses: joeflack4/ccdh-terminology-service@main
+#      - uses: joeflack4/ccdhmodel@main
+        with:
+          workflow: Test Refresh Terminology Service and CCDH Model
+           repo: joeflack4/ccdh-terminology-service
+#          repo: ccdh-terminology-service
+#          owner: joeflack4
+#          workflow_file_name: testIntegration.yml
+    # TODO: The real deal
+#      - name: triggerBuild
+#        run: |
+#          echo Running integration test.
+#          echo Step 1/3: (Model)-->Service-->Model
+#        with:
+#          workflow: build
+#          repo: joeflack4/ccdh-terminology-service
