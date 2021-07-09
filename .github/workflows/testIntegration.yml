@@ -8,4 +8,5 @@ jobs:
       - name: echoStuff
         run: |
           echo Integration success. Was able to run workflow in one repository from workflow in another repository.
-          echo Step 3/3: Model-->Service-->(Model)
+          echo "Step 3/3: Model-->Service-->(Model)"
+          echo Complete.

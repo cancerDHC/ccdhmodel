@@ -4,33 +4,19 @@ on:
 jobs:
   ccdh-terminology-service__build:
     runs-on: ubuntu-latest
-
-    # TODO: Temporary just for testing
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # {owner}/{repo}@{ref}
-      # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses
-      # - uses: actions/checkout@v2
-#      - name: testIntegrationEcho
-#        run: |
-#          echo Running integration test.
-#          echo Step 1/3: (Model)-->Service-->Model
-##      - name: testIntegration
-##        uses: joeflack4/ccdhmodel@main
-
-      - uses: joeflack4/ccdh-terminology-service@main
-#      - uses: joeflack4/ccdhmodel@main
+      - name: echoStuff
+        run: |
+          echo Running integration test.
+          echo "Step 1/3: (Model)-->Service-->Model"
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0  # https://github.com/convictional/trigger-workflow-and-wait
         with:
-          workflow: Test Refresh Terminology Service and CCDH Model
-           repo: joeflack4/ccdh-terminology-service
-#          repo: ccdh-terminology-service
-#          owner: joeflack4
-#          workflow_file_name: testIntegration.yml
-    # TODO: The real deal
-#      - name: triggerBuild
-#        run: |
-#          echo Running integration test.
-#          echo Step 1/3: (Model)-->Service-->Model
-#        with:
-#          workflow: build
-#          repo: joeflack4/ccdh-terminology-service
+          owner: joeflack4  # TODO: changeTo: cancerDHC
+          repo: ccdh-terminology-service
+          github_token: ${{ secrets.GH_LIMITED_PERSONAL_ACCESS_TOKEN }}  # TODO: create one for the organization
+          workflow_file_name: testIntegration.yml  # TODO: changeTo: main.yml
+          ref: master  # change or just use 'main'/'master' branches corresponding to each repo?
+          wait_interval: 10  # seconds
+          inputs: '{}'  # JSON
+          propagate_failure: false  # Fail current job if downstream job fails.
+          wait_workflow: true  # Wait for workflow to finish.
