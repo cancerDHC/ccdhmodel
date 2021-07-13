@@ -428,10 +428,12 @@ class Attribute:
             range=attribute_range,
         )
 
+        # Multivalued fields need to be inlined as a list.
+        # (Eventually, we might want to inline some of these as dicts, but not yet.)
         if max_count is None or max_count > 1:
-            # We don't actually inline anything as a dict yet, so all multivalued attributes should be
-            # inlined as a list.
-            slot.inlined_as_list = True
+            # Except for enumerated fields.
+            if self.range != EntityWorksheet.ENTITY_CODEABLE_CONCEPT:
+                slot.inlined_as_list = True
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
         if cardinality:
