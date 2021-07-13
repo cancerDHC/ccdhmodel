@@ -426,6 +426,7 @@ class Attribute:
             multivalued=(max_count is None or max_count > 1),
             domain=self.entity.name,
             range=attribute_range,
+            inlined_as_list=False,      # We don't actually inline anything as a dict yet.
         )
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
