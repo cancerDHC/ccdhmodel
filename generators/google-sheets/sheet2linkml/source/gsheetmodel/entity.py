@@ -426,8 +426,12 @@ class Attribute:
             multivalued=(max_count is None or max_count > 1),
             domain=self.entity.name,
             range=attribute_range,
-            inlined_as_list=False,      # We don't actually inline anything as a dict yet.
         )
+
+        if max_count is None or max_count > 1:
+            # We don't actually inline anything as a dict yet, so all multivalued attributes should be
+            # inlined as a list.
+            slot.inlined_as_list = True
 
         cardinality = data.get(EntityWorksheet.COL_CARDINALITY)
         if cardinality:
