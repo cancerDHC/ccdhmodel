@@ -1,5 +1,5 @@
 # Auto generated from ccdhmodel.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-07-13 16:50
+# Generation date: 2021-07-13 17:32
 # Schema: CRDC-H
 #
 # id: https://example.org/ccdh
@@ -9,7 +9,7 @@
 import dataclasses
 import sys
 import re
-from jsonasobj2 import JsonObj
+from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
@@ -156,10 +156,10 @@ class AlcoholExposureObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueInteger is not None and not isinstance(self.valueInteger, CcdhInteger):
             self.valueInteger = CcdhInteger(self.valueInteger)
@@ -288,7 +288,7 @@ class CancerGradeObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         super().__post_init__(**kwargs)
 
@@ -323,17 +323,17 @@ class CancerGradeObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHCancerGradeObservationSetMethodType) else EnumCCDHCancerGradeObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         self._normalize_inlined_as_dict(slot_name="observations", slot_type=CancerGradeObservation, key_name="observation_type", keyed=False)
 
@@ -387,10 +387,10 @@ class CancerStageObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueEntity is not None and not isinstance(self.valueEntity, Entity):
             self.valueEntity = Entity()
@@ -428,17 +428,17 @@ class CancerStageObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHCancerStageObservationSetMethodType) else EnumCCDHCancerStageObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         self._normalize_inlined_as_dict(slot_name="observations", slot_type=CancerStageObservation, key_name="observation_type", keyed=False)
 
@@ -550,10 +550,10 @@ class Diagnosis(Entity):
         self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.age_at_diagnosis is not None and not isinstance(self.age_at_diagnosis, Quantity):
-            self.age_at_diagnosis = Quantity(**self.age_at_diagnosis)
+            self.age_at_diagnosis = Quantity(**as_dict(self.age_at_diagnosis))
 
         if self.year_at_diagnosis is not None and not isinstance(self.year_at_diagnosis, CcdhInteger):
             self.year_at_diagnosis = CcdhInteger(self.year_at_diagnosis)
@@ -567,11 +567,11 @@ class Diagnosis(Entity):
 
         if not isinstance(self.stage, list):
             self.stage = [self.stage] if self.stage is not None else []
-        self.stage = [v if isinstance(v, CancerStageObservationSet) else CancerStageObservationSet(**v) for v in self.stage]
+        self.stage = [v if isinstance(v, CancerStageObservationSet) else CancerStageObservationSet(**as_dict(v)) for v in self.stage]
 
         if not isinstance(self.grade, list):
             self.grade = [self.grade] if self.grade is not None else []
-        self.grade = [v if isinstance(v, CancerGradeObservationSet) else CancerGradeObservationSet(**v) for v in self.grade]
+        self.grade = [v if isinstance(v, CancerGradeObservationSet) else CancerGradeObservationSet(**as_dict(v)) for v in self.grade]
 
         if self.morphology is not None and not isinstance(self.morphology, EnumCCDHDiagnosisMorphology):
             self.morphology = EnumCCDHDiagnosisMorphology(self.morphology)
@@ -580,17 +580,17 @@ class Diagnosis(Entity):
             self.disease_status = EnumCCDHDiagnosisDiseaseStatus(self.disease_status)
 
         if self.prior_diagnosis is not None and not isinstance(self.prior_diagnosis, Diagnosis):
-            self.prior_diagnosis = Diagnosis(**self.prior_diagnosis)
+            self.prior_diagnosis = Diagnosis(**as_dict(self.prior_diagnosis))
 
         if self.method_of_diagnosis is not None and not isinstance(self.method_of_diagnosis, EnumCCDHDiagnosisMethodOfDiagnosis):
             self.method_of_diagnosis = EnumCCDHDiagnosisMethodOfDiagnosis(self.method_of_diagnosis)
 
         if not isinstance(self.related_specimen, list):
             self.related_specimen = [self.related_specimen] if self.related_specimen is not None else []
-        self.related_specimen = [v if isinstance(v, Specimen) else Specimen(**v) for v in self.related_specimen]
+        self.related_specimen = [v if isinstance(v, Specimen) else Specimen(**as_dict(v)) for v in self.related_specimen]
 
         if self.primary_tumor_dimensional_measures is not None and not isinstance(self.primary_tumor_dimensional_measures, DimensionalObservationSet):
-            self.primary_tumor_dimensional_measures = DimensionalObservationSet(**self.primary_tumor_dimensional_measures)
+            self.primary_tumor_dimensional_measures = DimensionalObservationSet(**as_dict(self.primary_tumor_dimensional_measures))
 
         self._normalize_inlined_as_dict(slot_name="supporting_observation", slot_type=Observation, key_name="observation_type", keyed=False)
 
@@ -628,7 +628,7 @@ class DimensionalObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -642,13 +642,13 @@ class DimensionalObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -682,17 +682,17 @@ class DimensionalObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHDimensionalObservationSetMethodType) else EnumCCDHDimensionalObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         self._normalize_inlined_as_dict(slot_name="observations", slot_type=DimensionalObservation, key_name="observation_type", keyed=False)
 
@@ -786,10 +786,10 @@ class EnvironmentalExposureObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -828,7 +828,7 @@ class ExecutionTimeObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -843,10 +843,10 @@ class ExecutionTimeObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -900,10 +900,10 @@ class ExecutionConditionObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -943,7 +943,7 @@ class Exposure(Entity):
         self._normalize_inlined_as_dict(slot_name="environmental_exposure", slot_type=EnvironmentalExposureObservation, key_name="observation_type", keyed=False)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         super().__post_init__(**kwargs)
 
@@ -980,7 +980,7 @@ class HistologicalCompositionObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -994,13 +994,13 @@ class HistologicalCompositionObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -1040,17 +1040,17 @@ class HistologicalCompositionObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHHistologicalCompositionObservationSetMethodType) else EnumCCDHHistologicalCompositionObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         self._normalize_inlined_as_dict(slot_name="observations", slot_type=HistologicalCompositionObservation, key_name="observation_type", keyed=False)
 
@@ -1135,13 +1135,13 @@ class Observation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueEntity is not None and not isinstance(self.valueEntity, Entity):
             self.valueEntity = Entity()
@@ -1162,7 +1162,7 @@ class Observation(Entity):
             self.valueDateTime = CcdhDateTime(self.valueDateTime)
 
         if self.valueQuantity is not None and not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.valueCodeableConcept is not None and not isinstance(self.valueCodeableConcept, EnumCCDHObservationValueCodeableConcept):
             self.valueCodeableConcept = EnumCCDHObservationValueCodeableConcept(self.valueCodeableConcept)
@@ -1204,17 +1204,17 @@ class ObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHObservationSetMethodType) else EnumCCDHObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         self._normalize_inlined_as_dict(slot_name="observations", slot_type=Observation, key_name="observation_type", keyed=False)
 
@@ -1350,10 +1350,10 @@ class ResearchProject(Entity):
         self.sponsor = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.sponsor]
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         self._normalize_inlined_as_dict(slot_name="primary_anatomic_site", slot_type=BodySite, key_name="site", keyed=False)
 
@@ -1365,7 +1365,7 @@ class ResearchProject(Entity):
 
         if not isinstance(self.associated_timepoint, list):
             self.associated_timepoint = [self.associated_timepoint] if self.associated_timepoint is not None else []
-        self.associated_timepoint = [v if isinstance(v, TimePoint) else TimePoint(**v) for v in self.associated_timepoint]
+        self.associated_timepoint = [v if isinstance(v, TimePoint) else TimePoint(**as_dict(v)) for v in self.associated_timepoint]
 
         super().__post_init__(**kwargs)
 
@@ -1407,7 +1407,7 @@ class ResearchSubject(Entity):
         if self._is_empty(self.associated_subject):
             self.MissingRequiredField("associated_subject")
         if not isinstance(self.associated_subject, Subject):
-            self.associated_subject = Subject(**self.associated_subject)
+            self.associated_subject = Subject(**as_dict(self.associated_subject))
 
         self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
@@ -1415,30 +1415,30 @@ class ResearchSubject(Entity):
             self.description = CcdhString(self.description)
 
         if self.member_of_research_project is not None and not isinstance(self.member_of_research_project, ResearchProject):
-            self.member_of_research_project = ResearchProject(**self.member_of_research_project)
+            self.member_of_research_project = ResearchProject(**as_dict(self.member_of_research_project))
 
         if self.age_at_enrollment is not None and not isinstance(self.age_at_enrollment, Quantity):
-            self.age_at_enrollment = Quantity(**self.age_at_enrollment)
+            self.age_at_enrollment = Quantity(**as_dict(self.age_at_enrollment))
 
         if self.primary_diagnosis_condition is not None and not isinstance(self.primary_diagnosis_condition, EnumCCDHResearchSubjectPrimaryDiagnosisCondition):
             self.primary_diagnosis_condition = EnumCCDHResearchSubjectPrimaryDiagnosisCondition(self.primary_diagnosis_condition)
 
         if self.primary_diagnosis_site is not None and not isinstance(self.primary_diagnosis_site, BodySite):
-            self.primary_diagnosis_site = BodySite(**self.primary_diagnosis_site)
+            self.primary_diagnosis_site = BodySite(**as_dict(self.primary_diagnosis_site))
 
         if not isinstance(self.primary_diagnosis, list):
             self.primary_diagnosis = [self.primary_diagnosis] if self.primary_diagnosis is not None else []
-        self.primary_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.primary_diagnosis]
+        self.primary_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**as_dict(v)) for v in self.primary_diagnosis]
 
         if not isinstance(self.comorbid_diagnosis, list):
             self.comorbid_diagnosis = [self.comorbid_diagnosis] if self.comorbid_diagnosis is not None else []
-        self.comorbid_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.comorbid_diagnosis]
+        self.comorbid_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**as_dict(v)) for v in self.comorbid_diagnosis]
 
         if self.index_timepoint is not None and not isinstance(self.index_timepoint, EnumCCDHResearchSubjectIndexTimepoint):
             self.index_timepoint = EnumCCDHResearchSubjectIndexTimepoint(self.index_timepoint)
 
         if self.originating_site is not None and not isinstance(self.originating_site, Organization):
-            self.originating_site = Organization(**self.originating_site)
+            self.originating_site = Organization(**as_dict(self.originating_site))
 
         super().__post_init__(**kwargs)
 
@@ -1506,44 +1506,44 @@ class Specimen(Entity):
             self.analyte_type = EnumCCDHSpecimenAnalyteType(self.analyte_type)
 
         if self.associated_project is not None and not isinstance(self.associated_project, ResearchProject):
-            self.associated_project = ResearchProject(**self.associated_project)
+            self.associated_project = ResearchProject(**as_dict(self.associated_project))
 
         if self.data_provider is not None and not isinstance(self.data_provider, Organization):
-            self.data_provider = Organization(**self.data_provider)
+            self.data_provider = Organization(**as_dict(self.data_provider))
 
         if self.source_material_type is not None and not isinstance(self.source_material_type, EnumCCDHSpecimenSourceMaterialType):
             self.source_material_type = EnumCCDHSpecimenSourceMaterialType(self.source_material_type)
 
         if not isinstance(self.parent_specimen, list):
             self.parent_specimen = [self.parent_specimen] if self.parent_specimen is not None else []
-        self.parent_specimen = [v if isinstance(v, Specimen) else Specimen(**v) for v in self.parent_specimen]
+        self.parent_specimen = [v if isinstance(v, Specimen) else Specimen(**as_dict(v)) for v in self.parent_specimen]
 
         if self.source_subject is not None and not isinstance(self.source_subject, Subject):
-            self.source_subject = Subject(**self.source_subject)
+            self.source_subject = Subject(**as_dict(self.source_subject))
 
         if self.tumor_status_at_collection is not None and not isinstance(self.tumor_status_at_collection, EnumCCDHSpecimenTumorStatusAtCollection):
             self.tumor_status_at_collection = EnumCCDHSpecimenTumorStatusAtCollection(self.tumor_status_at_collection)
 
         if self.creation_activity is not None and not isinstance(self.creation_activity, SpecimenCreationActivity):
-            self.creation_activity = SpecimenCreationActivity(**self.creation_activity)
+            self.creation_activity = SpecimenCreationActivity(**as_dict(self.creation_activity))
 
         if not isinstance(self.processing_activity, list):
             self.processing_activity = [self.processing_activity] if self.processing_activity is not None else []
-        self.processing_activity = [v if isinstance(v, SpecimenProcessingActivity) else SpecimenProcessingActivity(**v) for v in self.processing_activity]
+        self.processing_activity = [v if isinstance(v, SpecimenProcessingActivity) else SpecimenProcessingActivity(**as_dict(v)) for v in self.processing_activity]
 
         if not isinstance(self.storage_activity, list):
             self.storage_activity = [self.storage_activity] if self.storage_activity is not None else []
-        self.storage_activity = [v if isinstance(v, SpecimenStorageActivity) else SpecimenStorageActivity(**v) for v in self.storage_activity]
+        self.storage_activity = [v if isinstance(v, SpecimenStorageActivity) else SpecimenStorageActivity(**as_dict(v)) for v in self.storage_activity]
 
         if not isinstance(self.transport_activity, list):
             self.transport_activity = [self.transport_activity] if self.transport_activity is not None else []
-        self.transport_activity = [v if isinstance(v, SpecimenTransportActivity) else SpecimenTransportActivity(**v) for v in self.transport_activity]
+        self.transport_activity = [v if isinstance(v, SpecimenTransportActivity) else SpecimenTransportActivity(**as_dict(v)) for v in self.transport_activity]
 
         if self.contained_in is not None and not isinstance(self.contained_in, SpecimenContainer):
-            self.contained_in = SpecimenContainer(**self.contained_in)
+            self.contained_in = SpecimenContainer(**as_dict(self.contained_in))
 
         if self.dimensional_measures is not None and not isinstance(self.dimensional_measures, DimensionalObservationSet):
-            self.dimensional_measures = DimensionalObservationSet(**self.dimensional_measures)
+            self.dimensional_measures = DimensionalObservationSet(**as_dict(self.dimensional_measures))
 
         self._normalize_inlined_as_dict(slot_name="quantity_measure", slot_type=SpecimenQuantityObservation, key_name="observation_type", keyed=False)
 
@@ -1580,17 +1580,17 @@ class Specimen(Entity):
 
         if not isinstance(self.related_document, list):
             self.related_document = [self.related_document] if self.related_document is not None else []
-        self.related_document = [v if isinstance(v, Document) else Document(**v) for v in self.related_document]
+        self.related_document = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.related_document]
 
         if self.section_location is not None and not isinstance(self.section_location, EnumCCDHSpecimenSectionLocation):
             self.section_location = EnumCCDHSpecimenSectionLocation(self.section_location)
 
         if not isinstance(self.derived_product, list):
             self.derived_product = [self.derived_product] if self.derived_product is not None else []
-        self.derived_product = [v if isinstance(v, BiologicProduct) else BiologicProduct(**v) for v in self.derived_product]
+        self.derived_product = [v if isinstance(v, BiologicProduct) else BiologicProduct(**as_dict(v)) for v in self.derived_product]
 
         if self.distance_from_paired_specimen is not None and not isinstance(self.distance_from_paired_specimen, Quantity):
-            self.distance_from_paired_specimen = Quantity(**self.distance_from_paired_specimen)
+            self.distance_from_paired_specimen = Quantity(**as_dict(self.distance_from_paired_specimen))
 
         super().__post_init__(**kwargs)
 
@@ -1629,10 +1629,10 @@ class SpecimenContainer(Entity):
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
-        self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
+        self.additive = [v if isinstance(v, Substance) else Substance(**as_dict(v)) for v in self.additive]
 
         if self.parent_container is not None and not isinstance(self.parent_container, SpecimenContainer):
-            self.parent_container = SpecimenContainer(**self.parent_container)
+            self.parent_container = SpecimenContainer(**as_dict(self.parent_container))
 
         super().__post_init__(**kwargs)
 
@@ -1668,13 +1668,13 @@ class SpecimenCreationActivity(Entity):
             self.activity_type = EnumCCDHSpecimenCreationActivityActivityType(self.activity_type)
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.collection_method_type is not None and not isinstance(self.collection_method_type, EnumCCDHSpecimenCreationActivityCollectionMethodType):
             self.collection_method_type = EnumCCDHSpecimenCreationActivityCollectionMethodType(self.collection_method_type)
@@ -1684,13 +1684,13 @@ class SpecimenCreationActivity(Entity):
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
-        self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
+        self.additive = [v if isinstance(v, Substance) else Substance(**as_dict(v)) for v in self.additive]
 
         if self.collection_site is not None and not isinstance(self.collection_site, BodySite):
-            self.collection_site = BodySite(**self.collection_site)
+            self.collection_site = BodySite(**as_dict(self.collection_site))
 
         if self.quantity_collected is not None and not isinstance(self.quantity_collected, Quantity):
-            self.quantity_collected = Quantity(**self.quantity_collected)
+            self.quantity_collected = Quantity(**as_dict(self.quantity_collected))
 
         self._normalize_inlined_as_dict(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
 
@@ -1733,7 +1733,7 @@ class SpecimenQualityObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -1747,13 +1747,13 @@ class SpecimenQualityObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -1789,7 +1789,7 @@ class SpecimenQuantityObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -1803,13 +1803,13 @@ class SpecimenQuantityObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -1843,24 +1843,24 @@ class SpecimenProcessingActivity(Entity):
             self.activity_type = EnumCCDHSpecimenProcessingActivityActivityType(self.activity_type)
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if not isinstance(self.duration, list):
             self.duration = [self.duration] if self.duration is not None else []
-        self.duration = [v if isinstance(v, Quantity) else Quantity(**v) for v in self.duration]
+        self.duration = [v if isinstance(v, Quantity) else Quantity(**as_dict(v)) for v in self.duration]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.method_type is not None and not isinstance(self.method_type, EnumCCDHSpecimenProcessingActivityMethodType):
             self.method_type = EnumCCDHSpecimenProcessingActivityMethodType(self.method_type)
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
-        self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
+        self.additive = [v if isinstance(v, Substance) else Substance(**as_dict(v)) for v in self.additive]
 
         self._normalize_inlined_as_dict(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
 
@@ -1892,23 +1892,23 @@ class SpecimenStorageActivity(Entity):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if self.duration is not None and not isinstance(self.duration, Quantity):
-            self.duration = Quantity(**self.duration)
+            self.duration = Quantity(**as_dict(self.duration))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.method_type is not None and not isinstance(self.method_type, EnumCCDHSpecimenStorageActivityMethodType):
             self.method_type = EnumCCDHSpecimenStorageActivityMethodType(self.method_type)
 
         if not isinstance(self.container, list):
             self.container = [self.container] if self.container is not None else []
-        self.container = [v if isinstance(v, SpecimenContainer) else SpecimenContainer(**v) for v in self.container]
+        self.container = [v if isinstance(v, SpecimenContainer) else SpecimenContainer(**as_dict(v)) for v in self.container]
 
         super().__post_init__(**kwargs)
 
@@ -1935,23 +1935,23 @@ class SpecimenTransportActivity(Entity):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if not isinstance(self.duration, list):
             self.duration = [self.duration] if self.duration is not None else []
         self.duration = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.duration]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.transport_origin is not None and not isinstance(self.transport_origin, Organization):
-            self.transport_origin = Organization(**self.transport_origin)
+            self.transport_origin = Organization(**as_dict(self.transport_origin))
 
         if self.transport_destination is not None and not isinstance(self.transport_destination, Organization):
-            self.transport_destination = Organization(**self.transport_destination)
+            self.transport_destination = Organization(**as_dict(self.transport_destination))
 
         self._normalize_inlined_as_dict(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
@@ -2015,7 +2015,7 @@ class Subject(Entity):
             self.vital_status = EnumCCDHSubjectVitalStatus(self.vital_status)
 
         if self.age_at_death is not None and not isinstance(self.age_at_death, Quantity):
-            self.age_at_death = Quantity(**self.age_at_death)
+            self.age_at_death = Quantity(**as_dict(self.age_at_death))
 
         if self.year_of_death is not None and not isinstance(self.year_of_death, CcdhInteger):
             self.year_of_death = CcdhInteger(self.year_of_death)
@@ -2052,7 +2052,7 @@ class Substance(Entity):
         self.role = [v if isinstance(v, EnumCCDHSubstanceRole) else EnumCCDHSubstanceRole(v) for v in self.role]
 
         if self.substance_quantity is not None and not isinstance(self.substance_quantity, Quantity):
-            self.substance_quantity = Quantity(**self.substance_quantity)
+            self.substance_quantity = Quantity(**as_dict(self.substance_quantity))
 
         super().__post_init__(**kwargs)
 
@@ -2084,10 +2084,10 @@ class TimePoint(Entity):
             self.dateTime = CcdhDateTime(self.dateTime)
 
         if self.indexTimePoint is not None and not isinstance(self.indexTimePoint, TimePoint):
-            self.indexTimePoint = TimePoint(**self.indexTimePoint)
+            self.indexTimePoint = TimePoint(**as_dict(self.indexTimePoint))
 
         if self.offsetFromIndex is not None and not isinstance(self.offsetFromIndex, Quantity):
-            self.offsetFromIndex = Quantity(**self.offsetFromIndex)
+            self.offsetFromIndex = Quantity(**as_dict(self.offsetFromIndex))
 
         if not isinstance(self.eventType, list):
             self.eventType = [self.eventType] if self.eventType is not None else []
@@ -2113,10 +2113,10 @@ class TimePeriod(Entity):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.periodStart_start is not None and not isinstance(self.periodStart_start, TimePoint):
-            self.periodStart_start = TimePoint(**self.periodStart_start)
+            self.periodStart_start = TimePoint(**as_dict(self.periodStart_start))
 
         if self.periodEnd_end is not None and not isinstance(self.periodEnd_end, TimePoint):
-            self.periodEnd_end = TimePoint(**self.periodEnd_end)
+            self.periodEnd_end = TimePoint(**as_dict(self.periodEnd_end))
 
         super().__post_init__(**kwargs)
 
@@ -2163,10 +2163,10 @@ class TobaccoExposureObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueInteger is not None and not isinstance(self.valueInteger, CcdhInteger):
             self.valueInteger = CcdhInteger(self.valueInteger)
@@ -2215,23 +2215,23 @@ class Treatment(Entity):
 
         if not isinstance(self.treatment_for_diagnosis, list):
             self.treatment_for_diagnosis = [self.treatment_for_diagnosis] if self.treatment_for_diagnosis is not None else []
-        self.treatment_for_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.treatment_for_diagnosis]
+        self.treatment_for_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**as_dict(v)) for v in self.treatment_for_diagnosis]
 
         if not isinstance(self.concurrent_treatment, list):
             self.concurrent_treatment = [self.concurrent_treatment] if self.concurrent_treatment is not None else []
-        self.concurrent_treatment = [v if isinstance(v, Treatment) else Treatment(**v) for v in self.concurrent_treatment]
+        self.concurrent_treatment = [v if isinstance(v, Treatment) else Treatment(**as_dict(v)) for v in self.concurrent_treatment]
 
         if self.treatment_type is not None and not isinstance(self.treatment_type, EnumCCDHTreatmentTreatmentType):
             self.treatment_type = EnumCCDHTreatmentTreatmentType(self.treatment_type)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if not isinstance(self.treatment_end_reason, list):
             self.treatment_end_reason = [self.treatment_end_reason] if self.treatment_end_reason is not None else []
@@ -2241,7 +2241,7 @@ class Treatment(Entity):
             self.regimen = EnumCCDHTreatmentRegimen(self.regimen)
 
         if self.therapeutic_agent is not None and not isinstance(self.therapeutic_agent, Substance):
-            self.therapeutic_agent = Substance(**self.therapeutic_agent)
+            self.therapeutic_agent = Substance(**as_dict(self.therapeutic_agent))
 
         if self.number_of_cycles is not None and not isinstance(self.number_of_cycles, CcdhInteger):
             self.number_of_cycles = CcdhInteger(self.number_of_cycles)
@@ -2250,7 +2250,7 @@ class Treatment(Entity):
             self.treatment_frequency = EnumCCDHTreatmentTreatmentFrequency(self.treatment_frequency)
 
         if self.treatment_anatomic_site is not None and not isinstance(self.treatment_anatomic_site, BodySite):
-            self.treatment_anatomic_site = BodySite(**self.treatment_anatomic_site)
+            self.treatment_anatomic_site = BodySite(**as_dict(self.treatment_anatomic_site))
 
         if self.treatment_intent is not None and not isinstance(self.treatment_intent, EnumCCDHTreatmentTreatmentIntent):
             self.treatment_intent = EnumCCDHTreatmentTreatmentIntent(self.treatment_intent)
