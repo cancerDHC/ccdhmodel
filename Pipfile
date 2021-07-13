@@ -7,7 +7,7 @@ verify_ssl = true
 pytest = "~=6.2.4"
 
 [packages]
-linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"}
+linkml = "*"
 mkdocs = "*"
 mkdocs-material = "*"
 mike = "*"
