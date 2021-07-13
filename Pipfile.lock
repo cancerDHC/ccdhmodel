@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "07ca3f3f4a386f04c59ea9e132d72be35bf6eadfa2a75bec3559b6a1a13745ea"
+            "sha256": "49e8674cf816badc930cee149354a5b765b16b045092bcbb9ca25b7a65de5037"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -221,12 +221,9 @@
             "version": "==3.2.0"
         },
         "linkml": {
-            "hashes": [
-                "sha256:42ca795e3058783436e5d8b13bd3562254d90cf18ec8559528f3f370fd17fbf4",
-                "sha256:b44b8b12d756faaad269e8c86d92d98756a1af58f92d1658ec125baa6d8ccec3"
-            ],
-            "index": "pypi",
-            "version": "==1.0.1"
+            "editable": true,
+            "git": "https://github.com/cancerDHC/linkml.git",
+            "ref": "b4a1b0dbce23d6023af0c289e20fe7c48d53cb95"
         },
         "linkml-runtime": {
             "hashes": [
