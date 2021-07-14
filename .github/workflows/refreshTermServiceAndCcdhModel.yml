@@ -14,7 +14,9 @@ jobs:
           owner: joeflack4  # TODO: changeTo: cancerDHC
           repo: ccdh-terminology-service
           github_token: ${{ secrets.GH_LIMITED_PERSONAL_ACCESS_TOKEN }}  # TODO: create one for the organization
-          workflow_file_name: testIntegration.yml  # TODO: changeTo: main.yml
+          # workflow_file_name: testIntegration.yml  # for simply testing GH action workflows
+          # workflow_file_name: main.yml  # rebuilds GH repository
+          workflow_file_name: rebuildProductionServer.yml  # rebuilds and re-deploys production server
           ref: master  # change or just use 'main'/'master' branches corresponding to each repo?
           wait_interval: 10  # seconds
           inputs: '{}'  # JSON

@@ -1,6 +1,8 @@
 name: Test Refresh Terminology Service and CCDH Model
 on:
   workflow_dispatch:
+  repository_dispatch:
+#      types: [my_event_a, my_event_b]
 jobs:
   ccdh-terminology-service__build:
     runs-on: ubuntu-latest
