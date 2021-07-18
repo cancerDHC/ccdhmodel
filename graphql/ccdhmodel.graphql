@@ -105,7 +105,7 @@ type Diagnosis
     priorDiagnosis: Diagnosis
     methodOfDiagnosis: EnumCCDHDiagnosisMethodOfDiagnosis
     relatedSpecimen: [Specimen]
-    dimensionalMeasure: DimensionalObservationSet
+    primaryTumorDimensionalMeasures: DimensionalObservationSet
     supportingObservation: [Observation]
   }
 

@@ -190,7 +190,7 @@ linkml:Nodeidentifier NONLITERAL
           <prior_diagnosis> @<Diagnosis> ? ;
           <method_of_diagnosis> @<EnumCCDHDiagnosisMethodOfDiagnosis> ? ;
           <related_specimen> @<Specimen> * ;
-          <dimensional_measure> @<DimensionalObservationSet> ? ;
+          <primary_tumor_dimensional_measures> @<DimensionalObservationSet> ? ;
           <supporting_observation> @<Observation> *
        ) ;
        rdf:type [ <Diagnosis> ] ?

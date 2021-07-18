@@ -1,5 +1,5 @@
 # Auto generated from ccdhmodel.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-07-06 19:35
+# Generation date: 2021-07-13 18:13
 # Schema: CRDC-H
 #
 # id: https://example.org/ccdh
@@ -9,7 +9,7 @@
 import dataclasses
 import sys
 import re
-from jsonasobj2 import JsonObj
+from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
@@ -156,10 +156,10 @@ class AlcoholExposureObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueInteger is not None and not isinstance(self.valueInteger, CcdhInteger):
             self.valueInteger = CcdhInteger(self.valueInteger)
@@ -224,7 +224,7 @@ class BiologicProduct(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.description is not None and not isinstance(self.description, CcdhString):
             self.description = CcdhString(self.description)
@@ -288,7 +288,7 @@ class CancerGradeObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         super().__post_init__(**kwargs)
 
@@ -323,19 +323,19 @@ class CancerGradeObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHCancerGradeObservationSetMethodType) else EnumCCDHCancerGradeObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
-        self._normalize_inlined_as_dict(slot_name="observations", slot_type=CancerGradeObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="observations", slot_type=CancerGradeObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -387,10 +387,10 @@ class CancerStageObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueEntity is not None and not isinstance(self.valueEntity, Entity):
             self.valueEntity = Entity()
@@ -428,19 +428,19 @@ class CancerStageObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHCancerStageObservationSetMethodType) else EnumCCDHCancerStageObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
-        self._normalize_inlined_as_dict(slot_name="observations", slot_type=CancerStageObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="observations", slot_type=CancerStageObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -462,7 +462,7 @@ class CodeableConcept(Entity):
     text: Optional[Union[str, CcdhString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="coding", slot_type=Coding, key_name="code", keyed=False)
+        self._normalize_inlined_as_list(slot_name="coding", slot_type=Coding, key_name="code", keyed=False)
 
         if self.text is not None and not isinstance(self.text, CcdhString):
             self.text = CcdhString(self.text)
@@ -540,20 +540,20 @@ class Diagnosis(Entity):
     prior_diagnosis: Optional[Union[dict, "Diagnosis"]] = None
     method_of_diagnosis: Optional[Union[str, "EnumCCDHDiagnosisMethodOfDiagnosis"]] = None
     related_specimen: Optional[Union[Union[dict, "Specimen"], List[Union[dict, "Specimen"]]]] = empty_list()
-    dimensional_measure: Optional[Union[dict, "DimensionalObservationSet"]] = None
+    primary_tumor_dimensional_measures: Optional[Union[dict, "DimensionalObservationSet"]] = None
     supporting_observation: Optional[Union[Union[dict, "Observation"], List[Union[dict, "Observation"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.age_at_diagnosis is not None and not isinstance(self.age_at_diagnosis, Quantity):
-            self.age_at_diagnosis = Quantity(**self.age_at_diagnosis)
+            self.age_at_diagnosis = Quantity(**as_dict(self.age_at_diagnosis))
 
         if self.year_at_diagnosis is not None and not isinstance(self.year_at_diagnosis, CcdhInteger):
             self.year_at_diagnosis = CcdhInteger(self.year_at_diagnosis)
@@ -561,17 +561,17 @@ class Diagnosis(Entity):
         if self.condition is not None and not isinstance(self.condition, EnumCCDHDiagnosisCondition):
             self.condition = EnumCCDHDiagnosisCondition(self.condition)
 
-        self._normalize_inlined_as_dict(slot_name="primary_site", slot_type=BodySite, key_name="site", keyed=False)
+        self._normalize_inlined_as_list(slot_name="primary_site", slot_type=BodySite, key_name="site", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="metastatic_site", slot_type=BodySite, key_name="site", keyed=False)
+        self._normalize_inlined_as_list(slot_name="metastatic_site", slot_type=BodySite, key_name="site", keyed=False)
 
         if not isinstance(self.stage, list):
             self.stage = [self.stage] if self.stage is not None else []
-        self.stage = [v if isinstance(v, CancerStageObservationSet) else CancerStageObservationSet(**v) for v in self.stage]
+        self.stage = [v if isinstance(v, CancerStageObservationSet) else CancerStageObservationSet(**as_dict(v)) for v in self.stage]
 
         if not isinstance(self.grade, list):
             self.grade = [self.grade] if self.grade is not None else []
-        self.grade = [v if isinstance(v, CancerGradeObservationSet) else CancerGradeObservationSet(**v) for v in self.grade]
+        self.grade = [v if isinstance(v, CancerGradeObservationSet) else CancerGradeObservationSet(**as_dict(v)) for v in self.grade]
 
         if self.morphology is not None and not isinstance(self.morphology, EnumCCDHDiagnosisMorphology):
             self.morphology = EnumCCDHDiagnosisMorphology(self.morphology)
@@ -580,19 +580,19 @@ class Diagnosis(Entity):
             self.disease_status = EnumCCDHDiagnosisDiseaseStatus(self.disease_status)
 
         if self.prior_diagnosis is not None and not isinstance(self.prior_diagnosis, Diagnosis):
-            self.prior_diagnosis = Diagnosis(**self.prior_diagnosis)
+            self.prior_diagnosis = Diagnosis(**as_dict(self.prior_diagnosis))
 
         if self.method_of_diagnosis is not None and not isinstance(self.method_of_diagnosis, EnumCCDHDiagnosisMethodOfDiagnosis):
             self.method_of_diagnosis = EnumCCDHDiagnosisMethodOfDiagnosis(self.method_of_diagnosis)
 
         if not isinstance(self.related_specimen, list):
             self.related_specimen = [self.related_specimen] if self.related_specimen is not None else []
-        self.related_specimen = [v if isinstance(v, Specimen) else Specimen(**v) for v in self.related_specimen]
+        self.related_specimen = [v if isinstance(v, Specimen) else Specimen(**as_dict(v)) for v in self.related_specimen]
 
-        if self.dimensional_measure is not None and not isinstance(self.dimensional_measure, DimensionalObservationSet):
-            self.dimensional_measure = DimensionalObservationSet(**self.dimensional_measure)
+        if self.primary_tumor_dimensional_measures is not None and not isinstance(self.primary_tumor_dimensional_measures, DimensionalObservationSet):
+            self.primary_tumor_dimensional_measures = DimensionalObservationSet(**as_dict(self.primary_tumor_dimensional_measures))
 
-        self._normalize_inlined_as_dict(slot_name="supporting_observation", slot_type=Observation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="supporting_observation", slot_type=Observation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -628,7 +628,7 @@ class DimensionalObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -642,13 +642,13 @@ class DimensionalObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -682,19 +682,19 @@ class DimensionalObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHDimensionalObservationSetMethodType) else EnumCCDHDimensionalObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
-        self._normalize_inlined_as_dict(slot_name="observations", slot_type=DimensionalObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="observations", slot_type=DimensionalObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -722,7 +722,7 @@ class Document(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.document_type is not None and not isinstance(self.document_type, EnumCCDHDocumentDocumentType):
             self.document_type = EnumCCDHDocumentDocumentType(self.document_type)
@@ -786,10 +786,10 @@ class EnvironmentalExposureObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -828,7 +828,7 @@ class ExecutionTimeObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -843,10 +843,10 @@ class ExecutionTimeObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -900,10 +900,10 @@ class ExecutionConditionObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -934,16 +934,16 @@ class Exposure(Entity):
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="tobacco_exposure", slot_type=TobaccoExposureObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="tobacco_exposure", slot_type=TobaccoExposureObservation, key_name="observation_type", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="alcohol_exposure", slot_type=AlcoholExposureObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="alcohol_exposure", slot_type=AlcoholExposureObservation, key_name="observation_type", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="environmental_exposure", slot_type=EnvironmentalExposureObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="environmental_exposure", slot_type=EnvironmentalExposureObservation, key_name="observation_type", keyed=False)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         super().__post_init__(**kwargs)
 
@@ -980,7 +980,7 @@ class HistologicalCompositionObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -994,13 +994,13 @@ class HistologicalCompositionObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -1040,19 +1040,19 @@ class HistologicalCompositionObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHHistologicalCompositionObservationSetMethodType) else EnumCCDHHistologicalCompositionObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
-        self._normalize_inlined_as_dict(slot_name="observations", slot_type=HistologicalCompositionObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="observations", slot_type=HistologicalCompositionObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1135,13 +1135,13 @@ class Observation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueEntity is not None and not isinstance(self.valueEntity, Entity):
             self.valueEntity = Entity()
@@ -1162,7 +1162,7 @@ class Observation(Entity):
             self.valueDateTime = CcdhDateTime(self.valueDateTime)
 
         if self.valueQuantity is not None and not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.valueCodeableConcept is not None and not isinstance(self.valueCodeableConcept, EnumCCDHObservationValueCodeableConcept):
             self.valueCodeableConcept = EnumCCDHObservationValueCodeableConcept(self.valueCodeableConcept)
@@ -1204,19 +1204,19 @@ class ObservationSet(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
         self.method_type = [v if isinstance(v, EnumCCDHObservationSetMethodType) else EnumCCDHObservationSetMethodType(v) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
-        self._normalize_inlined_as_dict(slot_name="observations", slot_type=Observation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="observations", slot_type=Observation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1246,7 +1246,7 @@ class Organization(Entity):
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.name is not None and not isinstance(self.name, CcdhString):
             self.name = CcdhString(self.name)
@@ -1331,7 +1331,7 @@ class ResearchProject(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.name is not None and not isinstance(self.name, CcdhString):
             self.name = CcdhString(self.name)
@@ -1350,22 +1350,22 @@ class ResearchProject(Entity):
         self.sponsor = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.sponsor]
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
-        self._normalize_inlined_as_dict(slot_name="primary_anatomic_site", slot_type=BodySite, key_name="site", keyed=False)
+        self._normalize_inlined_as_list(slot_name="primary_anatomic_site", slot_type=BodySite, key_name="site", keyed=False)
 
         if not isinstance(self.url, list):
             self.url = [self.url] if self.url is not None else []
         self.url = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.url]
 
-        self._normalize_inlined_as_dict(slot_name="part_of", slot_type=ResearchProject, key_name="research_project_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="part_of", slot_type=ResearchProject, key_name="research_project_type", keyed=False)
 
         if not isinstance(self.associated_timepoint, list):
             self.associated_timepoint = [self.associated_timepoint] if self.associated_timepoint is not None else []
-        self.associated_timepoint = [v if isinstance(v, TimePoint) else TimePoint(**v) for v in self.associated_timepoint]
+        self.associated_timepoint = [v if isinstance(v, TimePoint) else TimePoint(**as_dict(v)) for v in self.associated_timepoint]
 
         super().__post_init__(**kwargs)
 
@@ -1407,38 +1407,38 @@ class ResearchSubject(Entity):
         if self._is_empty(self.associated_subject):
             self.MissingRequiredField("associated_subject")
         if not isinstance(self.associated_subject, Subject):
-            self.associated_subject = Subject(**self.associated_subject)
+            self.associated_subject = Subject(**as_dict(self.associated_subject))
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.description is not None and not isinstance(self.description, CcdhString):
             self.description = CcdhString(self.description)
 
         if self.member_of_research_project is not None and not isinstance(self.member_of_research_project, ResearchProject):
-            self.member_of_research_project = ResearchProject(**self.member_of_research_project)
+            self.member_of_research_project = ResearchProject(**as_dict(self.member_of_research_project))
 
         if self.age_at_enrollment is not None and not isinstance(self.age_at_enrollment, Quantity):
-            self.age_at_enrollment = Quantity(**self.age_at_enrollment)
+            self.age_at_enrollment = Quantity(**as_dict(self.age_at_enrollment))
 
         if self.primary_diagnosis_condition is not None and not isinstance(self.primary_diagnosis_condition, EnumCCDHResearchSubjectPrimaryDiagnosisCondition):
             self.primary_diagnosis_condition = EnumCCDHResearchSubjectPrimaryDiagnosisCondition(self.primary_diagnosis_condition)
 
         if self.primary_diagnosis_site is not None and not isinstance(self.primary_diagnosis_site, BodySite):
-            self.primary_diagnosis_site = BodySite(**self.primary_diagnosis_site)
+            self.primary_diagnosis_site = BodySite(**as_dict(self.primary_diagnosis_site))
 
         if not isinstance(self.primary_diagnosis, list):
             self.primary_diagnosis = [self.primary_diagnosis] if self.primary_diagnosis is not None else []
-        self.primary_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.primary_diagnosis]
+        self.primary_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**as_dict(v)) for v in self.primary_diagnosis]
 
         if not isinstance(self.comorbid_diagnosis, list):
             self.comorbid_diagnosis = [self.comorbid_diagnosis] if self.comorbid_diagnosis is not None else []
-        self.comorbid_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.comorbid_diagnosis]
+        self.comorbid_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**as_dict(v)) for v in self.comorbid_diagnosis]
 
         if self.index_timepoint is not None and not isinstance(self.index_timepoint, EnumCCDHResearchSubjectIndexTimepoint):
             self.index_timepoint = EnumCCDHResearchSubjectIndexTimepoint(self.index_timepoint)
 
         if self.originating_site is not None and not isinstance(self.originating_site, Organization):
-            self.originating_site = Organization(**self.originating_site)
+            self.originating_site = Organization(**as_dict(self.originating_site))
 
         super().__post_init__(**kwargs)
 
@@ -1494,7 +1494,7 @@ class Specimen(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.description is not None and not isinstance(self.description, CcdhString):
             self.description = CcdhString(self.description)
@@ -1506,53 +1506,53 @@ class Specimen(Entity):
             self.analyte_type = EnumCCDHSpecimenAnalyteType(self.analyte_type)
 
         if self.associated_project is not None and not isinstance(self.associated_project, ResearchProject):
-            self.associated_project = ResearchProject(**self.associated_project)
+            self.associated_project = ResearchProject(**as_dict(self.associated_project))
 
         if self.data_provider is not None and not isinstance(self.data_provider, Organization):
-            self.data_provider = Organization(**self.data_provider)
+            self.data_provider = Organization(**as_dict(self.data_provider))
 
         if self.source_material_type is not None and not isinstance(self.source_material_type, EnumCCDHSpecimenSourceMaterialType):
             self.source_material_type = EnumCCDHSpecimenSourceMaterialType(self.source_material_type)
 
         if not isinstance(self.parent_specimen, list):
             self.parent_specimen = [self.parent_specimen] if self.parent_specimen is not None else []
-        self.parent_specimen = [v if isinstance(v, Specimen) else Specimen(**v) for v in self.parent_specimen]
+        self.parent_specimen = [v if isinstance(v, Specimen) else Specimen(**as_dict(v)) for v in self.parent_specimen]
 
         if self.source_subject is not None and not isinstance(self.source_subject, Subject):
-            self.source_subject = Subject(**self.source_subject)
+            self.source_subject = Subject(**as_dict(self.source_subject))
 
         if self.tumor_status_at_collection is not None and not isinstance(self.tumor_status_at_collection, EnumCCDHSpecimenTumorStatusAtCollection):
             self.tumor_status_at_collection = EnumCCDHSpecimenTumorStatusAtCollection(self.tumor_status_at_collection)
 
         if self.creation_activity is not None and not isinstance(self.creation_activity, SpecimenCreationActivity):
-            self.creation_activity = SpecimenCreationActivity(**self.creation_activity)
+            self.creation_activity = SpecimenCreationActivity(**as_dict(self.creation_activity))
 
         if not isinstance(self.processing_activity, list):
             self.processing_activity = [self.processing_activity] if self.processing_activity is not None else []
-        self.processing_activity = [v if isinstance(v, SpecimenProcessingActivity) else SpecimenProcessingActivity(**v) for v in self.processing_activity]
+        self.processing_activity = [v if isinstance(v, SpecimenProcessingActivity) else SpecimenProcessingActivity(**as_dict(v)) for v in self.processing_activity]
 
         if not isinstance(self.storage_activity, list):
             self.storage_activity = [self.storage_activity] if self.storage_activity is not None else []
-        self.storage_activity = [v if isinstance(v, SpecimenStorageActivity) else SpecimenStorageActivity(**v) for v in self.storage_activity]
+        self.storage_activity = [v if isinstance(v, SpecimenStorageActivity) else SpecimenStorageActivity(**as_dict(v)) for v in self.storage_activity]
 
         if not isinstance(self.transport_activity, list):
             self.transport_activity = [self.transport_activity] if self.transport_activity is not None else []
-        self.transport_activity = [v if isinstance(v, SpecimenTransportActivity) else SpecimenTransportActivity(**v) for v in self.transport_activity]
+        self.transport_activity = [v if isinstance(v, SpecimenTransportActivity) else SpecimenTransportActivity(**as_dict(v)) for v in self.transport_activity]
 
         if self.contained_in is not None and not isinstance(self.contained_in, SpecimenContainer):
-            self.contained_in = SpecimenContainer(**self.contained_in)
+            self.contained_in = SpecimenContainer(**as_dict(self.contained_in))
 
         if self.dimensional_measures is not None and not isinstance(self.dimensional_measures, DimensionalObservationSet):
-            self.dimensional_measures = DimensionalObservationSet(**self.dimensional_measures)
+            self.dimensional_measures = DimensionalObservationSet(**as_dict(self.dimensional_measures))
 
-        self._normalize_inlined_as_dict(slot_name="quantity_measure", slot_type=SpecimenQuantityObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="quantity_measure", slot_type=SpecimenQuantityObservation, key_name="observation_type", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="quality_measure", slot_type=SpecimenQualityObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="quality_measure", slot_type=SpecimenQualityObservation, key_name="observation_type", keyed=False)
 
         if self.cellular_composition_type is not None and not isinstance(self.cellular_composition_type, EnumCCDHSpecimenCellularCompositionType):
             self.cellular_composition_type = EnumCCDHSpecimenCellularCompositionType(self.cellular_composition_type)
 
-        self._normalize_inlined_as_dict(slot_name="histological_composition_measures", slot_type=HistologicalCompositionObservationSet, key_name="id", keyed=False)
+        self._normalize_inlined_as_list(slot_name="histological_composition_measures", slot_type=HistologicalCompositionObservationSet, key_name="id", keyed=False)
 
         if self.general_tissue_morphology is not None and not isinstance(self.general_tissue_morphology, EnumCCDHSpecimenGeneralTissueMorphology):
             self.general_tissue_morphology = EnumCCDHSpecimenGeneralTissueMorphology(self.general_tissue_morphology)
@@ -1580,17 +1580,17 @@ class Specimen(Entity):
 
         if not isinstance(self.related_document, list):
             self.related_document = [self.related_document] if self.related_document is not None else []
-        self.related_document = [v if isinstance(v, Document) else Document(**v) for v in self.related_document]
+        self.related_document = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.related_document]
 
         if self.section_location is not None and not isinstance(self.section_location, EnumCCDHSpecimenSectionLocation):
             self.section_location = EnumCCDHSpecimenSectionLocation(self.section_location)
 
         if not isinstance(self.derived_product, list):
             self.derived_product = [self.derived_product] if self.derived_product is not None else []
-        self.derived_product = [v if isinstance(v, BiologicProduct) else BiologicProduct(**v) for v in self.derived_product]
+        self.derived_product = [v if isinstance(v, BiologicProduct) else BiologicProduct(**as_dict(v)) for v in self.derived_product]
 
         if self.distance_from_paired_specimen is not None and not isinstance(self.distance_from_paired_specimen, Quantity):
-            self.distance_from_paired_specimen = Quantity(**self.distance_from_paired_specimen)
+            self.distance_from_paired_specimen = Quantity(**as_dict(self.distance_from_paired_specimen))
 
         super().__post_init__(**kwargs)
 
@@ -1619,7 +1619,7 @@ class SpecimenContainer(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.container_type is not None and not isinstance(self.container_type, EnumCCDHSpecimenContainerContainerType):
             self.container_type = EnumCCDHSpecimenContainerContainerType(self.container_type)
@@ -1629,10 +1629,10 @@ class SpecimenContainer(Entity):
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
-        self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
+        self.additive = [v if isinstance(v, Substance) else Substance(**as_dict(v)) for v in self.additive]
 
         if self.parent_container is not None and not isinstance(self.parent_container, SpecimenContainer):
-            self.parent_container = SpecimenContainer(**self.parent_container)
+            self.parent_container = SpecimenContainer(**as_dict(self.parent_container))
 
         super().__post_init__(**kwargs)
 
@@ -1668,13 +1668,13 @@ class SpecimenCreationActivity(Entity):
             self.activity_type = EnumCCDHSpecimenCreationActivityActivityType(self.activity_type)
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.collection_method_type is not None and not isinstance(self.collection_method_type, EnumCCDHSpecimenCreationActivityCollectionMethodType):
             self.collection_method_type = EnumCCDHSpecimenCreationActivityCollectionMethodType(self.collection_method_type)
@@ -1684,17 +1684,17 @@ class SpecimenCreationActivity(Entity):
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
-        self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
+        self.additive = [v if isinstance(v, Substance) else Substance(**as_dict(v)) for v in self.additive]
 
         if self.collection_site is not None and not isinstance(self.collection_site, BodySite):
-            self.collection_site = BodySite(**self.collection_site)
+            self.collection_site = BodySite(**as_dict(self.collection_site))
 
         if self.quantity_collected is not None and not isinstance(self.quantity_collected, Quantity):
-            self.quantity_collected = Quantity(**self.quantity_collected)
+            self.quantity_collected = Quantity(**as_dict(self.quantity_collected))
 
-        self._normalize_inlined_as_dict(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
         if self.specimen_order is not None and not isinstance(self.specimen_order, CcdhInteger):
             self.specimen_order = CcdhInteger(self.specimen_order)
@@ -1733,7 +1733,7 @@ class SpecimenQualityObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -1747,13 +1747,13 @@ class SpecimenQualityObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -1789,7 +1789,7 @@ class SpecimenQuantityObservation(Entity):
         if self._is_empty(self.valueQuantity):
             self.MissingRequiredField("valueQuantity")
         if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**self.valueQuantity)
+            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
 
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
@@ -1803,13 +1803,13 @@ class SpecimenQuantityObservation(Entity):
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
-        self.focus = [v if isinstance(v, Entity) else Entity(**v) for v in self.focus]
+        self.focus = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.focus]
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         super().__post_init__(**kwargs)
 
@@ -1843,28 +1843,28 @@ class SpecimenProcessingActivity(Entity):
             self.activity_type = EnumCCDHSpecimenProcessingActivityActivityType(self.activity_type)
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if not isinstance(self.duration, list):
             self.duration = [self.duration] if self.duration is not None else []
-        self.duration = [v if isinstance(v, Quantity) else Quantity(**v) for v in self.duration]
+        self.duration = [v if isinstance(v, Quantity) else Quantity(**as_dict(v)) for v in self.duration]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.method_type is not None and not isinstance(self.method_type, EnumCCDHSpecimenProcessingActivityMethodType):
             self.method_type = EnumCCDHSpecimenProcessingActivityMethodType(self.method_type)
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
-        self.additive = [v if isinstance(v, Substance) else Substance(**v) for v in self.additive]
+        self.additive = [v if isinstance(v, Substance) else Substance(**as_dict(v)) for v in self.additive]
 
-        self._normalize_inlined_as_dict(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="execution_time_observation", slot_type=ExecutionTimeObservation, key_name="observation_type", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1892,23 +1892,23 @@ class SpecimenStorageActivity(Entity):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if self.duration is not None and not isinstance(self.duration, Quantity):
-            self.duration = Quantity(**self.duration)
+            self.duration = Quantity(**as_dict(self.duration))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.method_type is not None and not isinstance(self.method_type, EnumCCDHSpecimenStorageActivityMethodType):
             self.method_type = EnumCCDHSpecimenStorageActivityMethodType(self.method_type)
 
         if not isinstance(self.container, list):
             self.container = [self.container] if self.container is not None else []
-        self.container = [v if isinstance(v, SpecimenContainer) else SpecimenContainer(**v) for v in self.container]
+        self.container = [v if isinstance(v, SpecimenContainer) else SpecimenContainer(**as_dict(v)) for v in self.container]
 
         super().__post_init__(**kwargs)
 
@@ -1935,25 +1935,25 @@ class SpecimenTransportActivity(Entity):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if not isinstance(self.duration, list):
             self.duration = [self.duration] if self.duration is not None else []
         self.duration = [v if isinstance(v, CcdhString) else CcdhString(v) for v in self.duration]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.transport_origin is not None and not isinstance(self.transport_origin, Organization):
-            self.transport_origin = Organization(**self.transport_origin)
+            self.transport_origin = Organization(**as_dict(self.transport_origin))
 
         if self.transport_destination is not None and not isinstance(self.transport_destination, Organization):
-            self.transport_destination = Organization(**self.transport_destination)
+            self.transport_destination = Organization(**as_dict(self.transport_destination))
 
-        self._normalize_inlined_as_dict(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
+        self._normalize_inlined_as_list(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1990,7 +1990,7 @@ class Subject(Entity):
         if not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.species is not None and not isinstance(self.species, EnumCCDHSubjectSpecies):
             self.species = EnumCCDHSubjectSpecies(self.species)
@@ -2015,7 +2015,7 @@ class Subject(Entity):
             self.vital_status = EnumCCDHSubjectVitalStatus(self.vital_status)
 
         if self.age_at_death is not None and not isinstance(self.age_at_death, Quantity):
-            self.age_at_death = Quantity(**self.age_at_death)
+            self.age_at_death = Quantity(**as_dict(self.age_at_death))
 
         if self.year_of_death is not None and not isinstance(self.year_of_death, CcdhInteger):
             self.year_of_death = CcdhInteger(self.year_of_death)
@@ -2052,7 +2052,7 @@ class Substance(Entity):
         self.role = [v if isinstance(v, EnumCCDHSubstanceRole) else EnumCCDHSubstanceRole(v) for v in self.role]
 
         if self.substance_quantity is not None and not isinstance(self.substance_quantity, Quantity):
-            self.substance_quantity = Quantity(**self.substance_quantity)
+            self.substance_quantity = Quantity(**as_dict(self.substance_quantity))
 
         super().__post_init__(**kwargs)
 
@@ -2084,10 +2084,10 @@ class TimePoint(Entity):
             self.dateTime = CcdhDateTime(self.dateTime)
 
         if self.indexTimePoint is not None and not isinstance(self.indexTimePoint, TimePoint):
-            self.indexTimePoint = TimePoint(**self.indexTimePoint)
+            self.indexTimePoint = TimePoint(**as_dict(self.indexTimePoint))
 
         if self.offsetFromIndex is not None and not isinstance(self.offsetFromIndex, Quantity):
-            self.offsetFromIndex = Quantity(**self.offsetFromIndex)
+            self.offsetFromIndex = Quantity(**as_dict(self.offsetFromIndex))
 
         if not isinstance(self.eventType, list):
             self.eventType = [self.eventType] if self.eventType is not None else []
@@ -2113,10 +2113,10 @@ class TimePeriod(Entity):
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.periodStart_start is not None and not isinstance(self.periodStart_start, TimePoint):
-            self.periodStart_start = TimePoint(**self.periodStart_start)
+            self.periodStart_start = TimePoint(**as_dict(self.periodStart_start))
 
         if self.periodEnd_end is not None and not isinstance(self.periodEnd_end, TimePoint):
-            self.periodEnd_end = TimePoint(**self.periodEnd_end)
+            self.periodEnd_end = TimePoint(**as_dict(self.periodEnd_end))
 
         super().__post_init__(**kwargs)
 
@@ -2163,10 +2163,10 @@ class TobaccoExposureObservation(Entity):
             self.focus = Entity()
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
-            self.performed_by = Organization(**self.performed_by)
+            self.performed_by = Organization(**as_dict(self.performed_by))
 
         if self.valueInteger is not None and not isinstance(self.valueInteger, CcdhInteger):
             self.valueInteger = CcdhInteger(self.valueInteger)
@@ -2211,27 +2211,27 @@ class Treatment(Entity):
         if self.id is not None and not isinstance(self.id, CcdhString):
             self.id = CcdhString(self.id)
 
-        self._normalize_inlined_as_dict(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
+        self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if not isinstance(self.treatment_for_diagnosis, list):
             self.treatment_for_diagnosis = [self.treatment_for_diagnosis] if self.treatment_for_diagnosis is not None else []
-        self.treatment_for_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**v) for v in self.treatment_for_diagnosis]
+        self.treatment_for_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**as_dict(v)) for v in self.treatment_for_diagnosis]
 
         if not isinstance(self.concurrent_treatment, list):
             self.concurrent_treatment = [self.concurrent_treatment] if self.concurrent_treatment is not None else []
-        self.concurrent_treatment = [v if isinstance(v, Treatment) else Treatment(**v) for v in self.concurrent_treatment]
+        self.concurrent_treatment = [v if isinstance(v, Treatment) else Treatment(**as_dict(v)) for v in self.concurrent_treatment]
 
         if self.treatment_type is not None and not isinstance(self.treatment_type, EnumCCDHTreatmentTreatmentType):
             self.treatment_type = EnumCCDHTreatmentTreatmentType(self.treatment_type)
 
         if self.subject is not None and not isinstance(self.subject, Subject):
-            self.subject = Subject(**self.subject)
+            self.subject = Subject(**as_dict(self.subject))
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
-            self.date_started = TimePoint(**self.date_started)
+            self.date_started = TimePoint(**as_dict(self.date_started))
 
         if self.date_ended is not None and not isinstance(self.date_ended, TimePoint):
-            self.date_ended = TimePoint(**self.date_ended)
+            self.date_ended = TimePoint(**as_dict(self.date_ended))
 
         if not isinstance(self.treatment_end_reason, list):
             self.treatment_end_reason = [self.treatment_end_reason] if self.treatment_end_reason is not None else []
@@ -2241,7 +2241,7 @@ class Treatment(Entity):
             self.regimen = EnumCCDHTreatmentRegimen(self.regimen)
 
         if self.therapeutic_agent is not None and not isinstance(self.therapeutic_agent, Substance):
-            self.therapeutic_agent = Substance(**self.therapeutic_agent)
+            self.therapeutic_agent = Substance(**as_dict(self.therapeutic_agent))
 
         if self.number_of_cycles is not None and not isinstance(self.number_of_cycles, CcdhInteger):
             self.number_of_cycles = CcdhInteger(self.number_of_cycles)
@@ -2250,7 +2250,7 @@ class Treatment(Entity):
             self.treatment_frequency = EnumCCDHTreatmentTreatmentFrequency(self.treatment_frequency)
 
         if self.treatment_anatomic_site is not None and not isinstance(self.treatment_anatomic_site, BodySite):
-            self.treatment_anatomic_site = BodySite(**self.treatment_anatomic_site)
+            self.treatment_anatomic_site = BodySite(**as_dict(self.treatment_anatomic_site))
 
         if self.treatment_intent is not None and not isinstance(self.treatment_intent, EnumCCDHTreatmentTreatmentIntent):
             self.treatment_intent = EnumCCDHTreatmentTreatmentIntent(self.treatment_intent)
@@ -2273,7 +2273,7 @@ class EnumCCDHAlcoholExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHAlcoholExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:15.181473+00:00",
+        code_set_version="2021-07-13T22:10:22.003964+00:00",
     )
 
 class EnumCCDHAlcoholExposureObservationObservationType(EnumDefinitionImpl):
@@ -2302,7 +2302,7 @@ class EnumCCDHAlcoholExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHAlcoholExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:15.561789+00:00",
+        code_set_version="2021-07-13T22:10:22.314549+00:00",
     )
 
 class EnumCCDHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -2320,7 +2320,7 @@ class EnumCCDHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl)
         name="EnumCCDHAlcoholExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:15.730047+00:00",
+        code_set_version="2021-07-13T22:10:22.476758+00:00",
     )
 
     @classmethod
@@ -2654,7 +2654,7 @@ class EnumCCDHBodySiteSite(EnumDefinitionImpl):
         name="EnumCCDHBodySiteSite",
         description="Autogenerated Enumeration for CRDC-H BodySite site",
         code_set=None,
-        code_set_version="2021-07-06T23:10:15.897823+00:00",
+        code_set_version="2021-07-13T22:10:22.646394+00:00",
     )
 
     @classmethod
@@ -3678,7 +3678,7 @@ class EnumCCDHBodySiteQualifier(EnumDefinitionImpl):
         name="EnumCCDHBodySiteQualifier",
         description="Autogenerated Enumeration for CRDC-H BodySite qualifier",
         code_set=None,
-        code_set_version="2021-07-06T23:10:16.602407+00:00",
+        code_set_version="2021-07-13T22:10:24.349766+00:00",
     )
 
     @classmethod
@@ -3694,7 +3694,7 @@ class EnumCCDHBiologicProductProductType(EnumDefinitionImpl):
         name="EnumCCDHBiologicProductProductType",
         description="Autogenerated Enumeration for CRDC-H BiologicProduct product_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:16.766083+00:00",
+        code_set_version="2021-07-13T22:10:24.510503+00:00",
     )
 
 class EnumCCDHCancerGradeObservationCategory(EnumDefinitionImpl):
@@ -3705,7 +3705,7 @@ class EnumCCDHCancerGradeObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:16.933432+00:00",
+        code_set_version="2021-07-13T22:10:24.663225+00:00",
     )
 
 class EnumCCDHCancerGradeObservationObservationType(EnumDefinitionImpl):
@@ -3737,7 +3737,7 @@ class EnumCCDHCancerGradeObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:17.240007+00:00",
+        code_set_version="2021-07-13T22:10:25.004068+00:00",
     )
 
 class EnumCCDHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -3766,7 +3766,7 @@ class EnumCCDHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:17.406763+00:00",
+        code_set_version="2021-07-13T22:10:25.172904+00:00",
     )
 
     @classmethod
@@ -3830,7 +3830,7 @@ class EnumCCDHCancerGradeObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerGradeObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservationSet category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:17.602677+00:00",
+        code_set_version="2021-07-13T22:10:25.356945+00:00",
     )
 
 class EnumCCDHCancerGradeObservationSetMethodType(EnumDefinitionImpl):
@@ -3862,7 +3862,7 @@ class EnumCCDHCancerStageObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:17.951378+00:00",
+        code_set_version="2021-07-13T22:10:25.685562+00:00",
     )
 
 class EnumCCDHCancerStageObservationObservationType(EnumDefinitionImpl):
@@ -3924,7 +3924,7 @@ class EnumCCDHCancerStageObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:18.263957+00:00",
+        code_set_version="2021-07-13T22:10:26.000719+00:00",
     )
 
 class EnumCCDHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -4073,7 +4073,7 @@ class EnumCCDHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:18.451107+00:00",
+        code_set_version="2021-07-13T22:10:26.166354+00:00",
     )
 
     @classmethod
@@ -4312,7 +4312,7 @@ class EnumCCDHCancerStageObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHCancerStageObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservationSet category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:18.918519+00:00",
+        code_set_version="2021-07-13T22:10:26.547990+00:00",
     )
 
 class EnumCCDHCancerStageObservationSetMethodType(EnumDefinitionImpl):
@@ -4574,7 +4574,7 @@ class EnumCCDHDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H Diagnosis condition",
         code_set=None,
-        code_set_version="2021-07-06T23:10:19.240828+00:00",
+        code_set_version="2021-07-13T22:10:26.908432+00:00",
     )
 
     @classmethod
@@ -9535,7 +9535,7 @@ class EnumCCDHDiagnosisMorphology(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisMorphology",
         description="Autogenerated Enumeration for CRDC-H Diagnosis morphology",
         code_set=None,
-        code_set_version="2021-07-06T23:10:21.293706+00:00",
+        code_set_version="2021-07-13T22:10:29.054890+00:00",
     )
 
     @classmethod
@@ -11845,7 +11845,7 @@ class EnumCCDHDiagnosisDiseaseStatus(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisDiseaseStatus",
         description="Autogenerated Enumeration for CRDC-H Diagnosis disease_status",
         code_set=None,
-        code_set_version="2021-07-06T23:10:22.173998+00:00",
+        code_set_version="2021-07-13T22:10:30.002221+00:00",
     )
 
     @classmethod
@@ -11894,7 +11894,7 @@ class EnumCCDHDiagnosisMethodOfDiagnosis(EnumDefinitionImpl):
         name="EnumCCDHDiagnosisMethodOfDiagnosis",
         description="Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis",
         code_set=None,
-        code_set_version="2021-07-06T23:10:22.338675+00:00",
+        code_set_version="2021-07-13T22:10:30.197307+00:00",
     )
 
     @classmethod
@@ -11952,7 +11952,7 @@ class EnumCCDHDimensionalObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:22.523499+00:00",
+        code_set_version="2021-07-13T22:10:30.392635+00:00",
     )
 
 class EnumCCDHDimensionalObservationObservationType(EnumDefinitionImpl):
@@ -11985,7 +11985,7 @@ class EnumCCDHDimensionalObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:22.837468+00:00",
+        code_set_version="2021-07-13T22:10:30.779579+00:00",
     )
 
 class EnumCCDHDimensionalObservationSetCategory(EnumDefinitionImpl):
@@ -11996,7 +11996,7 @@ class EnumCCDHDimensionalObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:23.004929+00:00",
+        code_set_version="2021-07-13T22:10:30.962433+00:00",
     )
 
 class EnumCCDHDimensionalObservationSetMethodType(EnumDefinitionImpl):
@@ -12007,7 +12007,7 @@ class EnumCCDHDimensionalObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCCDHDimensionalObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:23.168160+00:00",
+        code_set_version="2021-07-13T22:10:31.143515+00:00",
     )
 
 class EnumCCDHDocumentDocumentType(EnumDefinitionImpl):
@@ -12036,7 +12036,7 @@ class EnumCCDHEnvironmentalExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHEnvironmentalExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:23.497134+00:00",
+        code_set_version="2021-07-13T22:10:31.488587+00:00",
     )
 
 class EnumCCDHEnvironmentalExposureObservationObservationType(EnumDefinitionImpl):
@@ -12067,7 +12067,7 @@ class EnumCCDHEnvironmentalExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHEnvironmentalExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:23.817720+00:00",
+        code_set_version="2021-07-13T22:10:31.824816+00:00",
     )
 
 class EnumCCDHEnvironmentalExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -12083,7 +12083,7 @@ class EnumCCDHEnvironmentalExposureObservationValueCodeableConcept(EnumDefinitio
         name="EnumCCDHEnvironmentalExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:23.987003+00:00",
+        code_set_version="2021-07-13T22:10:32.009947+00:00",
     )
 
     @classmethod
@@ -12197,7 +12197,7 @@ class EnumCCDHExecutionTimeObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHExecutionTimeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:24.185723+00:00",
+        code_set_version="2021-07-13T22:10:32.216104+00:00",
     )
 
 class EnumCCDHExecutionTimeObservationObservationType(EnumDefinitionImpl):
@@ -12208,7 +12208,7 @@ class EnumCCDHExecutionTimeObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHExecutionTimeObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation observation_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:24.345946+00:00",
+        code_set_version="2021-07-13T22:10:32.375436+00:00",
     )
 
 class EnumCCDHExecutionTimeObservationMethodType(EnumDefinitionImpl):
@@ -12219,7 +12219,7 @@ class EnumCCDHExecutionTimeObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHExecutionTimeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:24.516374+00:00",
+        code_set_version="2021-07-13T22:10:32.531193+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationCategory(EnumDefinitionImpl):
@@ -12230,7 +12230,7 @@ class EnumCCDHExecutionConditionObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHExecutionConditionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:24.674290+00:00",
+        code_set_version="2021-07-13T22:10:32.686766+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationObservationType(EnumDefinitionImpl):
@@ -12241,7 +12241,7 @@ class EnumCCDHExecutionConditionObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHExecutionConditionObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation observation_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:24.836017+00:00",
+        code_set_version="2021-07-13T22:10:32.847983+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationMethodType(EnumDefinitionImpl):
@@ -12252,7 +12252,7 @@ class EnumCCDHExecutionConditionObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHExecutionConditionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:25.003884+00:00",
+        code_set_version="2021-07-13T22:10:33.031743+00:00",
     )
 
 class EnumCCDHExecutionConditionObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -12263,7 +12263,7 @@ class EnumCCDHExecutionConditionObservationValueCodeableConcept(EnumDefinitionIm
         name="EnumCCDHExecutionConditionObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:25.162824+00:00",
+        code_set_version="2021-07-13T22:10:33.193263+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
@@ -12274,7 +12274,7 @@ class EnumCCDHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHHistologicalCompositionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:25.318156+00:00",
+        code_set_version="2021-07-13T22:10:33.361695+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationObservationType(EnumDefinitionImpl):
@@ -12336,7 +12336,7 @@ class EnumCCDHHistologicalCompositionObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHHistologicalCompositionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:25.653647+00:00",
+        code_set_version="2021-07-13T22:10:33.684190+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl):
@@ -12347,7 +12347,7 @@ class EnumCCDHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHHistologicalCompositionObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:25.821105+00:00",
+        code_set_version="2021-07-13T22:10:33.996023+00:00",
     )
 
 class EnumCCDHHistologicalCompositionObservationSetMethodType(EnumDefinitionImpl):
@@ -12358,7 +12358,7 @@ class EnumCCDHHistologicalCompositionObservationSetMethodType(EnumDefinitionImpl
         name="EnumCCDHHistologicalCompositionObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:25.986465+00:00",
+        code_set_version="2021-07-13T22:10:34.341625+00:00",
     )
 
 class EnumCCDHIdentifierType(EnumDefinitionImpl):
@@ -12369,7 +12369,7 @@ class EnumCCDHIdentifierType(EnumDefinitionImpl):
         name="EnumCCDHIdentifierType",
         description="Autogenerated Enumeration for CRDC-H Identifier type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:26.144879+00:00",
+        code_set_version="2021-07-13T22:10:34.706432+00:00",
     )
 
 class EnumCCDHObservationCategory(EnumDefinitionImpl):
@@ -12380,7 +12380,7 @@ class EnumCCDHObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHObservationCategory",
         description="Autogenerated Enumeration for CRDC-H Observation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:26.316228+00:00",
+        code_set_version="2021-07-13T22:10:35.073376+00:00",
     )
 
 class EnumCCDHObservationObservationType(EnumDefinitionImpl):
@@ -12391,7 +12391,7 @@ class EnumCCDHObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H Observation observation_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:26.642019+00:00",
+        code_set_version="2021-07-13T22:10:35.590614+00:00",
     )
 
 class EnumCCDHObservationMethodType(EnumDefinitionImpl):
@@ -12402,7 +12402,7 @@ class EnumCCDHObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H Observation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:27.026880+00:00",
+        code_set_version="2021-07-13T22:10:35.988241+00:00",
     )
 
 class EnumCCDHObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -12413,7 +12413,7 @@ class EnumCCDHObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Observation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:27.392634+00:00",
+        code_set_version="2021-07-13T22:10:36.493253+00:00",
     )
 
 class EnumCCDHObservationSetCategory(EnumDefinitionImpl):
@@ -12424,7 +12424,7 @@ class EnumCCDHObservationSetCategory(EnumDefinitionImpl):
         name="EnumCCDHObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H ObservationSet category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:27.939007+00:00",
+        code_set_version="2021-07-13T22:10:37.006106+00:00",
     )
 
 class EnumCCDHObservationSetMethodType(EnumDefinitionImpl):
@@ -12435,7 +12435,7 @@ class EnumCCDHObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCCDHObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H ObservationSet method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:28.643163+00:00",
+        code_set_version="2021-07-13T22:10:37.367182+00:00",
     )
 
 class EnumCCDHQuantityValueCodeableConcept(EnumDefinitionImpl):
@@ -12449,7 +12449,7 @@ class EnumCCDHQuantityValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCCDHQuantityValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:29.181662+00:00",
+        code_set_version="2021-07-13T22:10:37.880306+00:00",
     )
 
     @classmethod
@@ -12472,7 +12472,7 @@ class EnumCCDHQuantityUnit(EnumDefinitionImpl):
         name="EnumCCDHQuantityUnit",
         description="Autogenerated Enumeration for CRDC-H Quantity unit",
         code_set=None,
-        code_set_version="2021-07-06T23:10:29.701962+00:00",
+        code_set_version="2021-07-13T22:10:38.043726+00:00",
     )
 
 class EnumCCDHResearchProjectResearchProjectType(EnumDefinitionImpl):
@@ -12520,7 +12520,7 @@ class EnumCCDHResearchSubjectPrimaryDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCCDHResearchSubjectPrimaryDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition",
         code_set=None,
-        code_set_version="2021-07-06T23:10:30.428258+00:00",
+        code_set_version="2021-07-13T22:10:39.361842+00:00",
     )
 
     @classmethod
@@ -12793,7 +12793,7 @@ class EnumCCDHResearchSubjectIndexTimepoint(EnumDefinitionImpl):
         name="EnumCCDHResearchSubjectIndexTimepoint",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint",
         code_set=None,
-        code_set_version="2021-07-06T23:10:30.793095+00:00",
+        code_set_version="2021-07-13T22:10:40.593163+00:00",
     )
 
     @classmethod
@@ -12870,7 +12870,7 @@ class EnumCCDHSpecimenAnalyteType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenAnalyteType",
         description="Autogenerated Enumeration for CRDC-H Specimen analyte_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:31.110710+00:00",
+        code_set_version="2021-07-13T22:10:40.922091+00:00",
     )
 
     @classmethod
@@ -12921,7 +12921,7 @@ class EnumCCDHSpecimenSourceMaterialType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenSourceMaterialType",
         description="Autogenerated Enumeration for CRDC-H Specimen source_material_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:31.298909+00:00",
+        code_set_version="2021-07-13T22:10:41.097469+00:00",
     )
 
     @classmethod
@@ -13107,7 +13107,7 @@ class EnumCCDHSpecimenTumorStatusAtCollection(EnumDefinitionImpl):
         name="EnumCCDHSpecimenTumorStatusAtCollection",
         description="Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection",
         code_set=None,
-        code_set_version="2021-07-06T23:10:31.521905+00:00",
+        code_set_version="2021-07-13T22:10:41.311480+00:00",
     )
 
     @classmethod
@@ -13145,7 +13145,7 @@ class EnumCCDHSpecimenCellularCompositionType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenCellularCompositionType",
         description="Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:31.688119+00:00",
+        code_set_version="2021-07-13T22:10:41.480213+00:00",
     )
 
     @classmethod
@@ -13236,7 +13236,7 @@ class EnumCCDHSpecimenGeneralTissueMorphology(EnumDefinitionImpl):
         name="EnumCCDHSpecimenGeneralTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
         code_set=None,
-        code_set_version="2021-07-06T23:10:31.872886+00:00",
+        code_set_version="2021-07-13T22:10:41.670195+00:00",
     )
 
     @classmethod
@@ -13256,7 +13256,7 @@ class EnumCCDHSpecimenSpecificTissueMorphology(EnumDefinitionImpl):
         name="EnumCCDHSpecimenSpecificTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
         code_set=None,
-        code_set_version="2021-07-06T23:10:32.075816+00:00",
+        code_set_version="2021-07-13T22:10:41.834844+00:00",
     )
 
     @classmethod
@@ -13368,7 +13368,7 @@ class EnumCCDHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
         name="EnumCCDHSpecimenPreinvasiveTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology",
         code_set=None,
-        code_set_version="2021-07-06T23:10:32.271043+00:00",
+        code_set_version="2021-07-13T22:10:42.026809+00:00",
     )
 
 class EnumCCDHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
@@ -13379,7 +13379,7 @@ class EnumCCDHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
         name="EnumCCDHSpecimenMorphologyAssessorRole",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessor_role",
         code_set=None,
-        code_set_version="2021-07-06T23:10:32.435957+00:00",
+        code_set_version="2021-07-13T22:10:42.176148+00:00",
     )
 
 class EnumCCDHSpecimenMorphlogyAssessmentMethod(EnumDefinitionImpl):
@@ -13390,7 +13390,7 @@ class EnumCCDHSpecimenMorphlogyAssessmentMethod(EnumDefinitionImpl):
         name="EnumCCDHSpecimenMorphlogyAssessmentMethod",
         description="Autogenerated Enumeration for CRDC-H Specimen morphlogy_assessment_method",
         code_set=None,
-        code_set_version="2021-07-06T23:10:32.588417+00:00",
+        code_set_version="2021-07-13T22:10:42.347499+00:00",
     )
 
 class EnumCCDHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
@@ -13401,7 +13401,7 @@ class EnumCCDHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
         name="EnumCCDHSpecimenDegreeOfDysplasia",
         description="Autogenerated Enumeration for CRDC-H Specimen degree_of_dysplasia",
         code_set=None,
-        code_set_version="2021-07-06T23:10:32.742992+00:00",
+        code_set_version="2021-07-13T22:10:42.534645+00:00",
     )
 
 class EnumCCDHSpecimenSectionLocation(EnumDefinitionImpl):
@@ -13428,7 +13428,7 @@ class EnumCCDHSpecimenContainerContainerType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenContainerContainerType",
         description="Autogenerated Enumeration for CRDC-H SpecimenContainer container_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:33.066522+00:00",
+        code_set_version="2021-07-13T22:10:42.847805+00:00",
     )
 
 class EnumCCDHSpecimenCreationActivityActivityType(EnumDefinitionImpl):
@@ -13488,7 +13488,7 @@ class EnumCCDHSpecimenCreationActivityCollectionMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenCreationActivityCollectionMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:33.384559+00:00",
+        code_set_version="2021-07-13T22:10:43.166229+00:00",
     )
 
     @classmethod
@@ -13654,7 +13654,7 @@ class EnumCCDHSpecimenCreationActivityDerivationMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenCreationActivityDerivationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:33.628024+00:00",
+        code_set_version="2021-07-13T22:10:43.394137+00:00",
     )
 
 class EnumCCDHSpecimenQualityObservationCategory(EnumDefinitionImpl):
@@ -13665,7 +13665,7 @@ class EnumCCDHSpecimenQualityObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHSpecimenQualityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQualityObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:33.785482+00:00",
+        code_set_version="2021-07-13T22:10:43.550612+00:00",
     )
 
 class EnumCCDHSpecimenQualityObservationObservationType(EnumDefinitionImpl):
@@ -13712,7 +13712,7 @@ class EnumCCDHSpecimenQuantityObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHSpecimenQuantityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:34.268346+00:00",
+        code_set_version="2021-07-13T22:10:44.017273+00:00",
     )
 
 class EnumCCDHSpecimenQuantityObservationObservationType(EnumDefinitionImpl):
@@ -13740,7 +13740,7 @@ class EnumCCDHSpecimenQuantityObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenQuantityObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:34.593506+00:00",
+        code_set_version="2021-07-13T22:10:44.340818+00:00",
     )
 
 class EnumCCDHSpecimenProcessingActivityActivityType(EnumDefinitionImpl):
@@ -13792,7 +13792,7 @@ class EnumCCDHSpecimenStorageActivityMethodType(EnumDefinitionImpl):
         name="EnumCCDHSpecimenStorageActivityMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:35.082375+00:00",
+        code_set_version="2021-07-13T22:10:44.865349+00:00",
     )
 
 class EnumCCDHSubjectSpecies(EnumDefinitionImpl):
@@ -13920,7 +13920,7 @@ class EnumCCDHSubjectSex(EnumDefinitionImpl):
         name="EnumCCDHSubjectSex",
         description="Autogenerated Enumeration for CRDC-H Subject sex",
         code_set=None,
-        code_set_version="2021-07-06T23:10:35.564572+00:00",
+        code_set_version="2021-07-13T22:10:45.479998+00:00",
     )
 
     @classmethod
@@ -13940,7 +13940,7 @@ class EnumCCDHSubjectEthnicity(EnumDefinitionImpl):
         name="EnumCCDHSubjectEthnicity",
         description="Autogenerated Enumeration for CRDC-H Subject ethnicity",
         code_set=None,
-        code_set_version="2021-07-06T23:10:35.731647+00:00",
+        code_set_version="2021-07-13T22:10:45.824026+00:00",
     )
 
     @classmethod
@@ -13969,7 +13969,7 @@ class EnumCCDHSubjectRace(EnumDefinitionImpl):
         name="EnumCCDHSubjectRace",
         description="Autogenerated Enumeration for CRDC-H Subject race",
         code_set=None,
-        code_set_version="2021-07-06T23:10:35.891085+00:00",
+        code_set_version="2021-07-13T22:10:45.989098+00:00",
     )
 
     @classmethod
@@ -14000,7 +14000,7 @@ class EnumCCDHSubjectVitalStatus(EnumDefinitionImpl):
         name="EnumCCDHSubjectVitalStatus",
         description="Autogenerated Enumeration for CRDC-H Subject vital_status",
         code_set=None,
-        code_set_version="2021-07-06T23:10:36.053868+00:00",
+        code_set_version="2021-07-13T22:10:46.156643+00:00",
     )
 
     @classmethod
@@ -14024,7 +14024,7 @@ class EnumCCDHSubjectCauseOfDeath(EnumDefinitionImpl):
         name="EnumCCDHSubjectCauseOfDeath",
         description="Autogenerated Enumeration for CRDC-H Subject cause_of_death",
         code_set=None,
-        code_set_version="2021-07-06T23:10:36.213336+00:00",
+        code_set_version="2021-07-13T22:10:46.345887+00:00",
     )
 
     @classmethod
@@ -15411,7 +15411,7 @@ class EnumCCDHSubstanceSubstanceType(EnumDefinitionImpl):
         name="EnumCCDHSubstanceSubstanceType",
         description="Autogenerated Enumeration for CRDC-H Substance substance_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:36.383662+00:00",
+        code_set_version="2021-07-13T22:10:46.552715+00:00",
     )
 
     @classmethod
@@ -21669,7 +21669,7 @@ class EnumCCDHSubstanceRole(EnumDefinitionImpl):
         name="EnumCCDHSubstanceRole",
         description="Autogenerated Enumeration for CRDC-H Substance role",
         code_set=None,
-        code_set_version="2021-07-06T23:10:39.276195+00:00",
+        code_set_version="2021-07-13T22:10:49.772958+00:00",
     )
 
 class EnumCCDHTimePointEventType(EnumDefinitionImpl):
@@ -21701,7 +21701,7 @@ class EnumCCDHTobaccoExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCCDHTobaccoExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation category",
         code_set=None,
-        code_set_version="2021-07-06T23:10:39.597877+00:00",
+        code_set_version="2021-07-13T22:10:50.138206+00:00",
     )
 
 class EnumCCDHTobaccoExposureObservationObservationType(EnumDefinitionImpl):
@@ -21712,7 +21712,7 @@ class EnumCCDHTobaccoExposureObservationObservationType(EnumDefinitionImpl):
         name="EnumCCDHTobaccoExposureObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation observation_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:39.761057+00:00",
+        code_set_version="2021-07-13T22:10:50.328815+00:00",
     )
 
 class EnumCCDHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
@@ -21723,7 +21723,7 @@ class EnumCCDHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCCDHTobaccoExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:39.918723+00:00",
+        code_set_version="2021-07-13T22:10:50.519743+00:00",
     )
 
 class EnumCCDHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -21744,7 +21744,7 @@ class EnumCCDHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl)
         name="EnumCCDHTobaccoExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept",
         code_set=None,
-        code_set_version="2021-07-06T23:10:40.083905+00:00",
+        code_set_version="2021-07-13T22:10:50.685448+00:00",
     )
 
     @classmethod
@@ -21812,7 +21812,7 @@ class EnumCCDHTreatmentTreatmentType(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentType",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_type",
         code_set=None,
-        code_set_version="2021-07-06T23:10:40.261256+00:00",
+        code_set_version="2021-07-13T22:10:50.982662+00:00",
     )
 
     @classmethod
@@ -21940,7 +21940,7 @@ class EnumCCDHTreatmentTreatmentEndReason(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentEndReason",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason",
         code_set=None,
-        code_set_version="2021-07-06T23:10:40.460855+00:00",
+        code_set_version="2021-07-13T22:10:51.192277+00:00",
     )
 
     @classmethod
@@ -21962,7 +21962,7 @@ class EnumCCDHTreatmentRegimen(EnumDefinitionImpl):
         name="EnumCCDHTreatmentRegimen",
         description="Autogenerated Enumeration for CRDC-H Treatment regimen",
         code_set=None,
-        code_set_version="2021-07-06T23:10:40.625669+00:00",
+        code_set_version="2021-07-13T22:10:51.408524+00:00",
     )
 
 class EnumCCDHTreatmentTreatmentFrequency(EnumDefinitionImpl):
@@ -21975,7 +21975,7 @@ class EnumCCDHTreatmentTreatmentFrequency(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentFrequency",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_frequency",
         code_set=None,
-        code_set_version="2021-07-06T23:10:40.783620+00:00",
+        code_set_version="2021-07-13T22:10:51.590637+00:00",
     )
 
     @classmethod
@@ -22021,7 +22021,7 @@ class EnumCCDHTreatmentTreatmentIntent(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentIntent",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_intent",
         code_set=None,
-        code_set_version="2021-07-06T23:10:40.937525+00:00",
+        code_set_version="2021-07-13T22:10:51.804356+00:00",
     )
 
     @classmethod
@@ -22048,7 +22048,7 @@ class EnumCCDHTreatmentTreatmentEffect(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentEffect",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_effect",
         code_set=None,
-        code_set_version="2021-07-06T23:10:41.099313+00:00",
+        code_set_version="2021-07-13T22:10:51.972277+00:00",
     )
 
     @classmethod
@@ -22076,7 +22076,7 @@ class EnumCCDHTreatmentTreatmentOutcome(EnumDefinitionImpl):
         name="EnumCCDHTreatmentTreatmentOutcome",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_outcome",
         code_set=None,
-        code_set_version="2021-07-06T23:10:41.265449+00:00",
+        code_set_version="2021-07-13T22:10:52.170586+00:00",
     )
 
     @classmethod
@@ -22215,1000 +22215,1000 @@ class slots:
     pass
 
 slots.alcoholExposureObservation__id = Slot(uri=CCDH.id, name="alcoholExposureObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.alcoholExposureObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.alcoholExposureObservation__id, domain=AlcoholExposureObservation, range=Optional[Union[str, CcdhString]])
 
 slots.alcoholExposureObservation__category = Slot(uri=CCDH.category, name="alcoholExposureObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.alcoholExposureObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHAlcoholExposureObservationCategory"]])
+                   model_uri=CCDH.alcoholExposureObservation__category, domain=AlcoholExposureObservation, range=Optional[Union[str, "EnumCCDHAlcoholExposureObservationCategory"]])
 
 slots.alcoholExposureObservation__observation_type = Slot(uri=CCDH.observation_type, name="alcoholExposureObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.alcoholExposureObservation__observation_type, domain=None, range=Union[str, "EnumCCDHAlcoholExposureObservationObservationType"])
+                   model_uri=CCDH.alcoholExposureObservation__observation_type, domain=AlcoholExposureObservation, range=Union[str, "EnumCCDHAlcoholExposureObservationObservationType"])
 
 slots.alcoholExposureObservation__method_type = Slot(uri=CCDH.method_type, name="alcoholExposureObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.alcoholExposureObservation__method_type, domain=None, range=Optional[Union[str, "EnumCCDHAlcoholExposureObservationMethodType"]])
+                   model_uri=CCDH.alcoholExposureObservation__method_type, domain=AlcoholExposureObservation, range=Optional[Union[str, "EnumCCDHAlcoholExposureObservationMethodType"]])
 
 slots.alcoholExposureObservation__focus = Slot(uri=CCDH.focus, name="alcoholExposureObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.alcoholExposureObservation__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.alcoholExposureObservation__focus, domain=AlcoholExposureObservation, range=Optional[Union[dict, "Entity"]])
 
 slots.alcoholExposureObservation__subject = Slot(uri=CCDH.subject, name="alcoholExposureObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.alcoholExposureObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.alcoholExposureObservation__subject, domain=AlcoholExposureObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.alcoholExposureObservation__performed_by = Slot(uri=CCDH.performed_by, name="alcoholExposureObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.alcoholExposureObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.alcoholExposureObservation__performed_by, domain=AlcoholExposureObservation, range=Optional[Union[dict, "Organization"]])
 
 slots.alcoholExposureObservation__valueInteger = Slot(uri=CCDH.valueInteger, name="alcoholExposureObservation__valueInteger", curie=CCDH.curie('valueInteger'),
-                   model_uri=CCDH.alcoholExposureObservation__valueInteger, domain=None, range=Optional[Union[int, CcdhInteger]])
+                   model_uri=CCDH.alcoholExposureObservation__valueInteger, domain=AlcoholExposureObservation, range=Optional[Union[int, CcdhInteger]])
 
 slots.alcoholExposureObservation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="alcoholExposureObservation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.alcoholExposureObservation__valueCodeableConcept, domain=None, range=Optional[Union[str, "EnumCCDHAlcoholExposureObservationValueCodeableConcept"]])
+                   model_uri=CCDH.alcoholExposureObservation__valueCodeableConcept, domain=AlcoholExposureObservation, range=Optional[Union[str, "EnumCCDHAlcoholExposureObservationValueCodeableConcept"]])
 
 slots.bodySite__site = Slot(uri=CCDH.site, name="bodySite__site", curie=CCDH.curie('site'),
-                   model_uri=CCDH.bodySite__site, domain=None, range=Union[str, "EnumCCDHBodySiteSite"])
+                   model_uri=CCDH.bodySite__site, domain=BodySite, range=Union[str, "EnumCCDHBodySiteSite"])
 
 slots.bodySite__qualifier = Slot(uri=CCDH.qualifier, name="bodySite__qualifier", curie=CCDH.curie('qualifier'),
-                   model_uri=CCDH.bodySite__qualifier, domain=None, range=Optional[Union[Union[str, "EnumCCDHBodySiteQualifier"], List[Union[str, "EnumCCDHBodySiteQualifier"]]]])
+                   model_uri=CCDH.bodySite__qualifier, domain=BodySite, range=Optional[Union[Union[str, "EnumCCDHBodySiteQualifier"], List[Union[str, "EnumCCDHBodySiteQualifier"]]]])
 
 slots.biologicProduct__id = Slot(uri=CCDH.id, name="biologicProduct__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.biologicProduct__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.biologicProduct__id, domain=BiologicProduct, range=Optional[Union[str, CcdhString]])
 
 slots.biologicProduct__identifier = Slot(uri=CCDH.identifier, name="biologicProduct__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.biologicProduct__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.biologicProduct__identifier, domain=BiologicProduct, range=Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]])
 
 slots.biologicProduct__description = Slot(uri=CCDH.description, name="biologicProduct__description", curie=CCDH.curie('description'),
-                   model_uri=CCDH.biologicProduct__description, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.biologicProduct__description, domain=BiologicProduct, range=Optional[Union[str, CcdhString]])
 
 slots.biologicProduct__product_type = Slot(uri=CCDH.product_type, name="biologicProduct__product_type", curie=CCDH.curie('product_type'),
-                   model_uri=CCDH.biologicProduct__product_type, domain=None, range=Optional[Union[str, "EnumCCDHBiologicProductProductType"]])
+                   model_uri=CCDH.biologicProduct__product_type, domain=BiologicProduct, range=Optional[Union[str, "EnumCCDHBiologicProductProductType"]])
 
 slots.biologicProduct__passage_number = Slot(uri=CCDH.passage_number, name="biologicProduct__passage_number", curie=CCDH.curie('passage_number'),
-                   model_uri=CCDH.biologicProduct__passage_number, domain=None, range=Optional[Union[Union[int, CcdhInteger], List[Union[int, CcdhInteger]]]])
+                   model_uri=CCDH.biologicProduct__passage_number, domain=BiologicProduct, range=Optional[Union[Union[int, CcdhInteger], List[Union[int, CcdhInteger]]]])
 
 slots.biologicProduct__growth_rate = Slot(uri=CCDH.growth_rate, name="biologicProduct__growth_rate", curie=CCDH.curie('growth_rate'),
-                   model_uri=CCDH.biologicProduct__growth_rate, domain=None, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
+                   model_uri=CCDH.biologicProduct__growth_rate, domain=BiologicProduct, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
 
 slots.cancerGradeObservation__id = Slot(uri=CCDH.id, name="cancerGradeObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.cancerGradeObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.cancerGradeObservation__id, domain=CancerGradeObservation, range=Optional[Union[str, CcdhString]])
 
 slots.cancerGradeObservation__category = Slot(uri=CCDH.category, name="cancerGradeObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.cancerGradeObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHCancerGradeObservationCategory"]])
+                   model_uri=CCDH.cancerGradeObservation__category, domain=CancerGradeObservation, range=Optional[Union[str, "EnumCCDHCancerGradeObservationCategory"]])
 
 slots.cancerGradeObservation__observation_type = Slot(uri=CCDH.observation_type, name="cancerGradeObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.cancerGradeObservation__observation_type, domain=None, range=Union[str, "EnumCCDHCancerGradeObservationObservationType"])
+                   model_uri=CCDH.cancerGradeObservation__observation_type, domain=CancerGradeObservation, range=Union[str, "EnumCCDHCancerGradeObservationObservationType"])
 
 slots.cancerGradeObservation__method_type = Slot(uri=CCDH.method_type, name="cancerGradeObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.cancerGradeObservation__method_type, domain=None, range=Optional[Union[str, "EnumCCDHCancerGradeObservationMethodType"]])
+                   model_uri=CCDH.cancerGradeObservation__method_type, domain=CancerGradeObservation, range=Optional[Union[str, "EnumCCDHCancerGradeObservationMethodType"]])
 
 slots.cancerGradeObservation__focus = Slot(uri=CCDH.focus, name="cancerGradeObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.cancerGradeObservation__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.cancerGradeObservation__focus, domain=CancerGradeObservation, range=Optional[Union[dict, "Entity"]])
 
 slots.cancerGradeObservation__subject = Slot(uri=CCDH.subject, name="cancerGradeObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.cancerGradeObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.cancerGradeObservation__subject, domain=CancerGradeObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.cancerGradeObservation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="cancerGradeObservation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.cancerGradeObservation__valueCodeableConcept, domain=None, range=Union[str, "EnumCCDHCancerGradeObservationValueCodeableConcept"])
+                   model_uri=CCDH.cancerGradeObservation__valueCodeableConcept, domain=CancerGradeObservation, range=Union[str, "EnumCCDHCancerGradeObservationValueCodeableConcept"])
 
 slots.cancerGradeObservationSet__id = Slot(uri=CCDH.id, name="cancerGradeObservationSet__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.cancerGradeObservationSet__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.cancerGradeObservationSet__id, domain=CancerGradeObservationSet, range=Optional[Union[str, CcdhString]])
 
 slots.cancerGradeObservationSet__category = Slot(uri=CCDH.category, name="cancerGradeObservationSet__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.cancerGradeObservationSet__category, domain=None, range=Optional[Union[str, "EnumCCDHCancerGradeObservationSetCategory"]])
+                   model_uri=CCDH.cancerGradeObservationSet__category, domain=CancerGradeObservationSet, range=Optional[Union[str, "EnumCCDHCancerGradeObservationSetCategory"]])
 
 slots.cancerGradeObservationSet__focus = Slot(uri=CCDH.focus, name="cancerGradeObservationSet__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.cancerGradeObservationSet__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.cancerGradeObservationSet__focus, domain=CancerGradeObservationSet, range=Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]])
 
 slots.cancerGradeObservationSet__subject = Slot(uri=CCDH.subject, name="cancerGradeObservationSet__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.cancerGradeObservationSet__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.cancerGradeObservationSet__subject, domain=CancerGradeObservationSet, range=Optional[Union[dict, "Subject"]])
 
 slots.cancerGradeObservationSet__method_type = Slot(uri=CCDH.method_type, name="cancerGradeObservationSet__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.cancerGradeObservationSet__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHCancerGradeObservationSetMethodType"], List[Union[str, "EnumCCDHCancerGradeObservationSetMethodType"]]]])
+                   model_uri=CCDH.cancerGradeObservationSet__method_type, domain=CancerGradeObservationSet, range=Optional[Union[Union[str, "EnumCCDHCancerGradeObservationSetMethodType"], List[Union[str, "EnumCCDHCancerGradeObservationSetMethodType"]]]])
 
 slots.cancerGradeObservationSet__performed_by = Slot(uri=CCDH.performed_by, name="cancerGradeObservationSet__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.cancerGradeObservationSet__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.cancerGradeObservationSet__performed_by, domain=CancerGradeObservationSet, range=Optional[Union[dict, "Organization"]])
 
 slots.cancerGradeObservationSet__observations = Slot(uri=CCDH.observations, name="cancerGradeObservationSet__observations", curie=CCDH.curie('observations'),
-                   model_uri=CCDH.cancerGradeObservationSet__observations, domain=None, range=Optional[Union[Union[dict, CancerGradeObservation], List[Union[dict, CancerGradeObservation]]]])
+                   model_uri=CCDH.cancerGradeObservationSet__observations, domain=CancerGradeObservationSet, range=Optional[Union[Union[dict, CancerGradeObservation], List[Union[dict, CancerGradeObservation]]]])
 
 slots.cancerStageObservation__id = Slot(uri=CCDH.id, name="cancerStageObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.cancerStageObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.cancerStageObservation__id, domain=CancerStageObservation, range=Optional[Union[str, CcdhString]])
 
 slots.cancerStageObservation__category = Slot(uri=CCDH.category, name="cancerStageObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.cancerStageObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHCancerStageObservationCategory"]])
+                   model_uri=CCDH.cancerStageObservation__category, domain=CancerStageObservation, range=Optional[Union[str, "EnumCCDHCancerStageObservationCategory"]])
 
 slots.cancerStageObservation__observation_type = Slot(uri=CCDH.observation_type, name="cancerStageObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.cancerStageObservation__observation_type, domain=None, range=Union[str, "EnumCCDHCancerStageObservationObservationType"])
+                   model_uri=CCDH.cancerStageObservation__observation_type, domain=CancerStageObservation, range=Union[str, "EnumCCDHCancerStageObservationObservationType"])
 
 slots.cancerStageObservation__method_type = Slot(uri=CCDH.method_type, name="cancerStageObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.cancerStageObservation__method_type, domain=None, range=Optional[Union[str, "EnumCCDHCancerStageObservationMethodType"]])
+                   model_uri=CCDH.cancerStageObservation__method_type, domain=CancerStageObservation, range=Optional[Union[str, "EnumCCDHCancerStageObservationMethodType"]])
 
 slots.cancerStageObservation__focus = Slot(uri=CCDH.focus, name="cancerStageObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.cancerStageObservation__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.cancerStageObservation__focus, domain=CancerStageObservation, range=Optional[Union[dict, "Entity"]])
 
 slots.cancerStageObservation__subject = Slot(uri=CCDH.subject, name="cancerStageObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.cancerStageObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.cancerStageObservation__subject, domain=CancerStageObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.cancerStageObservation__performed_by = Slot(uri=CCDH.performed_by, name="cancerStageObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.cancerStageObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.cancerStageObservation__performed_by, domain=CancerStageObservation, range=Optional[Union[dict, "Organization"]])
 
 slots.cancerStageObservation__valueEntity = Slot(uri=CCDH.valueEntity, name="cancerStageObservation__valueEntity", curie=CCDH.curie('valueEntity'),
-                   model_uri=CCDH.cancerStageObservation__valueEntity, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.cancerStageObservation__valueEntity, domain=CancerStageObservation, range=Optional[Union[dict, "Entity"]])
 
 slots.cancerStageObservation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="cancerStageObservation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.cancerStageObservation__valueCodeableConcept, domain=None, range=Union[str, "EnumCCDHCancerStageObservationValueCodeableConcept"])
+                   model_uri=CCDH.cancerStageObservation__valueCodeableConcept, domain=CancerStageObservation, range=Union[str, "EnumCCDHCancerStageObservationValueCodeableConcept"])
 
 slots.cancerStageObservationSet__id = Slot(uri=CCDH.id, name="cancerStageObservationSet__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.cancerStageObservationSet__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.cancerStageObservationSet__id, domain=CancerStageObservationSet, range=Optional[Union[str, CcdhString]])
 
 slots.cancerStageObservationSet__category = Slot(uri=CCDH.category, name="cancerStageObservationSet__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.cancerStageObservationSet__category, domain=None, range=Optional[Union[str, "EnumCCDHCancerStageObservationSetCategory"]])
+                   model_uri=CCDH.cancerStageObservationSet__category, domain=CancerStageObservationSet, range=Optional[Union[str, "EnumCCDHCancerStageObservationSetCategory"]])
 
 slots.cancerStageObservationSet__focus = Slot(uri=CCDH.focus, name="cancerStageObservationSet__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.cancerStageObservationSet__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.cancerStageObservationSet__focus, domain=CancerStageObservationSet, range=Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]])
 
 slots.cancerStageObservationSet__subject = Slot(uri=CCDH.subject, name="cancerStageObservationSet__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.cancerStageObservationSet__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.cancerStageObservationSet__subject, domain=CancerStageObservationSet, range=Optional[Union[dict, "Subject"]])
 
 slots.cancerStageObservationSet__method_type = Slot(uri=CCDH.method_type, name="cancerStageObservationSet__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.cancerStageObservationSet__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHCancerStageObservationSetMethodType"], List[Union[str, "EnumCCDHCancerStageObservationSetMethodType"]]]])
+                   model_uri=CCDH.cancerStageObservationSet__method_type, domain=CancerStageObservationSet, range=Optional[Union[Union[str, "EnumCCDHCancerStageObservationSetMethodType"], List[Union[str, "EnumCCDHCancerStageObservationSetMethodType"]]]])
 
 slots.cancerStageObservationSet__performed_by = Slot(uri=CCDH.performed_by, name="cancerStageObservationSet__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.cancerStageObservationSet__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.cancerStageObservationSet__performed_by, domain=CancerStageObservationSet, range=Optional[Union[dict, "Organization"]])
 
 slots.cancerStageObservationSet__observations = Slot(uri=CCDH.observations, name="cancerStageObservationSet__observations", curie=CCDH.curie('observations'),
-                   model_uri=CCDH.cancerStageObservationSet__observations, domain=None, range=Optional[Union[Union[dict, CancerStageObservation], List[Union[dict, CancerStageObservation]]]])
+                   model_uri=CCDH.cancerStageObservationSet__observations, domain=CancerStageObservationSet, range=Optional[Union[Union[dict, CancerStageObservation], List[Union[dict, CancerStageObservation]]]])
 
 slots.codeableConcept__coding = Slot(uri=CCDH.coding, name="codeableConcept__coding", curie=CCDH.curie('coding'),
-                   model_uri=CCDH.codeableConcept__coding, domain=None, range=Optional[Union[Union[dict, Coding], List[Union[dict, Coding]]]])
+                   model_uri=CCDH.codeableConcept__coding, domain=CodeableConcept, range=Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]])
 
 slots.codeableConcept__text = Slot(uri=CCDH.text, name="codeableConcept__text", curie=CCDH.curie('text'),
-                   model_uri=CCDH.codeableConcept__text, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.codeableConcept__text, domain=CodeableConcept, range=Optional[Union[str, CcdhString]])
 
 slots.coding__code = Slot(uri=CCDH.code, name="coding__code", curie=CCDH.curie('code'),
-                   model_uri=CCDH.coding__code, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.coding__code, domain=Coding, range=Union[str, CcdhString])
 
 slots.coding__system = Slot(uri=CCDH.system, name="coding__system", curie=CCDH.curie('system'),
-                   model_uri=CCDH.coding__system, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.coding__system, domain=Coding, range=Union[str, CcdhString])
 
 slots.coding__label = Slot(uri=CCDH.label, name="coding__label", curie=CCDH.curie('label'),
-                   model_uri=CCDH.coding__label, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.coding__label, domain=Coding, range=Optional[Union[str, CcdhString]])
 
 slots.coding__systemURL = Slot(uri=CCDH.systemURL, name="coding__systemURL", curie=CCDH.curie('systemURL'),
-                   model_uri=CCDH.coding__systemURL, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.coding__systemURL, domain=Coding, range=Optional[Union[str, CcdhString]])
 
 slots.coding__systemVersion = Slot(uri=CCDH.systemVersion, name="coding__systemVersion", curie=CCDH.curie('systemVersion'),
-                   model_uri=CCDH.coding__systemVersion, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.coding__systemVersion, domain=Coding, range=Optional[Union[str, CcdhString]])
 
 slots.diagnosis__id = Slot(uri=CCDH.id, name="diagnosis__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.diagnosis__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.diagnosis__id, domain=Diagnosis, range=Optional[Union[str, CcdhString]])
 
 slots.diagnosis__identifier = Slot(uri=CCDH.identifier, name="diagnosis__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.diagnosis__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.diagnosis__identifier, domain=Diagnosis, range=Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]])
 
 slots.diagnosis__subject = Slot(uri=CCDH.subject, name="diagnosis__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.diagnosis__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.diagnosis__subject, domain=Diagnosis, range=Optional[Union[dict, "Subject"]])
 
 slots.diagnosis__age_at_diagnosis = Slot(uri=CCDH.age_at_diagnosis, name="diagnosis__age_at_diagnosis", curie=CCDH.curie('age_at_diagnosis'),
-                   model_uri=CCDH.diagnosis__age_at_diagnosis, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.diagnosis__age_at_diagnosis, domain=Diagnosis, range=Optional[Union[dict, "Quantity"]])
 
 slots.diagnosis__year_at_diagnosis = Slot(uri=CCDH.year_at_diagnosis, name="diagnosis__year_at_diagnosis", curie=CCDH.curie('year_at_diagnosis'),
-                   model_uri=CCDH.diagnosis__year_at_diagnosis, domain=None, range=Optional[Union[int, CcdhInteger]])
+                   model_uri=CCDH.diagnosis__year_at_diagnosis, domain=Diagnosis, range=Optional[Union[int, CcdhInteger]])
 
 slots.diagnosis__condition = Slot(uri=CCDH.condition, name="diagnosis__condition", curie=CCDH.curie('condition'),
-                   model_uri=CCDH.diagnosis__condition, domain=None, range=Optional[Union[str, "EnumCCDHDiagnosisCondition"]])
+                   model_uri=CCDH.diagnosis__condition, domain=Diagnosis, range=Optional[Union[str, "EnumCCDHDiagnosisCondition"]])
 
 slots.diagnosis__primary_site = Slot(uri=CCDH.primary_site, name="diagnosis__primary_site", curie=CCDH.curie('primary_site'),
-                   model_uri=CCDH.diagnosis__primary_site, domain=None, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
+                   model_uri=CCDH.diagnosis__primary_site, domain=Diagnosis, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
 
 slots.diagnosis__metastatic_site = Slot(uri=CCDH.metastatic_site, name="diagnosis__metastatic_site", curie=CCDH.curie('metastatic_site'),
-                   model_uri=CCDH.diagnosis__metastatic_site, domain=None, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
+                   model_uri=CCDH.diagnosis__metastatic_site, domain=Diagnosis, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
 
 slots.diagnosis__stage = Slot(uri=CCDH.stage, name="diagnosis__stage", curie=CCDH.curie('stage'),
-                   model_uri=CCDH.diagnosis__stage, domain=None, range=Optional[Union[Union[dict, CancerStageObservationSet], List[Union[dict, CancerStageObservationSet]]]])
+                   model_uri=CCDH.diagnosis__stage, domain=Diagnosis, range=Optional[Union[Union[dict, CancerStageObservationSet], List[Union[dict, CancerStageObservationSet]]]])
 
 slots.diagnosis__grade = Slot(uri=CCDH.grade, name="diagnosis__grade", curie=CCDH.curie('grade'),
-                   model_uri=CCDH.diagnosis__grade, domain=None, range=Optional[Union[Union[dict, CancerGradeObservationSet], List[Union[dict, CancerGradeObservationSet]]]])
+                   model_uri=CCDH.diagnosis__grade, domain=Diagnosis, range=Optional[Union[Union[dict, CancerGradeObservationSet], List[Union[dict, CancerGradeObservationSet]]]])
 
 slots.diagnosis__morphology = Slot(uri=CCDH.morphology, name="diagnosis__morphology", curie=CCDH.curie('morphology'),
-                   model_uri=CCDH.diagnosis__morphology, domain=None, range=Optional[Union[str, "EnumCCDHDiagnosisMorphology"]])
+                   model_uri=CCDH.diagnosis__morphology, domain=Diagnosis, range=Optional[Union[str, "EnumCCDHDiagnosisMorphology"]])
 
 slots.diagnosis__disease_status = Slot(uri=CCDH.disease_status, name="diagnosis__disease_status", curie=CCDH.curie('disease_status'),
-                   model_uri=CCDH.diagnosis__disease_status, domain=None, range=Optional[Union[str, "EnumCCDHDiagnosisDiseaseStatus"]])
+                   model_uri=CCDH.diagnosis__disease_status, domain=Diagnosis, range=Optional[Union[str, "EnumCCDHDiagnosisDiseaseStatus"]])
 
 slots.diagnosis__prior_diagnosis = Slot(uri=CCDH.prior_diagnosis, name="diagnosis__prior_diagnosis", curie=CCDH.curie('prior_diagnosis'),
-                   model_uri=CCDH.diagnosis__prior_diagnosis, domain=None, range=Optional[Union[dict, Diagnosis]])
+                   model_uri=CCDH.diagnosis__prior_diagnosis, domain=Diagnosis, range=Optional[Union[dict, "Diagnosis"]])
 
 slots.diagnosis__method_of_diagnosis = Slot(uri=CCDH.method_of_diagnosis, name="diagnosis__method_of_diagnosis", curie=CCDH.curie('method_of_diagnosis'),
-                   model_uri=CCDH.diagnosis__method_of_diagnosis, domain=None, range=Optional[Union[str, "EnumCCDHDiagnosisMethodOfDiagnosis"]])
+                   model_uri=CCDH.diagnosis__method_of_diagnosis, domain=Diagnosis, range=Optional[Union[str, "EnumCCDHDiagnosisMethodOfDiagnosis"]])
 
 slots.diagnosis__related_specimen = Slot(uri=CCDH.related_specimen, name="diagnosis__related_specimen", curie=CCDH.curie('related_specimen'),
-                   model_uri=CCDH.diagnosis__related_specimen, domain=None, range=Optional[Union[Union[dict, Specimen], List[Union[dict, Specimen]]]])
+                   model_uri=CCDH.diagnosis__related_specimen, domain=Diagnosis, range=Optional[Union[Union[dict, "Specimen"], List[Union[dict, "Specimen"]]]])
 
-slots.diagnosis__dimensional_measure = Slot(uri=CCDH.dimensional_measure, name="diagnosis__dimensional_measure", curie=CCDH.curie('dimensional_measure'),
-                   model_uri=CCDH.diagnosis__dimensional_measure, domain=None, range=Optional[Union[dict, DimensionalObservationSet]])
+slots.diagnosis__primary_tumor_dimensional_measures = Slot(uri=CCDH.primary_tumor_dimensional_measures, name="diagnosis__primary_tumor_dimensional_measures", curie=CCDH.curie('primary_tumor_dimensional_measures'),
+                   model_uri=CCDH.diagnosis__primary_tumor_dimensional_measures, domain=Diagnosis, range=Optional[Union[dict, "DimensionalObservationSet"]])
 
 slots.diagnosis__supporting_observation = Slot(uri=CCDH.supporting_observation, name="diagnosis__supporting_observation", curie=CCDH.curie('supporting_observation'),
-                   model_uri=CCDH.diagnosis__supporting_observation, domain=None, range=Optional[Union[Union[dict, Observation], List[Union[dict, Observation]]]])
+                   model_uri=CCDH.diagnosis__supporting_observation, domain=Diagnosis, range=Optional[Union[Union[dict, "Observation"], List[Union[dict, "Observation"]]]])
 
 slots.dimensionalObservation__id = Slot(uri=CCDH.id, name="dimensionalObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.dimensionalObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.dimensionalObservation__id, domain=DimensionalObservation, range=Optional[Union[str, CcdhString]])
 
 slots.dimensionalObservation__category = Slot(uri=CCDH.category, name="dimensionalObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.dimensionalObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHDimensionalObservationCategory"]])
+                   model_uri=CCDH.dimensionalObservation__category, domain=DimensionalObservation, range=Optional[Union[str, "EnumCCDHDimensionalObservationCategory"]])
 
 slots.dimensionalObservation__observation_type = Slot(uri=CCDH.observation_type, name="dimensionalObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.dimensionalObservation__observation_type, domain=None, range=Union[str, "EnumCCDHDimensionalObservationObservationType"])
+                   model_uri=CCDH.dimensionalObservation__observation_type, domain=DimensionalObservation, range=Union[str, "EnumCCDHDimensionalObservationObservationType"])
 
 slots.dimensionalObservation__method_type = Slot(uri=CCDH.method_type, name="dimensionalObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.dimensionalObservation__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHDimensionalObservationMethodType"], List[Union[str, "EnumCCDHDimensionalObservationMethodType"]]]])
+                   model_uri=CCDH.dimensionalObservation__method_type, domain=DimensionalObservation, range=Optional[Union[Union[str, "EnumCCDHDimensionalObservationMethodType"], List[Union[str, "EnumCCDHDimensionalObservationMethodType"]]]])
 
 slots.dimensionalObservation__focus = Slot(uri=CCDH.focus, name="dimensionalObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.dimensionalObservation__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.dimensionalObservation__focus, domain=DimensionalObservation, range=Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]])
 
 slots.dimensionalObservation__subject = Slot(uri=CCDH.subject, name="dimensionalObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.dimensionalObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.dimensionalObservation__subject, domain=DimensionalObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.dimensionalObservation__performed_by = Slot(uri=CCDH.performed_by, name="dimensionalObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.dimensionalObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.dimensionalObservation__performed_by, domain=DimensionalObservation, range=Optional[Union[dict, "Organization"]])
 
 slots.dimensionalObservation__valueQuantity = Slot(uri=CCDH.valueQuantity, name="dimensionalObservation__valueQuantity", curie=CCDH.curie('valueQuantity'),
-                   model_uri=CCDH.dimensionalObservation__valueQuantity, domain=None, range=Union[dict, Quantity])
+                   model_uri=CCDH.dimensionalObservation__valueQuantity, domain=DimensionalObservation, range=Union[dict, "Quantity"])
 
 slots.dimensionalObservationSet__id = Slot(uri=CCDH.id, name="dimensionalObservationSet__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.dimensionalObservationSet__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.dimensionalObservationSet__id, domain=DimensionalObservationSet, range=Optional[Union[str, CcdhString]])
 
 slots.dimensionalObservationSet__category = Slot(uri=CCDH.category, name="dimensionalObservationSet__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.dimensionalObservationSet__category, domain=None, range=Optional[Union[str, "EnumCCDHDimensionalObservationSetCategory"]])
+                   model_uri=CCDH.dimensionalObservationSet__category, domain=DimensionalObservationSet, range=Optional[Union[str, "EnumCCDHDimensionalObservationSetCategory"]])
 
 slots.dimensionalObservationSet__focus = Slot(uri=CCDH.focus, name="dimensionalObservationSet__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.dimensionalObservationSet__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.dimensionalObservationSet__focus, domain=DimensionalObservationSet, range=Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]])
 
 slots.dimensionalObservationSet__subject = Slot(uri=CCDH.subject, name="dimensionalObservationSet__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.dimensionalObservationSet__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.dimensionalObservationSet__subject, domain=DimensionalObservationSet, range=Optional[Union[dict, "Subject"]])
 
 slots.dimensionalObservationSet__method_type = Slot(uri=CCDH.method_type, name="dimensionalObservationSet__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.dimensionalObservationSet__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHDimensionalObservationSetMethodType"], List[Union[str, "EnumCCDHDimensionalObservationSetMethodType"]]]])
+                   model_uri=CCDH.dimensionalObservationSet__method_type, domain=DimensionalObservationSet, range=Optional[Union[Union[str, "EnumCCDHDimensionalObservationSetMethodType"], List[Union[str, "EnumCCDHDimensionalObservationSetMethodType"]]]])
 
 slots.dimensionalObservationSet__performed_by = Slot(uri=CCDH.performed_by, name="dimensionalObservationSet__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.dimensionalObservationSet__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.dimensionalObservationSet__performed_by, domain=DimensionalObservationSet, range=Optional[Union[dict, "Organization"]])
 
 slots.dimensionalObservationSet__observations = Slot(uri=CCDH.observations, name="dimensionalObservationSet__observations", curie=CCDH.curie('observations'),
-                   model_uri=CCDH.dimensionalObservationSet__observations, domain=None, range=Optional[Union[Union[dict, DimensionalObservation], List[Union[dict, DimensionalObservation]]]])
+                   model_uri=CCDH.dimensionalObservationSet__observations, domain=DimensionalObservationSet, range=Optional[Union[Union[dict, DimensionalObservation], List[Union[dict, DimensionalObservation]]]])
 
 slots.document__id = Slot(uri=CCDH.id, name="document__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.document__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.document__id, domain=Document, range=Optional[Union[str, CcdhString]])
 
 slots.document__identifier = Slot(uri=CCDH.identifier, name="document__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.document__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.document__identifier, domain=Document, range=Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]])
 
 slots.document__document_type = Slot(uri=CCDH.document_type, name="document__document_type", curie=CCDH.curie('document_type'),
-                   model_uri=CCDH.document__document_type, domain=None, range=Optional[Union[str, "EnumCCDHDocumentDocumentType"]])
+                   model_uri=CCDH.document__document_type, domain=Document, range=Optional[Union[str, "EnumCCDHDocumentDocumentType"]])
 
 slots.document__description = Slot(uri=CCDH.description, name="document__description", curie=CCDH.curie('description'),
-                   model_uri=CCDH.document__description, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.document__description, domain=Document, range=Optional[Union[str, CcdhString]])
 
 slots.document__focus = Slot(uri=CCDH.focus, name="document__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.document__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.document__focus, domain=Document, range=Optional[Union[dict, "Entity"]])
 
 slots.document__url = Slot(uri=CCDH.url, name="document__url", curie=CCDH.curie('url'),
-                   model_uri=CCDH.document__url, domain=None, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
+                   model_uri=CCDH.document__url, domain=Document, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
 
 slots.environmentalExposureObservation__id = Slot(uri=CCDH.id, name="environmentalExposureObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.environmentalExposureObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.environmentalExposureObservation__id, domain=EnvironmentalExposureObservation, range=Optional[Union[str, CcdhString]])
 
 slots.environmentalExposureObservation__category = Slot(uri=CCDH.category, name="environmentalExposureObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.environmentalExposureObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHEnvironmentalExposureObservationCategory"]])
+                   model_uri=CCDH.environmentalExposureObservation__category, domain=EnvironmentalExposureObservation, range=Optional[Union[str, "EnumCCDHEnvironmentalExposureObservationCategory"]])
 
 slots.environmentalExposureObservation__observation_type = Slot(uri=CCDH.observation_type, name="environmentalExposureObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.environmentalExposureObservation__observation_type, domain=None, range=Union[str, "EnumCCDHEnvironmentalExposureObservationObservationType"])
+                   model_uri=CCDH.environmentalExposureObservation__observation_type, domain=EnvironmentalExposureObservation, range=Union[str, "EnumCCDHEnvironmentalExposureObservationObservationType"])
 
 slots.environmentalExposureObservation__method_type = Slot(uri=CCDH.method_type, name="environmentalExposureObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.environmentalExposureObservation__method_type, domain=None, range=Optional[Union[str, "EnumCCDHEnvironmentalExposureObservationMethodType"]])
+                   model_uri=CCDH.environmentalExposureObservation__method_type, domain=EnvironmentalExposureObservation, range=Optional[Union[str, "EnumCCDHEnvironmentalExposureObservationMethodType"]])
 
 slots.environmentalExposureObservation__focus = Slot(uri=CCDH.focus, name="environmentalExposureObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.environmentalExposureObservation__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.environmentalExposureObservation__focus, domain=EnvironmentalExposureObservation, range=Optional[Union[dict, Entity]])
 
 slots.environmentalExposureObservation__subject = Slot(uri=CCDH.subject, name="environmentalExposureObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.environmentalExposureObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.environmentalExposureObservation__subject, domain=EnvironmentalExposureObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.environmentalExposureObservation__performed_by = Slot(uri=CCDH.performed_by, name="environmentalExposureObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.environmentalExposureObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.environmentalExposureObservation__performed_by, domain=EnvironmentalExposureObservation, range=Optional[Union[dict, "Organization"]])
 
 slots.environmentalExposureObservation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="environmentalExposureObservation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.environmentalExposureObservation__valueCodeableConcept, domain=None, range=Union[str, "EnumCCDHEnvironmentalExposureObservationValueCodeableConcept"])
+                   model_uri=CCDH.environmentalExposureObservation__valueCodeableConcept, domain=EnvironmentalExposureObservation, range=Union[str, "EnumCCDHEnvironmentalExposureObservationValueCodeableConcept"])
 
 slots.executionTimeObservation__id = Slot(uri=CCDH.id, name="executionTimeObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.executionTimeObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.executionTimeObservation__id, domain=ExecutionTimeObservation, range=Optional[Union[str, CcdhString]])
 
 slots.executionTimeObservation__category = Slot(uri=CCDH.category, name="executionTimeObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.executionTimeObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHExecutionTimeObservationCategory"]])
+                   model_uri=CCDH.executionTimeObservation__category, domain=ExecutionTimeObservation, range=Optional[Union[str, "EnumCCDHExecutionTimeObservationCategory"]])
 
 slots.executionTimeObservation__observation_type = Slot(uri=CCDH.observation_type, name="executionTimeObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.executionTimeObservation__observation_type, domain=None, range=Union[str, "EnumCCDHExecutionTimeObservationObservationType"])
+                   model_uri=CCDH.executionTimeObservation__observation_type, domain=ExecutionTimeObservation, range=Union[str, "EnumCCDHExecutionTimeObservationObservationType"])
 
 slots.executionTimeObservation__method_type = Slot(uri=CCDH.method_type, name="executionTimeObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.executionTimeObservation__method_type, domain=None, range=Optional[Union[str, "EnumCCDHExecutionTimeObservationMethodType"]])
+                   model_uri=CCDH.executionTimeObservation__method_type, domain=ExecutionTimeObservation, range=Optional[Union[str, "EnumCCDHExecutionTimeObservationMethodType"]])
 
 slots.executionTimeObservation__focus = Slot(uri=CCDH.focus, name="executionTimeObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.executionTimeObservation__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.executionTimeObservation__focus, domain=ExecutionTimeObservation, range=Optional[Union[dict, Entity]])
 
 slots.executionTimeObservation__subject = Slot(uri=CCDH.subject, name="executionTimeObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.executionTimeObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.executionTimeObservation__subject, domain=ExecutionTimeObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.executionTimeObservation__performed_by = Slot(uri=CCDH.performed_by, name="executionTimeObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.executionTimeObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.executionTimeObservation__performed_by, domain=ExecutionTimeObservation, range=Optional[Union[dict, "Organization"]])
 
 slots.executionTimeObservation__valueQuantity = Slot(uri=CCDH.valueQuantity, name="executionTimeObservation__valueQuantity", curie=CCDH.curie('valueQuantity'),
-                   model_uri=CCDH.executionTimeObservation__valueQuantity, domain=None, range=Union[dict, Quantity])
+                   model_uri=CCDH.executionTimeObservation__valueQuantity, domain=ExecutionTimeObservation, range=Union[dict, "Quantity"])
 
 slots.executionConditionObservation__id = Slot(uri=CCDH.id, name="executionConditionObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.executionConditionObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.executionConditionObservation__id, domain=ExecutionConditionObservation, range=Optional[Union[str, CcdhString]])
 
 slots.executionConditionObservation__category = Slot(uri=CCDH.category, name="executionConditionObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.executionConditionObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHExecutionConditionObservationCategory"]])
+                   model_uri=CCDH.executionConditionObservation__category, domain=ExecutionConditionObservation, range=Optional[Union[str, "EnumCCDHExecutionConditionObservationCategory"]])
 
 slots.executionConditionObservation__observation_type = Slot(uri=CCDH.observation_type, name="executionConditionObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.executionConditionObservation__observation_type, domain=None, range=Union[str, "EnumCCDHExecutionConditionObservationObservationType"])
+                   model_uri=CCDH.executionConditionObservation__observation_type, domain=ExecutionConditionObservation, range=Union[str, "EnumCCDHExecutionConditionObservationObservationType"])
 
 slots.executionConditionObservation__method_type = Slot(uri=CCDH.method_type, name="executionConditionObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.executionConditionObservation__method_type, domain=None, range=Optional[Union[str, "EnumCCDHExecutionConditionObservationMethodType"]])
+                   model_uri=CCDH.executionConditionObservation__method_type, domain=ExecutionConditionObservation, range=Optional[Union[str, "EnumCCDHExecutionConditionObservationMethodType"]])
 
 slots.executionConditionObservation__focus = Slot(uri=CCDH.focus, name="executionConditionObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.executionConditionObservation__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.executionConditionObservation__focus, domain=ExecutionConditionObservation, range=Optional[Union[dict, Entity]])
 
 slots.executionConditionObservation__subject = Slot(uri=CCDH.subject, name="executionConditionObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.executionConditionObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.executionConditionObservation__subject, domain=ExecutionConditionObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.executionConditionObservation__performed_by = Slot(uri=CCDH.performed_by, name="executionConditionObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.executionConditionObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.executionConditionObservation__performed_by, domain=ExecutionConditionObservation, range=Optional[Union[dict, "Organization"]])
 
 slots.executionConditionObservation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="executionConditionObservation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.executionConditionObservation__valueCodeableConcept, domain=None, range=Union[str, "EnumCCDHExecutionConditionObservationValueCodeableConcept"])
+                   model_uri=CCDH.executionConditionObservation__valueCodeableConcept, domain=ExecutionConditionObservation, range=Union[str, "EnumCCDHExecutionConditionObservationValueCodeableConcept"])
 
 slots.exposure__id = Slot(uri=CCDH.id, name="exposure__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.exposure__id, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.exposure__id, domain=Exposure, range=Union[str, CcdhString])
 
 slots.exposure__identifier = Slot(uri=CCDH.identifier, name="exposure__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.exposure__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.exposure__identifier, domain=Exposure, range=Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]])
 
 slots.exposure__tobacco_exposure = Slot(uri=CCDH.tobacco_exposure, name="exposure__tobacco_exposure", curie=CCDH.curie('tobacco_exposure'),
-                   model_uri=CCDH.exposure__tobacco_exposure, domain=None, range=Optional[Union[Union[dict, TobaccoExposureObservation], List[Union[dict, TobaccoExposureObservation]]]])
+                   model_uri=CCDH.exposure__tobacco_exposure, domain=Exposure, range=Optional[Union[Union[dict, "TobaccoExposureObservation"], List[Union[dict, "TobaccoExposureObservation"]]]])
 
 slots.exposure__alcohol_exposure = Slot(uri=CCDH.alcohol_exposure, name="exposure__alcohol_exposure", curie=CCDH.curie('alcohol_exposure'),
-                   model_uri=CCDH.exposure__alcohol_exposure, domain=None, range=Optional[Union[Union[dict, AlcoholExposureObservation], List[Union[dict, AlcoholExposureObservation]]]])
+                   model_uri=CCDH.exposure__alcohol_exposure, domain=Exposure, range=Optional[Union[Union[dict, AlcoholExposureObservation], List[Union[dict, AlcoholExposureObservation]]]])
 
 slots.exposure__environmental_exposure = Slot(uri=CCDH.environmental_exposure, name="exposure__environmental_exposure", curie=CCDH.curie('environmental_exposure'),
-                   model_uri=CCDH.exposure__environmental_exposure, domain=None, range=Optional[Union[Union[dict, EnvironmentalExposureObservation], List[Union[dict, EnvironmentalExposureObservation]]]])
+                   model_uri=CCDH.exposure__environmental_exposure, domain=Exposure, range=Optional[Union[Union[dict, EnvironmentalExposureObservation], List[Union[dict, EnvironmentalExposureObservation]]]])
 
 slots.exposure__subject = Slot(uri=CCDH.subject, name="exposure__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.exposure__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.exposure__subject, domain=Exposure, range=Optional[Union[dict, "Subject"]])
 
 slots.histologicalCompositionObservation__id = Slot(uri=CCDH.id, name="histologicalCompositionObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.histologicalCompositionObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.histologicalCompositionObservation__id, domain=HistologicalCompositionObservation, range=Optional[Union[str, CcdhString]])
 
 slots.histologicalCompositionObservation__category = Slot(uri=CCDH.category, name="histologicalCompositionObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.histologicalCompositionObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHHistologicalCompositionObservationCategory"]])
+                   model_uri=CCDH.histologicalCompositionObservation__category, domain=HistologicalCompositionObservation, range=Optional[Union[str, "EnumCCDHHistologicalCompositionObservationCategory"]])
 
 slots.histologicalCompositionObservation__observation_type = Slot(uri=CCDH.observation_type, name="histologicalCompositionObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.histologicalCompositionObservation__observation_type, domain=None, range=Union[str, "EnumCCDHHistologicalCompositionObservationObservationType"])
+                   model_uri=CCDH.histologicalCompositionObservation__observation_type, domain=HistologicalCompositionObservation, range=Union[str, "EnumCCDHHistologicalCompositionObservationObservationType"])
 
 slots.histologicalCompositionObservation__method_type = Slot(uri=CCDH.method_type, name="histologicalCompositionObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.histologicalCompositionObservation__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHHistologicalCompositionObservationMethodType"], List[Union[str, "EnumCCDHHistologicalCompositionObservationMethodType"]]]])
+                   model_uri=CCDH.histologicalCompositionObservation__method_type, domain=HistologicalCompositionObservation, range=Optional[Union[Union[str, "EnumCCDHHistologicalCompositionObservationMethodType"], List[Union[str, "EnumCCDHHistologicalCompositionObservationMethodType"]]]])
 
 slots.histologicalCompositionObservation__focus = Slot(uri=CCDH.focus, name="histologicalCompositionObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.histologicalCompositionObservation__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.histologicalCompositionObservation__focus, domain=HistologicalCompositionObservation, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.histologicalCompositionObservation__subject = Slot(uri=CCDH.subject, name="histologicalCompositionObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.histologicalCompositionObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.histologicalCompositionObservation__subject, domain=HistologicalCompositionObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.histologicalCompositionObservation__performed_by = Slot(uri=CCDH.performed_by, name="histologicalCompositionObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.histologicalCompositionObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.histologicalCompositionObservation__performed_by, domain=HistologicalCompositionObservation, range=Optional[Union[dict, "Organization"]])
 
 slots.histologicalCompositionObservation__valueQuantity = Slot(uri=CCDH.valueQuantity, name="histologicalCompositionObservation__valueQuantity", curie=CCDH.curie('valueQuantity'),
-                   model_uri=CCDH.histologicalCompositionObservation__valueQuantity, domain=None, range=Union[dict, Quantity])
+                   model_uri=CCDH.histologicalCompositionObservation__valueQuantity, domain=HistologicalCompositionObservation, range=Union[dict, "Quantity"])
 
 slots.histologicalCompositionObservationSet__id = Slot(uri=CCDH.id, name="histologicalCompositionObservationSet__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.histologicalCompositionObservationSet__id, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.histologicalCompositionObservationSet__id, domain=HistologicalCompositionObservationSet, range=Union[str, CcdhString])
 
 slots.histologicalCompositionObservationSet__category = Slot(uri=CCDH.category, name="histologicalCompositionObservationSet__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.histologicalCompositionObservationSet__category, domain=None, range=Union[str, "EnumCCDHHistologicalCompositionObservationSetCategory"])
+                   model_uri=CCDH.histologicalCompositionObservationSet__category, domain=HistologicalCompositionObservationSet, range=Union[str, "EnumCCDHHistologicalCompositionObservationSetCategory"])
 
 slots.histologicalCompositionObservationSet__focus = Slot(uri=CCDH.focus, name="histologicalCompositionObservationSet__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.histologicalCompositionObservationSet__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.histologicalCompositionObservationSet__focus, domain=HistologicalCompositionObservationSet, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.histologicalCompositionObservationSet__subject = Slot(uri=CCDH.subject, name="histologicalCompositionObservationSet__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.histologicalCompositionObservationSet__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.histologicalCompositionObservationSet__subject, domain=HistologicalCompositionObservationSet, range=Optional[Union[dict, "Subject"]])
 
 slots.histologicalCompositionObservationSet__method_type = Slot(uri=CCDH.method_type, name="histologicalCompositionObservationSet__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.histologicalCompositionObservationSet__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHHistologicalCompositionObservationSetMethodType"], List[Union[str, "EnumCCDHHistologicalCompositionObservationSetMethodType"]]]])
+                   model_uri=CCDH.histologicalCompositionObservationSet__method_type, domain=HistologicalCompositionObservationSet, range=Optional[Union[Union[str, "EnumCCDHHistologicalCompositionObservationSetMethodType"], List[Union[str, "EnumCCDHHistologicalCompositionObservationSetMethodType"]]]])
 
 slots.histologicalCompositionObservationSet__performed_by = Slot(uri=CCDH.performed_by, name="histologicalCompositionObservationSet__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.histologicalCompositionObservationSet__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.histologicalCompositionObservationSet__performed_by, domain=HistologicalCompositionObservationSet, range=Optional[Union[dict, "Organization"]])
 
 slots.histologicalCompositionObservationSet__observations = Slot(uri=CCDH.observations, name="histologicalCompositionObservationSet__observations", curie=CCDH.curie('observations'),
-                   model_uri=CCDH.histologicalCompositionObservationSet__observations, domain=None, range=Optional[Union[Union[dict, HistologicalCompositionObservation], List[Union[dict, HistologicalCompositionObservation]]]])
+                   model_uri=CCDH.histologicalCompositionObservationSet__observations, domain=HistologicalCompositionObservationSet, range=Optional[Union[Union[dict, HistologicalCompositionObservation], List[Union[dict, HistologicalCompositionObservation]]]])
 
 slots.identifier__value = Slot(uri=CCDH.value, name="identifier__value", curie=CCDH.curie('value'),
-                   model_uri=CCDH.identifier__value, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.identifier__value, domain=Identifier, range=Union[str, CcdhString])
 
 slots.identifier__system = Slot(uri=CCDH.system, name="identifier__system", curie=CCDH.curie('system'),
-                   model_uri=CCDH.identifier__system, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.identifier__system, domain=Identifier, range=Optional[Union[str, CcdhString]])
 
 slots.identifier__type = Slot(uri=CCDH.type, name="identifier__type", curie=CCDH.curie('type'),
-                   model_uri=CCDH.identifier__type, domain=None, range=Optional[Union[str, "EnumCCDHIdentifierType"]])
+                   model_uri=CCDH.identifier__type, domain=Identifier, range=Optional[Union[str, "EnumCCDHIdentifierType"]])
 
 slots.observation__id = Slot(uri=CCDH.id, name="observation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.observation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.observation__id, domain=Observation, range=Optional[Union[str, CcdhString]])
 
 slots.observation__category = Slot(uri=CCDH.category, name="observation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.observation__category, domain=None, range=Optional[Union[str, "EnumCCDHObservationCategory"]])
+                   model_uri=CCDH.observation__category, domain=Observation, range=Optional[Union[str, "EnumCCDHObservationCategory"]])
 
 slots.observation__observation_type = Slot(uri=CCDH.observation_type, name="observation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.observation__observation_type, domain=None, range=Union[str, "EnumCCDHObservationObservationType"])
+                   model_uri=CCDH.observation__observation_type, domain=Observation, range=Union[str, "EnumCCDHObservationObservationType"])
 
 slots.observation__method_type = Slot(uri=CCDH.method_type, name="observation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.observation__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHObservationMethodType"], List[Union[str, "EnumCCDHObservationMethodType"]]]])
+                   model_uri=CCDH.observation__method_type, domain=Observation, range=Optional[Union[Union[str, "EnumCCDHObservationMethodType"], List[Union[str, "EnumCCDHObservationMethodType"]]]])
 
 slots.observation__focus = Slot(uri=CCDH.focus, name="observation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.observation__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.observation__focus, domain=Observation, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.observation__subject = Slot(uri=CCDH.subject, name="observation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.observation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.observation__subject, domain=Observation, range=Optional[Union[dict, "Subject"]])
 
 slots.observation__performed_by = Slot(uri=CCDH.performed_by, name="observation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.observation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.observation__performed_by, domain=Observation, range=Optional[Union[dict, "Organization"]])
 
 slots.observation__valueEntity = Slot(uri=CCDH.valueEntity, name="observation__valueEntity", curie=CCDH.curie('valueEntity'),
-                   model_uri=CCDH.observation__valueEntity, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.observation__valueEntity, domain=Observation, range=Optional[Union[dict, Entity]])
 
 slots.observation__valueString = Slot(uri=CCDH.valueString, name="observation__valueString", curie=CCDH.curie('valueString'),
-                   model_uri=CCDH.observation__valueString, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.observation__valueString, domain=Observation, range=Optional[Union[str, CcdhString]])
 
 slots.observation__valueInteger = Slot(uri=CCDH.valueInteger, name="observation__valueInteger", curie=CCDH.curie('valueInteger'),
-                   model_uri=CCDH.observation__valueInteger, domain=None, range=Optional[Union[Decimal, CcdhDecimal]])
+                   model_uri=CCDH.observation__valueInteger, domain=Observation, range=Optional[Union[Decimal, CcdhDecimal]])
 
 slots.observation__valueDecimal = Slot(uri=CCDH.valueDecimal, name="observation__valueDecimal", curie=CCDH.curie('valueDecimal'),
-                   model_uri=CCDH.observation__valueDecimal, domain=None, range=Optional[Union[Decimal, CcdhDecimal]])
+                   model_uri=CCDH.observation__valueDecimal, domain=Observation, range=Optional[Union[Decimal, CcdhDecimal]])
 
 slots.observation__valueBoolean = Slot(uri=CCDH.valueBoolean, name="observation__valueBoolean", curie=CCDH.curie('valueBoolean'),
-                   model_uri=CCDH.observation__valueBoolean, domain=None, range=Optional[Union[bool, CcdhBoolean]])
+                   model_uri=CCDH.observation__valueBoolean, domain=Observation, range=Optional[Union[bool, CcdhBoolean]])
 
 slots.observation__valueDateTime = Slot(uri=CCDH.valueDateTime, name="observation__valueDateTime", curie=CCDH.curie('valueDateTime'),
-                   model_uri=CCDH.observation__valueDateTime, domain=None, range=Optional[Union[str, CcdhDateTime]])
+                   model_uri=CCDH.observation__valueDateTime, domain=Observation, range=Optional[Union[str, CcdhDateTime]])
 
 slots.observation__valueQuantity = Slot(uri=CCDH.valueQuantity, name="observation__valueQuantity", curie=CCDH.curie('valueQuantity'),
-                   model_uri=CCDH.observation__valueQuantity, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.observation__valueQuantity, domain=Observation, range=Optional[Union[dict, "Quantity"]])
 
 slots.observation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="observation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.observation__valueCodeableConcept, domain=None, range=Optional[Union[str, "EnumCCDHObservationValueCodeableConcept"]])
+                   model_uri=CCDH.observation__valueCodeableConcept, domain=Observation, range=Optional[Union[str, "EnumCCDHObservationValueCodeableConcept"]])
 
 slots.observationSet__id = Slot(uri=CCDH.id, name="observationSet__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.observationSet__id, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.observationSet__id, domain=ObservationSet, range=Union[str, CcdhString])
 
 slots.observationSet__category = Slot(uri=CCDH.category, name="observationSet__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.observationSet__category, domain=None, range=Union[str, "EnumCCDHObservationSetCategory"])
+                   model_uri=CCDH.observationSet__category, domain=ObservationSet, range=Union[str, "EnumCCDHObservationSetCategory"])
 
 slots.observationSet__focus = Slot(uri=CCDH.focus, name="observationSet__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.observationSet__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.observationSet__focus, domain=ObservationSet, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.observationSet__subject = Slot(uri=CCDH.subject, name="observationSet__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.observationSet__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.observationSet__subject, domain=ObservationSet, range=Optional[Union[dict, "Subject"]])
 
 slots.observationSet__method_type = Slot(uri=CCDH.method_type, name="observationSet__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.observationSet__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHObservationSetMethodType"], List[Union[str, "EnumCCDHObservationSetMethodType"]]]])
+                   model_uri=CCDH.observationSet__method_type, domain=ObservationSet, range=Optional[Union[Union[str, "EnumCCDHObservationSetMethodType"], List[Union[str, "EnumCCDHObservationSetMethodType"]]]])
 
 slots.observationSet__performed_by = Slot(uri=CCDH.performed_by, name="observationSet__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.observationSet__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.observationSet__performed_by, domain=ObservationSet, range=Optional[Union[dict, "Organization"]])
 
 slots.observationSet__observations = Slot(uri=CCDH.observations, name="observationSet__observations", curie=CCDH.curie('observations'),
-                   model_uri=CCDH.observationSet__observations, domain=None, range=Optional[Union[Union[dict, Observation], List[Union[dict, Observation]]]])
+                   model_uri=CCDH.observationSet__observations, domain=ObservationSet, range=Optional[Union[Union[dict, Observation], List[Union[dict, Observation]]]])
 
 slots.organization__id = Slot(uri=CCDH.id, name="organization__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.organization__id, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.organization__id, domain=Organization, range=Union[str, CcdhString])
 
 slots.organization__identifier = Slot(uri=CCDH.identifier, name="organization__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.organization__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.organization__identifier, domain=Organization, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
 
 slots.organization__name = Slot(uri=CCDH.name, name="organization__name", curie=CCDH.curie('name'),
-                   model_uri=CCDH.organization__name, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.organization__name, domain=Organization, range=Optional[Union[str, CcdhString]])
 
 slots.organization__alias = Slot(uri=CCDH.alias, name="organization__alias", curie=CCDH.curie('alias'),
-                   model_uri=CCDH.organization__alias, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.organization__alias, domain=Organization, range=Optional[Union[str, CcdhString]])
 
 slots.organization__organization_type = Slot(uri=CCDH.organization_type, name="organization__organization_type", curie=CCDH.curie('organization_type'),
-                   model_uri=CCDH.organization__organization_type, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.organization__organization_type, domain=Organization, range=Optional[Union[str, CcdhString]])
 
 slots.quantity__valueDecimal = Slot(uri=CCDH.valueDecimal, name="quantity__valueDecimal", curie=CCDH.curie('valueDecimal'),
-                   model_uri=CCDH.quantity__valueDecimal, domain=None, range=Optional[Union[Decimal, CcdhDecimal]])
+                   model_uri=CCDH.quantity__valueDecimal, domain=Quantity, range=Optional[Union[Decimal, CcdhDecimal]])
 
 slots.quantity__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="quantity__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.quantity__valueCodeableConcept, domain=None, range=Optional[Union[str, "EnumCCDHQuantityValueCodeableConcept"]])
+                   model_uri=CCDH.quantity__valueCodeableConcept, domain=Quantity, range=Optional[Union[str, "EnumCCDHQuantityValueCodeableConcept"]])
 
 slots.quantity__unit = Slot(uri=CCDH.unit, name="quantity__unit", curie=CCDH.curie('unit'),
-                   model_uri=CCDH.quantity__unit, domain=None, range=Optional[Union[str, "EnumCCDHQuantityUnit"]])
+                   model_uri=CCDH.quantity__unit, domain=Quantity, range=Optional[Union[str, "EnumCCDHQuantityUnit"]])
 
 slots.researchProject__id = Slot(uri=CCDH.id, name="researchProject__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.researchProject__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.researchProject__id, domain=ResearchProject, range=Optional[Union[str, CcdhString]])
 
 slots.researchProject__identifier = Slot(uri=CCDH.identifier, name="researchProject__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.researchProject__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.researchProject__identifier, domain=ResearchProject, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
 
 slots.researchProject__name = Slot(uri=CCDH.name, name="researchProject__name", curie=CCDH.curie('name'),
-                   model_uri=CCDH.researchProject__name, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.researchProject__name, domain=ResearchProject, range=Optional[Union[str, CcdhString]])
 
 slots.researchProject__name_shortened = Slot(uri=CCDH.name_shortened, name="researchProject__name_shortened", curie=CCDH.curie('name_shortened'),
-                   model_uri=CCDH.researchProject__name_shortened, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.researchProject__name_shortened, domain=ResearchProject, range=Optional[Union[str, CcdhString]])
 
 slots.researchProject__description = Slot(uri=CCDH.description, name="researchProject__description", curie=CCDH.curie('description'),
-                   model_uri=CCDH.researchProject__description, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.researchProject__description, domain=ResearchProject, range=Optional[Union[str, CcdhString]])
 
 slots.researchProject__description_shortened = Slot(uri=CCDH.description_shortened, name="researchProject__description_shortened", curie=CCDH.curie('description_shortened'),
-                   model_uri=CCDH.researchProject__description_shortened, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.researchProject__description_shortened, domain=ResearchProject, range=Optional[Union[str, CcdhString]])
 
 slots.researchProject__sponsor = Slot(uri=CCDH.sponsor, name="researchProject__sponsor", curie=CCDH.curie('sponsor'),
-                   model_uri=CCDH.researchProject__sponsor, domain=None, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
+                   model_uri=CCDH.researchProject__sponsor, domain=ResearchProject, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
 
 slots.researchProject__date_started = Slot(uri=CCDH.date_started, name="researchProject__date_started", curie=CCDH.curie('date_started'),
-                   model_uri=CCDH.researchProject__date_started, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.researchProject__date_started, domain=ResearchProject, range=Optional[Union[dict, "TimePoint"]])
 
 slots.researchProject__date_ended = Slot(uri=CCDH.date_ended, name="researchProject__date_ended", curie=CCDH.curie('date_ended'),
-                   model_uri=CCDH.researchProject__date_ended, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.researchProject__date_ended, domain=ResearchProject, range=Optional[Union[dict, "TimePoint"]])
 
 slots.researchProject__primary_anatomic_site = Slot(uri=CCDH.primary_anatomic_site, name="researchProject__primary_anatomic_site", curie=CCDH.curie('primary_anatomic_site'),
-                   model_uri=CCDH.researchProject__primary_anatomic_site, domain=None, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
+                   model_uri=CCDH.researchProject__primary_anatomic_site, domain=ResearchProject, range=Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]])
 
 slots.researchProject__url = Slot(uri=CCDH.url, name="researchProject__url", curie=CCDH.curie('url'),
-                   model_uri=CCDH.researchProject__url, domain=None, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
+                   model_uri=CCDH.researchProject__url, domain=ResearchProject, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
 
 slots.researchProject__part_of = Slot(uri=CCDH.part_of, name="researchProject__part_of", curie=CCDH.curie('part_of'),
-                   model_uri=CCDH.researchProject__part_of, domain=None, range=Optional[Union[Union[dict, ResearchProject], List[Union[dict, ResearchProject]]]])
+                   model_uri=CCDH.researchProject__part_of, domain=ResearchProject, range=Optional[Union[Union[dict, "ResearchProject"], List[Union[dict, "ResearchProject"]]]])
 
 slots.researchProject__research_project_type = Slot(uri=CCDH.research_project_type, name="researchProject__research_project_type", curie=CCDH.curie('research_project_type'),
-                   model_uri=CCDH.researchProject__research_project_type, domain=None, range=Union[str, "EnumCCDHResearchProjectResearchProjectType"])
+                   model_uri=CCDH.researchProject__research_project_type, domain=ResearchProject, range=Union[str, "EnumCCDHResearchProjectResearchProjectType"])
 
 slots.researchProject__associated_timepoint = Slot(uri=CCDH.associated_timepoint, name="researchProject__associated_timepoint", curie=CCDH.curie('associated_timepoint'),
-                   model_uri=CCDH.researchProject__associated_timepoint, domain=None, range=Optional[Union[Union[dict, TimePoint], List[Union[dict, TimePoint]]]])
+                   model_uri=CCDH.researchProject__associated_timepoint, domain=ResearchProject, range=Optional[Union[Union[dict, "TimePoint"], List[Union[dict, "TimePoint"]]]])
 
 slots.researchSubject__id = Slot(uri=CCDH.id, name="researchSubject__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.researchSubject__id, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.researchSubject__id, domain=ResearchSubject, range=Union[str, CcdhString])
 
 slots.researchSubject__identifier = Slot(uri=CCDH.identifier, name="researchSubject__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.researchSubject__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.researchSubject__identifier, domain=ResearchSubject, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
 
 slots.researchSubject__description = Slot(uri=CCDH.description, name="researchSubject__description", curie=CCDH.curie('description'),
-                   model_uri=CCDH.researchSubject__description, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.researchSubject__description, domain=ResearchSubject, range=Optional[Union[str, CcdhString]])
 
 slots.researchSubject__member_of_research_project = Slot(uri=CCDH.member_of_research_project, name="researchSubject__member_of_research_project", curie=CCDH.curie('member_of_research_project'),
-                   model_uri=CCDH.researchSubject__member_of_research_project, domain=None, range=Optional[Union[dict, ResearchProject]])
+                   model_uri=CCDH.researchSubject__member_of_research_project, domain=ResearchSubject, range=Optional[Union[dict, ResearchProject]])
 
 slots.researchSubject__age_at_enrollment = Slot(uri=CCDH.age_at_enrollment, name="researchSubject__age_at_enrollment", curie=CCDH.curie('age_at_enrollment'),
-                   model_uri=CCDH.researchSubject__age_at_enrollment, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.researchSubject__age_at_enrollment, domain=ResearchSubject, range=Optional[Union[dict, Quantity]])
 
 slots.researchSubject__primary_diagnosis_condition = Slot(uri=CCDH.primary_diagnosis_condition, name="researchSubject__primary_diagnosis_condition", curie=CCDH.curie('primary_diagnosis_condition'),
-                   model_uri=CCDH.researchSubject__primary_diagnosis_condition, domain=None, range=Optional[Union[str, "EnumCCDHResearchSubjectPrimaryDiagnosisCondition"]])
+                   model_uri=CCDH.researchSubject__primary_diagnosis_condition, domain=ResearchSubject, range=Optional[Union[str, "EnumCCDHResearchSubjectPrimaryDiagnosisCondition"]])
 
 slots.researchSubject__primary_diagnosis_site = Slot(uri=CCDH.primary_diagnosis_site, name="researchSubject__primary_diagnosis_site", curie=CCDH.curie('primary_diagnosis_site'),
-                   model_uri=CCDH.researchSubject__primary_diagnosis_site, domain=None, range=Optional[Union[dict, BodySite]])
+                   model_uri=CCDH.researchSubject__primary_diagnosis_site, domain=ResearchSubject, range=Optional[Union[dict, BodySite]])
 
 slots.researchSubject__primary_diagnosis = Slot(uri=CCDH.primary_diagnosis, name="researchSubject__primary_diagnosis", curie=CCDH.curie('primary_diagnosis'),
-                   model_uri=CCDH.researchSubject__primary_diagnosis, domain=None, range=Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]])
+                   model_uri=CCDH.researchSubject__primary_diagnosis, domain=ResearchSubject, range=Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]])
 
 slots.researchSubject__comorbid_diagnosis = Slot(uri=CCDH.comorbid_diagnosis, name="researchSubject__comorbid_diagnosis", curie=CCDH.curie('comorbid_diagnosis'),
-                   model_uri=CCDH.researchSubject__comorbid_diagnosis, domain=None, range=Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]])
+                   model_uri=CCDH.researchSubject__comorbid_diagnosis, domain=ResearchSubject, range=Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]])
 
 slots.researchSubject__index_timepoint = Slot(uri=CCDH.index_timepoint, name="researchSubject__index_timepoint", curie=CCDH.curie('index_timepoint'),
-                   model_uri=CCDH.researchSubject__index_timepoint, domain=None, range=Optional[Union[str, "EnumCCDHResearchSubjectIndexTimepoint"]])
+                   model_uri=CCDH.researchSubject__index_timepoint, domain=ResearchSubject, range=Optional[Union[str, "EnumCCDHResearchSubjectIndexTimepoint"]])
 
 slots.researchSubject__originating_site = Slot(uri=CCDH.originating_site, name="researchSubject__originating_site", curie=CCDH.curie('originating_site'),
-                   model_uri=CCDH.researchSubject__originating_site, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.researchSubject__originating_site, domain=ResearchSubject, range=Optional[Union[dict, Organization]])
 
 slots.researchSubject__associated_subject = Slot(uri=CCDH.associated_subject, name="researchSubject__associated_subject", curie=CCDH.curie('associated_subject'),
-                   model_uri=CCDH.researchSubject__associated_subject, domain=None, range=Union[dict, Subject])
+                   model_uri=CCDH.researchSubject__associated_subject, domain=ResearchSubject, range=Union[dict, "Subject"])
 
 slots.specimen__id = Slot(uri=CCDH.id, name="specimen__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.specimen__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.specimen__id, domain=Specimen, range=Optional[Union[str, CcdhString]])
 
 slots.specimen__identifier = Slot(uri=CCDH.identifier, name="specimen__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.specimen__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.specimen__identifier, domain=Specimen, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
 
 slots.specimen__description = Slot(uri=CCDH.description, name="specimen__description", curie=CCDH.curie('description'),
-                   model_uri=CCDH.specimen__description, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.specimen__description, domain=Specimen, range=Optional[Union[str, CcdhString]])
 
 slots.specimen__specimen_type = Slot(uri=CCDH.specimen_type, name="specimen__specimen_type", curie=CCDH.curie('specimen_type'),
-                   model_uri=CCDH.specimen__specimen_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenSpecimenType"]])
+                   model_uri=CCDH.specimen__specimen_type, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenSpecimenType"]])
 
 slots.specimen__analyte_type = Slot(uri=CCDH.analyte_type, name="specimen__analyte_type", curie=CCDH.curie('analyte_type'),
-                   model_uri=CCDH.specimen__analyte_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenAnalyteType"]])
+                   model_uri=CCDH.specimen__analyte_type, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenAnalyteType"]])
 
 slots.specimen__associated_project = Slot(uri=CCDH.associated_project, name="specimen__associated_project", curie=CCDH.curie('associated_project'),
-                   model_uri=CCDH.specimen__associated_project, domain=None, range=Optional[Union[dict, ResearchProject]])
+                   model_uri=CCDH.specimen__associated_project, domain=Specimen, range=Optional[Union[dict, ResearchProject]])
 
 slots.specimen__data_provider = Slot(uri=CCDH.data_provider, name="specimen__data_provider", curie=CCDH.curie('data_provider'),
-                   model_uri=CCDH.specimen__data_provider, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimen__data_provider, domain=Specimen, range=Optional[Union[dict, Organization]])
 
 slots.specimen__source_material_type = Slot(uri=CCDH.source_material_type, name="specimen__source_material_type", curie=CCDH.curie('source_material_type'),
-                   model_uri=CCDH.specimen__source_material_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenSourceMaterialType"]])
+                   model_uri=CCDH.specimen__source_material_type, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenSourceMaterialType"]])
 
 slots.specimen__parent_specimen = Slot(uri=CCDH.parent_specimen, name="specimen__parent_specimen", curie=CCDH.curie('parent_specimen'),
-                   model_uri=CCDH.specimen__parent_specimen, domain=None, range=Optional[Union[Union[dict, Specimen], List[Union[dict, Specimen]]]])
+                   model_uri=CCDH.specimen__parent_specimen, domain=Specimen, range=Optional[Union[Union[dict, "Specimen"], List[Union[dict, "Specimen"]]]])
 
 slots.specimen__source_subject = Slot(uri=CCDH.source_subject, name="specimen__source_subject", curie=CCDH.curie('source_subject'),
-                   model_uri=CCDH.specimen__source_subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.specimen__source_subject, domain=Specimen, range=Optional[Union[dict, "Subject"]])
 
 slots.specimen__tumor_status_at_collection = Slot(uri=CCDH.tumor_status_at_collection, name="specimen__tumor_status_at_collection", curie=CCDH.curie('tumor_status_at_collection'),
-                   model_uri=CCDH.specimen__tumor_status_at_collection, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenTumorStatusAtCollection"]])
+                   model_uri=CCDH.specimen__tumor_status_at_collection, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenTumorStatusAtCollection"]])
 
 slots.specimen__creation_activity = Slot(uri=CCDH.creation_activity, name="specimen__creation_activity", curie=CCDH.curie('creation_activity'),
-                   model_uri=CCDH.specimen__creation_activity, domain=None, range=Optional[Union[dict, SpecimenCreationActivity]])
+                   model_uri=CCDH.specimen__creation_activity, domain=Specimen, range=Optional[Union[dict, "SpecimenCreationActivity"]])
 
 slots.specimen__processing_activity = Slot(uri=CCDH.processing_activity, name="specimen__processing_activity", curie=CCDH.curie('processing_activity'),
-                   model_uri=CCDH.specimen__processing_activity, domain=None, range=Optional[Union[Union[dict, SpecimenProcessingActivity], List[Union[dict, SpecimenProcessingActivity]]]])
+                   model_uri=CCDH.specimen__processing_activity, domain=Specimen, range=Optional[Union[Union[dict, "SpecimenProcessingActivity"], List[Union[dict, "SpecimenProcessingActivity"]]]])
 
 slots.specimen__storage_activity = Slot(uri=CCDH.storage_activity, name="specimen__storage_activity", curie=CCDH.curie('storage_activity'),
-                   model_uri=CCDH.specimen__storage_activity, domain=None, range=Optional[Union[Union[dict, SpecimenStorageActivity], List[Union[dict, SpecimenStorageActivity]]]])
+                   model_uri=CCDH.specimen__storage_activity, domain=Specimen, range=Optional[Union[Union[dict, "SpecimenStorageActivity"], List[Union[dict, "SpecimenStorageActivity"]]]])
 
 slots.specimen__transport_activity = Slot(uri=CCDH.transport_activity, name="specimen__transport_activity", curie=CCDH.curie('transport_activity'),
-                   model_uri=CCDH.specimen__transport_activity, domain=None, range=Optional[Union[Union[dict, SpecimenTransportActivity], List[Union[dict, SpecimenTransportActivity]]]])
+                   model_uri=CCDH.specimen__transport_activity, domain=Specimen, range=Optional[Union[Union[dict, "SpecimenTransportActivity"], List[Union[dict, "SpecimenTransportActivity"]]]])
 
 slots.specimen__contained_in = Slot(uri=CCDH.contained_in, name="specimen__contained_in", curie=CCDH.curie('contained_in'),
-                   model_uri=CCDH.specimen__contained_in, domain=None, range=Optional[Union[dict, SpecimenContainer]])
+                   model_uri=CCDH.specimen__contained_in, domain=Specimen, range=Optional[Union[dict, "SpecimenContainer"]])
 
 slots.specimen__dimensional_measures = Slot(uri=CCDH.dimensional_measures, name="specimen__dimensional_measures", curie=CCDH.curie('dimensional_measures'),
-                   model_uri=CCDH.specimen__dimensional_measures, domain=None, range=Optional[Union[dict, DimensionalObservationSet]])
+                   model_uri=CCDH.specimen__dimensional_measures, domain=Specimen, range=Optional[Union[dict, DimensionalObservationSet]])
 
 slots.specimen__quantity_measure = Slot(uri=CCDH.quantity_measure, name="specimen__quantity_measure", curie=CCDH.curie('quantity_measure'),
-                   model_uri=CCDH.specimen__quantity_measure, domain=None, range=Optional[Union[Union[dict, SpecimenQuantityObservation], List[Union[dict, SpecimenQuantityObservation]]]])
+                   model_uri=CCDH.specimen__quantity_measure, domain=Specimen, range=Optional[Union[Union[dict, "SpecimenQuantityObservation"], List[Union[dict, "SpecimenQuantityObservation"]]]])
 
 slots.specimen__quality_measure = Slot(uri=CCDH.quality_measure, name="specimen__quality_measure", curie=CCDH.curie('quality_measure'),
-                   model_uri=CCDH.specimen__quality_measure, domain=None, range=Optional[Union[Union[dict, SpecimenQualityObservation], List[Union[dict, SpecimenQualityObservation]]]])
+                   model_uri=CCDH.specimen__quality_measure, domain=Specimen, range=Optional[Union[Union[dict, "SpecimenQualityObservation"], List[Union[dict, "SpecimenQualityObservation"]]]])
 
 slots.specimen__cellular_composition_type = Slot(uri=CCDH.cellular_composition_type, name="specimen__cellular_composition_type", curie=CCDH.curie('cellular_composition_type'),
-                   model_uri=CCDH.specimen__cellular_composition_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenCellularCompositionType"]])
+                   model_uri=CCDH.specimen__cellular_composition_type, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenCellularCompositionType"]])
 
 slots.specimen__histological_composition_measures = Slot(uri=CCDH.histological_composition_measures, name="specimen__histological_composition_measures", curie=CCDH.curie('histological_composition_measures'),
-                   model_uri=CCDH.specimen__histological_composition_measures, domain=None, range=Optional[Union[Union[dict, HistologicalCompositionObservationSet], List[Union[dict, HistologicalCompositionObservationSet]]]])
+                   model_uri=CCDH.specimen__histological_composition_measures, domain=Specimen, range=Optional[Union[Union[dict, HistologicalCompositionObservationSet], List[Union[dict, HistologicalCompositionObservationSet]]]])
 
 slots.specimen__general_tissue_morphology = Slot(uri=CCDH.general_tissue_morphology, name="specimen__general_tissue_morphology", curie=CCDH.curie('general_tissue_morphology'),
-                   model_uri=CCDH.specimen__general_tissue_morphology, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenGeneralTissueMorphology"]])
+                   model_uri=CCDH.specimen__general_tissue_morphology, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenGeneralTissueMorphology"]])
 
 slots.specimen__specific_tissue_morphology = Slot(uri=CCDH.specific_tissue_morphology, name="specimen__specific_tissue_morphology", curie=CCDH.curie('specific_tissue_morphology'),
-                   model_uri=CCDH.specimen__specific_tissue_morphology, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenSpecificTissueMorphology"]])
+                   model_uri=CCDH.specimen__specific_tissue_morphology, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenSpecificTissueMorphology"]])
 
 slots.specimen__preinvasive_tissue_morphology = Slot(uri=CCDH.preinvasive_tissue_morphology, name="specimen__preinvasive_tissue_morphology", curie=CCDH.curie('preinvasive_tissue_morphology'),
-                   model_uri=CCDH.specimen__preinvasive_tissue_morphology, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenPreinvasiveTissueMorphology"]])
+                   model_uri=CCDH.specimen__preinvasive_tissue_morphology, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenPreinvasiveTissueMorphology"]])
 
 slots.specimen__morphology_pathologically_confirmed = Slot(uri=CCDH.morphology_pathologically_confirmed, name="specimen__morphology_pathologically_confirmed", curie=CCDH.curie('morphology_pathologically_confirmed'),
-                   model_uri=CCDH.specimen__morphology_pathologically_confirmed, domain=None, range=Optional[Union[bool, CcdhBoolean]])
+                   model_uri=CCDH.specimen__morphology_pathologically_confirmed, domain=Specimen, range=Optional[Union[bool, CcdhBoolean]])
 
 slots.specimen__morphology_assessor_role = Slot(uri=CCDH.morphology_assessor_role, name="specimen__morphology_assessor_role", curie=CCDH.curie('morphology_assessor_role'),
-                   model_uri=CCDH.specimen__morphology_assessor_role, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenMorphologyAssessorRole"]])
+                   model_uri=CCDH.specimen__morphology_assessor_role, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenMorphologyAssessorRole"]])
 
 slots.specimen__morphlogy_assessment_method = Slot(uri=CCDH.morphlogy_assessment_method, name="specimen__morphlogy_assessment_method", curie=CCDH.curie('morphlogy_assessment_method'),
-                   model_uri=CCDH.specimen__morphlogy_assessment_method, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenMorphlogyAssessmentMethod"]])
+                   model_uri=CCDH.specimen__morphlogy_assessment_method, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenMorphlogyAssessmentMethod"]])
 
 slots.specimen__degree_of_dysplasia = Slot(uri=CCDH.degree_of_dysplasia, name="specimen__degree_of_dysplasia", curie=CCDH.curie('degree_of_dysplasia'),
-                   model_uri=CCDH.specimen__degree_of_dysplasia, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenDegreeOfDysplasia"]])
+                   model_uri=CCDH.specimen__degree_of_dysplasia, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenDegreeOfDysplasia"]])
 
 slots.specimen__dysplasia_fraction = Slot(uri=CCDH.dysplasia_fraction, name="specimen__dysplasia_fraction", curie=CCDH.curie('dysplasia_fraction'),
-                   model_uri=CCDH.specimen__dysplasia_fraction, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.specimen__dysplasia_fraction, domain=Specimen, range=Optional[Union[str, CcdhString]])
 
 slots.specimen__related_document = Slot(uri=CCDH.related_document, name="specimen__related_document", curie=CCDH.curie('related_document'),
-                   model_uri=CCDH.specimen__related_document, domain=None, range=Optional[Union[Union[dict, Document], List[Union[dict, Document]]]])
+                   model_uri=CCDH.specimen__related_document, domain=Specimen, range=Optional[Union[Union[dict, Document], List[Union[dict, Document]]]])
 
 slots.specimen__section_location = Slot(uri=CCDH.section_location, name="specimen__section_location", curie=CCDH.curie('section_location'),
-                   model_uri=CCDH.specimen__section_location, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenSectionLocation"]])
+                   model_uri=CCDH.specimen__section_location, domain=Specimen, range=Optional[Union[str, "EnumCCDHSpecimenSectionLocation"]])
 
 slots.specimen__derived_product = Slot(uri=CCDH.derived_product, name="specimen__derived_product", curie=CCDH.curie('derived_product'),
-                   model_uri=CCDH.specimen__derived_product, domain=None, range=Optional[Union[Union[dict, BiologicProduct], List[Union[dict, BiologicProduct]]]])
+                   model_uri=CCDH.specimen__derived_product, domain=Specimen, range=Optional[Union[Union[dict, BiologicProduct], List[Union[dict, BiologicProduct]]]])
 
 slots.specimen__distance_from_paired_specimen = Slot(uri=CCDH.distance_from_paired_specimen, name="specimen__distance_from_paired_specimen", curie=CCDH.curie('distance_from_paired_specimen'),
-                   model_uri=CCDH.specimen__distance_from_paired_specimen, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.specimen__distance_from_paired_specimen, domain=Specimen, range=Optional[Union[dict, Quantity]])
 
 slots.specimenContainer__id = Slot(uri=CCDH.id, name="specimenContainer__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.specimenContainer__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.specimenContainer__id, domain=SpecimenContainer, range=Optional[Union[str, CcdhString]])
 
 slots.specimenContainer__identifier = Slot(uri=CCDH.identifier, name="specimenContainer__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.specimenContainer__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.specimenContainer__identifier, domain=SpecimenContainer, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
 
 slots.specimenContainer__container_type = Slot(uri=CCDH.container_type, name="specimenContainer__container_type", curie=CCDH.curie('container_type'),
-                   model_uri=CCDH.specimenContainer__container_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenContainerContainerType"]])
+                   model_uri=CCDH.specimenContainer__container_type, domain=SpecimenContainer, range=Optional[Union[str, "EnumCCDHSpecimenContainerContainerType"]])
 
 slots.specimenContainer__container_number = Slot(uri=CCDH.container_number, name="specimenContainer__container_number", curie=CCDH.curie('container_number'),
-                   model_uri=CCDH.specimenContainer__container_number, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.specimenContainer__container_number, domain=SpecimenContainer, range=Optional[Union[str, CcdhString]])
 
 slots.specimenContainer__additive = Slot(uri=CCDH.additive, name="specimenContainer__additive", curie=CCDH.curie('additive'),
-                   model_uri=CCDH.specimenContainer__additive, domain=None, range=Optional[Union[Union[dict, Substance], List[Union[dict, Substance]]]])
+                   model_uri=CCDH.specimenContainer__additive, domain=SpecimenContainer, range=Optional[Union[Union[dict, "Substance"], List[Union[dict, "Substance"]]]])
 
 slots.specimenContainer__parent_container = Slot(uri=CCDH.parent_container, name="specimenContainer__parent_container", curie=CCDH.curie('parent_container'),
-                   model_uri=CCDH.specimenContainer__parent_container, domain=None, range=Optional[Union[dict, SpecimenContainer]])
+                   model_uri=CCDH.specimenContainer__parent_container, domain=SpecimenContainer, range=Optional[Union[dict, "SpecimenContainer"]])
 
 slots.specimenCreationActivity__activity_type = Slot(uri=CCDH.activity_type, name="specimenCreationActivity__activity_type", curie=CCDH.curie('activity_type'),
-                   model_uri=CCDH.specimenCreationActivity__activity_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenCreationActivityActivityType"]])
+                   model_uri=CCDH.specimenCreationActivity__activity_type, domain=SpecimenCreationActivity, range=Optional[Union[str, "EnumCCDHSpecimenCreationActivityActivityType"]])
 
 slots.specimenCreationActivity__date_started = Slot(uri=CCDH.date_started, name="specimenCreationActivity__date_started", curie=CCDH.curie('date_started'),
-                   model_uri=CCDH.specimenCreationActivity__date_started, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenCreationActivity__date_started, domain=SpecimenCreationActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenCreationActivity__date_ended = Slot(uri=CCDH.date_ended, name="specimenCreationActivity__date_ended", curie=CCDH.curie('date_ended'),
-                   model_uri=CCDH.specimenCreationActivity__date_ended, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenCreationActivity__date_ended, domain=SpecimenCreationActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenCreationActivity__performed_by = Slot(uri=CCDH.performed_by, name="specimenCreationActivity__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.specimenCreationActivity__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenCreationActivity__performed_by, domain=SpecimenCreationActivity, range=Optional[Union[dict, Organization]])
 
 slots.specimenCreationActivity__collection_method_type = Slot(uri=CCDH.collection_method_type, name="specimenCreationActivity__collection_method_type", curie=CCDH.curie('collection_method_type'),
-                   model_uri=CCDH.specimenCreationActivity__collection_method_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenCreationActivityCollectionMethodType"]])
+                   model_uri=CCDH.specimenCreationActivity__collection_method_type, domain=SpecimenCreationActivity, range=Optional[Union[str, "EnumCCDHSpecimenCreationActivityCollectionMethodType"]])
 
 slots.specimenCreationActivity__derivation_method_type = Slot(uri=CCDH.derivation_method_type, name="specimenCreationActivity__derivation_method_type", curie=CCDH.curie('derivation_method_type'),
-                   model_uri=CCDH.specimenCreationActivity__derivation_method_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenCreationActivityDerivationMethodType"]])
+                   model_uri=CCDH.specimenCreationActivity__derivation_method_type, domain=SpecimenCreationActivity, range=Optional[Union[str, "EnumCCDHSpecimenCreationActivityDerivationMethodType"]])
 
 slots.specimenCreationActivity__additive = Slot(uri=CCDH.additive, name="specimenCreationActivity__additive", curie=CCDH.curie('additive'),
-                   model_uri=CCDH.specimenCreationActivity__additive, domain=None, range=Optional[Union[Union[dict, Substance], List[Union[dict, Substance]]]])
+                   model_uri=CCDH.specimenCreationActivity__additive, domain=SpecimenCreationActivity, range=Optional[Union[Union[dict, "Substance"], List[Union[dict, "Substance"]]]])
 
 slots.specimenCreationActivity__collection_site = Slot(uri=CCDH.collection_site, name="specimenCreationActivity__collection_site", curie=CCDH.curie('collection_site'),
-                   model_uri=CCDH.specimenCreationActivity__collection_site, domain=None, range=Optional[Union[dict, BodySite]])
+                   model_uri=CCDH.specimenCreationActivity__collection_site, domain=SpecimenCreationActivity, range=Optional[Union[dict, BodySite]])
 
 slots.specimenCreationActivity__quantity_collected = Slot(uri=CCDH.quantity_collected, name="specimenCreationActivity__quantity_collected", curie=CCDH.curie('quantity_collected'),
-                   model_uri=CCDH.specimenCreationActivity__quantity_collected, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.specimenCreationActivity__quantity_collected, domain=SpecimenCreationActivity, range=Optional[Union[dict, Quantity]])
 
 slots.specimenCreationActivity__execution_time_observation = Slot(uri=CCDH.execution_time_observation, name="specimenCreationActivity__execution_time_observation", curie=CCDH.curie('execution_time_observation'),
-                   model_uri=CCDH.specimenCreationActivity__execution_time_observation, domain=None, range=Optional[Union[Union[dict, ExecutionTimeObservation], List[Union[dict, ExecutionTimeObservation]]]])
+                   model_uri=CCDH.specimenCreationActivity__execution_time_observation, domain=SpecimenCreationActivity, range=Optional[Union[Union[dict, ExecutionTimeObservation], List[Union[dict, ExecutionTimeObservation]]]])
 
 slots.specimenCreationActivity__execution_condition_observation = Slot(uri=CCDH.execution_condition_observation, name="specimenCreationActivity__execution_condition_observation", curie=CCDH.curie('execution_condition_observation'),
-                   model_uri=CCDH.specimenCreationActivity__execution_condition_observation, domain=None, range=Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]])
+                   model_uri=CCDH.specimenCreationActivity__execution_condition_observation, domain=SpecimenCreationActivity, range=Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]])
 
 slots.specimenCreationActivity__specimen_order = Slot(uri=CCDH.specimen_order, name="specimenCreationActivity__specimen_order", curie=CCDH.curie('specimen_order'),
-                   model_uri=CCDH.specimenCreationActivity__specimen_order, domain=None, range=Optional[Union[int, CcdhInteger]])
+                   model_uri=CCDH.specimenCreationActivity__specimen_order, domain=SpecimenCreationActivity, range=Optional[Union[int, CcdhInteger]])
 
 slots.specimenQualityObservation__id = Slot(uri=CCDH.id, name="specimenQualityObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.specimenQualityObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.specimenQualityObservation__id, domain=SpecimenQualityObservation, range=Optional[Union[str, CcdhString]])
 
 slots.specimenQualityObservation__category = Slot(uri=CCDH.category, name="specimenQualityObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.specimenQualityObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenQualityObservationCategory"]])
+                   model_uri=CCDH.specimenQualityObservation__category, domain=SpecimenQualityObservation, range=Optional[Union[str, "EnumCCDHSpecimenQualityObservationCategory"]])
 
 slots.specimenQualityObservation__observation_type = Slot(uri=CCDH.observation_type, name="specimenQualityObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.specimenQualityObservation__observation_type, domain=None, range=Union[str, "EnumCCDHSpecimenQualityObservationObservationType"])
+                   model_uri=CCDH.specimenQualityObservation__observation_type, domain=SpecimenQualityObservation, range=Union[str, "EnumCCDHSpecimenQualityObservationObservationType"])
 
 slots.specimenQualityObservation__method_type = Slot(uri=CCDH.method_type, name="specimenQualityObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.specimenQualityObservation__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHSpecimenQualityObservationMethodType"], List[Union[str, "EnumCCDHSpecimenQualityObservationMethodType"]]]])
+                   model_uri=CCDH.specimenQualityObservation__method_type, domain=SpecimenQualityObservation, range=Optional[Union[Union[str, "EnumCCDHSpecimenQualityObservationMethodType"], List[Union[str, "EnumCCDHSpecimenQualityObservationMethodType"]]]])
 
 slots.specimenQualityObservation__focus = Slot(uri=CCDH.focus, name="specimenQualityObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.specimenQualityObservation__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.specimenQualityObservation__focus, domain=SpecimenQualityObservation, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.specimenQualityObservation__subject = Slot(uri=CCDH.subject, name="specimenQualityObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.specimenQualityObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.specimenQualityObservation__subject, domain=SpecimenQualityObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.specimenQualityObservation__performed_by = Slot(uri=CCDH.performed_by, name="specimenQualityObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.specimenQualityObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenQualityObservation__performed_by, domain=SpecimenQualityObservation, range=Optional[Union[dict, Organization]])
 
 slots.specimenQualityObservation__valueQuantity = Slot(uri=CCDH.valueQuantity, name="specimenQualityObservation__valueQuantity", curie=CCDH.curie('valueQuantity'),
-                   model_uri=CCDH.specimenQualityObservation__valueQuantity, domain=None, range=Union[dict, Quantity])
+                   model_uri=CCDH.specimenQualityObservation__valueQuantity, domain=SpecimenQualityObservation, range=Union[dict, Quantity])
 
 slots.specimenQuantityObservation__id = Slot(uri=CCDH.id, name="specimenQuantityObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.specimenQuantityObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.specimenQuantityObservation__id, domain=SpecimenQuantityObservation, range=Optional[Union[str, CcdhString]])
 
 slots.specimenQuantityObservation__category = Slot(uri=CCDH.category, name="specimenQuantityObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.specimenQuantityObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenQuantityObservationCategory"]])
+                   model_uri=CCDH.specimenQuantityObservation__category, domain=SpecimenQuantityObservation, range=Optional[Union[str, "EnumCCDHSpecimenQuantityObservationCategory"]])
 
 slots.specimenQuantityObservation__observation_type = Slot(uri=CCDH.observation_type, name="specimenQuantityObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.specimenQuantityObservation__observation_type, domain=None, range=Union[str, "EnumCCDHSpecimenQuantityObservationObservationType"])
+                   model_uri=CCDH.specimenQuantityObservation__observation_type, domain=SpecimenQuantityObservation, range=Union[str, "EnumCCDHSpecimenQuantityObservationObservationType"])
 
 slots.specimenQuantityObservation__method_type = Slot(uri=CCDH.method_type, name="specimenQuantityObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.specimenQuantityObservation__method_type, domain=None, range=Optional[Union[Union[str, "EnumCCDHSpecimenQuantityObservationMethodType"], List[Union[str, "EnumCCDHSpecimenQuantityObservationMethodType"]]]])
+                   model_uri=CCDH.specimenQuantityObservation__method_type, domain=SpecimenQuantityObservation, range=Optional[Union[Union[str, "EnumCCDHSpecimenQuantityObservationMethodType"], List[Union[str, "EnumCCDHSpecimenQuantityObservationMethodType"]]]])
 
 slots.specimenQuantityObservation__focus = Slot(uri=CCDH.focus, name="specimenQuantityObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.specimenQuantityObservation__focus, domain=None, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
+                   model_uri=CCDH.specimenQuantityObservation__focus, domain=SpecimenQuantityObservation, range=Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]])
 
 slots.specimenQuantityObservation__subject = Slot(uri=CCDH.subject, name="specimenQuantityObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.specimenQuantityObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.specimenQuantityObservation__subject, domain=SpecimenQuantityObservation, range=Optional[Union[dict, "Subject"]])
 
 slots.specimenQuantityObservation__performed_by = Slot(uri=CCDH.performed_by, name="specimenQuantityObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.specimenQuantityObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenQuantityObservation__performed_by, domain=SpecimenQuantityObservation, range=Optional[Union[dict, Organization]])
 
 slots.specimenQuantityObservation__valueQuantity = Slot(uri=CCDH.valueQuantity, name="specimenQuantityObservation__valueQuantity", curie=CCDH.curie('valueQuantity'),
-                   model_uri=CCDH.specimenQuantityObservation__valueQuantity, domain=None, range=Union[dict, Quantity])
+                   model_uri=CCDH.specimenQuantityObservation__valueQuantity, domain=SpecimenQuantityObservation, range=Union[dict, Quantity])
 
 slots.specimenProcessingActivity__activity_type = Slot(uri=CCDH.activity_type, name="specimenProcessingActivity__activity_type", curie=CCDH.curie('activity_type'),
-                   model_uri=CCDH.specimenProcessingActivity__activity_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenProcessingActivityActivityType"]])
+                   model_uri=CCDH.specimenProcessingActivity__activity_type, domain=SpecimenProcessingActivity, range=Optional[Union[str, "EnumCCDHSpecimenProcessingActivityActivityType"]])
 
 slots.specimenProcessingActivity__date_started = Slot(uri=CCDH.date_started, name="specimenProcessingActivity__date_started", curie=CCDH.curie('date_started'),
-                   model_uri=CCDH.specimenProcessingActivity__date_started, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenProcessingActivity__date_started, domain=SpecimenProcessingActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenProcessingActivity__date_ended = Slot(uri=CCDH.date_ended, name="specimenProcessingActivity__date_ended", curie=CCDH.curie('date_ended'),
-                   model_uri=CCDH.specimenProcessingActivity__date_ended, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenProcessingActivity__date_ended, domain=SpecimenProcessingActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenProcessingActivity__duration = Slot(uri=CCDH.duration, name="specimenProcessingActivity__duration", curie=CCDH.curie('duration'),
-                   model_uri=CCDH.specimenProcessingActivity__duration, domain=None, range=Optional[Union[Union[dict, Quantity], List[Union[dict, Quantity]]]])
+                   model_uri=CCDH.specimenProcessingActivity__duration, domain=SpecimenProcessingActivity, range=Optional[Union[Union[dict, Quantity], List[Union[dict, Quantity]]]])
 
 slots.specimenProcessingActivity__performed_by = Slot(uri=CCDH.performed_by, name="specimenProcessingActivity__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.specimenProcessingActivity__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenProcessingActivity__performed_by, domain=SpecimenProcessingActivity, range=Optional[Union[dict, Organization]])
 
 slots.specimenProcessingActivity__method_type = Slot(uri=CCDH.method_type, name="specimenProcessingActivity__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.specimenProcessingActivity__method_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenProcessingActivityMethodType"]])
+                   model_uri=CCDH.specimenProcessingActivity__method_type, domain=SpecimenProcessingActivity, range=Optional[Union[str, "EnumCCDHSpecimenProcessingActivityMethodType"]])
 
 slots.specimenProcessingActivity__additive = Slot(uri=CCDH.additive, name="specimenProcessingActivity__additive", curie=CCDH.curie('additive'),
-                   model_uri=CCDH.specimenProcessingActivity__additive, domain=None, range=Optional[Union[Union[dict, Substance], List[Union[dict, Substance]]]])
+                   model_uri=CCDH.specimenProcessingActivity__additive, domain=SpecimenProcessingActivity, range=Optional[Union[Union[dict, "Substance"], List[Union[dict, "Substance"]]]])
 
 slots.specimenProcessingActivity__execution_time_observation = Slot(uri=CCDH.execution_time_observation, name="specimenProcessingActivity__execution_time_observation", curie=CCDH.curie('execution_time_observation'),
-                   model_uri=CCDH.specimenProcessingActivity__execution_time_observation, domain=None, range=Optional[Union[Union[dict, ExecutionTimeObservation], List[Union[dict, ExecutionTimeObservation]]]])
+                   model_uri=CCDH.specimenProcessingActivity__execution_time_observation, domain=SpecimenProcessingActivity, range=Optional[Union[Union[dict, ExecutionTimeObservation], List[Union[dict, ExecutionTimeObservation]]]])
 
 slots.specimenProcessingActivity__execution_condition_observation = Slot(uri=CCDH.execution_condition_observation, name="specimenProcessingActivity__execution_condition_observation", curie=CCDH.curie('execution_condition_observation'),
-                   model_uri=CCDH.specimenProcessingActivity__execution_condition_observation, domain=None, range=Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]])
+                   model_uri=CCDH.specimenProcessingActivity__execution_condition_observation, domain=SpecimenProcessingActivity, range=Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]])
 
 slots.specimenStorageActivity__date_started = Slot(uri=CCDH.date_started, name="specimenStorageActivity__date_started", curie=CCDH.curie('date_started'),
-                   model_uri=CCDH.specimenStorageActivity__date_started, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenStorageActivity__date_started, domain=SpecimenStorageActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenStorageActivity__date_ended = Slot(uri=CCDH.date_ended, name="specimenStorageActivity__date_ended", curie=CCDH.curie('date_ended'),
-                   model_uri=CCDH.specimenStorageActivity__date_ended, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenStorageActivity__date_ended, domain=SpecimenStorageActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenStorageActivity__duration = Slot(uri=CCDH.duration, name="specimenStorageActivity__duration", curie=CCDH.curie('duration'),
-                   model_uri=CCDH.specimenStorageActivity__duration, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.specimenStorageActivity__duration, domain=SpecimenStorageActivity, range=Optional[Union[dict, Quantity]])
 
 slots.specimenStorageActivity__performed_by = Slot(uri=CCDH.performed_by, name="specimenStorageActivity__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.specimenStorageActivity__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenStorageActivity__performed_by, domain=SpecimenStorageActivity, range=Optional[Union[dict, Organization]])
 
 slots.specimenStorageActivity__method_type = Slot(uri=CCDH.method_type, name="specimenStorageActivity__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.specimenStorageActivity__method_type, domain=None, range=Optional[Union[str, "EnumCCDHSpecimenStorageActivityMethodType"]])
+                   model_uri=CCDH.specimenStorageActivity__method_type, domain=SpecimenStorageActivity, range=Optional[Union[str, "EnumCCDHSpecimenStorageActivityMethodType"]])
 
 slots.specimenStorageActivity__container = Slot(uri=CCDH.container, name="specimenStorageActivity__container", curie=CCDH.curie('container'),
-                   model_uri=CCDH.specimenStorageActivity__container, domain=None, range=Optional[Union[Union[dict, SpecimenContainer], List[Union[dict, SpecimenContainer]]]])
+                   model_uri=CCDH.specimenStorageActivity__container, domain=SpecimenStorageActivity, range=Optional[Union[Union[dict, SpecimenContainer], List[Union[dict, SpecimenContainer]]]])
 
 slots.specimenTransportActivity__date_started = Slot(uri=CCDH.date_started, name="specimenTransportActivity__date_started", curie=CCDH.curie('date_started'),
-                   model_uri=CCDH.specimenTransportActivity__date_started, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenTransportActivity__date_started, domain=SpecimenTransportActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenTransportActivity__date_ended = Slot(uri=CCDH.date_ended, name="specimenTransportActivity__date_ended", curie=CCDH.curie('date_ended'),
-                   model_uri=CCDH.specimenTransportActivity__date_ended, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.specimenTransportActivity__date_ended, domain=SpecimenTransportActivity, range=Optional[Union[dict, "TimePoint"]])
 
 slots.specimenTransportActivity__duration = Slot(uri=CCDH.duration, name="specimenTransportActivity__duration", curie=CCDH.curie('duration'),
-                   model_uri=CCDH.specimenTransportActivity__duration, domain=None, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
+                   model_uri=CCDH.specimenTransportActivity__duration, domain=SpecimenTransportActivity, range=Optional[Union[Union[str, CcdhString], List[Union[str, CcdhString]]]])
 
 slots.specimenTransportActivity__performed_by = Slot(uri=CCDH.performed_by, name="specimenTransportActivity__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.specimenTransportActivity__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenTransportActivity__performed_by, domain=SpecimenTransportActivity, range=Optional[Union[dict, Organization]])
 
 slots.specimenTransportActivity__transport_origin = Slot(uri=CCDH.transport_origin, name="specimenTransportActivity__transport_origin", curie=CCDH.curie('transport_origin'),
-                   model_uri=CCDH.specimenTransportActivity__transport_origin, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenTransportActivity__transport_origin, domain=SpecimenTransportActivity, range=Optional[Union[dict, Organization]])
 
 slots.specimenTransportActivity__transport_destination = Slot(uri=CCDH.transport_destination, name="specimenTransportActivity__transport_destination", curie=CCDH.curie('transport_destination'),
-                   model_uri=CCDH.specimenTransportActivity__transport_destination, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.specimenTransportActivity__transport_destination, domain=SpecimenTransportActivity, range=Optional[Union[dict, Organization]])
 
 slots.specimenTransportActivity__execution_condition_observation = Slot(uri=CCDH.execution_condition_observation, name="specimenTransportActivity__execution_condition_observation", curie=CCDH.curie('execution_condition_observation'),
-                   model_uri=CCDH.specimenTransportActivity__execution_condition_observation, domain=None, range=Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]])
+                   model_uri=CCDH.specimenTransportActivity__execution_condition_observation, domain=SpecimenTransportActivity, range=Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]])
 
 slots.subject__id = Slot(uri=CCDH.id, name="subject__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.subject__id, domain=None, range=Union[str, CcdhString])
+                   model_uri=CCDH.subject__id, domain=Subject, range=Union[str, CcdhString])
 
 slots.subject__identifier = Slot(uri=CCDH.identifier, name="subject__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.subject__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.subject__identifier, domain=Subject, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
 
 slots.subject__species = Slot(uri=CCDH.species, name="subject__species", curie=CCDH.curie('species'),
-                   model_uri=CCDH.subject__species, domain=None, range=Optional[Union[str, "EnumCCDHSubjectSpecies"]])
+                   model_uri=CCDH.subject__species, domain=Subject, range=Optional[Union[str, "EnumCCDHSubjectSpecies"]])
 
 slots.subject__breed = Slot(uri=CCDH.breed, name="subject__breed", curie=CCDH.curie('breed'),
-                   model_uri=CCDH.subject__breed, domain=None, range=Optional[Union[str, "EnumCCDHSubjectBreed"]])
+                   model_uri=CCDH.subject__breed, domain=Subject, range=Optional[Union[str, "EnumCCDHSubjectBreed"]])
 
 slots.subject__sex = Slot(uri=CCDH.sex, name="subject__sex", curie=CCDH.curie('sex'),
-                   model_uri=CCDH.subject__sex, domain=None, range=Optional[Union[str, "EnumCCDHSubjectSex"]])
+                   model_uri=CCDH.subject__sex, domain=Subject, range=Optional[Union[str, "EnumCCDHSubjectSex"]])
 
 slots.subject__ethnicity = Slot(uri=CCDH.ethnicity, name="subject__ethnicity", curie=CCDH.curie('ethnicity'),
-                   model_uri=CCDH.subject__ethnicity, domain=None, range=Optional[Union[str, "EnumCCDHSubjectEthnicity"]])
+                   model_uri=CCDH.subject__ethnicity, domain=Subject, range=Optional[Union[str, "EnumCCDHSubjectEthnicity"]])
 
 slots.subject__race = Slot(uri=CCDH.race, name="subject__race", curie=CCDH.curie('race'),
-                   model_uri=CCDH.subject__race, domain=None, range=Optional[Union[Union[str, "EnumCCDHSubjectRace"], List[Union[str, "EnumCCDHSubjectRace"]]]])
+                   model_uri=CCDH.subject__race, domain=Subject, range=Optional[Union[Union[str, "EnumCCDHSubjectRace"], List[Union[str, "EnumCCDHSubjectRace"]]]])
 
 slots.subject__year_of_birth = Slot(uri=CCDH.year_of_birth, name="subject__year_of_birth", curie=CCDH.curie('year_of_birth'),
-                   model_uri=CCDH.subject__year_of_birth, domain=None, range=Optional[Union[int, CcdhInteger]])
+                   model_uri=CCDH.subject__year_of_birth, domain=Subject, range=Optional[Union[int, CcdhInteger]])
 
 slots.subject__vital_status = Slot(uri=CCDH.vital_status, name="subject__vital_status", curie=CCDH.curie('vital_status'),
-                   model_uri=CCDH.subject__vital_status, domain=None, range=Optional[Union[str, "EnumCCDHSubjectVitalStatus"]])
+                   model_uri=CCDH.subject__vital_status, domain=Subject, range=Optional[Union[str, "EnumCCDHSubjectVitalStatus"]])
 
 slots.subject__age_at_death = Slot(uri=CCDH.age_at_death, name="subject__age_at_death", curie=CCDH.curie('age_at_death'),
-                   model_uri=CCDH.subject__age_at_death, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.subject__age_at_death, domain=Subject, range=Optional[Union[dict, Quantity]])
 
 slots.subject__year_of_death = Slot(uri=CCDH.year_of_death, name="subject__year_of_death", curie=CCDH.curie('year_of_death'),
-                   model_uri=CCDH.subject__year_of_death, domain=None, range=Optional[Union[int, CcdhInteger]])
+                   model_uri=CCDH.subject__year_of_death, domain=Subject, range=Optional[Union[int, CcdhInteger]])
 
 slots.subject__cause_of_death = Slot(uri=CCDH.cause_of_death, name="subject__cause_of_death", curie=CCDH.curie('cause_of_death'),
-                   model_uri=CCDH.subject__cause_of_death, domain=None, range=Optional[Union[str, "EnumCCDHSubjectCauseOfDeath"]])
+                   model_uri=CCDH.subject__cause_of_death, domain=Subject, range=Optional[Union[str, "EnumCCDHSubjectCauseOfDeath"]])
 
 slots.substance__substance_type = Slot(uri=CCDH.substance_type, name="substance__substance_type", curie=CCDH.curie('substance_type'),
-                   model_uri=CCDH.substance__substance_type, domain=None, range=Optional[Union[str, "EnumCCDHSubstanceSubstanceType"]])
+                   model_uri=CCDH.substance__substance_type, domain=Substance, range=Optional[Union[str, "EnumCCDHSubstanceSubstanceType"]])
 
 slots.substance__role = Slot(uri=CCDH.role, name="substance__role", curie=CCDH.curie('role'),
-                   model_uri=CCDH.substance__role, domain=None, range=Optional[Union[Union[str, "EnumCCDHSubstanceRole"], List[Union[str, "EnumCCDHSubstanceRole"]]]])
+                   model_uri=CCDH.substance__role, domain=Substance, range=Optional[Union[Union[str, "EnumCCDHSubstanceRole"], List[Union[str, "EnumCCDHSubstanceRole"]]]])
 
 slots.substance__substance_quantity = Slot(uri=CCDH.substance_quantity, name="substance__substance_quantity", curie=CCDH.curie('substance_quantity'),
-                   model_uri=CCDH.substance__substance_quantity, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.substance__substance_quantity, domain=Substance, range=Optional[Union[dict, Quantity]])
 
 slots.timePoint__id = Slot(uri=CCDH.id, name="timePoint__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.timePoint__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.timePoint__id, domain=TimePoint, range=Optional[Union[str, CcdhString]])
 
 slots.timePoint__dateTime = Slot(uri=CCDH.dateTime, name="timePoint__dateTime", curie=CCDH.curie('dateTime'),
-                   model_uri=CCDH.timePoint__dateTime, domain=None, range=Optional[Union[str, CcdhDateTime]])
+                   model_uri=CCDH.timePoint__dateTime, domain=TimePoint, range=Optional[Union[str, CcdhDateTime]])
 
 slots.timePoint__indexTimePoint = Slot(uri=CCDH.indexTimePoint, name="timePoint__indexTimePoint", curie=CCDH.curie('indexTimePoint'),
-                   model_uri=CCDH.timePoint__indexTimePoint, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.timePoint__indexTimePoint, domain=TimePoint, range=Optional[Union[dict, "TimePoint"]])
 
 slots.timePoint__offsetFromIndex = Slot(uri=CCDH.offsetFromIndex, name="timePoint__offsetFromIndex", curie=CCDH.curie('offsetFromIndex'),
-                   model_uri=CCDH.timePoint__offsetFromIndex, domain=None, range=Optional[Union[dict, Quantity]])
+                   model_uri=CCDH.timePoint__offsetFromIndex, domain=TimePoint, range=Optional[Union[dict, Quantity]])
 
 slots.timePoint__eventType = Slot(uri=CCDH.eventType, name="timePoint__eventType", curie=CCDH.curie('eventType'),
-                   model_uri=CCDH.timePoint__eventType, domain=None, range=Optional[Union[Union[str, "EnumCCDHTimePointEventType"], List[Union[str, "EnumCCDHTimePointEventType"]]]])
+                   model_uri=CCDH.timePoint__eventType, domain=TimePoint, range=Optional[Union[Union[str, "EnumCCDHTimePointEventType"], List[Union[str, "EnumCCDHTimePointEventType"]]]])
 
 slots.timePeriod__periodStart_start = Slot(uri=CCDH.periodStart_start, name="timePeriod__periodStart_start", curie=CCDH.curie('periodStart_start'),
-                   model_uri=CCDH.timePeriod__periodStart_start, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.timePeriod__periodStart_start, domain=TimePeriod, range=Optional[Union[dict, TimePoint]])
 
 slots.timePeriod__periodEnd_end = Slot(uri=CCDH.periodEnd_end, name="timePeriod__periodEnd_end", curie=CCDH.curie('periodEnd_end'),
-                   model_uri=CCDH.timePeriod__periodEnd_end, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.timePeriod__periodEnd_end, domain=TimePeriod, range=Optional[Union[dict, TimePoint]])
 
 slots.tobaccoExposureObservation__id = Slot(uri=CCDH.id, name="tobaccoExposureObservation__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.tobaccoExposureObservation__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.tobaccoExposureObservation__id, domain=TobaccoExposureObservation, range=Optional[Union[str, CcdhString]])
 
 slots.tobaccoExposureObservation__category = Slot(uri=CCDH.category, name="tobaccoExposureObservation__category", curie=CCDH.curie('category'),
-                   model_uri=CCDH.tobaccoExposureObservation__category, domain=None, range=Optional[Union[str, "EnumCCDHTobaccoExposureObservationCategory"]])
+                   model_uri=CCDH.tobaccoExposureObservation__category, domain=TobaccoExposureObservation, range=Optional[Union[str, "EnumCCDHTobaccoExposureObservationCategory"]])
 
 slots.tobaccoExposureObservation__observation_type = Slot(uri=CCDH.observation_type, name="tobaccoExposureObservation__observation_type", curie=CCDH.curie('observation_type'),
-                   model_uri=CCDH.tobaccoExposureObservation__observation_type, domain=None, range=Union[str, "EnumCCDHTobaccoExposureObservationObservationType"])
+                   model_uri=CCDH.tobaccoExposureObservation__observation_type, domain=TobaccoExposureObservation, range=Union[str, "EnumCCDHTobaccoExposureObservationObservationType"])
 
 slots.tobaccoExposureObservation__method_type = Slot(uri=CCDH.method_type, name="tobaccoExposureObservation__method_type", curie=CCDH.curie('method_type'),
-                   model_uri=CCDH.tobaccoExposureObservation__method_type, domain=None, range=Optional[Union[str, "EnumCCDHTobaccoExposureObservationMethodType"]])
+                   model_uri=CCDH.tobaccoExposureObservation__method_type, domain=TobaccoExposureObservation, range=Optional[Union[str, "EnumCCDHTobaccoExposureObservationMethodType"]])
 
 slots.tobaccoExposureObservation__focus = Slot(uri=CCDH.focus, name="tobaccoExposureObservation__focus", curie=CCDH.curie('focus'),
-                   model_uri=CCDH.tobaccoExposureObservation__focus, domain=None, range=Optional[Union[dict, Entity]])
+                   model_uri=CCDH.tobaccoExposureObservation__focus, domain=TobaccoExposureObservation, range=Optional[Union[dict, Entity]])
 
 slots.tobaccoExposureObservation__subject = Slot(uri=CCDH.subject, name="tobaccoExposureObservation__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.tobaccoExposureObservation__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.tobaccoExposureObservation__subject, domain=TobaccoExposureObservation, range=Optional[Union[dict, Subject]])
 
 slots.tobaccoExposureObservation__performed_by = Slot(uri=CCDH.performed_by, name="tobaccoExposureObservation__performed_by", curie=CCDH.curie('performed_by'),
-                   model_uri=CCDH.tobaccoExposureObservation__performed_by, domain=None, range=Optional[Union[dict, Organization]])
+                   model_uri=CCDH.tobaccoExposureObservation__performed_by, domain=TobaccoExposureObservation, range=Optional[Union[dict, Organization]])
 
 slots.tobaccoExposureObservation__valueInteger = Slot(uri=CCDH.valueInteger, name="tobaccoExposureObservation__valueInteger", curie=CCDH.curie('valueInteger'),
-                   model_uri=CCDH.tobaccoExposureObservation__valueInteger, domain=None, range=Optional[Union[int, CcdhInteger]])
+                   model_uri=CCDH.tobaccoExposureObservation__valueInteger, domain=TobaccoExposureObservation, range=Optional[Union[int, CcdhInteger]])
 
 slots.tobaccoExposureObservation__valueCodeableConcept = Slot(uri=CCDH.valueCodeableConcept, name="tobaccoExposureObservation__valueCodeableConcept", curie=CCDH.curie('valueCodeableConcept'),
-                   model_uri=CCDH.tobaccoExposureObservation__valueCodeableConcept, domain=None, range=Optional[Union[str, "EnumCCDHTobaccoExposureObservationValueCodeableConcept"]])
+                   model_uri=CCDH.tobaccoExposureObservation__valueCodeableConcept, domain=TobaccoExposureObservation, range=Optional[Union[str, "EnumCCDHTobaccoExposureObservationValueCodeableConcept"]])
 
 slots.treatment__id = Slot(uri=CCDH.id, name="treatment__id", curie=CCDH.curie('id'),
-                   model_uri=CCDH.treatment__id, domain=None, range=Optional[Union[str, CcdhString]])
+                   model_uri=CCDH.treatment__id, domain=Treatment, range=Optional[Union[str, CcdhString]])
 
 slots.treatment__identifier = Slot(uri=CCDH.identifier, name="treatment__identifier", curie=CCDH.curie('identifier'),
-                   model_uri=CCDH.treatment__identifier, domain=None, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
+                   model_uri=CCDH.treatment__identifier, domain=Treatment, range=Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]])
 
 slots.treatment__treatment_for_diagnosis = Slot(uri=CCDH.treatment_for_diagnosis, name="treatment__treatment_for_diagnosis", curie=CCDH.curie('treatment_for_diagnosis'),
-                   model_uri=CCDH.treatment__treatment_for_diagnosis, domain=None, range=Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]])
+                   model_uri=CCDH.treatment__treatment_for_diagnosis, domain=Treatment, range=Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]])
 
 slots.treatment__concurrent_treatment = Slot(uri=CCDH.concurrent_treatment, name="treatment__concurrent_treatment", curie=CCDH.curie('concurrent_treatment'),
-                   model_uri=CCDH.treatment__concurrent_treatment, domain=None, range=Optional[Union[Union[dict, Treatment], List[Union[dict, Treatment]]]])
+                   model_uri=CCDH.treatment__concurrent_treatment, domain=Treatment, range=Optional[Union[Union[dict, "Treatment"], List[Union[dict, "Treatment"]]]])
 
 slots.treatment__treatment_type = Slot(uri=CCDH.treatment_type, name="treatment__treatment_type", curie=CCDH.curie('treatment_type'),
-                   model_uri=CCDH.treatment__treatment_type, domain=None, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentType"]])
+                   model_uri=CCDH.treatment__treatment_type, domain=Treatment, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentType"]])
 
 slots.treatment__subject = Slot(uri=CCDH.subject, name="treatment__subject", curie=CCDH.curie('subject'),
-                   model_uri=CCDH.treatment__subject, domain=None, range=Optional[Union[dict, Subject]])
+                   model_uri=CCDH.treatment__subject, domain=Treatment, range=Optional[Union[dict, Subject]])
 
 slots.treatment__date_started = Slot(uri=CCDH.date_started, name="treatment__date_started", curie=CCDH.curie('date_started'),
-                   model_uri=CCDH.treatment__date_started, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.treatment__date_started, domain=Treatment, range=Optional[Union[dict, TimePoint]])
 
 slots.treatment__date_ended = Slot(uri=CCDH.date_ended, name="treatment__date_ended", curie=CCDH.curie('date_ended'),
-                   model_uri=CCDH.treatment__date_ended, domain=None, range=Optional[Union[dict, TimePoint]])
+                   model_uri=CCDH.treatment__date_ended, domain=Treatment, range=Optional[Union[dict, TimePoint]])
 
 slots.treatment__treatment_end_reason = Slot(uri=CCDH.treatment_end_reason, name="treatment__treatment_end_reason", curie=CCDH.curie('treatment_end_reason'),
-                   model_uri=CCDH.treatment__treatment_end_reason, domain=None, range=Optional[Union[Union[str, "EnumCCDHTreatmentTreatmentEndReason"], List[Union[str, "EnumCCDHTreatmentTreatmentEndReason"]]]])
+                   model_uri=CCDH.treatment__treatment_end_reason, domain=Treatment, range=Optional[Union[Union[str, "EnumCCDHTreatmentTreatmentEndReason"], List[Union[str, "EnumCCDHTreatmentTreatmentEndReason"]]]])
 
 slots.treatment__regimen = Slot(uri=CCDH.regimen, name="treatment__regimen", curie=CCDH.curie('regimen'),
-                   model_uri=CCDH.treatment__regimen, domain=None, range=Optional[Union[str, "EnumCCDHTreatmentRegimen"]])
+                   model_uri=CCDH.treatment__regimen, domain=Treatment, range=Optional[Union[str, "EnumCCDHTreatmentRegimen"]])
 
 slots.treatment__therapeutic_agent = Slot(uri=CCDH.therapeutic_agent, name="treatment__therapeutic_agent", curie=CCDH.curie('therapeutic_agent'),
-                   model_uri=CCDH.treatment__therapeutic_agent, domain=None, range=Optional[Union[dict, Substance]])
+                   model_uri=CCDH.treatment__therapeutic_agent, domain=Treatment, range=Optional[Union[dict, Substance]])
 
 slots.treatment__number_of_cycles = Slot(uri=CCDH.number_of_cycles, name="treatment__number_of_cycles", curie=CCDH.curie('number_of_cycles'),
-                   model_uri=CCDH.treatment__number_of_cycles, domain=None, range=Optional[Union[int, CcdhInteger]])
+                   model_uri=CCDH.treatment__number_of_cycles, domain=Treatment, range=Optional[Union[int, CcdhInteger]])
 
 slots.treatment__treatment_frequency = Slot(uri=CCDH.treatment_frequency, name="treatment__treatment_frequency", curie=CCDH.curie('treatment_frequency'),
-                   model_uri=CCDH.treatment__treatment_frequency, domain=None, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentFrequency"]])
+                   model_uri=CCDH.treatment__treatment_frequency, domain=Treatment, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentFrequency"]])
 
 slots.treatment__treatment_anatomic_site = Slot(uri=CCDH.treatment_anatomic_site, name="treatment__treatment_anatomic_site", curie=CCDH.curie('treatment_anatomic_site'),
-                   model_uri=CCDH.treatment__treatment_anatomic_site, domain=None, range=Optional[Union[dict, BodySite]])
+                   model_uri=CCDH.treatment__treatment_anatomic_site, domain=Treatment, range=Optional[Union[dict, BodySite]])
 
 slots.treatment__treatment_intent = Slot(uri=CCDH.treatment_intent, name="treatment__treatment_intent", curie=CCDH.curie('treatment_intent'),
-                   model_uri=CCDH.treatment__treatment_intent, domain=None, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentIntent"]])
+                   model_uri=CCDH.treatment__treatment_intent, domain=Treatment, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentIntent"]])
 
 slots.treatment__treatment_effect = Slot(uri=CCDH.treatment_effect, name="treatment__treatment_effect", curie=CCDH.curie('treatment_effect'),
-                   model_uri=CCDH.treatment__treatment_effect, domain=None, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentEffect"]])
+                   model_uri=CCDH.treatment__treatment_effect, domain=Treatment, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentEffect"]])
 
 slots.treatment__treatment_outcome = Slot(uri=CCDH.treatment_outcome, name="treatment__treatment_outcome", curie=CCDH.curie('treatment_outcome'),
-                   model_uri=CCDH.treatment__treatment_outcome, domain=None, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentOutcome"]])
+                   model_uri=CCDH.treatment__treatment_outcome, domain=Treatment, range=Optional[Union[str, "EnumCCDHTreatmentTreatmentOutcome"]])
