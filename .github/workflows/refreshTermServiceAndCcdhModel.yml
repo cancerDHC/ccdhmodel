@@ -5,17 +5,12 @@ jobs:
   ccdh-terminology-service__build:
     runs-on: ubuntu-latest
     steps:
-      - name: echoStuff
-        run: |
-          echo Running integration test.
-          echo "Step 1/3: (Model)-->Service-->Model"
       - uses: convictional/trigger-workflow-and-wait@v1.3.0  # https://github.com/convictional/trigger-workflow-and-wait
         with:
-          owner: joeflack4  # TODO: changeTo: cancerDHC
+          owner: cancerDHC
           repo: ccdh-terminology-service
-          github_token: ${{ secrets.GH_LIMITED_PERSONAL_ACCESS_TOKEN }}  # TODO: create one for the organization
-          # workflow_file_name: testIntegration.yml  # for simply testing GH action workflows
-          # workflow_file_name: main.yml  # rebuilds GH repository
+          github_token: ${{ secrets.GH_LIMITED_PERSONAL_ACCESS_TOKEN }}  # TODO: create one for the organization/repo
+          # workflow_file_name: main.yml  # rebuilds GH repository (redundant?)
           workflow_file_name: rebuildProductionServer.yml  # rebuilds and re-deploys production server
           ref: master  # change or just use 'main'/'master' branches corresponding to each repo?
           wait_interval: 10  # seconds
