@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.fe914879.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -44,6 +44,8 @@
     
     
       
+
+
     
     
   </head>
@@ -112,14 +114,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -251,6 +257,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    Subsets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#types" class="md-nav__link">
     Types
   </a>
@@ -364,6 +377,13 @@
         <li class="md-nav__item">
   <a href="#enums" class="md-nav__link">
     Enums
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    Subsets
   </a>
   
 </li>
@@ -514,7 +534,6 @@
 <li><a href="coding__systemVersion/">systemVersion</a> - The version of the code system.</li>
 <li><a href="diagnosis__age_at_diagnosis/">age_at_diagnosis</a> - The age in days of the individual at the time of diagnosis</li>
 <li><a href="diagnosis__condition/">condition</a> - Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
-<li><a href="diagnosis__dimensional_measure/">dimensional_measure</a> - A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</li>
 <li><a href="diagnosis__disease_status/">disease_status</a> - A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
 <li><a href="diagnosis__grade/">grade</a> - The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.</li>
 <li><a href="diagnosis__id/">id</a> - The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
@@ -523,6 +542,7 @@
 <li><a href="diagnosis__method_of_diagnosis/">method_of_diagnosis</a> - The method used to confirm the patients malignant diagnosis</li>
 <li><a href="diagnosis__morphology/">morphology</a> - Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
 <li><a href="diagnosis__primary_site/">primary_site</a> - The anatomical location of the primary condition</li>
+<li><a href="diagnosis__primary_tumor_dimensional_measures/">primary_tumor_dimensional_measures</a> - Observations about the current physical dimensions of the primary tumor.</li>
 <li><a href="diagnosis__prior_diagnosis/">prior_diagnosis</a> - A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis.</li>
 <li><a href="diagnosis__related_specimen/">related_specimen</a> - The specimen from which this diagnosis is made</li>
 <li><a href="diagnosis__stage/">stage</a> - The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.</li>
@@ -719,7 +739,7 @@
 <li><a href="specimen__degree_of_dysplasia/">degree_of_dysplasia</a> - A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.</li>
 <li><a href="specimen__derived_product/">derived_product</a> - A 'living' biologically active product that was derived from the specimen (e.g. a cell culture, tissue culture, or organoid)</li>
 <li><a href="specimen__description/">description</a> - A free text field to capture additional information or explanation about the specimen.</li>
-<li><a href="specimen__dimensional_measures/">dimensional_measures</a> - A set of one or more observations about the current physical dimensions of an object (e.g. length, width, area).</li>
+<li><a href="specimen__dimensional_measures/">dimensional_measures</a> - Observations about the current physical dimensions of an object (e.g. length, width, area).</li>
 <li><a href="specimen__distance_from_paired_specimen/">distance_from_paired_specimen</a> - The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)</li>
 <li><a href="specimen__dysplasia_fraction/">dysplasia_fraction</a> - Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.</li>
 <li><a href="specimen__general_tissue_morphology/">general_tissue_morphology</a> - The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
@@ -905,6 +925,7 @@ start</a> - When a period of time started.</li>
 <li><a href="enum_CCDH_Treatment_treatment_outcome/">enum_CCDH_Treatment_treatment_outcome</a> - Autogenerated Enumeration for CRDC-H Treatment treatment_outcome</li>
 <li><a href="enum_CCDH_Treatment_treatment_type/">enum_CCDH_Treatment_treatment_type</a> - Autogenerated Enumeration for CRDC-H Treatment treatment_type</li>
 </ul>
+<h3 id="subsets">Subsets</h3>
 <h3 id="types">Types</h3>
 <h4 id="built-in">Built in</h4>
 <ul>
@@ -1016,10 +1037,10 @@ start</a> - When a period of time started.</li>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="assets/javascripts/bundle.716f8af4.min.js"></script>
       
     
   </body>

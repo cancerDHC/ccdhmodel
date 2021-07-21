@@ -113,7 +113,7 @@
 <path d='M750.999,-191.793C714.676,-171.111 658.943,-139.377 610.114,-111.574' fill='none' stroke='black'/>
 <polygon fill='black' points='759.928,-196.877 749.011,-195.84 755.583,-194.403 751.238,-191.929 751.238,-191.929 751.238,-191.929 755.583,-194.403 753.465,-188.019 759.928,-196.877 759.928,-196.877' stroke='black'/>
 <polygon fill='black' points='609.915,-111.461 602.722,-111.968 599.487,-105.523 606.68,-105.016 609.915,-111.461' stroke='black'/>
-<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='746.981' y='-177.934'>dimensional_measure 0..1</text>
+<text style='font-size:8px; font-family:Verdana;' text-anchor='middle' transform='translate(0,0)' x='746.981' y='-177.934'>primary_tumor_dimensional_measures 0..1</text>
 </g><g class='edge' id='edge4'><title>Diagnosis-&gt;Diagnosis</title>
 <path d='M727.457,-67.8321C732.934,-63.7086 736,-58.7645 736,-53 736,-47.7595 733.466,-43.1971 728.89,-39.3128' fill='none' stroke='black'/>
 <polygon fill='black' points='718.555,-72.9466 724.984,-64.063 722.89,-70.4557 727.226,-67.9649 727.226,-67.9649 727.226,-67.9649 722.89,-70.4557 729.468,-71.8667 718.555,-72.9466 718.555,-72.9466' stroke='black'/>
