@@ -12,6 +12,3 @@ mkdocs = "*"
 mkdocs-material = "*"
 mike = "*"
 rdflib-pyld-compat = "*"
-
-[requires]
-python_version = "3.8"
