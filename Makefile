@@ -129,7 +129,6 @@ docserve: stage-docs pipenv-install
 gh-deploy: pipenv-install
 	${RUN} mike deploy dev -p
 
-# Regenerate from Google Sheets. Note that this uses a *separate* Pipenv in the
-# generators/google-sheets directory, so we have to run pipenv install on it separately.
-regen-google-sheets:
+# Regenerate from Google Sheets.
+regen-google-sheets: pipenv-install
 	cd generators/google-sheets && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../${SCHEMA_SRC} && cd -
