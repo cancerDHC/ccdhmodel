@@ -1,5 +1,3 @@
-import pygsheets
-
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.source.gsheetmodel.entity import Entity, EntityWorksheet, Attribute
