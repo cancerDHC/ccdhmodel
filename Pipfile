@@ -5,6 +5,11 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "~=6.2.4"
+pydantic = {extras = ["dotenv"], version = "*"}
+pygsheets = "*"
+black = "==v21.5b1"
+requests = "*"
+pyyaml = "*"
 
 [packages]
 linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"}

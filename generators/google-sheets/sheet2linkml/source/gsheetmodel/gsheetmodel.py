@@ -272,17 +272,17 @@ class GSheetModel(ModelElement):
         schema.version = self.version
 
         # Generate all the datatypes.
-        schema.types = {
+        schema_types = {
             datatype.name: datatype.as_linkml(root_uri) for datatype in self.datatypes()
         }
 
         # Generate all the entities.
-        schema.classes = {
+        schema_classes = {
             entity.name: entity.as_linkml(root_uri) for entity in self.entities()
         }
 
         # Load enums from the attributes themselves -- this will look things up in the terminology service.
-        schema.enums = {
+        schema_enums = {
             Enum.fix_enum_name(attribute.full_name): attribute.as_linkml_enum()
             for entity in self.entities()
             for attribute in entity.attributes
@@ -293,7 +293,7 @@ class GSheetModel(ModelElement):
         enum_worksheets = self.enum_worksheets()
         for enum_worksheet in enum_worksheets:
             for enum in enum_worksheet.enums:
-                schema.enums[enum.fixed_name] = enum.as_linkml(root_uri)
+                schema_enums[enum.fixed_name] = enum.as_linkml(root_uri)
 
         # At this point, classes might refer to types that haven't been defined
         # yet. So, for fields that refer to other classes in this model, we need to
@@ -301,24 +301,30 @@ class GSheetModel(ModelElement):
         #   - Warn the user about the missing type
         #   - Replace the type with 'Entity' for now.
         valid_types = (
-            set(schema.types.keys())
-            .union(set(schema.classes.keys()))
-            .union(set(schema.enums.keys()))
+            set(schema_types.keys())
+            .union(set(schema_classes.keys()))
+            .union(set(schema_enums.keys()))
         )
 
-        def fix_type_name(entity, dict, propName):
-            value = dict[propName]
+        def fix_type_name(entity, dct, prop):
+            print(f'fix_type_name({entity}, {dct}, {prop})')
+            value = dct[prop]
             if value is not None and value not in valid_types:
                 logging.warning(
-                    f"Entity {entity}'s {propName} refers to type {value}, which is not defined."
+                    f"Entity {entity}'s {prop} refers to type {value}, which is not defined."
                 )
-                dict[propName] = "Entity"
+                dct[prop] = "Entity"
 
-        for entity in schema.classes.values():
+        for entity in schema_classes.values():
             fix_type_name(entity.name, entity, "is_a")
             for attrName in entity.attributes:
                 attr = entity.attributes[attrName]
                 fix_type_name(f"{entity.name}.{attrName}", attr, "range")
+
+        # Write the lists to the schema
+        schema.types = schema_types
+        schema.classes = schema_classes
+        schema.enums = schema_enums
 
         return schema
 
