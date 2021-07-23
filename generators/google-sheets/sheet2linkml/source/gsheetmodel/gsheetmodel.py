@@ -9,6 +9,7 @@ from functools import cached_property, cache
 from datetime import datetime, timezone
 import re
 import logging
+import pygsheets
 
 
 class GSheetModel(ModelElement):
