@@ -7,7 +7,7 @@ verify_ssl = true
 [packages]
 pydantic = {extras = ["dotenv"], version = "*"}
 pygsheets = "*"
-linkml = {editable = true, git = "https://github.com/linkml/linkml.git"}
+linkml = "*"
 black = "==v21.5b1"
 requests = "*"
 pyyaml = "*"
