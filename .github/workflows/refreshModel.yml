@@ -3,7 +3,7 @@ name: Refresh CCDH Model
 on:
   workflow_dispatch:
   repository_dispatch:
-#      types: [my_event_a, my_event_b]
+      types: [refreshModel]
 jobs:
   ccdhmodel__build:
     runs-on: ubuntu-latest

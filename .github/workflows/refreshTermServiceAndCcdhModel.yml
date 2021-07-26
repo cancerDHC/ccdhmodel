@@ -9,9 +9,11 @@ jobs:
         with:
           owner: cancerDHC
           repo: ccdh-terminology-service
-          github_token: ${{ secrets.GH_LIMITED_PERSONAL_ACCESS_TOKEN }}  # TODO: create one for the organization/repo
+          # TODO: create one for the organization/repo
+          # github_token: ${{ secrets.GH_LIMITED_PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.DOCKER_USER_TOKEN_LIMITED }}
           # workflow_file_name: main.yml  # rebuilds GH repository (redundant?)
-          workflow_file_name: rebuildProductionServer.yml  # rebuilds and re-deploys production server
+          workflow_file_name: rebuildServers.yml  # rebuilds and re-deploys production server
           ref: master  # change or just use 'main'/'master' branches corresponding to each repo?
           wait_interval: 10  # seconds
           inputs: '{}'  # JSON
