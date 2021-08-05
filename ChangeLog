@@ -1,0 +1,61 @@
+CHANGES
+=======
+
+* added PublishTestClass for testing
+* manual. makefile next
+* Updating generated outputs
+* back to "my" PyPI destination
+* Updating generated outputs
+
+0.0.12
+------
+
+* Update setup.cfg
+* using colelague's token and repo name worked manually
+
+0.0.9
+-----
+
+* Updating generated outputs
+* crazy attempt to fix with different python version
+
+0.0.4
+-----
+
+* Updating generated outputs
+* added dependencies
+* Updating generated outputs
+* underscores not hyphens
+
+0.0.11
+------
+
+* AUTHORS ChangeLog
+
+v0.0.2
+------
+
+* Updating generated outputs
+* more PyPI requirements
+* steps I did for PyPI
+* Updating generated outputs
+* PYPI\_SETUP.md expects a dist dir
+
+v0.0.1
+------
+
+* reluctantly commiting docs and ccdhmodel\_from\_template
+* Updating generated outputs
+* add PYPI\_SETUP.md link in  ABOUT.md
+* Updating generated outputs
+* oops underscores not hyphens
+* ccdhmodel\_from\_template/.keep for "git add" in .github/workflows/main.yaml
+* Updating generated outputs
+* prioritizing checkin of docs
+* updated "git add..." in "Check updated content"
+* Automatically generated requirements.txt and requirements-dev.txt
+* commented out Run unit tests over output
+* added .github for actions files
+* post first make
+* hybrid between cancerDHC/ccdhmodel and linkml/linkml-model-template
+* Initial commit

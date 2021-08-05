@@ -28707,4 +28707,7 @@ classes:
         range: enum_CCDH_Treatment_treatment_outcome
         multivalued: false
         required: false
+  PublishTestClass:
+    name: PublishTestClass
+    description: this is not a realy class in the CCDH model. Its just a meaningless addition for testing the generation and publishing of soemthing new
 generation_date: '2021-07-13T22:10:06.952203+00:00'

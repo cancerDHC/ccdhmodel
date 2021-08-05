@@ -261,6 +261,10 @@ type Organization
     organizationType: CcdhString
   }
 
+type PublishTestClass
+  {
+  }
+
 type Quantity
   {
     valueDecimal: CcdhDecimal

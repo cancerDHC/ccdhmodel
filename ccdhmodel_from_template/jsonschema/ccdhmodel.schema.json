@@ -1,0 +1,2027 @@
+{
+   "$id": "https://example.org/ccdh",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
+   "definitions": {
+      "AlcoholExposureObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of alcohol exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            }
+         },
+         "required": [
+            "observation_type"
+         ],
+         "title": "AlcoholExposureObservation",
+         "type": "object"
+      },
+      "BiologicProduct": {
+         "additionalProperties": false,
+         "description": "A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.",
+         "properties": {
+            "description": {
+               "description": "A free text field to capture additional info/explanation about the model system",
+               "type": "string"
+            },
+            "growth_rate": {
+               "description": "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "passage_number": {
+               "description": "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.",
+               "items": {
+                  "type": "integer"
+               },
+               "type": "array"
+            },
+            "product_type": {
+               "description": "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "BiologicProduct",
+         "type": "object"
+      },
+      "BodySite": {
+         "additionalProperties": false,
+         "description": "A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device.",
+         "properties": {
+            "qualifier": {
+               "description": "A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "site": {
+               "description": "A term describing any site in the body.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "site"
+         ],
+         "title": "BodySite",
+         "type": "object"
+      },
+      "CancerGradeObservation": {
+         "additionalProperties": false,
+         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
+               "type": "string"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "CancerGradeObservation",
+         "type": "object"
+      },
+      "CancerGradeObservationSet": {
+         "additionalProperties": false,
+         "description": "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)",
+               "items": {
+                  "$ref": "#/definitions/CancerGradeObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [],
+         "title": "CancerGradeObservationSet",
+         "type": "object"
+      },
+      "CancerStageObservation": {
+         "additionalProperties": false,
+         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "description": "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "CancerStageObservation",
+         "type": "object"
+      },
+      "CancerStageObservationSet": {
+         "additionalProperties": false,
+         "description": "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations about the cancer stage",
+               "items": {
+                  "$ref": "#/definitions/CancerStageObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [],
+         "title": "CancerStageObservationSet",
+         "type": "object"
+      },
+      "CodeableConcept": {
+         "additionalProperties": false,
+         "description": "A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.",
+         "properties": {
+            "coding": {
+               "description": "A reference to a code defined by a terminology system",
+               "items": {
+                  "$ref": "#/definitions/Coding"
+               },
+               "type": "array"
+            },
+            "text": {
+               "description": "A human language representation of the concept represented by the Coding.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "CodeableConcept",
+         "type": "object"
+      },
+      "Coding": {
+         "additionalProperties": false,
+         "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
+         "properties": {
+            "code": {
+               "description": "The symbol/value of the code, as defined by the code system.",
+               "type": "string"
+            },
+            "label": {
+               "description": "A human-readable name for the code, as defined by the code system.",
+               "type": "string"
+            },
+            "system": {
+               "description": "The code system where the code is defined.",
+               "type": "string"
+            },
+            "systemURL": {
+               "description": "A URL where the code system can be found.",
+               "type": "string"
+            },
+            "systemVersion": {
+               "description": "The version of the code system.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "code",
+            "system"
+         ],
+         "title": "Coding",
+         "type": "object"
+      },
+      "Diagnosis": {
+         "additionalProperties": false,
+         "description": "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.",
+         "properties": {
+            "age_at_diagnosis": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The age in days of the individual at the time of diagnosis"
+            },
+            "condition": {
+               "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)",
+               "type": "string"
+            },
+            "disease_status": {
+               "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)",
+               "type": "string"
+            },
+            "grade": {
+               "description": "The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.",
+               "items": {
+                  "$ref": "#/definitions/CancerGradeObservationSet"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "metastatic_site": {
+               "description": "The anatomical location(s) of metastatic disease",
+               "items": {
+                  "$ref": "#/definitions/BodySite"
+               },
+               "type": "array"
+            },
+            "method_of_diagnosis": {
+               "description": "The method used to confirm the patients malignant diagnosis",
+               "type": "string"
+            },
+            "morphology": {
+               "description": "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.",
+               "type": "string"
+            },
+            "primary_site": {
+               "description": "The anatomical location of the primary condition",
+               "items": {
+                  "$ref": "#/definitions/BodySite"
+               },
+               "type": "array"
+            },
+            "primary_tumor_dimensional_measures": {
+               "$ref": "#/definitions/DimensionalObservationSet",
+               "description": "Observations about the current physical dimensions of the primary tumor."
+            },
+            "prior_diagnosis": {
+               "$ref": "#/definitions/Diagnosis",
+               "description": "A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis."
+            },
+            "related_specimen": {
+               "description": "The specimen from which this diagnosis is made",
+               "items": {
+                  "$ref": "#/definitions/Specimen"
+               },
+               "type": "array"
+            },
+            "stage": {
+               "description": "The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.",
+               "items": {
+                  "$ref": "#/definitions/CancerStageObservationSet"
+               },
+               "type": "array"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The subject of this diagnosis."
+            },
+            "supporting_observation": {
+               "description": "One or more observations that capture information relevant to this condition or diagnosis.",
+               "items": {
+                  "$ref": "#/definitions/Observation"
+               },
+               "type": "array"
+            },
+            "year_at_diagnosis": {
+               "description": "Numeric value to represent the year of an individual's diagnosis.",
+               "type": "integer"
+            }
+         },
+         "required": [],
+         "title": "Diagnosis",
+         "type": "object"
+      },
+      "DimensionalObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "DimensionalObservation",
+         "type": "object"
+      },
+      "DimensionalObservationSet": {
+         "additionalProperties": false,
+         "description": "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
+               "items": {
+                  "$ref": "#/definitions/DimensionalObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [],
+         "title": "DimensionalObservationSet",
+         "type": "object"
+      },
+      "Document": {
+         "additionalProperties": false,
+         "description": "A collection of information intented to be understood together as a whole, and codified in human-readable form.",
+         "properties": {
+            "description": {
+               "description": "A free text description or summary of the report.",
+               "type": "string"
+            },
+            "document_type": {
+               "description": "The high-level type of the document (e.g.  'publication', 'pathology report')",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity that the report is primarily about"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "url": {
+               "description": "A URL/web address where the document can be accessed.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [],
+         "title": "Document",
+         "type": "object"
+      },
+      "Entity": {
+         "additionalProperties": false,
+         "description": "Any resource that has its own identifier",
+         "properties": {},
+         "required": [],
+         "title": "Entity",
+         "type": "object"
+      },
+      "EnvironmentalExposureObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "EnvironmentalExposureObservation",
+         "type": "object"
+      },
+      "ExecutionConditionObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueCodeableConcept"
+         ],
+         "title": "ExecutionConditionObservation",
+         "type": "object"
+      },
+      "ExecutionTimeObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "ExecutionTimeObservation",
+         "type": "object"
+      },
+      "Exposure": {
+         "additionalProperties": false,
+         "description": "Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance.",
+         "properties": {
+            "alcohol_exposure": {
+               "description": "Observations about an individual's exposure to alcohol.",
+               "items": {
+                  "$ref": "#/definitions/AlcoholExposureObservation"
+               },
+               "type": "array"
+            },
+            "environmental_exposure": {
+               "description": "Observations about an individual's exposure to environmental substances that may impact clinical outcomes.",
+               "items": {
+                  "$ref": "#/definitions/EnvironmentalExposureObservation"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "A reference to the Subject that is the subject of this Exposure"
+            },
+            "tobacco_exposure": {
+               "description": "Observations about an individual's exposure to tobacco.",
+               "items": {
+                  "$ref": "#/definitions/TobaccoExposureObservation"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "Exposure",
+         "type": "object"
+      },
+      "HistologicalCompositionObservation": {
+         "additionalProperties": false,
+         "description": "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype).",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "HistologicalCompositionObservation",
+         "type": "object"
+      },
+      "HistologicalCompositionObservationSet": {
+         "additionalProperties": false,
+         "description": "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
+               "items": {
+                  "$ref": "#/definitions/HistologicalCompositionObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [
+            "id",
+            "category"
+         ],
+         "title": "HistologicalCompositionObservationSet",
+         "type": "object"
+      },
+      "Identifier": {
+         "additionalProperties": false,
+         "description": "An Identifier is associated with a unique object or entity within a given system.",
+         "properties": {
+            "system": {
+               "description": "The system or namespace that defines the identifier.",
+               "type": "string"
+            },
+            "type": {
+               "description": "A code that defines the type of the identifier.",
+               "type": "string"
+            },
+            "value": {
+               "description": "The value of the identifier, as defined by the system.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "value"
+         ],
+         "title": "Identifier",
+         "type": "object"
+      },
+      "Observation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueBoolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueDateTime": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "format": "date-time",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "number"
+            },
+            "valueEntity": {
+               "$ref": "#/definitions/Entity",
+               "description": "The value of an observation"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "number"
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            },
+            "valueString": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "observation_type"
+         ],
+         "title": "Observation",
+         "type": "object"
+      },
+      "ObservationSet": {
+         "additionalProperties": false,
+         "description": "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation set described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating each of the Observations bundled in the set.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observations": {
+               "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
+               "items": {
+                  "$ref": "#/definitions/Observation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            }
+         },
+         "required": [
+            "id",
+            "category"
+         ],
+         "title": "ObservationSet",
+         "type": "object"
+      },
+      "Organization": {
+         "additionalProperties": false,
+         "description": "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university",
+         "properties": {
+            "alias": {
+               "description": "A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')",
+               "type": "string"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "name": {
+               "description": "The full legal name by which the organization is known (e.g. 'National Cancer Institute')",
+               "type": "string"
+            },
+            "organization_type": {
+               "description": "The type of the organization (e.g. 'Cancer Genome Characterization Center')",
+               "type": "string"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "Organization",
+         "type": "object"
+      },
+      "PublishTestClass": {
+         "additionalProperties": false,
+         "description": "this is not a realy class in the CCDH model. Its just a meaningless addition for testing the generation and publishing of soemthing new",
+         "properties": {},
+         "required": [],
+         "title": "PublishTestClass",
+         "type": "object"
+      },
+      "Quantity": {
+         "additionalProperties": false,
+         "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
+         "properties": {
+            "unit": {
+               "description": "A coded or free text (in the .text field) representation of the unit.",
+               "type": "string"
+            },
+            "valueCodeableConcept": {
+               "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")",
+               "type": "string"
+            },
+            "valueDecimal": {
+               "description": "An amount, in the given units (if specified)",
+               "type": "number"
+            }
+         },
+         "required": [],
+         "title": "Quantity",
+         "type": "object"
+      },
+      "ResearchProject": {
+         "additionalProperties": false,
+         "description": "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. \nThis includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional \nand investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects.",
+         "properties": {
+            "associated_timepoint": {
+               "description": "A collection of timepoint observations that are relevant to research projects (e.g. date of IACUC approval, date of IRB approval, date of embargo end, etc.)",
+               "items": {
+                  "$ref": "#/definitions/TimePoint"
+               },
+               "type": "array"
+            },
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the research project ended."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the research project began."
+            },
+            "description": {
+               "description": "An unabridged description of a research program, project, or study.",
+               "type": "string"
+            },
+            "description_shortened": {
+               "description": "An abbreviated description of a research program, project, or study.",
+               "type": "string"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "name": {
+               "description": "An unabridged name of a research program, project, or study.",
+               "type": "string"
+            },
+            "name_shortened": {
+               "description": "An abbreviated name of a research program, project, or study.",
+               "type": "string"
+            },
+            "part_of": {
+               "description": "A reference to a parent ResearchProject (e.g. a link to the overarching CPTAC ResearchProject from a substudy of CPTAC)",
+               "items": {
+                  "$ref": "#/definitions/ResearchProject"
+               },
+               "type": "array"
+            },
+            "primary_anatomic_site": {
+               "description": "The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).  In the context of ResearchProject, this attribute captures the anatomic sites of research interest.",
+               "items": {
+                  "$ref": "#/definitions/BodySite"
+               },
+               "type": "array"
+            },
+            "research_project_type": {
+               "description": "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')",
+               "type": "string"
+            },
+            "sponsor": {
+               "description": "An entity that is responsible for the initiation, management, and/or financing of a research project.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "url": {
+               "description": "A URL address for a resource that provides information about a research program, project, or study.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            }
+         },
+         "required": [
+            "research_project_type"
+         ],
+         "title": "ResearchProject",
+         "type": "object"
+      },
+      "ResearchSubject": {
+         "additionalProperties": false,
+         "description": "A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, \nor a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject\u2019s privacy.",
+         "properties": {
+            "age_at_enrollment": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The age in days when the Subject enrolled on the ResearchProject"
+            },
+            "associated_subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "A reference to the Subject that is this ResearchSubject"
+            },
+            "comorbid_diagnosis": {
+               "description": "One or more diagnosis instance that are comorbid with the primary_diagnosis that qualified a subject for inclusion on a ResearchProject",
+               "items": {
+                  "$ref": "#/definitions/Diagnosis"
+               },
+               "type": "array"
+            },
+            "description": {
+               "description": "A free text field to capture additional info/explanation about the research subject.",
+               "type": "string"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "index_timepoint": {
+               "description": "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date.",
+               "type": "string"
+            },
+            "member_of_research_project": {
+               "$ref": "#/definitions/ResearchProject",
+               "description": "A reference to the Study(s) of which this ResearchSubject is a member"
+            },
+            "originating_site": {
+               "$ref": "#/definitions/Organization",
+               "description": "The Organization at which a subject was enrolled on a ResearchProject."
+            },
+            "primary_diagnosis": {
+               "description": "The diagnosis instance that qualified a subject for inclusion on a ResearchProject",
+               "items": {
+                  "$ref": "#/definitions/Diagnosis"
+               },
+               "type": "array"
+            },
+            "primary_diagnosis_condition": {
+               "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).   This attribute represents the disease that qualified the subject for inclusion on the ResearchProject",
+               "type": "string"
+            },
+            "primary_diagnosis_site": {
+               "$ref": "#/definitions/BodySite",
+               "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.  This attribute represents the primary site of disease that qualified the subject for inclusion on the ResearchProject."
+            }
+         },
+         "required": [
+            "id",
+            "associated_subject"
+         ],
+         "title": "ResearchSubject",
+         "type": "object"
+      },
+      "Specimen": {
+         "additionalProperties": false,
+         "description": "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.",
+         "properties": {
+            "analyte_type": {
+               "description": "For specimens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)",
+               "type": "string"
+            },
+            "associated_project": {
+               "$ref": "#/definitions/ResearchProject",
+               "description": "The Project associated with the specimen."
+            },
+            "cellular_composition_type": {
+               "description": "A term describing the type of cell or cellular material comprising a specimen.",
+               "type": "string"
+            },
+            "contained_in": {
+               "$ref": "#/definitions/SpecimenContainer",
+               "description": "A physical container in which a specimen is presently held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)"
+            },
+            "creation_activity": {
+               "$ref": "#/definitions/SpecimenCreationActivity",
+               "description": "The activity through which a specimen was created, by removing material from an biological subject, or deriving material from an existing specimen."
+            },
+            "data_provider": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization (e.g.a laboratory, processing center, or research site) that provided data associated with a specimen."
+            },
+            "degree_of_dysplasia": {
+               "description": "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.",
+               "type": "string"
+            },
+            "derived_product": {
+               "description": "A 'living' biologically active product that was derived from the specimen (e.g. a cell culture, tissue culture, or organoid)",
+               "items": {
+                  "$ref": "#/definitions/BiologicProduct"
+               },
+               "type": "array"
+            },
+            "description": {
+               "description": "A free text field to capture additional information or explanation about the specimen.",
+               "type": "string"
+            },
+            "dimensional_measures": {
+               "$ref": "#/definitions/DimensionalObservationSet",
+               "description": "Observations about the current physical dimensions of an object (e.g. length, width, area)."
+            },
+            "distance_from_paired_specimen": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)"
+            },
+            "dysplasia_fraction": {
+               "description": "Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.",
+               "type": "string"
+            },
+            "general_tissue_morphology": {
+               "description": "The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).",
+               "type": "string"
+            },
+            "histological_composition_measures": {
+               "description": "A set of one or more observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
+               "items": {
+                  "$ref": "#/definitions/HistologicalCompositionObservationSet"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "morphlogy_assessment_method": {
+               "description": "The general method used to assess a specimens specific tissue morphology",
+               "type": "string"
+            },
+            "morphology_assessor_role": {
+               "description": "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen",
+               "type": "string"
+            },
+            "morphology_pathologically_confirmed": {
+               "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review.",
+               "type": "boolean"
+            },
+            "parent_specimen": {
+               "description": "An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).",
+               "items": {
+                  "$ref": "#/definitions/Specimen"
+               },
+               "type": "array"
+            },
+            "preinvasive_tissue_morphology": {
+               "description": "A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen.",
+               "type": "string"
+            },
+            "processing_activity": {
+               "description": "An activity that modifies the physical structure, composition, or state of a specimen.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenProcessingActivity"
+               },
+               "type": "array"
+            },
+            "quality_measure": {
+               "description": "An observation about characteristics of a specimen that are indicative of its quality or suitability for use.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenQualityObservation"
+               },
+               "type": "array"
+            },
+            "quantity_measure": {
+               "description": "An observation related to the present quantity of a specimen - e.g. its weight, volume, or analyte concentration.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenQuantityObservation"
+               },
+               "type": "array"
+            },
+            "related_document": {
+               "description": "A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected)",
+               "items": {
+                  "$ref": "#/definitions/Document"
+               },
+               "type": "array"
+            },
+            "section_location": {
+               "description": "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)",
+               "type": "string"
+            },
+            "source_material_type": {
+               "description": "The general kind of material from which the specimen was derived.",
+               "type": "string"
+            },
+            "source_subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "A specific Subject from which the specimen was directly or indirectly derived."
+            },
+            "specific_tissue_morphology": {
+               "description": "A term describing the specific pathology exhibited by the tissue comprising a specimen.",
+               "type": "string"
+            },
+            "specimen_type": {
+               "description": "The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).",
+               "type": "string"
+            },
+            "storage_activity": {
+               "description": "An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenStorageActivity"
+               },
+               "type": "array"
+            },
+            "transport_activity": {
+               "description": "An activity through which the specimen is transported between locations.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenTransportActivity"
+               },
+               "type": "array"
+            },
+            "tumor_status_at_collection": {
+               "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Specimen",
+         "type": "object"
+      },
+      "SpecimenContainer": {
+         "additionalProperties": false,
+         "description": "A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)",
+         "properties": {
+            "additive": {
+               "description": "A material substance added to the container (typically to support the primary contained object - e.g. culture media to support cell growth)",
+               "items": {
+                  "$ref": "#/definitions/Substance"
+               },
+               "type": "array"
+            },
+            "container_number": {
+               "description": "Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)",
+               "type": "string"
+            },
+            "container_type": {
+               "description": "The kind of the container.",
+               "type": "string"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "parent_container": {
+               "$ref": "#/definitions/SpecimenContainer",
+               "description": "A larger container of which this container is a part (e.g. the complete 96-well plate of which a single well is a part)"
+            }
+         },
+         "required": [],
+         "title": "SpecimenContainer",
+         "type": "object"
+      },
+      "SpecimenCreationActivity": {
+         "additionalProperties": false,
+         "description": "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting).",
+         "properties": {
+            "activity_type": {
+               "description": "The high-level type of creation activity.",
+               "type": "string"
+            },
+            "additive": {
+               "description": "A type of material or reagent used applied as input when creating a specimen.",
+               "items": {
+                  "$ref": "#/definitions/Substance"
+               },
+               "type": "array"
+            },
+            "collection_method_type": {
+               "description": "The type of method applied in collecting a sample from its original source.",
+               "type": "string"
+            },
+            "collection_site": {
+               "$ref": "#/definitions/BodySite",
+               "description": "The anatomic site from which a specimen was collected."
+            },
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity ended (in this case, a specimen creation event)."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a specimen creation event)."
+            },
+            "derivation_method_type": {
+               "description": "The type of method applied to derive a new specimen from an existing one.",
+               "type": "string"
+            },
+            "execution_condition_observation": {
+               "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
+               "items": {
+                  "$ref": "#/definitions/ExecutionConditionObservation"
+               },
+               "type": "array"
+            },
+            "execution_time_observation": {
+               "description": "Information describing how long certain parts on an activity took to complete.",
+               "items": {
+                  "$ref": "#/definitions/ExecutionTimeObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the activity."
+            },
+            "quantity_collected": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)"
+            },
+            "specimen_order": {
+               "description": "A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen.",
+               "type": "integer"
+            }
+         },
+         "required": [],
+         "title": "SpecimenCreationActivity",
+         "type": "object"
+      },
+      "SpecimenProcessingActivity": {
+         "additionalProperties": false,
+         "description": "An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.",
+         "properties": {
+            "activity_type": {
+               "description": "The high-level type of processing activity",
+               "type": "string"
+            },
+            "additive": {
+               "description": "A type of material or reagent used as input when processing the specimen",
+               "items": {
+                  "$ref": "#/definitions/Substance"
+               },
+               "type": "array"
+            },
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a specimen processing event)."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a specimen processing event)."
+            },
+            "duration": {
+               "description": "The length of time over which the activity was performed.",
+               "items": {
+                  "$ref": "#/definitions/Quantity"
+               },
+               "type": "array"
+            },
+            "execution_condition_observation": {
+               "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
+               "items": {
+                  "$ref": "#/definitions/ExecutionConditionObservation"
+               },
+               "type": "array"
+            },
+            "execution_time_observation": {
+               "description": "Information describing how long certain parts on an activity took to complete.",
+               "items": {
+                  "$ref": "#/definitions/ExecutionTimeObservation"
+               },
+               "type": "array"
+            },
+            "method_type": {
+               "description": "A specific type of method or procedure performed to process the specimen",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the activity."
+            }
+         },
+         "required": [],
+         "title": "SpecimenProcessingActivity",
+         "type": "object"
+      },
+      "SpecimenQualityObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "SpecimenQualityObservation",
+         "type": "object"
+      },
+      "SpecimenQuantityObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "description": "The entity or entities directly observed/measured in generating an observation result.",
+               "items": {
+                  "$ref": "#/definitions/Entity"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "observation_type": {
+               "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueQuantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The result of the observation, encoded as a free-text Quantity."
+            }
+         },
+         "required": [
+            "observation_type",
+            "valueQuantity"
+         ],
+         "title": "SpecimenQuantityObservation",
+         "type": "object"
+      },
+      "SpecimenStorageActivity": {
+         "additionalProperties": false,
+         "description": "An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the \nintrinsic physical nature of a specimen.",
+         "properties": {
+            "container": {
+               "description": "A container in which the specimen is held or affixed during its storage.",
+               "items": {
+                  "$ref": "#/definitions/SpecimenContainer"
+               },
+               "type": "array"
+            },
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity ended (in this case, a storage event)."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a storage event)."
+            },
+            "duration": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The length of time over which the activity was performed."
+            },
+            "method_type": {
+               "description": "A specific type of method or procedure performed to store the specimen",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the activity."
+            }
+         },
+         "required": [],
+         "title": "SpecimenStorageActivity",
+         "type": "object"
+      },
+      "SpecimenTransportActivity": {
+         "additionalProperties": false,
+         "description": "An activity through which a specimen is transported between locations or organizations.",
+         "properties": {
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity ended (in this case, a transport event)."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The date when the activity began (in this case, a transport event)."
+            },
+            "duration": {
+               "description": "The length of time over which the activity was performed.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "execution_condition_observation": {
+               "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
+               "items": {
+                  "$ref": "#/definitions/ExecutionConditionObservation"
+               },
+               "type": "array"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the activity."
+            },
+            "transport_destination": {
+               "$ref": "#/definitions/Organization",
+               "description": "An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity."
+            },
+            "transport_origin": {
+               "$ref": "#/definitions/Organization",
+               "description": "An organization (facility, site, lab, etc) from which the specimen was transported as a result of the activity."
+            }
+         },
+         "required": [],
+         "title": "SpecimenTransportActivity",
+         "type": "object"
+      },
+      "Subject": {
+         "additionalProperties": false,
+         "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services.",
+         "properties": {
+            "age_at_death": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The age of an individual at the time of death, expressed in days since birth"
+            },
+            "breed": {
+               "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.",
+               "type": "string"
+            },
+            "cause_of_death": {
+               "description": "Coded value indicating the circumstance or condition that results in the death of the subject.",
+               "type": "string"
+            },
+            "ethnicity": {
+               "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau",
+               "type": "string"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "race": {
+               "description": "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "sex": {
+               "description": "The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics.",
+               "type": "string"
+            },
+            "species": {
+               "description": "The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)",
+               "type": "string"
+            },
+            "vital_status": {
+               "description": "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown.",
+               "type": "string"
+            },
+            "year_of_birth": {
+               "description": "Numeric value to represent the calendar year in which an individual was born.",
+               "type": "integer"
+            },
+            "year_of_death": {
+               "description": "Numeric value to represent the calendar year in which an individual died.",
+               "type": "integer"
+            }
+         },
+         "required": [
+            "id"
+         ],
+         "title": "Subject",
+         "type": "object"
+      },
+      "Substance": {
+         "additionalProperties": false,
+         "description": "A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.",
+         "properties": {
+            "role": {
+               "description": "A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "substance_quantity": {
+               "$ref": "#/definitions/Quantity",
+               "description": "The quantity of substance this instance stands for."
+            },
+            "substance_type": {
+               "description": "The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Substance",
+         "type": "object"
+      },
+      "TimePeriod": {
+         "additionalProperties": false,
+         "description": "A period of time between a start and end time point.",
+         "properties": {
+            "periodEnd_end": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "When a period of time ended."
+            },
+            "periodStart_start": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "When a period of time started."
+            }
+         },
+         "required": [],
+         "title": "TimePeriod",
+         "type": "object"
+      },
+      "TimePoint": {
+         "additionalProperties": false,
+         "description": "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.",
+         "properties": {
+            "dateTime": {
+               "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date.",
+               "format": "date-time",
+               "type": "string"
+            },
+            "eventType": {
+               "description": "An event that occurred at the point in time specified by this TimePoint.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "indexTimePoint": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "Another TimePoint from which this point is offset."
+            },
+            "offsetFromIndex": {
+               "$ref": "#/definitions/Quantity",
+               "description": "A quantity of time that, together with the index date or event, can be used to derive a specific timepoint."
+            }
+         },
+         "required": [],
+         "title": "TimePoint",
+         "type": "object"
+      },
+      "TobaccoExposureObservation": {
+         "additionalProperties": false,
+         "description": "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.",
+         "properties": {
+            "category": {
+               "description": "The general category of observation described",
+               "type": "string"
+            },
+            "focus": {
+               "$ref": "#/definitions/Entity",
+               "description": "The entity or entities directly observed/measured in generating an observation result."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "method_type": {
+               "description": "A type of method used in generating the Observation result.",
+               "type": "string"
+            },
+            "observation_type": {
+               "description": "The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..",
+               "type": "string"
+            },
+            "performed_by": {
+               "$ref": "#/definitions/Organization",
+               "description": "The organization or group that performed the observation activity."
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
+            },
+            "valueCodeableConcept": {
+               "description": "The result of the observation, encoded as a CodeableConcept.",
+               "type": "string"
+            },
+            "valueInteger": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
+            }
+         },
+         "required": [
+            "observation_type"
+         ],
+         "title": "TobaccoExposureObservation",
+         "type": "object"
+      },
+      "Treatment": {
+         "additionalProperties": false,
+         "description": "Represent medication administration or other treatment types.",
+         "properties": {
+            "concurrent_treatment": {
+               "description": "Treatment instance(s) that are concurrent with this treatment.",
+               "items": {
+                  "$ref": "#/definitions/Treatment"
+               },
+               "type": "array"
+            },
+            "date_ended": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The timepoint at which the treatment ended."
+            },
+            "date_started": {
+               "$ref": "#/definitions/TimePoint",
+               "description": "The timepoint at which the treatment started."
+            },
+            "id": {
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
+            },
+            "identifier": {
+               "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
+               "items": {
+                  "$ref": "#/definitions/Identifier"
+               },
+               "type": "array"
+            },
+            "number_of_cycles": {
+               "description": "The number of treatment cycles the subject received.",
+               "type": "integer"
+            },
+            "regimen": {
+               "description": "The regimen or line of therapy",
+               "type": "string"
+            },
+            "subject": {
+               "$ref": "#/definitions/Subject",
+               "description": "The subject (person, animal, model system) to which the treatment was administered."
+            },
+            "therapeutic_agent": {
+               "$ref": "#/definitions/Substance",
+               "description": "One or more therapeutic agents that are administered as part of this treatment."
+            },
+            "treatment_anatomic_site": {
+               "$ref": "#/definitions/BodySite",
+               "description": "The anatomical site that the treatment targets."
+            },
+            "treatment_effect": {
+               "description": "The effect of a treatment on the diagnosis or tumor.",
+               "type": "string"
+            },
+            "treatment_end_reason": {
+               "description": "The reason the treatment ended.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "treatment_for_diagnosis": {
+               "description": "The diagnosis for which this treatment is intended.",
+               "items": {
+                  "$ref": "#/definitions/Diagnosis"
+               },
+               "type": "array"
+            },
+            "treatment_frequency": {
+               "description": "The frequency of using the substance described by this instance.",
+               "type": "string"
+            },
+            "treatment_intent": {
+               "description": "The medical intent of the treatment.",
+               "type": "string"
+            },
+            "treatment_outcome": {
+               "description": "The final outcome of the treatment.",
+               "type": "string"
+            },
+            "treatment_type": {
+               "description": "The type of treatment administered, which may include medication/therapeutics or other procedures.",
+               "type": "string"
+            }
+         },
+         "required": [],
+         "title": "Treatment",
+         "type": "object"
+      }
+   },
+   "properties": {},
+   "title": "CRDC-H",
+   "type": "object"
+}
+

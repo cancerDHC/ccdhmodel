@@ -1,17 +1,17 @@
 [[source]]
-name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
-[dev-packages]
-pytest = "~=6.2.4"
+name = "pypi"
 
 [packages]
-linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"}
-mkdocs = "*"
+linkml-runtime = "~=1.0, >=1.0.3"
 mkdocs-material = "*"
 mike = "*"
-rdflib-pyld-compat = "*"
 
-[requires]
-python_version = "3.8"
+[dev-packages]
+tox = "*"
+
+[pipenv]
+allow_prereleases = true
+
+
