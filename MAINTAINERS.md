@@ -7,7 +7,6 @@ The environments for using and building this package are managed with pipenv now
 `make` all by itself regenerates the schema artifacts including the documentation.
 
 I have git added the docs folder, so maybe that should be rolled back?
-![image](https://user-images.githubusercontent.com/25185273/128519081-6f0ee1fa-d300-4686-b7b2-480d18a559c5.png)
 
 
 # ~~How to make a release~~
