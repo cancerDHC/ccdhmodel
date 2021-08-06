@@ -280,6 +280,21 @@ docserve: gen-docs
 	$(RUN) mkdocs serve
 
 
+# Regenerate from Google Sheets. Note that this uses a *separate* Pipenv in the
+# generators/google-sheets directory, so we have to run pipenv install on it separately.
+regen-google-sheets:
+	cd generators/google-sheets && pipenv install --dev && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../src/schema/ccdhmodel.yaml && cd -
+
+
+# MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
+# shoudn't it be using $(RUN) not ${RUN} ?
+# Deploy changes to the `dev` version on the gh-pages branch.
+# Note that this is not dependent on stage-docs, since you
+# would generate the docs (usually as part of a `make all`)
+# before you deploy it in a separate step.
+#gh-deploy: pipenv-install
+#	${RUN} mike deploy dev -p
+
 #### MAM 20210729
 pypi:
 	rm -f dist/*
