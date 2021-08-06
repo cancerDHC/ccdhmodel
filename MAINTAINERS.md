@@ -1,4 +1,16 @@
-# How to make a release
+# This repo was recently updated to follow the https://github.com/linkml/linkml-model-template
+
+Much of the instructions below are probably obsolescent. Not 100% sure about using mike to make the docs, although mike is specified as a plugin in the mkdocs setup file. I’m not sure where tagging fits into this. A gh-pages branch may not be necessary for publishing the docs to https://cancerdhc.github.io/ccdhmodel
+
+The environments for using and building this package are managed with pipenv now. The Makefile recipes install and enter into the environments as necessary. Manually installing the environment shouldn’t be necessary but couldn’t hurt.
+
+`make` all by itself regenerates the schema artifacts including the documentation.
+
+I have git added the docs folder, so maybe that should be rolled back?
+![image](https://user-images.githubusercontent.com/25185273/128519081-6f0ee1fa-d300-4686-b7b2-480d18a559c5.png)
+
+
+# ~~How to make a release~~
 
 See the instructions at the top of [Makefile](Makefile)
 
