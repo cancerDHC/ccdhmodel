@@ -1,4 +1,4 @@
-# This repo was recently updated to follow the https://github.com/linkml/linkml-model-template
+# This repo was recently updated to follow the [linkml model template](https://github.com/linkml/linkml-model-template)
 
 Much of the instructions below are probably obsolescent. Not 100% sure about using mike to make the docs, although mike is specified as a plugin in the mkdocs setup file. I’m not sure where tagging fits into this. A gh-pages branch may not be necessary for publishing the docs to https://cancerdhc.github.io/ccdhmodel
 
