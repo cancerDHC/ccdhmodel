@@ -2,7 +2,7 @@
 # be careful about no overwriting the docuemtnation
 # add push to PyPI wiht GitHub action or ???
 model_organization:    turbomam
-model_name:            ccdhmodel-from-template
+model_name:            ccdhmodel
 root_schema: ccdhmodel
 # remember, this will be generated from teh google sheet
 model_root_class: BodySite
