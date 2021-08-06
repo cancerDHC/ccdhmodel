@@ -5,7 +5,7 @@
 # Model documentation and schema directory
 # ----------------------------------------
 SRC_DIR = model
-PKG_DIR = ccdhmodel_from_template
+PKG_DIR = ccdhmodel
 SCHEMA_DIR = $(SRC_DIR)/schema
 MODEL_DOCS_DIR = $(SRC_DIR)/docs
 SOURCE_FILES := $(shell find $(SCHEMA_DIR) -name '*.yaml')
@@ -13,8 +13,11 @@ SCHEMA_NAMES = $(patsubst $(SCHEMA_DIR)/%.yaml, %, $(SOURCE_FILES))
 
 SCHEMA_NAME = ccdhmodel
 SCHEMA_SRC = $(SCHEMA_DIR)/$(SCHEMA_NAME).yaml
-PKG_TGTS = graphql json_schema owl shex
+PKG_TGTS = graphql json_schema shex owl 
 TGTS = docs python $(PKG_TGTS)
+# add csv to match established ccdhmodel repo
+# MAM 20210806 does docs and python by default
+# note json_schema vs jsonschema
 
 # Targets by PKG_TGT
 PKG_T_GRAPHQL = $(PKG_DIR)/graphql
@@ -29,6 +32,8 @@ PKG_T_DOCS = $(MODEL_DOCS_DIR)
 PKG_T_PYTHON = $(PKG_DIR)
 PKG_T_MODEL = $(PKG_DIR)/model
 PKG_T_SCHEMA = $(PKG_T_MODEL)/schema
+# MAM 20210806
+PKG_T_CSV = $(PKG_DIR)/csv
 
 # Global generation options
 GEN_OPTS = --log_level WARNING
@@ -100,6 +105,27 @@ echo:
 tdir-%:
 	rm -rf target/$*
 	mkdir -p target/$*
+
+
+# ---------------------------------------
+# Plain Old (PO) JSON
+# ---------------------------------------
+gen-json: $(patsubst %, $(PKG_T_JSON)/%.json, $(SCHEMA_NAMES))
+.PHONY: gen-json
+
+$(PKG_T_JSON)/%.json: target/json/%.json
+	mkdir -p $(PKG_T_JSON)
+	cp $< $@
+target/json/%.json: $(SCHEMA_DIR)/%.yaml tdir-json install
+	$(RUN) gen-jsonld $(GEN_OPTS) --no-mergeimports $< > $@
+
+
+# MAM 20210806 copied from ccdhmodel main branch
+###  -- CSV --
+# one file per module
+gen-csv: $(patsubst %, target/csv/%.csv, $(SCHEMA_NAMES))
+target/csv/%.csv: $(SCHEMA_DIR)/%.yaml tdir-csv pipenv-install
+	${RUN} gen-csv $(GEN_OPTS) $< > $@
 
 # ---------------------------------------
 # MARKDOWN DOCS
@@ -260,7 +286,6 @@ docserve: gen-docs
 
 
 #### MAM 20210729
-
 pypi:
 	rm -f dist/*
 	$(RUN) python setup.py sdist bdist_wheel
