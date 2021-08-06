@@ -1,13 +1,7 @@
-# site_name: "CRDC-H model in LinkML, developed by the Center for Cancer Data Harmonization (CCDH)"
-# theme: readthedocs
 docs_dir: target/docs
 site_dir: docs
-# nav:
-#   - Home: home.md
-#   - Index: index.md
-#   - Credits: credits.md
 
-site_name: "CRDC-H Model in LinkML documentation"
+site_name: "Documentation of the CRDC-H Model in LinkML"
 site_url: https://cancerdhc.github.io/ccdhmodel/
 # repo_url: https://github.com/cancerDHC/ccdhmodel/
 # - This provides nice "Edit this page" links, but they don't work, since the
