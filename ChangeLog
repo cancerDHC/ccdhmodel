@@ -1,6 +1,8 @@
 CHANGES
 =======
 
+* add \*. AUTHORS etc. do not look liek they changed?
+* Topic prefix for ..
 * ran make after some crdch\_model renaming
 * CRDC-H Model in LinkML documentation
 * https://github.com/cancerDHC/linkml.git
