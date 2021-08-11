@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+* ran make after some crdch\_model renaming
+* CRDC-H Model in LinkML documentation
+* https://github.com/cancerDHC/linkml.git
+* MIT license for license and classifiers
+* steal some classifiers from biolink-model
+* crdch rather than ccdhmodel in setup.py
+* add a comment about what content is generated into local/
+* clarify that documentation branch is useful with mike
+* Deleted deprecated model generation script
+* Updated AUTHORS
+* removed old static docs from template
+* post twine push
 * pre pypi publish?
 * edited makefile via web
 * Update Makefile
