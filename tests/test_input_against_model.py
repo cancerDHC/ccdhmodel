@@ -29,15 +29,18 @@ class InputFileTestCase(unittest.TestCase):
                 try:
                     if fname.endswith('.yaml'):
                         nyaml += 1
-                        o: BodySite = yaml_loader.load(full_fname, BodySite)
+                        # o: BodySite = yaml_loader.load(full_fname, BodySite)
+                        o: Diagnosis = yaml_loader.load(full_fname, Diagnosis)
                         pyaml += 1
                     elif fname.endswith('.json'):
                         njson += 1
-                        o: BodySite = json_loader.load(full_fname, BodySite)
+                        # o: BodySite = json_loader.load(full_fname, BodySite)
+                        o: Diagnosis = json_loader.load(full_fname, Diagnosis)
                         pjson += 1
                     elif fname.endswith('.ttl'):
                         nttl += 1
-                        o: BodySite = rdf_loader.load(full_fname, BodySite)
+                        # o: BodySite = rdf_loader.load(full_fname, BodySite)
+                        o: Diagnosis = rdf_loader.load(full_fname, Diagnosis)
                         pttl += 1
                     elif fname.endswith('.md'):
                         pass
