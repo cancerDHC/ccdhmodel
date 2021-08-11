@@ -23,7 +23,7 @@ TGTS = docs python $(PKG_TGTS)
 PKG_T_GRAPHQL = $(PKG_DIR)/graphql
 PKG_T_JSON = $(PKG_DIR)/json
 PKG_T_JSONLD_CONTEXT = $(PKG_DIR)/jsonld
-PKG_T_JSON_SCHEMA = $(PKG_DIR)/jsonschema
+PKG_T_JSON_SCHEMA = $(PKG_DIR)/json_schema
 PKG_T_OWL = $(PKG_DIR)/owl
 PKG_T_RDF = $(PKG_DIR)/rdf
 PKG_T_SHEX = $(PKG_DIR)/shex
@@ -55,9 +55,14 @@ make-venv/env.lock:
 	$(ENV) && pipenv install
 	touch make-venv/env.lock
 
+# check for .venv or env.lock in make-venv?
 uninstall:
-	rm -f make-venv/env.lock
-	$(ENV) && pipenv --rm
+	if [ -d 'make-venv/.venv' ] ;\
+		then echo 'virtual env installed' ;\
+		rm -f make-venv/env.lock ;\
+		$(ENV) && pipenv --rm ;\
+		else echo 'no virtual env to uninstall' ;\
+	fi
 
 # ---------------------------------------
 # Test runner
@@ -77,6 +82,22 @@ gen: $(patsubst %,gen-%,$(TGTS))
 clean:
 	rm -rf target/*
 .PHONY: clean
+
+# I don't see why "cd make-venv && $(ENV) && pipenv --rm" is needed in addition to the uninstall recipe
+# or why "clean" is called before each "squeaky-clean-%"
+barf: clean uninstall $(patsubst %,barf-%,$(PKG_TGTS))
+	# only depends on the existence of the $(PKG_DIR) directory
+	if [ -d $(PKG_DIR)/model/schema ] ;\
+		then echo '$(PKG_DIR)/model/schema present' ;\
+		find $(PKG_DIR)/model/schema  ! -name 'README.*' -type f -exec rm -f {} + ;\
+		else echo 'no $(PKG_DIR)/model/schema to clean up' ;\
+	fi
+	find $(PKG_DIR) -name "*.py" ! -name "__init__.py" ! -name "linkml_files.py" -exec rm -f {} +
+	@echo 'squeaky cleaning complete'
+
+barf-%:
+	echo $*
+	find $(PKG_DIR)/$* ! -name 'README.*' ! -name $*  -type f -exec rm -f {} +
 
 # ---------------------------------------
 # SQUEAKY_CLEAN: remove all of the final targets to make sure we don't leave old artifacts around
