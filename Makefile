@@ -83,32 +83,24 @@ clean:
 	rm -rf target/*
 .PHONY: clean
 
-# I don't see why "cd make-venv && $(ENV) && pipenv --rm" is needed in addition to the uninstall recipe
-# or why "clean" is called before each "squeaky-clean-%"
-barf: clean uninstall $(patsubst %,barf-%,$(PKG_TGTS))
+
+# ---------------------------------------
+# SQUEAKY_CLEAN: remove all of the final targets to make sure we don't leave old artifacts around
+# ---------------------------------------
+squeaky-clean: uninstall clean $(patsubst %,squeaky-clean-%,$(PKG_TGTS))
 	# only depends on the existence of the $(PKG_DIR) directory
 	if [ -d $(PKG_DIR)/model/schema ] ;\
 		then echo '$(PKG_DIR)/model/schema present' ;\
 		find $(PKG_DIR)/model/schema  ! -name 'README.*' -type f -exec rm -f {} + ;\
 		else echo 'no $(PKG_DIR)/model/schema to clean up' ;\
 	fi
+	# this will fail is docs is totally empty including no README.*
+	find docs/*  ! -name 'README.*' -exec rm -rf {} +
 	find $(PKG_DIR) -name "*.py" ! -name "__init__.py" ! -name "linkml_files.py" -exec rm -f {} +
 	@echo 'squeaky cleaning complete'
 
-barf-%:
-	echo $*
-	find $(PKG_DIR)/$* ! -name 'README.*' ! -name $*  -type f -exec rm -f {} +
-
-# ---------------------------------------
-# SQUEAKY_CLEAN: remove all of the final targets to make sure we don't leave old artifacts around
-# ---------------------------------------
-squeaky-clean: uninstall clean $(patsubst %,squeaky-clean-%,$(PKG_TGTS))
-	find docs/*  ! -name 'README.*' -exec rm -rf {} +
-	find $(PKG_DIR)/model/schema  ! -name 'README.*' -type f -exec rm -f {} +
-	find $(PKG_DIR) -name "*.py" ! -name "__init__.py" ! -name "linkml_files.py" -exec rm -f {} +
-	cd make-venv && $(ENV) && pipenv --rm
-
 squeaky-clean-%: clean
+	echo $*
 	find $(PKG_DIR)/$* ! -name 'README.*' ! -name $*  -type f -exec rm -f {} +
 
 # ---------------------------------------
