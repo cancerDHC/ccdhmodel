@@ -4,14 +4,25 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-linkml-runtime = "~=1.0, >=1.0.3"
+# linkml-runtime = "~=1.0, >=1.0.3" added by migration to linkml model template
+#   but version from cancerDHC required. For example "Direct matches"
+linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"}
+# mkdocs = "*" removed by migration to linkml model template
+#   do mkdocs-material and mike provide the required functionality?
 mkdocs-material = "*"
 mike = "*"
+rdflib-pyld-compat = "*" # resinstating after removal by migration to linkml model template
 
 [dev-packages]
+# pytest = "~=6.2.4" removed by migration to linkml model template
+#   "replaced" with tox?
 tox = "*"
 
 [pipenv]
+# allow_prereleases = true added by migration to linkml model template
 allow_prereleases = true
+
+[requires]
+python_version = "3.8" # resinstating after removal by migration to linkml model template
 
 
