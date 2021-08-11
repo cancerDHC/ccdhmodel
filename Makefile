@@ -5,13 +5,13 @@
 # Model documentation and schema directory
 # ----------------------------------------
 SRC_DIR = model
-PKG_DIR = ccdhmodel
+PKG_DIR = crdch_model
 SCHEMA_DIR = $(SRC_DIR)/schema
 MODEL_DOCS_DIR = $(SRC_DIR)/docs
 SOURCE_FILES := $(shell find $(SCHEMA_DIR) -name '*.yaml')
 SCHEMA_NAMES = $(patsubst $(SCHEMA_DIR)/%.yaml, %, $(SOURCE_FILES))
 
-SCHEMA_NAME = ccdhmodel
+SCHEMA_NAME = crdch_model
 SCHEMA_SRC = $(SCHEMA_DIR)/$(SCHEMA_NAME).yaml
 PKG_TGTS = graphql json_schema shex owl csv
 TGTS = docs python $(PKG_TGTS)
@@ -107,7 +107,7 @@ tdir-%:
 	mkdir -p target/$*
 
 
-# MAM 20210806 basd on ccdhmodel main branch
+# MAM 20210806 based on ccdhmodel main branch
 ###  -- CSV --
 # one file per module
 gen-csv: $(patsubst %, $(PKG_T_CSV)/%.csv, $(SCHEMA_NAMES))
@@ -283,7 +283,7 @@ docserve: gen-docs
 # Regenerate from Google Sheets. Note that this uses a *separate* Pipenv in the
 # generators/google-sheets directory, so we have to run pipenv install on it separately.
 regen-google-sheets:
-	cd generators/google-sheets && pipenv install --dev && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../model/schema/ccdhmodel.yaml && cd -
+	cd generators/google-sheets && pipenv install --dev && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../model/schema/crdch_model.yaml && cd -
 
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
 # shoudn't it be using $(RUN) not ${RUN} ?

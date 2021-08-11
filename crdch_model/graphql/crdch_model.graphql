@@ -261,10 +261,6 @@ type Organization
     organizationType: CcdhString
   }
 
-type PublishTestClass
-  {
-  }
-
 type Quantity
   {
     valueDecimal: CcdhDecimal
@@ -334,7 +330,7 @@ type Specimen
     preinvasiveTissueMorphology: EnumCCDHSpecimenPreinvasiveTissueMorphology
     morphologyPathologicallyConfirmed: CcdhBoolean
     morphologyAssessorRole: EnumCCDHSpecimenMorphologyAssessorRole
-    morphlogyAssessmentMethod: EnumCCDHSpecimenMorphlogyAssessmentMethod
+    morphologyAssessmentMethod: EnumCCDHSpecimenMorphologyAssessmentMethod
     degreeOfDysplasia: EnumCCDHSpecimenDegreeOfDysplasia
     dysplasiaFraction: CcdhString
     relatedDocument: [Document]

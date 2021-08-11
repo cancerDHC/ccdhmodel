@@ -413,12 +413,6 @@ linkml:Nodeidentifier NONLITERAL
     )
 }
 
-<PublishTestClass> CLOSED {
-    (  $<PublishTestClass_tes> rdf:type . * ;
-       rdf:type [ <PublishTestClass> ] ?
-    )
-}
-
 <Quantity> CLOSED {
     (  $<Quantity_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
@@ -501,7 +495,7 @@ linkml:Nodeidentifier NONLITERAL
           <preinvasive_tissue_morphology> @<EnumCCDHSpecimenPreinvasiveTissueMorphology> ? ;
           <morphology_pathologically_confirmed> @<CcdhBoolean> ? ;
           <morphology_assessor_role> @<EnumCCDHSpecimenMorphologyAssessorRole> ? ;
-          <morphlogy_assessment_method> @<EnumCCDHSpecimenMorphlogyAssessmentMethod> ? ;
+          <morphology_assessment_method> @<EnumCCDHSpecimenMorphologyAssessmentMethod> ? ;
           <degree_of_dysplasia> @<EnumCCDHSpecimenDegreeOfDysplasia> ? ;
           <dysplasia_fraction> @<CcdhString> ? ;
           <related_document> @<Document> * ;

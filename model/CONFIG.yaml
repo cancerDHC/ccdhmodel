@@ -1,10 +1,10 @@
-# switch to cancerDHC/ccdhmodel
-# be careful about no overwriting the docuemtnation
-# add push to PyPI wiht GitHub action or ???
+# (OLD NOTE) switch to cancerDHC/ccdhmodel
+# be careful about no overwriting the documentation
+# add push to PyPI with GitHub action or ???
 model_organization:    turbomam
-model_name:            ccdhmodel
-root_schema: ccdhmodel
-# remember, this will be generated from teh google sheet
+model_name:            crdch_model
+root_schema: crdch_model
+# remember, this will be generated from the google sheet
 model_root_class: BodySite
 # Diagnosis 
 
@@ -25,7 +25,7 @@ classifiers:
     - "Intended Audience :: Information Technology"
     - "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
     - "Programming Language :: Python :: 3 :: Only"
-    - "Programming Language :: Python :: 3.7"
+    - "Programming Language :: Python :: 3.7" # Pipfile says requires python_version = "3.8"
     - "Programming Language :: Python :: 3.8"
     - "Programming Language :: Python :: 3.9"
 

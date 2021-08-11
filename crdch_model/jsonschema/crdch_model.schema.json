@@ -1049,14 +1049,6 @@
          "title": "Organization",
          "type": "object"
       },
-      "PublishTestClass": {
-         "additionalProperties": false,
-         "description": "this is not a realy class in the CCDH model. Its just a meaningless addition for testing the generation and publishing of soemthing new",
-         "properties": {},
-         "required": [],
-         "title": "PublishTestClass",
-         "type": "object"
-      },
       "Quantity": {
          "additionalProperties": false,
          "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
@@ -1309,7 +1301,7 @@
                },
                "type": "array"
             },
-            "morphlogy_assessment_method": {
+            "morphology_assessment_method": {
                "description": "The general method used to assess a specimens specific tissue morphology",
                "type": "string"
             },
