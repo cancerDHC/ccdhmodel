@@ -3,7 +3,7 @@ import unittest
 
 from linkml_runtime.loaders import yaml_loader, json_loader, rdf_loader
 
-from ccdhmodel.ccdhmodel import BodySite
+from crdch_model.crdch_model import BodySite, Diagnosis
 
 CWD = os.path.abspath(os.path.dirname(__file__))
 

@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* url and home\_page in setup.cfg
 * ccdhmodel -> crdch\_model in setup.cfg
 * add \*. AUTHORS etc. do not look liek they changed?
 * Topic prefix for ..
