@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* ccdhmodel -> crdch\_model in setup.cfg
 * add \*. AUTHORS etc. do not look liek they changed?
 * Topic prefix for ..
 * ran make after some crdch\_model renaming
