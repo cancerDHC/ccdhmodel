@@ -1,6 +1,6 @@
 # This repo was recently updated to follow the [linkml model template](https://github.com/linkml/linkml-model-template)
 
-Much of the instructions below are probably obsolescent. Not 100% sure about using mike to make the docs, although mike is specified as a plugin in the mkdocs setup file. I’m not sure where tagging fits into this. A gh-pages branch may not be necessary for publishing the docs to https://cancerdhc.github.io/ccdhmodel
+Much of the instructions below are probably obsolescent. Not 100% sure about using mike to make the docs, although mike is specified as a plugin in the mkdocs setup file. I’m not sure where tagging fits into this. A gh-pages branch may not be _necessary_ for publishing the docs to https://cancerdhc.github.io/ccdhmodel, but it may be preferable since we're using mike.
 
 The environments for using and building this package are managed with pipenv now. The Makefile recipes install and enter into the environments as necessary. Manually installing the environment shouldn’t be necessary but couldn’t hurt.
 
