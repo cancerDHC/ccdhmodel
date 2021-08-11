@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* trying to get twine on path/in env
 * added twine to main section of main Pipfile
 * now testing a minimal Diagnosis
 * now testing a minimal Diagnosis
