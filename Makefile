@@ -94,7 +94,8 @@ squeaky-clean: uninstall clean $(patsubst %,squeaky-clean-%,$(PKG_TGTS))
 		find $(PKG_DIR)/model/schema  ! -name 'README.*' -type f -exec rm -f {} + ;\
 		else echo 'no $(PKG_DIR)/model/schema to clean up' ;\
 	fi
-	# this will fail is docs is totally empty including no README.*
+	# this will fail if docs is totally empty including no README.*
+	# oops it gets totally cleaned somewhere in make all
 	find docs/*  ! -name 'README.*' -exec rm -rf {} +
 	find $(PKG_DIR) -name "*.py" ! -name "__init__.py" ! -name "linkml_files.py" -exec rm -f {} +
 	@echo 'squeaky cleaning complete'
