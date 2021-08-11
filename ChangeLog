@@ -1,6 +1,14 @@
 CHANGES
 =======
 
+* routine regen
+* better squeaky clean learning experience
+* developing new squeaky clean in Makefile
+* Create README.md
+* new and modified artifacts?
+* deleted requirements\*.txt
+* fixed file links in README.md
+* post twine push
 * trying to get twine on path/in env
 * added twine to main section of main Pipfile
 * now testing a minimal Diagnosis
