@@ -2,6 +2,7 @@ CHANGES
 =======
 
 * now testing a minimal Diagnosis
+* now testing a minimal Diagnosis
 * edited imports in tests/test\_input\_against\_model.py
 * url and home\_page in setup.cfg
 * ccdhmodel -> crdch\_model in setup.cfg

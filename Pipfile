@@ -12,6 +12,7 @@ linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC
 mkdocs-material = "*"
 mike = "*"
 rdflib-pyld-compat = "*" # resinstating after removal by migration to linkml model template
+twine = "*" # should this go in [dev-packages] or even make-venv/Pipfile ?
 
 [dev-packages]
 # pytest = "~=6.2.4" removed by migration to linkml model template
