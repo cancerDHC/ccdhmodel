@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* added twine to main section of main Pipfile
 * now testing a minimal Diagnosis
 * now testing a minimal Diagnosis
 * edited imports in tests/test\_input\_against\_model.py
