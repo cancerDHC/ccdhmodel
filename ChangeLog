@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+v0.2.3
+------
+
+* edits to MAINTAINERS.md, prep for PyPI push
+* Created initial distro
+
 v0.2.2
 ------
 

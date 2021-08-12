@@ -48,7 +48,7 @@ Optionally create an OAUTH2 token from the PyPi site
 - copy the token to the clipboard and save it somewhere safe
     -Note that this is the only time you will see this token. Once you leave this web page, the token cannot be retrieved.
   
-TODO: add notes on using a `~/.pypirc` file to store PyPI credentials or using `keyring --disable` to forget the saved password
+TODO: add notes on using `keyring --disable` to forget the saved password and using a `~/.pypirc` file to store PyPI credentials
 
 ### Process
 
