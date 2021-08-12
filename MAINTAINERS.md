@@ -31,6 +31,27 @@ See also the linkml model template's [original ABOUT.md](https://github.com/canc
   - Will require manually entering PyPI credentials at least once. In fact, initially executing the steps in this recipe manually is a good idea. A PyPI token may be oreferable over a password. _This is currently going into @turbomam's PyPI account_
   - Repo should be clean and tagged first
   
+## Initial PyPI setup
+
+After performing these steps, getting a clean repo, tagging and running `make pypi` should be sufficient
+
+### Prerequisites
+- A PyPi login
+- `make` and `make test` run to completion
+
+### Process
+
+1) Commit all changes
+```bash
+> git commit -am "Ready for testing..."
+> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+>
+```
+  
 ### Cleanup options desired
 
 - `make clean`
