@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.2.6
+-----
+
+* post google-sheetsccdh -> crdc-h make
+* ccdh -> crdc-h in genergenerators/google-sheets
+
 2.6
 ---
 
