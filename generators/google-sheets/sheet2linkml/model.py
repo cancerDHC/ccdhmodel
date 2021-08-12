@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from linkml_model.meta import SchemaDefinition
+from linkml_runtime.linkml_model.meta import SchemaDefinition
 
 
 class ModelElement(ABC):

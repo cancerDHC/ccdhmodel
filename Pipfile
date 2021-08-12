@@ -18,14 +18,21 @@ twine = "*" # should this go in [dev-packages] or even make-venv/Pipfile ?
 #   do mkdocs-material and mike provide the required functionality?
 mkdocs-material = "*"
 mike = "*"
+# from old generators/google-sheets/Pipfile
+pydantic = {extras = ["dotenv"], version = "*"}
+pygsheets = "*"
+black = "==v21.5b1"
+requests = "*"
+pyyaml = "*"
 
 [pipenv]
 # allow_prereleases = true added by migration to linkml model template
 allow_prereleases = true
 
 [requires]
-python_version = "3.8"
+# python_version = "3.8"
 # resinstating 3.8 req after removal by migration to linkml model template
 #   there are other files in this repo that imply 3.6 is OK
+# now removing according to https://github.com/cancerDHC/ccdhmodel/pull/68/files
 
 

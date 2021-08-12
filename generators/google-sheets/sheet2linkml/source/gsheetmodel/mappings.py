@@ -1,6 +1,6 @@
 from sheet2linkml.model import ModelElement
-from linkml_model.meta import Element
-from linkml_model.types import Uriorcurie
+from linkml_runtime.linkml_model.meta import Element
+from linkml_runtime.linkml_model.types import Uriorcurie
 import re
 import urllib
 import csv

@@ -2,8 +2,11 @@ import logging
 import re
 from functools import cached_property
 
-from linkml_model import SchemaDefinition
-from linkml_model.meta import EnumDefinition, PermissibleValue
+from linkml_runtime.linkml_model.meta import (
+    SchemaDefinition,
+    EnumDefinition,
+    PermissibleValue,
+)
 from pygsheets import worksheet
 
 from sheet2linkml.model import ModelElement

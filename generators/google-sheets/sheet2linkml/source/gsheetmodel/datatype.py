@@ -1,7 +1,7 @@
 from sheet2linkml.model import ModelElement
 from sheet2linkml.source.gsheetmodel.mappings import Mappings, MappingRelations
 from pygsheets import worksheet
-from linkml_model.meta import TypeDefinition
+from linkml_runtime.linkml_model.meta import TypeDefinition
 import logging
 import re
 
@@ -59,14 +59,14 @@ class Datatype(ModelElement):
 
         :return: A name for this datatype.
         """
-        return f"ccdh_{self.datatype_name}"
+        return f"crdch_{self.datatype_name}"
 
     @property
     def full_name(self) -> str:
         """
         :return: The full name of this datatype.
         """
-        return f"crdch_{self.datatype_name}"
+        return f"CRDC-H.{self.name}"
 
     def get_filename(self) -> str:
         """
