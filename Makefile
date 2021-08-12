@@ -100,6 +100,8 @@ squeaky-clean: uninstall clean $(patsubst %,squeaky-clean-%,$(PKG_TGTS))
 # just give up on a README or any placeholder in docs?
 	rm -rf docs/*
 	find $(PKG_DIR) -name "*.py" ! -name "__init__.py" ! -name "linkml_files.py" -exec rm -f {} +
+# also uninstall the root virtual environment? how to check if one is present?
+# have never seen .env, .venv or env.lock in the project root folder
 	@echo 'squeaky cleaning complete'
 
 squeaky-clean-%: clean
