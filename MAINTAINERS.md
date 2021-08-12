@@ -38,6 +38,10 @@ After performing these steps, getting a clean repo, tagging and running `make py
 ### Prerequisites
 - A PyPi login
 - `make` and `make test` run to completion
+- `mkdir dist`  if necessary
+- `pipenv install --dev` if necessary
+- `pip install wheel` if necessary.
+
 
 ### Process
 
@@ -51,8 +55,31 @@ Your branch is up to date with 'origin/main'.
 nothing to commit, working tree clean
 >
 ```
+
+2) Create the initial PyPi distro. Create `dist` folder if necessary. 
+
+- Check the previous git tag with `git describe`
+- Set the next tag with something like `git tag v0.0.1`
+
+```bash
+> rm -f dist/*
+> pipenv shell
+> python setup.py sdist bdist_wheel
+...
+creating 'dist/my-cool-model-0.0.1-py3-none-any.whl' and adding 'build/bdist.macosx-10.9-x86_64/wheel' to it
+adding 'my-cool-model-0.0.1.dist-info/AUTHORS'
+adding 'my-cool-model-0.0.1.dist-info/METADATA'
+adding 'my-cool-model-0.0.1.dist-info/WHEEL'
+adding 'my-cool-model-0.0.1.dist-info/pbr.json'
+adding 'my-cool-model-0.0.1.dist-info/top_level.txt'
+adding 'my-cool-model-0.0.1.dist-info/RECORD'
+removing build/bdist.macosx-10.9-x86_64/wheel
+> ls dist
+my-cool-model-1.0.1-py3-none-any.whl my-cool-model-1.0.1.tar.gz
+>
+```
   
-### Cleanup options desired
+### Cleanup options
 
 - `make clean`
   - Just cleans up `target`, which doesn't get synced anyway

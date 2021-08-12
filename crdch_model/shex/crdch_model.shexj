@@ -1,0 +1,4081 @@
+{
+   "type": "Schema",
+   "@context": [
+      "http://www.w3.org/ns/shex.jsonld",
+      {
+         "@base": "https://example.org/ccdh/"
+      }
+   ],
+   "shapes": [
+      {
+         "type": "NodeConstraint",
+         "id": "https://example.org/ccdh/CcdhString",
+         "datatype": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://example.org/ccdh/CcdhInteger",
+         "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://example.org/ccdh/CcdhDecimal",
+         "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://example.org/ccdh/CcdhBoolean",
+         "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://example.org/ccdh/CcdhDateTime",
+         "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://example.org/ccdh/CcdhCurie",
+         "nodeKind": "iri"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://example.org/ccdh/CcdhCode",
+         "datatype": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/String",
+         "datatype": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Integer",
+         "datatype": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Boolean",
+         "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Float",
+         "datatype": "http://www.w3.org/2001/XMLSchema#float"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Double",
+         "datatype": "http://www.w3.org/2001/XMLSchema#double"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Decimal",
+         "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Time",
+         "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Date",
+         "datatype": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Datetime",
+         "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Uriorcurie",
+         "nodeKind": "iri"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Uri",
+         "nodeKind": "iri"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Ncname",
+         "datatype": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Objectidentifier",
+         "nodeKind": "iri"
+      },
+      {
+         "type": "NodeConstraint",
+         "id": "https://w3id.org/linkml/Nodeidentifier",
+         "nodeKind": "nonliteral"
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/AlcoholExposureObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/AlcoholExposureObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHAlcoholExposureObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHAlcoholExposureObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHAlcoholExposureObservationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueInteger",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHAlcoholExposureObservationValueCodeableConcept",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/AlcoholExposureObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/BiologicProduct",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/BiologicProduct_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/description",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/product_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHBiologicProductProductType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/passage_number",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/growth_rate",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/BiologicProduct"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/BodySite",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/BodySite_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/site",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHBodySiteSite",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/qualifier",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHBodySiteQualifier",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/BodySite"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/CancerGradeObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/CancerGradeObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerGradeObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerGradeObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerGradeObservationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerGradeObservationValueCodeableConcept",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/CancerGradeObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/CancerGradeObservationSet",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/CancerGradeObservationSet_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerGradeObservationSetCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerGradeObservationSetMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observations",
+                        "valueExpr": "https://example.org/ccdh/CancerGradeObservation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/CancerGradeObservationSet"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/CancerStageObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/CancerStageObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerStageObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerStageObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerStageObservationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueEntity",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerStageObservationValueCodeableConcept",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/CancerStageObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/CancerStageObservationSet",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/CancerStageObservationSet_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerStageObservationSetCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHCancerStageObservationSetMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observations",
+                        "valueExpr": "https://example.org/ccdh/CancerStageObservation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/CancerStageObservationSet"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/CodeableConcept",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/CodeableConcept_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/coding",
+                        "valueExpr": "https://example.org/ccdh/Coding",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/text",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/CodeableConcept"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Coding",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Coding_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/code",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/system",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/label",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/systemURL",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/systemVersion",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Coding"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Diagnosis",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Diagnosis_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/age_at_diagnosis",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/year_at_diagnosis",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/condition",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDiagnosisCondition",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/primary_site",
+                        "valueExpr": "https://example.org/ccdh/BodySite",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/metastatic_site",
+                        "valueExpr": "https://example.org/ccdh/BodySite",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/stage",
+                        "valueExpr": "https://example.org/ccdh/CancerStageObservationSet",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/grade",
+                        "valueExpr": "https://example.org/ccdh/CancerGradeObservationSet",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/morphology",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDiagnosisMorphology",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/disease_status",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDiagnosisDiseaseStatus",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/prior_diagnosis",
+                        "valueExpr": "https://example.org/ccdh/Diagnosis",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_of_diagnosis",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDiagnosisMethodOfDiagnosis",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/related_specimen",
+                        "valueExpr": "https://example.org/ccdh/Specimen",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/primary_tumor_dimensional_measures",
+                        "valueExpr": "https://example.org/ccdh/DimensionalObservationSet",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/supporting_observation",
+                        "valueExpr": "https://example.org/ccdh/Observation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Diagnosis"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/DimensionalObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/DimensionalObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDimensionalObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDimensionalObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDimensionalObservationMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueQuantity",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/DimensionalObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/DimensionalObservationSet",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/DimensionalObservationSet_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDimensionalObservationSetCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDimensionalObservationSetMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observations",
+                        "valueExpr": "https://example.org/ccdh/DimensionalObservation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/DimensionalObservationSet"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Document",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Document_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/document_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHDocumentDocumentType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/description",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/url",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Document"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "ShapeOr",
+         "id": "https://example.org/ccdh/Entity",
+         "shapeExprs": [
+            {
+               "type": "Shape",
+               "closed": true,
+               "expression": {
+                  "type": "EachOf",
+                  "expressions": [
+                     {
+                        "type": "TripleConstraint",
+                        "id": "https://example.org/ccdh/Entity_tes",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     }
+                  ]
+               }
+            },
+            "https://example.org/ccdh/AlcoholExposureObservation",
+            "https://example.org/ccdh/BiologicProduct",
+            "https://example.org/ccdh/BodySite",
+            "https://example.org/ccdh/CancerGradeObservation",
+            "https://example.org/ccdh/CancerGradeObservationSet",
+            "https://example.org/ccdh/CancerStageObservation",
+            "https://example.org/ccdh/CancerStageObservationSet",
+            "https://example.org/ccdh/CodeableConcept",
+            "https://example.org/ccdh/Coding",
+            "https://example.org/ccdh/Diagnosis",
+            "https://example.org/ccdh/DimensionalObservation",
+            "https://example.org/ccdh/DimensionalObservationSet",
+            "https://example.org/ccdh/Document",
+            "https://example.org/ccdh/EnvironmentalExposureObservation",
+            "https://example.org/ccdh/ExecutionConditionObservation",
+            "https://example.org/ccdh/ExecutionTimeObservation",
+            "https://example.org/ccdh/Exposure",
+            "https://example.org/ccdh/HistologicalCompositionObservation",
+            "https://example.org/ccdh/HistologicalCompositionObservationSet",
+            "https://example.org/ccdh/Identifier",
+            "https://example.org/ccdh/Observation",
+            "https://example.org/ccdh/ObservationSet",
+            "https://example.org/ccdh/Organization",
+            "https://example.org/ccdh/Quantity",
+            "https://example.org/ccdh/ResearchProject",
+            "https://example.org/ccdh/ResearchSubject",
+            "https://example.org/ccdh/Specimen",
+            "https://example.org/ccdh/SpecimenContainer",
+            "https://example.org/ccdh/SpecimenCreationActivity",
+            "https://example.org/ccdh/SpecimenProcessingActivity",
+            "https://example.org/ccdh/SpecimenQualityObservation",
+            "https://example.org/ccdh/SpecimenQuantityObservation",
+            "https://example.org/ccdh/SpecimenStorageActivity",
+            "https://example.org/ccdh/SpecimenTransportActivity",
+            "https://example.org/ccdh/Subject",
+            "https://example.org/ccdh/Substance",
+            "https://example.org/ccdh/TimePeriod",
+            "https://example.org/ccdh/TimePoint",
+            "https://example.org/ccdh/TobaccoExposureObservation",
+            "https://example.org/ccdh/Treatment"
+         ]
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/EnvironmentalExposureObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/EnvironmentalExposureObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHEnvironmentalExposureObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHEnvironmentalExposureObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHEnvironmentalExposureObservationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHEnvironmentalExposureObservationValueCodeableConcept",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/EnvironmentalExposureObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/ExecutionConditionObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/ExecutionConditionObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHExecutionConditionObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHExecutionConditionObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHExecutionConditionObservationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHExecutionConditionObservationValueCodeableConcept",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/ExecutionConditionObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/ExecutionTimeObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/ExecutionTimeObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHExecutionTimeObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHExecutionTimeObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHExecutionTimeObservationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueQuantity",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/ExecutionTimeObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Exposure",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Exposure_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/tobacco_exposure",
+                        "valueExpr": "https://example.org/ccdh/TobaccoExposureObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/alcohol_exposure",
+                        "valueExpr": "https://example.org/ccdh/AlcoholExposureObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/environmental_exposure",
+                        "valueExpr": "https://example.org/ccdh/EnvironmentalExposureObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Exposure"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/HistologicalCompositionObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/HistologicalCompositionObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHHistologicalCompositionObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHHistologicalCompositionObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHHistologicalCompositionObservationMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueQuantity",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/HistologicalCompositionObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/HistologicalCompositionObservationSet",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/HistologicalCompositionObservationSet_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHHistologicalCompositionObservationSetCategory",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHHistologicalCompositionObservationSetMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observations",
+                        "valueExpr": "https://example.org/ccdh/HistologicalCompositionObservation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/HistologicalCompositionObservationSet"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Identifier",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Identifier_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/value",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/system",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHIdentifierType",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Identifier"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Observation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Observation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHObservationMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueEntity",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueString",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueInteger",
+                        "valueExpr": "https://example.org/ccdh/CcdhDecimal",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueDecimal",
+                        "valueExpr": "https://example.org/ccdh/CcdhDecimal",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueBoolean",
+                        "valueExpr": "https://example.org/ccdh/CcdhBoolean",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueDateTime",
+                        "valueExpr": "https://example.org/ccdh/CcdhDateTime",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueQuantity",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHObservationValueCodeableConcept",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Observation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/ObservationSet",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/ObservationSet_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHObservationSetCategory",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHObservationSetMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observations",
+                        "valueExpr": "https://example.org/ccdh/Observation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/ObservationSet"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Organization",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Organization_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/name",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/alias",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/organization_type",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Organization"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Quantity",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Quantity_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueDecimal",
+                        "valueExpr": "https://example.org/ccdh/CcdhDecimal",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHQuantityValueCodeableConcept",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/unit",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHQuantityUnit",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Quantity"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/ResearchProject",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/ResearchProject_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/name",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/name_shortened",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/description",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/description_shortened",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/sponsor",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_started",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_ended",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/primary_anatomic_site",
+                        "valueExpr": "https://example.org/ccdh/BodySite",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/url",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/part_of",
+                        "valueExpr": "https://example.org/ccdh/ResearchProject",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/research_project_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHResearchProjectResearchProjectType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/associated_timepoint",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/ResearchProject"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/ResearchSubject",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/ResearchSubject_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/description",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/member_of_research_project",
+                        "valueExpr": "https://example.org/ccdh/ResearchProject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/age_at_enrollment",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/primary_diagnosis_condition",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHResearchSubjectPrimaryDiagnosisCondition",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/primary_diagnosis_site",
+                        "valueExpr": "https://example.org/ccdh/BodySite",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/primary_diagnosis",
+                        "valueExpr": "https://example.org/ccdh/Diagnosis",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/comorbid_diagnosis",
+                        "valueExpr": "https://example.org/ccdh/Diagnosis",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/index_timepoint",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHResearchSubjectIndexTimepoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/originating_site",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/associated_subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/ResearchSubject"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Specimen",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Specimen_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/description",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/specimen_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenSpecimenType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/analyte_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenAnalyteType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/associated_project",
+                        "valueExpr": "https://example.org/ccdh/ResearchProject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/data_provider",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/source_material_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenSourceMaterialType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/parent_specimen",
+                        "valueExpr": "https://example.org/ccdh/Specimen",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/source_subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/tumor_status_at_collection",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenTumorStatusAtCollection",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/creation_activity",
+                        "valueExpr": "https://example.org/ccdh/SpecimenCreationActivity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/processing_activity",
+                        "valueExpr": "https://example.org/ccdh/SpecimenProcessingActivity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/storage_activity",
+                        "valueExpr": "https://example.org/ccdh/SpecimenStorageActivity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/transport_activity",
+                        "valueExpr": "https://example.org/ccdh/SpecimenTransportActivity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/contained_in",
+                        "valueExpr": "https://example.org/ccdh/SpecimenContainer",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/dimensional_measures",
+                        "valueExpr": "https://example.org/ccdh/DimensionalObservationSet",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/quantity_measure",
+                        "valueExpr": "https://example.org/ccdh/SpecimenQuantityObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/quality_measure",
+                        "valueExpr": "https://example.org/ccdh/SpecimenQualityObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/cellular_composition_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenCellularCompositionType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/histological_composition_measures",
+                        "valueExpr": "https://example.org/ccdh/HistologicalCompositionObservationSet",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/general_tissue_morphology",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenGeneralTissueMorphology",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/specific_tissue_morphology",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenSpecificTissueMorphology",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/preinvasive_tissue_morphology",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenPreinvasiveTissueMorphology",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/morphology_pathologically_confirmed",
+                        "valueExpr": "https://example.org/ccdh/CcdhBoolean",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/morphology_assessor_role",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenMorphologyAssessorRole",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/morphology_assessment_method",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenMorphologyAssessmentMethod",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/degree_of_dysplasia",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenDegreeOfDysplasia",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/dysplasia_fraction",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/related_document",
+                        "valueExpr": "https://example.org/ccdh/Document",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/section_location",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenSectionLocation",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/derived_product",
+                        "valueExpr": "https://example.org/ccdh/BiologicProduct",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/distance_from_paired_specimen",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Specimen"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/SpecimenContainer",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/SpecimenContainer_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/container_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenContainerContainerType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/container_number",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/additive",
+                        "valueExpr": "https://example.org/ccdh/Substance",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/parent_container",
+                        "valueExpr": "https://example.org/ccdh/SpecimenContainer",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/SpecimenContainer"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/SpecimenCreationActivity",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/SpecimenCreationActivity_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/activity_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenCreationActivityActivityType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_started",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_ended",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/collection_method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenCreationActivityCollectionMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/derivation_method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenCreationActivityDerivationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/additive",
+                        "valueExpr": "https://example.org/ccdh/Substance",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/collection_site",
+                        "valueExpr": "https://example.org/ccdh/BodySite",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/quantity_collected",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/execution_time_observation",
+                        "valueExpr": "https://example.org/ccdh/ExecutionTimeObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/execution_condition_observation",
+                        "valueExpr": "https://example.org/ccdh/ExecutionConditionObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/specimen_order",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/SpecimenCreationActivity"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/SpecimenProcessingActivity",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/SpecimenProcessingActivity_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/activity_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenProcessingActivityActivityType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_started",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_ended",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/duration",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenProcessingActivityMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/additive",
+                        "valueExpr": "https://example.org/ccdh/Substance",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/execution_time_observation",
+                        "valueExpr": "https://example.org/ccdh/ExecutionTimeObservation",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/execution_condition_observation",
+                        "valueExpr": "https://example.org/ccdh/ExecutionConditionObservation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/SpecimenProcessingActivity"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/SpecimenQualityObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/SpecimenQualityObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenQualityObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenQualityObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenQualityObservationMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueQuantity",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/SpecimenQualityObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/SpecimenQuantityObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/SpecimenQuantityObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenQuantityObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenQuantityObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenQuantityObservationMethodType",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueQuantity",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 1,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/SpecimenQuantityObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/SpecimenStorageActivity",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/SpecimenStorageActivity_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_started",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_ended",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/duration",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSpecimenStorageActivityMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/container",
+                        "valueExpr": "https://example.org/ccdh/SpecimenContainer",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/SpecimenStorageActivity"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/SpecimenTransportActivity",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/SpecimenTransportActivity_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_started",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_ended",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/duration",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/transport_origin",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/transport_destination",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/execution_condition_observation",
+                        "valueExpr": "https://example.org/ccdh/ExecutionConditionObservation",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/SpecimenTransportActivity"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Subject",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Subject_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/species",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubjectSpecies",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/breed",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubjectBreed",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/sex",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubjectSex",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/ethnicity",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubjectEthnicity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/race",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubjectRace",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/year_of_birth",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/vital_status",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubjectVitalStatus",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/age_at_death",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/year_of_death",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/cause_of_death",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubjectCauseOfDeath",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Subject"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Substance",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Substance_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/substance_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubstanceSubstanceType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/role",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHSubstanceRole",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/substance_quantity",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Substance"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/TimePeriod",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/TimePeriod_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/periodStart_start",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/periodEnd_end",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/TimePeriod"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/TimePoint",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/TimePoint_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/dateTime",
+                        "valueExpr": "https://example.org/ccdh/CcdhDateTime",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/indexTimePoint",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/offsetFromIndex",
+                        "valueExpr": "https://example.org/ccdh/Quantity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/eventType",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTimePointEventType",
+                        "min": 0,
+                        "max": -1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/TimePoint"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/TobaccoExposureObservation",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/TobaccoExposureObservation_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/category",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTobaccoExposureObservationCategory",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/observation_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTobaccoExposureObservationObservationType",
+                        "min": 1,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/method_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTobaccoExposureObservationMethodType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/focus",
+                        "valueExpr": "https://example.org/ccdh/Entity",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/performed_by",
+                        "valueExpr": "https://example.org/ccdh/Organization",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueInteger",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/valueCodeableConcept",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTobaccoExposureObservationValueCodeableConcept",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/TobaccoExposureObservation"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      },
+      {
+         "type": "Shape",
+         "id": "https://example.org/ccdh/Treatment",
+         "closed": true,
+         "expression": {
+            "type": "EachOf",
+            "expressions": [
+               {
+                  "type": "EachOf",
+                  "id": "https://example.org/ccdh/Treatment_tes",
+                  "expressions": [
+                     "https://example.org/ccdh/Entity_tes",
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                        "valueExpr": {
+                           "type": "NodeConstraint",
+                           "values": [
+                              "https://example.org/ccdh/Entity"
+                           ]
+                        },
+                        "min": 0
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/id",
+                        "valueExpr": "https://example.org/ccdh/CcdhString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/identifier",
+                        "valueExpr": "https://example.org/ccdh/Identifier",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_for_diagnosis",
+                        "valueExpr": "https://example.org/ccdh/Diagnosis",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/concurrent_treatment",
+                        "valueExpr": "https://example.org/ccdh/Treatment",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_type",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTreatmentTreatmentType",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/subject",
+                        "valueExpr": "https://example.org/ccdh/Subject",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_started",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/date_ended",
+                        "valueExpr": "https://example.org/ccdh/TimePoint",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_end_reason",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTreatmentTreatmentEndReason",
+                        "min": 0,
+                        "max": -1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/regimen",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTreatmentRegimen",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/therapeutic_agent",
+                        "valueExpr": "https://example.org/ccdh/Substance",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/number_of_cycles",
+                        "valueExpr": "https://example.org/ccdh/CcdhInteger",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_frequency",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTreatmentTreatmentFrequency",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_anatomic_site",
+                        "valueExpr": "https://example.org/ccdh/BodySite",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_intent",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTreatmentTreatmentIntent",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_effect",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTreatmentTreatmentEffect",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/ccdh/treatment_outcome",
+                        "valueExpr": "https://example.org/ccdh/EnumCCDHTreatmentTreatmentOutcome",
+                        "min": 0,
+                        "max": 1
+                     }
+                  ]
+               },
+               {
+                  "type": "TripleConstraint",
+                  "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                  "valueExpr": {
+                     "type": "NodeConstraint",
+                     "values": [
+                        "https://example.org/ccdh/Treatment"
+                     ]
+                  },
+                  "min": 0
+               }
+            ]
+         }
+      }
+   ]
+}
+

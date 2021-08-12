@@ -1,6 +1,9 @@
 CHANGES
 =======
 
+* Ready for testing..
+* removed from\_template/ABOUT.md
+* updating MAINTAINERS.md and CHANGELOG.md
 * post twine push
 * routine regen
 * moved MakeConfig into from\_template
