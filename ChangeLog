@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+v0.2.2
+------
+
+* prep for another pypi publish
 * Ready for testing..
 * removed from\_template/ABOUT.md
 * updating MAINTAINERS.md and CHANGELOG.md

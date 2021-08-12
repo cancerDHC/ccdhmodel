@@ -40,7 +40,8 @@ After performing these steps, getting a clean repo, tagging and running `make py
 - `make` and `make test` run to completion
 - `mkdir dist`  if necessary
 - `pipenv install --dev` if necessary
-- `pip install wheel` if necessary.
+- `pip install wheel` if necessary
+- `pip install twine` if necessary
 
 
 ### Process
@@ -66,18 +67,43 @@ nothing to commit, working tree clean
 > pipenv shell
 > python setup.py sdist bdist_wheel
 ...
-creating 'dist/my-cool-model-0.0.1-py3-none-any.whl' and adding 'build/bdist.macosx-10.9-x86_64/wheel' to it
-adding 'my-cool-model-0.0.1.dist-info/AUTHORS'
-adding 'my-cool-model-0.0.1.dist-info/METADATA'
-adding 'my-cool-model-0.0.1.dist-info/WHEEL'
-adding 'my-cool-model-0.0.1.dist-info/pbr.json'
-adding 'my-cool-model-0.0.1.dist-info/top_level.txt'
-adding 'my-cool-model-0.0.1.dist-info/RECORD'
-removing build/bdist.macosx-10.9-x86_64/wheel
+adding 'crdch_model-0.2.2.data/data/model/docs/home.md'
+adding 'crdch_model-0.2.2.data/data/model/schema/README.md'
+adding 'crdch_model-0.2.2.data/data/model/schema/crdch_model.yaml'
+adding 'crdch_model-0.2.2.dist-info/AUTHORS'
+adding 'crdch_model-0.2.2.dist-info/METADATA'
+adding 'crdch_model-0.2.2.dist-info/WHEEL'
+adding 'crdch_model-0.2.2.dist-info/pbr.json'
+adding 'crdch_model-0.2.2.dist-info/top_level.txt'
+adding 'crdch_model-0.2.2.dist-info/RECORD'
+removing build/bdist.macosx-10.14.6-x86_64/wheel
 > ls dist
-my-cool-model-1.0.1-py3-none-any.whl my-cool-model-1.0.1.tar.gz
+crdch_model-0.2.2-py3-none-any.whl	crdch_model-0.2.2.tar.gz
 >
 ```
+
+_If the tags above show up with a `dev1` suffix on them, something has changed since the tag.  If this occurs, you can go ahead and find what got missed in the commit, fix and commit it and grab the next tag (v0.2.3 in this example) and redo the setup._
+
+3) Upload the commit to pypi.
+
+```bash
+> twine upload dist/*
+Uploading distributions to https://upload.pypi.org/legacy/
+Enter your username: <pypi user name>
+Uploading crdch_model-0.2.2-py3-none-any.whl
+100%|██████████████████████████████████████| 659k/659k [00:02<00:00, 275kB/s]
+Uploading crdch_model-0.2.2.tar.gz
+100%|██████████████████████████████████████| 1.54M/1.54M [00:04<00:00, 372kB/s]
+
+View at:
+https://pypi.org/project/crdch-model/0.2.2/
+```
+4) Push the initial tag info to github
+```bash
+> git commit -am "Created initial distro"
+> git push --tags
+```
+
   
 ### Cleanup options
 
