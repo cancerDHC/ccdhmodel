@@ -47,8 +47,22 @@ Optionally create an OAUTH2 token from the PyPi site
 - give the token a label and set the scope to `crdch_model`
 - copy the token to the clipboard and save it somewhere safe
     -Note that this is the only time you will see this token. Once you leave this web page, the token cannot be retrieved.
-  
-TODO: add notes on using `keyring --disable` to forget the saved password and using a `~/.pypirc` file to store PyPI credentials
+
+In order to run `make pypi` in the future, a `~/.pypirc` file with one of the following formats should be created.  See https://packaging.python.org/specifications/pypirc/
+
+```
+[pypi]
+username = <SECRET>
+password = <SECRET>
+```
+or
+```
+[pypi]
+username = __token__
+password = <OAUTH2 token>
+```
+
+In some cases, the PyPI username and password may be stored in a keyring. That can be disabled with `keyring --disable`. See https://twine.readthedocs.io/en/latest/
 
 ### Process
 
