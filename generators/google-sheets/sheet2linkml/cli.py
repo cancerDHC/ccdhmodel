@@ -48,7 +48,7 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
     google_sheet_id = config.Settings().cdm_google_sheet_id
 
     # Arbitrarily set a CRDC-H root URI.
-    crdch_root = "https://example.org/ccdh"
+    crdch_root = "https://example.org/crdch_model"
 
     # Load the Google Sheet model and add the development version number.
     model = GSheetModel(google_api_credentials, google_sheet_id)

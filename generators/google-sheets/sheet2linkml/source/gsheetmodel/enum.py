@@ -117,7 +117,7 @@ class Enum(ModelElement):
         """
 
         # The hyphen in 'CRDC-H' doesn't work properly.
-        fixed_name = re.sub(r"^CRDC-H\.", "CCDH.", enum_name)
+        fixed_name = re.sub(r"^CRDC-H\.", "CRDCH.", enum_name)
 
         # The '.'s in the name also mess up the generated Python code.
         # But we might as well replace everything that isn't alphanumeric.

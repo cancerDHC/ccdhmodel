@@ -55,7 +55,7 @@ class Datatype(ModelElement):
     @property
     def name(self) -> str:
         """
-        The name of this datatype. To differentiate it from the LinkML base types, we add `ccdh_` as a prefix.
+        The name of this datatype. To differentiate it from the LinkML base types, we add `crdch_` as a prefix.
 
         :return: A name for this datatype.
         """
@@ -66,7 +66,7 @@ class Datatype(ModelElement):
         """
         :return: The full name of this datatype.
         """
-        return f"CRDC-H.{self.name}"
+        return f"crdch_{self.datatype_name}"
 
     def get_filename(self) -> str:
         """

@@ -255,7 +255,7 @@ class GSheetModel(ModelElement):
         schema: SchemaDefinition = SchemaDefinition(name="CRDC-H", id=f"{root_uri}")
         schema.prefixes = {
             "linkml": "https://w3id.org/linkml/",
-            "ccdh": f"{root_uri}/",
+            "crdch": f"{root_uri}/",
             "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
             "GDC": "http://example.org/gdc/",
             "PDC": "http://example.org/pdc/",
@@ -265,7 +265,7 @@ class GSheetModel(ModelElement):
         # TODO: See if we can get by without.
         # schema.imports = ['datatypes', 'prefixes']
         schema.imports = ["linkml:types"]
-        schema.default_prefix = "ccdh"
+        schema.default_prefix = "crdch"
 
         schema.license = "https://creativecommons.org/publicdomain/zero/1.0/"
         schema.notes.append(f"Derived from {self.to_markdown()}")

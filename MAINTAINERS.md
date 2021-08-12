@@ -79,7 +79,8 @@ nothing to commit, working tree clean
 
 2) Make an interactive push to PyPI
 
-- Check the previous git tag with `git describe`
+- Check the previous tag at https://pypi.org/project/crdch-model/#history
+    - `git tag` and _https://github.com/cancerDHC/ccdhmodel/releases show tagged releases from the `main` branch. `git describe` shows the latest local/dev version._
 - Set the next tag to something incremental with a command like `git tag v0.0.1`
 
 ```bash

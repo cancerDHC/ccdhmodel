@@ -330,9 +330,9 @@ class Attribute:
         if EntityWorksheet.COL_TYPE in self.row:
             attribute_range = self.row.get(EntityWorksheet.COL_TYPE) or "string"
 
-            # For primitive types, we need to add `ccdh_` to the start of the type name.
+            # For primitive types, we need to add `crdch_` to the start of the type name.
             if attribute_range[0].islower():
-                attribute_range = f"ccdh_{attribute_range}"
+                attribute_range = f"crdch_{attribute_range}"
 
         return attribute_range
 
@@ -345,7 +345,7 @@ class Attribute:
         """
 
         # The hyphen in 'CRDC-H' doesn't work properly.
-        fixed_name = re.sub(r"^CRDC-H\.", "CCDH.", enum_name)
+        fixed_name = re.sub(r"^CRDC-H\.", "CRDCH.", enum_name)
 
         # The '.'s in the name also mess up the generated Python code.
         # But we might as well replace everything that isn't alphanumeric.

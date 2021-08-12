@@ -1,6 +1,6 @@
 # CRDC-H Model in LinkML
 
-This repository stores the [LinkML](https://linkml.github.io/) representation of the [CCDH Harmonized Data Model (CRDC-H)](https://cancerdhc.github.io/) produced by the [Center for Cancer Data Harmonization (CCDH)](https://harmonization.datacommons.cancer.gov/).
+This repository stores the [LinkML](https://linkml.github.io/) representation of the [CRDC Harmonized Data Model (CRDC-H)](https://cancerdhc.github.io/) produced by the [Center for Cancer Data Harmonization (CCDH)](https://harmonization.datacommons.cancer.gov/).
 
 This repository includes [the LinkML model itself](./model/schema/crdch_model.yaml) (in [YAML](https://en.wikipedia.org/wiki/YAML) format) as well as a number of artifacts produced automatically by LinkML, including a JSON Schema, JSON-LD context, a GraphQL description, a CSV description and ShEx validation shapes.
 
