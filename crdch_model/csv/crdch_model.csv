@@ -1,0 +1,51 @@
+id,mappings,description
+AlcoholExposureObservation,,"A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation."
+BiologicProduct,,"A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."
+BodySite,,"A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device."
+CancerGradeObservation,,A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation
+CancerGradeObservationSet,,"A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)."
+CancerStageObservation,,"A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging."
+CancerStageObservationSet,,"A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation)."
+CodeableConcept,,"A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text."
+Coding,,"A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system."
+Diagnosis,,A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.
+DimensionalObservation,,"A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement."
+DimensionalObservationSet,,"A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area)."
+Document,,"A collection of information intented to be understood together as a whole, and codified in human-readable form."
+Entity,,Any resource that has its own identifier
+EnvironmentalExposureObservation,,"A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation."
+ExecutionConditionObservation,,"A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
+
+Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed."
+ExecutionTimeObservation,,"A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
+
+Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed."
+Exposure,,"Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance."
+HistologicalCompositionObservation,,"An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype)."
+HistologicalCompositionObservationSet,,"A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype."
+Identifier,,An Identifier is associated with a unique object or entity within a given system.
+Observation,,"A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation."
+ObservationSet,,"A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation."
+Organization,,"A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university"
+Quantity,,"A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit."
+ResearchProject,,"A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
+This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
+and investigative techniques. A ResearchProject involves the gathering of information about human or animal subjects."
+ResearchSubject,,"A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
+or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy."
+Specimen,,"Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation."
+SpecimenContainer,,A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)
+SpecimenCreationActivity,,"The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting)."
+SpecimenProcessingActivity,,"An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen."
+SpecimenQualityObservation,,"A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement."
+SpecimenQuantityObservation,,"A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement."
+SpecimenStorageActivity,,"An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
+intrinsic physical nature of a specimen."
+SpecimenTransportActivity,,An activity through which a specimen is transported between locations or organizations.
+Subject,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+Substance,,"A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application."
+TimePeriod,,A period of time between a start and end time point.
+TimePoint,,"A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index."
+TobaccoExposureObservation,,"A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation."
+Treatment,,Represent medication administration or other treatment types.
+
