@@ -2,6 +2,9 @@ CHANGES
 =======
 
 * routine regen
+* moved MakeConfig into from\_template
+* post twine push
+* routine regen
 * better squeaky clean learning experience
 * developing new squeaky clean in Makefile
 * Create README.md
