@@ -1,0 +1,13 @@
+name: Refresh CCDH Model
+# TODO: @Gaurav: I believe you mentioned wanting to fill out this file to do the build.
+on:
+  workflow_dispatch:
+  repository_dispatch:
+      types: [refreshModel]
+jobs:
+  ccdhmodel__build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echoStuff
+        run: |
+          echo Workflow complete.

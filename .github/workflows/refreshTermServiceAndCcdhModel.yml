@@ -1,0 +1,21 @@
+name: Refresh Terminology Service and CCDH Model
+on:
+  workflow_dispatch:
+jobs:
+  ccdh-terminology-service__build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0  # https://github.com/convictional/trigger-workflow-and-wait
+        with:
+          owner: cancerDHC
+          repo: ccdh-terminology-service
+          # TODO: create one for the organization/repo
+          # github_token: ${{ secrets.GH_LIMITED_PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.DOCKER_USER_TOKEN_LIMITED }}
+          # workflow_file_name: main.yml  # rebuilds GH repository (redundant?)
+          workflow_file_name: rebuildServers.yml  # rebuilds and re-deploys production server
+          ref: master  # change or just use 'main'/'master' branches corresponding to each repo?
+          wait_interval: 10  # seconds
+          inputs: '{}'  # JSON
+          propagate_failure: false  # Fail current job if downstream job fails.
+          wait_workflow: true  # Wait for workflow to finish.
