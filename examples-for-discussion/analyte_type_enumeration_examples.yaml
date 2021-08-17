@@ -1,0 +1,44 @@
+# Data examples demonstrating several proposed approaches for representing coded/enumerated values in the CRDC-H.
+# The source GDC data describes an Analyte.  The GDC model defines separate fields to capture a human readable term ('DNA'),
+# and a letter code ('D') to represent the analyte type:
+
+     #    Analyte ID                    Analyte UUID                  Analyte Type      Analyte Type Id
+     # TCGA-2G-AAGW-01A-11D   d64cba64-7eba-4a09-887d-bfc401edd138        DNA                  D
+
+# This analyte can be found on the GDC website at https://portal.gdc.cancer.gov/cases/3cdbf331-991d-41cb-a694-a2aa95c4aa26?bioId=d64cba64-7eba-4a09-887d-bfc401edd138
+
+# Each proposed approach should illustrate how the CRDC-H might represent the harmonized/canonical analyte type concept, as well
+# as where/how the original source values get represented (which may be in the data/message, or in an external mapping file).
+
+##################################################################################################3
+
+# Approach 1: Current CRDC-H Representation, using Codeable Concepts
+
+  identifier:
+    - value: tcga:TCGA-2G-AAGW-01A-11D
+    - value: gdc:d64cba64-7eba-4a09-887d-bfc401edd138
+  analyte_type:
+    text: DNA
+    coding:
+      - code: gdc:DNA
+        label: DNA
+      - code: gdc:D         # Here we propose to include the human readable and one-letter code for DNA in a single CC object,
+                            # as they represent the same concept.
+        label: DNA      
+      - code: ncit:C449     # The canonical value - here, an NCIT term. 
+        label: deoxyribonucleic acid
+
+
+##################################################################################################
+
+# Approach 2:
+
+
+
+
+
+
+
+##################################################################################################
+
+# Approach 3:
