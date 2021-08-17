@@ -36,7 +36,7 @@
     - code: ncit:C449                 # The canonical/harmonized code for the concept of 'DNA'  
     - label: deoxyribonucleic acid    # The label of the code as defined in NCIT
     
-# A Coding provides a simple strucutre to pair the canonical code with its human readable label. 
+# A Coding provides a simple structure to pair the canonical code with its human readable label. 
 # As with a simple enumeration, there is no place here to capture the source value in the data/message itself.  
 
 ###################################################################################################

@@ -15,7 +15,7 @@
 
 # This case can be found on the GDC Portal at https://portal.gdc.cancer.gov/cases/3cdbf331-991d-41cb-a694-a2aa95c4aa26
 
-# Each proposed approach should illustrate how the CRDC-H might represent the harmonized/canonical analyte type concept, as well as where/how the original source values get represented (which may be in the data/message, or in an external mapping file).
+# Each proposed approach should illustrate how the CRDC-H might represent the harmonized/canonical staging value(s), as well as where/how the original source values get represented (which may be in the data/message, or in an external mapping file).
 
 ##################################################################################################3
 
@@ -41,6 +41,8 @@ stage:
       coding:
       - label: Stage IS
         code: ncit:C28285
+      - label: Stage IS
+        code: gdc:Stage IS
   - observation_type:
       text: Clinical Tumor (T)
       coding:
@@ -51,6 +53,8 @@ stage:
       coding:
       - label: T1 Stage Finding
         code: ncit:C48720
+      - label: T1
+        code: gdc:T1
   - observation_type:
       text: Clinical Node (N)
       coding:
@@ -61,6 +65,8 @@ stage:
       coding:
       - label: N0 Stage Finding
         code: ncit:C48705
+      - label: N0
+        code: gdc:N0
   - observation_type:
       text: Clinical Metastasis (M)
       coding:
@@ -71,6 +77,8 @@ stage:
       coding:
       - label: M0 Stage Finding
         code: ncit:C48699
+      - label: M0
+        code: gdc:M0
   - observation_type:
       text: Pathological Overall
       coding:
@@ -81,6 +89,8 @@ stage:
       coding:
       - label: Stage IS
         code: ncit:C28285
+      - label: Stage IS
+        code: gdc:Stage IS
   - observation_type:
       text: Pathological Tumor (T)
       coding:
@@ -91,6 +101,8 @@ stage:
       coding:
       - label: T1 Stage Finding
         code: ncit:C48720
+      - label: T1
+        code: gdc:T1
   - observation_type:
       text: Pathological Node (N)
       coding:
@@ -101,6 +113,8 @@ stage:
       coding:
       - label: N0 Stage Finding
         code: ncit:C48705
+      - label: N0
+        code: gdc:N0
   - observation_type:
       text: Pathological Metastasis (M)
       coding:
@@ -111,4 +125,6 @@ stage:
       coding:
       - label: M0 Stage Finding
         code: ncit:C48699
+      - label: M0
+        code: gdc:M0
 
