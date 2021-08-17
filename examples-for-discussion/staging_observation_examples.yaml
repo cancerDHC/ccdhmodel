@@ -13,7 +13,9 @@
     # ajcc_pathologic_t: T1
     # ajcc_staging_system_edition: 5th
 
-# Each proposed approache should illustrate how the CRDC-H might represent the harmonized/canonical analyte type concept, as well as where/how the original source values get represented (which may be in the data/message, or in an external mapping file).
+# This case can be found on the GDC Portal at https://portal.gdc.cancer.gov/cases/3cdbf331-991d-41cb-a694-a2aa95c4aa26
+
+# Each proposed approach should illustrate how the CRDC-H might represent the harmonized/canonical analyte type concept, as well as where/how the original source values get represented (which may be in the data/message, or in an external mapping file).
 
 ##################################################################################################3
 
