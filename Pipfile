@@ -4,35 +4,25 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-# linkml-runtime = "~=1.0, >=1.0.3" added by migration to linkml model template
-#   but version from cancerDHC required. For example "Direct matches"
-linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"}
+linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"} # required by cancerDHC
+linkml-runtime = "~=1.0, >=1.0.3"
+pyparsing = "<=2.4.7"
 rdflib-pyld-compat = "*" # resinstating after removal by migration to linkml model template
 
 [dev-packages]
-# pytest = "~=6.2.4" removed by migration to linkml model template
-#   "replaced" with tox?
-tox = "*"
-twine = "*" # should this go in [dev-packages] or even make-venv/Pipfile ?
-# mkdocs = "*" removed by migration to linkml model template
-#   do mkdocs-material and mike provide the required functionality?
-mkdocs-material = "*"
+black = "==v21.5b1" # from old generators/google-sheets/Pipfile
 mike = "*"
-# from old generators/google-sheets/Pipfile
-pydantic = {extras = ["dotenv"], version = "*"}
-pygsheets = "*"
-black = "==v21.5b1"
-requests = "*"
-pyyaml = "*"
+mkdocs-material = "*"
+pydantic = {extras = ["dotenv"], version = "*"} # from old generators/google-sheets/Pipfile
+pygsheets = "*" # from old generators/google-sheets/Pipfile
+pyparsing = "<=2.4.7" # indirectly from old generators/google-sheets/Pipfile
+pytest = "~=6.2.4"
+pyyaml = "*" # from old generators/google-sheets/Pipfile
+requests = "*" # from old generators/google-sheets/Pipfile
+tox = "*"
+twine = "*" # should this go in make-venv/Pipfile ?
 
 [pipenv]
-# allow_prereleases = true added by migration to linkml model template
-allow_prereleases = true
+allow_prereleases = true # added by migration to linkml model template
 
 [requires]
-# python_version = "3.8"
-# resinstating 3.8 req after removal by migration to linkml model template
-#   there are other files in this repo that imply 3.6 is OK
-# now removing according to https://github.com/cancerDHC/ccdhmodel/pull/68/files
-
-
