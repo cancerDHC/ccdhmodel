@@ -1,0 +1,397 @@
+CHANGES
+=======
+
+0.2.6
+-----
+
+* post google-sheetsccdh -> crdc-h make
+* ccdh -> crdc-h in genergenerators/google-sheets
+
+2.6
+---
+
+* walking thorugh mke pypi
+* removed PYPI\_SETUP.md and images/ from from\_template/
+* twine notes in MAINTAINERS.md
+
+0.2.5
+-----
+
+* new ChangeLog contaminated git project
+* experiemnting with pypi authentication
+
+v0.2.3
+------
+
+* edits to MAINTAINERS.md, prep for PyPI push
+* Created initial distro
+
+v0.2.2
+------
+
+* prep for another pypi publish
+* Ready for testing..
+* removed from\_template/ABOUT.md
+* updating MAINTAINERS.md and CHANGELOG.md
+* post twine push
+* routine regen
+* moved MakeConfig into from\_template
+* post twine push
+* routine regen
+* better squeaky clean learning experience
+* developing new squeaky clean in Makefile
+* Create README.md
+* new and modified artifacts?
+* deleted requirements\*.txt
+* fixed file links in README.md
+* post twine push
+* trying to get twine on path/in env
+* added twine to main section of main Pipfile
+* now testing a minimal Diagnosis
+* now testing a minimal Diagnosis
+* edited imports in tests/test\_input\_against\_model.py
+* url and home\_page in setup.cfg
+* ccdhmodel -> crdch\_model in setup.cfg
+* add \*. AUTHORS etc. do not look liek they changed?
+* Topic prefix for ..
+* ran make after some crdch\_model renaming
+* CRDC-H Model in LinkML documentation
+* https://github.com/cancerDHC/linkml.git
+* MIT license for license and classifiers
+* steal some classifiers from biolink-model
+* crdch rather than ccdhmodel in setup.py
+* add a comment about what content is generated into local/
+* clarify that documentation branch is useful with mike
+* Deleted deprecated model generation script
+* Updated AUTHORS
+* removed old static docs from template
+* post twine push
+* pre pypi publish?
+* edited makefile via web
+* Update Makefile
+* more recipes from legacy Makefile
+* Update test\_input\_against\_model.py
+* Update CONFIG.yaml
+* commited everything pre pypi publish
+* Update AUTHORS
+* Update MAINTAINERS.md
+* Update MAINTAINERS.md
+* Update MAINTAINERS.md
+* Update mkdocs.yml
+* Update setup.cfg
+* Update setup.py
+* save legacy scripts to attic
+* csv generation in Makefile
+* target dir = ccdhmodel not ccdhmodel\_from\_template
+* Delete Diagnosis\_full.json.mask
+* Delete CONFIG.yaml.mask
+* unoverwrite README.md
+* for from template isolation
+* isolate docs from template setup
+* forced creation of local working dir
+* refreshed ccdhmodel\_from\_template artifacts
+* copied from turbomam/ccdhmodel-from-template
+* Update mam-experimentation.md
+* token notes
+* experimentation files
+* Regenerated artifacts
+* Closed an edge-case around enumerations
+* Corrected inlined\_as\_list logic and regenerated model
+* Regenerated artifacts
+* Explictly inlined all lists as lists
+* Updated LinkML and regenerated artifacts
+* Pointed LinkML back to the ccdh-dev branch
+* Regenerated artifacts
+* Updated LinkML to latest published version
+* Regenerated CCDH Model
+* Regenerated artifacts
+* Removed unnecessary marker file
+* Rearranged pipenv-install target
+* Regenerated CCDH model
+* Moved pipenv-install as a dependency for targets that use ${RUN}
+* Added comment regarding gh-deploy
+* Regenerated artifacts
+* Replaced \`pipenv update\` with \`pipenv install\`
+* Make stage-docs a prerequisite for docserve
+* Updated Makefile to use Pipenv consistently
+* Regenerated artifacts
+* Added domain to slots
+* Regenerated artifacts
+* Reformatted code with Black
+* Regenerated artifacts
+* Reformatted code using Black
+* Regenerated artifacts
+* Cleaned up accidentally duplicated code
+* Regenerated artifacts
+* Reverted import optimization to simplify PR
+* Reformatted files with Black
+* Optimized imports for cli.py and enum.py
+* Fixed column name "Indirect Source Mapping"
+* Fixed bug in default relation for mappings
+* Restored 'GDC:entity.attribute' format for mappings
+* Moved Enum name fixes into enum.py
+* First stab at adding support for CCDH Enums
+* Fixed column name of "Indirect Source Mapping"
+* Regenerated artifacts
+* Added missing import
+* Removed unused import
+* Reformatted files with Black
+* Reformatted the code with Black
+* Fixed enum names to allow use in Python
+* Cleaned up imports
+* Improved error messages for the duplicate permissible values warning
+* Updated logic to use the \*last\* duplicate PV
+* Added fix for numerical permissible values
+* Deleted deprecated jsonld outputs
+* Fixed indentation
+* Attempt at checking for multiple entity names in the same table
+* Added comments back to entities
+* Stripped datatype description
+* Added site\_url to mkdocs.yml
+* Updated CHANGELOG
+* Updated CHANGELOG
+* Updated Pipfile.lock
+* Updated theme primary color as per Brian F
+* Installed mkdocs-material and mike into Pipfile
+* Updated mkdocs.yml to include search and material
+* Explicitly added \`search\` and \`mike\` to the plugins
+* Ignored \`/docs\` in Git
+* Generate YUML images and store locally
+* Added a target to regenerate model from Google Sheets
+* Fixed column name "Indirect Source Mapping"
+* Fixed bug in default relation for mappings
+* Restored 'GDC:entity.attribute' format for mappings
+* Fixed enum names to allow use in Python
+* Improved error messages for the duplicate permissible values warning
+* Updated logic to use the \*last\* duplicate PV
+* Added fix for numerical permissible values
+* Fixed column name of "Indirect Source Mapping"
+* Added \`enum\_\` before enumerations
+* Added test for duplicate enum generation
+* Fix bug: the description is in "Definition", not "Description"
+* Used fixed name as the EnumDefinition name
+* Moved Enum name fixes into enum.py
+* Cleaned up accessing enum information from GSheetModel
+* First stab at adding support for CCDH Enums
+* Updated README
+* Added Data Migration to the website sidebar
+* Added first draft of the Data Migration document
+* Fix bug: the description is in "Definition", not "Description"
+* Used fixed name as the EnumDefinition name
+* Cleaned up imports
+* Moved Enum name fixes into enum.py
+* Cleaned up accessing enum information from GSheetModel
+* First stab at adding support for CCDH Enums
+* Regenerated artifacts
+* Cleaned up regex used to rename enum names
+* Unexpected CURIE error; fixing by making mappings not CURIEs
+* Fixed usage of examples
+* Regenerated artifacts
+* Fixed usage of examples
+* Fixed enum names to allow use in Python
+* Regenerated artifacts
+* Removed unnecessary "Introduction" title
+* Regenerated artifacts
+* Modified Mappings for diff kinds of mappings in the same obj
+* DMH now uses '|' to separate mappings
+* Commented out repo\_url, which doesn't work for our needs
+* Added a repository URL to mkdocs.yml
+* Replaced LinkML with our fork so we can use CCDH-specific rendering
+* Replaced venv with pipenv
+* update credits
+* add credtis
+* Update homepage
+* Fixed bug in RelationsEnum
+* Updated call to model.mappings
+* Standardized full\_name to MODEL.Entity.attribute format
+* Updated TCCM API call to include values only
+* Cached some of the more expensive methods to improve runtime
+* Fix: improved error detection in mappings generation
+* Fixed bug: we no longer calculate mappings unless we need to
+* Added click information for a file path
+* Fixed \`--skip-terminologies\` functionality
+* Regenerated downstream artifacts
+* Cached some of the more expensive methods to improve runtime
+* Added as\_linkml\_enum() method to attributes for generating enums, if any
+* Renamed entity and attribute full-names as per Dazhi's names
+* Added TerminologyService to Entity, Attribute and EntityWorksheets
+* Add support for including enums in the generated model
+* Updated GSheetModel to support terminology services
+* Added TCCM Terminology Service to CLI
+* Fix: improved error detection in mappings generation
+* Fixed bug: we no longer calculate mappings unless we need to
+* Created a basic TCCM Terminology Service for querying Dazhi's service
+* Added requests and pyyaml to Pipfile, and updated
+* Fixed relation (use CURIE instead of enum name)
+* Regenerated files
+* Added attribute range
+* Added code for writing out mappings to a TSV file
+* Fixed last updated and list of all mappings information
+* Add full\_names to models so we can use them in mappings
+* Updated ModelElement with full names
+* Added properties for accessing the mappings at various levels
+* Replaced generation\_date with last\_updated
+* Cleaned up version code
+* Regenerated artifacts
+* Added Mappings support for entities and datatypes
+* Created a Mappings parsing system that can annotate LinkML elements
+* Removed defunct TODO
+* Improved documentation of datatypes
+* Regenerated downstream artifacts
+* Added code to strip descriptions and entity names
+* Fixed bug: Entity no longer set as the parent class of Entity
+* Added attribute range from the included Type information
+* Added code to "fix" references to missing types and to generate warnings
+* Make every entity a subclass (is-a) of Entity
+* Regenerated products
+* All our types now \`ccdh\_\*\`, which map to the unprefixed LinkML types
+* Added primitive types
+* Quick, hacky way to access LinkML types for primitives
+* Simplified code for looking up datatypes
+* Added datatype generation
+* Reorganized entity into logical order
+* Moved Attribute into Entity
+* Reorganized Entity to prevent duplication
+* Cleaned up worksheet filtering code
+* Added timezone to generation\_time
+* Added timezone to generation\_time
+* Added logging of skipped sheets
+* Incorporated \`git describe\` into version information
+* Clarified use of dict.get(...) and fixed a bug
+* Improved worksheet check by checking multiple cells at once
+* Fixed bug in filtering entities without entity row
+* Renamed Worksheet to EntityWorksheet
+* Excluded comments and developer notes from model
+* Improved exclusion of entities whose entity row is ignored
+* Removed developer notes from model
+* Renamed column names to remove starting "CDM "
+* Updated Pipfile.lock
+* Added a generation\_time for the CRDC-H model
+* Create codeql-analysis.yml
+* Added a CHANGELOG
+
+v0.2
+----
+
+* Added instructions for \`mike\` to the MAINTAINERS.md
+* Updated mkdocs documentation
+* Regenerated outputs based on the updated ccdhmodel
+* Removed Google Sheet URL from see-also field
+* Added requirements.txt from linkml-template
+* Regenerated outputs
+* Deleted unnecessary datatypes/prefixes files
+* Removed unnecessary prefixes file
+* Updated ccdhmodel.yaml and regenerated
+* Renamed mkdocs.yaml -> mkdocs.yml as per template
+* Regenerated deliverables from CCDH Model
+* Removed files in \`docs/\`
+* Replaced ccdhmodel.yaml with the latest CRDC-H model from Google Sheets
+* Removed superfluous requirements.txt file
+* Updated Python DataClasses with generated
+* Added generated ShEx templates
+* Added \`csv/\`, \`graphql/\` and \`owl/\` generated code
+* Removed non-functional tests
+* Deleted docs/index.md, now generated automatically
+* Moved json-schema to jsonschemas as per template
+* Added gen-jsonld to Makefile and updated \`jsonld/\`
+* Moved Python code to \`/python\` as per LinkML template
+* Added .gitignore from LinkML template
+* Set SCHEMA\_NAME to \`ccdhmodel\` and described generation in README
+* Replaced references to biolinkml -> linkml
+* Renamed model to ccdhmodel.yaml so Makefile can find it
+* Moved model from /model to /src/schema as per template
+* Updated requirements from biolinkml to linkml
+* Copied files from linkml-template repo
+
+v0.1
+----
+
+* Imported \`linkml:types\` so we can use strings
+* Removing the CDM prefix causes confusion, removing
+* Apparently classes and attributes (not slots) should be dicts, not lists
+* Cleaned up code using Black
+* Improved documentation
+* Improved documentation
+* Replaced magic string with constant
+* Improved documentation and comments
+* Renamed \`Model\` to \`ModelElement\`, added \`name\` property
+* Improved comments and error messages
+* Fixed bug in cardinality calculation
+* Fixed \`--logging-config\` default filename
+* Separated logging config into separate file
+* Regenerated files
+* Added trailing \`/\`s  in prefixes
+* Added explicit versions to pytest and linkml
+* Added support for cardinalities with '...m'
+* Used Black to reformat source code
+* Improved README
+* Minor tweaks, replaced SchemaDefinition with ClassDefinition
+* Moved cardinality code into sheet2linkml
+* Create LinkML schema for entities and attributes
+* Added support for multiple entities in the same worksheet
+* Moved additional code into sheel2linkml
+* Added .gitignore to ignore Google API credentials
+* Improved display of entities
+* Started creating a new sheet2linkml Python model
+* Improved README
+* Retitled CRDC-H models
+* Tidied up README files
+* Renamed files from BiolinkML to LinkML
+* Replaced \`biolinkml\` with \`linkml\` in the script
+* Removed unnecessary py2neo
+* Added necessary modules to Google Sheet generator specific Pipfile
+* Added Google Sheets generator output to .gitignore
+* Added a .keep file to the Google Sheets generator output folder
+* Added Google API's token.pickle to .gitignore
+* Copied over additional necessary code
+* Copied Google Drive API setup instructions from crdc-node-models
+* Modified .gitignore to ignore Google API authentication credentials
+* Copied cdm\_biolinkml\_loader.py from crdc-node-models
+* Removed extraneous section
+* Renamed main index page: BiolinkML -> LinkML
+* Changed index to list, changed rel links to index.md
+* Updated Markdown index with relative links
+* Added generated documents
+* Regenerated files with LinkML
+* Replaced \`biolinkml\` with \`linkml\` in pipenv
+* Update README.md
+* Add github pages config and index
+* Regenerated files
+* Fixed names. Added back descriptions
+* Update the yaml files based on the recent mvp model update
+* Upgraded biolinkml to 1.7.0
+* Update README.md
+* Updated MVP-v0. Change Coding to CodeableConcept
+* updated readme
+* Fixed a error in datatypes.yaml. Generated jsonld and json-schema files
+* Update datatypes.yaml
+* Update entities.yaml
+* Remove mappings
+* Change slots\_usage to attributes Added values\_from for Coding slots
+* Update name and version in schema
+* MVP biolink yaml files, docs and python code
+* Add link to google doc
+* minor changes
+* Updated with automatically generated specimen.yml
+* Delete root \_config.yml file
+* Set theme jekyll-theme-dinky
+* Update index.md
+* Set theme jekyll-theme-midnight
+* Create index.md
+* Update README.md
+* Set theme jekyll-theme-hacker
+* Set theme jekyll-theme-hacker
+* Set theme jekyll-theme-dinky
+* Fixed a couple of errors in the manually-created YAML file
+* add classes for attributes in specimen
+* generated files
+* add test for loading yaml with schemaloader
+* make entity abstract
+* fix string
+* Examples of "examples"
+* Add Identifier attribute in Specimen
+* Commit the generated files
+* Update again
+* Update
+* Create README.md
+* Initial Drop
