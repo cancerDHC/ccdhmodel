@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/BodySite/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -322,8 +307,8 @@
                 
                 <h1 id="class-bodysite">Class: BodySite</h1>
 <p>A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device.</p>
-<p>URI: <a href="https://example.org/ccdh/BodySite">ccdh:BodySite</a></p>
-<p><a href="../images/BodySite.svg"><img alt="img" src="../images/BodySite.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/BodySite">crdch:BodySite</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[SpecimenCreationActivity],[ResearchSubject],[ResearchProject],[Entity],[Diagnosis],[Diagnosis]++-%20metastatic_site%200..*&gt;[BodySite&#124;site:enum_CRDCH_BodySite_site;qualifier:enum_CRDCH_BodySite_qualifier%20*],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[ResearchProject]++-%20primary_anatomic_site%200..*&gt;[BodySite],[ResearchSubject]++-%20primary_diagnosis_site%200..1&gt;[BodySite],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[BodySite],[Treatment]++-%20treatment_anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[SpecimenCreationActivity],[ResearchSubject],[ResearchProject],[Entity],[Diagnosis],[Diagnosis]++-%20metastatic_site%200..*&gt;[BodySite&#124;site:enum_CRDCH_BodySite_site;qualifier:enum_CRDCH_BodySite_qualifier%20*],[Diagnosis]++-%20primary_site%200..*&gt;[BodySite],[ResearchProject]++-%20primary_anatomic_site%200..*&gt;[BodySite],[ResearchSubject]++-%20primary_diagnosis_site%200..1&gt;[BodySite],[SpecimenCreationActivity]++-%20collection_site%200..1&gt;[BodySite],[Treatment]++-%20treatment_anatomic_site%200..1&gt;[BodySite],[Entity]^-[BodySite]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -342,13 +327,13 @@
 <ul>
 <li><a href="../bodySite__site/">site</a>  <sub>1..1</sub><ul>
 <li>Description: A term describing any site in the body.</li>
-<li>Range: <a href="../enum_CCDH_BodySite_site/">enum_CCDH_BodySite_site</a></li>
+<li>Range: <a href="../enum_CRDCH_BodySite_site/">enum_CRDCH_BodySite_site</a></li>
 <li>Examples: Adenoid, Adipose, Adrenal</li>
 </ul>
 </li>
 <li><a href="../bodySite__qualifier/">qualifier</a>  <sub>0..*</sub><ul>
 <li>Description: A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).</li>
-<li>Range: <a href="../enum_CCDH_BodySite_qualifier/">enum_CCDH_BodySite_qualifier</a></li>
+<li>Range: <a href="../enum_CRDCH_BodySite_qualifier/">enum_CRDCH_BodySite_qualifier</a></li>
 <li>Examples: left, right, bilateral</li>
 </ul>
 </li>
@@ -388,10 +373,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>

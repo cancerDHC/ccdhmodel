@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/TobaccoExposureObservation/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -322,8 +307,8 @@
                 
                 <h1 id="class-tobaccoexposureobservation">Class: TobaccoExposureObservation</h1>
 <p>A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.</p>
-<p>URI: <a href="https://example.org/ccdh/TobaccoExposureObservation">ccdh:TobaccoExposureObservation</a></p>
-<p><a href="../images/TobaccoExposureObservation.svg"><img alt="img" src="../images/TobaccoExposureObservation.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/TobaccoExposureObservation">crdch:TobaccoExposureObservation</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;valueInteger%200..1-++[TobaccoExposureObservation&#124;category:enum_CRDCH_TobaccoExposureObservation_category%20%3F;observation_type:enum_CRDCH_TobaccoExposureObservation_observation_type;method_type:enum_CRDCH_TobaccoExposureObservation_method_type%20%3F;valueCodeableConcept:enum_CRDCH_TobaccoExposureObservation_valueCodeableConcept%20%3F],[Organization]&lt;performed_by%200..1-++[TobaccoExposureObservation],[Subject]&lt;subject%200..1-++[TobaccoExposureObservation],[Entity]&lt;focus%200..1-++[TobaccoExposureObservation],[Entity]&lt;id%200..1-++[TobaccoExposureObservation],[Exposure]++-%20tobacco_exposure%200..*&gt;[TobaccoExposureObservation],[Entity]^-[TobaccoExposureObservation],[Subject],[Organization],[Exposure],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity]&lt;valueInteger%200..1-++[TobaccoExposureObservation&#124;category:enum_CRDCH_TobaccoExposureObservation_category%20%3F;observation_type:enum_CRDCH_TobaccoExposureObservation_observation_type;method_type:enum_CRDCH_TobaccoExposureObservation_method_type%20%3F;valueCodeableConcept:enum_CRDCH_TobaccoExposureObservation_valueCodeableConcept%20%3F],[Organization]&lt;performed_by%200..1-++[TobaccoExposureObservation],[Subject]&lt;subject%200..1-++[TobaccoExposureObservation],[Entity]&lt;focus%200..1-++[TobaccoExposureObservation],[Entity]&lt;id%200..1-++[TobaccoExposureObservation],[Exposure]++-%20tobacco_exposure%200..*&gt;[TobaccoExposureObservation],[Entity]^-[TobaccoExposureObservation],[Subject],[Organization],[Exposure],[Entity]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -337,23 +322,23 @@
 <ul>
 <li><a href="../tobaccoExposureObservation__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__category/">category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
-<li>Range: <a href="../enum_CCDH_TobaccoExposureObservation_category/">enum_CCDH_TobaccoExposureObservation_category</a></li>
+<li>Range: <a href="../enum_CRDCH_TobaccoExposureObservation_category/">enum_CRDCH_TobaccoExposureObservation_category</a></li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__observation_type/">observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
-<li>Range: <a href="../enum_CCDH_TobaccoExposureObservation_observation_type/">enum_CCDH_TobaccoExposureObservation_observation_type</a></li>
+<li>Range: <a href="../enum_CRDCH_TobaccoExposureObservation_observation_type/">enum_CRDCH_TobaccoExposureObservation_observation_type</a></li>
 <li>Examples: cigarettes_per_day, environmental_tobacco_smoke_exposure, pack_years_smoked, smoking_frequency, time_between_waking_and_first_smoke, tobacco_smoking_onset_year, tobacco_smoking_quit_year, tobacco_smoking_status, type_of_tobacco_used, years_smoked</li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__method_type/">method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method used in generating the Observation result.</li>
-<li>Range: <a href="../enum_CCDH_TobaccoExposureObservation_method_type/">enum_CCDH_TobaccoExposureObservation_method_type</a></li>
+<li>Range: <a href="../enum_CRDCH_TobaccoExposureObservation_method_type/">enum_CRDCH_TobaccoExposureObservation_method_type</a></li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__focus/">focus</a>  <sub>0..1</sub><ul>
@@ -373,12 +358,12 @@
 </li>
 <li><a href="../tobaccoExposureObservation__valueInteger/">valueInteger</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as an integer.</li>
-<li>Range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../tobaccoExposureObservation__valueCodeableConcept/">valueCodeableConcept</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a CodeableConcept.</li>
-<li>Range: <a href="../enum_CCDH_TobaccoExposureObservation_valueCodeableConcept/">enum_CCDH_TobaccoExposureObservation_valueCodeableConcept</a></li>
+<li>Range: <a href="../enum_CRDCH_TobaccoExposureObservation_valueCodeableConcept/">enum_CRDCH_TobaccoExposureObservation_valueCodeableConcept</a></li>
 </ul>
 </li>
 </ul>
@@ -417,10 +402,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>

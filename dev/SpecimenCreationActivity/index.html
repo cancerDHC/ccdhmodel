@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/SpecimenCreationActivity/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -329,8 +314,8 @@
                 
                 <h1 id="class-specimencreationactivity">Class: SpecimenCreationActivity</h1>
 <p>The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting).</p>
-<p>URI: <a href="https://example.org/ccdh/SpecimenCreationActivity">ccdh:SpecimenCreationActivity</a></p>
-<p><a href="../images/SpecimenCreationActivity.svg"><img alt="img" src="../images/SpecimenCreationActivity.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/SpecimenCreationActivity">crdch:SpecimenCreationActivity</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Entity]&lt;specimen_order%200..1-++[SpecimenCreationActivity&#124;activity_type:enum_CRDCH_SpecimenCreationActivity_activity_type%20%3F;collection_method_type:enum_CRDCH_SpecimenCreationActivity_collection_method_type%20%3F;derivation_method_type:enum_CRDCH_SpecimenCreationActivity_derivation_method_type%20%3F],[ExecutionConditionObservation]&lt;execution_condition_observation%200..*-++[SpecimenCreationActivity],[ExecutionTimeObservation]&lt;execution_time_observation%200..*-++[SpecimenCreationActivity],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[BodySite]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Substance]&lt;additive%200..*-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[ExecutionTimeObservation],[ExecutionConditionObservation],[Entity],[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Entity]&lt;specimen_order%200..1-++[SpecimenCreationActivity&#124;activity_type:enum_CRDCH_SpecimenCreationActivity_activity_type%20%3F;collection_method_type:enum_CRDCH_SpecimenCreationActivity_collection_method_type%20%3F;derivation_method_type:enum_CRDCH_SpecimenCreationActivity_derivation_method_type%20%3F],[ExecutionConditionObservation]&lt;execution_condition_observation%200..*-++[SpecimenCreationActivity],[ExecutionTimeObservation]&lt;execution_time_observation%200..*-++[SpecimenCreationActivity],[Quantity]&lt;quantity_collected%200..1-++[SpecimenCreationActivity],[BodySite]&lt;collection_site%200..1-++[SpecimenCreationActivity],[Substance]&lt;additive%200..*-++[SpecimenCreationActivity],[Organization]&lt;performed_by%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenCreationActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenCreationActivity],[Specimen]++-%20creation_activity%200..1&gt;[SpecimenCreationActivity],[Entity]^-[SpecimenCreationActivity],[Specimen],[Quantity],[Organization],[ExecutionTimeObservation],[ExecutionConditionObservation],[Entity],[BodySite]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -344,7 +329,7 @@
 <ul>
 <li><a href="../specimenCreationActivity__activity_type/">activity_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of creation activity.</li>
-<li>Range: <a href="../enum_CCDH_SpecimenCreationActivity_activity_type/">enum_CCDH_SpecimenCreationActivity_activity_type</a></li>
+<li>Range: <a href="../enum_CRDCH_SpecimenCreationActivity_activity_type/">enum_CRDCH_SpecimenCreationActivity_activity_type</a></li>
 <li>Examples: Collection from Source, Derivation from Specimen</li>
 </ul>
 </li>
@@ -365,13 +350,13 @@
 </li>
 <li><a href="../specimenCreationActivity__collection_method_type/">collection_method_type</a>  <sub>0..1</sub><ul>
 <li>Description: The type of method applied in collecting a sample from its original source.</li>
-<li>Range: <a href="../enum_CCDH_SpecimenCreationActivity_collection_method_type/">enum_CCDH_SpecimenCreationActivity_collection_method_type</a></li>
+<li>Range: <a href="../enum_CRDCH_SpecimenCreationActivity_collection_method_type/">enum_CRDCH_SpecimenCreationActivity_collection_method_type</a></li>
 <li>Examples: Anterior Resection of Rectum, Ascites Drainage, Excisional Biopsy, Specimen Pooling</li>
 </ul>
 </li>
 <li><a href="../specimenCreationActivity__derivation_method_type/">derivation_method_type</a>  <sub>0..1</sub><ul>
 <li>Description: The type of method applied to derive a new specimen from an existing one.</li>
-<li>Range: <a href="../enum_CCDH_SpecimenCreationActivity_derivation_method_type/">enum_CCDH_SpecimenCreationActivity_derivation_method_type</a></li>
+<li>Range: <a href="../enum_CRDCH_SpecimenCreationActivity_derivation_method_type/">enum_CRDCH_SpecimenCreationActivity_derivation_method_type</a></li>
 <li>Examples: Vibratome, Cryosectioning, Tissuemolds, Slidingmicrotome, Sectioning, Other, Unknown, NotReported</li>
 </ul>
 </li>
@@ -403,7 +388,7 @@
 </li>
 <li><a href="../specimenCreationActivity__specimen_order/">specimen_order</a>  <sub>0..1</sub><ul>
 <li>Description: A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen.</li>
-<li>Range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 </ul>
@@ -459,10 +444,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>

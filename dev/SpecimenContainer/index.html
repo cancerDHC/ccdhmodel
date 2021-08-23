@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/SpecimenContainer/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -322,8 +307,8 @@
                 
                 <h1 id="class-specimencontainer">Class: SpecimenContainer</h1>
 <p>A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)</p>
-<p>URI: <a href="https://example.org/ccdh/SpecimenContainer">ccdh:SpecimenContainer</a></p>
-<p><a href="../images/SpecimenContainer.svg"><img alt="img" src="../images/SpecimenContainer.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/SpecimenContainer">crdch:SpecimenContainer</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenStorageActivity],[SpecimenContainer]&lt;parent_container%200..1-++[SpecimenContainer&#124;container_type:enum_CRDCH_SpecimenContainer_container_type%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[Entity]&lt;container_number%200..1-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[Entity]&lt;id%200..1-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[Specimen],[Identifier],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenStorageActivity],[SpecimenContainer]&lt;parent_container%200..1-++[SpecimenContainer&#124;container_type:enum_CRDCH_SpecimenContainer_container_type%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[Entity]&lt;container_number%200..1-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[Entity]&lt;id%200..1-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[Specimen],[Identifier],[Entity]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -339,7 +324,7 @@
 <ul>
 <li><a href="../specimenContainer__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__identifier/">identifier</a>  <sub>0..*</sub><ul>
@@ -349,13 +334,13 @@
 </li>
 <li><a href="../specimenContainer__container_type/">container_type</a>  <sub>0..1</sub><ul>
 <li>Description: The kind of the container.</li>
-<li>Range: <a href="../enum_CCDH_SpecimenContainer_container_type/">enum_CCDH_SpecimenContainer_container_type</a></li>
+<li>Range: <a href="../enum_CRDCH_SpecimenContainer_container_type/">enum_CRDCH_SpecimenContainer_container_type</a></li>
 <li>Examples: Capillary blood collection tube, Sputum specimen container, Cell culture flask, Glass slide</li>
 </ul>
 </li>
 <li><a href="../specimenContainer__container_number/">container_number</a>  <sub>0..1</sub><ul>
 <li>Description: Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimenContainer__additive/">additive</a>  <sub>0..*</sub><ul>
@@ -405,10 +390,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>

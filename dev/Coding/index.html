@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/Coding/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -322,8 +307,8 @@
                 
                 <h1 id="class-coding">Class: Coding</h1>
 <p>A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.</p>
-<p>URI: <a href="https://example.org/ccdh/Coding">ccdh:Coding</a></p>
-<p><a href="../images/Coding.svg"><img alt="img" src="../images/Coding.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/Coding">crdch:Coding</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Entity]&lt;systemVersion%200..1-++[Coding],[Entity]&lt;systemURL%200..1-++[Coding],[Entity]&lt;label%200..1-++[Coding],[Entity]&lt;system%201..1-++[Coding],[Entity]&lt;code%201..1-++[Coding],[CodeableConcept]++-%20coding%200..*&gt;[Coding],[Entity]^-[Coding],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[Entity]&lt;systemVersion%200..1-++[Coding],[Entity]&lt;systemURL%200..1-++[Coding],[Entity]&lt;label%200..1-++[Coding],[Entity]&lt;system%201..1-++[Coding],[Entity]&lt;code%201..1-++[Coding],[CodeableConcept]++-%20coding%200..*&gt;[Coding],[Entity]^-[Coding],[CodeableConcept]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -337,27 +322,27 @@
 <ul>
 <li><a href="../coding__code/">code</a>  <sub>1..1</sub><ul>
 <li>Description: The symbol/value of the code, as defined by the code system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../coding__system/">system</a>  <sub>1..1</sub><ul>
 <li>Description: The code system where the code is defined.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../coding__label/">label</a>  <sub>0..1</sub><ul>
 <li>Description: A human-readable name for the code, as defined by the code system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../coding__systemURL/">systemURL</a>  <sub>0..1</sub><ul>
 <li>Description: A URL where the code system can be found.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../coding__systemVersion/">systemVersion</a>  <sub>0..1</sub><ul>
 <li>Description: The version of the code system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 </ul>
@@ -396,10 +381,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>

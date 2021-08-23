@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/BiologicProduct/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -322,8 +307,8 @@
                 
                 <h1 id="class-biologicproduct">Class: BiologicProduct</h1>
 <p>A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</p>
-<p>URI: <a href="https://example.org/ccdh/BiologicProduct">ccdh:BiologicProduct</a></p>
-<p><a href="../images/BiologicProduct.svg"><img alt="img" src="../images/BiologicProduct.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/BiologicProduct">crdch:BiologicProduct</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Identifier],[Entity],[Entity]&lt;growth_rate%200..*-++[BiologicProduct&#124;product_type:enum_CRDCH_BiologicProduct_product_type%20%3F],[Entity]&lt;passage_number%200..*-++[BiologicProduct],[Entity]&lt;description%200..1-++[BiologicProduct],[Identifier]&lt;identifier%200..*-++[BiologicProduct],[Entity]&lt;id%200..1-++[BiologicProduct],[Specimen]++-%20derived_product%200..*&gt;[BiologicProduct],[Entity]^-[BiologicProduct]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Identifier],[Entity],[Entity]&lt;growth_rate%200..*-++[BiologicProduct&#124;product_type:enum_CRDCH_BiologicProduct_product_type%20%3F],[Entity]&lt;passage_number%200..*-++[BiologicProduct],[Entity]&lt;description%200..1-++[BiologicProduct],[Identifier]&lt;identifier%200..*-++[BiologicProduct],[Entity]&lt;id%200..1-++[BiologicProduct],[Specimen]++-%20derived_product%200..*&gt;[BiologicProduct],[Entity]^-[BiologicProduct]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -337,7 +322,7 @@
 <ul>
 <li><a href="../biologicProduct__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../biologicProduct__identifier/">identifier</a>  <sub>0..*</sub><ul>
@@ -347,23 +332,23 @@
 </li>
 <li><a href="../biologicProduct__description/">description</a>  <sub>0..1</sub><ul>
 <li>Description: A free text field to capture additional info/explanation about the model system</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../biologicProduct__product_type/">product_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)</li>
-<li>Range: <a href="../enum_CCDH_BiologicProduct_product_type/">enum_CCDH_BiologicProduct_product_type</a></li>
+<li>Range: <a href="../enum_CRDCH_BiologicProduct_product_type/">enum_CRDCH_BiologicProduct_product_type</a></li>
 <li>Examples: cell line, cell culture, tissue culture, organoid</li>
 </ul>
 </li>
 <li><a href="../biologicProduct__passage_number/">passage_number</a>  <sub>0..*</sub><ul>
 <li>Description: When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.</li>
-<li>Range: <a href="../types/CcdhInteger/">CcdhInteger</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../biologicProduct__growth_rate/">growth_rate</a>  <sub>0..*</sub><ul>
 <li>Description: When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 </ul>
@@ -402,10 +387,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>

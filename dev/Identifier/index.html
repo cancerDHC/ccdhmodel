@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/Identifier/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -329,8 +314,8 @@
                 
                 <h1 id="class-identifier">Class: Identifier</h1>
 <p>An Identifier is associated with a unique object or entity within a given system.</p>
-<p>URI: <a href="https://example.org/ccdh/Identifier">ccdh:Identifier</a></p>
-<p><a href="../images/Identifier.svg"><img alt="img" src="../images/Identifier.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/Identifier">crdch:Identifier</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[Entity]&lt;system%200..1-++[Identifier&#124;type:enum_CRDCH_Identifier_type%20%3F],[Entity]&lt;value%201..1-++[Identifier],[BiologicProduct]++-%20identifier%200..*&gt;[Identifier],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Exposure],[Entity],[Document],[Diagnosis],[BiologicProduct]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Organization],[Entity]&lt;system%200..1-++[Identifier&#124;type:enum_CRDCH_Identifier_type%20%3F],[Entity]&lt;value%201..1-++[Identifier],[BiologicProduct]++-%20identifier%200..*&gt;[Identifier],[Diagnosis]++-%20identifier%200..*&gt;[Identifier],[Document]++-%20identifier%200..*&gt;[Identifier],[Exposure]++-%20identifier%200..*&gt;[Identifier],[Organization]++-%20identifier%200..*&gt;[Identifier],[ResearchProject]++-%20identifier%200..*&gt;[Identifier],[ResearchSubject]++-%20identifier%200..*&gt;[Identifier],[SpecimenContainer]++-%20identifier%200..*&gt;[Identifier],[Specimen]++-%20identifier%200..*&gt;[Identifier],[Subject]++-%20identifier%200..*&gt;[Identifier],[Treatment]++-%20identifier%200..*&gt;[Identifier],[Entity]^-[Identifier],[Exposure],[Entity],[Document],[Diagnosis],[BiologicProduct]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -354,17 +339,17 @@
 <ul>
 <li><a href="../identifier__value/">value</a>  <sub>1..1</sub><ul>
 <li>Description: The value of the identifier, as defined by the system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../identifier__system/">system</a>  <sub>0..1</sub><ul>
 <li>Description: The system or namespace that defines the identifier.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../identifier__type/">type</a>  <sub>0..1</sub><ul>
 <li>Description: A code that defines the type of the identifier.</li>
-<li>Range: <a href="../enum_CCDH_Identifier_type/">enum_CCDH_Identifier_type</a></li>
+<li>Range: <a href="../enum_CRDCH_Identifier_type/">enum_CRDCH_Identifier_type</a></li>
 </ul>
 </li>
 </ul>
@@ -420,10 +405,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>

@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/Specimen/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe914879.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -211,21 +211,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../mappings/" class="md-nav__link">
-        Mappings
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../data-migration/" class="md-nav__link">
         Data Migration
       </a>
@@ -329,8 +314,8 @@
                 
                 <h1 id="class-specimen">Class: Specimen</h1>
 <p>Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.</p>
-<p>URI: <a href="https://example.org/ccdh/Specimen">ccdh:Specimen</a></p>
-<p><a href="../images/Specimen.svg"><img alt="img" src="../images/Specimen.svg" /></a></p>
+<p>URI: <a href="https://example.org/crdch_model/Specimen">crdch:Specimen</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;specimen_type:enum_CRDCH_Specimen_specimen_type%20%3F;analyte_type:enum_CRDCH_Specimen_analyte_type%20%3F;source_material_type:enum_CRDCH_Specimen_source_material_type%20%3F;tumor_status_at_collection:enum_CRDCH_Specimen_tumor_status_at_collection%20%3F;cellular_composition_type:enum_CRDCH_Specimen_cellular_composition_type%20%3F;general_tissue_morphology:enum_CRDCH_Specimen_general_tissue_morphology%20%3F;specific_tissue_morphology:enum_CRDCH_Specimen_specific_tissue_morphology%20%3F;preinvasive_tissue_morphology:enum_CRDCH_Specimen_preinvasive_tissue_morphology%20%3F;morphology_assessor_role:enum_CRDCH_Specimen_morphology_assessor_role%20%3F;morphology_assessment_method:enum_CRDCH_Specimen_morphology_assessment_method%20%3F;degree_of_dysplasia:enum_CRDCH_Specimen_degree_of_dysplasia%20%3F;section_location:enum_CRDCH_Specimen_section_location%20%3F],[BiologicProduct]&lt;derived_product%200..*-++[Specimen],[Document]&lt;related_document%200..*-++[Specimen],[Entity]&lt;dysplasia_fraction%200..1-++[Specimen],[Entity]&lt;morphology_pathologically_confirmed%200..1-++[Specimen],[HistologicalCompositionObservationSet]&lt;histological_composition_measures%200..*-++[Specimen],[SpecimenQualityObservation]&lt;quality_measure%200..*-++[Specimen],[SpecimenQuantityObservation]&lt;quantity_measure%200..*-++[Specimen],[DimensionalObservationSet]&lt;dimensional_measures%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[SpecimenTransportActivity]&lt;transport_activity%200..*-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..*-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[Entity]&lt;description%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Entity]&lt;id%200..1-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[Identifier],[HistologicalCompositionObservationSet],[Entity],[Document],[DimensionalObservationSet],[Diagnosis],[BiologicProduct]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity]&lt;distance_from_paired_specimen%200..1-++[Specimen&#124;specimen_type:enum_CRDCH_Specimen_specimen_type%20%3F;analyte_type:enum_CRDCH_Specimen_analyte_type%20%3F;source_material_type:enum_CRDCH_Specimen_source_material_type%20%3F;tumor_status_at_collection:enum_CRDCH_Specimen_tumor_status_at_collection%20%3F;cellular_composition_type:enum_CRDCH_Specimen_cellular_composition_type%20%3F;general_tissue_morphology:enum_CRDCH_Specimen_general_tissue_morphology%20%3F;specific_tissue_morphology:enum_CRDCH_Specimen_specific_tissue_morphology%20%3F;preinvasive_tissue_morphology:enum_CRDCH_Specimen_preinvasive_tissue_morphology%20%3F;morphology_assessor_role:enum_CRDCH_Specimen_morphology_assessor_role%20%3F;morphology_assessment_method:enum_CRDCH_Specimen_morphology_assessment_method%20%3F;degree_of_dysplasia:enum_CRDCH_Specimen_degree_of_dysplasia%20%3F;section_location:enum_CRDCH_Specimen_section_location%20%3F],[BiologicProduct]&lt;derived_product%200..*-++[Specimen],[Document]&lt;related_document%200..*-++[Specimen],[Entity]&lt;dysplasia_fraction%200..1-++[Specimen],[Entity]&lt;morphology_pathologically_confirmed%200..1-++[Specimen],[HistologicalCompositionObservationSet]&lt;histological_composition_measures%200..*-++[Specimen],[SpecimenQualityObservation]&lt;quality_measure%200..*-++[Specimen],[SpecimenQuantityObservation]&lt;quantity_measure%200..*-++[Specimen],[DimensionalObservationSet]&lt;dimensional_measures%200..1-++[Specimen],[SpecimenContainer]&lt;contained_in%200..1-++[Specimen],[SpecimenTransportActivity]&lt;transport_activity%200..*-++[Specimen],[SpecimenStorageActivity]&lt;storage_activity%200..*-++[Specimen],[SpecimenProcessingActivity]&lt;processing_activity%200..*-++[Specimen],[SpecimenCreationActivity]&lt;creation_activity%200..1-++[Specimen],[Subject]&lt;source_subject%200..1-++[Specimen],[Specimen]&lt;parent_specimen%200..*-++[Specimen],[Organization]&lt;data_provider%200..1-++[Specimen],[ResearchProject]&lt;associated_project%200..1-++[Specimen],[Entity]&lt;description%200..1-++[Specimen],[Identifier]&lt;identifier%200..*-++[Specimen],[Entity]&lt;id%200..1-++[Specimen],[Diagnosis]++-%20related_specimen%200..*&gt;[Specimen],[Entity]^-[Specimen],[ResearchProject],[Quantity],[Organization],[Identifier],[HistologicalCompositionObservationSet],[Entity],[Document],[DimensionalObservationSet],[Diagnosis],[BiologicProduct]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -345,7 +330,7 @@
 <ul>
 <li><a href="../specimen__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimen__identifier/">identifier</a>  <sub>0..*</sub><ul>
@@ -355,18 +340,18 @@
 </li>
 <li><a href="../specimen__description/">description</a>  <sub>0..1</sub><ul>
 <li>Description: A free text field to capture additional information or explanation about the specimen.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimen__specimen_type/">specimen_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</li>
-<li>Range: <a href="../enum_CCDH_Specimen_specimen_type/">enum_CCDH_Specimen_specimen_type</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_specimen_type/">enum_CRDCH_Specimen_specimen_type</a></li>
 <li>Examples: Initial Sample, Portion, Aliquot, Analyte, Slide</li>
 </ul>
 </li>
 <li><a href="../specimen__analyte_type/">analyte_type</a>  <sub>0..1</sub><ul>
 <li>Description: For specimens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)</li>
-<li>Range: <a href="../enum_CCDH_Specimen_analyte_type/">enum_CCDH_Specimen_analyte_type</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_analyte_type/">enum_CRDCH_Specimen_analyte_type</a></li>
 <li>Examples: DNA, FFPE DNA, GenomePlex (Rubicon) Amplified DNA, Repli-G (Qiagen) DNA, RNA, FFPE RNA</li>
 </ul>
 </li>
@@ -382,7 +367,7 @@
 </li>
 <li><a href="../specimen__source_material_type/">source_material_type</a>  <sub>0..1</sub><ul>
 <li>Description: The general kind of material from which the specimen was derived.</li>
-<li>Range: <a href="../enum_CCDH_Specimen_source_material_type/">enum_CCDH_Specimen_source_material_type</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_source_material_type/">enum_CRDCH_Specimen_source_material_type</a></li>
 <li>Examples: Tissue, Blood, Tumor Aspirate, Cell Line, Expanded Next Generation Cancer Model, Pleural Effusion, Xenograft Tissue</li>
 </ul>
 </li>
@@ -398,7 +383,7 @@
 </li>
 <li><a href="../specimen__tumor_status_at_collection/">tumor_status_at_collection</a>  <sub>0..1</sub><ul>
 <li>Description: The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
-<li>Range: <a href="../enum_CCDH_Specimen_tumor_status_at_collection/">enum_CCDH_Specimen_tumor_status_at_collection</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_tumor_status_at_collection/">enum_CRDCH_Specimen_tumor_status_at_collection</a></li>
 <li>Examples: Additional Primary, Local recurrence, Metastatic, NOS, Premalignant, Primary, Recurrent, Xenograft</li>
 </ul>
 </li>
@@ -444,7 +429,7 @@
 </li>
 <li><a href="../specimen__cellular_composition_type/">cellular_composition_type</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the type of cell or cellular material comprising a specimen.</li>
-<li>Range: <a href="../enum_CCDH_Specimen_cellular_composition_type/">enum_CCDH_Specimen_cellular_composition_type</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_cellular_composition_type/">enum_CRDCH_Specimen_cellular_composition_type</a></li>
 <li>Examples: 2D Classical Conditionally Reprogrammed Cells, Adherent Cell Line, Bone Marrow Components, Buccal Cells, Buffy Coat, Derived Cell Line, Granulocytes, Pleural Effusion, Human Original Cells, Liquid Suspension Cell Line</li>
 </ul>
 </li>
@@ -455,47 +440,47 @@
 </li>
 <li><a href="../specimen__general_tissue_morphology/">general_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent).</li>
-<li>Range: <a href="../enum_CCDH_Specimen_general_tissue_morphology/">enum_CCDH_Specimen_general_tissue_morphology</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_general_tissue_morphology/">enum_CRDCH_Specimen_general_tissue_morphology</a></li>
 <li>Examples: Tumor, Normal, Abnormal, Peritumoral, not applicable</li>
 </ul>
 </li>
 <li><a href="../specimen__specific_tissue_morphology/">specific_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the specific pathology exhibited by the tissue comprising a specimen.</li>
-<li>Range: <a href="../enum_CCDH_Specimen_specific_tissue_morphology/">enum_CCDH_Specimen_specific_tissue_morphology</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_specific_tissue_morphology/">enum_CRDCH_Specimen_specific_tissue_morphology</a></li>
 <li>Examples: Non cancerous tissue, Lung Cancer (all types), CNS, medulloblastoma, 00, 01, 02, Melanocytic hyperplasia, Atypical melanocytic proliferation, Melanoma in situ, superficial spreading</li>
 </ul>
 </li>
 <li><a href="../specimen__preinvasive_tissue_morphology/">preinvasive_tissue_morphology</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen.</li>
-<li>Range: <a href="../enum_CCDH_Specimen_preinvasive_tissue_morphology/">enum_CCDH_Specimen_preinvasive_tissue_morphology</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_preinvasive_tissue_morphology/">enum_CRDCH_Specimen_preinvasive_tissue_morphology</a></li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_pathologically_confirmed/">morphology_pathologically_confirmed</a>  <sub>0..1</sub><ul>
 <li>Description: A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review.</li>
-<li>Range: <a href="../types/CcdhBoolean/">CcdhBoolean</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimen__morphology_assessor_role/">morphology_assessor_role</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen</li>
-<li>Range: <a href="../enum_CCDH_Specimen_morphology_assessor_role/">enum_CCDH_Specimen_morphology_assessor_role</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_morphology_assessor_role/">enum_CRDCH_Specimen_morphology_assessor_role</a></li>
 <li>Examples: Pathologist, Research Scientist, Other, Unknown</li>
 </ul>
 </li>
-<li><a href="../specimen__morphlogy_assessment_method/">morphlogy_assessment_method</a>  <sub>0..1</sub><ul>
+<li><a href="../specimen__morphology_assessment_method/">morphology_assessment_method</a>  <sub>0..1</sub><ul>
 <li>Description: The general method used to assess a specimens specific tissue morphology</li>
-<li>Range: <a href="../enum_CCDH_Specimen_morphlogy_assessment_method/">enum_CCDH_Specimen_morphlogy_assessment_method</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_morphology_assessment_method/">enum_CRDCH_Specimen_morphology_assessment_method</a></li>
 <li>Examples: Digital, Microscopy, Other, Unknown</li>
 </ul>
 </li>
 <li><a href="../specimen__degree_of_dysplasia/">degree_of_dysplasia</a>  <sub>0..1</sub><ul>
 <li>Description: A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration.</li>
-<li>Range: <a href="../enum_CCDH_Specimen_degree_of_dysplasia/">enum_CCDH_Specimen_degree_of_dysplasia</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_degree_of_dysplasia/">enum_CRDCH_Specimen_degree_of_dysplasia</a></li>
 <li>Examples: Normal or basal cell hyperplasia or metaplasia, Mild dysplasia, Moderate dysplasia, Severe dysplasia, Carcinoma in Situ, Unknown</li>
 </ul>
 </li>
 <li><a href="../specimen__dysplasia_fraction/">dysplasia_fraction</a>  <sub>0..1</sub><ul>
 <li>Description: Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.</li>
-<li>Range: <a href="../types/CcdhString/">CcdhString</a></li>
+<li>Range: <a href="../Entity/">Entity</a></li>
 </ul>
 </li>
 <li><a href="../specimen__related_document/">related_document</a>  <sub>0..*</sub><ul>
@@ -505,7 +490,7 @@
 </li>
 <li><a href="../specimen__section_location/">section_location</a>  <sub>0..1</sub><ul>
 <li>Description: The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)</li>
-<li>Range: <a href="../enum_CCDH_Specimen_section_location/">enum_CCDH_Specimen_section_location</a></li>
+<li>Range: <a href="../enum_CRDCH_Specimen_section_location/">enum_CRDCH_Specimen_section_location</a></li>
 <li>Examples: Top, Bottom, Unknown</li>
 </ul>
 </li>
@@ -572,10 +557,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.53c85856.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
       
     
   </body>
