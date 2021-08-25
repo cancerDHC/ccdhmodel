@@ -108,5 +108,50 @@
 
 # Approach 5:  Separate Provenance OBject (TO DO: Chris M?)
 
+This combines:
+
+ 1. A simple enum model for direct representation of the harmonized value
+ 2. A provenance object for recording both original values/codes plus any information regarding transform
+
+Instance data for analyte:
+
+```yaml
+identifiers:
+  - tcga:TCGA-2G-AAGW-01A-11D
+  - gdc:d64cba64-7eba-4a09-887d-bfc401edd138
+analyte_type: DNA
+was_generated_by:
+  ## inlining for illustrative purposes
+  ## this could get its own ID and be referenced by ID.
+  ##
+  ## the specific details are not so important here
+  description: ...
+  started_at_time: ...
+  inputs:
+    - source: tcga:TCGA-2G-AAGW-01A-11D
+      value:
+        - id: NCIt:C449
+          name: DNA
+          version: ....
+    - source: gdc:d64cba64-7eba-4a09-887d-bfc401edd138
+      value:
+        - id: gdc:DNA
+          name: DNA
+          version: ....
+```
+
+Schema:
+
+```yaml
+enums:
+  analyte_enum:
+    permissible_values:
+      DNA:
+        meaning: ncit:C449
+        description: ....
+      RNA: ...
+```
+
+
 
 
