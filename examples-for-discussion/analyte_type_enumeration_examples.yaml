@@ -152,6 +152,15 @@ enums:
       RNA: ...
 ```
 
+ - Note that when the json/yaml object is interpreted with the schema, the RDF value for analyte_type is the NCIT IRI
+ - the provenance object is just an exemplar and the details are not important to illustrate the general approach
+    - if we like, we don't need to inline, the provenance object could get its own ID and be referenced by ID
+    - if not inlined, then it could optionally be retrieved by a different service, the same service, etc. These architecture details outside the scope of the model
+    - the provenance object can be as broad, deep, detailed, extensible as we like. Not shown but we could have:
+       - the "agent" making the change
+       - time of ETL transformation
+       - link to any mappings used
+       - etc
 
 
 
