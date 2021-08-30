@@ -129,6 +129,7 @@ was_generated_by:
   started_at_time: ...
   inputs:
     - source: tcga:TCGA-2G-AAGW-01A-11D
+      field: analyte_type
       value:
         - id: NCIt:C449
           name: DNA
