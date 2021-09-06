@@ -14,18 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       based on `model/CONFIG.yaml`. Updating with `MakeConfig` could be very convenient but a strategy
       combining `MakeConfig` with manual updates to these files could lose important work. It's probably best to commit
       before running `MakeConfig`.
-  * Most recently, several steps were taken to keep the `squeaky-clean` Makefile recipe from erroring out. 
-    * `PKG_T_JSON_SCHEMA` was set to `json_schema` instead of `jsonschema`.
-    * `docs` is being cleaned with `rm -rf docs/*`. That will delete any `README.*` or `.keep` file placed in there. 
-  * There is some conflict in terms of the Python version require specifications.
-    * `setup.cfg` says `python_requires = >=3.7`
-    * `setup.py` says `if sys.version_info < (3, 7, 0):`
-      * The reporting of warning string was modified due to a error when trying to run `setup.py` under 2.7
-    * `tox.ini` says `envlist = py37, py38, py39`
-    * `./Pipfile says` inherited `python_version = "3.8"` from pre-template code 
-  * TODO: 
-    * Aggregate Markdown/documentation files like `from_template/ABOUT.md` and `from_template/ABOUT.md` into `MAINTAINERS.md`
-    * A verbose `./ChangeLog` is being created in `make pypi`, Disable that or move the output somewhere less conspicuous.
+  * Necessary fixes to the `squeaky-clean` target in the Makefile.
+  * We should have standardized to Python 3.7 as a minimum version (see `setup.py`, `setup.cfg` and `tox.ini`).
 
 ## [v1.0.1] - 2021-06-08
 
