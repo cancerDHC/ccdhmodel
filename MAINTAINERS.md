@@ -1,15 +1,13 @@
 # Regenerating the CRDC-H model
 
-_In August 2021, This repo was updated based on the [linkml model template](https://github.com/linkml/linkml-model-template)_
-
 ## Requirements
-* __Python >= 3.7.1__
+* __Python >= 3.7__
 * __GNU make__ - Windows users can use [cygwin](https://www.cygwin.com/). `make` comes built into MacOS and most Linuxes.
 * __pip__ - bundled with most python distros
-* __virtualenv__ - can be added via `pip install virtualenv`
-* __pipenv__ - can be added via `pip install pipenv`
+* __virtualenv__ - can be installed by running `pip install virtualenv`
+* __pipenv__ - can be installed by running `pip install pipenv`
 
-See also the linkml model template's [original ABOUT.md](https://github.com/cancerDHC/ccdhmodel/blob/5ec6c203edd871a72c87aea03a894bbb3c798c79/from_template/ABOUT.md) file.
+See also the LinkML model template's [original ABOUT.md](https://github.com/cancerDHC/ccdhmodel/blob/5ec6c203edd871a72c87aea03a894bbb3c798c79/from_template/ABOUT.md) file.
 
 ## The following is a reasonable start from a fresh repo
 
@@ -171,7 +169,7 @@ pipenv lock --dev --requirements > requirements-dev.txt
 
 ## Regarding documentation
 
-The previous doc genration/publishing approach and the approach supported by the linkml-model-template have not been completely aligned yet.
+The previous doc generation/publishing approach and the approach supported by the linkml-model-template have not been completely aligned yet.
 
 The template does require git adding and pushing the `./docs` folder (or making commits within GH actions), but that was previously discouraged.
 
