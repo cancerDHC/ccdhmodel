@@ -89,8 +89,7 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
         for entity in selected_entities:
             filename = f"output/{entity.get_filename()}.yaml"
             logging.info(f"Writing entity {entity.name} to {filename}")
-            with open(filename, "w") as f:
-                yaml_dumper.dump(entity.as_linkml(crdch_root), f)
+            yaml_dumper.dump(entity.as_linkml(crdch_root), filename)
 
             if write_mappings:
                 mappings.extend(entity.mappings.mappings)
@@ -101,8 +100,7 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
         # Convert the entire model into YAML.
         filename = f"output/{model.get_filename()}.yaml"
         logging.info(f"Writing model {model.name} to {filename}")
-        with open(filename, "w") as f:
-            yaml_dumper.dump(model.as_linkml(crdch_root), f)
+        yaml_dumper.dump(model.as_linkml(crdch_root), filename)
 
         if write_mappings:
             Mappings.write_to_file(model.mappings, filename=write_mappings, model=model)

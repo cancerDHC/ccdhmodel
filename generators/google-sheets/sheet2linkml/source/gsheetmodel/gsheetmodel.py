@@ -319,8 +319,10 @@ class GSheetModel(ModelElement):
         for entity in schema_classes.values():
             fix_type_name(entity.name, entity, "is_a")
             for attrName in entity.attributes:
-                attr = entity.attributes[attrName]
-                fix_type_name(f"{entity.name}.{attrName}", attr, "range")
+                # Ignore attributes that start with `_`.
+                if not attrName.startswith('_'):
+                    attr = entity.attributes[attrName]
+                    fix_type_name(f"{entity.name}.{attrName}", attr, "range")
 
         # Write the lists to the schema
         schema.types = schema_types
