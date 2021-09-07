@@ -1,3 +1,3 @@
-# Directory for schemas
+# Directory for LinkML schemas
 
-This readme is to keep the position occupied
+LinkML schemas for the CRDCH are stored in this directory.
