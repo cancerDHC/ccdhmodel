@@ -80,7 +80,9 @@ gen: $(patsubst %,gen-%,$(TGTS))
 # CLEAN: clear out all of the targets
 # ---------------------------------------
 clean:
-	rm -rf target/*
+	rm -rf target/
+	rm -rf docs/
+	pipenv clean
 .PHONY: clean
 
 
