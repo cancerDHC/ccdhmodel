@@ -1,6 +1,6 @@
 # Tests input directory
 This file contains samples of your schema. Samples can written in yaml, json, rdf or any other language that 
-the [https://linkml.github.io/linkml-runtime]() importers and exporters support.
+the [linkml-runtime](https://linkml.github.io/linkml-runtime) importers and exporters support.
 
 `test_examples.py` will iterate over this directory, loading each test and:
 1) For each runtime generator (yaml, json, rdf, ...) will emit the output in that language
