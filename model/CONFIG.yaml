@@ -1,3 +1,7 @@
+# If you change this file, please update /setup.cfg as well.
+# (unless there's some way to keep the two files in sync that
+#  I don't know about).
+#
 # (OLD NOTE) switch to cancerDHC/ccdhmodel
 # be careful about no overwriting the documentation
 # add push to PyPI with GitHub action or ???
