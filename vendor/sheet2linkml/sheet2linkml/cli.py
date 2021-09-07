@@ -33,7 +33,7 @@ from sheet2linkml.terminologies.tccm.api import TCCMService
     "--logging-config",
     type=str,
     help="A logging configuration file.",
-    default=os.path.join(sys.path[0], "logging.ini"),
+    default='logging.ini',
 )
 @click.option(
     "--write-mappings",
