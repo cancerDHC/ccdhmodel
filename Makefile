@@ -44,6 +44,7 @@ PKG_T_CSV = $(PKG_DIR)/csv
 ENV = PIPENV_IGNORE_INSTALLED=1
 RUN = $(ENV) pipenv run
 GEN_OPTS = --log_level WARNING
+CDM_GOOGLE_SHEET_ID=1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4
 
 # ----------------------------------------
 # TOP LEVEL TARGETS
@@ -305,7 +306,7 @@ docserve: gen-docs
 # Regenerate from Google Sheets. Note that this uses a *separate* Pipenv in the
 # generators/google-sheets directory, so we have to run pipenv install on it separately.
 regen-google-sheets: install
-	$(RUN) python generators/google-sheets/sheet2linkml.py --output model/schema/crdch_model.yaml
+	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) python generators/google-sheets/sheet2linkml.py --output model/schema/crdch_model.yaml
 
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
 # Deploy changes to the `dev` version on the gh-pages branch.
