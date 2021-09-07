@@ -62,10 +62,16 @@ uninstall:
 
 # ---------------------------------------
 # Test runner
-# ----------------------------------------
+# ---------------------------------------
 test:
 	pipenv install --dev
 	pipenv run python -m unittest
+
+# ---------------------------------------
+# Test runner with tox
+# ---------------------------------------
+test-tox:
+	pipenv run tox4
 
 # ---------------------------------------
 # GEN: run generator for each target
