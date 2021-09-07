@@ -304,8 +304,8 @@ docserve: gen-docs
 
 # Regenerate from Google Sheets. Note that this uses a *separate* Pipenv in the
 # generators/google-sheets directory, so we have to run pipenv install on it separately.
-regen-google-sheets:
-	cd generators/google-sheets && pipenv install && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../model/schema/crdch_model.yaml && cd -
+regen-google-sheets: install
+	pipenv run python sheet2linkml.py --output model/schema/crdch_model.yaml
 
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
 # shoudn't it be using $(RUN) not ${RUN} ?
