@@ -10,6 +10,7 @@ local
 # Google API authentication information
 google_api_credentials.json
 token.pickle
+sheets.googleapis.com-python.json
 
 # From LinkML template (https://github.com/linkml/linkml-template/blob/1c94efc880b607b36786b87e164455a099618ffa/.gitignore)
 Pipfile
