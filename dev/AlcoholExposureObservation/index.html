@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/AlcoholExposureObservation/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -307,8 +307,8 @@
                 
                 <h1 id="class-alcoholexposureobservation">Class: AlcoholExposureObservation</h1>
 <p>A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.</p>
-<p>URI: <a href="https://example.org/crdch_model/AlcoholExposureObservation">crdch:AlcoholExposureObservation</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[Entity],[Entity]&lt;valueInteger%200..1-++[AlcoholExposureObservation&#124;category:enum_CRDCH_AlcoholExposureObservation_category%20%3F;observation_type:enum_CRDCH_AlcoholExposureObservation_observation_type;method_type:enum_CRDCH_AlcoholExposureObservation_method_type%20%3F;valueCodeableConcept:enum_CRDCH_AlcoholExposureObservation_valueCodeableConcept%20%3F],[Organization]&lt;performed_by%200..1-++[AlcoholExposureObservation],[Subject]&lt;subject%200..1-++[AlcoholExposureObservation],[Entity]&lt;focus%200..1-++[AlcoholExposureObservation],[Entity]&lt;id%200..1-++[AlcoholExposureObservation],[Exposure]++-%20alcohol_exposure%200..*&gt;[AlcoholExposureObservation],[Entity]^-[AlcoholExposureObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[Entity],[Entity]&lt;valueInteger%200..1-++[AlcoholExposureObservation&#124;category:enum_CRDCH_AlcoholExposureObservation_category%20%3F;observation_type:enum_CRDCH_AlcoholExposureObservation_observation_type;method_type:enum_CRDCH_AlcoholExposureObservation_method_type%20%3F;valueCodeableConcept:enum_CRDCH_AlcoholExposureObservation_valueCodeableConcept%20%3F],[Organization]&lt;performed_by%200..1-++[AlcoholExposureObservation],[Subject]&lt;subject%200..1-++[AlcoholExposureObservation],[Entity]&lt;focus%200..1-++[AlcoholExposureObservation],[Entity]&lt;id%200..1-++[AlcoholExposureObservation],[Exposure]++-%20alcohol_exposure%200..*&gt;[AlcoholExposureObservation],[Entity]^-[AlcoholExposureObservation]" /></a></p>
+<p>URI: <a href="https://example.org/crdch/AlcoholExposureObservation">crdch:AlcoholExposureObservation</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[Entity],[Organization]&lt;performed_by%200..1-++[AlcoholExposureObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_AlcoholExposureObservation_category%20%3F;observation_type:enum_CRDCH_AlcoholExposureObservation_observation_type;method_type:enum_CRDCH_AlcoholExposureObservation_method_type%20%3F;value_integer:crdch_integer%20%3F;value_codeable_concept:enum_CRDCH_AlcoholExposureObservation_value_codeable_concept%20%3F],[Subject]&lt;subject%200..1-++[AlcoholExposureObservation],[Entity]&lt;focus%200..1-++[AlcoholExposureObservation],[Exposure]++-%20alcohol_exposure%200..*&gt;[AlcoholExposureObservation],[Entity]^-[AlcoholExposureObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[Entity],[Organization]&lt;performed_by%200..1-++[AlcoholExposureObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_AlcoholExposureObservation_category%20%3F;observation_type:enum_CRDCH_AlcoholExposureObservation_observation_type;method_type:enum_CRDCH_AlcoholExposureObservation_method_type%20%3F;value_integer:crdch_integer%20%3F;value_codeable_concept:enum_CRDCH_AlcoholExposureObservation_value_codeable_concept%20%3F],[Subject]&lt;subject%200..1-++[AlcoholExposureObservation],[Entity]&lt;focus%200..1-++[AlcoholExposureObservation],[Exposure]++-%20alcohol_exposure%200..*&gt;[AlcoholExposureObservation],[Entity]^-[AlcoholExposureObservation]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -322,7 +322,7 @@
 <ul>
 <li><a href="../alcoholExposureObservation__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
 <li><a href="../alcoholExposureObservation__category/">category</a>  <sub>0..1</sub><ul>
@@ -356,14 +356,14 @@
 <li>Range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../alcoholExposureObservation__valueInteger/">valueInteger</a>  <sub>0..1</sub><ul>
+<li><a href="../alcoholExposureObservation__value_integer/">value_integer</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as an integer.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchInteger/">CrdchInteger</a></li>
 </ul>
 </li>
-<li><a href="../alcoholExposureObservation__valueCodeableConcept/">valueCodeableConcept</a>  <sub>0..1</sub><ul>
+<li><a href="../alcoholExposureObservation__value_codeable_concept/">value_codeable_concept</a>  <sub>0..1</sub><ul>
 <li>Description: The result of the observation, encoded as a CodeableConcept.</li>
-<li>Range: <a href="../enum_CRDCH_AlcoholExposureObservation_valueCodeableConcept/">enum_CRDCH_AlcoholExposureObservation_valueCodeableConcept</a></li>
+<li>Range: <a href="../enum_CRDCH_AlcoholExposureObservation_value_codeable_concept/">enum_CRDCH_AlcoholExposureObservation_value_codeable_concept</a></li>
 </ul>
 </li>
 </ul>
@@ -402,10 +402,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>

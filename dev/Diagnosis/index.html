@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/Diagnosis/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -307,8 +307,8 @@
                 
                 <h1 id="class-diagnosis">Class: Diagnosis</h1>
 <p>A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</p>
-<p>URI: <a href="https://example.org/crdch_model/Diagnosis">crdch:Diagnosis</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;condition:enum_CRDCH_Diagnosis_condition%20%3F;morphology:enum_CRDCH_Diagnosis_morphology%20%3F;disease_status:enum_CRDCH_Diagnosis_disease_status%20%3F;method_of_diagnosis:enum_CRDCH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Entity]&lt;year_at_diagnosis%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[Entity]&lt;id%200..1-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;condition:enum_CRDCH_Diagnosis_condition%20%3F;morphology:enum_CRDCH_Diagnosis_morphology%20%3F;disease_status:enum_CRDCH_Diagnosis_disease_status%20%3F;method_of_diagnosis:enum_CRDCH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Entity]&lt;year_at_diagnosis%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[Entity]&lt;id%200..1-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]" /></a></p>
+<p>URI: <a href="https://example.org/crdch/Diagnosis">crdch:Diagnosis</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;id:crdch_string%20%3F;year_at_diagnosis:crdch_integer%20%3F;condition:enum_CRDCH_Diagnosis_condition%20%3F;morphology:enum_CRDCH_Diagnosis_morphology%20%3F;disease_status:enum_CRDCH_Diagnosis_disease_status%20%3F;method_of_diagnosis:enum_CRDCH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;id:crdch_string%20%3F;year_at_diagnosis:crdch_integer%20%3F;condition:enum_CRDCH_Diagnosis_condition%20%3F;morphology:enum_CRDCH_Diagnosis_morphology%20%3F;disease_status:enum_CRDCH_Diagnosis_disease_status%20%3F;method_of_diagnosis:enum_CRDCH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -325,7 +325,7 @@
 <ul>
 <li><a href="../diagnosis__id/">id</a>  <sub>0..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__identifier/">identifier</a>  <sub>0..*</sub><ul>
@@ -345,7 +345,7 @@
 </li>
 <li><a href="../diagnosis__year_at_diagnosis/">year_at_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: Numeric value to represent the year of an individual's diagnosis.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchInteger/">CrdchInteger</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__condition/">condition</a>  <sub>0..1</sub><ul>
@@ -447,10 +447,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>

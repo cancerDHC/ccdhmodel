@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/SpecimenTransportActivity/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -314,8 +314,8 @@
                 
                 <h1 id="class-specimentransportactivity">Class: SpecimenTransportActivity</h1>
 <p>An activity through which a specimen is transported between locations or organizations.</p>
-<p>URI: <a href="https://example.org/crdch_model/SpecimenTransportActivity">crdch:SpecimenTransportActivity</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[ExecutionConditionObservation]&lt;execution_condition_observation%200..*-++[SpecimenTransportActivity],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[Entity]&lt;duration%200..*-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..*&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[ExecutionConditionObservation],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[ExecutionConditionObservation]&lt;execution_condition_observation%200..*-++[SpecimenTransportActivity],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[Entity]&lt;duration%200..*-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..*&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[ExecutionConditionObservation],[Entity]" /></a></p>
+<p>URI: <a href="https://example.org/crdch/SpecimenTransportActivity">crdch:SpecimenTransportActivity</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[ExecutionConditionObservation]&lt;execution_condition_observation%200..*-++[SpecimenTransportActivity&#124;duration:crdch_string%20*],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..*&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[ExecutionConditionObservation],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[ExecutionConditionObservation]&lt;execution_condition_observation%200..*-++[SpecimenTransportActivity&#124;duration:crdch_string%20*],[Organization]&lt;transport_destination%200..1-++[SpecimenTransportActivity],[Organization]&lt;transport_origin%200..1-++[SpecimenTransportActivity],[Organization]&lt;performed_by%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_ended%200..1-++[SpecimenTransportActivity],[TimePoint]&lt;date_started%200..1-++[SpecimenTransportActivity],[Specimen]++-%20transport_activity%200..*&gt;[SpecimenTransportActivity],[Entity]^-[SpecimenTransportActivity],[Specimen],[Organization],[ExecutionConditionObservation],[Entity]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -339,7 +339,7 @@
 </li>
 <li><a href="../specimenTransportActivity__duration/">duration</a>  <sub>0..*</sub><ul>
 <li>Description: The length of time over which the activity was performed.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
 <li><a href="../specimenTransportActivity__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
@@ -415,10 +415,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>

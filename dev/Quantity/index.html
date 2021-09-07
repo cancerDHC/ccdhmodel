@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/Quantity/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -314,8 +314,8 @@
                 
                 <h1 id="class-quantity">Class: Quantity</h1>
 <p>A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.</p>
-<p>URI: <a href="https://example.org/crdch_model/Quantity">crdch:Quantity</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Entity]&lt;valueDecimal%200..1-++[Quantity&#124;valueCodeableConcept:enum_CRDCH_Quantity_valueCodeableConcept%20%3F;unit:enum_CRDCH_Quantity_unit%20%3F],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity],[DimensionalObservation]++-%20valueQuantity%201..1&gt;[Quantity],[ExecutionTimeObservation]++-%20valueQuantity%201..1&gt;[Quantity],[HistologicalCompositionObservation]++-%20valueQuantity%201..1&gt;[Quantity],[Observation]++-%20valueQuantity%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[SpecimenProcessingActivity]++-%20duration%200..*&gt;[Quantity],[SpecimenQualityObservation]++-%20valueQuantity%201..1&gt;[Quantity],[SpecimenQuantityObservation]++-%20valueQuantity%201..1&gt;[Quantity],[SpecimenStorageActivity]++-%20duration%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[Substance]++-%20substance_quantity%200..1&gt;[Quantity],[TimePoint]++-%20offsetFromIndex%200..1&gt;[Quantity],[Entity]^-[Quantity],[Observation],[HistologicalCompositionObservation],[ExecutionTimeObservation],[Entity],[DimensionalObservation],[Diagnosis]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Entity]&lt;valueDecimal%200..1-++[Quantity&#124;valueCodeableConcept:enum_CRDCH_Quantity_valueCodeableConcept%20%3F;unit:enum_CRDCH_Quantity_unit%20%3F],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity],[DimensionalObservation]++-%20valueQuantity%201..1&gt;[Quantity],[ExecutionTimeObservation]++-%20valueQuantity%201..1&gt;[Quantity],[HistologicalCompositionObservation]++-%20valueQuantity%201..1&gt;[Quantity],[Observation]++-%20valueQuantity%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[SpecimenProcessingActivity]++-%20duration%200..*&gt;[Quantity],[SpecimenQualityObservation]++-%20valueQuantity%201..1&gt;[Quantity],[SpecimenQuantityObservation]++-%20valueQuantity%201..1&gt;[Quantity],[SpecimenStorageActivity]++-%20duration%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[Substance]++-%20substance_quantity%200..1&gt;[Quantity],[TimePoint]++-%20offsetFromIndex%200..1&gt;[Quantity],[Entity]^-[Quantity],[Observation],[HistologicalCompositionObservation],[ExecutionTimeObservation],[Entity],[DimensionalObservation],[Diagnosis]" /></a></p>
+<p>URI: <a href="https://example.org/crdch/Quantity">crdch:Quantity</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity&#124;value_decimal:crdch_decimal%20%3F;value_codeable_concept:enum_CRDCH_Quantity_value_codeable_concept%20%3F;unit:enum_CRDCH_Quantity_unit%20%3F],[DimensionalObservation]++-%20value_quantity%201..1&gt;[Quantity],[ExecutionTimeObservation]++-%20value_quantity%201..1&gt;[Quantity],[HistologicalCompositionObservation]++-%20value_quantity%201..1&gt;[Quantity],[Observation]++-%20value_quantity%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[SpecimenProcessingActivity]++-%20duration%200..*&gt;[Quantity],[SpecimenQualityObservation]++-%20value_quantity%201..1&gt;[Quantity],[SpecimenQuantityObservation]++-%20value_quantity%201..1&gt;[Quantity],[SpecimenStorageActivity]++-%20duration%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[Substance]++-%20substance_quantity%200..1&gt;[Quantity],[TimePoint]++-%20offset_from_index%200..1&gt;[Quantity],[Entity]^-[Quantity],[Observation],[HistologicalCompositionObservation],[ExecutionTimeObservation],[Entity],[DimensionalObservation],[Diagnosis]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Specimen],[ResearchSubject],[Diagnosis]++-%20age_at_diagnosis%200..1&gt;[Quantity&#124;value_decimal:crdch_decimal%20%3F;value_codeable_concept:enum_CRDCH_Quantity_value_codeable_concept%20%3F;unit:enum_CRDCH_Quantity_unit%20%3F],[DimensionalObservation]++-%20value_quantity%201..1&gt;[Quantity],[ExecutionTimeObservation]++-%20value_quantity%201..1&gt;[Quantity],[HistologicalCompositionObservation]++-%20value_quantity%201..1&gt;[Quantity],[Observation]++-%20value_quantity%200..1&gt;[Quantity],[ResearchSubject]++-%20age_at_enrollment%200..1&gt;[Quantity],[SpecimenCreationActivity]++-%20quantity_collected%200..1&gt;[Quantity],[SpecimenProcessingActivity]++-%20duration%200..*&gt;[Quantity],[SpecimenQualityObservation]++-%20value_quantity%201..1&gt;[Quantity],[SpecimenQuantityObservation]++-%20value_quantity%201..1&gt;[Quantity],[SpecimenStorageActivity]++-%20duration%200..1&gt;[Quantity],[Specimen]++-%20distance_from_paired_specimen%200..1&gt;[Quantity],[Subject]++-%20age_at_death%200..1&gt;[Quantity],[Substance]++-%20substance_quantity%200..1&gt;[Quantity],[TimePoint]++-%20offset_from_index%200..1&gt;[Quantity],[Entity]^-[Quantity],[Observation],[HistologicalCompositionObservation],[ExecutionTimeObservation],[Entity],[DimensionalObservation],[Diagnosis]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -323,32 +323,32 @@
 <h2 id="referenced-by-class">Referenced by class</h2>
 <ul>
 <li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__age_at_diagnosis/">age_at_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong><a href="../DimensionalObservation/">DimensionalObservation</a></strong> ➞<em><a href="../dimensionalObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong><a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></strong> ➞<em><a href="../executionTimeObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong><a href="../HistologicalCompositionObservation/">HistologicalCompositionObservation</a></strong> ➞<em><a href="../histologicalCompositionObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__valueQuantity/">valueQuantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../DimensionalObservation/">DimensionalObservation</a></strong> ➞<em><a href="../dimensionalObservation__value_quantity/">value_quantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></strong> ➞<em><a href="../executionTimeObservation__value_quantity/">value_quantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../HistologicalCompositionObservation/">HistologicalCompositionObservation</a></strong> ➞<em><a href="../histologicalCompositionObservation__value_quantity/">value_quantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__value_quantity/">value_quantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__age_at_enrollment/">age_at_enrollment</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__quantity_collected/">quantity_collected</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__duration/">duration</a></em>  <sub>0..*</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__valueQuantity/">valueQuantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__value_quantity/">value_quantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__value_quantity/">value_quantity</a></em>  <sub>1..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></strong> ➞<em><a href="../specimenStorageActivity__duration/">duration</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__distance_from_paired_specimen/">distance_from_paired_specimen</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__age_at_death/">age_at_death</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 <li><strong><a href="../Substance/">Substance</a></strong> ➞<em><a href="../substance__substance_quantity/">substance_quantity</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
-<li><strong><a href="../TimePoint/">TimePoint</a></strong> ➞<em><a href="../timePoint__offsetFromIndex/">offsetFromIndex</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
+<li><strong><a href="../TimePoint/">TimePoint</a></strong> ➞<em><a href="../timePoint__offset_from_index/">offset_from_index</a></em>  <sub>0..1</sub>  <strong><a href="./">Quantity</a></strong></li>
 </ul>
 <h2 id="attributes">Attributes</h2>
 <h3 id="own">Own</h3>
 <ul>
-<li><a href="../quantity__valueDecimal/">valueDecimal</a>  <sub>0..1</sub><ul>
+<li><a href="../quantity__value_decimal/">value_decimal</a>  <sub>0..1</sub><ul>
 <li>Description: An amount, in the given units (if specified)</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchDecimal/">CrdchDecimal</a></li>
 </ul>
 </li>
-<li><a href="../quantity__valueCodeableConcept/">valueCodeableConcept</a>  <sub>0..1</sub><ul>
+<li><a href="../quantity__value_codeable_concept/">value_codeable_concept</a>  <sub>0..1</sub><ul>
 <li>Description: A coded value representing a quantity (e.g. "Adjacent (&lt; or = 2cm)")</li>
-<li>Range: <a href="../enum_CRDCH_Quantity_valueCodeableConcept/">enum_CRDCH_Quantity_valueCodeableConcept</a></li>
+<li>Range: <a href="../enum_CRDCH_Quantity_value_codeable_concept/">enum_CRDCH_Quantity_value_codeable_concept</a></li>
 </ul>
 </li>
 <li><a href="../quantity__unit/">unit</a>  <sub>0..1</sub><ul>
@@ -409,10 +409,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>

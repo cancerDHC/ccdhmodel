@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/ResearchSubject/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -308,8 +308,8 @@
                 <h1 id="class-researchsubject">Class: ResearchSubject</h1>
 <p>A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
 or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.</p>
-<p>URI: <a href="https://example.org/crdch_model/ResearchSubject">crdch:ResearchSubject</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Subject]&lt;associated_subject%201..1-++[ResearchSubject&#124;primary_diagnosis_condition:enum_CRDCH_ResearchSubject_primary_diagnosis_condition%20%3F;index_timepoint:enum_CRDCH_ResearchSubject_index_timepoint%20%3F],[Organization]&lt;originating_site%200..1-++[ResearchSubject],[Diagnosis]&lt;comorbid_diagnosis%200..*-++[ResearchSubject],[Diagnosis]&lt;primary_diagnosis%200..*-++[ResearchSubject],[BodySite]&lt;primary_diagnosis_site%200..1-++[ResearchSubject],[Quantity]&lt;age_at_enrollment%200..1-++[ResearchSubject],[ResearchProject]&lt;member_of_research_project%200..1-++[ResearchSubject],[Entity]&lt;description%200..1-++[ResearchSubject],[Identifier]&lt;identifier%200..*-++[ResearchSubject],[Entity]&lt;id%201..1-++[ResearchSubject],[Entity]^-[ResearchSubject],[ResearchProject],[Quantity],[Organization],[Identifier],[Entity],[Diagnosis],[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Subject]&lt;associated_subject%201..1-++[ResearchSubject&#124;primary_diagnosis_condition:enum_CRDCH_ResearchSubject_primary_diagnosis_condition%20%3F;index_timepoint:enum_CRDCH_ResearchSubject_index_timepoint%20%3F],[Organization]&lt;originating_site%200..1-++[ResearchSubject],[Diagnosis]&lt;comorbid_diagnosis%200..*-++[ResearchSubject],[Diagnosis]&lt;primary_diagnosis%200..*-++[ResearchSubject],[BodySite]&lt;primary_diagnosis_site%200..1-++[ResearchSubject],[Quantity]&lt;age_at_enrollment%200..1-++[ResearchSubject],[ResearchProject]&lt;member_of_research_project%200..1-++[ResearchSubject],[Entity]&lt;description%200..1-++[ResearchSubject],[Identifier]&lt;identifier%200..*-++[ResearchSubject],[Entity]&lt;id%201..1-++[ResearchSubject],[Entity]^-[ResearchSubject],[ResearchProject],[Quantity],[Organization],[Identifier],[Entity],[Diagnosis],[BodySite]" /></a></p>
+<p>URI: <a href="https://example.org/crdch/ResearchSubject">crdch:ResearchSubject</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Subject]&lt;associated_subject%201..1-++[ResearchSubject&#124;id:crdch_string;description:crdch_string%20%3F;primary_diagnosis_condition:enum_CRDCH_ResearchSubject_primary_diagnosis_condition%20%3F;index_timepoint:enum_CRDCH_ResearchSubject_index_timepoint%20%3F],[Organization]&lt;originating_site%200..1-++[ResearchSubject],[Diagnosis]&lt;comorbid_diagnosis%200..*-++[ResearchSubject],[Diagnosis]&lt;primary_diagnosis%200..*-++[ResearchSubject],[BodySite]&lt;primary_diagnosis_site%200..1-++[ResearchSubject],[Quantity]&lt;age_at_enrollment%200..1-++[ResearchSubject],[ResearchProject]&lt;member_of_research_project%200..1-++[ResearchSubject],[Identifier]&lt;identifier%200..*-++[ResearchSubject],[Entity]^-[ResearchSubject],[ResearchProject],[Quantity],[Organization],[Identifier],[Entity],[Diagnosis],[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Subject]&lt;associated_subject%201..1-++[ResearchSubject&#124;id:crdch_string;description:crdch_string%20%3F;primary_diagnosis_condition:enum_CRDCH_ResearchSubject_primary_diagnosis_condition%20%3F;index_timepoint:enum_CRDCH_ResearchSubject_index_timepoint%20%3F],[Organization]&lt;originating_site%200..1-++[ResearchSubject],[Diagnosis]&lt;comorbid_diagnosis%200..*-++[ResearchSubject],[Diagnosis]&lt;primary_diagnosis%200..*-++[ResearchSubject],[BodySite]&lt;primary_diagnosis_site%200..1-++[ResearchSubject],[Quantity]&lt;age_at_enrollment%200..1-++[ResearchSubject],[ResearchProject]&lt;member_of_research_project%200..1-++[ResearchSubject],[Identifier]&lt;identifier%200..*-++[ResearchSubject],[Entity]^-[ResearchSubject],[ResearchProject],[Quantity],[Organization],[Identifier],[Entity],[Diagnosis],[BodySite]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -320,7 +320,7 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
 <ul>
 <li><a href="../researchSubject__id/">id</a>  <sub>1..1</sub><ul>
 <li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
 <li><a href="../researchSubject__identifier/">identifier</a>  <sub>0..*</sub><ul>
@@ -330,7 +330,7 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
 </li>
 <li><a href="../researchSubject__description/">description</a>  <sub>0..1</sub><ul>
 <li>Description: A free text field to capture additional info/explanation about the research subject.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
 <li><a href="../researchSubject__member_of_research_project/">member_of_research_project</a>  <sub>0..1</sub><ul>
@@ -417,10 +417,10 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>
