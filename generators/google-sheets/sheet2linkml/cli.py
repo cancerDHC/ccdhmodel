@@ -9,15 +9,21 @@ import re
 import subprocess
 import logging
 import logging.config
-from sheet2linkml import config
+import click
+from linkml_runtime.dumpers import yaml_dumper
+from dotenv import load_dotenv
+
 from sheet2linkml.source.gsheetmodel.gsheetmodel import GSheetModel
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.terminologies.tccm.api import TCCMService
-from linkml_runtime.dumpers import yaml_dumper
-import click
-
 
 @click.command()
+@click.option(
+    "--output",
+    type=click.Path(),
+    default='model.yaml',
+    help="The file that the generated LinkML model should be written to.",
+)
 @click.option(
     "--filter-entity",
     type=str,
@@ -39,13 +45,16 @@ import click
     default=True,
     help="Controls whether we use the CCDH Terminology Service to add enumerated values for attributes.",
 )
-def main(filter_entity, logging_config, write_mappings, include_terminologies):
+def main(output, filter_entity, logging_config, write_mappings, include_terminologies):
     # Display INFO log entry and up.
     logging.config.fileConfig(logging_config)
 
+    # Load environemental variables from `.env` if one is present.
+    load_dotenv()
+
     # Read in Google API credentials.
-    google_api_credentials = config.Settings().google_api_credentials
-    google_sheet_id = config.Settings().cdm_google_sheet_id
+    google_api_credentials = os.getenv('GOOGLE_API_CREDENTIALS', 'google_api_credentials.json')
+    google_sheet_id = os.getenv('CDM_GOOGLE_SHEET_ID')
 
     # Arbitrarily set a CRDC-H root URI.
     crdch_root = "https://example.org/crdch"
@@ -64,6 +73,9 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
         model.development_version = re.sub(
             "[^a-zA-Z0-9.\\-]", "_", git_describe_result.stdout.decode("utf8").strip()
         )
+
+    # Setup output filename.
+    output_filename = click.format_filename(output)
 
     # We have two operating modes:
     # 1. If a `--filter-entity "<Entity Name>"` is specified on the command line,
@@ -87,9 +99,8 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
         mappings = list()
 
         for entity in selected_entities:
-            filename = f"output/{entity.get_filename()}.yaml"
-            logging.info(f"Writing entity {entity.name} to {filename}")
-            yaml_dumper.dump(entity.as_linkml(crdch_root), filename)
+            logging.info(f"Writing entity {entity.name} to {output_filename}")
+            yaml_dumper.dump(entity.as_linkml(crdch_root), output_filename)
 
             if write_mappings:
                 mappings.extend(entity.mappings.mappings)
@@ -98,9 +109,8 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
 
     else:
         # Convert the entire model into YAML.
-        filename = f"output/{model.get_filename()}.yaml"
-        logging.info(f"Writing model {model.name} to {filename}")
-        yaml_dumper.dump(model.as_linkml(crdch_root), filename)
+        logging.info(f"Writing model {model.name} to {output_filename}")
+        yaml_dumper.dump(model.as_linkml(crdch_root), output_filename)
 
         if write_mappings:
             Mappings.write_to_file(model.mappings, filename=write_mappings, model=model)
