@@ -36,9 +36,14 @@ PKG_T_SCHEMA = $(PKG_T_MODEL)/schema
 PKG_T_CSV = $(PKG_DIR)/csv
 
 # Global generation options
+# PIPENV_IGNORE_INSTALLED: This setting prevents installed Python
+# 	packages from being imported, ensuring that every required
+# 	package has been installed solely from the Pipfile.
+# 	(see https://pipenv-fork.readthedocs.io/en/latest/advanced.html#working-with-platform-provided-python-components for details)
+#
+ENV = PIPENV_IGNORE_INSTALLED=1
+RUN = $(ENV) pipenv run
 GEN_OPTS = --log_level WARNING
-ENV = export PIPENV_VENV_IN_PROJECT=true && export PIPENV_PIPFILE=make-venv/Pipfile && export PIPENV_IGNORE_VIRTUALENVS=1
-RUN = $(ENV) && pipenv run
 
 # ----------------------------------------
 # TOP LEVEL TARGETS
@@ -46,23 +51,14 @@ RUN = $(ENV) && pipenv run
 all: install gen
 
 # ---------------------------------------
-# We don't want to pollute the python environment with linkml tool specific packages.  For this reason,
-# we install an isolated instance of linkml in the pipenv-linkml directory
+# We don't want to pollute the python environment with linkml tool specific packages.
+# For this reason, use Pipfile (which generates a Pipfile.lock file).
 # ---------------------------------------
-install: make-venv/env.lock
+install: 
+	pipenv install
 
-make-venv/env.lock:
-	$(ENV) && pipenv install
-	touch make-venv/env.lock
-
-# check for .venv or env.lock in make-venv?
 uninstall:
-	if [ -d 'make-venv/.venv' ] ;\
-		then echo 'virtual env installed' ;\
-		rm -f make-venv/env.lock ;\
-		$(ENV) && pipenv --rm ;\
-		else echo 'no virtual env to uninstall' ;\
-	fi
+	pipenv --rm
 
 # ---------------------------------------
 # Test runner
