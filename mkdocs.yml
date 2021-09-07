@@ -11,6 +11,8 @@ theme:
   name: material
   palette:
     primary: blue
+  features:
+    - search.suggest
 nav:
   - Home: home.md
   - Index: index.md
