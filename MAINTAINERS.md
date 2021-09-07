@@ -15,7 +15,6 @@ See also the LinkML model template's [original ABOUT.md](https://github.com/canc
   - Requires some environment setup. Partially documented in `generators/google-sheets/README.md`
   - Recreates `model/schema/crdch_model.yaml` from the ["CDM_Dictionary_v1 (Active)" Google Sheet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1262189248) using `generators/google-sheets/sheet2linkml.py`
 - `make`
-  - Installs `make-venv` environment if necessary 
   - Builds artifacts in `crdch_model` based on `model/schema/crdch_model.yaml` 
   - Also builds documentation in `docs` based on `model/schema/crdch_model.yaml` and `model/docs` 
   - Run this every time the model is modified, whether manually or via `make regen-google-sheets`
@@ -133,8 +132,6 @@ https://pypi.org/project/crdch-model/0.2.2/
     - `rm -rf target/*`
 
 - `make squeaky-clean` (includes `make clean`)
-  - uninstalls the  `make-venv` environment
-    - `pipenv --rm` does the same thing. It can be run in the root of the project **and** in `make-venv`
   - Removes artifacts in the synced output directory `crdch_model`
   
 ## Optionally using `tox`
@@ -152,8 +149,7 @@ https://pypi.org/project/crdch-model/0.2.2/
 The environments for using and building this package are primarily managed with pipenv now. There are multiple virtual environments. The Makefile recipes install and enter into the environments as necessary. Manually installing the environment shouldn’t be necessary for the steps above, but couldn’t hurt.
 
 ### All of the following come from the linkml-model-template:
-- `./make-venv/Pipfile` is used by most of the `Makefile` recipes
-- There is also a smaller `./Pipfile`, including a `dev` section, which can be used for running Python code in `crdch_model`
+- `./Pipfile` is used by most of the `Makefile` recipes, including a `dev` section, which can be used for running Python code in `crdch_model`.
 - `from_template/MakeConfig` uses `virtualenv` to install `template-configurator`
 - `make test` seems to install a virtual environment... from `./Pipfile`, with teh `--dev` flag?
 - `tox` (which is currently optionally) creates its own virtual environments with pipenv. (Using which `Pipfile`?)
