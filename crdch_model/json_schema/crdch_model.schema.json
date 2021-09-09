@@ -1,13 +1,14 @@
 {
-   "$id": "https://example.org/ccdh",
+   "$id": "https://example.org/crdch_model",
    "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
    "definitions": {
       "AlcoholExposureObservation": {
          "additionalProperties": false,
          "description": "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -15,15 +16,15 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationMethodType",
+               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationObservationType",
                "description": "The specific type of alcohol exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -35,12 +36,12 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHAlcoholExposureObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "valueInteger": {
-               "description": "The result of the observation, encoded as an integer.",
-               "type": "integer"
+               "$ref": "#/definitions/Entity",
+               "description": "The result of the observation, encoded as an integer."
             }
          },
          "required": [
@@ -54,19 +55,19 @@
          "description": "A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.",
          "properties": {
             "description": {
-               "description": "A free text field to capture additional info/explanation about the model system",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A free text field to capture additional info/explanation about the model system"
             },
             "growth_rate": {
                "description": "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -78,12 +79,12 @@
             "passage_number": {
                "description": "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.",
                "items": {
-                  "type": "integer"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             },
             "product_type": {
-               "$ref": "#/definitions/EnumCCDHBiologicProductProductType",
+               "$ref": "#/definitions/EnumCRDCHBiologicProductProductType",
                "description": "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)"
             }
          },
@@ -98,12 +99,12 @@
             "qualifier": {
                "description": "A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHBodySiteQualifier"
+                  "$ref": "#/definitions/EnumCRDCHBodySiteQualifier"
                },
                "type": "array"
             },
             "site": {
-               "$ref": "#/definitions/EnumCCDHBodySiteSite",
+               "$ref": "#/definitions/EnumCRDCHBodySiteSite",
                "description": "A term describing any site in the body."
             }
          },
@@ -118,7 +119,7 @@
          "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHCancerGradeObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -126,15 +127,15 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHCancerGradeObservationMethodType",
+               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHCancerGradeObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationObservationType",
                "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)"
             },
             "subject": {
@@ -142,7 +143,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHCancerGradeObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationValueCodeableConcept",
                "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)"
             }
          },
@@ -158,7 +159,7 @@
          "description": "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHCancerGradeObservationSetCategory",
+               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationSetCategory",
                "description": "The general category of observation set described"
             },
             "focus": {
@@ -169,13 +170,13 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHCancerGradeObservationSetMethodType"
+                  "$ref": "#/definitions/EnumCRDCHCancerGradeObservationSetMethodType"
                },
                "type": "array"
             },
@@ -204,7 +205,7 @@
          "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHCancerStageObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHCancerStageObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -212,15 +213,15 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHCancerStageObservationMethodType",
+               "$ref": "#/definitions/EnumCRDCHCancerStageObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHCancerStageObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHCancerStageObservationObservationType",
                "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')"
             },
             "performed_by": {
@@ -232,7 +233,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHCancerStageObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHCancerStageObservationValueCodeableConcept",
                "description": "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept."
             },
             "valueEntity": {
@@ -252,7 +253,7 @@
          "description": "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHCancerStageObservationSetCategory",
+               "$ref": "#/definitions/EnumCRDCHCancerStageObservationSetCategory",
                "description": "The general category of observation set described"
             },
             "focus": {
@@ -263,13 +264,13 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHCancerStageObservationSetMethodType"
+                  "$ref": "#/definitions/EnumCRDCHCancerStageObservationSetMethodType"
                },
                "type": "array"
             },
@@ -305,8 +306,8 @@
                "type": "array"
             },
             "text": {
-               "description": "A human language representation of the concept represented by the Coding.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A human language representation of the concept represented by the Coding."
             }
          },
          "required": [],
@@ -318,24 +319,24 @@
          "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
          "properties": {
             "code": {
-               "description": "The symbol/value of the code, as defined by the code system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The symbol/value of the code, as defined by the code system."
             },
             "label": {
-               "description": "A human-readable name for the code, as defined by the code system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A human-readable name for the code, as defined by the code system."
             },
             "system": {
-               "description": "The code system where the code is defined.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The code system where the code is defined."
             },
             "systemURL": {
-               "description": "A URL where the code system can be found.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A URL where the code system can be found."
             },
             "systemVersion": {
-               "description": "The version of the code system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The version of the code system."
             }
          },
          "required": [
@@ -354,11 +355,11 @@
                "description": "The age in days of the individual at the time of diagnosis"
             },
             "condition": {
-               "$ref": "#/definitions/EnumCCDHDiagnosisCondition",
+               "$ref": "#/definitions/EnumCRDCHDiagnosisCondition",
                "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)"
             },
             "disease_status": {
-               "$ref": "#/definitions/EnumCCDHDiagnosisDiseaseStatus",
+               "$ref": "#/definitions/EnumCRDCHDiagnosisDiseaseStatus",
                "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)"
             },
             "grade": {
@@ -369,8 +370,8 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -387,11 +388,11 @@
                "type": "array"
             },
             "method_of_diagnosis": {
-               "$ref": "#/definitions/EnumCCDHDiagnosisMethodOfDiagnosis",
+               "$ref": "#/definitions/EnumCRDCHDiagnosisMethodOfDiagnosis",
                "description": "The method used to confirm the patients malignant diagnosis"
             },
             "morphology": {
-               "$ref": "#/definitions/EnumCCDHDiagnosisMorphology",
+               "$ref": "#/definitions/EnumCRDCHDiagnosisMorphology",
                "description": "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms."
             },
             "primary_site": {
@@ -435,8 +436,8 @@
                "type": "array"
             },
             "year_at_diagnosis": {
-               "description": "Numeric value to represent the year of an individual's diagnosis.",
-               "type": "integer"
+               "$ref": "#/definitions/Entity",
+               "description": "Numeric value to represent the year of an individual's diagnosis."
             }
          },
          "required": [],
@@ -448,7 +449,7 @@
          "description": "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHDimensionalObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHDimensionalObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -459,18 +460,18 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHDimensionalObservationMethodType"
+                  "$ref": "#/definitions/EnumCRDCHDimensionalObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHDimensionalObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHDimensionalObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc."
             },
             "performed_by": {
@@ -498,7 +499,7 @@
          "description": "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHDimensionalObservationSetCategory",
+               "$ref": "#/definitions/EnumCRDCHDimensionalObservationSetCategory",
                "description": "The general category of observation set described"
             },
             "focus": {
@@ -509,13 +510,13 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHDimensionalObservationSetMethodType"
+                  "$ref": "#/definitions/EnumCRDCHDimensionalObservationSetMethodType"
                },
                "type": "array"
             },
@@ -544,11 +545,11 @@
          "description": "A collection of information intented to be understood together as a whole, and codified in human-readable form.",
          "properties": {
             "description": {
-               "description": "A free text description or summary of the report.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A free text description or summary of the report."
             },
             "document_type": {
-               "$ref": "#/definitions/EnumCCDHDocumentDocumentType",
+               "$ref": "#/definitions/EnumCRDCHDocumentDocumentType",
                "description": "The high-level type of the document (e.g.  'publication', 'pathology report')"
             },
             "focus": {
@@ -556,8 +557,8 @@
                "description": "The entity that the report is primarily about"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -569,7 +570,7 @@
             "url": {
                "description": "A URL/web address where the document can be accessed.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             }
@@ -586,19 +587,19 @@
          "title": "Entity",
          "type": "object"
       },
-      "EnumCCDHAlcoholExposureObservationCategory": {
+      "EnumCRDCHAlcoholExposureObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H AlcoholExposureObservation category",
          "enum": [],
-         "title": "EnumCCDHAlcoholExposureObservationCategory",
+         "title": "EnumCRDCHAlcoholExposureObservationCategory",
          "type": "string"
       },
-      "EnumCCDHAlcoholExposureObservationMethodType": {
+      "EnumCRDCHAlcoholExposureObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type",
          "enum": [],
-         "title": "EnumCCDHAlcoholExposureObservationMethodType",
+         "title": "EnumCRDCHAlcoholExposureObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHAlcoholExposureObservationObservationType": {
+      "EnumCRDCHAlcoholExposureObservationObservationType": {
          "description": "Types of observations about a Subject's exposure to alcohol.",
          "enum": [
             "alcohol_days_per_week",
@@ -606,10 +607,10 @@
             "alcohol_history",
             "alcohol_intensity"
          ],
-         "title": "EnumCCDHAlcoholExposureObservationObservationType",
+         "title": "EnumCRDCHAlcoholExposureObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHAlcoholExposureObservationValueCodeableConcept": {
+      "EnumCRDCHAlcoholExposureObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept",
          "enum": [
             "Unknown",
@@ -622,16 +623,16 @@
             "No",
             "Yes"
          ],
-         "title": "EnumCCDHAlcoholExposureObservationValueCodeableConcept",
+         "title": "EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHBiologicProductProductType": {
+      "EnumCRDCHBiologicProductProductType": {
          "description": "Autogenerated Enumeration for CRDC-H BiologicProduct product_type",
          "enum": [],
-         "title": "EnumCCDHBiologicProductProductType",
+         "title": "EnumCRDCHBiologicProductProductType",
          "type": "string"
       },
-      "EnumCCDHBodySiteQualifier": {
+      "EnumCRDCHBodySiteQualifier": {
          "description": "Autogenerated Enumeration for CRDC-H BodySite qualifier",
          "enum": [
             "Bilateral",
@@ -640,10 +641,10 @@
             "Right",
             "Not Reported"
          ],
-         "title": "EnumCCDHBodySiteQualifier",
+         "title": "EnumCRDCHBodySiteQualifier",
          "type": "string"
       },
-      "EnumCCDHBodySiteSite": {
+      "EnumCRDCHBodySiteSite": {
          "description": "Autogenerated Enumeration for CRDC-H BodySite site",
          "enum": [
             "Eye and adnexa",
@@ -1280,22 +1281,22 @@
             "Paranasal Sinuses",
             "Submandibular Gland"
          ],
-         "title": "EnumCCDHBodySiteSite",
+         "title": "EnumCRDCHBodySiteSite",
          "type": "string"
       },
-      "EnumCCDHCancerGradeObservationCategory": {
+      "EnumCRDCHCancerGradeObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H CancerGradeObservation category",
          "enum": [],
-         "title": "EnumCCDHCancerGradeObservationCategory",
+         "title": "EnumCRDCHCancerGradeObservationCategory",
          "type": "string"
       },
-      "EnumCCDHCancerGradeObservationMethodType": {
+      "EnumCRDCHCancerGradeObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H CancerGradeObservation method_type",
          "enum": [],
-         "title": "EnumCCDHCancerGradeObservationMethodType",
+         "title": "EnumCRDCHCancerGradeObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHCancerGradeObservationObservationType": {
+      "EnumCRDCHCancerGradeObservationObservationType": {
          "description": "",
          "enum": [
             "enneking_msts_grade",
@@ -1306,26 +1307,26 @@
             "secondary_gleason_grade",
             "tumor_grade"
          ],
-         "title": "EnumCCDHCancerGradeObservationObservationType",
+         "title": "EnumCRDCHCancerGradeObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHCancerGradeObservationSetCategory": {
+      "EnumCRDCHCancerGradeObservationSetCategory": {
          "description": "Autogenerated Enumeration for CRDC-H CancerGradeObservationSet category",
          "enum": [],
-         "title": "EnumCCDHCancerGradeObservationSetCategory",
+         "title": "EnumCRDCHCancerGradeObservationSetCategory",
          "type": "string"
       },
-      "EnumCCDHCancerGradeObservationSetMethodType": {
+      "EnumCRDCHCancerGradeObservationSetMethodType": {
          "description": "A morphologic classification system of malignant tumors, usually relating to disease progression and clinical outcome. It is based upon the presence or absence of several morphologic parameters, including tumor cell necrosis, cytologic atypia, nuclear pleomorphism and mitotic figures, the architectural infiltrating patterns, and the degree of tumor cell differentiation. Malignant tumors usually are graded I-III",
          "enum": [
             "Gleason",
             "INPC",
             "Unspecified grading system"
          ],
-         "title": "EnumCCDHCancerGradeObservationSetMethodType",
+         "title": "EnumCRDCHCancerGradeObservationSetMethodType",
          "type": "string"
       },
-      "EnumCCDHCancerGradeObservationValueCodeableConcept": {
+      "EnumCRDCHCancerGradeObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept",
          "enum": [
             "Pattern 1",
@@ -1360,22 +1361,22 @@
             "Undifferentiated",
             "Poorly Differentiated"
          ],
-         "title": "EnumCCDHCancerGradeObservationValueCodeableConcept",
+         "title": "EnumCRDCHCancerGradeObservationValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHCancerStageObservationCategory": {
+      "EnumCRDCHCancerStageObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H CancerStageObservation category",
          "enum": [],
-         "title": "EnumCCDHCancerStageObservationCategory",
+         "title": "EnumCRDCHCancerStageObservationCategory",
          "type": "string"
       },
-      "EnumCCDHCancerStageObservationMethodType": {
+      "EnumCRDCHCancerStageObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H CancerStageObservation method_type",
          "enum": [],
-         "title": "EnumCCDHCancerStageObservationMethodType",
+         "title": "EnumCRDCHCancerStageObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHCancerStageObservationObservationType": {
+      "EnumCRDCHCancerStageObservationObservationType": {
          "description": "Types of observations or components of a cancer staging assessment.",
          "enum": [
             "Overall",
@@ -1392,16 +1393,16 @@
             "Pathological Metastasis (M)",
             "Ann Arbor Substage Modifier"
          ],
-         "title": "EnumCCDHCancerStageObservationObservationType",
+         "title": "EnumCRDCHCancerStageObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHCancerStageObservationSetCategory": {
+      "EnumCRDCHCancerStageObservationSetCategory": {
          "description": "Autogenerated Enumeration for CRDC-H CancerStageObservationSet category",
          "enum": [],
-         "title": "EnumCCDHCancerStageObservationSetCategory",
+         "title": "EnumCRDCHCancerStageObservationSetCategory",
          "type": "string"
       },
-      "EnumCCDHCancerStageObservationSetMethodType": {
+      "EnumCRDCHCancerStageObservationSetMethodType": {
          "description": "Classification systems used for defining the point in the natural history of a malignant disease a patient is when a diagnosis is made",
          "enum": [
             "AJCC staging system 1st edition",
@@ -1425,10 +1426,10 @@
             "Masaoka staging system",
             "Unspecified staging system"
          ],
-         "title": "EnumCCDHCancerStageObservationSetMethodType",
+         "title": "EnumCRDCHCancerStageObservationSetMethodType",
          "type": "string"
       },
-      "EnumCCDHCancerStageObservationValueCodeableConcept": {
+      "EnumCRDCHCancerStageObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept",
          "enum": [
             "N2",
@@ -1583,10 +1584,10 @@
             "Stage IIIAi",
             "Stage IIIA2"
          ],
-         "title": "EnumCCDHCancerStageObservationValueCodeableConcept",
+         "title": "EnumCRDCHCancerStageObservationValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHDiagnosisCondition": {
+      "EnumCRDCHDiagnosisCondition": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis condition",
          "enum": [
             "Von Recklinghausen disease",
@@ -4212,10 +4213,10 @@
             "Medulloblastoma, group 4",
             "Malignant lymphoma, small lymphocytic, diffuse"
          ],
-         "title": "EnumCCDHDiagnosisCondition",
+         "title": "EnumCRDCHDiagnosisCondition",
          "type": "string"
       },
-      "EnumCCDHDiagnosisDiseaseStatus": {
+      "EnumCRDCHDiagnosisDiseaseStatus": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis disease_status",
          "enum": [
             "Initial Diagnosis",
@@ -4225,10 +4226,10 @@
             "Recurrent Disease",
             "Progressive Disease"
          ],
-         "title": "EnumCCDHDiagnosisDiseaseStatus",
+         "title": "EnumCRDCHDiagnosisDiseaseStatus",
          "type": "string"
       },
-      "EnumCCDHDiagnosisMethodOfDiagnosis": {
+      "EnumCRDCHDiagnosisMethodOfDiagnosis": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis",
          "enum": [
             "Surgical Resection",
@@ -4259,10 +4260,10 @@
             "Autopsy",
             "Imaging"
          ],
-         "title": "EnumCCDHDiagnosisMethodOfDiagnosis",
+         "title": "EnumCRDCHDiagnosisMethodOfDiagnosis",
          "type": "string"
       },
-      "EnumCCDHDiagnosisMorphology": {
+      "EnumCRDCHDiagnosisMorphology": {
          "description": "Autogenerated Enumeration for CRDC-H Diagnosis morphology",
          "enum": [
             "9261/3",
@@ -5414,22 +5415,22 @@
             "8950/6",
             "8310/6"
          ],
-         "title": "EnumCCDHDiagnosisMorphology",
+         "title": "EnumCRDCHDiagnosisMorphology",
          "type": "string"
       },
-      "EnumCCDHDimensionalObservationCategory": {
+      "EnumCRDCHDimensionalObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H DimensionalObservation category",
          "enum": [],
-         "title": "EnumCCDHDimensionalObservationCategory",
+         "title": "EnumCRDCHDimensionalObservationCategory",
          "type": "string"
       },
-      "EnumCCDHDimensionalObservationMethodType": {
+      "EnumCRDCHDimensionalObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H DimensionalObservation method_type",
          "enum": [],
-         "title": "EnumCCDHDimensionalObservationMethodType",
+         "title": "EnumCRDCHDimensionalObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHDimensionalObservationObservationType": {
+      "EnumCRDCHDimensionalObservationObservationType": {
          "description": "Types of measurements that describe the physical dimensions of an entity (e.g. a Specimen)",
          "enum": [
             "length",
@@ -5439,43 +5440,43 @@
             "intermediate_dimension",
             "surface_area"
          ],
-         "title": "EnumCCDHDimensionalObservationObservationType",
+         "title": "EnumCRDCHDimensionalObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHDimensionalObservationSetCategory": {
+      "EnumCRDCHDimensionalObservationSetCategory": {
          "description": "Autogenerated Enumeration for CRDC-H DimensionalObservationSet category",
          "enum": [],
-         "title": "EnumCCDHDimensionalObservationSetCategory",
+         "title": "EnumCRDCHDimensionalObservationSetCategory",
          "type": "string"
       },
-      "EnumCCDHDimensionalObservationSetMethodType": {
+      "EnumCRDCHDimensionalObservationSetMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H DimensionalObservationSet method_type",
          "enum": [],
-         "title": "EnumCCDHDimensionalObservationSetMethodType",
+         "title": "EnumCRDCHDimensionalObservationSetMethodType",
          "type": "string"
       },
-      "EnumCCDHDocumentDocumentType": {
+      "EnumCRDCHDocumentDocumentType": {
          "description": "The high-level type of the report (e.g. 'pathology report')",
          "enum": [
             "pathology report",
             "protocol"
          ],
-         "title": "EnumCCDHDocumentDocumentType",
+         "title": "EnumCRDCHDocumentDocumentType",
          "type": "string"
       },
-      "EnumCCDHEnvironmentalExposureObservationCategory": {
+      "EnumCRDCHEnvironmentalExposureObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category",
          "enum": [],
-         "title": "EnumCCDHEnvironmentalExposureObservationCategory",
+         "title": "EnumCRDCHEnvironmentalExposureObservationCategory",
          "type": "string"
       },
-      "EnumCCDHEnvironmentalExposureObservationMethodType": {
+      "EnumCRDCHEnvironmentalExposureObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type",
          "enum": [],
-         "title": "EnumCCDHEnvironmentalExposureObservationMethodType",
+         "title": "EnumCRDCHEnvironmentalExposureObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHEnvironmentalExposureObservationObservationType": {
+      "EnumCRDCHEnvironmentalExposureObservationObservationType": {
          "description": "Types of observations about a Subject's environmental exposures.",
          "enum": [
             "asbestos_exposure",
@@ -5484,10 +5485,10 @@
             "respirable_crystalline_silica_exposure",
             "type_of_smoke_exposure"
          ],
-         "title": "EnumCCDHEnvironmentalExposureObservationObservationType",
+         "title": "EnumCRDCHEnvironmentalExposureObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHEnvironmentalExposureObservationValueCodeableConcept": {
+      "EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept",
          "enum": [
             "Work-related smoke, plumbing",
@@ -5544,82 +5545,82 @@
             "Yes",
             "Tobacco smoke, NOS"
          ],
-         "title": "EnumCCDHEnvironmentalExposureObservationValueCodeableConcept",
+         "title": "EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHExecutionConditionObservation": {
+      "EnumCRDCHExecutionConditionObservation": {
          "description": "Types of observations about the environmental conditions under which specific aspects of an activity were performed.",
          "enum": [
             "ischemic_temperature"
          ],
-         "title": "EnumCCDHExecutionConditionObservation",
+         "title": "EnumCRDCHExecutionConditionObservation",
          "type": "string"
       },
-      "EnumCCDHExecutionConditionObservationCategory": {
+      "EnumCRDCHExecutionConditionObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H ExecutionConditionObservation category",
          "enum": [],
-         "title": "EnumCCDHExecutionConditionObservationCategory",
+         "title": "EnumCRDCHExecutionConditionObservationCategory",
          "type": "string"
       },
-      "EnumCCDHExecutionConditionObservationMethodType": {
+      "EnumCRDCHExecutionConditionObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H ExecutionConditionObservation method_type",
          "enum": [],
-         "title": "EnumCCDHExecutionConditionObservationMethodType",
+         "title": "EnumCRDCHExecutionConditionObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHExecutionConditionObservationObservationType": {
+      "EnumCRDCHExecutionConditionObservationObservationType": {
          "description": "Autogenerated Enumeration for CRDC-H ExecutionConditionObservation observation_type",
          "enum": [],
-         "title": "EnumCCDHExecutionConditionObservationObservationType",
+         "title": "EnumCRDCHExecutionConditionObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHExecutionConditionObservationValueCodeableConcept": {
+      "EnumCRDCHExecutionConditionObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H ExecutionConditionObservation valueCodeableConcept",
          "enum": [],
-         "title": "EnumCCDHExecutionConditionObservationValueCodeableConcept",
+         "title": "EnumCRDCHExecutionConditionObservationValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHExecutionTimeObservation": {
+      "EnumCRDCHExecutionTimeObservation": {
          "description": "An observation about the duration of specific aspects / parts of an activity.",
          "enum": [
             "time_between_excision_and_freezing",
             "time_between_clamping_and_freezing",
             "ischemic_time"
          ],
-         "title": "EnumCCDHExecutionTimeObservation",
+         "title": "EnumCRDCHExecutionTimeObservation",
          "type": "string"
       },
-      "EnumCCDHExecutionTimeObservationCategory": {
+      "EnumCRDCHExecutionTimeObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H ExecutionTimeObservation category",
          "enum": [],
-         "title": "EnumCCDHExecutionTimeObservationCategory",
+         "title": "EnumCRDCHExecutionTimeObservationCategory",
          "type": "string"
       },
-      "EnumCCDHExecutionTimeObservationMethodType": {
+      "EnumCRDCHExecutionTimeObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H ExecutionTimeObservation method_type",
          "enum": [],
-         "title": "EnumCCDHExecutionTimeObservationMethodType",
+         "title": "EnumCRDCHExecutionTimeObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHExecutionTimeObservationObservationType": {
+      "EnumCRDCHExecutionTimeObservationObservationType": {
          "description": "Autogenerated Enumeration for CRDC-H ExecutionTimeObservation observation_type",
          "enum": [],
-         "title": "EnumCCDHExecutionTimeObservationObservationType",
+         "title": "EnumCRDCHExecutionTimeObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHHistologicalCompositionObservationCategory": {
+      "EnumCRDCHHistologicalCompositionObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation category",
          "enum": [],
-         "title": "EnumCCDHHistologicalCompositionObservationCategory",
+         "title": "EnumCRDCHHistologicalCompositionObservationCategory",
          "type": "string"
       },
-      "EnumCCDHHistologicalCompositionObservationMethodType": {
+      "EnumCRDCHHistologicalCompositionObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation method_type",
          "enum": [],
-         "title": "EnumCCDHHistologicalCompositionObservationMethodType",
+         "title": "EnumCRDCHHistologicalCompositionObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHHistologicalCompositionObservationObservationType": {
+      "EnumCRDCHHistologicalCompositionObservationObservationType": {
          "description": "Types of measurements that describe microscopic characteristics of a specimen - typically related to its cellular and tissue composition.",
          "enum": [
             "number_proliferating_cells",
@@ -5643,70 +5644,70 @@
             "analysis_area_percentage_glass",
             "analysis_area_percentage_pigmented_tumor"
          ],
-         "title": "EnumCCDHHistologicalCompositionObservationObservationType",
+         "title": "EnumCRDCHHistologicalCompositionObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHHistologicalCompositionObservationSetCategory": {
+      "EnumCRDCHHistologicalCompositionObservationSetCategory": {
          "description": "Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet category",
          "enum": [],
-         "title": "EnumCCDHHistologicalCompositionObservationSetCategory",
+         "title": "EnumCRDCHHistologicalCompositionObservationSetCategory",
          "type": "string"
       },
-      "EnumCCDHHistologicalCompositionObservationSetMethodType": {
+      "EnumCRDCHHistologicalCompositionObservationSetMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet method_type",
          "enum": [],
-         "title": "EnumCCDHHistologicalCompositionObservationSetMethodType",
+         "title": "EnumCRDCHHistologicalCompositionObservationSetMethodType",
          "type": "string"
       },
-      "EnumCCDHIdentifierType": {
+      "EnumCRDCHIdentifierType": {
          "description": "Autogenerated Enumeration for CRDC-H Identifier type",
          "enum": [],
-         "title": "EnumCCDHIdentifierType",
+         "title": "EnumCRDCHIdentifierType",
          "type": "string"
       },
-      "EnumCCDHObservationCategory": {
+      "EnumCRDCHObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H Observation category",
          "enum": [],
-         "title": "EnumCCDHObservationCategory",
+         "title": "EnumCRDCHObservationCategory",
          "type": "string"
       },
-      "EnumCCDHObservationMethodType": {
+      "EnumCRDCHObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H Observation method_type",
          "enum": [],
-         "title": "EnumCCDHObservationMethodType",
+         "title": "EnumCRDCHObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHObservationObservationType": {
+      "EnumCRDCHObservationObservationType": {
          "description": "Autogenerated Enumeration for CRDC-H Observation observation_type",
          "enum": [],
-         "title": "EnumCCDHObservationObservationType",
+         "title": "EnumCRDCHObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHObservationSetCategory": {
+      "EnumCRDCHObservationSetCategory": {
          "description": "Autogenerated Enumeration for CRDC-H ObservationSet category",
          "enum": [],
-         "title": "EnumCCDHObservationSetCategory",
+         "title": "EnumCRDCHObservationSetCategory",
          "type": "string"
       },
-      "EnumCCDHObservationSetMethodType": {
+      "EnumCRDCHObservationSetMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H ObservationSet method_type",
          "enum": [],
-         "title": "EnumCCDHObservationSetMethodType",
+         "title": "EnumCRDCHObservationSetMethodType",
          "type": "string"
       },
-      "EnumCCDHObservationValueCodeableConcept": {
+      "EnumCRDCHObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H Observation valueCodeableConcept",
          "enum": [],
-         "title": "EnumCCDHObservationValueCodeableConcept",
+         "title": "EnumCRDCHObservationValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHQuantityUnit": {
+      "EnumCRDCHQuantityUnit": {
          "description": "Autogenerated Enumeration for CRDC-H Quantity unit",
          "enum": [],
-         "title": "EnumCCDHQuantityUnit",
+         "title": "EnumCRDCHQuantityUnit",
          "type": "string"
       },
-      "EnumCCDHQuantityValueCodeableConcept": {
+      "EnumCRDCHQuantityValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept",
          "enum": [
             "Not Reported",
@@ -5714,26 +5715,26 @@
             "Unknown",
             "Adjacent (< or = 2cm)"
          ],
-         "title": "EnumCCDHQuantityValueCodeableConcept",
+         "title": "EnumCRDCHQuantityValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHResearchProjectPrimaryAnatomicSite": {
+      "EnumCRDCHResearchProjectPrimaryAnatomicSite": {
          "description": "The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).",
          "enum": [],
-         "title": "EnumCCDHResearchProjectPrimaryAnatomicSite",
+         "title": "EnumCRDCHResearchProjectPrimaryAnatomicSite",
          "type": "string"
       },
-      "EnumCCDHResearchProjectResearchProjectType": {
+      "EnumCRDCHResearchProjectResearchProjectType": {
          "description": "A high-level type of research activity",
          "enum": [
             "Program",
             "Project",
             "Clinical Trial"
          ],
-         "title": "EnumCCDHResearchProjectResearchProjectType",
+         "title": "EnumCRDCHResearchProjectResearchProjectType",
          "type": "string"
       },
-      "EnumCCDHResearchSubjectIndexTimepoint": {
+      "EnumCRDCHResearchSubjectIndexTimepoint": {
          "description": "Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint",
          "enum": [
             "Diagnosis",
@@ -5744,10 +5745,10 @@
             "Initial Genomic Sequencing",
             "Recurrence"
          ],
-         "title": "EnumCCDHResearchSubjectIndexTimepoint",
+         "title": "EnumCRDCHResearchSubjectIndexTimepoint",
          "type": "string"
       },
-      "EnumCCDHResearchSubjectPrimaryDiagnosisCondition": {
+      "EnumCRDCHResearchSubjectPrimaryDiagnosisCondition": {
          "description": "Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition",
          "enum": [
             "Soft Tissue Tumors and Sarcomas, NOS",
@@ -5864,10 +5865,10 @@
             "Colon Adenocarcinoma",
             "Other"
          ],
-         "title": "EnumCCDHResearchSubjectPrimaryDiagnosisCondition",
+         "title": "EnumCRDCHResearchSubjectPrimaryDiagnosisCondition",
          "type": "string"
       },
-      "EnumCCDHSpecimenAnalyteType": {
+      "EnumCRDCHSpecimenAnalyteType": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen analyte_type",
          "enum": [
             "Repli-G (Qiagen) DNA",
@@ -5894,10 +5895,10 @@
             "Y",
             "Protein"
          ],
-         "title": "EnumCCDHSpecimenAnalyteType",
+         "title": "EnumCRDCHSpecimenAnalyteType",
          "type": "string"
       },
-      "EnumCCDHSpecimenCellularCompositionType": {
+      "EnumCRDCHSpecimenCellularCompositionType": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type",
          "enum": [
             "Lymphocytes",
@@ -5935,25 +5936,25 @@
             "Serum",
             "Not Allowed To Collect"
          ],
-         "title": "EnumCCDHSpecimenCellularCompositionType",
+         "title": "EnumCRDCHSpecimenCellularCompositionType",
          "type": "string"
       },
-      "EnumCCDHSpecimenContainerContainerType": {
+      "EnumCRDCHSpecimenContainerContainerType": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenContainer container_type",
          "enum": [],
-         "title": "EnumCCDHSpecimenContainerContainerType",
+         "title": "EnumCRDCHSpecimenContainerContainerType",
          "type": "string"
       },
-      "EnumCCDHSpecimenCreationActivityActivityType": {
+      "EnumCRDCHSpecimenCreationActivityActivityType": {
          "description": "The high-level type of activity through which the specimen was generated (i.e. via collection from the original source, or via derivation from an existing specimen)",
          "enum": [
             "collection from source",
             "derivation from specimen"
          ],
-         "title": "EnumCCDHSpecimenCreationActivityActivityType",
+         "title": "EnumCRDCHSpecimenCreationActivityActivityType",
          "type": "string"
       },
-      "EnumCCDHSpecimenCreationActivityCollectionMethodType": {
+      "EnumCRDCHSpecimenCreationActivityCollectionMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type",
          "enum": [
             "Yes",
@@ -6062,22 +6063,22 @@
             "Transoral Laser Excision",
             "Palatectomy"
          ],
-         "title": "EnumCCDHSpecimenCreationActivityCollectionMethodType",
+         "title": "EnumCRDCHSpecimenCreationActivityCollectionMethodType",
          "type": "string"
       },
-      "EnumCCDHSpecimenCreationActivityDerivationMethodType": {
+      "EnumCRDCHSpecimenCreationActivityDerivationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type",
          "enum": [],
-         "title": "EnumCCDHSpecimenCreationActivityDerivationMethodType",
+         "title": "EnumCRDCHSpecimenCreationActivityDerivationMethodType",
          "type": "string"
       },
-      "EnumCCDHSpecimenDegreeOfDysplasia": {
+      "EnumCRDCHSpecimenDegreeOfDysplasia": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen degree_of_dysplasia",
          "enum": [],
-         "title": "EnumCCDHSpecimenDegreeOfDysplasia",
+         "title": "EnumCRDCHSpecimenDegreeOfDysplasia",
          "type": "string"
       },
-      "EnumCCDHSpecimenGeneralTissueMorphology": {
+      "EnumCRDCHSpecimenGeneralTissueMorphology": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
          "enum": [
             "Peritumoral",
@@ -6088,28 +6089,28 @@
             "Tumor",
             "Not Reported"
          ],
-         "title": "EnumCCDHSpecimenGeneralTissueMorphology",
+         "title": "EnumCRDCHSpecimenGeneralTissueMorphology",
          "type": "string"
       },
-      "EnumCCDHSpecimenMorphlogyAssessmentMethod": {
-         "description": "Autogenerated Enumeration for CRDC-H Specimen morphlogy_assessment_method",
+      "EnumCRDCHSpecimenMorphologyAssessmentMethod": {
+         "description": "Autogenerated Enumeration for CRDC-H Specimen morphology_assessment_method",
          "enum": [],
-         "title": "EnumCCDHSpecimenMorphlogyAssessmentMethod",
+         "title": "EnumCRDCHSpecimenMorphologyAssessmentMethod",
          "type": "string"
       },
-      "EnumCCDHSpecimenMorphologyAssessorRole": {
+      "EnumCRDCHSpecimenMorphologyAssessorRole": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen morphology_assessor_role",
          "enum": [],
-         "title": "EnumCCDHSpecimenMorphologyAssessorRole",
+         "title": "EnumCRDCHSpecimenMorphologyAssessorRole",
          "type": "string"
       },
-      "EnumCCDHSpecimenPreinvasiveTissueMorphology": {
+      "EnumCRDCHSpecimenPreinvasiveTissueMorphology": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology",
          "enum": [],
-         "title": "EnumCCDHSpecimenPreinvasiveTissueMorphology",
+         "title": "EnumCRDCHSpecimenPreinvasiveTissueMorphology",
          "type": "string"
       },
-      "EnumCCDHSpecimenProcessingActivityActivityType": {
+      "EnumCRDCHSpecimenProcessingActivityActivityType": {
          "description": "The high-level type of processing activity performed.",
          "enum": [
             "Fixation",
@@ -6117,10 +6118,10 @@
             "Mounting",
             "Preservation"
          ],
-         "title": "EnumCCDHSpecimenProcessingActivityActivityType",
+         "title": "EnumCRDCHSpecimenProcessingActivityActivityType",
          "type": "string"
       },
-      "EnumCCDHSpecimenProcessingActivityMethodType": {
+      "EnumCRDCHSpecimenProcessingActivityMethodType": {
          "description": "A type of method used to process a specimen (e.g. freezing, fixing, treating, preserving, labeling, etc.).",
          "enum": [
             "-80",
@@ -6128,66 +6129,66 @@
             "LN2",
             "isopentane"
          ],
-         "title": "EnumCCDHSpecimenProcessingActivityMethodType",
+         "title": "EnumCRDCHSpecimenProcessingActivityMethodType",
          "type": "string"
       },
-      "EnumCCDHSpecimenQualityObservationCategory": {
+      "EnumCRDCHSpecimenQualityObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenQualityObservation category",
          "enum": [],
-         "title": "EnumCCDHSpecimenQualityObservationCategory",
+         "title": "EnumCRDCHSpecimenQualityObservationCategory",
          "type": "string"
       },
-      "EnumCCDHSpecimenQualityObservationMethodType": {
+      "EnumCRDCHSpecimenQualityObservationMethodType": {
          "description": "A type of method used in determining the quantity of a specimen.",
          "enum": [
             "UV Spec",
             "Pico Green"
          ],
-         "title": "EnumCCDHSpecimenQualityObservationMethodType",
+         "title": "EnumCRDCHSpecimenQualityObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHSpecimenQualityObservationObservationType": {
+      "EnumCRDCHSpecimenQualityObservationObservationType": {
          "description": "Types of measurements that reflect the quality of a specimen or its suitability for use.",
          "enum": [
             "a260_a280_ratio  ",
             "ribosomal_rna_28s_16s_ratio"
          ],
-         "title": "EnumCCDHSpecimenQualityObservationObservationType",
+         "title": "EnumCRDCHSpecimenQualityObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHSpecimenQuantityObservationCategory": {
+      "EnumCRDCHSpecimenQuantityObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category",
          "enum": [],
-         "title": "EnumCCDHSpecimenQuantityObservationCategory",
+         "title": "EnumCRDCHSpecimenQuantityObservationCategory",
          "type": "string"
       },
-      "EnumCCDHSpecimenQuantityObservationMethodType": {
+      "EnumCRDCHSpecimenQuantityObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type",
          "enum": [],
-         "title": "EnumCCDHSpecimenQuantityObservationMethodType",
+         "title": "EnumCRDCHSpecimenQuantityObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHSpecimenQuantityObservationObservationType": {
+      "EnumCRDCHSpecimenQuantityObservationObservationType": {
          "description": "Measures related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.",
          "enum": [
             "weight",
             "volume",
             "concentration"
          ],
-         "title": "EnumCCDHSpecimenQuantityObservationObservationType",
+         "title": "EnumCRDCHSpecimenQuantityObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHSpecimenSectionLocation": {
+      "EnumCRDCHSpecimenSectionLocation": {
          "description": "The location in a parent specimen from which a section/portion was excised.",
          "enum": [
             "top",
             "unknown",
             "bottom"
          ],
-         "title": "EnumCCDHSpecimenSectionLocation",
+         "title": "EnumCRDCHSpecimenSectionLocation",
          "type": "string"
       },
-      "EnumCCDHSpecimenSourceMaterialType": {
+      "EnumCRDCHSpecimenSourceMaterialType": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen source_material_type",
          "enum": [
             "Recurrent Blood Derived Cancer - Bone Marrow",
@@ -6275,10 +6276,10 @@
             "12",
             "40"
          ],
-         "title": "EnumCCDHSpecimenSourceMaterialType",
+         "title": "EnumCRDCHSpecimenSourceMaterialType",
          "type": "string"
       },
-      "EnumCCDHSpecimenSpecificTissueMorphology": {
+      "EnumCRDCHSpecimenSpecificTissueMorphology": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
          "enum": [
             "61",
@@ -6332,10 +6333,10 @@
             "Osteosarcoma (OS)",
             "Wilms tumor (WT)"
          ],
-         "title": "EnumCCDHSpecimenSpecificTissueMorphology",
+         "title": "EnumCRDCHSpecimenSpecificTissueMorphology",
          "type": "string"
       },
-      "EnumCCDHSpecimenSpecimenType": {
+      "EnumCRDCHSpecimenSpecimenType": {
          "description": "A high-level type of specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).",
          "enum": [
             "initial sample",
@@ -6344,16 +6345,16 @@
             "analyte",
             "slide"
          ],
-         "title": "EnumCCDHSpecimenSpecimenType",
+         "title": "EnumCRDCHSpecimenSpecimenType",
          "type": "string"
       },
-      "EnumCCDHSpecimenStorageActivityMethodType": {
+      "EnumCRDCHSpecimenStorageActivityMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type",
          "enum": [],
-         "title": "EnumCCDHSpecimenStorageActivityMethodType",
+         "title": "EnumCRDCHSpecimenStorageActivityMethodType",
          "type": "string"
       },
-      "EnumCCDHSpecimenTumorStatusAtCollection": {
+      "EnumCRDCHSpecimenTumorStatusAtCollection": {
          "description": "Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection",
          "enum": [
             "recurrence",
@@ -6373,10 +6374,10 @@
             "Not Reported",
             "Progression"
          ],
-         "title": "EnumCCDHSpecimenTumorStatusAtCollection",
+         "title": "EnumCRDCHSpecimenTumorStatusAtCollection",
          "type": "string"
       },
-      "EnumCCDHSubjectBreed": {
+      "EnumCRDCHSubjectBreed": {
          "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.",
          "enum": [
             "Akita",
@@ -6427,10 +6428,10 @@
             "West Highland White Terrier",
             "Yorkshire Terrier"
          ],
-         "title": "EnumCCDHSubjectBreed",
+         "title": "EnumCRDCHSubjectBreed",
          "type": "string"
       },
-      "EnumCCDHSubjectCauseOfDeath": {
+      "EnumCRDCHSubjectCauseOfDeath": {
          "description": "Autogenerated Enumeration for CRDC-H Subject cause_of_death",
          "enum": [
             "Infection",
@@ -6445,10 +6446,10 @@
             "Cancer Related",
             "Unknown"
          ],
-         "title": "EnumCCDHSubjectCauseOfDeath",
+         "title": "EnumCRDCHSubjectCauseOfDeath",
          "type": "string"
       },
-      "EnumCCDHSubjectEthnicity": {
+      "EnumCRDCHSubjectEthnicity": {
          "description": "Autogenerated Enumeration for CRDC-H Subject ethnicity",
          "enum": [
             "not hispanic or latino",
@@ -6458,10 +6459,10 @@
             "unknown",
             "not allowed to collect"
          ],
-         "title": "EnumCCDHSubjectEthnicity",
+         "title": "EnumCRDCHSubjectEthnicity",
          "type": "string"
       },
-      "EnumCCDHSubjectRace": {
+      "EnumCRDCHSubjectRace": {
          "description": "Autogenerated Enumeration for CRDC-H Subject race",
          "enum": [
             "not allowed to collect",
@@ -6475,10 +6476,10 @@
             "other",
             "black or african american"
          ],
-         "title": "EnumCCDHSubjectRace",
+         "title": "EnumCRDCHSubjectRace",
          "type": "string"
       },
-      "EnumCCDHSubjectSex": {
+      "EnumCRDCHSubjectSex": {
          "description": "Autogenerated Enumeration for CRDC-H Subject sex",
          "enum": [
             "unknown",
@@ -6487,20 +6488,20 @@
             "male",
             "unspecified"
          ],
-         "title": "EnumCCDHSubjectSex",
+         "title": "EnumCRDCHSubjectSex",
          "type": "string"
       },
-      "EnumCCDHSubjectSpecies": {
+      "EnumCRDCHSubjectSpecies": {
          "description": "The scientific binomial name for the species of the subject",
          "enum": [
             "Homo sapiens",
             "Canis familiaris",
             "Mus musculus"
          ],
-         "title": "EnumCCDHSubjectSpecies",
+         "title": "EnumCRDCHSubjectSpecies",
          "type": "string"
       },
-      "EnumCCDHSubjectVitalStatus": {
+      "EnumCRDCHSubjectVitalStatus": {
          "description": "Autogenerated Enumeration for CRDC-H Subject vital_status",
          "enum": [
             "Unknown",
@@ -6508,16 +6509,16 @@
             "Dead",
             "Alive"
          ],
-         "title": "EnumCCDHSubjectVitalStatus",
+         "title": "EnumCRDCHSubjectVitalStatus",
          "type": "string"
       },
-      "EnumCCDHSubstanceRole": {
+      "EnumCRDCHSubstanceRole": {
          "description": "Autogenerated Enumeration for CRDC-H Substance role",
          "enum": [],
-         "title": "EnumCCDHSubstanceRole",
+         "title": "EnumCRDCHSubstanceRole",
          "type": "string"
       },
-      "EnumCCDHSubstanceSubstanceType": {
+      "EnumCRDCHSubstanceSubstanceType": {
          "description": "Autogenerated Enumeration for CRDC-H Substance substance_type",
          "enum": [
             "Anti-PTK7/Auristatin-0101 Antibody-drug Conjugate PF-06647020",
@@ -10993,38 +10994,38 @@
             "Phosphatidylcholine-Bound Silybin",
             "Anti-CSF1 Monoclonal Antibody PD-0360324"
          ],
-         "title": "EnumCCDHSubstanceSubstanceType",
+         "title": "EnumCRDCHSubstanceSubstanceType",
          "type": "string"
       },
-      "EnumCCDHTimePointEventType": {
+      "EnumCRDCHTimePointEventType": {
          "description": "A specific type of event for which a timepoint is captured",
          "enum": [
             "IACUC approval",
             "IRB approval",
             "Histological confirmation of diagnosis"
          ],
-         "title": "EnumCCDHTimePointEventType",
+         "title": "EnumCRDCHTimePointEventType",
          "type": "string"
       },
-      "EnumCCDHTobaccoExposureObservationCategory": {
+      "EnumCRDCHTobaccoExposureObservationCategory": {
          "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation category",
          "enum": [],
-         "title": "EnumCCDHTobaccoExposureObservationCategory",
+         "title": "EnumCRDCHTobaccoExposureObservationCategory",
          "type": "string"
       },
-      "EnumCCDHTobaccoExposureObservationMethodType": {
+      "EnumCRDCHTobaccoExposureObservationMethodType": {
          "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation method_type",
          "enum": [],
-         "title": "EnumCCDHTobaccoExposureObservationMethodType",
+         "title": "EnumCRDCHTobaccoExposureObservationMethodType",
          "type": "string"
       },
-      "EnumCCDHTobaccoExposureObservationObservationType": {
+      "EnumCRDCHTobaccoExposureObservationObservationType": {
          "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation observation_type",
          "enum": [],
-         "title": "EnumCCDHTobaccoExposureObservationObservationType",
+         "title": "EnumCRDCHTobaccoExposureObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHTobaccoExposureObservationValueCodeableConcept": {
+      "EnumCRDCHTobaccoExposureObservationValueCodeableConcept": {
          "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept",
          "enum": [
             "Some days",
@@ -11052,10 +11053,10 @@
             "6",
             "Cigarettes"
          ],
-         "title": "EnumCCDHTobaccoExposureObservationValueCodeableConcept",
+         "title": "EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
          "type": "string"
       },
-      "EnumCCDHTobbaccoExposureObservationObservationType": {
+      "EnumCRDCHTobbaccoExposureObservationObservationType": {
          "description": "Types of observations about a Subject's exposure to or use of tobacco.",
          "enum": [
             "cigarettes_per_day",
@@ -11069,16 +11070,16 @@
             "tobacco_smoking_status",
             "type_of_tobacco_used"
          ],
-         "title": "EnumCCDHTobbaccoExposureObservationObservationType",
+         "title": "EnumCRDCHTobbaccoExposureObservationObservationType",
          "type": "string"
       },
-      "EnumCCDHTreatmentRegimen": {
+      "EnumCRDCHTreatmentRegimen": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment regimen",
          "enum": [],
-         "title": "EnumCCDHTreatmentRegimen",
+         "title": "EnumCRDCHTreatmentRegimen",
          "type": "string"
       },
-      "EnumCCDHTreatmentTreatmentEffect": {
+      "EnumCRDCHTreatmentTreatmentEffect": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_effect",
          "enum": [
             "Yes",
@@ -11090,10 +11091,10 @@
             "No Known Treatment Effect",
             "Complete Necrosis (No Viable Tumor)"
          ],
-         "title": "EnumCCDHTreatmentTreatmentEffect",
+         "title": "EnumCRDCHTreatmentTreatmentEffect",
          "type": "string"
       },
-      "EnumCCDHTreatmentTreatmentEndReason": {
+      "EnumCRDCHTreatmentTreatmentEndReason": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason",
          "enum": [
             "Other",
@@ -11103,10 +11104,10 @@
             "Course of Therapy Completed",
             "Death"
          ],
-         "title": "EnumCCDHTreatmentTreatmentEndReason",
+         "title": "EnumCRDCHTreatmentTreatmentEndReason",
          "type": "string"
       },
-      "EnumCCDHTreatmentTreatmentFrequency": {
+      "EnumCRDCHTreatmentTreatmentFrequency": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_frequency",
          "enum": [
             "Every Other Day",
@@ -11121,10 +11122,10 @@
             "Every 24 Hours",
             "Four Times Daily"
          ],
-         "title": "EnumCCDHTreatmentTreatmentFrequency",
+         "title": "EnumCRDCHTreatmentTreatmentFrequency",
          "type": "string"
       },
-      "EnumCCDHTreatmentTreatmentIntent": {
+      "EnumCRDCHTreatmentTreatmentIntent": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_intent",
          "enum": [
             "Neoadjuvant",
@@ -11138,10 +11139,10 @@
             "Cure",
             "Palliative"
          ],
-         "title": "EnumCCDHTreatmentTreatmentIntent",
+         "title": "EnumCRDCHTreatmentTreatmentIntent",
          "type": "string"
       },
-      "EnumCCDHTreatmentTreatmentOutcome": {
+      "EnumCRDCHTreatmentTreatmentOutcome": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_outcome",
          "enum": [
             "Treatment Ongoing",
@@ -11158,10 +11159,10 @@
             "Partial Response",
             "No Response"
          ],
-         "title": "EnumCCDHTreatmentTreatmentOutcome",
+         "title": "EnumCRDCHTreatmentTreatmentOutcome",
          "type": "string"
       },
-      "EnumCCDHTreatmentTreatmentType": {
+      "EnumCRDCHTreatmentTreatmentType": {
          "description": "Autogenerated Enumeration for CRDC-H Treatment treatment_type",
          "enum": [
             "Radiation, Cyberknife",
@@ -11228,7 +11229,7 @@
             "Radioembolization",
             "Radiation, Radioisotope"
          ],
-         "title": "EnumCCDHTreatmentTreatmentType",
+         "title": "EnumCRDCHTreatmentTreatmentType",
          "type": "string"
       },
       "EnvironmentalExposureObservation": {
@@ -11236,7 +11237,7 @@
          "description": "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11244,15 +11245,15 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationMethodType",
+               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationObservationType",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11264,7 +11265,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHEnvironmentalExposureObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
@@ -11280,7 +11281,7 @@
          "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11288,15 +11289,15 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationMethodType",
+               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationObservationType",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11308,7 +11309,7 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHExecutionConditionObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
@@ -11324,7 +11325,7 @@
          "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHExecutionTimeObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHExecutionTimeObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11332,15 +11333,15 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHExecutionTimeObservationMethodType",
+               "$ref": "#/definitions/EnumCRDCHExecutionTimeObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHExecutionTimeObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHExecutionTimeObservationObservationType",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11382,8 +11383,8 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11415,7 +11416,7 @@
          "description": "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11426,18 +11427,18 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationMethodType"
+                  "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11465,7 +11466,7 @@
          "description": "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationSetCategory",
+               "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationSetCategory",
                "description": "The general category of observation set described"
             },
             "focus": {
@@ -11476,13 +11477,13 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHHistologicalCompositionObservationSetMethodType"
+                  "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationSetMethodType"
                },
                "type": "array"
             },
@@ -11514,16 +11515,16 @@
          "description": "An Identifier is associated with a unique object or entity within a given system.",
          "properties": {
             "system": {
-               "description": "The system or namespace that defines the identifier.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The system or namespace that defines the identifier."
             },
             "type": {
-               "$ref": "#/definitions/EnumCCDHIdentifierType",
+               "$ref": "#/definitions/EnumCRDCHIdentifierType",
                "description": "A code that defines the type of the identifier."
             },
             "value": {
-               "description": "The value of the identifier, as defined by the system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The value of the identifier, as defined by the system."
             }
          },
          "required": [
@@ -11537,7 +11538,7 @@
          "description": "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -11548,18 +11549,18 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHObservationMethodType"
+                  "$ref": "#/definitions/EnumCRDCHObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -11571,37 +11572,36 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueBoolean": {
-               "description": "The result of the observation, encoded as a boolean.",
-               "type": "boolean"
+               "$ref": "#/definitions/Entity",
+               "description": "The result of the observation, encoded as a boolean."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "valueDateTime": {
-               "description": "The result of the observation, encoded as a dateTime.",
-               "format": "date-time",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The result of the observation, encoded as a dateTime."
             },
             "valueDecimal": {
-               "description": "The result of the observation, encoded as a decimal.",
-               "type": "number"
+               "$ref": "#/definitions/Entity",
+               "description": "The result of the observation, encoded as a decimal."
             },
             "valueEntity": {
                "$ref": "#/definitions/Entity",
                "description": "The value of an observation"
             },
             "valueInteger": {
-               "description": "The result of the observation, encoded as a decimal.",
-               "type": "number"
+               "$ref": "#/definitions/Entity",
+               "description": "The result of the observation, encoded as a decimal."
             },
             "valueQuantity": {
                "$ref": "#/definitions/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             },
             "valueString": {
-               "description": "The result of the observation, encoded as a free-text string.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The result of the observation, encoded as a free-text string."
             }
          },
          "required": [
@@ -11615,7 +11615,7 @@
          "description": "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHObservationSetCategory",
+               "$ref": "#/definitions/EnumCRDCHObservationSetCategory",
                "description": "The general category of observation set described"
             },
             "focus": {
@@ -11626,13 +11626,13 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHObservationSetMethodType"
+                  "$ref": "#/definitions/EnumCRDCHObservationSetMethodType"
                },
                "type": "array"
             },
@@ -11664,12 +11664,12 @@
          "description": "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university",
          "properties": {
             "alias": {
-               "description": "A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11679,12 +11679,12 @@
                "type": "array"
             },
             "name": {
-               "description": "The full legal name by which the organization is known (e.g. 'National Cancer Institute')",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The full legal name by which the organization is known (e.g. 'National Cancer Institute')"
             },
             "organization_type": {
-               "description": "The type of the organization (e.g. 'Cancer Genome Characterization Center')",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The type of the organization (e.g. 'Cancer Genome Characterization Center')"
             }
          },
          "required": [
@@ -11698,16 +11698,16 @@
          "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
          "properties": {
             "unit": {
-               "$ref": "#/definitions/EnumCCDHQuantityUnit",
+               "$ref": "#/definitions/EnumCRDCHQuantityUnit",
                "description": "A coded or free text (in the .text field) representation of the unit."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHQuantityValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHQuantityValueCodeableConcept",
                "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")"
             },
             "valueDecimal": {
-               "description": "An amount, in the given units (if specified)",
-               "type": "number"
+               "$ref": "#/definitions/Entity",
+               "description": "An amount, in the given units (if specified)"
             }
          },
          "required": [],
@@ -11734,16 +11734,16 @@
                "description": "The date when the research project began."
             },
             "description": {
-               "description": "An unabridged description of a research program, project, or study.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "An unabridged description of a research program, project, or study."
             },
             "description_shortened": {
-               "description": "An abbreviated description of a research program, project, or study.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "An abbreviated description of a research program, project, or study."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11753,12 +11753,12 @@
                "type": "array"
             },
             "name": {
-               "description": "An unabridged name of a research program, project, or study.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "An unabridged name of a research program, project, or study."
             },
             "name_shortened": {
-               "description": "An abbreviated name of a research program, project, or study.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "An abbreviated name of a research program, project, or study."
             },
             "part_of": {
                "description": "A reference to a parent ResearchProject (e.g. a link to the overarching CPTAC ResearchProject from a substudy of CPTAC)",
@@ -11775,20 +11775,20 @@
                "type": "array"
             },
             "research_project_type": {
-               "$ref": "#/definitions/EnumCCDHResearchProjectResearchProjectType",
+               "$ref": "#/definitions/EnumCRDCHResearchProjectResearchProjectType",
                "description": "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')"
             },
             "sponsor": {
                "description": "An entity that is responsible for the initiation, management, and/or financing of a research project.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             },
             "url": {
                "description": "A URL address for a resource that provides information about a research program, project, or study.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             }
@@ -11819,12 +11819,12 @@
                "type": "array"
             },
             "description": {
-               "description": "A free text field to capture additional info/explanation about the research subject.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A free text field to capture additional info/explanation about the research subject."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11834,7 +11834,7 @@
                "type": "array"
             },
             "index_timepoint": {
-               "$ref": "#/definitions/EnumCCDHResearchSubjectIndexTimepoint",
+               "$ref": "#/definitions/EnumCRDCHResearchSubjectIndexTimepoint",
                "description": "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date."
             },
             "member_of_research_project": {
@@ -11853,7 +11853,7 @@
                "type": "array"
             },
             "primary_diagnosis_condition": {
-               "$ref": "#/definitions/EnumCCDHResearchSubjectPrimaryDiagnosisCondition",
+               "$ref": "#/definitions/EnumCRDCHResearchSubjectPrimaryDiagnosisCondition",
                "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).   This attribute represents the disease that qualified the subject for inclusion on the ResearchProject"
             },
             "primary_diagnosis_site": {
@@ -11873,7 +11873,7 @@
          "description": "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.",
          "properties": {
             "analyte_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenAnalyteType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenAnalyteType",
                "description": "For specimens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)"
             },
             "associated_project": {
@@ -11881,7 +11881,7 @@
                "description": "The Project associated with the specimen."
             },
             "cellular_composition_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenCellularCompositionType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenCellularCompositionType",
                "description": "A term describing the type of cell or cellular material comprising a specimen."
             },
             "contained_in": {
@@ -11897,7 +11897,7 @@
                "description": "The organization (e.g.a laboratory, processing center, or research site) that provided data associated with a specimen."
             },
             "degree_of_dysplasia": {
-               "$ref": "#/definitions/EnumCCDHSpecimenDegreeOfDysplasia",
+               "$ref": "#/definitions/EnumCRDCHSpecimenDegreeOfDysplasia",
                "description": "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration."
             },
             "derived_product": {
@@ -11908,8 +11908,8 @@
                "type": "array"
             },
             "description": {
-               "description": "A free text field to capture additional information or explanation about the specimen.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "A free text field to capture additional information or explanation about the specimen."
             },
             "dimensional_measures": {
                "$ref": "#/definitions/DimensionalObservationSet",
@@ -11920,11 +11920,11 @@
                "description": "The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)"
             },
             "dysplasia_fraction": {
-               "description": "Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces."
             },
             "general_tissue_morphology": {
-               "$ref": "#/definitions/EnumCCDHSpecimenGeneralTissueMorphology",
+               "$ref": "#/definitions/EnumCRDCHSpecimenGeneralTissueMorphology",
                "description": "The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent)."
             },
             "histological_composition_measures": {
@@ -11935,8 +11935,8 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11945,17 +11945,17 @@
                },
                "type": "array"
             },
-            "morphlogy_assessment_method": {
-               "$ref": "#/definitions/EnumCCDHSpecimenMorphlogyAssessmentMethod",
+            "morphology_assessment_method": {
+               "$ref": "#/definitions/EnumCRDCHSpecimenMorphologyAssessmentMethod",
                "description": "The general method used to assess a specimens specific tissue morphology"
             },
             "morphology_assessor_role": {
-               "$ref": "#/definitions/EnumCCDHSpecimenMorphologyAssessorRole",
+               "$ref": "#/definitions/EnumCRDCHSpecimenMorphologyAssessorRole",
                "description": "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen"
             },
             "morphology_pathologically_confirmed": {
-               "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review.",
-               "type": "boolean"
+               "$ref": "#/definitions/Entity",
+               "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review."
             },
             "parent_specimen": {
                "description": "An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).",
@@ -11965,7 +11965,7 @@
                "type": "array"
             },
             "preinvasive_tissue_morphology": {
-               "$ref": "#/definitions/EnumCCDHSpecimenPreinvasiveTissueMorphology",
+               "$ref": "#/definitions/EnumCRDCHSpecimenPreinvasiveTissueMorphology",
                "description": "A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen."
             },
             "processing_activity": {
@@ -11997,11 +11997,11 @@
                "type": "array"
             },
             "section_location": {
-               "$ref": "#/definitions/EnumCCDHSpecimenSectionLocation",
+               "$ref": "#/definitions/EnumCRDCHSpecimenSectionLocation",
                "description": "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)"
             },
             "source_material_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenSourceMaterialType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenSourceMaterialType",
                "description": "The general kind of material from which the specimen was derived."
             },
             "source_subject": {
@@ -12009,11 +12009,11 @@
                "description": "A specific Subject from which the specimen was directly or indirectly derived."
             },
             "specific_tissue_morphology": {
-               "$ref": "#/definitions/EnumCCDHSpecimenSpecificTissueMorphology",
+               "$ref": "#/definitions/EnumCRDCHSpecimenSpecificTissueMorphology",
                "description": "A term describing the specific pathology exhibited by the tissue comprising a specimen."
             },
             "specimen_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenSpecimenType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenSpecimenType",
                "description": "The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source)."
             },
             "storage_activity": {
@@ -12031,7 +12031,7 @@
                "type": "array"
             },
             "tumor_status_at_collection": {
-               "$ref": "#/definitions/EnumCCDHSpecimenTumorStatusAtCollection",
+               "$ref": "#/definitions/EnumCRDCHSpecimenTumorStatusAtCollection",
                "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc)."
             }
          },
@@ -12051,16 +12051,16 @@
                "type": "array"
             },
             "container_number": {
-               "description": "Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)"
             },
             "container_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenContainerContainerType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenContainerContainerType",
                "description": "The kind of the container."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -12083,7 +12083,7 @@
          "description": "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting).",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenCreationActivityActivityType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenCreationActivityActivityType",
                "description": "The high-level type of creation activity."
             },
             "additive": {
@@ -12094,7 +12094,7 @@
                "type": "array"
             },
             "collection_method_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenCreationActivityCollectionMethodType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenCreationActivityCollectionMethodType",
                "description": "The type of method applied in collecting a sample from its original source."
             },
             "collection_site": {
@@ -12110,7 +12110,7 @@
                "description": "The date when the activity began (in this case, a specimen creation event)."
             },
             "derivation_method_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenCreationActivityDerivationMethodType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenCreationActivityDerivationMethodType",
                "description": "The type of method applied to derive a new specimen from an existing one."
             },
             "execution_condition_observation": {
@@ -12136,8 +12136,8 @@
                "description": "The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)"
             },
             "specimen_order": {
-               "description": "A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen.",
-               "type": "integer"
+               "$ref": "#/definitions/Entity",
+               "description": "A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen."
             }
          },
          "required": [],
@@ -12149,7 +12149,7 @@
          "description": "An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenProcessingActivityActivityType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenProcessingActivityActivityType",
                "description": "The high-level type of processing activity"
             },
             "additive": {
@@ -12189,7 +12189,7 @@
                "type": "array"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenProcessingActivityMethodType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenProcessingActivityMethodType",
                "description": "A specific type of method or procedure performed to process the specimen"
             },
             "performed_by": {
@@ -12206,7 +12206,7 @@
          "description": "A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHSpecimenQualityObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHSpecimenQualityObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -12217,18 +12217,18 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHSpecimenQualityObservationMethodType"
+                  "$ref": "#/definitions/EnumCRDCHSpecimenQualityObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenQualityObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenQualityObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -12256,7 +12256,7 @@
          "description": "A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHSpecimenQuantityObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHSpecimenQuantityObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -12267,18 +12267,18 @@
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHSpecimenQuantityObservationMethodType"
+                  "$ref": "#/definitions/EnumCRDCHSpecimenQuantityObservationMethodType"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenQuantityObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenQuantityObservationObservationType",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -12325,7 +12325,7 @@
                "description": "The length of time over which the activity was performed."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHSpecimenStorageActivityMethodType",
+               "$ref": "#/definitions/EnumCRDCHSpecimenStorageActivityMethodType",
                "description": "A specific type of method or procedure performed to store the specimen"
             },
             "performed_by": {
@@ -12352,7 +12352,7 @@
             "duration": {
                "description": "The length of time over which the activity was performed.",
                "items": {
-                  "type": "string"
+                  "$ref": "#/definitions/Entity"
                },
                "type": "array"
             },
@@ -12389,20 +12389,20 @@
                "description": "The age of an individual at the time of death, expressed in days since birth"
             },
             "breed": {
-               "$ref": "#/definitions/EnumCCDHSubjectBreed",
+               "$ref": "#/definitions/EnumCRDCHSubjectBreed",
                "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species."
             },
             "cause_of_death": {
-               "$ref": "#/definitions/EnumCCDHSubjectCauseOfDeath",
+               "$ref": "#/definitions/EnumCRDCHSubjectCauseOfDeath",
                "description": "Coded value indicating the circumstance or condition that results in the death of the subject."
             },
             "ethnicity": {
-               "$ref": "#/definitions/EnumCCDHSubjectEthnicity",
+               "$ref": "#/definitions/EnumCRDCHSubjectEthnicity",
                "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -12414,29 +12414,29 @@
             "race": {
                "description": "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHSubjectRace"
+                  "$ref": "#/definitions/EnumCRDCHSubjectRace"
                },
                "type": "array"
             },
             "sex": {
-               "$ref": "#/definitions/EnumCCDHSubjectSex",
+               "$ref": "#/definitions/EnumCRDCHSubjectSex",
                "description": "The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics."
             },
             "species": {
-               "$ref": "#/definitions/EnumCCDHSubjectSpecies",
+               "$ref": "#/definitions/EnumCRDCHSubjectSpecies",
                "description": "The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)"
             },
             "vital_status": {
-               "$ref": "#/definitions/EnumCCDHSubjectVitalStatus",
+               "$ref": "#/definitions/EnumCRDCHSubjectVitalStatus",
                "description": "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown."
             },
             "year_of_birth": {
-               "description": "Numeric value to represent the calendar year in which an individual was born.",
-               "type": "integer"
+               "$ref": "#/definitions/Entity",
+               "description": "Numeric value to represent the calendar year in which an individual was born."
             },
             "year_of_death": {
-               "description": "Numeric value to represent the calendar year in which an individual died.",
-               "type": "integer"
+               "$ref": "#/definitions/Entity",
+               "description": "Numeric value to represent the calendar year in which an individual died."
             }
          },
          "required": [
@@ -12452,7 +12452,7 @@
             "role": {
                "description": "A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHSubstanceRole"
+                  "$ref": "#/definitions/EnumCRDCHSubstanceRole"
                },
                "type": "array"
             },
@@ -12461,7 +12461,7 @@
                "description": "The quantity of substance this instance stands for."
             },
             "substance_type": {
-               "$ref": "#/definitions/EnumCCDHSubstanceSubstanceType",
+               "$ref": "#/definitions/EnumCRDCHSubstanceSubstanceType",
                "description": "The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds."
             }
          },
@@ -12491,20 +12491,19 @@
          "description": "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.",
          "properties": {
             "dateTime": {
-               "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date.",
-               "format": "date-time",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date."
             },
             "eventType": {
                "description": "An event that occurred at the point in time specified by this TimePoint.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHTimePointEventType"
+                  "$ref": "#/definitions/EnumCRDCHTimePointEventType"
                },
                "type": "array"
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "indexTimePoint": {
                "$ref": "#/definitions/TimePoint",
@@ -12524,7 +12523,7 @@
          "description": "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationCategory",
+               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationCategory",
                "description": "The general category of observation described"
             },
             "focus": {
@@ -12532,15 +12531,15 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationMethodType",
+               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationMethodType",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationObservationType",
+               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationObservationType",
                "description": "The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
@@ -12552,12 +12551,12 @@
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "valueCodeableConcept": {
-               "$ref": "#/definitions/EnumCCDHTobaccoExposureObservationValueCodeableConcept",
+               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "valueInteger": {
-               "description": "The result of the observation, encoded as an integer.",
-               "type": "integer"
+               "$ref": "#/definitions/Entity",
+               "description": "The result of the observation, encoded as an integer."
             }
          },
          "required": [
@@ -12586,8 +12585,8 @@
                "description": "The timepoint at which the treatment started."
             },
             "id": {
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
-               "type": "string"
+               "$ref": "#/definitions/Entity",
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -12597,11 +12596,11 @@
                "type": "array"
             },
             "number_of_cycles": {
-               "description": "The number of treatment cycles the subject received.",
-               "type": "integer"
+               "$ref": "#/definitions/Entity",
+               "description": "The number of treatment cycles the subject received."
             },
             "regimen": {
-               "$ref": "#/definitions/EnumCCDHTreatmentRegimen",
+               "$ref": "#/definitions/EnumCRDCHTreatmentRegimen",
                "description": "The regimen or line of therapy"
             },
             "subject": {
@@ -12617,13 +12616,13 @@
                "description": "The anatomical site that the treatment targets."
             },
             "treatment_effect": {
-               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentEffect",
+               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentEffect",
                "description": "The effect of a treatment on the diagnosis or tumor."
             },
             "treatment_end_reason": {
                "description": "The reason the treatment ended.",
                "items": {
-                  "$ref": "#/definitions/EnumCCDHTreatmentTreatmentEndReason"
+                  "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentEndReason"
                },
                "type": "array"
             },
@@ -12635,19 +12634,19 @@
                "type": "array"
             },
             "treatment_frequency": {
-               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentFrequency",
+               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentFrequency",
                "description": "The frequency of using the substance described by this instance."
             },
             "treatment_intent": {
-               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentIntent",
+               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentIntent",
                "description": "The medical intent of the treatment."
             },
             "treatment_outcome": {
-               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentOutcome",
+               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentOutcome",
                "description": "The final outcome of the treatment."
             },
             "treatment_type": {
-               "$ref": "#/definitions/EnumCCDHTreatmentTreatmentType",
+               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentType",
                "description": "The type of treatment administered, which may include medication/therapeutics or other procedures."
             }
          },

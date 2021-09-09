@@ -1,17 +1,28 @@
 [[source]]
-name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
-[dev-packages]
-pytest = "~=6.2.4"
+name = "pypi"
 
 [packages]
-linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"}
-mkdocs = "*"
-mkdocs-material = "*"
+linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC/linkml.git"} # required by cancerDHC
+linkml-runtime = "~=1.0, >=1.0.3"
+pyparsing = "<=2.4.7"
+rdflib-pyld-compat = "*" # resinstating after removal by migration to linkml model template
+
+[dev-packages]
+black = "==v21.5b1" # from old generators/google-sheets/Pipfile
 mike = "*"
-rdflib-pyld-compat = "*"
+mkdocs-material = "*"
+pydantic = {extras = ["dotenv"], version = "*"} # from old generators/google-sheets/Pipfile
+pygsheets = "*" # from old generators/google-sheets/Pipfile
+pyparsing = "<=2.4.7" # indirectly from old generators/google-sheets/Pipfile
+pytest = "~=6.2.4"
+pyyaml = "*" # from old generators/google-sheets/Pipfile
+requests = "*" # from old generators/google-sheets/Pipfile
+tox = "*"
+twine = "*" # should this go in make-venv/Pipfile ?
+
+[pipenv]
+allow_prereleases = true # added by migration to linkml model template
 
 [requires]
-python_version = "3.8"

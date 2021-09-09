@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+* LinkML representation
+  * Updated repo based on the [linkml model template](https://github.com/linkml/linkml-model-template).
+    * Some LinkML model template files, like `MakeConfig` hav been moved into `from_template`. Note that `MakeConfig`
+      makes extensive changes to numerous files including the model, tests, docs and PyPI metadata. These updates are
+      based on `model/CONFIG.yaml`. Updating with `MakeConfig` could be very convenient but a strategy
+      combining `MakeConfig` with manual updates to these files could lose important work. It's probably best to commit
+      before running `MakeConfig`.
+  * Necessary fixes to the `squeaky-clean` target in the Makefile.
+  * We should have standardized to Python 3.7 as a minimum version (see `setup.py`, `setup.cfg` and `tox.ini`).
+
 ## [v1.0.1] - 2021-06-08
 
 * Model changes

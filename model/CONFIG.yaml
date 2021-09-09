@@ -1,0 +1,54 @@
+# If you change this file, please update /setup.cfg as well.
+# (unless there's some way to keep the two files in sync that
+#  I don't know about).
+#
+# (OLD NOTE) switch to cancerDHC/ccdhmodel
+# be careful about no overwriting the documentation
+# add push to PyPI with GitHub action or ???
+model_organization:    turbomam
+model_name:            crdch_model
+root_schema: crdch_model
+# remember, this will be generated from the google sheet
+model_root_class: BodySite
+# Diagnosis 
+
+# switch to Garuav, CCDH community, something like that
+model_author:              Mark A. Miller
+model_author_email:        MAM@lbl.gov
+model_synopsis:  CRDC-H model in LinkML, developed by the Center for Cancer Data Harmonization (CCDH) # One liner about the model
+model_description: |-      # Longer description of the model
+  This repository includes the LinkML model itself (in YAML format) as well as a number of artifacts produced automatically by LinkML, 
+  including a JSON Schema, JSON-LD context, a GraphQL description, a CSV description and ShEx validation shapes.
+
+# Trove Classifiers (https://pypi.org/classifiers/) -- these can be omitted if the elemens below are sufficient
+classifiers:
+    - "Development Status :: 4 - Beta"
+    - "Environment :: Console"
+    - "Intended Audience :: Developers"
+    - "Intended Audience :: Science/Research"
+    - "Intended Audience :: Information Technology"
+    - "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"
+    - "Programming Language :: Python :: 3 :: Only"
+    - "Programming Language :: Python :: 3.7" # Pipfile says requires python_version = "3.8"
+    - "Programming Language :: Python :: 3.8"
+    - "Programming Language :: Python :: 3.9"
+
+# Keywords -- these can also be omitted from this file if the below is ok
+# removed , LOD, Modeling, Linked open data, model
+keywords: [python, google-sheets, linkml]
+
+# Elements to be generated
+# See: https://github.com/linkml/linkml/generators/README.md for what the outputs look like
+# Possible values: graphql -- graphql schema for the model
+#                  json -- LinkML model definition in JSON syntax
+#                  jsonld_context -- JSON-LD context definitions for model
+#                  json_schema -- Model schema in json schema
+#                  owl -- OWL representation of model schema
+#                  rdf -- LinkML Model definition in RDF
+#                  shex -- LinkML model definition in ShEx
+#                  sqlddl -- SQL ddl of the model
+#                  model -- copy model/schema to distribution directory
+# implicitly creates the python?
+# removed jsonld_context, json_schema, model
+generate: [graphql, json_schema, owl, shex]
+

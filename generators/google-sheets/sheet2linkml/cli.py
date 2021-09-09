@@ -13,7 +13,7 @@ from sheet2linkml import config
 from sheet2linkml.source.gsheetmodel.gsheetmodel import GSheetModel
 from sheet2linkml.source.gsheetmodel.mappings import Mappings
 from sheet2linkml.terminologies.tccm.api import TCCMService
-from linkml.utils import yamlutils
+from linkml_runtime.dumpers import yaml_dumper
 import click
 
 
@@ -48,7 +48,7 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
     google_sheet_id = config.Settings().cdm_google_sheet_id
 
     # Arbitrarily set a CRDC-H root URI.
-    crdch_root = "https://example.org/ccdh"
+    crdch_root = "https://example.org/crdch"
 
     # Load the Google Sheet model and add the development version number.
     model = GSheetModel(google_api_credentials, google_sheet_id)
@@ -89,8 +89,7 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
         for entity in selected_entities:
             filename = f"output/{entity.get_filename()}.yaml"
             logging.info(f"Writing entity {entity.name} to {filename}")
-            with open(filename, "w") as f:
-                f.write(yamlutils.as_yaml(entity.as_linkml(crdch_root)))
+            yaml_dumper.dump(entity.as_linkml(crdch_root), filename)
 
             if write_mappings:
                 mappings.extend(entity.mappings.mappings)
@@ -101,8 +100,7 @@ def main(filter_entity, logging_config, write_mappings, include_terminologies):
         # Convert the entire model into YAML.
         filename = f"output/{model.get_filename()}.yaml"
         logging.info(f"Writing model {model.name} to {filename}")
-        with open(filename, "w") as f:
-            f.write(yamlutils.as_yaml(model.as_linkml(crdch_root)))
+        yaml_dumper.dump(model.as_linkml(crdch_root), filename)
 
         if write_mappings:
             Mappings.write_to_file(model.mappings, filename=write_mappings, model=model)
