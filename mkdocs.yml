@@ -13,13 +13,16 @@ theme:
     primary: blue
   features:
     - search.suggest
+    - search.highlight
+    - search.share
 nav:
   - Home: home.md
   - Index: index.md
   - Data Migration: data-migration.md
   - Credits: credits.md
 plugins:
-  - search
+  - search:
+      separator: '[\s\-\._:]+'
   - mike
 extra:
   version:
