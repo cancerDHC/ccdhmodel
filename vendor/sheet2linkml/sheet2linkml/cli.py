@@ -20,6 +20,7 @@ from sheet2linkml.terminologies.tccm.api import TCCMService
 @click.command()
 @click.option(
     "--output",
+    "-o",
     type=click.Path(),
     default='model.yaml',
     help="The file that the generated LinkML model should be written to.",
