@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/ExecutionConditionObservation/">
+        <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__value_enum/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Class: ExecutionConditionObservation - CRDC-H Model in LinkML documentation</title>
+        <title>Slot: value_enum - CRDC-H Model in LinkML documentation</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-executionconditionobservation" class="md-skip">
+        <a href="#slot-value_enum" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class: ExecutionConditionObservation
+              Slot: value_enum
             
           </span>
         </div>
@@ -259,6 +259,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#domain-and-range" class="md-nav__link">
+    Domain and Range
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#parents" class="md-nav__link">
     Parents
   </a>
@@ -266,29 +273,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#referenced-by-class" class="md-nav__link">
-    Referenced by class
+  <a href="#children" class="md-nav__link">
+    Children
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
-    Attributes
-  </a>
-  
-    <nav class="md-nav" aria-label="Attributes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#own" class="md-nav__link">
-    Own
+  <a href="#used-by" class="md-nav__link">
+    Used by
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#other-properties" class="md-nav__link">
+    Other properties
+  </a>
   
 </li>
       
@@ -305,65 +306,49 @@
               
                 
                 
-                <h1 id="class-executionconditionobservation">Class: ExecutionConditionObservation</h1>
-<p>A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.</p>
-<p>Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.</p>
-<p>URI: <a href="https://example.org/crdch/ExecutionConditionObservation">crdch:ExecutionConditionObservation</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Organization],[Organization]&lt;performed_by%200..1-++[ExecutionConditionObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_ExecutionConditionObservation_category%20%3F;observation_type:enum_CRDCH_ExecutionConditionObservation_observation_type;method_type:enum_CRDCH_ExecutionConditionObservation_method_type%20%3F;value_enum:enum_CRDCH_ExecutionConditionObservation_value_enum],[Subject]&lt;subject%200..1-++[ExecutionConditionObservation],[Entity]&lt;focus%200..1-++[ExecutionConditionObservation],[SpecimenCreationActivity]++-%20execution_condition_observation%200..*&gt;[ExecutionConditionObservation],[SpecimenProcessingActivity]++-%20execution_condition_observation%200..*&gt;[ExecutionConditionObservation],[SpecimenTransportActivity]++-%20execution_condition_observation%200..*&gt;[ExecutionConditionObservation],[Entity]^-[ExecutionConditionObservation],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenTransportActivity],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Organization],[Organization]&lt;performed_by%200..1-++[ExecutionConditionObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_ExecutionConditionObservation_category%20%3F;observation_type:enum_CRDCH_ExecutionConditionObservation_observation_type;method_type:enum_CRDCH_ExecutionConditionObservation_method_type%20%3F;value_enum:enum_CRDCH_ExecutionConditionObservation_value_enum],[Subject]&lt;subject%200..1-++[ExecutionConditionObservation],[Entity]&lt;focus%200..1-++[ExecutionConditionObservation],[SpecimenCreationActivity]++-%20execution_condition_observation%200..*&gt;[ExecutionConditionObservation],[SpecimenProcessingActivity]++-%20execution_condition_observation%200..*&gt;[ExecutionConditionObservation],[SpecimenTransportActivity]++-%20execution_condition_observation%200..*&gt;[ExecutionConditionObservation],[Entity]^-[ExecutionConditionObservation],[Entity]" /></a></p>
+                <h1 id="slot-value_enum">Slot: value_enum</h1>
+<p>The result of the observation, encoded as a CodeableConcept.</p>
+<p>URI: <a href="https://example.org/crdch/executionConditionObservation__value_enum">crdch:executionConditionObservation__value_enum</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a> &#8594;  <sub>1..1</sub> <a href="../enum_CRDCH_ExecutionConditionObservation_value_enum/">enum_CRDCH_ExecutionConditionObservation_value_enum</a></p>
 <h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+<li><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></li>
 </ul>
-<h2 id="referenced-by-class">Referenced by class</h2>
-<ul>
-<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__execution_condition_observation/">execution_condition_observation</a></em>  <sub>0..*</sub>  <strong><a href="./">ExecutionConditionObservation</a></strong></li>
-<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__execution_condition_observation/">execution_condition_observation</a></em>  <sub>0..*</sub>  <strong><a href="./">ExecutionConditionObservation</a></strong></li>
-<li><strong><a href="../SpecimenTransportActivity/">SpecimenTransportActivity</a></strong> ➞<em><a href="../specimenTransportActivity__execution_condition_observation/">execution_condition_observation</a></em>  <sub>0..*</sub>  <strong><a href="./">ExecutionConditionObservation</a></strong></li>
-</ul>
-<h2 id="attributes">Attributes</h2>
-<h3 id="own">Own</h3>
-<ul>
-<li><a href="../executionConditionObservation__id/">id</a>  <sub>0..1</sub><ul>
-<li>Description: The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different "id" in the new system since "id" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the "identifier" field. The "id" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.</li>
-<li>Range: <a href="../CrdchString/">CrdchString</a></li>
-</ul>
-</li>
-<li><a href="../executionConditionObservation__category/">category</a>  <sub>0..1</sub><ul>
-<li>Description: The general category of observation described</li>
-<li>Range: <a href="../enum_CRDCH_ExecutionConditionObservation_category/">enum_CRDCH_ExecutionConditionObservation_category</a></li>
-</ul>
-</li>
-<li><a href="../executionConditionObservation__observation_type/">observation_type</a>  <sub>1..1</sub><ul>
-<li>Description: The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
-<li>Range: <a href="../enum_CRDCH_ExecutionConditionObservation_observation_type/">enum_CRDCH_ExecutionConditionObservation_observation_type</a></li>
-</ul>
-</li>
-<li><a href="../executionConditionObservation__method_type/">method_type</a>  <sub>0..1</sub><ul>
-<li>Description: A type of method used in generating the Observation result.</li>
-<li>Range: <a href="../enum_CRDCH_ExecutionConditionObservation_method_type/">enum_CRDCH_ExecutionConditionObservation_method_type</a></li>
-</ul>
-</li>
-<li><a href="../executionConditionObservation__focus/">focus</a>  <sub>0..1</sub><ul>
-<li>Description: The entity or entities directly observed/measured in generating an observation result.</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
-<li><a href="../executionConditionObservation__subject/">subject</a>  <sub>0..1</sub><ul>
-<li>Description: The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
-<li>Range: <a href="../Subject/">Subject</a></li>
-</ul>
-</li>
-<li><a href="../executionConditionObservation__performed_by/">performed_by</a>  <sub>0..1</sub><ul>
-<li>Description: The organization or group that performed the observation activity.</li>
-<li>Range: <a href="../Organization/">Organization</a></li>
-</ul>
-</li>
-<li><a href="../executionConditionObservation__value_enum/">value_enum</a>  <sub>1..1</sub><ul>
-<li>Description: The result of the observation, encoded as a CodeableConcept.</li>
-<li>Range: <a href="../enum_CRDCH_ExecutionConditionObservation_value_enum/">enum_CRDCH_ExecutionConditionObservation_value_enum</a></li>
-</ul>
-</li>
-</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>One and only one of the value(x) fields must be populated.</td>
+</tr>
+<tr>
+<td><strong>Examples:</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Direct Mappings:</strong></td>
+<td></td>
+<td>HTAN:Biospecimen.ISCHEMIC_TEMPERATURE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>HTAN:Biospecimen.SHIPPING_CONDITIONS</td>
+</tr>
+</tbody>
+</table>
                 
               
               

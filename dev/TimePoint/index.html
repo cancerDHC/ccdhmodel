@@ -292,6 +292,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#other-properties" class="md-nav__link">
+    Other properties
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -306,7 +313,7 @@
                 
                 
                 <h1 id="class-timepoint">Class: TimePoint</h1>
-<p>A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.</p>
+<p>A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, specification in terms of offset from a defined index, or description of an event type as a proxy for the time point when it occurred.</p>
 <p>URI: <a href="https://example.org/crdch/TimePoint">crdch:TimePoint</a></p>
 <p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Quantity]&lt;offset_from_index%200..1-++[TimePoint&#124;id:crdch_string%20%3F;date_time:crdch_dateTime%20%3F;event_type:enum_CRDCH_TimePoint_event_type%20*],[TimePoint]&lt;index_time_point%200..1-++[TimePoint],[ResearchProject]++-%20associated_timepoint%200..*&gt;[TimePoint],[ResearchProject]++-%20date_ended%200..1&gt;[TimePoint],[ResearchProject]++-%20date_started%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenCreationActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenProcessingActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenStorageActivity]++-%20date_started%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_ended%200..1&gt;[TimePoint],[SpecimenTransportActivity]++-%20date_started%200..1&gt;[TimePoint],[TimePeriod]++-%20period_end
 end%200..1&gt;[TimePoint],[TimePeriod]++-%20period_start
@@ -367,6 +374,23 @@ start</a></em>  <sub>0..1</sub>  <strong><a href="./">TimePoint</a></strong></li
 </ul>
 </li>
 </ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>The TimePoint object supports three ways to specify a point in time. The date_time field is the most direct - capturing an explicit data (e.g. 2021-05-05). The paired fields index_time_point and  offset_from_index allows specification of a point in time as an offset from preceding fixed time point.  Finally, the event_type field uses type of event as a proxy for the time point when the event occurred.</td>
+</tr>
+</tbody>
+</table>
                 
               
               
