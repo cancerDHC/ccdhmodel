@@ -311,6 +311,8 @@ docserve: gen-docs
 # generators/google-sheets directory, so we have to run pipenv install on it separately.
 generate-model: install install-dev
 	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) python vendor/sheet2linkml/sheet2linkml.py --output model/schema/crdch_model.yaml
+	# We temporarily need to rename codeable concept to enum.
+	./rename-codeable-concepts-to-enum.sh
 
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
 # Deploy changes to the `dev` version on the gh-pages branch.
