@@ -57,7 +57,7 @@ linkml:Nodeidentifier NONLITERAL
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
           <value_integer> @<CrdchInteger> ? ;
-          <value_codeable_concept> @<EnumCRDCHAlcoholExposureObservationValueCodeableConcept> ?
+          <value_enum> @<EnumCRDCHAlcoholExposureObservationValueEnum> ?
        ) ;
        rdf:type [ <AlcoholExposureObservation> ] ?
     )
@@ -96,7 +96,7 @@ linkml:Nodeidentifier NONLITERAL
           <method_type> @<EnumCRDCHCancerGradeObservationMethodType> ? ;
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
-          <value_codeable_concept> @<EnumCRDCHCancerGradeObservationValueCodeableConcept>
+          <value_enum> @<EnumCRDCHCancerGradeObservationValueEnum>
        ) ;
        rdf:type [ <CancerGradeObservation> ] ?
     )
@@ -128,7 +128,7 @@ linkml:Nodeidentifier NONLITERAL
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
           <value_entity> @<Entity> ? ;
-          <value_codeable_concept> @<EnumCRDCHCancerStageObservationValueCodeableConcept>
+          <value_enum> @<EnumCRDCHCancerStageObservationValueEnum>
        ) ;
        rdf:type [ <CancerStageObservation> ] ?
     )
@@ -268,7 +268,7 @@ linkml:Nodeidentifier NONLITERAL
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <value_codeable_concept> @<EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept>
+          <value_enum> @<EnumCRDCHEnvironmentalExposureObservationValueEnum>
        ) ;
        rdf:type [ <EnvironmentalExposureObservation> ] ?
     )
@@ -284,7 +284,7 @@ linkml:Nodeidentifier NONLITERAL
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <value_codeable_concept> @<EnumCRDCHExecutionConditionObservationValueCodeableConcept>
+          <value_enum> @<EnumCRDCHExecutionConditionObservationValueEnum>
        ) ;
        rdf:type [ <ExecutionConditionObservation> ] ?
     )
@@ -379,7 +379,7 @@ linkml:Nodeidentifier NONLITERAL
           <value_boolean> @<CrdchBoolean> ? ;
           <value_date_time> @<CrdchDateTime> ? ;
           <value_quantity> @<Quantity> ? ;
-          <value_codeable_concept> @<EnumCRDCHObservationValueCodeableConcept> ?
+          <value_enum> @<EnumCRDCHObservationValueEnum> ?
        ) ;
        rdf:type [ <Observation> ] ?
     )
@@ -417,7 +417,7 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Quantity_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <value_decimal> @<CrdchDecimal> ? ;
-          <value_codeable_concept> @<EnumCRDCHQuantityValueCodeableConcept> ? ;
+          <value_enum> @<EnumCRDCHQuantityValueEnum> ? ;
           <unit> @<EnumCRDCHQuantityUnit> ?
        ) ;
        rdf:type [ <Quantity> ] ?
@@ -684,7 +684,7 @@ linkml:Nodeidentifier NONLITERAL
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
           <value_integer> @<CrdchInteger> ? ;
-          <value_codeable_concept> @<EnumCRDCHTobaccoExposureObservationValueCodeableConcept> ?
+          <value_enum> @<EnumCRDCHTobaccoExposureObservationValueEnum> ?
        ) ;
        rdf:type [ <TobaccoExposureObservation> ] ?
     )

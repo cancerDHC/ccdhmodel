@@ -8,7 +8,7 @@ type AlcoholExposureObservation
     subject: Subject
     performedBy: Organization
     valueInteger: CrdchInteger
-    valueCodeableConcept: EnumCRDCHAlcoholExposureObservationValueCodeableConcept
+    valueEnum: EnumCRDCHAlcoholExposureObservationValueEnum
   }
 
 type BiologicProduct
@@ -35,7 +35,7 @@ type CancerGradeObservation
     methodType: EnumCRDCHCancerGradeObservationMethodType
     focus: Entity
     subject: Subject
-    valueCodeableConcept: EnumCRDCHCancerGradeObservationValueCodeableConcept!
+    valueEnum: EnumCRDCHCancerGradeObservationValueEnum!
   }
 
 type CancerGradeObservationSet
@@ -59,7 +59,7 @@ type CancerStageObservation
     subject: Subject
     performedBy: Organization
     valueEntity: Entity
-    valueCodeableConcept: EnumCRDCHCancerStageObservationValueCodeableConcept!
+    valueEnum: EnumCRDCHCancerStageObservationValueEnum!
   }
 
 type CancerStageObservationSet
@@ -155,7 +155,7 @@ type EnvironmentalExposureObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueCodeableConcept: EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept!
+    valueEnum: EnumCRDCHEnvironmentalExposureObservationValueEnum!
   }
 
 type ExecutionConditionObservation
@@ -167,7 +167,7 @@ type ExecutionConditionObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueCodeableConcept: EnumCRDCHExecutionConditionObservationValueCodeableConcept!
+    valueEnum: EnumCRDCHExecutionConditionObservationValueEnum!
   }
 
 type ExecutionTimeObservation
@@ -238,7 +238,7 @@ type Observation
     valueBoolean: CrdchBoolean
     valueDateTime: CrdchDateTime
     valueQuantity: Quantity
-    valueCodeableConcept: EnumCRDCHObservationValueCodeableConcept
+    valueEnum: EnumCRDCHObservationValueEnum
   }
 
 type ObservationSet
@@ -264,7 +264,7 @@ type Organization
 type Quantity
   {
     valueDecimal: CrdchDecimal
-    valueCodeableConcept: EnumCRDCHQuantityValueCodeableConcept
+    valueEnum: EnumCRDCHQuantityValueEnum
     unit: EnumCRDCHQuantityUnit
   }
 
@@ -471,7 +471,7 @@ type TobaccoExposureObservation
     subject: Subject
     performedBy: Organization
     valueInteger: CrdchInteger
-    valueCodeableConcept: EnumCRDCHTobaccoExposureObservationValueCodeableConcept
+    valueEnum: EnumCRDCHTobaccoExposureObservationValueEnum
   }
 
 type Treatment

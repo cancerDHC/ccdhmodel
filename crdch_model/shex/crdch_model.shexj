@@ -193,8 +193,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHAlcoholExposureObservationValueEnum",
                         "min": 0,
                         "max": 1
                      }
@@ -415,8 +415,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationValueEnum",
                         "min": 1,
                         "max": 1
                      }
@@ -605,8 +605,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationValueEnum",
                         "min": 1,
                         "max": 1
                      }
@@ -1410,8 +1410,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHEnvironmentalExposureObservationValueEnum",
                         "min": 1,
                         "max": 1
                      }
@@ -1505,8 +1505,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionConditionObservationValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionConditionObservationValueEnum",
                         "min": 1,
                         "max": 1
                      }
@@ -2068,8 +2068,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationValueEnum",
                         "min": 0,
                         "max": 1
                      }
@@ -2283,8 +2283,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHQuantityValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHQuantityValueEnum",
                         "min": 0,
                         "max": 1
                      },
@@ -3897,8 +3897,8 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
+                        "predicate": "https://example.org/crdch/value_enum",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHTobaccoExposureObservationValueEnum",
                         "min": 0,
                         "max": 1
                      }
