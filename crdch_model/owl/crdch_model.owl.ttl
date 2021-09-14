@@ -9,13 +9,13 @@
 <https://example.org/crdch> a owl:Ontology ;
     rdfs:label "CRDC-H" ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    pav:version "v0.2-338-g0930717b-dirty" ;
+    pav:version "v0.2-341-g3ecf039d" ;
     skos:editorialNote "Derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)" ;
-    linkml:generation_date "2021-09-10 13:49" ;
+    linkml:generation_date "2021-09-14 17:16" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "crdch_model.yaml" ;
-    linkml:source_file_date "Fri Sep 10 13:47:14 2021" ;
-    linkml:source_file_size 1060297 .
+    linkml:source_file_date "Tue Sep 14 17:11:14 2021" ;
+    linkml:source_file_size 1061052 .
 
 <https://example.org/crdch/CrdchCode> a owl:Class,
         linkml:TypeDefinition ;
@@ -657,18 +657,18 @@ linkml:coding__system a owl:ObjectProperty,
     skos:editorialNote "Cardinality: 1..1" ;
     linkml:examples "Example(value='', description=None)" .
 
-linkml:coding__systemURL a owl:ObjectProperty,
+linkml:coding__system_url a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "coding__systemURL" ;
+    rdfs:label "coding__system_url" ;
     rdfs:domain <https://example.org/crdch/Coding> ;
     rdfs:range <https://example.org/crdch/CrdchString> ;
     skos:definition "A URL where the code system can be found." ;
     skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
 
-linkml:coding__systemVersion a owl:ObjectProperty,
+linkml:coding__system_version a owl:ObjectProperty,
         linkml:SlotDefinition ;
-    rdfs:label "coding__systemVersion" ;
+    rdfs:label "coding__system_version" ;
     rdfs:domain <https://example.org/crdch/Coding> ;
     rdfs:range <https://example.org/crdch/CrdchString> ;
     skos:definition "The version of the code system." ;
@@ -692,6 +692,16 @@ linkml:diagnosis__condition a owl:ObjectProperty,
     skos:definition "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)" ;
     skos:editorialNote "Cardinality: 0..1" ;
     skos:note "This attribute will subsume source attributes that are bound to ICD-O and ICD-10 classification systems." ;
+    linkml:examples "Example(value='', description=None)" .
+
+linkml:diagnosis__diagnosis_date a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "diagnosis__diagnosis_date" ;
+    rdfs:domain <https://example.org/crdch/Diagnosis> ;
+    rdfs:range <https://example.org/crdch/TimePoint> ;
+    skos:definition "When the diagnosis was made." ;
+    skos:editorialNote "Cardinality: 0..1" ;
+    skos:note "A TimePoint object supports three ways to specify a point in time, each of which might be used in the context of capturing a diagnosis date - as source node data can report this date as an explicit year or date (e.g. 2021-05-05), or an offset from an indexed point in time. See description of the TimePoint entity for more information here. " ;
     linkml:examples "Example(value='', description=None)" .
 
 linkml:diagnosis__disease_status a owl:ObjectProperty,
@@ -834,15 +844,6 @@ linkml:diagnosis__supporting_observation a owl:ObjectProperty,
     rdfs:range <https://example.org/crdch/Observation> ;
     skos:definition "One or more observations that capture information relevant to this condition or diagnosis." ;
     skos:editorialNote "Cardinality: 0..m" ;
-    linkml:examples "Example(value='', description=None)" .
-
-linkml:diagnosis__year_at_diagnosis a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "diagnosis__year_at_diagnosis" ;
-    rdfs:domain <https://example.org/crdch/Diagnosis> ;
-    rdfs:range <https://example.org/crdch/CrdchInteger> ;
-    skos:definition "Numeric value to represent the year of an individual's diagnosis." ;
-    skos:editorialNote "Cardinality: 0..1" ;
     linkml:examples "Example(value='', description=None)" .
 
 linkml:dimensionalObservationSet__category a owl:ObjectProperty,
@@ -2953,7 +2954,7 @@ linkml:specimen__specimen_type a owl:ObjectProperty,
     skos:note "Our model defines a single 'Specimen' type to cover speific subtypes of specimens delineated in some CRDC node models (e.g. GDC 'Sample', 'Portion', 'Aliquot', 'Analyte', and 'Slide'). The 'specimen_type' field is used to indicate which subtype a given Specimen instance represents.  The enumerated values are meant to be mutually exclusive, such that only one can be applied to a given specimen." ;
     linkml:examples "Example(value='Aliquot', description=None)",
         "Example(value='Analyte', description=None)",
-        "Example(value='Initial Sample', description=None)",
+        "Example(value='Fresh Specimen', description=None)",
         "Example(value='Portion', description=None)",
         "Example(value='Slide', description=None)" .
 
@@ -3610,15 +3611,6 @@ linkml:String a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Exposure" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/EnvironmentalExposureObservation> ;
-            owl:onProperty linkml:environmental_exposure ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/TobaccoExposureObservation> ;
-            owl:onProperty linkml:tobacco_exposure ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ;
             owl:qualifiedCardinality 1 ],
@@ -3626,9 +3618,18 @@ linkml:String a owl:Class,
             owl:allValuesFrom <https://example.org/crdch/AlcoholExposureObservation> ;
             owl:onProperty linkml:alcohol_exposure ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/TobaccoExposureObservation> ;
+            owl:onProperty linkml:tobacco_exposure ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
             owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/EnvironmentalExposureObservation> ;
+            owl:onProperty linkml:environmental_exposure ],
         <https://example.org/crdch/Entity> ;
     skos:definition "Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance." ;
     skos:editorialNote "Derived from [Exposure in sheet Exposure](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931)" .
@@ -3637,25 +3638,25 @@ linkml:String a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Coding" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:label ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:systemVersion ],
-        [ a owl:Restriction ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:code ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:system ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:systemURL ],
+            owl:onProperty linkml:system_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:system_url ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:code ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:label ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system." ;
     skos:editorialNote "Derived from [Coding in sheet Coding](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1218588936)" .
@@ -3664,30 +3665,30 @@ linkml:String a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Observation> ;
-            owl:onProperty linkml:observations ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_ObservationSet_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ObservationSet_category> ;
-            owl:onProperty linkml:category ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ObservationSet_category> ;
+            owl:onProperty linkml:category ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Observation> ;
+            owl:onProperty linkml:observations ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_ObservationSet_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
             owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [ObservationSet in sheet ObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1243450201)" ;
@@ -3697,26 +3698,26 @@ linkml:String a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "BiologicProduct" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:growth_rate ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_BiologicProduct_product_type> ;
+            owl:onProperty linkml:product_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:description ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/CrdchInteger> ;
+            owl:onProperty linkml:passage_number ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_BiologicProduct_product_type> ;
-            owl:onProperty linkml:product_type ],
+            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:growth_rate ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/CrdchInteger> ;
-            owl:onProperty linkml:passage_number ],
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro." ;
     skos:editorialNote "Derived from [BiologicProduct in sheet BiologicProduct](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080)" .
@@ -3725,27 +3726,27 @@ linkml:String a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Document" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:url ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Document_document_type> ;
+            owl:onProperty linkml:document_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
+            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:url ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Document_document_type> ;
-            owl:onProperty linkml:document_type ],
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A collection of information intented to be understood together as a whole, and codified in human-readable form." ;
     skos:editorialNote "Derived from [Document in sheet Document](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)" .
@@ -3755,12 +3756,8 @@ linkml:String a owl:Class,
     rdfs:label "SpecimenStorageActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:date_ended ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:date_started ],
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:duration ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenStorageActivity_method_type> ;
@@ -3770,12 +3767,16 @@ linkml:String a owl:Class,
             owl:onProperty linkml:container ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:duration ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:date_ended ],
         <https://example.org/crdch/Entity> ;
     skos:definition """An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
 intrinsic physical nature of a specimen.""" ;
@@ -3787,32 +3788,32 @@ intrinsic physical nature of a specimen.""" ;
     rdfs:label "CancerGradeObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservation_value_enum> ;
+            owl:onProperty linkml:value_enum ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
             owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservation_value_enum> ;
-            owl:onProperty linkml:value_enum ;
-            owl:qualifiedCardinality 1 ],
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A data structure with key (observation_type) and value (value_enum) attributes that represents a single cancer grade observation" ;
     skos:editorialNote "Derived from [CancerGradeObservation in sheet CancerGradeObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1099484640)" .
@@ -3821,30 +3822,30 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "CancerGradeObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservationSet_category> ;
-            owl:onProperty linkml:category ],
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservationSet_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservationSet_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
+            owl:allValuesFrom <https://example.org/crdch/CancerGradeObservation> ;
+            owl:onProperty linkml:observations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/CancerGradeObservation> ;
-            owl:onProperty linkml:observations ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerGradeObservationSet_category> ;
+            owl:onProperty linkml:category ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)." ;
     skos:editorialNote "Derived from [CancerGradeObservationSet in sheet CancerGradeObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1025765903)" .
@@ -3853,18 +3854,18 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "CancerStageObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_CancerStageObservationSet_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/CancerStageObservation> ;
             owl:onProperty linkml:observations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_CancerStageObservationSet_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:allValuesFrom <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
@@ -3875,8 +3876,8 @@ intrinsic physical nature of a specimen.""" ;
             owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation)." ;
     skos:editorialNote "Derived from [CancerStageObservationSet in sheet CancerStageObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1668576212)" .
@@ -3885,20 +3886,15 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "HistologicalCompositionObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservationSet_category> ;
-            owl:onProperty linkml:category ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservationSet_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:allValuesFrom <https://example.org/crdch/HistologicalCompositionObservation> ;
+            owl:onProperty linkml:observations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
             owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservationSet_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ;
@@ -3907,8 +3903,13 @@ intrinsic physical nature of a specimen.""" ;
             owl:allValuesFrom <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/HistologicalCompositionObservation> ;
-            owl:onProperty linkml:observations ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservationSet_category> ;
+            owl:onProperty linkml:category ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype." ;
     skos:editorialNote "Derived from [HistologicalCompositionObservationSet in sheet HistologicalCompositionObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=815777747)" ;
@@ -3922,27 +3923,27 @@ intrinsic physical nature of a specimen.""" ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/ExecutionConditionObservation> ;
-            owl:onProperty linkml:execution_condition_observation ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:transport_destination ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:duration ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/TimePoint> ;
             owl:onProperty linkml:date_started ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:transport_origin ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/TimePoint> ;
             owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/ExecutionConditionObservation> ;
+            owl:onProperty linkml:execution_condition_observation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:duration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:transport_origin ],
         <https://example.org/crdch/Entity> ;
     skos:definition "An activity through which a specimen is transported between locations or organizations." ;
     skos:editorialNote "Derived from [SpecimenTransportActivity in sheet SpecimenTransportActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)" ;
@@ -3952,6 +3953,24 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "DimensionalObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_DimensionalObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/Quantity> ;
             owl:onProperty linkml:value_quantity ;
             owl:qualifiedCardinality 1 ],
@@ -3960,27 +3979,9 @@ intrinsic physical nature of a specimen.""" ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_DimensionalObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_DimensionalObservation_category> ;
             owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement." ;
     skos:editorialNote "Derived from [DimensionalObservation in sheet DimensionalObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1045447308)" ;
@@ -3991,36 +3992,36 @@ intrinsic physical nature of a specimen.""" ;
     rdfs:label "EnvironmentalExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_EnvironmentalExposureObservation_category> ;
             owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_EnvironmentalExposureObservation_value_enum> ;
-            owl:onProperty linkml:value_enum ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_EnvironmentalExposureObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_EnvironmentalExposureObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_EnvironmentalExposureObservation_value_enum> ;
+            owl:onProperty linkml:value_enum ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_EnvironmentalExposureObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [EnvironmentalExposureObservation in sheet EnvironmentalExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=274611680)" .
@@ -4032,13 +4033,13 @@ intrinsic physical nature of a specimen.""" ;
             owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservation_method_type> ;
             owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:value_quantity ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservation_category> ;
@@ -4047,17 +4048,17 @@ intrinsic physical nature of a specimen.""" ;
             owl:allValuesFrom <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_HistologicalCompositionObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:value_quantity ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
         <https://example.org/crdch/Entity> ;
     skos:definition "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype)." ;
     skos:editorialNote "Derived from [HistologicalCompositionObservation in sheet HistologicalCompositionObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1411171873)" .
@@ -4066,13 +4067,8 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "SpecimenQualityObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenQualityObservation_category> ;
-            owl:onProperty linkml:category ],
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_SpecimenQualityObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
@@ -4082,15 +4078,20 @@ intrinsic physical nature of a specimen.""" ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenQualityObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenQualityObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_SpecimenQualityObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenQualityObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/Quantity> ;
             owl:onProperty linkml:value_quantity ;
@@ -4103,35 +4104,35 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "SpecimenQuantityObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_SpecimenQuantityObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:value_quantity ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenQuantityObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenQuantityObservation_category> ;
             owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
             owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:value_quantity ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_SpecimenQuantityObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenQuantityObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement." ;
     skos:editorialNote "Derived from [SpecimenQuantityObservation in sheet SpecimenQuantityObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=9917708)" ;
@@ -4142,40 +4143,40 @@ intrinsic physical nature of a specimen.""" ;
     rdfs:label "AlcoholExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_AlcoholExposureObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:onClass <https://example.org/crdch/CrdchInteger> ;
+            owl:onProperty linkml:value_integer ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_AlcoholExposureObservation_value_enum> ;
             owl:onProperty linkml:value_enum ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_AlcoholExposureObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_AlcoholExposureObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchInteger> ;
-            owl:onProperty linkml:value_integer ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_AlcoholExposureObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_AlcoholExposureObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [AlcoholExposureObservation in sheet AlcoholExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1894439514)" .
@@ -4188,25 +4189,21 @@ intrinsic physical nature of a specimen.""" ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerStageObservation_category> ;
             owl:onProperty linkml:category ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:value_entity ],
+        [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerStageObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerStageObservation_method_type> ;
             owl:onProperty linkml:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:value_entity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
@@ -4215,6 +4212,10 @@ intrinsic physical nature of a specimen.""" ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_CancerStageObservation_value_enum> ;
             owl:onProperty linkml:value_enum ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
@@ -4227,27 +4228,27 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "DimensionalObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/DimensionalObservation> ;
+            owl:onProperty linkml:observations ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/DimensionalObservation> ;
-            owl:onProperty linkml:observations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_DimensionalObservationSet_category> ;
             owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
             owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_DimensionalObservationSet_method_type> ;
             owl:onProperty linkml:method_type ],
@@ -4259,23 +4260,30 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "SpecimenProcessingActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:date_ended ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:duration ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/ExecutionTimeObservation> ;
             owl:onProperty linkml:execution_time_observation ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenProcessingActivity_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Substance> ;
+            owl:onProperty linkml:additive ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:date_started ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenProcessingActivity_activity_type> ;
             owl:onProperty linkml:activity_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:duration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenProcessingActivity_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/ExecutionConditionObservation> ;
             owl:onProperty linkml:execution_condition_observation ],
@@ -4283,13 +4291,6 @@ intrinsic physical nature of a specimen.""" ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:date_started ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Substance> ;
-            owl:onProperty linkml:additive ],
         <https://example.org/crdch/Entity> ;
     skos:definition "An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen." ;
     skos:editorialNote "Derived from [SpecimenProcessingActivity in sheet SpecimenProcessingActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1726416617)" ;
@@ -4318,40 +4319,40 @@ intrinsic physical nature of a specimen.""" ;
     rdfs:label "TobaccoExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_value_enum> ;
-            owl:onProperty linkml:value_enum ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_category> ;
-            owl:onProperty linkml:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchInteger> ;
-            owl:onProperty linkml:value_integer ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_value_enum> ;
+            owl:onProperty linkml:value_enum ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_category> ;
+            owl:onProperty linkml:category ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_TobaccoExposureObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchInteger> ;
+            owl:onProperty linkml:value_integer ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [TobaccoExposureObservation in sheet TobaccoExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1464668175)" .
@@ -4360,10 +4361,6 @@ intrinsic physical nature of a specimen.""" ;
         linkml:ClassDefinition ;
     rdfs:label "ExecutionTimeObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionTimeObservation_category> ;
             owl:onProperty linkml:category ],
@@ -4376,6 +4373,10 @@ intrinsic physical nature of a specimen.""" ;
             owl:onClass <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/Quantity> ;
             owl:onProperty linkml:value_quantity ;
             owl:qualifiedCardinality 1 ],
@@ -4384,13 +4385,13 @@ intrinsic physical nature of a specimen.""" ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionTimeObservation_method_type> ;
             owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionTimeObservation_observation_type> ;
             owl:onProperty linkml:observation_type ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         <https://example.org/crdch/Entity> ;
     skos:definition """A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
 
@@ -4402,18 +4403,15 @@ Information describing the environmental conditions in which an activity, or a s
     rdfs:label "ResearchSubject" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:originating_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ResearchSubject_index_timepoint> ;
-            owl:onProperty linkml:index_timepoint ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
+            owl:onClass <https://example.org/crdch/ResearchProject> ;
+            owl:onProperty linkml:member_of_research_project ],
         [ a owl:Restriction ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:associated_subject ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
@@ -4421,30 +4419,33 @@ Information describing the environmental conditions in which an activity, or a s
             owl:onProperty linkml:primary_diagnosis_site ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:age_at_enrollment ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ResearchSubject_primary_diagnosis_condition> ;
+            owl:onProperty linkml:primary_diagnosis_condition ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Diagnosis> ;
             owl:onProperty linkml:primary_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ResearchSubject_primary_diagnosis_condition> ;
-            owl:onProperty linkml:primary_diagnosis_condition ],
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/ResearchProject> ;
-            owl:onProperty linkml:member_of_research_project ],
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:age_at_enrollment ],
         [ a owl:Restriction ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:associated_subject ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ResearchSubject_index_timepoint> ;
+            owl:onProperty linkml:index_timepoint ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Diagnosis> ;
             owl:onProperty linkml:comorbid_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:description ],
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:originating_site ],
         <https://example.org/crdch/Entity> ;
     skos:definition """A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
 or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.""" ;
@@ -4454,8 +4455,9 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
         linkml:ClassDefinition ;
     rdfs:label "SpecimenContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/SpecimenContainer> ;
@@ -4465,16 +4467,15 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:container_number ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenContainer_container_type> ;
-            owl:onProperty linkml:container_type ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Substance> ;
             owl:onProperty linkml:additive ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenContainer_container_type> ;
+            owl:onProperty linkml:container_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)" ;
     skos:editorialNote "Derived from [SpecimenContainer in sheet SpecimenContainer](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=729222697)" .
@@ -4483,31 +4484,30 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
         linkml:ClassDefinition ;
     rdfs:label "BodySite" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_BodySite_qualifier> ;
+            owl:onProperty linkml:qualifier ],
+        [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_BodySite_site> ;
             owl:onProperty linkml:site ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_BodySite_qualifier> ;
-            owl:onProperty linkml:qualifier ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device." ;
     skos:editorialNote "Derived from [BodySite in sheet BodySite](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097478901)" .
+
+<https://example.org/crdch/CrdchInteger> a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "crdch_integer" ;
+    rdfs:subClassOf linkml:Integer ;
+    skos:definition "An integer number.  This data type is based on the decimal type, but the fractional component is not allowed.  There are no restrictions on the size of the integer." ;
+    skos:editorialNote "Derived from [crdch_integer in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)" .
 
 <https://example.org/crdch/ExecutionConditionObservation> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ExecutionConditionObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_value_enum> ;
-            owl:onProperty linkml:value_enum ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_category> ;
-            owl:onProperty linkml:category ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_method_type> ;
+            owl:onProperty linkml:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Subject> ;
@@ -4518,16 +4518,24 @@ or a tissue sample. Human research subjects are usually not traceable to a parti
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:focus ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_category> ;
+            owl:onProperty linkml:category ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_ExecutionConditionObservation_value_enum> ;
+            owl:onProperty linkml:value_enum ;
+            owl:qualifiedCardinality 1 ],
         <https://example.org/crdch/Entity> ;
     skos:definition """A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
 
@@ -4543,15 +4551,16 @@ Information describing the environmental conditions in which an activity, or a s
             owl:onProperty linkml:date_ended ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:quantity_collected ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenCreationActivity_activity_type> ;
+            owl:onProperty linkml:activity_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchInteger> ;
+            owl:onProperty linkml:specimen_order ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/TimePoint> ;
             owl:onProperty linkml:date_started ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Substance> ;
-            owl:onProperty linkml:additive ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/ExecutionTimeObservation> ;
             owl:onProperty linkml:execution_time_observation ],
@@ -4561,27 +4570,26 @@ Information describing the environmental conditions in which an activity, or a s
             owl:onProperty linkml:derivation_method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/BodySite> ;
-            owl:onProperty linkml:collection_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenCreationActivity_collection_method_type> ;
             owl:onProperty linkml:collection_method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchInteger> ;
-            owl:onProperty linkml:specimen_order ],
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:quantity_collected ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_SpecimenCreationActivity_activity_type> ;
-            owl:onProperty linkml:activity_type ],
+            owl:allValuesFrom <https://example.org/crdch/ExecutionConditionObservation> ;
+            owl:onProperty linkml:execution_condition_observation ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
             owl:onProperty linkml:performed_by ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/ExecutionConditionObservation> ;
-            owl:onProperty linkml:execution_condition_observation ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/BodySite> ;
+            owl:onProperty linkml:collection_site ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Substance> ;
+            owl:onProperty linkml:additive ],
         <https://example.org/crdch/Entity> ;
     skos:definition "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting)." ;
     skos:editorialNote "Derived from [SpecimenCreationActivity in sheet SpecimenCreationActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130)" ;
@@ -4590,74 +4598,67 @@ Information describing the environmental conditions in which an activity, or a s
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
-<https://example.org/crdch/CrdchInteger> a owl:Class,
-        linkml:TypeDefinition ;
-    rdfs:label "crdch_integer" ;
-    rdfs:subClassOf linkml:Integer ;
-    skos:definition "An integer number.  This data type is based on the decimal type, but the fractional component is not allowed.  There are no restrictions on the size of the integer." ;
-    skos:editorialNote "Derived from [crdch_integer in sheet Primitives](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=497370447)" .
-
 <https://example.org/crdch/Observation> a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Observation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchDecimal> ;
-            owl:onProperty linkml:value_decimal ],
+            owl:onProperty linkml:value_integer ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchDateTime> ;
-            owl:onProperty linkml:value_date_time ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Entity> ;
-            owl:onProperty linkml:value_entity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Observation_value_enum> ;
-            owl:onProperty linkml:value_enum ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Organization> ;
-            owl:onProperty linkml:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:value_string ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:value_quantity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchBoolean> ;
             owl:onProperty linkml:value_boolean ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:value_quantity ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Observation_value_enum> ;
+            owl:onProperty linkml:value_enum ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_Observation_method_type> ;
-            owl:onProperty linkml:method_type ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchDecimal> ;
+            owl:onProperty linkml:value_decimal ],
+        [ a owl:Restriction ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Observation_observation_type> ;
+            owl:onProperty linkml:observation_type ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Entity> ;
             owl:onProperty linkml:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:value_string ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Entity> ;
+            owl:onProperty linkml:value_entity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Organization> ;
+            owl:onProperty linkml:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Observation_category> ;
             owl:onProperty linkml:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchDecimal> ;
-            owl:onProperty linkml:value_integer ],
+            owl:onClass <https://example.org/crdch/CrdchDateTime> ;
+            owl:onProperty linkml:value_date_time ],
         [ a owl:Restriction ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Observation_observation_type> ;
-            owl:onProperty linkml:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_Observation_method_type> ;
+            owl:onProperty linkml:method_type ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [Observation in sheet Observation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=550424063)" ;
@@ -4668,60 +4669,12 @@ linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "Treatment" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchInteger> ;
-            owl:onProperty linkml:number_of_cycles ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_regimen> ;
-            owl:onProperty linkml:regimen ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Treatment> ;
-            owl:onProperty linkml:concurrent_treatment ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_outcome> ;
-            owl:onProperty linkml:treatment_outcome ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:date_started ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_end_reason> ;
-            owl:onProperty linkml:treatment_end_reason ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/BodySite> ;
-            owl:onProperty linkml:treatment_anatomic_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Substance> ;
-            owl:onProperty linkml:therapeutic_agent ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_frequency> ;
             owl:onProperty linkml:treatment_frequency ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_intent> ;
-            owl:onProperty linkml:treatment_intent ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Diagnosis> ;
-            owl:onProperty linkml:treatment_for_diagnosis ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_effect> ;
-            owl:onProperty linkml:treatment_effect ],
+            owl:onClass <https://example.org/crdch/Substance> ;
+            owl:onProperty linkml:therapeutic_agent ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_type> ;
@@ -4729,7 +4682,55 @@ linkml:topValue a owl:DatatypeProperty ;
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_outcome> ;
+            owl:onProperty linkml:treatment_outcome ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Treatment> ;
+            owl:onProperty linkml:concurrent_treatment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Diagnosis> ;
+            owl:onProperty linkml:treatment_for_diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchInteger> ;
+            owl:onProperty linkml:number_of_cycles ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_effect> ;
+            owl:onProperty linkml:treatment_effect ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/TimePoint> ;
             owl:onProperty linkml:date_ended ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_end_reason> ;
+            owl:onProperty linkml:treatment_end_reason ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_treatment_intent> ;
+            owl:onProperty linkml:treatment_intent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Treatment_regimen> ;
+            owl:onProperty linkml:regimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/BodySite> ;
+            owl:onProperty linkml:treatment_anatomic_site ],
         <https://example.org/crdch/Entity> ;
     skos:definition "Represent medication administration or other treatment types." ;
     skos:editorialNote "Derived from [Treatment in sheet Treatment](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=2111784779)" ;
@@ -4739,32 +4740,11 @@ linkml:topValue a owl:DatatypeProperty ;
         linkml:ClassDefinition ;
     rdfs:label "ResearchProject" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/ResearchProject> ;
-            owl:onProperty linkml:part_of ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:date_started ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:sponsor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:date_ended ],
+            owl:allValuesFrom <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:associated_timepoint ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/BodySite> ;
             owl:onProperty linkml:primary_anatomic_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:name_shortened ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/TimePoint> ;
-            owl:onProperty linkml:associated_timepoint ],
         [ a owl:Restriction ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_ResearchProject_research_project_type> ;
             owl:onProperty linkml:research_project_type ;
@@ -4775,8 +4755,8 @@ linkml:topValue a owl:DatatypeProperty ;
             owl:onProperty linkml:description_shortened ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:name ],
+            owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:date_ended ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
@@ -4785,9 +4765,30 @@ linkml:topValue a owl:DatatypeProperty ;
             owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:url ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/ResearchProject> ;
+            owl:onProperty linkml:part_of ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:name_shortened ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:sponsor ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:date_started ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:name ],
         <https://example.org/crdch/Entity> ;
     skos:definition """A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
 This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
@@ -4802,6 +4803,12 @@ linkml:TypeDefinition a owl:Class ;
         linkml:ClassDefinition ;
     rdfs:label "Diagnosis" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/BodySite> ;
+            owl:onProperty linkml:primary_site ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/BodySite> ;
+            owl:onProperty linkml:metastatic_site ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Diagnosis_disease_status> ;
             owl:onProperty linkml:disease_status ],
@@ -4809,28 +4816,20 @@ linkml:TypeDefinition a owl:Class ;
             owl:allValuesFrom <https://example.org/crdch/Specimen> ;
             owl:onProperty linkml:related_specimen ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:age_at_diagnosis ],
+            owl:allValuesFrom <https://example.org/crdch/CancerStageObservationSet> ;
+            owl:onProperty linkml:stage ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
+            owl:onClass <https://example.org/crdch/TimePoint> ;
+            owl:onProperty linkml:diagnosis_date ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Diagnosis_method_of_diagnosis> ;
-            owl:onProperty linkml:method_of_diagnosis ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Diagnosis_condition> ;
+            owl:onProperty linkml:condition ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchInteger> ;
-            owl:onProperty linkml:year_at_diagnosis ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:subject ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Diagnosis_morphology> ;
+            owl:onProperty linkml:morphology ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/CancerGradeObservationSet> ;
             owl:onProperty linkml:grade ],
@@ -4839,29 +4838,31 @@ linkml:TypeDefinition a owl:Class ;
             owl:onClass <https://example.org/crdch/Diagnosis> ;
             owl:onProperty linkml:prior_diagnosis ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/CancerStageObservationSet> ;
-            owl:onProperty linkml:stage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Observation> ;
-            owl:onProperty linkml:supporting_observation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Diagnosis_morphology> ;
-            owl:onProperty linkml:morphology ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/BodySite> ;
-            owl:onProperty linkml:metastatic_site ],
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/DimensionalObservationSet> ;
             owl:onProperty linkml:primary_tumor_dimensional_measures ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Diagnosis_condition> ;
-            owl:onProperty linkml:condition ],
+            owl:allValuesFrom <https://example.org/crdch/Observation> ;
+            owl:onProperty linkml:supporting_observation ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/BodySite> ;
-            owl:onProperty linkml:primary_site ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:age_at_diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Diagnosis_method_of_diagnosis> ;
+            owl:onProperty linkml:method_of_diagnosis ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions." ;
     skos:editorialNote "Derived from [Diagnosis in sheet Diagnosis](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1015759209)" .
@@ -4910,94 +4911,45 @@ linkml:TypeDefinition a owl:Class ;
         linkml:ClassDefinition ;
     rdfs:label "Specimen" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/HistologicalCompositionObservationSet> ;
-            owl:onProperty linkml:histological_composition_measures ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_degree_of_dysplasia> ;
-            owl:onProperty linkml:degree_of_dysplasia ],
+            owl:onClass <https://example.org/crdch/DimensionalObservationSet> ;
+            owl:onProperty linkml:dimensional_measures ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/SpecimenQualityObservation> ;
-            owl:onProperty linkml:quality_measure ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_analyte_type> ;
-            owl:onProperty linkml:analyte_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/SpecimenContainer> ;
-            owl:onProperty linkml:contained_in ],
+            owl:allValuesFrom <https://example.org/crdch/Specimen> ;
+            owl:onProperty linkml:parent_specimen ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/SpecimenCreationActivity> ;
             owl:onProperty linkml:creation_activity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_tumor_status_at_collection> ;
-            owl:onProperty linkml:tumor_status_at_collection ],
+            owl:onClass <https://example.org/crdch/SpecimenContainer> ;
+            owl:onProperty linkml:contained_in ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_analyte_type> ;
+            owl:onProperty linkml:analyte_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_degree_of_dysplasia> ;
+            owl:onProperty linkml:degree_of_dysplasia ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/SpecimenProcessingActivity> ;
+            owl:onProperty linkml:processing_activity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Subject> ;
+            owl:onProperty linkml:source_subject ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/BiologicProduct> ;
             owl:onProperty linkml:derived_product ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/DimensionalObservationSet> ;
-            owl:onProperty linkml:dimensional_measures ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_tumor_status_at_collection> ;
+            owl:onProperty linkml:tumor_status_at_collection ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchBoolean> ;
-            owl:onProperty linkml:morphology_pathologically_confirmed ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
-            owl:onProperty linkml:identifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/SpecimenStorageActivity> ;
-            owl:onProperty linkml:storage_activity ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:distance_from_paired_specimen ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_morphology_assessment_method> ;
-            owl:onProperty linkml:morphology_assessment_method ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_source_material_type> ;
-            owl:onProperty linkml:source_material_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/ResearchProject> ;
-            owl:onProperty linkml:associated_project ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_section_location> ;
-            owl:onProperty linkml:section_location ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/SpecimenQuantityObservation> ;
-            owl:onProperty linkml:quantity_measure ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_specimen_type> ;
-            owl:onProperty linkml:specimen_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Specimen> ;
-            owl:onProperty linkml:parent_specimen ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_morphology_assessor_role> ;
-            owl:onProperty linkml:morphology_assessor_role ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_cellular_composition_type> ;
-            owl:onProperty linkml:cellular_composition_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ],
+            owl:allValuesFrom <https://example.org/crdch/SpecimenQualityObservation> ;
+            owl:onProperty linkml:quality_measure ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_preinvasive_tissue_morphology> ;
@@ -5005,10 +4957,7 @@ linkml:TypeDefinition a owl:Class ;
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:dysplasia_fraction ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/Document> ;
-            owl:onProperty linkml:related_document ],
+            owl:onProperty linkml:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/Organization> ;
@@ -5018,19 +4967,71 @@ linkml:TypeDefinition a owl:Class ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_general_tissue_morphology> ;
             owl:onProperty linkml:general_tissue_morphology ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://example.org/crdch/SpecimenProcessingActivity> ;
-            owl:onProperty linkml:processing_activity ],
+            owl:allValuesFrom <https://example.org/crdch/SpecimenStorageActivity> ;
+            owl:onProperty linkml:storage_activity ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchBoolean> ;
+            owl:onProperty linkml:morphology_pathologically_confirmed ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/ResearchProject> ;
+            owl:onProperty linkml:associated_project ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/SpecimenTransportActivity> ;
             owl:onProperty linkml:transport_activity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/SpecimenQuantityObservation> ;
+            owl:onProperty linkml:quantity_measure ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:dysplasia_fraction ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_cellular_composition_type> ;
+            owl:onProperty linkml:cellular_composition_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_section_location> ;
+            owl:onProperty linkml:section_location ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Identifier> ;
+            owl:onProperty linkml:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_morphology_assessment_method> ;
+            owl:onProperty linkml:morphology_assessment_method ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:distance_from_paired_specimen ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_specific_tissue_morphology> ;
             owl:onProperty linkml:specific_tissue_morphology ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Subject> ;
-            owl:onProperty linkml:source_subject ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_source_material_type> ;
+            owl:onProperty linkml:source_material_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/HistologicalCompositionObservationSet> ;
+            owl:onProperty linkml:histological_composition_measures ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://example.org/crdch/Document> ;
+            owl:onProperty linkml:related_document ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_morphology_assessor_role> ;
+            owl:onProperty linkml:morphology_assessor_role ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Specimen_specimen_type> ;
+            owl:onProperty linkml:specimen_type ],
         <https://example.org/crdch/Entity> ;
     skos:definition "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation." ;
     skos:editorialNote "Derived from [Specimen in sheet Specimen](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281)" ;
@@ -5040,10 +5041,6 @@ linkml:TypeDefinition a owl:Class ;
         linkml:ClassDefinition ;
     rdfs:label "TimePoint" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:offset_from_index ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <http://UNKNOWN.org/enum_CRDCH_TimePoint_event_type> ;
             owl:onProperty linkml:event_type ],
         [ a owl:Restriction ;
@@ -5056,12 +5053,16 @@ linkml:TypeDefinition a owl:Class ;
             owl:onProperty linkml:index_time_point ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:offset_from_index ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:id ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, specification in terms of offset from a defined index, or description of an event type as a proxy for the time point when it occurred." ;
     skos:editorialNote "Derived from [TimePoint in sheet TimePoint](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=300932847)" ;
-    skos:note "The TimePoint object supports three ways to specify a point in time. The date_time field is the most direct - capturing an explicit data (e.g. 2021-05-05). The paired fields index_time_point and  offset_from_index allows specification of a point in time as an offset from preceding fixed time point.  Finally, the event_type field uses type of event as a proxy for the time point when the event occurred. " .
+    skos:note "The TimePoint object supports three ways to specify a point in time. The date_time field is the most direct - capturing an explicit date (e.g. 2021-05-05). The paired fields index_time_point and  offset_from_index allows specification of a point in time as an offset from a related fixed time point.  Finally, the event_type field uses type of event as a proxy for the time point when the event occurred. " .
 
 linkml:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" ;
@@ -5071,6 +5072,10 @@ linkml:ClassDefinition a owl:Class ;
         linkml:ClassDefinition ;
     rdfs:label "Organization" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:alias ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Identifier> ;
             owl:onProperty linkml:identifier ],
         [ a owl:Restriction ;
@@ -5085,10 +5090,6 @@ linkml:ClassDefinition a owl:Class ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchString> ;
             owl:onProperty linkml:organization_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:alias ],
         <https://example.org/crdch/Entity> ;
     skos:definition "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university" ;
     skos:editorialNote "Derived from [Organization in sheet Organization](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710)" .
@@ -5098,24 +5099,36 @@ linkml:ClassDefinition a owl:Class ;
     rdfs:label "Subject" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_cause_of_death> ;
+            owl:onProperty linkml:cause_of_death ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_ethnicity> ;
             owl:onProperty linkml:ethnicity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_vital_status> ;
-            owl:onProperty linkml:vital_status ],
+            owl:onClass <https://example.org/crdch/Quantity> ;
+            owl:onProperty linkml:age_at_death ],
         [ a owl:Restriction ;
-            owl:onClass <https://example.org/crdch/CrdchString> ;
-            owl:onProperty linkml:id ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_species> ;
+            owl:onProperty linkml:species ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_breed> ;
+            owl:onProperty linkml:breed ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_sex> ;
             owl:onProperty linkml:sex ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/Quantity> ;
-            owl:onProperty linkml:age_at_death ],
+            owl:onClass <https://example.org/crdch/CrdchInteger> ;
+            owl:onProperty linkml:year_of_birth ],
+        [ a owl:Restriction ;
+            owl:onClass <https://example.org/crdch/CrdchString> ;
+            owl:onProperty linkml:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://example.org/crdch/Identifier> ;
             owl:onProperty linkml:identifier ],
@@ -5124,24 +5137,12 @@ linkml:ClassDefinition a owl:Class ;
             owl:onProperty linkml:race ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_cause_of_death> ;
-            owl:onProperty linkml:cause_of_death ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/crdch/CrdchInteger> ;
-            owl:onProperty linkml:year_of_birth ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_breed> ;
-            owl:onProperty linkml:breed ],
+            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_vital_status> ;
+            owl:onProperty linkml:vital_status ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass <https://example.org/crdch/CrdchInteger> ;
             owl:onProperty linkml:year_of_death ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <http://UNKNOWN.org/enum_CRDCH_Subject_species> ;
-            owl:onProperty linkml:species ],
         <https://example.org/crdch/Entity> ;
     skos:definition "Demographics and other administrative information about an individual or animal receiving care or other health-related services." ;
     skos:editorialNote "Derived from [Subject in sheet Subject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379)" .

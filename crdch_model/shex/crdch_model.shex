@@ -163,10 +163,10 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Coding_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <code> @<CrdchString> ;
+          <label> @<CrdchString> ? ;
           <system> @<CrdchString> ;
-          <systemURL> @<CrdchString> ? ;
-          <systemVersion> @<CrdchString> ? ;
-          <label> @<CrdchString> ?
+          <system_url> @<CrdchString> ? ;
+          <system_version> @<CrdchString> ?
        ) ;
        rdf:type [ <Coding> ] ?
     )
@@ -179,7 +179,7 @@ linkml:Nodeidentifier NONLITERAL
           <identifier> @<Identifier> * ;
           <subject> @<Subject> ? ;
           <age_at_diagnosis> @<Quantity> ? ;
-          <year_at_diagnosis> @<CrdchInteger> ? ;
+          <diagnosis_date> @<TimePoint> ? ;
           <condition> @<EnumCRDCHDiagnosisCondition> ? ;
           <primary_site> @<BodySite> * ;
           <metastatic_site> @<BodySite> * ;
