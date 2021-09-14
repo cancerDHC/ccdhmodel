@@ -82,10 +82,10 @@ type CodeableConcept
 type Coding
   {
     code: CrdchString!
-    system: CrdchString!
-    systemURL: CrdchString
-    systemVersion: CrdchString
     label: CrdchString
+    system: CrdchString!
+    systemUrl: CrdchString
+    systemVersion: CrdchString
   }
 
 type Diagnosis
@@ -94,7 +94,7 @@ type Diagnosis
     identifier: [Identifier]
     subject: Subject
     ageAtDiagnosis: Quantity
-    yearAtDiagnosis: CrdchInteger
+    diagnosisDate: TimePoint
     condition: EnumCRDCHDiagnosisCondition
     primarySite: [BodySite]
     metastaticSite: [BodySite]
