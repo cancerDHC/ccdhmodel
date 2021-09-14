@@ -28,6 +28,7 @@ python-dotenv = "*"     # For reading .env files.
 mike = "*"
 mkdocs-material = "*"
 assertpy = "*"
+jsonschema = "*"
 
 [pipenv]
 allow_prereleases = true # added by migration to linkml model template
