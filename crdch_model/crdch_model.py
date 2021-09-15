@@ -1,8 +1,8 @@
 # Auto generated from crdch_model.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-08-23 09:23
+# Generation date: 2021-09-07 17:13
 # Schema: CRDC-H
 #
-# id: https://example.org/crdch_model
+# id: https://example.org/crdch
 # description:
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -36,66 +36,66 @@ HTAN = CurieNamespace('HTAN', 'http://example.org/htan/')
 ICDC = CurieNamespace('ICDC', 'http://example.org/icdc/')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 PDC = CurieNamespace('PDC', 'http://example.org/pdc/')
-CRDCH = CurieNamespace('crdch', 'https://example.org/crdch_model/')
+CRDCH = CurieNamespace('crdch', 'https://example.org/crdch/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = CRDCH
 
 
 # Types
-class CcdhString(String):
+class CrdchString(String):
     """ A sequence of Unicode characters.  There are no limits on the number of characters in the string. """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
-    type_name = "ccdh_string"
-    type_model_uri = CRDCH.CcdhString
+    type_name = "crdch_string"
+    type_model_uri = CRDCH.CrdchString
 
 
-class CcdhInteger(Integer):
+class CrdchInteger(Integer):
     """ An integer number.  This data type is based on the decimal type, but the fractional component is not allowed.  There are no restrictions on the size of the integer. """
     type_class_uri = XSD.integer
     type_class_curie = "xsd:integer"
-    type_name = "ccdh_integer"
-    type_model_uri = CRDCH.CcdhInteger
+    type_name = "crdch_integer"
+    type_model_uri = CRDCH.CrdchInteger
 
 
-class CcdhDecimal(Decimal):
+class CrdchDecimal(Decimal):
     """ A rational number that has a decimal representation.  This data type does not restrict the size or precision of the number. """
     type_class_uri = XSD.decimal
     type_class_curie = "xsd:decimal"
-    type_name = "ccdh_decimal"
-    type_model_uri = CRDCH.CcdhDecimal
+    type_name = "crdch_decimal"
+    type_model_uri = CRDCH.CrdchDecimal
 
 
-class CcdhBoolean(Boolean):
+class CrdchBoolean(Boolean):
     """ Value representing either “true” or “false”.  Permissible values (case-sensitive) = “true”, “false”, “1”, “0”. """
     type_class_uri = XSD.boolean
     type_class_curie = "xsd:boolean"
-    type_name = "ccdh_boolean"
-    type_model_uri = CRDCH.CcdhBoolean
+    type_name = "crdch_boolean"
+    type_model_uri = CRDCH.CrdchBoolean
 
 
-class CcdhDateTime(Datetime):
+class CrdchDateTime(Datetime):
     """ A date and time string specified using a specialized concatenation of the date and time data types, in the general format YYYY-MM-DDThh:mm:ss+zz:zz. """
     type_class_uri = XSD.dateTime
     type_class_curie = "xsd:dateTime"
-    type_name = "ccdh_dateTime"
-    type_model_uri = CRDCH.CcdhDateTime
+    type_name = "crdch_dateTime"
+    type_model_uri = CRDCH.CrdchDateTime
 
 
-class CcdhCurie(Uriorcurie):
+class CrdchCurie(Uriorcurie):
     """ A compact URI (CURIE), which is a bipartite identifier of the form prefix:reference, in which the prefix is a convenient abbreviation of a URI.  It is expressed in the format “prefix:reference”. When a mapping of prefix to base URI is provided (external to this data type), a CURIE may be mapped to a URI. """
     type_class_uri = XSD.anyURI
     type_class_curie = "xsd:anyURI"
-    type_name = "ccdh_curie"
-    type_model_uri = CRDCH.CcdhCurie
+    type_name = "crdch_curie"
+    type_model_uri = CRDCH.CrdchCurie
 
 
-class CcdhCode(String):
+class CrdchCode(String):
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
-    type_name = "ccdh_code"
-    type_model_uri = CRDCH.CcdhCode
+    type_name = "crdch_code"
+    type_model_uri = CRDCH.CrdchCode
 
 
 # Class references
@@ -128,14 +128,14 @@ class AlcoholExposureObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.AlcoholExposureObservation
 
     observation_type: Union[str, "EnumCRDCHAlcoholExposureObservationObservationType"] = None
-    id: Optional[Union[dict, "Entity"]] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHAlcoholExposureObservationCategory"]] = None
     method_type: Optional[Union[str, "EnumCRDCHAlcoholExposureObservationMethodType"]] = None
     focus: Optional[Union[dict, "Entity"]] = None
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
-    valueInteger: Optional[Union[dict, "Entity"]] = None
-    valueCodeableConcept: Optional[Union[str, "EnumCRDCHAlcoholExposureObservationValueCodeableConcept"]] = None
+    value_integer: Optional[Union[int, CrdchInteger]] = None
+    value_codeable_concept: Optional[Union[str, "EnumCRDCHAlcoholExposureObservationValueCodeableConcept"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
@@ -143,8 +143,8 @@ class AlcoholExposureObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHAlcoholExposureObservationObservationType):
             self.observation_type = EnumCRDCHAlcoholExposureObservationObservationType(self.observation_type)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHAlcoholExposureObservationCategory):
             self.category = EnumCRDCHAlcoholExposureObservationCategory(self.category)
@@ -161,11 +161,11 @@ class AlcoholExposureObservation(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
 
-        if self.valueInteger is not None and not isinstance(self.valueInteger, Entity):
-            self.valueInteger = Entity()
+        if self.value_integer is not None and not isinstance(self.value_integer, CrdchInteger):
+            self.value_integer = CrdchInteger(self.value_integer)
 
-        if self.valueCodeableConcept is not None and not isinstance(self.valueCodeableConcept, EnumCRDCHAlcoholExposureObservationValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHAlcoholExposureObservationValueCodeableConcept(self.valueCodeableConcept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHAlcoholExposureObservationValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHAlcoholExposureObservationValueCodeableConcept(self.value_codeable_concept)
 
         super().__post_init__(**kwargs)
 
@@ -213,32 +213,32 @@ class BiologicProduct(Entity):
     class_name: ClassVar[str] = "BiologicProduct"
     class_model_uri: ClassVar[URIRef] = CRDCH.BiologicProduct
 
-    id: Optional[Union[dict, "Entity"]] = None
+    id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
-    description: Optional[Union[dict, "Entity"]] = None
+    description: Optional[Union[str, CrdchString]] = None
     product_type: Optional[Union[str, "EnumCRDCHBiologicProductProductType"]] = None
-    passage_number: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
-    growth_rate: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
+    passage_number: Optional[Union[Union[int, CrdchInteger], List[Union[int, CrdchInteger]]]] = empty_list()
+    growth_rate: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.description is not None and not isinstance(self.description, Entity):
-            self.description = Entity()
+        if self.description is not None and not isinstance(self.description, CrdchString):
+            self.description = CrdchString(self.description)
 
         if self.product_type is not None and not isinstance(self.product_type, EnumCRDCHBiologicProductProductType):
             self.product_type = EnumCRDCHBiologicProductProductType(self.product_type)
 
         if not isinstance(self.passage_number, list):
             self.passage_number = [self.passage_number] if self.passage_number is not None else []
-        self.passage_number = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.passage_number]
+        self.passage_number = [v if isinstance(v, CrdchInteger) else CrdchInteger(v) for v in self.passage_number]
 
         if not isinstance(self.growth_rate, list):
             self.growth_rate = [self.growth_rate] if self.growth_rate is not None else []
-        self.growth_rate = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.growth_rate]
+        self.growth_rate = [v if isinstance(v, CrdchString) else CrdchString(v) for v in self.growth_rate]
 
         super().__post_init__(**kwargs)
 
@@ -246,8 +246,8 @@ class BiologicProduct(Entity):
 @dataclass
 class CancerGradeObservation(Entity):
     """
-    A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single
-    cancer grade observation
+    A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a
+    single cancer grade observation
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -257,8 +257,8 @@ class CancerGradeObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerGradeObservation
 
     observation_type: Union[str, "EnumCRDCHCancerGradeObservationObservationType"] = None
-    valueCodeableConcept: Union[str, "EnumCRDCHCancerGradeObservationValueCodeableConcept"] = None
-    id: Optional[Union[dict, "Entity"]] = None
+    value_codeable_concept: Union[str, "EnumCRDCHCancerGradeObservationValueCodeableConcept"] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHCancerGradeObservationCategory"]] = None
     method_type: Optional[Union[str, "EnumCRDCHCancerGradeObservationMethodType"]] = None
     focus: Optional[Union[dict, "Entity"]] = None
@@ -270,13 +270,13 @@ class CancerGradeObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHCancerGradeObservationObservationType):
             self.observation_type = EnumCRDCHCancerGradeObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueCodeableConcept):
-            self.MissingRequiredField("valueCodeableConcept")
-        if not isinstance(self.valueCodeableConcept, EnumCRDCHCancerGradeObservationValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHCancerGradeObservationValueCodeableConcept(self.valueCodeableConcept)
+        if self._is_empty(self.value_codeable_concept):
+            self.MissingRequiredField("value_codeable_concept")
+        if not isinstance(self.value_codeable_concept, EnumCRDCHCancerGradeObservationValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHCancerGradeObservationValueCodeableConcept(self.value_codeable_concept)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHCancerGradeObservationCategory):
             self.category = EnumCRDCHCancerGradeObservationCategory(self.category)
@@ -306,7 +306,7 @@ class CancerGradeObservationSet(Entity):
     class_name: ClassVar[str] = "CancerGradeObservationSet"
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerGradeObservationSet
 
-    id: Optional[Union[dict, "Entity"]] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHCancerGradeObservationSetCategory"]] = None
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
@@ -315,8 +315,8 @@ class CancerGradeObservationSet(Entity):
     observations: Optional[Union[Union[dict, CancerGradeObservation], List[Union[dict, CancerGradeObservation]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHCancerGradeObservationSetCategory):
             self.category = EnumCRDCHCancerGradeObservationSetCategory(self.category)
@@ -343,8 +343,8 @@ class CancerGradeObservationSet(Entity):
 @dataclass
 class CancerStageObservation(Entity):
     """
-    A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single
-    cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.
+    A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a
+    single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -354,14 +354,14 @@ class CancerStageObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerStageObservation
 
     observation_type: Union[str, "EnumCRDCHCancerStageObservationObservationType"] = None
-    valueCodeableConcept: Union[str, "EnumCRDCHCancerStageObservationValueCodeableConcept"] = None
-    id: Optional[Union[dict, "Entity"]] = None
+    value_codeable_concept: Union[str, "EnumCRDCHCancerStageObservationValueCodeableConcept"] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHCancerStageObservationCategory"]] = None
     method_type: Optional[Union[str, "EnumCRDCHCancerStageObservationMethodType"]] = None
     focus: Optional[Union[dict, "Entity"]] = None
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
-    valueEntity: Optional[Union[dict, "Entity"]] = None
+    value_entity: Optional[Union[dict, "Entity"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
@@ -369,13 +369,13 @@ class CancerStageObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHCancerStageObservationObservationType):
             self.observation_type = EnumCRDCHCancerStageObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueCodeableConcept):
-            self.MissingRequiredField("valueCodeableConcept")
-        if not isinstance(self.valueCodeableConcept, EnumCRDCHCancerStageObservationValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHCancerStageObservationValueCodeableConcept(self.valueCodeableConcept)
+        if self._is_empty(self.value_codeable_concept):
+            self.MissingRequiredField("value_codeable_concept")
+        if not isinstance(self.value_codeable_concept, EnumCRDCHCancerStageObservationValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHCancerStageObservationValueCodeableConcept(self.value_codeable_concept)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHCancerStageObservationCategory):
             self.category = EnumCRDCHCancerStageObservationCategory(self.category)
@@ -392,8 +392,8 @@ class CancerStageObservation(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
 
-        if self.valueEntity is not None and not isinstance(self.valueEntity, Entity):
-            self.valueEntity = Entity()
+        if self.value_entity is not None and not isinstance(self.value_entity, Entity):
+            self.value_entity = Entity()
 
         super().__post_init__(**kwargs)
 
@@ -411,7 +411,7 @@ class CancerStageObservationSet(Entity):
     class_name: ClassVar[str] = "CancerStageObservationSet"
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerStageObservationSet
 
-    id: Optional[Union[dict, "Entity"]] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHCancerStageObservationSetCategory"]] = None
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
@@ -420,8 +420,8 @@ class CancerStageObservationSet(Entity):
     observations: Optional[Union[Union[dict, CancerStageObservation], List[Union[dict, CancerStageObservation]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHCancerStageObservationSetCategory):
             self.category = EnumCRDCHCancerStageObservationSetCategory(self.category)
@@ -459,13 +459,13 @@ class CodeableConcept(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.CodeableConcept
 
     coding: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
-    text: Optional[Union[dict, "Entity"]] = None
+    text: Optional[Union[str, CrdchString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         self._normalize_inlined_as_list(slot_name="coding", slot_type=Coding, key_name="code", keyed=False)
 
-        if self.text is not None and not isinstance(self.text, Entity):
-            self.text = Entity()
+        if self.text is not None and not isinstance(self.text, CrdchString):
+            self.text = CrdchString(self.text)
 
         super().__post_init__(**kwargs)
 
@@ -483,31 +483,31 @@ class Coding(Entity):
     class_name: ClassVar[str] = "Coding"
     class_model_uri: ClassVar[URIRef] = CRDCH.Coding
 
-    code: Union[dict, "Entity"] = None
-    system: Union[dict, "Entity"] = None
-    label: Optional[Union[dict, "Entity"]] = None
-    systemURL: Optional[Union[dict, "Entity"]] = None
-    systemVersion: Optional[Union[dict, "Entity"]] = None
+    code: Union[str, CrdchString] = None
+    system: Union[str, CrdchString] = None
+    systemURL: Optional[Union[str, CrdchString]] = None
+    systemVersion: Optional[Union[str, CrdchString]] = None
+    label: Optional[Union[str, CrdchString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.code):
             self.MissingRequiredField("code")
-        if not isinstance(self.code, Entity):
-            self.code = Entity()
+        if not isinstance(self.code, CrdchString):
+            self.code = CrdchString(self.code)
 
         if self._is_empty(self.system):
             self.MissingRequiredField("system")
-        if not isinstance(self.system, Entity):
-            self.system = Entity()
+        if not isinstance(self.system, CrdchString):
+            self.system = CrdchString(self.system)
 
-        if self.label is not None and not isinstance(self.label, Entity):
-            self.label = Entity()
+        if self.systemURL is not None and not isinstance(self.systemURL, CrdchString):
+            self.systemURL = CrdchString(self.systemURL)
 
-        if self.systemURL is not None and not isinstance(self.systemURL, Entity):
-            self.systemURL = Entity()
+        if self.systemVersion is not None and not isinstance(self.systemVersion, CrdchString):
+            self.systemVersion = CrdchString(self.systemVersion)
 
-        if self.systemVersion is not None and not isinstance(self.systemVersion, Entity):
-            self.systemVersion = Entity()
+        if self.label is not None and not isinstance(self.label, CrdchString):
+            self.label = CrdchString(self.label)
 
         super().__post_init__(**kwargs)
 
@@ -525,11 +525,11 @@ class Diagnosis(Entity):
     class_name: ClassVar[str] = "Diagnosis"
     class_model_uri: ClassVar[URIRef] = CRDCH.Diagnosis
 
-    id: Optional[Union[dict, "Entity"]] = None
+    id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     age_at_diagnosis: Optional[Union[dict, "Quantity"]] = None
-    year_at_diagnosis: Optional[Union[dict, "Entity"]] = None
+    year_at_diagnosis: Optional[Union[int, CrdchInteger]] = None
     condition: Optional[Union[str, "EnumCRDCHDiagnosisCondition"]] = None
     primary_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
     metastatic_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
@@ -544,8 +544,8 @@ class Diagnosis(Entity):
     supporting_observation: Optional[Union[Union[dict, "Observation"], List[Union[dict, "Observation"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
@@ -555,8 +555,8 @@ class Diagnosis(Entity):
         if self.age_at_diagnosis is not None and not isinstance(self.age_at_diagnosis, Quantity):
             self.age_at_diagnosis = Quantity(**as_dict(self.age_at_diagnosis))
 
-        if self.year_at_diagnosis is not None and not isinstance(self.year_at_diagnosis, Entity):
-            self.year_at_diagnosis = Entity()
+        if self.year_at_diagnosis is not None and not isinstance(self.year_at_diagnosis, CrdchInteger):
+            self.year_at_diagnosis = CrdchInteger(self.year_at_diagnosis)
 
         if self.condition is not None and not isinstance(self.condition, EnumCRDCHDiagnosisCondition):
             self.condition = EnumCRDCHDiagnosisCondition(self.condition)
@@ -611,8 +611,8 @@ class DimensionalObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.DimensionalObservation
 
     observation_type: Union[str, "EnumCRDCHDimensionalObservationObservationType"] = None
-    valueQuantity: Union[dict, "Quantity"] = None
-    id: Optional[Union[dict, "Entity"]] = None
+    value_quantity: Union[dict, "Quantity"] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHDimensionalObservationCategory"]] = None
     method_type: Optional[Union[Union[str, "EnumCRDCHDimensionalObservationMethodType"], List[Union[str, "EnumCRDCHDimensionalObservationMethodType"]]]] = empty_list()
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
@@ -625,13 +625,13 @@ class DimensionalObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHDimensionalObservationObservationType):
             self.observation_type = EnumCRDCHDimensionalObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueQuantity):
-            self.MissingRequiredField("valueQuantity")
-        if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
+        if self._is_empty(self.value_quantity):
+            self.MissingRequiredField("value_quantity")
+        if not isinstance(self.value_quantity, Quantity):
+            self.value_quantity = Quantity(**as_dict(self.value_quantity))
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHDimensionalObservationCategory):
             self.category = EnumCRDCHDimensionalObservationCategory(self.category)
@@ -665,7 +665,7 @@ class DimensionalObservationSet(Entity):
     class_name: ClassVar[str] = "DimensionalObservationSet"
     class_model_uri: ClassVar[URIRef] = CRDCH.DimensionalObservationSet
 
-    id: Optional[Union[dict, "Entity"]] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHDimensionalObservationSetCategory"]] = None
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
@@ -674,8 +674,8 @@ class DimensionalObservationSet(Entity):
     observations: Optional[Union[Union[dict, DimensionalObservation], List[Union[dict, DimensionalObservation]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHDimensionalObservationSetCategory):
             self.category = EnumCRDCHDimensionalObservationSetCategory(self.category)
@@ -711,31 +711,31 @@ class Document(Entity):
     class_name: ClassVar[str] = "Document"
     class_model_uri: ClassVar[URIRef] = CRDCH.Document
 
-    id: Optional[Union[dict, "Entity"]] = None
+    id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
     document_type: Optional[Union[str, "EnumCRDCHDocumentDocumentType"]] = None
-    description: Optional[Union[dict, "Entity"]] = None
+    description: Optional[Union[str, CrdchString]] = None
     focus: Optional[Union[dict, "Entity"]] = None
-    url: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
+    url: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.document_type is not None and not isinstance(self.document_type, EnumCRDCHDocumentDocumentType):
             self.document_type = EnumCRDCHDocumentDocumentType(self.document_type)
 
-        if self.description is not None and not isinstance(self.description, Entity):
-            self.description = Entity()
+        if self.description is not None and not isinstance(self.description, CrdchString):
+            self.description = CrdchString(self.description)
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
 
         if not isinstance(self.url, list):
             self.url = [self.url] if self.url is not None else []
-        self.url = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.url]
+        self.url = [v if isinstance(v, CrdchString) else CrdchString(v) for v in self.url]
 
         super().__post_init__(**kwargs)
 
@@ -754,8 +754,8 @@ class EnvironmentalExposureObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.EnvironmentalExposureObservation
 
     observation_type: Union[str, "EnumCRDCHEnvironmentalExposureObservationObservationType"] = None
-    valueCodeableConcept: Union[str, "EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept"] = None
-    id: Optional[Union[dict, Entity]] = None
+    value_codeable_concept: Union[str, "EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept"] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHEnvironmentalExposureObservationCategory"]] = None
     method_type: Optional[Union[str, "EnumCRDCHEnvironmentalExposureObservationMethodType"]] = None
     focus: Optional[Union[dict, Entity]] = None
@@ -768,13 +768,13 @@ class EnvironmentalExposureObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHEnvironmentalExposureObservationObservationType):
             self.observation_type = EnumCRDCHEnvironmentalExposureObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueCodeableConcept):
-            self.MissingRequiredField("valueCodeableConcept")
-        if not isinstance(self.valueCodeableConcept, EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(self.valueCodeableConcept)
+        if self._is_empty(self.value_codeable_concept):
+            self.MissingRequiredField("value_codeable_concept")
+        if not isinstance(self.value_codeable_concept, EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(self.value_codeable_concept)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHEnvironmentalExposureObservationCategory):
             self.category = EnumCRDCHEnvironmentalExposureObservationCategory(self.category)
@@ -811,8 +811,8 @@ class ExecutionConditionObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.ExecutionConditionObservation
 
     observation_type: Union[str, "EnumCRDCHExecutionConditionObservationObservationType"] = None
-    valueCodeableConcept: Union[str, "EnumCRDCHExecutionConditionObservationValueCodeableConcept"] = None
-    id: Optional[Union[dict, Entity]] = None
+    value_codeable_concept: Union[str, "EnumCRDCHExecutionConditionObservationValueCodeableConcept"] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHExecutionConditionObservationCategory"]] = None
     method_type: Optional[Union[str, "EnumCRDCHExecutionConditionObservationMethodType"]] = None
     focus: Optional[Union[dict, Entity]] = None
@@ -825,13 +825,13 @@ class ExecutionConditionObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHExecutionConditionObservationObservationType):
             self.observation_type = EnumCRDCHExecutionConditionObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueCodeableConcept):
-            self.MissingRequiredField("valueCodeableConcept")
-        if not isinstance(self.valueCodeableConcept, EnumCRDCHExecutionConditionObservationValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHExecutionConditionObservationValueCodeableConcept(self.valueCodeableConcept)
+        if self._is_empty(self.value_codeable_concept):
+            self.MissingRequiredField("value_codeable_concept")
+        if not isinstance(self.value_codeable_concept, EnumCRDCHExecutionConditionObservationValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHExecutionConditionObservationValueCodeableConcept(self.value_codeable_concept)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHExecutionConditionObservationCategory):
             self.category = EnumCRDCHExecutionConditionObservationCategory(self.category)
@@ -868,8 +868,8 @@ class ExecutionTimeObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.ExecutionTimeObservation
 
     observation_type: Union[str, "EnumCRDCHExecutionTimeObservationObservationType"] = None
-    valueQuantity: Union[dict, "Quantity"] = None
-    id: Optional[Union[dict, Entity]] = None
+    value_quantity: Union[dict, "Quantity"] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHExecutionTimeObservationCategory"]] = None
     method_type: Optional[Union[str, "EnumCRDCHExecutionTimeObservationMethodType"]] = None
     focus: Optional[Union[dict, Entity]] = None
@@ -882,13 +882,13 @@ class ExecutionTimeObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHExecutionTimeObservationObservationType):
             self.observation_type = EnumCRDCHExecutionTimeObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueQuantity):
-            self.MissingRequiredField("valueQuantity")
-        if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
+        if self._is_empty(self.value_quantity):
+            self.MissingRequiredField("value_quantity")
+        if not isinstance(self.value_quantity, Quantity):
+            self.value_quantity = Quantity(**as_dict(self.value_quantity))
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHExecutionTimeObservationCategory):
             self.category = EnumCRDCHExecutionTimeObservationCategory(self.category)
@@ -921,7 +921,7 @@ class Exposure(Entity):
     class_name: ClassVar[str] = "Exposure"
     class_model_uri: ClassVar[URIRef] = CRDCH.Exposure
 
-    id: Union[dict, Entity] = None
+    id: Union[str, CrdchString] = None
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
     tobacco_exposure: Optional[Union[Union[dict, "TobaccoExposureObservation"], List[Union[dict, "TobaccoExposureObservation"]]]] = empty_list()
     alcohol_exposure: Optional[Union[Union[dict, AlcoholExposureObservation], List[Union[dict, AlcoholExposureObservation]]]] = empty_list()
@@ -931,8 +931,8 @@ class Exposure(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, Entity):
-            self.id = Entity()
+        if not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
@@ -963,8 +963,8 @@ class HistologicalCompositionObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.HistologicalCompositionObservation
 
     observation_type: Union[str, "EnumCRDCHHistologicalCompositionObservationObservationType"] = None
-    valueQuantity: Union[dict, "Quantity"] = None
-    id: Optional[Union[dict, Entity]] = None
+    value_quantity: Union[dict, "Quantity"] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHHistologicalCompositionObservationCategory"]] = None
     method_type: Optional[Union[Union[str, "EnumCRDCHHistologicalCompositionObservationMethodType"], List[Union[str, "EnumCRDCHHistologicalCompositionObservationMethodType"]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
@@ -977,13 +977,13 @@ class HistologicalCompositionObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHHistologicalCompositionObservationObservationType):
             self.observation_type = EnumCRDCHHistologicalCompositionObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueQuantity):
-            self.MissingRequiredField("valueQuantity")
-        if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
+        if self._is_empty(self.value_quantity):
+            self.MissingRequiredField("value_quantity")
+        if not isinstance(self.value_quantity, Quantity):
+            self.value_quantity = Quantity(**as_dict(self.value_quantity))
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHHistologicalCompositionObservationCategory):
             self.category = EnumCRDCHHistologicalCompositionObservationCategory(self.category)
@@ -1019,7 +1019,7 @@ class HistologicalCompositionObservationSet(Entity):
     class_name: ClassVar[str] = "HistologicalCompositionObservationSet"
     class_model_uri: ClassVar[URIRef] = CRDCH.HistologicalCompositionObservationSet
 
-    id: Union[dict, Entity] = None
+    id: Union[str, CrdchString] = None
     category: Union[str, "EnumCRDCHHistologicalCompositionObservationSetCategory"] = None
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
@@ -1030,8 +1030,8 @@ class HistologicalCompositionObservationSet(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, Entity):
-            self.id = Entity()
+        if not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
@@ -1069,18 +1069,18 @@ class Identifier(Entity):
     class_name: ClassVar[str] = "Identifier"
     class_model_uri: ClassVar[URIRef] = CRDCH.Identifier
 
-    value: Union[dict, Entity] = None
-    system: Optional[Union[dict, Entity]] = None
+    value: Union[str, CrdchString] = None
+    system: Optional[Union[str, CrdchString]] = None
     type: Optional[Union[str, "EnumCRDCHIdentifierType"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.value):
             self.MissingRequiredField("value")
-        if not isinstance(self.value, Entity):
-            self.value = Entity()
+        if not isinstance(self.value, CrdchString):
+            self.value = CrdchString(self.value)
 
-        if self.system is not None and not isinstance(self.system, Entity):
-            self.system = Entity()
+        if self.system is not None and not isinstance(self.system, CrdchString):
+            self.system = CrdchString(self.system)
 
         if self.type is not None and not isinstance(self.type, EnumCRDCHIdentifierType):
             self.type = EnumCRDCHIdentifierType(self.type)
@@ -1102,20 +1102,20 @@ class Observation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.Observation
 
     observation_type: Union[str, "EnumCRDCHObservationObservationType"] = None
-    id: Optional[Union[dict, Entity]] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHObservationCategory"]] = None
     method_type: Optional[Union[Union[str, "EnumCRDCHObservationMethodType"], List[Union[str, "EnumCRDCHObservationMethodType"]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
-    valueEntity: Optional[Union[dict, Entity]] = None
-    valueString: Optional[Union[dict, Entity]] = None
-    valueInteger: Optional[Union[dict, Entity]] = None
-    valueDecimal: Optional[Union[dict, Entity]] = None
-    valueBoolean: Optional[Union[dict, Entity]] = None
-    valueDateTime: Optional[Union[dict, Entity]] = None
-    valueQuantity: Optional[Union[dict, "Quantity"]] = None
-    valueCodeableConcept: Optional[Union[str, "EnumCRDCHObservationValueCodeableConcept"]] = None
+    value_entity: Optional[Union[dict, Entity]] = None
+    value_string: Optional[Union[str, CrdchString]] = None
+    value_integer: Optional[Union[Decimal, CrdchDecimal]] = None
+    value_decimal: Optional[Union[Decimal, CrdchDecimal]] = None
+    value_boolean: Optional[Union[bool, CrdchBoolean]] = None
+    value_date_time: Optional[Union[str, CrdchDateTime]] = None
+    value_quantity: Optional[Union[dict, "Quantity"]] = None
+    value_codeable_concept: Optional[Union[str, "EnumCRDCHObservationValueCodeableConcept"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
@@ -1123,8 +1123,8 @@ class Observation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHObservationObservationType):
             self.observation_type = EnumCRDCHObservationObservationType(self.observation_type)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHObservationCategory):
             self.category = EnumCRDCHObservationCategory(self.category)
@@ -1143,29 +1143,29 @@ class Observation(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
 
-        if self.valueEntity is not None and not isinstance(self.valueEntity, Entity):
-            self.valueEntity = Entity()
+        if self.value_entity is not None and not isinstance(self.value_entity, Entity):
+            self.value_entity = Entity()
 
-        if self.valueString is not None and not isinstance(self.valueString, Entity):
-            self.valueString = Entity()
+        if self.value_string is not None and not isinstance(self.value_string, CrdchString):
+            self.value_string = CrdchString(self.value_string)
 
-        if self.valueInteger is not None and not isinstance(self.valueInteger, Entity):
-            self.valueInteger = Entity()
+        if self.value_integer is not None and not isinstance(self.value_integer, CrdchDecimal):
+            self.value_integer = CrdchDecimal(self.value_integer)
 
-        if self.valueDecimal is not None and not isinstance(self.valueDecimal, Entity):
-            self.valueDecimal = Entity()
+        if self.value_decimal is not None and not isinstance(self.value_decimal, CrdchDecimal):
+            self.value_decimal = CrdchDecimal(self.value_decimal)
 
-        if self.valueBoolean is not None and not isinstance(self.valueBoolean, Entity):
-            self.valueBoolean = Entity()
+        if self.value_boolean is not None and not isinstance(self.value_boolean, CrdchBoolean):
+            self.value_boolean = CrdchBoolean(self.value_boolean)
 
-        if self.valueDateTime is not None and not isinstance(self.valueDateTime, Entity):
-            self.valueDateTime = Entity()
+        if self.value_date_time is not None and not isinstance(self.value_date_time, CrdchDateTime):
+            self.value_date_time = CrdchDateTime(self.value_date_time)
 
-        if self.valueQuantity is not None and not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
+        if self.value_quantity is not None and not isinstance(self.value_quantity, Quantity):
+            self.value_quantity = Quantity(**as_dict(self.value_quantity))
 
-        if self.valueCodeableConcept is not None and not isinstance(self.valueCodeableConcept, EnumCRDCHObservationValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHObservationValueCodeableConcept(self.valueCodeableConcept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHObservationValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHObservationValueCodeableConcept(self.value_codeable_concept)
 
         super().__post_init__(**kwargs)
 
@@ -1183,7 +1183,7 @@ class ObservationSet(Entity):
     class_name: ClassVar[str] = "ObservationSet"
     class_model_uri: ClassVar[URIRef] = CRDCH.ObservationSet
 
-    id: Union[dict, Entity] = None
+    id: Union[str, CrdchString] = None
     category: Union[str, "EnumCRDCHObservationSetCategory"] = None
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
@@ -1194,8 +1194,8 @@ class ObservationSet(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, Entity):
-            self.id = Entity()
+        if not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
@@ -1234,28 +1234,28 @@ class Organization(Entity):
     class_name: ClassVar[str] = "Organization"
     class_model_uri: ClassVar[URIRef] = CRDCH.Organization
 
-    id: Union[dict, Entity] = None
+    id: Union[str, CrdchString] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
-    name: Optional[Union[dict, Entity]] = None
-    alias: Optional[Union[dict, Entity]] = None
-    organization_type: Optional[Union[dict, Entity]] = None
+    name: Optional[Union[str, CrdchString]] = None
+    alias: Optional[Union[str, CrdchString]] = None
+    organization_type: Optional[Union[str, CrdchString]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, Entity):
-            self.id = Entity()
+        if not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.name is not None and not isinstance(self.name, Entity):
-            self.name = Entity()
+        if self.name is not None and not isinstance(self.name, CrdchString):
+            self.name = CrdchString(self.name)
 
-        if self.alias is not None and not isinstance(self.alias, Entity):
-            self.alias = Entity()
+        if self.alias is not None and not isinstance(self.alias, CrdchString):
+            self.alias = CrdchString(self.alias)
 
-        if self.organization_type is not None and not isinstance(self.organization_type, Entity):
-            self.organization_type = Entity()
+        if self.organization_type is not None and not isinstance(self.organization_type, CrdchString):
+            self.organization_type = CrdchString(self.organization_type)
 
         super().__post_init__(**kwargs)
 
@@ -1273,16 +1273,16 @@ class Quantity(Entity):
     class_name: ClassVar[str] = "Quantity"
     class_model_uri: ClassVar[URIRef] = CRDCH.Quantity
 
-    valueDecimal: Optional[Union[dict, Entity]] = None
-    valueCodeableConcept: Optional[Union[str, "EnumCRDCHQuantityValueCodeableConcept"]] = None
+    value_decimal: Optional[Union[Decimal, CrdchDecimal]] = None
+    value_codeable_concept: Optional[Union[str, "EnumCRDCHQuantityValueCodeableConcept"]] = None
     unit: Optional[Union[str, "EnumCRDCHQuantityUnit"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.valueDecimal is not None and not isinstance(self.valueDecimal, Entity):
-            self.valueDecimal = Entity()
+        if self.value_decimal is not None and not isinstance(self.value_decimal, CrdchDecimal):
+            self.value_decimal = CrdchDecimal(self.value_decimal)
 
-        if self.valueCodeableConcept is not None and not isinstance(self.valueCodeableConcept, EnumCRDCHQuantityValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHQuantityValueCodeableConcept(self.valueCodeableConcept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHQuantityValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHQuantityValueCodeableConcept(self.value_codeable_concept)
 
         if self.unit is not None and not isinstance(self.unit, EnumCRDCHQuantityUnit):
             self.unit = EnumCRDCHQuantityUnit(self.unit)
@@ -1308,17 +1308,17 @@ class ResearchProject(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.ResearchProject
 
     research_project_type: Union[str, "EnumCRDCHResearchProjectResearchProjectType"] = None
-    id: Optional[Union[dict, Entity]] = None
+    id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
-    name: Optional[Union[dict, Entity]] = None
-    name_shortened: Optional[Union[dict, Entity]] = None
-    description: Optional[Union[dict, Entity]] = None
-    description_shortened: Optional[Union[dict, Entity]] = None
-    sponsor: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
+    name: Optional[Union[str, CrdchString]] = None
+    name_shortened: Optional[Union[str, CrdchString]] = None
+    description: Optional[Union[str, CrdchString]] = None
+    description_shortened: Optional[Union[str, CrdchString]] = None
+    sponsor: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
     date_started: Optional[Union[dict, "TimePoint"]] = None
     date_ended: Optional[Union[dict, "TimePoint"]] = None
     primary_anatomic_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
-    url: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
+    url: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
     part_of: Optional[Union[Union[dict, "ResearchProject"], List[Union[dict, "ResearchProject"]]]] = empty_list()
     associated_timepoint: Optional[Union[Union[dict, "TimePoint"], List[Union[dict, "TimePoint"]]]] = empty_list()
 
@@ -1328,26 +1328,26 @@ class ResearchProject(Entity):
         if not isinstance(self.research_project_type, EnumCRDCHResearchProjectResearchProjectType):
             self.research_project_type = EnumCRDCHResearchProjectResearchProjectType(self.research_project_type)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.name is not None and not isinstance(self.name, Entity):
-            self.name = Entity()
+        if self.name is not None and not isinstance(self.name, CrdchString):
+            self.name = CrdchString(self.name)
 
-        if self.name_shortened is not None and not isinstance(self.name_shortened, Entity):
-            self.name_shortened = Entity()
+        if self.name_shortened is not None and not isinstance(self.name_shortened, CrdchString):
+            self.name_shortened = CrdchString(self.name_shortened)
 
-        if self.description is not None and not isinstance(self.description, Entity):
-            self.description = Entity()
+        if self.description is not None and not isinstance(self.description, CrdchString):
+            self.description = CrdchString(self.description)
 
-        if self.description_shortened is not None and not isinstance(self.description_shortened, Entity):
-            self.description_shortened = Entity()
+        if self.description_shortened is not None and not isinstance(self.description_shortened, CrdchString):
+            self.description_shortened = CrdchString(self.description_shortened)
 
         if not isinstance(self.sponsor, list):
             self.sponsor = [self.sponsor] if self.sponsor is not None else []
-        self.sponsor = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.sponsor]
+        self.sponsor = [v if isinstance(v, CrdchString) else CrdchString(v) for v in self.sponsor]
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
             self.date_started = TimePoint(**as_dict(self.date_started))
@@ -1359,7 +1359,7 @@ class ResearchProject(Entity):
 
         if not isinstance(self.url, list):
             self.url = [self.url] if self.url is not None else []
-        self.url = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.url]
+        self.url = [v if isinstance(v, CrdchString) else CrdchString(v) for v in self.url]
 
         self._normalize_inlined_as_list(slot_name="part_of", slot_type=ResearchProject, key_name="research_project_type", keyed=False)
 
@@ -1385,10 +1385,10 @@ class ResearchSubject(Entity):
     class_name: ClassVar[str] = "ResearchSubject"
     class_model_uri: ClassVar[URIRef] = CRDCH.ResearchSubject
 
-    id: Union[dict, Entity] = None
+    id: Union[str, CrdchString] = None
     associated_subject: Union[dict, "Subject"] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
-    description: Optional[Union[dict, Entity]] = None
+    description: Optional[Union[str, CrdchString]] = None
     member_of_research_project: Optional[Union[dict, ResearchProject]] = None
     age_at_enrollment: Optional[Union[dict, Quantity]] = None
     primary_diagnosis_condition: Optional[Union[str, "EnumCRDCHResearchSubjectPrimaryDiagnosisCondition"]] = None
@@ -1401,8 +1401,8 @@ class ResearchSubject(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, Entity):
-            self.id = Entity()
+        if not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self._is_empty(self.associated_subject):
             self.MissingRequiredField("associated_subject")
@@ -1411,8 +1411,8 @@ class ResearchSubject(Entity):
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.description is not None and not isinstance(self.description, Entity):
-            self.description = Entity()
+        if self.description is not None and not isinstance(self.description, CrdchString):
+            self.description = CrdchString(self.description)
 
         if self.member_of_research_project is not None and not isinstance(self.member_of_research_project, ResearchProject):
             self.member_of_research_project = ResearchProject(**as_dict(self.member_of_research_project))
@@ -1456,9 +1456,9 @@ class Specimen(Entity):
     class_name: ClassVar[str] = "Specimen"
     class_model_uri: ClassVar[URIRef] = CRDCH.Specimen
 
-    id: Optional[Union[dict, Entity]] = None
+    id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
-    description: Optional[Union[dict, Entity]] = None
+    description: Optional[Union[str, CrdchString]] = None
     specimen_type: Optional[Union[str, "EnumCRDCHSpecimenSpecimenType"]] = None
     analyte_type: Optional[Union[str, "EnumCRDCHSpecimenAnalyteType"]] = None
     associated_project: Optional[Union[dict, ResearchProject]] = None
@@ -1480,24 +1480,24 @@ class Specimen(Entity):
     general_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenGeneralTissueMorphology"]] = None
     specific_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenSpecificTissueMorphology"]] = None
     preinvasive_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenPreinvasiveTissueMorphology"]] = None
-    morphology_pathologically_confirmed: Optional[Union[dict, Entity]] = None
+    morphology_pathologically_confirmed: Optional[Union[bool, CrdchBoolean]] = None
     morphology_assessor_role: Optional[Union[str, "EnumCRDCHSpecimenMorphologyAssessorRole"]] = None
     morphology_assessment_method: Optional[Union[str, "EnumCRDCHSpecimenMorphologyAssessmentMethod"]] = None
     degree_of_dysplasia: Optional[Union[str, "EnumCRDCHSpecimenDegreeOfDysplasia"]] = None
-    dysplasia_fraction: Optional[Union[dict, Entity]] = None
+    dysplasia_fraction: Optional[Union[str, CrdchString]] = None
     related_document: Optional[Union[Union[dict, Document], List[Union[dict, Document]]]] = empty_list()
     section_location: Optional[Union[str, "EnumCRDCHSpecimenSectionLocation"]] = None
     derived_product: Optional[Union[Union[dict, BiologicProduct], List[Union[dict, BiologicProduct]]]] = empty_list()
     distance_from_paired_specimen: Optional[Union[dict, Quantity]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.description is not None and not isinstance(self.description, Entity):
-            self.description = Entity()
+        if self.description is not None and not isinstance(self.description, CrdchString):
+            self.description = CrdchString(self.description)
 
         if self.specimen_type is not None and not isinstance(self.specimen_type, EnumCRDCHSpecimenSpecimenType):
             self.specimen_type = EnumCRDCHSpecimenSpecimenType(self.specimen_type)
@@ -1563,8 +1563,8 @@ class Specimen(Entity):
         if self.preinvasive_tissue_morphology is not None and not isinstance(self.preinvasive_tissue_morphology, EnumCRDCHSpecimenPreinvasiveTissueMorphology):
             self.preinvasive_tissue_morphology = EnumCRDCHSpecimenPreinvasiveTissueMorphology(self.preinvasive_tissue_morphology)
 
-        if self.morphology_pathologically_confirmed is not None and not isinstance(self.morphology_pathologically_confirmed, Entity):
-            self.morphology_pathologically_confirmed = Entity()
+        if self.morphology_pathologically_confirmed is not None and not isinstance(self.morphology_pathologically_confirmed, CrdchBoolean):
+            self.morphology_pathologically_confirmed = CrdchBoolean(self.morphology_pathologically_confirmed)
 
         if self.morphology_assessor_role is not None and not isinstance(self.morphology_assessor_role, EnumCRDCHSpecimenMorphologyAssessorRole):
             self.morphology_assessor_role = EnumCRDCHSpecimenMorphologyAssessorRole(self.morphology_assessor_role)
@@ -1575,8 +1575,8 @@ class Specimen(Entity):
         if self.degree_of_dysplasia is not None and not isinstance(self.degree_of_dysplasia, EnumCRDCHSpecimenDegreeOfDysplasia):
             self.degree_of_dysplasia = EnumCRDCHSpecimenDegreeOfDysplasia(self.degree_of_dysplasia)
 
-        if self.dysplasia_fraction is not None and not isinstance(self.dysplasia_fraction, Entity):
-            self.dysplasia_fraction = Entity()
+        if self.dysplasia_fraction is not None and not isinstance(self.dysplasia_fraction, CrdchString):
+            self.dysplasia_fraction = CrdchString(self.dysplasia_fraction)
 
         if not isinstance(self.related_document, list):
             self.related_document = [self.related_document] if self.related_document is not None else []
@@ -1608,24 +1608,24 @@ class SpecimenContainer(Entity):
     class_name: ClassVar[str] = "SpecimenContainer"
     class_model_uri: ClassVar[URIRef] = CRDCH.SpecimenContainer
 
-    id: Optional[Union[dict, Entity]] = None
+    id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
     container_type: Optional[Union[str, "EnumCRDCHSpecimenContainerContainerType"]] = None
-    container_number: Optional[Union[dict, Entity]] = None
+    container_number: Optional[Union[str, CrdchString]] = None
     additive: Optional[Union[Union[dict, "Substance"], List[Union[dict, "Substance"]]]] = empty_list()
     parent_container: Optional[Union[dict, "SpecimenContainer"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
         if self.container_type is not None and not isinstance(self.container_type, EnumCRDCHSpecimenContainerContainerType):
             self.container_type = EnumCRDCHSpecimenContainerContainerType(self.container_type)
 
-        if self.container_number is not None and not isinstance(self.container_number, Entity):
-            self.container_number = Entity()
+        if self.container_number is not None and not isinstance(self.container_number, CrdchString):
+            self.container_number = CrdchString(self.container_number)
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
@@ -1661,7 +1661,7 @@ class SpecimenCreationActivity(Entity):
     quantity_collected: Optional[Union[dict, Quantity]] = None
     execution_time_observation: Optional[Union[Union[dict, ExecutionTimeObservation], List[Union[dict, ExecutionTimeObservation]]]] = empty_list()
     execution_condition_observation: Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]] = empty_list()
-    specimen_order: Optional[Union[dict, Entity]] = None
+    specimen_order: Optional[Union[int, CrdchInteger]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.activity_type is not None and not isinstance(self.activity_type, EnumCRDCHSpecimenCreationActivityActivityType):
@@ -1696,8 +1696,8 @@ class SpecimenCreationActivity(Entity):
 
         self._normalize_inlined_as_list(slot_name="execution_condition_observation", slot_type=ExecutionConditionObservation, key_name="observation_type", keyed=False)
 
-        if self.specimen_order is not None and not isinstance(self.specimen_order, Entity):
-            self.specimen_order = Entity()
+        if self.specimen_order is not None and not isinstance(self.specimen_order, CrdchInteger):
+            self.specimen_order = CrdchInteger(self.specimen_order)
 
         super().__post_init__(**kwargs)
 
@@ -1716,8 +1716,8 @@ class SpecimenQualityObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.SpecimenQualityObservation
 
     observation_type: Union[str, "EnumCRDCHSpecimenQualityObservationObservationType"] = None
-    valueQuantity: Union[dict, Quantity] = None
-    id: Optional[Union[dict, Entity]] = None
+    value_quantity: Union[dict, Quantity] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHSpecimenQualityObservationCategory"]] = None
     method_type: Optional[Union[Union[str, "EnumCRDCHSpecimenQualityObservationMethodType"], List[Union[str, "EnumCRDCHSpecimenQualityObservationMethodType"]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
@@ -1730,13 +1730,13 @@ class SpecimenQualityObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHSpecimenQualityObservationObservationType):
             self.observation_type = EnumCRDCHSpecimenQualityObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueQuantity):
-            self.MissingRequiredField("valueQuantity")
-        if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
+        if self._is_empty(self.value_quantity):
+            self.MissingRequiredField("value_quantity")
+        if not isinstance(self.value_quantity, Quantity):
+            self.value_quantity = Quantity(**as_dict(self.value_quantity))
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHSpecimenQualityObservationCategory):
             self.category = EnumCRDCHSpecimenQualityObservationCategory(self.category)
@@ -1772,8 +1772,8 @@ class SpecimenQuantityObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.SpecimenQuantityObservation
 
     observation_type: Union[str, "EnumCRDCHSpecimenQuantityObservationObservationType"] = None
-    valueQuantity: Union[dict, Quantity] = None
-    id: Optional[Union[dict, Entity]] = None
+    value_quantity: Union[dict, Quantity] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHSpecimenQuantityObservationCategory"]] = None
     method_type: Optional[Union[Union[str, "EnumCRDCHSpecimenQuantityObservationMethodType"], List[Union[str, "EnumCRDCHSpecimenQuantityObservationMethodType"]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
@@ -1786,13 +1786,13 @@ class SpecimenQuantityObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHSpecimenQuantityObservationObservationType):
             self.observation_type = EnumCRDCHSpecimenQuantityObservationObservationType(self.observation_type)
 
-        if self._is_empty(self.valueQuantity):
-            self.MissingRequiredField("valueQuantity")
-        if not isinstance(self.valueQuantity, Quantity):
-            self.valueQuantity = Quantity(**as_dict(self.valueQuantity))
+        if self._is_empty(self.value_quantity):
+            self.MissingRequiredField("value_quantity")
+        if not isinstance(self.value_quantity, Quantity):
+            self.value_quantity = Quantity(**as_dict(self.value_quantity))
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHSpecimenQuantityObservationCategory):
             self.category = EnumCRDCHSpecimenQuantityObservationCategory(self.category)
@@ -1927,7 +1927,7 @@ class SpecimenTransportActivity(Entity):
 
     date_started: Optional[Union[dict, "TimePoint"]] = None
     date_ended: Optional[Union[dict, "TimePoint"]] = None
-    duration: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
+    duration: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
     performed_by: Optional[Union[dict, Organization]] = None
     transport_origin: Optional[Union[dict, Organization]] = None
     transport_destination: Optional[Union[dict, Organization]] = None
@@ -1942,7 +1942,7 @@ class SpecimenTransportActivity(Entity):
 
         if not isinstance(self.duration, list):
             self.duration = [self.duration] if self.duration is not None else []
-        self.duration = [v if isinstance(v, Entity) else Entity(**as_dict(v)) for v in self.duration]
+        self.duration = [v if isinstance(v, CrdchString) else CrdchString(v) for v in self.duration]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
@@ -1971,24 +1971,24 @@ class Subject(Entity):
     class_name: ClassVar[str] = "Subject"
     class_model_uri: ClassVar[URIRef] = CRDCH.Subject
 
-    id: Union[dict, Entity] = None
+    id: Union[str, CrdchString] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
     species: Optional[Union[str, "EnumCRDCHSubjectSpecies"]] = None
     breed: Optional[Union[str, "EnumCRDCHSubjectBreed"]] = None
     sex: Optional[Union[str, "EnumCRDCHSubjectSex"]] = None
     ethnicity: Optional[Union[str, "EnumCRDCHSubjectEthnicity"]] = None
     race: Optional[Union[Union[str, "EnumCRDCHSubjectRace"], List[Union[str, "EnumCRDCHSubjectRace"]]]] = empty_list()
-    year_of_birth: Optional[Union[dict, Entity]] = None
+    year_of_birth: Optional[Union[int, CrdchInteger]] = None
     vital_status: Optional[Union[str, "EnumCRDCHSubjectVitalStatus"]] = None
     age_at_death: Optional[Union[dict, Quantity]] = None
-    year_of_death: Optional[Union[dict, Entity]] = None
+    year_of_death: Optional[Union[int, CrdchInteger]] = None
     cause_of_death: Optional[Union[str, "EnumCRDCHSubjectCauseOfDeath"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, Entity):
-            self.id = Entity()
+        if not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
@@ -2008,8 +2008,8 @@ class Subject(Entity):
             self.race = [self.race] if self.race is not None else []
         self.race = [v if isinstance(v, EnumCRDCHSubjectRace) else EnumCRDCHSubjectRace(v) for v in self.race]
 
-        if self.year_of_birth is not None and not isinstance(self.year_of_birth, Entity):
-            self.year_of_birth = Entity()
+        if self.year_of_birth is not None and not isinstance(self.year_of_birth, CrdchInteger):
+            self.year_of_birth = CrdchInteger(self.year_of_birth)
 
         if self.vital_status is not None and not isinstance(self.vital_status, EnumCRDCHSubjectVitalStatus):
             self.vital_status = EnumCRDCHSubjectVitalStatus(self.vital_status)
@@ -2017,8 +2017,8 @@ class Subject(Entity):
         if self.age_at_death is not None and not isinstance(self.age_at_death, Quantity):
             self.age_at_death = Quantity(**as_dict(self.age_at_death))
 
-        if self.year_of_death is not None and not isinstance(self.year_of_death, Entity):
-            self.year_of_death = Entity()
+        if self.year_of_death is not None and not isinstance(self.year_of_death, CrdchInteger):
+            self.year_of_death = CrdchInteger(self.year_of_death)
 
         if self.cause_of_death is not None and not isinstance(self.cause_of_death, EnumCRDCHSubjectCauseOfDeath):
             self.cause_of_death = EnumCRDCHSubjectCauseOfDeath(self.cause_of_death)
@@ -2070,28 +2070,28 @@ class TimePoint(Entity):
     class_name: ClassVar[str] = "TimePoint"
     class_model_uri: ClassVar[URIRef] = CRDCH.TimePoint
 
-    id: Optional[Union[dict, Entity]] = None
-    dateTime: Optional[Union[dict, Entity]] = None
-    indexTimePoint: Optional[Union[dict, "TimePoint"]] = None
-    offsetFromIndex: Optional[Union[dict, Quantity]] = None
-    eventType: Optional[Union[Union[str, "EnumCRDCHTimePointEventType"], List[Union[str, "EnumCRDCHTimePointEventType"]]]] = empty_list()
+    id: Optional[Union[str, CrdchString]] = None
+    date_time: Optional[Union[str, CrdchDateTime]] = None
+    index_time_point: Optional[Union[dict, "TimePoint"]] = None
+    offset_from_index: Optional[Union[dict, Quantity]] = None
+    event_type: Optional[Union[Union[str, "EnumCRDCHTimePointEventType"], List[Union[str, "EnumCRDCHTimePointEventType"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
-        if self.dateTime is not None and not isinstance(self.dateTime, Entity):
-            self.dateTime = Entity()
+        if self.date_time is not None and not isinstance(self.date_time, CrdchDateTime):
+            self.date_time = CrdchDateTime(self.date_time)
 
-        if self.indexTimePoint is not None and not isinstance(self.indexTimePoint, TimePoint):
-            self.indexTimePoint = TimePoint(**as_dict(self.indexTimePoint))
+        if self.index_time_point is not None and not isinstance(self.index_time_point, TimePoint):
+            self.index_time_point = TimePoint(**as_dict(self.index_time_point))
 
-        if self.offsetFromIndex is not None and not isinstance(self.offsetFromIndex, Quantity):
-            self.offsetFromIndex = Quantity(**as_dict(self.offsetFromIndex))
+        if self.offset_from_index is not None and not isinstance(self.offset_from_index, Quantity):
+            self.offset_from_index = Quantity(**as_dict(self.offset_from_index))
 
-        if not isinstance(self.eventType, list):
-            self.eventType = [self.eventType] if self.eventType is not None else []
-        self.eventType = [v if isinstance(v, EnumCRDCHTimePointEventType) else EnumCRDCHTimePointEventType(v) for v in self.eventType]
+        if not isinstance(self.event_type, list):
+            self.event_type = [self.event_type] if self.event_type is not None else []
+        self.event_type = [v if isinstance(v, EnumCRDCHTimePointEventType) else EnumCRDCHTimePointEventType(v) for v in self.event_type]
 
         super().__post_init__(**kwargs)
 
@@ -2108,15 +2108,15 @@ class TimePeriod(Entity):
     class_name: ClassVar[str] = "TimePeriod"
     class_model_uri: ClassVar[URIRef] = CRDCH.TimePeriod
 
-    periodStart_start: Optional[Union[dict, TimePoint]] = None
-    periodEnd_end: Optional[Union[dict, TimePoint]] = None
+    period_start_start: Optional[Union[dict, TimePoint]] = None
+    period_end_end: Optional[Union[dict, TimePoint]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.periodStart_start is not None and not isinstance(self.periodStart_start, TimePoint):
-            self.periodStart_start = TimePoint(**as_dict(self.periodStart_start))
+        if self.period_start_start is not None and not isinstance(self.period_start_start, TimePoint):
+            self.period_start_start = TimePoint(**as_dict(self.period_start_start))
 
-        if self.periodEnd_end is not None and not isinstance(self.periodEnd_end, TimePoint):
-            self.periodEnd_end = TimePoint(**as_dict(self.periodEnd_end))
+        if self.period_end_end is not None and not isinstance(self.period_end_end, TimePoint):
+            self.period_end_end = TimePoint(**as_dict(self.period_end_end))
 
         super().__post_init__(**kwargs)
 
@@ -2135,14 +2135,14 @@ class TobaccoExposureObservation(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.TobaccoExposureObservation
 
     observation_type: Union[str, "EnumCRDCHTobaccoExposureObservationObservationType"] = None
-    id: Optional[Union[dict, Entity]] = None
+    id: Optional[Union[str, CrdchString]] = None
     category: Optional[Union[str, "EnumCRDCHTobaccoExposureObservationCategory"]] = None
     method_type: Optional[Union[str, "EnumCRDCHTobaccoExposureObservationMethodType"]] = None
     focus: Optional[Union[dict, Entity]] = None
     subject: Optional[Union[dict, Subject]] = None
     performed_by: Optional[Union[dict, Organization]] = None
-    valueInteger: Optional[Union[dict, Entity]] = None
-    valueCodeableConcept: Optional[Union[str, "EnumCRDCHTobaccoExposureObservationValueCodeableConcept"]] = None
+    value_integer: Optional[Union[int, CrdchInteger]] = None
+    value_codeable_concept: Optional[Union[str, "EnumCRDCHTobaccoExposureObservationValueCodeableConcept"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
@@ -2150,8 +2150,8 @@ class TobaccoExposureObservation(Entity):
         if not isinstance(self.observation_type, EnumCRDCHTobaccoExposureObservationObservationType):
             self.observation_type = EnumCRDCHTobaccoExposureObservationObservationType(self.observation_type)
 
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         if self.category is not None and not isinstance(self.category, EnumCRDCHTobaccoExposureObservationCategory):
             self.category = EnumCRDCHTobaccoExposureObservationCategory(self.category)
@@ -2168,11 +2168,11 @@ class TobaccoExposureObservation(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
 
-        if self.valueInteger is not None and not isinstance(self.valueInteger, Entity):
-            self.valueInteger = Entity()
+        if self.value_integer is not None and not isinstance(self.value_integer, CrdchInteger):
+            self.value_integer = CrdchInteger(self.value_integer)
 
-        if self.valueCodeableConcept is not None and not isinstance(self.valueCodeableConcept, EnumCRDCHTobaccoExposureObservationValueCodeableConcept):
-            self.valueCodeableConcept = EnumCRDCHTobaccoExposureObservationValueCodeableConcept(self.valueCodeableConcept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHTobaccoExposureObservationValueCodeableConcept):
+            self.value_codeable_concept = EnumCRDCHTobaccoExposureObservationValueCodeableConcept(self.value_codeable_concept)
 
         super().__post_init__(**kwargs)
 
@@ -2189,7 +2189,7 @@ class Treatment(Entity):
     class_name: ClassVar[str] = "Treatment"
     class_model_uri: ClassVar[URIRef] = CRDCH.Treatment
 
-    id: Optional[Union[dict, Entity]] = None
+    id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
     treatment_for_diagnosis: Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]] = empty_list()
     concurrent_treatment: Optional[Union[Union[dict, "Treatment"], List[Union[dict, "Treatment"]]]] = empty_list()
@@ -2200,7 +2200,7 @@ class Treatment(Entity):
     treatment_end_reason: Optional[Union[Union[str, "EnumCRDCHTreatmentTreatmentEndReason"], List[Union[str, "EnumCRDCHTreatmentTreatmentEndReason"]]]] = empty_list()
     regimen: Optional[Union[str, "EnumCRDCHTreatmentRegimen"]] = None
     therapeutic_agent: Optional[Union[dict, Substance]] = None
-    number_of_cycles: Optional[Union[dict, Entity]] = None
+    number_of_cycles: Optional[Union[int, CrdchInteger]] = None
     treatment_frequency: Optional[Union[str, "EnumCRDCHTreatmentTreatmentFrequency"]] = None
     treatment_anatomic_site: Optional[Union[dict, BodySite]] = None
     treatment_intent: Optional[Union[str, "EnumCRDCHTreatmentTreatmentIntent"]] = None
@@ -2208,8 +2208,8 @@ class Treatment(Entity):
     treatment_outcome: Optional[Union[str, "EnumCRDCHTreatmentTreatmentOutcome"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, Entity):
-            self.id = Entity()
+        if self.id is not None and not isinstance(self.id, CrdchString):
+            self.id = CrdchString(self.id)
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
@@ -2243,8 +2243,8 @@ class Treatment(Entity):
         if self.therapeutic_agent is not None and not isinstance(self.therapeutic_agent, Substance):
             self.therapeutic_agent = Substance(**as_dict(self.therapeutic_agent))
 
-        if self.number_of_cycles is not None and not isinstance(self.number_of_cycles, Entity):
-            self.number_of_cycles = Entity()
+        if self.number_of_cycles is not None and not isinstance(self.number_of_cycles, CrdchInteger):
+            self.number_of_cycles = CrdchInteger(self.number_of_cycles)
 
         if self.treatment_frequency is not None and not isinstance(self.treatment_frequency, EnumCRDCHTreatmentTreatmentFrequency):
             self.treatment_frequency = EnumCRDCHTreatmentTreatmentFrequency(self.treatment_frequency)
@@ -2273,13 +2273,8 @@ class EnumCRDCHAlcoholExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHAlcoholExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:33:51.925323+00:00",
+        code_set_version="2021-09-07T21:08:31.431109+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHAlcoholExposureObservationObservationType(EnumDefinitionImpl):
     """
@@ -2299,11 +2294,6 @@ class EnumCRDCHAlcoholExposureObservationObservationType(EnumDefinitionImpl):
         description="Types of observations about a Subject's exposure to alcohol.",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHAlcoholExposureObservationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type
@@ -2312,49 +2302,19 @@ class EnumCRDCHAlcoholExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHAlcoholExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:33:52.298263+00:00",
+        code_set_version="2021-09-07T21:08:32.116226+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H AlcoholExposureObservation value_codeable_concept
     """
-    Unknown = PermissibleValue(text="Unknown")
-    Drinker = PermissibleValue(text="Drinker")
-    No = PermissibleValue(text="No",
-                           description="No")
-    Yes = PermissibleValue(text="Yes",
-                             description="Yes")
-
     _defn = EnumDefinition(
         name="EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:33:52.461540+00:00",
+        code_set_version="2021-09-07T21:08:32.219779+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "Heavy Drinker",
-                PermissibleValue(text="Heavy Drinker") )
-        setattr(cls, "Occasional Drinker",
-                PermissibleValue(text="Occasional Drinker",
-                                 description="Occasional Drinker") )
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported") )
-        setattr(cls, "Lifelong Non-Drinker",
-                PermissibleValue(text="Lifelong Non-Drinker") )
-        setattr(cls, "Non-Drinker",
-                PermissibleValue(text="Non-Drinker") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHBodySiteSite(EnumDefinitionImpl):
     """
@@ -2673,7 +2633,7 @@ class EnumCRDCHBodySiteSite(EnumDefinitionImpl):
         name="EnumCRDCHBodySiteSite",
         description="Autogenerated Enumeration for CRDC-H BodySite site",
         code_set=None,
-        code_set_version="2021-08-13T12:33:52.646700+00:00",
+        code_set_version="2021-09-07T21:08:32.335724+00:00",
     )
 
     @classmethod
@@ -3681,10 +3641,6 @@ class EnumCRDCHBodySiteSite(EnumDefinitionImpl):
         setattr(cls, "Submandibular Gland",
                 PermissibleValue(text="Submandibular Gland") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHBodySiteQualifier(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H BodySite qualifier
@@ -3701,17 +3657,13 @@ class EnumCRDCHBodySiteQualifier(EnumDefinitionImpl):
         name="EnumCRDCHBodySiteQualifier",
         description="Autogenerated Enumeration for CRDC-H BodySite qualifier",
         code_set=None,
-        code_set_version="2021-08-13T12:33:53.614057+00:00",
+        code_set_version="2021-09-07T21:08:33.353553+00:00",
     )
 
     @classmethod
     def _addvals(cls):
         setattr(cls, "Not Reported",
                 PermissibleValue(text="Not Reported") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHBiologicProductProductType(EnumDefinitionImpl):
     """
@@ -3721,13 +3673,8 @@ class EnumCRDCHBiologicProductProductType(EnumDefinitionImpl):
         name="EnumCRDCHBiologicProductProductType",
         description="Autogenerated Enumeration for CRDC-H BiologicProduct product_type",
         code_set=None,
-        code_set_version="2021-08-13T12:33:53.790698+00:00",
+        code_set_version="2021-09-07T21:08:33.482548+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerGradeObservationCategory(EnumDefinitionImpl):
     """
@@ -3737,13 +3684,8 @@ class EnumCRDCHCancerGradeObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:33:53.953143+00:00",
+        code_set_version="2021-09-07T21:08:33.589612+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerGradeObservationObservationType(EnumDefinitionImpl):
 
@@ -3766,11 +3708,6 @@ class EnumCRDCHCancerGradeObservationObservationType(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationObservationType",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHCancerGradeObservationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H CancerGradeObservation method_type
@@ -3779,99 +3716,19 @@ class EnumCRDCHCancerGradeObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:33:54.274159+00:00",
+        code_set_version="2021-09-07T21:08:33.813864+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H CancerGradeObservation value_codeable_concept
     """
-    Unknown = PermissibleValue(text="Unknown")
-    GX = PermissibleValue(text="GX",
-                           description="Grade Cannot be Assessed")
-    G1 = PermissibleValue(text="G1",
-                           description="Well Differentiated")
-    G2 = PermissibleValue(text="G2",
-                           description="Moderately Differentiated")
-    G3 = PermissibleValue(text="G3",
-                           description="Poorly Differentiated")
-    G4 = PermissibleValue(text="G4",
-                           description="Undifferentiated Histology")
-    GB = PermissibleValue(text="GB",
-                           description="Borderline Histologic Grade")
-    Differentiating = PermissibleValue(text="Differentiating",
-                                                     description="Differentiating Neuroblastoma")
-    Undifferentiated = PermissibleValue(text="Undifferentiated",
-                                                       description="Undifferentiated Neuroblastoma")
-
     _defn = EnumDefinition(
         name="EnumCRDCHCancerGradeObservationValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H CancerGradeObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:33:54.430203+00:00",
+        code_set_version="2021-09-07T21:08:33.923946+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "Pattern 1",
-                PermissibleValue(text="Pattern 1") )
-        setattr(cls, "Pattern 4",
-                PermissibleValue(text="Pattern 4") )
-        setattr(cls, "Pattern 5",
-                PermissibleValue(text="Pattern 5") )
-        setattr(cls, "Pattern 3",
-                PermissibleValue(text="Pattern 3") )
-        setattr(cls, "Pattern 2",
-                PermissibleValue(text="Pattern 2") )
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported") )
-        setattr(cls, "Low Grade (G1)",
-                PermissibleValue(text="Low Grade (G1)",
-                                 description="Enneking Low Surgical Grade") )
-        setattr(cls, "High Grade (G2)",
-                PermissibleValue(text="High Grade (G2)",
-                                 description="Enneking High Surgical Grade") )
-        setattr(cls, "Low Grade",
-                PermissibleValue(text="Low Grade",
-                                 description="Low Grade") )
-        setattr(cls, "High Grade",
-                PermissibleValue(text="High Grade",
-                                 description="High Grade") )
-        setattr(cls, "Intermediate Grade",
-                PermissibleValue(text="Intermediate Grade",
-                                 description="Intermediate Grade") )
-        setattr(cls, "not reported",
-                PermissibleValue(text="not reported") )
-        setattr(cls, "High Grade Dysplasia",
-                PermissibleValue(text="High Grade Dysplasia") )
-        setattr(cls, "Indefinite for Dysplasia",
-                PermissibleValue(text="Indefinite for Dysplasia") )
-        setattr(cls, "Low Grade Dysplasia",
-                PermissibleValue(text="Low Grade Dysplasia") )
-        setattr(cls, "Negative/ No Dysplasia",
-                PermissibleValue(text="Negative/ No Dysplasia") )
-        setattr(cls, "Group 1",
-                PermissibleValue(text="Group 1") )
-        setattr(cls, "Group 3",
-                PermissibleValue(text="Group 3") )
-        setattr(cls, "Group 5",
-                PermissibleValue(text="Group 5") )
-        setattr(cls, "Group 4",
-                PermissibleValue(text="Group 4") )
-        setattr(cls, "Group 2",
-                PermissibleValue(text="Group 2") )
-        setattr(cls, "Poorly Differentiated",
-                PermissibleValue(text="Poorly Differentiated",
-                                 description="Poorly Differentiated Neuroblastoma") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerGradeObservationSetCategory(EnumDefinitionImpl):
     """
@@ -3881,13 +3738,8 @@ class EnumCRDCHCancerGradeObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservationSet category",
         code_set=None,
-        code_set_version="2021-08-13T12:33:54.628654+00:00",
+        code_set_version="2021-09-07T21:08:34.033726+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerGradeObservationSetMethodType(EnumDefinitionImpl):
     """
@@ -3910,10 +3762,6 @@ class EnumCRDCHCancerGradeObservationSetMethodType(EnumDefinitionImpl):
         setattr(cls, "Unspecified grading system",
                 PermissibleValue(text="Unspecified grading system") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHCancerStageObservationCategory(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H CancerStageObservation category
@@ -3922,13 +3770,8 @@ class EnumCRDCHCancerStageObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:33:54.950658+00:00",
+        code_set_version="2021-09-07T21:08:34.257170+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerStageObservationObservationType(EnumDefinitionImpl):
     """
@@ -3981,10 +3824,6 @@ class EnumCRDCHCancerStageObservationObservationType(EnumDefinitionImpl):
                 PermissibleValue(text="Ann Arbor Substage Modifier",
                                  description="The substage classification modifiers amend each stage based on distinct features.") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHCancerStageObservationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H CancerStageObservation method_type
@@ -3993,394 +3832,19 @@ class EnumCRDCHCancerStageObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:33:55.279475+00:00",
+        code_set_version="2021-09-07T21:08:34.478121+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H CancerStageObservation value_codeable_concept
     """
-    N2 = PermissibleValue(text="N2",
-                           description="N2 Stage Finding")
-    N3 = PermissibleValue(text="N3",
-                           description="N3 Stage Finding")
-    N3b = PermissibleValue(text="N3b",
-                             description="N3b Stage Finding")
-    NX = PermissibleValue(text="NX",
-                           description="NX Stage Finding")
-    N1bIII = PermissibleValue(text="N1bIII",
-                                   description="N1bIII Stage Finding")
-    N1bII = PermissibleValue(text="N1bII",
-                                 description="N1bII Stage Finding")
-    N1c = PermissibleValue(text="N1c",
-                             description="N1c Stage Finding")
-    N1b = PermissibleValue(text="N1b",
-                             description="N1b Stage Finding")
-    N1bIV = PermissibleValue(text="N1bIV",
-                                 description="N1bIV Stage Finding")
-    N1 = PermissibleValue(text="N1",
-                           description="N1 Stage Finding")
-    N4 = PermissibleValue(text="N4",
-                           description="N4 Stage Finding")
-    N2b = PermissibleValue(text="N2b",
-                             description="N2b Stage Finding")
-    N0 = PermissibleValue(text="N0",
-                           description="N0 Stage Finding")
-    N3a = PermissibleValue(text="N3a",
-                             description="N3a Stage Finding")
-    N1a = PermissibleValue(text="N1a",
-                             description="N1a Stage Finding")
-    N2c = PermissibleValue(text="N2c",
-                             description="N2c Stage Finding")
-    N2a = PermissibleValue(text="N2a",
-                             description="N2a Stage Finding")
-    N1mi = PermissibleValue(text="N1mi",
-                               description="N1mi Stage Finding")
-    Unknown = PermissibleValue(text="Unknown",
-                                     description="Unknown")
-    N1bI = PermissibleValue(text="N1bI",
-                               description="N1bI Stage Finding")
-    N3c = PermissibleValue(text="N3c",
-                             description="N3c Stage Finding")
-    Yes = PermissibleValue(text="Yes",
-                             description="Yes")
-    No = PermissibleValue(text="No",
-                           description="No")
-    Ta = PermissibleValue(text="Ta",
-                           description="Ta Stage Finding")
-    T3 = PermissibleValue(text="T3",
-                           description="T3 Stage Finding")
-    T2b = PermissibleValue(text="T2b",
-                             description="T2b Stage Finding")
-    T2a2 = PermissibleValue(text="T2a2",
-                               description="Stage T2a2 Finding")
-    T1a = PermissibleValue(text="T1a",
-                             description="T1a Stage Finding")
-    T3d = PermissibleValue(text="T3d",
-                             description="T3d Stage Finding")
-    T4 = PermissibleValue(text="T4",
-                           description="T4 Stage Finding")
-    T4a = PermissibleValue(text="T4a",
-                             description="T4a Stage Finding")
-    Tis = PermissibleValue(text="Tis",
-                             description="Tis Stage Finding")
-    T3a = PermissibleValue(text="T3a",
-                             description="T3a Stage Finding")
-    T2c = PermissibleValue(text="T2c",
-                             description="T2c Stage Finding")
-    T1b2 = PermissibleValue(text="T1b2",
-                               description="T1b2 Stage Finding")
-    T0 = PermissibleValue(text="T0",
-                           description="T0 Stage Finding")
-    T2a = PermissibleValue(text="T2a",
-                             description="T2a Stage Finding")
-    T1mi = PermissibleValue(text="T1mi",
-                               description="T1mi Stage Finding")
-    T4b = PermissibleValue(text="T4b",
-                             description="T4b Stage Finding")
-    T1a1 = PermissibleValue(text="T1a1",
-                               description="Stage T1a1 Finding")
-    T1b1 = PermissibleValue(text="T1b1",
-                               description="T1b1 Stage Finding")
-    TX = PermissibleValue(text="TX",
-                           description="TX Stage Finding")
-    T2d = PermissibleValue(text="T2d",
-                             description="T2d Stage Finding")
-    T4d = PermissibleValue(text="T4d",
-                             description="T4d Stage Finding")
-    T2a1 = PermissibleValue(text="T2a1",
-                               description="Stage T2a1 Finding")
-    T2 = PermissibleValue(text="T2",
-                           description="T2 Stage Finding")
-    T4e = PermissibleValue(text="T4e",
-                             description="T4e Stage Finding")
-    T3c = PermissibleValue(text="T3c",
-                             description="T3c Stage Finding")
-    T1 = PermissibleValue(text="T1",
-                           description="T1 Stage Finding")
-    T1a2 = PermissibleValue(text="T1a2",
-                               description="Stage T1a2 Finding")
-    T3b = PermissibleValue(text="T3b",
-                             description="T3b Stage Finding")
-    T4c = PermissibleValue(text="T4c",
-                             description="T4c Stage Finding")
-    T1b = PermissibleValue(text="T1b",
-                             description="T1b Stage Finding")
-    T1c = PermissibleValue(text="T1c",
-                             description="T1c Stage Finding")
-    M1d = PermissibleValue(text="M1d")
-    M1a = PermissibleValue(text="M1a",
-                             description="M1a Stage Finding")
-    M1 = PermissibleValue(text="M1",
-                           description="M1 Stage Finding")
-    MX = PermissibleValue(text="MX",
-                           description="MX Stage Finding")
-    M1c = PermissibleValue(text="M1c",
-                             description="M1c Stage Finding")
-    M2 = PermissibleValue(text="M2",
-                           description="M2 Stage Finding")
-    M0 = PermissibleValue(text="M0",
-                           description="M0 Stage Finding")
-    M1b = PermissibleValue(text="M1b",
-                             description="M1b Stage Finding")
-    II = PermissibleValue(text="II",
-                           description="II")
-    III = PermissibleValue(text="III",
-                             description="III")
-    I = PermissibleValue(text="I",
-                         description="I")
-    L1 = PermissibleValue(text="L1",
-                           description="INRG Stage L1")
-    Ms = PermissibleValue(text="Ms",
-                           description="INRG Stage MS")
-    M = PermissibleValue(text="M",
-                         description="INRG Stage M")
-    L2 = PermissibleValue(text="L2",
-                           description="INRG Stage L2")
-
     _defn = EnumDefinition(
         name="EnumCRDCHCancerStageObservationValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H CancerStageObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:33:55.445835+00:00",
+        code_set_version="2021-09-07T21:08:34.590527+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "N0 (i-)",
-                PermissibleValue(text="N0 (i-)",
-                                 description="N0 (i-) Stage Finding") )
-        setattr(cls, "N0 (mol+)",
-                PermissibleValue(text="N0 (mol+)",
-                                 description="N0 (mol+) Stage Finding") )
-        setattr(cls, "N0 (mol-)",
-                PermissibleValue(text="N0 (mol-)",
-                                 description="N0 (mol-) Stage Finding") )
-        setattr(cls, "N0 (i+)",
-                PermissibleValue(text="N0 (i+)",
-                                 description="N0 (i+) Stage Finding") )
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported",
-                                 description="Not Reported") )
-        setattr(cls, "Not Allowed To Collect",
-                PermissibleValue(text="Not Allowed To Collect") )
-        setattr(cls, "Stage IVB",
-                PermissibleValue(text="Stage IVB",
-                                 description="FIGO Stage IVB") )
-        setattr(cls, "Stage II",
-                PermissibleValue(text="Stage II",
-                                 description="SIOP/COG/NWTSG Stage II") )
-        setattr(cls, "Stage IIA",
-                PermissibleValue(text="Stage IIA",
-                                 description="Enneking Stage IIA") )
-        setattr(cls, "Stage 0",
-                PermissibleValue(text="Stage 0",
-                                 description="FIGO Stage 0") )
-        setattr(cls, "Stage IIID",
-                PermissibleValue(text="Stage IIID") )
-        setattr(cls, "Stage IV",
-                PermissibleValue(text="Stage IV",
-                                 description="SIOP/COG/NWTSG Stage IV") )
-        setattr(cls, "Stage IIIA",
-                PermissibleValue(text="Stage IIIA",
-                                 description="FIGO Stage IIIA") )
-        setattr(cls, "Stage III",
-                PermissibleValue(text="Stage III",
-                                 description="SIOP/COG/NWTSG Stage III") )
-        setattr(cls, "Stage IVC",
-                PermissibleValue(text="Stage IVC",
-                                 description="Stage IVC") )
-        setattr(cls, "Stage Tis",
-                PermissibleValue(text="Stage Tis",
-                                 description="Tis Stage Finding") )
-        setattr(cls, "Stage IVA",
-                PermissibleValue(text="Stage IVA",
-                                 description="FIGO Stage IVA") )
-        setattr(cls, "Stage IS",
-                PermissibleValue(text="Stage IS",
-                                 description="Stage Is") )
-        setattr(cls, "Stage IA2",
-                PermissibleValue(text="Stage IA2",
-                                 description="FIGO Stage IA2") )
-        setattr(cls, "Stage IB",
-                PermissibleValue(text="Stage IB",
-                                 description="Enneking Stage IB") )
-        setattr(cls, "Stage 0a",
-                PermissibleValue(text="Stage 0a",
-                                 description="Stage 0a") )
-        setattr(cls, "Stage IIIB",
-                PermissibleValue(text="Stage IIIB",
-                                 description="FIGO Stage IIIB") )
-        setattr(cls, "Stage IIC",
-                PermissibleValue(text="Stage IIC") )
-        setattr(cls, "Stage IC",
-                PermissibleValue(text="Stage IC",
-                                 description="FIGO Stage IC") )
-        setattr(cls, "Stage IB2",
-                PermissibleValue(text="Stage IB2",
-                                 description="FIGO Stage IB2") )
-        setattr(cls, "Stage IIIC",
-                PermissibleValue(text="Stage IIIC",
-                                 description="FIGO Stage IIIC") )
-        setattr(cls, "Stage IIA1",
-                PermissibleValue(text="Stage IIA1",
-                                 description="Stage IIA1 Cervical Cancer") )
-        setattr(cls, "Stage IB1",
-                PermissibleValue(text="Stage IB1",
-                                 description="FIGO Stage IB1") )
-        setattr(cls, "Stage IIIC1",
-                PermissibleValue(text="Stage IIIC1",
-                                 description="FIGO Stage IIIC1") )
-        setattr(cls, "Stage IA",
-                PermissibleValue(text="Stage IA",
-                                 description="Enneking Stage IA") )
-        setattr(cls, "Stage IA3",
-                PermissibleValue(text="Stage IA3") )
-        setattr(cls, "Stage IIA2",
-                PermissibleValue(text="Stage IIA2",
-                                 description="Stage IIA2 Cervical Cancer") )
-        setattr(cls, "Stage IIB",
-                PermissibleValue(text="Stage IIB",
-                                 description="Enneking Stage IIB") )
-        setattr(cls, "Stage IIIC2",
-                PermissibleValue(text="Stage IIIC2",
-                                 description="FIGO Stage IIIC2") )
-        setattr(cls, "Stage I",
-                PermissibleValue(text="Stage I",
-                                 description="SIOP/COG/NWTSG Stage I") )
-        setattr(cls, "Stage X",
-                PermissibleValue(text="Stage X",
-                                 description="Stage X") )
-        setattr(cls, "Stage 0is",
-                PermissibleValue(text="Stage 0is",
-                                 description="Stage 0is") )
-        setattr(cls, "Stage IA1",
-                PermissibleValue(text="Stage IA1",
-                                 description="FIGO Stage IA1") )
-        setattr(cls, "Tis (LCIS)",
-                PermissibleValue(text="Tis (LCIS)",
-                                 description="Tis Stage Finding Lobular Breast Carcinoma In Situ") )
-        setattr(cls, "Tis (DCIS)",
-                PermissibleValue(text="Tis (DCIS)",
-                                 description="Tis Stage Finding Ductal Breast Carcinoma In Situ") )
-        setattr(cls, "Tis (Paget's)",
-                PermissibleValue(text="Tis (Paget's)",
-                                 description="Tis Stage Finding Paget Disease of the Breast without Invasive Carcinoma") )
-        setattr(cls, "cM0 (i+)",
-                PermissibleValue(text="cM0 (i+)",
-                                 description="cM0 (i+) Stage Finding") )
-        setattr(cls, "Stage 4S",
-                PermissibleValue(text="Stage 4S",
-                                 description="INSS Stage 4S") )
-        setattr(cls, "Stage 3",
-                PermissibleValue(text="Stage 3",
-                                 description="INSS Stage 3") )
-        setattr(cls, "Stage 4",
-                PermissibleValue(text="Stage 4",
-                                 description="INSS Stage 4") )
-        setattr(cls, "Stage 2A",
-                PermissibleValue(text="Stage 2A",
-                                 description="INSS Stage 2A") )
-        setattr(cls, "Stage 1",
-                PermissibleValue(text="Stage 1",
-                                 description="INSS Stage 1") )
-        setattr(cls, "Stage 2B",
-                PermissibleValue(text="Stage 2B",
-                                 description="INSS Stage 2B") )
-        setattr(cls, "4",
-                PermissibleValue(text="4",
-                                 description="Metastatic disease") )
-        setattr(cls, "2",
-                PermissibleValue(text="2",
-                                 description="Unfavorable site, <= 5 cm, no regional node involvement") )
-        setattr(cls, "1",
-                PermissibleValue(text="1",
-                                 description="Favorable Site") )
-        setattr(cls, "3",
-                PermissibleValue(text="3",
-                                 description="Unfavorable site, >5cm, and/or regional node involvement") )
-        setattr(cls, "Stage IVb",
-                PermissibleValue(text="Stage IVb") )
-        setattr(cls, "Stage IVa",
-                PermissibleValue(text="Stage IVa") )
-        setattr(cls, "Stage IIa",
-                PermissibleValue(text="Stage IIa") )
-        setattr(cls, "Stage IIb",
-                PermissibleValue(text="Stage IIb") )
-        setattr(cls, "No Metastasis (M0)",
-                PermissibleValue(text="No Metastasis (M0)") )
-        setattr(cls, "Regional or Distant Metastasis (M1)",
-                PermissibleValue(text="Regional or Distant Metastasis (M1)") )
-        setattr(cls, "Stage II Cervix",
-                PermissibleValue(text="Stage II Cervix",
-                                 description="Stage II Cervix") )
-        setattr(cls, "Stage IB Cervix",
-                PermissibleValue(text="Stage IB Cervix",
-                                 description="Stage IB Cervix") )
-        setattr(cls, "Stage IIC1",
-                PermissibleValue(text="Stage IIC1") )
-        setattr(cls, "Stage IIA Cervix",
-                PermissibleValue(text="Stage IIA Cervix",
-                                 description="Stage IIA Cervix") )
-        setattr(cls, "3rd",
-                PermissibleValue(text="3rd",
-                                 description="Third Edition (published 1988)") )
-        setattr(cls, "2nd",
-                PermissibleValue(text="2nd",
-                                 description="Second Edition (published 1983)") )
-        setattr(cls, "5th",
-                PermissibleValue(text="5th",
-                                 description="Fifth Edition (published 1997)") )
-        setattr(cls, "8th",
-                PermissibleValue(text="8th",
-                                 description="Eighth Edition") )
-        setattr(cls, "4th",
-                PermissibleValue(text="4th",
-                                 description="Fourth Edition (published 1992)") )
-        setattr(cls, "6th",
-                PermissibleValue(text="6th",
-                                 description="Sixth Edition (published 2002)") )
-        setattr(cls, "1st",
-                PermissibleValue(text="1st",
-                                 description="First Edition") )
-        setattr(cls, "7th",
-                PermissibleValue(text="7th",
-                                 description="Seventh Edition") )
-        setattr(cls, "Extracompartmental (T2)",
-                PermissibleValue(text="Extracompartmental (T2)",
-                                 description="Extracompartmental Tumor") )
-        setattr(cls, "Intracompartmental (T1)",
-                PermissibleValue(text="Intracompartmental (T1)",
-                                 description="Intracompartmental Tumor") )
-        setattr(cls, "Good Prognosis",
-                PermissibleValue(text="Good Prognosis") )
-        setattr(cls, "Poor Prognosis",
-                PermissibleValue(text="Poor Prognosis") )
-        setattr(cls, "Intermediate Prognosis",
-                PermissibleValue(text="Intermediate Prognosis") )
-        setattr(cls, "Stage IC2",
-                PermissibleValue(text="Stage IC2") )
-        setattr(cls, "Stage IC1",
-                PermissibleValue(text="Stage IC1") )
-        setattr(cls, "Stage IIIA1",
-                PermissibleValue(text="Stage IIIA1") )
-        setattr(cls, "Stage IIIAii",
-                PermissibleValue(text="Stage IIIAii") )
-        setattr(cls, "Stage IC3",
-                PermissibleValue(text="Stage IC3") )
-        setattr(cls, "Stage IIIAi",
-                PermissibleValue(text="Stage IIIAi") )
-        setattr(cls, "Stage IIIA2",
-                PermissibleValue(text="Stage IIIA2") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerStageObservationSetCategory(EnumDefinitionImpl):
     """
@@ -4390,13 +3854,8 @@ class EnumCRDCHCancerStageObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservationSet category",
         code_set=None,
-        code_set_version="2021-08-13T12:33:55.908836+00:00",
+        code_set_version="2021-09-07T21:08:34.702334+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHCancerStageObservationSetMethodType(EnumDefinitionImpl):
     """
@@ -4469,10 +3928,6 @@ class EnumCRDCHCancerStageObservationSetMethodType(EnumDefinitionImpl):
         setattr(cls, "Unspecified staging system",
                 PermissibleValue(text="Unspecified staging system",
                                  description="For use when a data contributor has a cancer staging value, but no clearly specified staging system under which that value falls.") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHDiagnosisCondition(EnumDefinitionImpl):
     """
@@ -4661,7 +4116,7 @@ class EnumCRDCHDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H Diagnosis condition",
         code_set=None,
-        code_set_version="2021-08-13T12:33:56.234554+00:00",
+        code_set_version="2021-09-07T21:08:34.924503+00:00",
     )
 
     @classmethod
@@ -9612,10 +9067,6 @@ class EnumCRDCHDiagnosisCondition(EnumDefinitionImpl):
         setattr(cls, "Malignant lymphoma, small lymphocytic, diffuse",
                 PermissibleValue(text="Malignant lymphoma, small lymphocytic, diffuse") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHDiagnosisMorphology(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Diagnosis morphology
@@ -9626,7 +9077,7 @@ class EnumCRDCHDiagnosisMorphology(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisMorphology",
         description="Autogenerated Enumeration for CRDC-H Diagnosis morphology",
         code_set=None,
-        code_set_version="2021-08-13T12:33:58.788972+00:00",
+        code_set_version="2021-09-07T21:08:37.859828+00:00",
     )
 
     @classmethod
@@ -11926,10 +11377,6 @@ class EnumCRDCHDiagnosisMorphology(EnumDefinitionImpl):
         setattr(cls, "8310/6",
                 PermissibleValue(text="8310/6") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHDiagnosisDiseaseStatus(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Diagnosis disease_status
@@ -11940,7 +11387,7 @@ class EnumCRDCHDiagnosisDiseaseStatus(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisDiseaseStatus",
         description="Autogenerated Enumeration for CRDC-H Diagnosis disease_status",
         code_set=None,
-        code_set_version="2021-08-13T12:33:59.965844+00:00",
+        code_set_version="2021-09-07T21:08:39.251148+00:00",
     )
 
     @classmethod
@@ -11955,10 +11402,6 @@ class EnumCRDCHDiagnosisDiseaseStatus(EnumDefinitionImpl):
                 PermissibleValue(text="Recurrent Disease") )
         setattr(cls, "Progressive Disease",
                 PermissibleValue(text="Progressive Disease") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHDiagnosisMethodOfDiagnosis(EnumDefinitionImpl):
     """
@@ -11993,7 +11436,7 @@ class EnumCRDCHDiagnosisMethodOfDiagnosis(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisMethodOfDiagnosis",
         description="Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis",
         code_set=None,
-        code_set_version="2021-08-13T12:34:00.133086+00:00",
+        code_set_version="2021-09-07T21:08:39.373622+00:00",
     )
 
     @classmethod
@@ -12043,10 +11486,6 @@ class EnumCRDCHDiagnosisMethodOfDiagnosis(EnumDefinitionImpl):
                 PermissibleValue(text="Diagnostic Imaging",
                                  description="Diagnostic Imaging") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHDimensionalObservationCategory(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H DimensionalObservation category
@@ -12055,13 +11494,8 @@ class EnumCRDCHDimensionalObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:00.327645+00:00",
+        code_set_version="2021-09-07T21:08:39.516352+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHDimensionalObservationObservationType(EnumDefinitionImpl):
     """
@@ -12085,11 +11519,6 @@ class EnumCRDCHDimensionalObservationObservationType(EnumDefinitionImpl):
         description="Types of measurements that describe the physical dimensions of an entity (e.g. a Specimen)",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHDimensionalObservationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H DimensionalObservation method_type
@@ -12098,13 +11527,8 @@ class EnumCRDCHDimensionalObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:00.665857+00:00",
+        code_set_version="2021-09-07T21:08:39.730507+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHDimensionalObservationSetCategory(EnumDefinitionImpl):
     """
@@ -12114,13 +11538,8 @@ class EnumCRDCHDimensionalObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:00.831943+00:00",
+        code_set_version="2021-09-07T21:08:39.834340+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHDimensionalObservationSetMethodType(EnumDefinitionImpl):
     """
@@ -12130,13 +11549,8 @@ class EnumCRDCHDimensionalObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:00.997978+00:00",
+        code_set_version="2021-09-07T21:08:39.940391+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHDocumentDocumentType(EnumDefinitionImpl):
     """
@@ -12156,10 +11570,6 @@ class EnumCRDCHDocumentDocumentType(EnumDefinitionImpl):
                 PermissibleValue(text="pathology report",
                                  description="A pathology report describing the specimen") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHEnvironmentalExposureObservationCategory(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category
@@ -12168,13 +11578,8 @@ class EnumCRDCHEnvironmentalExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHEnvironmentalExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:01.314081+00:00",
+        code_set_version="2021-09-07T21:08:40.164775+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHEnvironmentalExposureObservationObservationType(EnumDefinitionImpl):
     """
@@ -12196,11 +11601,6 @@ class EnumCRDCHEnvironmentalExposureObservationObservationType(EnumDefinitionImp
         description="Types of observations about a Subject's environmental exposures.",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHEnvironmentalExposureObservationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type
@@ -12209,136 +11609,19 @@ class EnumCRDCHEnvironmentalExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHEnvironmentalExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:01.639882+00:00",
+        code_set_version="2021-09-07T21:08:40.378679+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation value_codeable_concept
     """
-    Unknown = PermissibleValue(text="Unknown",
-                                     description="Unknown")
-    No = PermissibleValue(text="No")
-    Yes = PermissibleValue(text="Yes")
-
     _defn = EnumDefinition(
         name="EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:34:01.822147+00:00",
+        code_set_version="2021-09-07T21:08:40.480235+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "Work-related smoke, plumbing",
-                PermissibleValue(text="Work-related smoke, plumbing") )
-        setattr(cls, "Grilling smoke",
-                PermissibleValue(text="Grilling smoke") )
-        setattr(cls, "Indoor stove or fireplace smoke, wood burning",
-                PermissibleValue(text="Indoor stove or fireplace smoke, wood burning") )
-        setattr(cls, "Accidental building fire smoke",
-                PermissibleValue(text="Accidental building fire smoke") )
-        setattr(cls, "Smoke exposure, NOS",
-                PermissibleValue(text="Smoke exposure, NOS") )
-        setattr(cls, "Accidental forest fire smoke",
-                PermissibleValue(text="Accidental forest fire smoke") )
-        setattr(cls, "Cooking-related smoke, NOS",
-                PermissibleValue(text="Cooking-related smoke, NOS") )
-        setattr(cls, "Work-related smoke, military",
-                PermissibleValue(text="Work-related smoke, military") )
-        setattr(cls, "Fire smoke, NOS",
-                PermissibleValue(text="Fire smoke, NOS") )
-        setattr(cls, "Wood burning smoke, NOS",
-                PermissibleValue(text="Wood burning smoke, NOS") )
-        setattr(cls, "Work-related smoke, generators",
-                PermissibleValue(text="Work-related smoke, generators") )
-        setattr(cls, "Marijuana smoke",
-                PermissibleValue(text="Marijuana smoke") )
-        setattr(cls, "Electronic cigarette smoke, NOS",
-                PermissibleValue(text="Electronic cigarette smoke, NOS") )
-        setattr(cls, "Work-related smoke, fire fighting",
-                PermissibleValue(text="Work-related smoke, fire fighting") )
-        setattr(cls, "Burning tree smoke",
-                PermissibleValue(text="Burning tree smoke") )
-        setattr(cls, "Factory smokestack smoke",
-                PermissibleValue(text="Factory smokestack smoke") )
-        setattr(cls, "Work-related smoke, plastics factory",
-                PermissibleValue(text="Work-related smoke, plastics factory") )
-        setattr(cls, "Field burning smoke",
-                PermissibleValue(text="Field burning smoke") )
-        setattr(cls, "Accidental vehicle fire smoke",
-                PermissibleValue(text="Accidental vehicle fire smoke") )
-        setattr(cls, "Work-related smoke, foundry",
-                PermissibleValue(text="Work-related smoke, foundry") )
-        setattr(cls, "Gas burning smoke, propane",
-                PermissibleValue(text="Gas burning smoke, propane") )
-        setattr(cls, "Furnace or boiler smoke",
-                PermissibleValue(text="Furnace or boiler smoke") )
-        setattr(cls, "Waste burning smoke",
-                PermissibleValue(text="Waste burning smoke") )
-        setattr(cls, "No Smoke Exposure",
-                PermissibleValue(text="No Smoke Exposure") )
-        setattr(cls, "Coal smoke, NOS",
-                PermissibleValue(text="Coal smoke, NOS") )
-        setattr(cls, "Volcanic smoke",
-                PermissibleValue(text="Volcanic smoke") )
-        setattr(cls, "Oil burning smoke, Kerosene",
-                PermissibleValue(text="Oil burning smoke, Kerosene") )
-        setattr(cls, "Accidental fire smoke, grass",
-                PermissibleValue(text="Accidental fire smoke, grass") )
-        setattr(cls, "Electrical fire smoke",
-                PermissibleValue(text="Electrical fire smoke") )
-        setattr(cls, "Work-related smoke, paint baking",
-                PermissibleValue(text="Work-related smoke, paint baking") )
-        setattr(cls, "Tobacco smoke, cigarettes",
-                PermissibleValue(text="Tobacco smoke, cigarettes") )
-        setattr(cls, "Accidental fire smoke, NOS",
-                PermissibleValue(text="Accidental fire smoke, NOS") )
-        setattr(cls, "Recreational fire smoke",
-                PermissibleValue(text="Recreational fire smoke") )
-        setattr(cls, "Grease fire smoke",
-                PermissibleValue(text="Grease fire smoke") )
-        setattr(cls, "Hashish smoke",
-                PermissibleValue(text="Hashish smoke") )
-        setattr(cls, "Smokehouse smoke",
-                PermissibleValue(text="Smokehouse smoke") )
-        setattr(cls, "Indoor stove or fireplace smoke, coal burning",
-                PermissibleValue(text="Indoor stove or fireplace smoke, coal burning") )
-        setattr(cls, "Work-related smoke, soldering/welding",
-                PermissibleValue(text="Work-related smoke, soldering/welding") )
-        setattr(cls, "Tobacco smoke, cigar",
-                PermissibleValue(text="Tobacco smoke, cigar") )
-        setattr(cls, "Work-related smoke, artificial smoke machines",
-                PermissibleValue(text="Work-related smoke, artificial smoke machines") )
-        setattr(cls, "Aircraft smoke",
-                PermissibleValue(text="Aircraft smoke") )
-        setattr(cls, "Environmental tobacco smoke",
-                PermissibleValue(text="Environmental tobacco smoke") )
-        setattr(cls, "Tobacco smoke, pipe",
-                PermissibleValue(text="Tobacco smoke, pipe") )
-        setattr(cls, "Indoor stove or fireplace smoke, NOS",
-                PermissibleValue(text="Indoor stove or fireplace smoke, NOS") )
-        setattr(cls, "Wood burning smoke, factory",
-                PermissibleValue(text="Wood burning smoke, factory") )
-        setattr(cls, "Oil burning smoke, NOS",
-                PermissibleValue(text="Oil burning smoke, NOS") )
-        setattr(cls, "Work-related smoke, NOS",
-                PermissibleValue(text="Work-related smoke, NOS") )
-        setattr(cls, "Machine smoke",
-                PermissibleValue(text="Machine smoke") )
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported") )
-        setattr(cls, "Tobacco smoke, NOS",
-                PermissibleValue(text="Tobacco smoke, NOS") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHExecutionConditionObservationCategory(EnumDefinitionImpl):
     """
@@ -12348,29 +11631,21 @@ class EnumCRDCHExecutionConditionObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHExecutionConditionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:02.038492+00:00",
+        code_set_version="2021-09-07T21:08:40.583103+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHExecutionConditionObservationObservationType(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H ExecutionConditionObservation observation_type
+    Types of observations about the environmental conditions under which specific aspects of an activity were
+    performed.
     """
+    ischemic_temperature = PermissibleValue(text="ischemic_temperature",
+                                                               description="A term describing the temperature of a specimen when it experienced ischemia.")
+
     _defn = EnumDefinition(
         name="EnumCRDCHExecutionConditionObservationObservationType",
-        description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation observation_type",
-        code_set=None,
-        code_set_version="2021-08-13T12:34:02.205307+00:00",
+        description="Types of observations about the environmental conditions under which specific aspects of an activity were performed.",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHExecutionConditionObservationMethodType(EnumDefinitionImpl):
     """
@@ -12380,29 +11655,19 @@ class EnumCRDCHExecutionConditionObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHExecutionConditionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:02.370577+00:00",
+        code_set_version="2021-09-07T21:08:40.798174+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHExecutionConditionObservationValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H ExecutionConditionObservation valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H ExecutionConditionObservation value_codeable_concept
     """
     _defn = EnumDefinition(
         name="EnumCRDCHExecutionConditionObservationValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:34:02.536464+00:00",
+        code_set_version="2021-09-07T21:08:40.903686+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHExecutionTimeObservationCategory(EnumDefinitionImpl):
     """
@@ -12412,29 +11677,24 @@ class EnumCRDCHExecutionTimeObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHExecutionTimeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:02.706701+00:00",
+        code_set_version="2021-09-07T21:08:41.012389+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHExecutionTimeObservationObservationType(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H ExecutionTimeObservation observation_type
+    An observation about the duration of specific aspects / parts of an activity.
     """
+    time_between_excision_and_freezing = PermissibleValue(text="time_between_excision_and_freezing",
+                                                                                           description="The elapsed time between the excision and freezing of the specimen from its subject/source.")
+    time_between_clamping_and_freezing = PermissibleValue(text="time_between_clamping_and_freezing",
+                                                                                           description="The elapsed time between the clamping of blood supply and freezing of the specimen from its subject/source.")
+    ischemic_time = PermissibleValue(text="ischemic_time",
+                                                 description="Duration of time, in seconds, between when the specimen stopped receiving oxygen and when it was preserved or processed.")
+
     _defn = EnumDefinition(
         name="EnumCRDCHExecutionTimeObservationObservationType",
-        description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation observation_type",
-        code_set=None,
-        code_set_version="2021-08-13T12:34:02.870586+00:00",
+        description="An observation about the duration of specific aspects / parts of an activity.",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHExecutionTimeObservationMethodType(EnumDefinitionImpl):
     """
@@ -12444,13 +11704,8 @@ class EnumCRDCHExecutionTimeObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHExecutionTimeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:03.033186+00:00",
+        code_set_version="2021-09-07T21:08:41.223744+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
     """
@@ -12460,13 +11715,8 @@ class EnumCRDCHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHHistologicalCompositionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:03.199693+00:00",
+        code_set_version="2021-09-07T21:08:41.326028+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHHistologicalCompositionObservationObservationType(EnumDefinitionImpl):
     """
@@ -12519,11 +11769,6 @@ class EnumCRDCHHistologicalCompositionObservationObservationType(EnumDefinitionI
         description="Types of measurements that describe microscopic characteristics of a specimen - typically related to its cellular and tissue composition.",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHHistologicalCompositionObservationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation method_type
@@ -12532,13 +11777,8 @@ class EnumCRDCHHistologicalCompositionObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHHistologicalCompositionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:03.535088+00:00",
+        code_set_version="2021-09-07T21:08:41.548147+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl):
     """
@@ -12548,13 +11788,8 @@ class EnumCRDCHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl)
         name="EnumCRDCHHistologicalCompositionObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:03.700815+00:00",
+        code_set_version="2021-09-07T21:08:41.650910+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHHistologicalCompositionObservationSetMethodType(EnumDefinitionImpl):
     """
@@ -12564,13 +11799,8 @@ class EnumCRDCHHistologicalCompositionObservationSetMethodType(EnumDefinitionImp
         name="EnumCRDCHHistologicalCompositionObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:03.870916+00:00",
+        code_set_version="2021-09-07T21:08:41.751341+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHIdentifierType(EnumDefinitionImpl):
     """
@@ -12580,13 +11810,8 @@ class EnumCRDCHIdentifierType(EnumDefinitionImpl):
         name="EnumCRDCHIdentifierType",
         description="Autogenerated Enumeration for CRDC-H Identifier type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:04.044825+00:00",
+        code_set_version="2021-09-07T21:08:41.852956+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHObservationCategory(EnumDefinitionImpl):
     """
@@ -12596,13 +11821,8 @@ class EnumCRDCHObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHObservationCategory",
         description="Autogenerated Enumeration for CRDC-H Observation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:04.205402+00:00",
+        code_set_version="2021-09-07T21:08:41.965970+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHObservationObservationType(EnumDefinitionImpl):
     """
@@ -12612,13 +11832,8 @@ class EnumCRDCHObservationObservationType(EnumDefinitionImpl):
         name="EnumCRDCHObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H Observation observation_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:04.375325+00:00",
+        code_set_version="2021-09-07T21:08:42.074790+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHObservationMethodType(EnumDefinitionImpl):
     """
@@ -12628,29 +11843,19 @@ class EnumCRDCHObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H Observation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:04.537334+00:00",
+        code_set_version="2021-09-07T21:08:42.175220+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHObservationValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H Observation valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H Observation value_codeable_concept
     """
     _defn = EnumDefinition(
         name="EnumCRDCHObservationValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H Observation valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H Observation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:34:04.701187+00:00",
+        code_set_version="2021-09-07T21:08:42.276728+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHObservationSetCategory(EnumDefinitionImpl):
     """
@@ -12660,13 +11865,8 @@ class EnumCRDCHObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H ObservationSet category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:04.876389+00:00",
+        code_set_version="2021-09-07T21:08:42.379903+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHObservationSetMethodType(EnumDefinitionImpl):
     """
@@ -12676,59 +11876,32 @@ class EnumCRDCHObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCRDCHObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H ObservationSet method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:05.039482+00:00",
+        code_set_version="2021-09-07T21:08:42.480631+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHQuantityValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H Quantity value_codeable_concept
     """
-    Unknown = PermissibleValue(text="Unknown",
-                                     description="Unknown")
-
     _defn = EnumDefinition(
         name="EnumCRDCHQuantityValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H Quantity value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:34:05.208405+00:00",
+        code_set_version="2021-09-07T21:08:42.587568+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported",
-                                 description="Not Reported") )
-        setattr(cls, "Distal (>2cm)",
-                PermissibleValue(text="Distal (>2cm)",
-                                 description="Distal") )
-        setattr(cls, "Adjacent (< or = 2cm)",
-                PermissibleValue(text="Adjacent (< or = 2cm)",
-                                 description="Adjacent") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHQuantityUnit(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H Quantity unit
+    The unit for a value
     """
+    milligrams = PermissibleValue(text="milligrams")
+    days = PermissibleValue(text="days")
+    minutes = PermissibleValue(text="minutes")
+
     _defn = EnumDefinition(
         name="EnumCRDCHQuantityUnit",
-        description="Autogenerated Enumeration for CRDC-H Quantity unit",
-        code_set=None,
-        code_set_version="2021-08-13T12:34:05.384763+00:00",
+        description="The unit for a value",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHResearchProjectResearchProjectType(EnumDefinitionImpl):
     """
@@ -12749,10 +11922,6 @@ class EnumCRDCHResearchProjectResearchProjectType(EnumDefinitionImpl):
         setattr(cls, "Clinical Trial",
                 PermissibleValue(text="Clinical Trial",
                                  description="A research study that prospectively assigns participants to one or more health-related interventions to evaluate the effects on health outcomes.") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHResearchSubjectPrimaryDiagnosisCondition(EnumDefinitionImpl):
     """
@@ -12779,7 +11948,7 @@ class EnumCRDCHResearchSubjectPrimaryDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCRDCHResearchSubjectPrimaryDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition",
         code_set=None,
-        code_set_version="2021-08-13T12:34:05.719659+00:00",
+        code_set_version="2021-09-07T21:08:42.904084+00:00",
     )
 
     @classmethod
@@ -13040,10 +12209,6 @@ class EnumCRDCHResearchSubjectPrimaryDiagnosisCondition(EnumDefinitionImpl):
         setattr(cls, "Colon Adenocarcinoma",
                 PermissibleValue(text="Colon Adenocarcinoma") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHResearchSubjectIndexTimepoint(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint
@@ -13056,7 +12221,7 @@ class EnumCRDCHResearchSubjectIndexTimepoint(EnumDefinitionImpl):
         name="EnumCRDCHResearchSubjectIndexTimepoint",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint",
         code_set=None,
-        code_set_version="2021-08-13T12:34:06.007190+00:00",
+        code_set_version="2021-09-07T21:08:43.139943+00:00",
     )
 
     @classmethod
@@ -13074,10 +12239,6 @@ class EnumCRDCHResearchSubjectIndexTimepoint(EnumDefinitionImpl):
                                  description="Tissue Procurement") )
         setattr(cls, "Initial Genomic Sequencing",
                 PermissibleValue(text="Initial Genomic Sequencing") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenSpecimenType(EnumDefinitionImpl):
     """
@@ -13103,10 +12264,6 @@ class EnumCRDCHSpecimenSpecimenType(EnumDefinitionImpl):
         setattr(cls, "initial sample",
                 PermissibleValue(text="initial sample",
                                  description="A specimen representing the material that was directly collected from a subject (i.e. not generated through portioning, aliquoting, or analyte extraction from an existing specimen).") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenAnalyteType(EnumDefinitionImpl):
     """
@@ -13141,7 +12298,7 @@ class EnumCRDCHSpecimenAnalyteType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenAnalyteType",
         description="Autogenerated Enumeration for CRDC-H Specimen analyte_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:06.357755+00:00",
+        code_set_version="2021-09-07T21:08:43.371740+00:00",
     )
 
     @classmethod
@@ -13172,10 +12329,6 @@ class EnumCRDCHSpecimenAnalyteType(EnumDefinitionImpl):
         setattr(cls, "GenomePlex (Rubicon) Amplified DNA",
                 PermissibleValue(text="GenomePlex (Rubicon) Amplified DNA") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenSourceMaterialType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Specimen source_material_type
@@ -13196,7 +12349,7 @@ class EnumCRDCHSpecimenSourceMaterialType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenSourceMaterialType",
         description="Autogenerated Enumeration for CRDC-H Specimen source_material_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:06.558879+00:00",
+        code_set_version="2021-09-07T21:08:43.526142+00:00",
     )
 
     @classmethod
@@ -13356,10 +12509,6 @@ class EnumCRDCHSpecimenSourceMaterialType(EnumDefinitionImpl):
         setattr(cls, "40",
                 PermissibleValue(text="40") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenTumorStatusAtCollection(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection
@@ -13386,7 +12535,7 @@ class EnumCRDCHSpecimenTumorStatusAtCollection(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenTumorStatusAtCollection",
         description="Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection",
         code_set=None,
-        code_set_version="2021-08-13T12:34:06.794805+00:00",
+        code_set_version="2021-09-07T21:08:43.745325+00:00",
     )
 
     @classmethod
@@ -13399,10 +12548,6 @@ class EnumCRDCHSpecimenTumorStatusAtCollection(EnumDefinitionImpl):
                 PermissibleValue(text="Not Applicable") )
         setattr(cls, "Not Reported",
                 PermissibleValue(text="Not Reported") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenCellularCompositionType(EnumDefinitionImpl):
     """
@@ -13428,7 +12573,7 @@ class EnumCRDCHSpecimenCellularCompositionType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCellularCompositionType",
         description="Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:06.975196+00:00",
+        code_set_version="2021-09-07T21:08:43.878758+00:00",
     )
 
     @classmethod
@@ -13500,10 +12645,6 @@ class EnumCRDCHSpecimenCellularCompositionType(EnumDefinitionImpl):
         setattr(cls, "Not Allowed To Collect",
                 PermissibleValue(text="Not Allowed To Collect") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenGeneralTissueMorphology(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology
@@ -13523,7 +12664,7 @@ class EnumCRDCHSpecimenGeneralTissueMorphology(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenGeneralTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
         code_set=None,
-        code_set_version="2021-08-13T12:34:07.172540+00:00",
+        code_set_version="2021-09-07T21:08:44.026728+00:00",
     )
 
     @classmethod
@@ -13532,10 +12673,6 @@ class EnumCRDCHSpecimenGeneralTissueMorphology(EnumDefinitionImpl):
                 PermissibleValue(text="Not Allowed To Collect") )
         setattr(cls, "Not Reported",
                 PermissibleValue(text="Not Reported") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenSpecificTissueMorphology(EnumDefinitionImpl):
     """
@@ -13547,7 +12684,7 @@ class EnumCRDCHSpecimenSpecificTissueMorphology(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenSpecificTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
         code_set=None,
-        code_set_version="2021-08-13T12:34:07.347454+00:00",
+        code_set_version="2021-09-07T21:08:44.143833+00:00",
     )
 
     @classmethod
@@ -13651,10 +12788,6 @@ class EnumCRDCHSpecimenSpecificTissueMorphology(EnumDefinitionImpl):
         setattr(cls, "Wilms tumor (WT)",
                 PermissibleValue(text="Wilms tumor (WT)") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology
@@ -13663,13 +12796,8 @@ class EnumCRDCHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenPreinvasiveTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology",
         code_set=None,
-        code_set_version="2021-08-13T12:34:07.561384+00:00",
+        code_set_version="2021-09-07T21:08:44.301214+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
     """
@@ -13679,13 +12807,8 @@ class EnumCRDCHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenMorphologyAssessorRole",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessor_role",
         code_set=None,
-        code_set_version="2021-08-13T12:34:07.720549+00:00",
+        code_set_version="2021-09-07T21:08:44.410467+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenMorphologyAssessmentMethod(EnumDefinitionImpl):
     """
@@ -13695,13 +12818,8 @@ class EnumCRDCHSpecimenMorphologyAssessmentMethod(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenMorphologyAssessmentMethod",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessment_method",
         code_set=None,
-        code_set_version="2021-08-13T12:34:07.882881+00:00",
+        code_set_version="2021-09-07T21:08:44.524474+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
     """
@@ -13711,13 +12829,8 @@ class EnumCRDCHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenDegreeOfDysplasia",
         description="Autogenerated Enumeration for CRDC-H Specimen degree_of_dysplasia",
         code_set=None,
-        code_set_version="2021-08-13T12:34:08.057499+00:00",
+        code_set_version="2021-09-07T21:08:44.636509+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenSectionLocation(EnumDefinitionImpl):
     """
@@ -13735,11 +12848,6 @@ class EnumCRDCHSpecimenSectionLocation(EnumDefinitionImpl):
         description="The location in a parent specimen from which a section/portion was excised.",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenContainerContainerType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H SpecimenContainer container_type
@@ -13748,13 +12856,8 @@ class EnumCRDCHSpecimenContainerContainerType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenContainerContainerType",
         description="Autogenerated Enumeration for CRDC-H SpecimenContainer container_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:08.396496+00:00",
+        code_set_version="2021-09-07T21:08:44.851513+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenCreationActivityActivityType(EnumDefinitionImpl):
     """
@@ -13774,10 +12877,6 @@ class EnumCRDCHSpecimenCreationActivityActivityType(EnumDefinitionImpl):
         setattr(cls, "derivation from specimen",
                 PermissibleValue(text="derivation from specimen",
                                  description="An activity that derives a new specimen from an existing one.") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenCreationActivityCollectionMethodType(EnumDefinitionImpl):
     """
@@ -13817,7 +12916,7 @@ class EnumCRDCHSpecimenCreationActivityCollectionMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCreationActivityCollectionMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:08.729719+00:00",
+        code_set_version="2021-09-07T21:08:45.084419+00:00",
     )
 
     @classmethod
@@ -13975,10 +13074,6 @@ class EnumCRDCHSpecimenCreationActivityCollectionMethodType(EnumDefinitionImpl):
         setattr(cls, "Transoral Laser Excision",
                 PermissibleValue(text="Transoral Laser Excision") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenCreationActivityDerivationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type
@@ -13987,13 +13082,8 @@ class EnumCRDCHSpecimenCreationActivityDerivationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCreationActivityDerivationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:08.992084+00:00",
+        code_set_version="2021-09-07T21:08:45.317644+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenQualityObservationCategory(EnumDefinitionImpl):
     """
@@ -14003,13 +13093,8 @@ class EnumCRDCHSpecimenQualityObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQualityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQualityObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:09.149978+00:00",
+        code_set_version="2021-09-07T21:08:45.423104+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenQualityObservationObservationType(EnumDefinitionImpl):
     """
@@ -14029,10 +13114,6 @@ class EnumCRDCHSpecimenQualityObservationObservationType(EnumDefinitionImpl):
                 PermissibleValue(text="a260_a280_ratio  ",
                                  description="Ratio of absorbance measured at a wavelength of 260 over that at a wavelength of 280.") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenQualityObservationMethodType(EnumDefinitionImpl):
     """
     A type of method used in determining the quantity of a specimen.
@@ -14051,10 +13132,6 @@ class EnumCRDCHSpecimenQualityObservationMethodType(EnumDefinitionImpl):
                 PermissibleValue(text="Pico Green",
                                  description="A technique applying the Pico488 fluorescent sensor dye that is used for quantifying the amount of double-stranded DNA (dsDNA) present in a given sample.") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenQuantityObservationCategory(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category
@@ -14063,13 +13140,8 @@ class EnumCRDCHSpecimenQuantityObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQuantityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:09.653304+00:00",
+        code_set_version="2021-09-07T21:08:45.741776+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenQuantityObservationObservationType(EnumDefinitionImpl):
     """
@@ -14088,11 +13160,6 @@ class EnumCRDCHSpecimenQuantityObservationObservationType(EnumDefinitionImpl):
         description="Measures related to the quantity of a specimen or analyte it currently contains - e.g. its weight, volume, or concentration.",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenQuantityObservationMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type
@@ -14101,13 +13168,8 @@ class EnumCRDCHSpecimenQuantityObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQuantityObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:09.985410+00:00",
+        code_set_version="2021-09-07T21:08:45.958852+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenProcessingActivityActivityType(EnumDefinitionImpl):
     """
@@ -14126,11 +13188,6 @@ class EnumCRDCHSpecimenProcessingActivityActivityType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenProcessingActivityActivityType",
         description="The high-level type of processing activity performed.",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSpecimenProcessingActivityMethodType(EnumDefinitionImpl):
     """
@@ -14155,10 +13212,6 @@ class EnumCRDCHSpecimenProcessingActivityMethodType(EnumDefinitionImpl):
                 PermissibleValue(text="-20",
                                  description="Freezing at -20 degrees celcius") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSpecimenStorageActivityMethodType(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type
@@ -14167,13 +13220,8 @@ class EnumCRDCHSpecimenStorageActivityMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenStorageActivityMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:10.486698+00:00",
+        code_set_version="2021-09-07T21:08:46.367201+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubjectSpecies(EnumDefinitionImpl):
     """
@@ -14192,10 +13240,6 @@ class EnumCRDCHSubjectSpecies(EnumDefinitionImpl):
                 PermissibleValue(text="Canis familiaris") )
         setattr(cls, "Mus musculus",
                 PermissibleValue(text="Mus musculus") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubjectBreed(EnumDefinitionImpl):
     """
@@ -14291,10 +13335,6 @@ class EnumCRDCHSubjectBreed(EnumDefinitionImpl):
         setattr(cls, "Yorkshire Terrier",
                 PermissibleValue(text="Yorkshire Terrier") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSubjectSex(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Subject sex
@@ -14308,17 +13348,13 @@ class EnumCRDCHSubjectSex(EnumDefinitionImpl):
         name="EnumCRDCHSubjectSex",
         description="Autogenerated Enumeration for CRDC-H Subject sex",
         code_set=None,
-        code_set_version="2021-08-13T12:34:10.974904+00:00",
+        code_set_version="2021-09-07T21:08:46.687007+00:00",
     )
 
     @classmethod
     def _addvals(cls):
         setattr(cls, "not reported",
                 PermissibleValue(text="not reported") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubjectEthnicity(EnumDefinitionImpl):
     """
@@ -14332,7 +13368,7 @@ class EnumCRDCHSubjectEthnicity(EnumDefinitionImpl):
         name="EnumCRDCHSubjectEthnicity",
         description="Autogenerated Enumeration for CRDC-H Subject ethnicity",
         code_set=None,
-        code_set_version="2021-08-13T12:34:11.142833+00:00",
+        code_set_version="2021-09-07T21:08:46.793549+00:00",
     )
 
     @classmethod
@@ -14345,10 +13381,6 @@ class EnumCRDCHSubjectEthnicity(EnumDefinitionImpl):
                 PermissibleValue(text="not reported") )
         setattr(cls, "not allowed to collect",
                 PermissibleValue(text="not allowed to collect") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubjectRace(EnumDefinitionImpl):
     """
@@ -14365,7 +13397,7 @@ class EnumCRDCHSubjectRace(EnumDefinitionImpl):
         name="EnumCRDCHSubjectRace",
         description="Autogenerated Enumeration for CRDC-H Subject race",
         code_set=None,
-        code_set_version="2021-08-13T12:34:11.306003+00:00",
+        code_set_version="2021-09-07T21:08:46.900411+00:00",
     )
 
     @classmethod
@@ -14380,10 +13412,6 @@ class EnumCRDCHSubjectRace(EnumDefinitionImpl):
                 PermissibleValue(text="american indian or alaska native") )
         setattr(cls, "black or african american",
                 PermissibleValue(text="black or african american") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubjectVitalStatus(EnumDefinitionImpl):
     """
@@ -14400,7 +13428,7 @@ class EnumCRDCHSubjectVitalStatus(EnumDefinitionImpl):
         name="EnumCRDCHSubjectVitalStatus",
         description="Autogenerated Enumeration for CRDC-H Subject vital_status",
         code_set=None,
-        code_set_version="2021-08-13T12:34:11.476294+00:00",
+        code_set_version="2021-09-07T21:08:47.016668+00:00",
     )
 
     @classmethod
@@ -14408,10 +13436,6 @@ class EnumCRDCHSubjectVitalStatus(EnumDefinitionImpl):
         setattr(cls, "Not Reported",
                 PermissibleValue(text="Not Reported",
                                  description="Not Reported") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubjectCauseOfDeath(EnumDefinitionImpl):
     """
@@ -14428,7 +13452,7 @@ class EnumCRDCHSubjectCauseOfDeath(EnumDefinitionImpl):
         name="EnumCRDCHSubjectCauseOfDeath",
         description="Autogenerated Enumeration for CRDC-H Subject cause_of_death",
         code_set=None,
-        code_set_version="2021-08-13T12:34:11.634295+00:00",
+        code_set_version="2021-09-07T21:08:47.200658+00:00",
     )
 
     @classmethod
@@ -14455,10 +13479,6 @@ class EnumCRDCHSubjectCauseOfDeath(EnumDefinitionImpl):
                                  description="Cardiovascular Disorder, NOS") )
         setattr(cls, "Cancer Related",
                 PermissibleValue(text="Cancer Related") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubstanceSubstanceType(EnumDefinitionImpl):
     """
@@ -15819,7 +14839,7 @@ class EnumCRDCHSubstanceSubstanceType(EnumDefinitionImpl):
         name="EnumCRDCHSubstanceSubstanceType",
         description="Autogenerated Enumeration for CRDC-H Substance substance_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:11.803955+00:00",
+        code_set_version="2021-09-07T21:08:47.325429+00:00",
     )
 
     @classmethod
@@ -22069,10 +21089,6 @@ class EnumCRDCHSubstanceSubstanceType(EnumDefinitionImpl):
         setattr(cls, "Anti-CSF1 Monoclonal Antibody PD-0360324",
                 PermissibleValue(text="Anti-CSF1 Monoclonal Antibody PD-0360324") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHSubstanceRole(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Substance role
@@ -22081,38 +21097,19 @@ class EnumCRDCHSubstanceRole(EnumDefinitionImpl):
         name="EnumCRDCHSubstanceRole",
         description="Autogenerated Enumeration for CRDC-H Substance role",
         code_set=None,
-        code_set_version="2021-08-13T12:34:15.290808+00:00",
+        code_set_version="2021-09-07T21:08:51.803327+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTimePointEventType(EnumDefinitionImpl):
     """
-    A specific type of event for which a timepoint is captured
+    Autogenerated Enumeration for CRDC-H TimePoint event_type
     """
     _defn = EnumDefinition(
         name="EnumCRDCHTimePointEventType",
-        description="A specific type of event for which a timepoint is captured",
+        description="Autogenerated Enumeration for CRDC-H TimePoint event_type",
+        code_set=None,
+        code_set_version="2021-09-07T21:08:51.912452+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "IACUC approval",
-                PermissibleValue(text="IACUC approval",
-                                 description="The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.") )
-        setattr(cls, "IRB approval",
-                PermissibleValue(text="IRB approval",
-                                 description="The date that the Institutional Review Board (IRB) approved a study protocol") )
-        setattr(cls, "Histological confirmation of diagnosis",
-                PermissibleValue(text="Histological confirmation of diagnosis",
-                                 description="The date that a histological diagnosis was confirmed.") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTobaccoExposureObservationCategory(EnumDefinitionImpl):
     """
@@ -22122,29 +21119,38 @@ class EnumCRDCHTobaccoExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHTobaccoExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation category",
         code_set=None,
-        code_set_version="2021-08-13T12:34:15.609855+00:00",
+        code_set_version="2021-09-07T21:08:52.028296+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTobaccoExposureObservationObservationType(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H TobaccoExposureObservation observation_type
+    Types of observations about a Subject's exposure to or use of tobacco.
     """
+    cigarettes_per_day = PermissibleValue(text="cigarettes_per_day",
+                                                           description="The average number of cigarettes smoked per day.")
+    pack_years_smoked = PermissibleValue(text="pack_years_smoked",
+                                                         description="Numeric computed value to represent lifetime tobacco exposure defined as number of cigarettes smoked per day x number of years smoked divided by 20.")
+    tobacco_smoking_onset_year = PermissibleValue(text="tobacco_smoking_onset_year",
+                                                                           description="The year in which the participant began smoking.")
+    tobacco_smoking_quit_year = PermissibleValue(text="tobacco_smoking_quit_year",
+                                                                         description="The year in which the participant quit smoking.")
+    years_smoked = PermissibleValue(text="years_smoked",
+                                               description="Numeric value (or unknown) to represent the number of years a person has been smoking.")
+    smoking_frequency = PermissibleValue(text="smoking_frequency",
+                                                         description="The text term used to generally describe how often the patient smokes.")
+    time_between_waking_and_first_smoke = PermissibleValue(text="time_between_waking_and_first_smoke",
+                                                                                             description="The text term used to describe the approximate amount of time elapsed between the time the patient wakes up in the morning to the time they smoke their first cigarette.")
+    environmental_tobacco_smoke_exposure = PermissibleValue(text="environmental_tobacco_smoke_exposure",
+                                                                                               description="The yes/no/unknown indicator used to describe whether a patient was exposed to smoke that is emitted from burning tobacco, including cigarettes, pipes, and cigars. This includes tobacco smoke exhaled by smokers.")
+    tobacco_smoking_status = PermissibleValue(text="tobacco_smoking_status",
+                                                                   description="Category describing current smoking status and smoking history as self-reported by a patient.")
+    type_of_tobacco_used = PermissibleValue(text="type_of_tobacco_used",
+                                                               description="The text term used to describe the specific type of tobacco used by the patient.")
+
     _defn = EnumDefinition(
         name="EnumCRDCHTobaccoExposureObservationObservationType",
-        description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation observation_type",
-        code_set=None,
-        code_set_version="2021-08-13T12:34:15.775727+00:00",
+        description="Types of observations about a Subject's exposure to or use of tobacco.",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
     """
@@ -22154,80 +21160,19 @@ class EnumCRDCHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHTobaccoExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:15.940252+00:00",
+        code_set_version="2021-09-07T21:08:52.252674+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept
+    Autogenerated Enumeration for CRDC-H TobaccoExposureObservation value_codeable_concept
     """
-    Unknown = PermissibleValue(text="Unknown",
-                                     description="Unknown")
-    Other = PermissibleValue(text="Other")
-    Cigar = PermissibleValue(text="Cigar")
-    Cigarette = PermissibleValue(text="Cigarette")
-    Pipe = PermissibleValue(text="Pipe")
-    Yes = PermissibleValue(text="Yes")
-    No = PermissibleValue(text="No")
-    Cigarettes = PermissibleValue(text="Cigarettes")
-
     _defn = EnumDefinition(
         name="EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
-        description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept",
+        description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-08-13T12:34:16.107110+00:00",
+        code_set_version="2021-09-07T21:08:52.366000+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "Some days",
-                PermissibleValue(text="Some days") )
-        setattr(cls, "Every day",
-                PermissibleValue(text="Every day") )
-        setattr(cls, "After 60 Minutes",
-                PermissibleValue(text="After 60 Minutes") )
-        setattr(cls, "Within 5 Minutes",
-                PermissibleValue(text="Within 5 Minutes") )
-        setattr(cls, "6-30 Minutes",
-                PermissibleValue(text="6-30 Minutes") )
-        setattr(cls, "31-60 Minutes",
-                PermissibleValue(text="31-60 Minutes") )
-        setattr(cls, "Electronic Cigarette",
-                PermissibleValue(text="Electronic Cigarette") )
-        setattr(cls, "Smokeless Tobacco",
-                PermissibleValue(text="Smokeless Tobacco") )
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported") )
-        setattr(cls, "1",
-                PermissibleValue(text="1",
-                                 description="Lifelong Non-Smoker") )
-        setattr(cls, "7",
-                PermissibleValue(text="7",
-                                 description="Smoking history not documented") )
-        setattr(cls, "2",
-                PermissibleValue(text="2",
-                                 description="Current Smoker") )
-        setattr(cls, "3",
-                PermissibleValue(text="3",
-                                 description="Current Reformed Smoker for > 15 yrs") )
-        setattr(cls, "5",
-                PermissibleValue(text="5",
-                                 description="Current Reformed Smoker, Duration Not Specified") )
-        setattr(cls, "4",
-                PermissibleValue(text="4",
-                                 description="Current Reformed Smoker for < or = 15 yrs") )
-        setattr(cls, "6",
-                PermissibleValue(text="6",
-                                 description="Smoker at Diagnosis") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTreatmentTreatmentType(EnumDefinitionImpl):
     """
@@ -22252,7 +21197,7 @@ class EnumCRDCHTreatmentTreatmentType(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentType",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_type",
         code_set=None,
-        code_set_version="2021-08-13T12:34:16.314560+00:00",
+        code_set_version="2021-09-07T21:08:52.474538+00:00",
     )
 
     @classmethod
@@ -22369,10 +21314,6 @@ class EnumCRDCHTreatmentTreatmentType(EnumDefinitionImpl):
         setattr(cls, "Radiation, Radioisotope",
                 PermissibleValue(text="Radiation, Radioisotope") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHTreatmentTreatmentEndReason(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason
@@ -22384,7 +21325,7 @@ class EnumCRDCHTreatmentTreatmentEndReason(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentEndReason",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason",
         code_set=None,
-        code_set_version="2021-08-13T12:34:16.525507+00:00",
+        code_set_version="2021-09-07T21:08:52.640041+00:00",
     )
 
     @classmethod
@@ -22398,10 +21339,6 @@ class EnumCRDCHTreatmentTreatmentEndReason(EnumDefinitionImpl):
         setattr(cls, "Course of Therapy Completed",
                 PermissibleValue(text="Course of Therapy Completed") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHTreatmentRegimen(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Treatment regimen
@@ -22410,13 +21347,8 @@ class EnumCRDCHTreatmentRegimen(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentRegimen",
         description="Autogenerated Enumeration for CRDC-H Treatment regimen",
         code_set=None,
-        code_set_version="2021-08-13T12:34:16.691710+00:00",
+        code_set_version="2021-09-07T21:08:52.744041+00:00",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTreatmentTreatmentFrequency(EnumDefinitionImpl):
     """
@@ -22428,7 +21360,7 @@ class EnumCRDCHTreatmentTreatmentFrequency(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentFrequency",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_frequency",
         code_set=None,
-        code_set_version="2021-08-13T12:34:16.853270+00:00",
+        code_set_version="2021-09-07T21:08:52.844226+00:00",
     )
 
     @classmethod
@@ -22454,10 +21386,6 @@ class EnumCRDCHTreatmentTreatmentFrequency(EnumDefinitionImpl):
         setattr(cls, "Four Times Daily",
                 PermissibleValue(text="Four Times Daily") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHTreatmentTreatmentIntent(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Treatment treatment_intent
@@ -22478,7 +21406,7 @@ class EnumCRDCHTreatmentTreatmentIntent(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentIntent",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_intent",
         code_set=None,
-        code_set_version="2021-08-13T12:34:17.027791+00:00",
+        code_set_version="2021-09-07T21:08:52.952346+00:00",
     )
 
     @classmethod
@@ -22491,10 +21419,6 @@ class EnumCRDCHTreatmentTreatmentIntent(EnumDefinitionImpl):
                 PermissibleValue(text="Androgen Deprivation Therapy (ADT)") )
         setattr(cls, "Cancer Control",
                 PermissibleValue(text="Cancer Control") )
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHTreatmentTreatmentEffect(EnumDefinitionImpl):
     """
@@ -22509,7 +21433,7 @@ class EnumCRDCHTreatmentTreatmentEffect(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentEffect",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_effect",
         code_set=None,
-        code_set_version="2021-08-13T12:34:17.208032+00:00",
+        code_set_version="2021-09-07T21:08:53.061098+00:00",
     )
 
     @classmethod
@@ -22526,10 +21450,6 @@ class EnumCRDCHTreatmentTreatmentEffect(EnumDefinitionImpl):
         setattr(cls, "Complete Necrosis (No Viable Tumor)",
                 PermissibleValue(text="Complete Necrosis (No Viable Tumor)") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHTreatmentTreatmentOutcome(EnumDefinitionImpl):
     """
     Autogenerated Enumeration for CRDC-H Treatment treatment_outcome
@@ -22541,7 +21461,7 @@ class EnumCRDCHTreatmentTreatmentOutcome(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentOutcome",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_outcome",
         code_set=None,
-        code_set_version="2021-08-13T12:34:17.384251+00:00",
+        code_set_version="2021-09-07T21:08:53.170913+00:00",
     )
 
     @classmethod
@@ -22581,49 +21501,6 @@ class EnumCRDCHTreatmentTreatmentOutcome(EnumDefinitionImpl):
                 PermissibleValue(text="No Response",
                                  description="No Response") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
-class EnumCRDCHExecutionConditionObservation(EnumDefinitionImpl):
-    """
-    Types of observations about the environmental conditions under which specific aspects of an activity were
-    performed.
-    """
-    ischemic_temperature = PermissibleValue(text="ischemic_temperature",
-                                                               description="A term describing the temperature of a specimen when it experienced ischemia.")
-
-    _defn = EnumDefinition(
-        name="EnumCRDCHExecutionConditionObservation",
-        description="Types of observations about the environmental conditions under which specific aspects of an activity were performed.",
-    )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
-class EnumCRDCHExecutionTimeObservation(EnumDefinitionImpl):
-    """
-    An observation about the duration of specific aspects / parts of an activity.
-    """
-    time_between_excision_and_freezing = PermissibleValue(text="time_between_excision_and_freezing",
-                                                                                           description="The elapsed time between the excision and freezing of the specimen from its subject/source.")
-    time_between_clamping_and_freezing = PermissibleValue(text="time_between_clamping_and_freezing",
-                                                                                           description="The elapsed time between the clamping of blood supply and freezing of the specimen from its subject/source.")
-    ischemic_time = PermissibleValue(text="ischemic_time",
-                                                 description="Duration of time, in seconds, between when the specimen stopped receiving oxygen and when it was preserved or processed.")
-
-    _defn = EnumDefinition(
-        name="EnumCRDCHExecutionTimeObservation",
-        description="An observation about the duration of specific aspects / parts of an activity.",
-    )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
 class EnumCRDCHResearchProjectPrimaryAnatomicSite(EnumDefinitionImpl):
     """
     The text term used to describe the general location of the malignant disease, as categorized by the World Health
@@ -22633,11 +21510,6 @@ class EnumCRDCHResearchProjectPrimaryAnatomicSite(EnumDefinitionImpl):
         name="EnumCRDCHResearchProjectPrimaryAnatomicSite",
         description="The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).",
     )
-
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
 
 class EnumCRDCHSubstanceRole(EnumDefinitionImpl):
     """
@@ -22664,44 +21536,26 @@ class EnumCRDCHSubstanceRole(EnumDefinitionImpl):
                 PermissibleValue(text="collection media",
                                  description="A substance applied to stabilize or support the growth/metabolic activity of a specimen or derived product such as a cell line.") )
 
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
-
-class EnumCRDCHTobbaccoExposureObservationObservationType(EnumDefinitionImpl):
+class EnumCRDCHTimePointEventType(EnumDefinitionImpl):
     """
-    Types of observations about a Subject's exposure to or use of tobacco.
+    A specific type of event for which a timepoint is captured
     """
-    cigarettes_per_day = PermissibleValue(text="cigarettes_per_day",
-                                                           description="The average number of cigarettes smoked per day.")
-    pack_years_smoked = PermissibleValue(text="pack_years_smoked",
-                                                         description="Numeric computed value to represent lifetime tobacco exposure defined as number of cigarettes smoked per day x number of years smoked divided by 20.")
-    tobacco_smoking_onset_year = PermissibleValue(text="tobacco_smoking_onset_year",
-                                                                           description="The year in which the participant began smoking.")
-    tobacco_smoking_quit_year = PermissibleValue(text="tobacco_smoking_quit_year",
-                                                                         description="The year in which the participant quit smoking.")
-    years_smoked = PermissibleValue(text="years_smoked",
-                                               description="Numeric value (or unknown) to represent the number of years a person has been smoking.")
-    smoking_frequency = PermissibleValue(text="smoking_frequency",
-                                                         description="The text term used to generally describe how often the patient smokes.")
-    time_between_waking_and_first_smoke = PermissibleValue(text="time_between_waking_and_first_smoke",
-                                                                                             description="The text term used to describe the approximate amount of time elapsed between the time the patient wakes up in the morning to the time they smoke their first cigarette.")
-    environmental_tobacco_smoke_exposure = PermissibleValue(text="environmental_tobacco_smoke_exposure",
-                                                                                               description="The yes/no/unknown indicator used to describe whether a patient was exposed to smoke that is emitted from burning tobacco, including cigarettes, pipes, and cigars. This includes tobacco smoke exhaled by smokers.")
-    tobacco_smoking_status = PermissibleValue(text="tobacco_smoking_status",
-                                                                   description="Category describing current smoking status and smoking history as self-reported by a patient.")
-    type_of_tobacco_used = PermissibleValue(text="type_of_tobacco_used",
-                                                               description="The text term used to describe the specific type of tobacco used by the patient.")
-
     _defn = EnumDefinition(
-        name="EnumCRDCHTobbaccoExposureObservationObservationType",
-        description="Types of observations about a Subject's exposure to or use of tobacco.",
+        name="EnumCRDCHTimePointEventType",
+        description="A specific type of event for which a timepoint is captured",
     )
 
-
-    def __str__(self) -> str:
-        """ Use only the code of this enumeration when dumping this enumeration to a string. """
-        return self._code.text
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "IACUC approval",
+                PermissibleValue(text="IACUC approval",
+                                 description="The date that the Institutional Animal Care and Use Committee (IACUC) approved an animal study protocol. This date cannot be released to funding agencies until congruency between the animal use in the funding proposal and the IACUC approved protocol has been verified.") )
+        setattr(cls, "IRB approval",
+                PermissibleValue(text="IRB approval",
+                                 description="The date that the Institutional Review Board (IRB) approved a study protocol") )
+        setattr(cls, "Histological confirmation of diagnosis",
+                PermissibleValue(text="Histological confirmation of diagnosis",
+                                 description="The date that a histological diagnosis was confirmed.") )
 
 # Slots
 

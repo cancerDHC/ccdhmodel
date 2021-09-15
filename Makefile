@@ -44,6 +44,7 @@ PKG_T_CSV = $(PKG_DIR)/csv
 ENV = PIPENV_IGNORE_INSTALLED=1
 RUN = $(ENV) pipenv run
 GEN_OPTS = --log_level WARNING
+CDM_GOOGLE_SHEET_ID=1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4
 
 # ----------------------------------------
 # TOP LEVEL TARGETS
@@ -56,6 +57,10 @@ all: install gen
 # ---------------------------------------
 install: 
 	pipenv install
+
+# Install dev packages as well as core packages.
+install-dev:
+	pipenv install --dev
 
 uninstall:
 	pipenv --rm
@@ -304,17 +309,16 @@ docserve: gen-docs
 
 # Regenerate from Google Sheets. Note that this uses a *separate* Pipenv in the
 # generators/google-sheets directory, so we have to run pipenv install on it separately.
-regen-google-sheets:
-	cd generators/google-sheets && pipenv install && pipenv run python sheet2linkml.py && cp output/CDM_Dictionary_v1_Active.yaml ../../model/schema/crdch_model.yaml && cd -
+generate-model: install install-dev
+	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) python vendor/sheet2linkml/sheet2linkml.py --output model/schema/crdch_model.yaml
 
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
-# shoudn't it be using $(RUN) not ${RUN} ?
 # Deploy changes to the `dev` version on the gh-pages branch.
 # Note that this is not dependent on stage-docs, since you
 # would generate the docs (usually as part of a `make all`)
 # before you deploy it in a separate step.
-#gh-deploy: pipenv-install
-#	${RUN} mike deploy dev -p
+gh-deploy: install
+	$(RUN) mike deploy dev -p
 
 #### MAM 20210729
 pypi:

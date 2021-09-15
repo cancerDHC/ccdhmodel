@@ -1,24 +1,24 @@
 type AlcoholExposureObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHAlcoholExposureObservationCategory
     observationType: EnumCRDCHAlcoholExposureObservationObservationType!
     methodType: EnumCRDCHAlcoholExposureObservationMethodType
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueInteger: Entity
+    valueInteger: CrdchInteger
     valueCodeableConcept: EnumCRDCHAlcoholExposureObservationValueCodeableConcept
   }
 
 type BiologicProduct
   {
-    id: Entity
+    id: CrdchString
     identifier: [Identifier]
-    description: Entity
+    description: CrdchString
     productType: EnumCRDCHBiologicProductProductType
-    passageNumber: [Entity]
-    growthRate: [Entity]
+    passageNumber: [CrdchInteger]
+    growthRate: [CrdchString]
   }
 
 type BodySite
@@ -29,7 +29,7 @@ type BodySite
 
 type CancerGradeObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHCancerGradeObservationCategory
     observationType: EnumCRDCHCancerGradeObservationObservationType!
     methodType: EnumCRDCHCancerGradeObservationMethodType
@@ -40,7 +40,7 @@ type CancerGradeObservation
 
 type CancerGradeObservationSet
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHCancerGradeObservationSetCategory
     focus: [Entity]
     subject: Subject
@@ -51,7 +51,7 @@ type CancerGradeObservationSet
 
 type CancerStageObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHCancerStageObservationCategory
     observationType: EnumCRDCHCancerStageObservationObservationType!
     methodType: EnumCRDCHCancerStageObservationMethodType
@@ -64,7 +64,7 @@ type CancerStageObservation
 
 type CancerStageObservationSet
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHCancerStageObservationSetCategory
     focus: [Entity]
     subject: Subject
@@ -76,25 +76,25 @@ type CancerStageObservationSet
 type CodeableConcept
   {
     coding: [Coding]
-    text: Entity
+    text: CrdchString
   }
 
 type Coding
   {
-    code: Entity!
-    system: Entity!
-    label: Entity
-    systemURL: Entity
-    systemVersion: Entity
+    code: CrdchString!
+    system: CrdchString!
+    systemURL: CrdchString
+    systemVersion: CrdchString
+    label: CrdchString
   }
 
 type Diagnosis
   {
-    id: Entity
+    id: CrdchString
     identifier: [Identifier]
     subject: Subject
     ageAtDiagnosis: Quantity
-    yearAtDiagnosis: Entity
+    yearAtDiagnosis: CrdchInteger
     condition: EnumCRDCHDiagnosisCondition
     primarySite: [BodySite]
     metastaticSite: [BodySite]
@@ -111,7 +111,7 @@ type Diagnosis
 
 type DimensionalObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHDimensionalObservationCategory
     observationType: EnumCRDCHDimensionalObservationObservationType!
     methodType: [EnumCRDCHDimensionalObservationMethodType]
@@ -123,7 +123,7 @@ type DimensionalObservation
 
 type DimensionalObservationSet
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHDimensionalObservationSetCategory
     focus: [Entity]
     subject: Subject
@@ -134,12 +134,12 @@ type DimensionalObservationSet
 
 type Document
   {
-    id: Entity
+    id: CrdchString
     identifier: [Identifier]
     documentType: EnumCRDCHDocumentDocumentType
-    description: Entity
+    description: CrdchString
     focus: Entity
-    url: [Entity]
+    url: [CrdchString]
   }
 
 type Entity
@@ -148,7 +148,7 @@ type Entity
 
 type EnvironmentalExposureObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHEnvironmentalExposureObservationCategory
     observationType: EnumCRDCHEnvironmentalExposureObservationObservationType!
     methodType: EnumCRDCHEnvironmentalExposureObservationMethodType
@@ -160,7 +160,7 @@ type EnvironmentalExposureObservation
 
 type ExecutionConditionObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHExecutionConditionObservationCategory
     observationType: EnumCRDCHExecutionConditionObservationObservationType!
     methodType: EnumCRDCHExecutionConditionObservationMethodType
@@ -172,7 +172,7 @@ type ExecutionConditionObservation
 
 type ExecutionTimeObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHExecutionTimeObservationCategory
     observationType: EnumCRDCHExecutionTimeObservationObservationType!
     methodType: EnumCRDCHExecutionTimeObservationMethodType
@@ -184,7 +184,7 @@ type ExecutionTimeObservation
 
 type Exposure
   {
-    id: Entity!
+    id: CrdchString!
     identifier: [Identifier]
     tobaccoExposure: [TobaccoExposureObservation]
     alcoholExposure: [AlcoholExposureObservation]
@@ -194,7 +194,7 @@ type Exposure
 
 type HistologicalCompositionObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHHistologicalCompositionObservationCategory
     observationType: EnumCRDCHHistologicalCompositionObservationObservationType!
     methodType: [EnumCRDCHHistologicalCompositionObservationMethodType]
@@ -206,7 +206,7 @@ type HistologicalCompositionObservation
 
 type HistologicalCompositionObservationSet
   {
-    id: Entity!
+    id: CrdchString!
     category: EnumCRDCHHistologicalCompositionObservationSetCategory!
     focus: [Entity]
     subject: Subject
@@ -217,14 +217,14 @@ type HistologicalCompositionObservationSet
 
 type Identifier
   {
-    value: Entity!
-    system: Entity
+    value: CrdchString!
+    system: CrdchString
     type: EnumCRDCHIdentifierType
   }
 
 type Observation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHObservationCategory
     observationType: EnumCRDCHObservationObservationType!
     methodType: [EnumCRDCHObservationMethodType]
@@ -232,18 +232,18 @@ type Observation
     subject: Subject
     performedBy: Organization
     valueEntity: Entity
-    valueString: Entity
-    valueInteger: Entity
-    valueDecimal: Entity
-    valueBoolean: Entity
-    valueDateTime: Entity
+    valueString: CrdchString
+    valueInteger: CrdchDecimal
+    valueDecimal: CrdchDecimal
+    valueBoolean: CrdchBoolean
+    valueDateTime: CrdchDateTime
     valueQuantity: Quantity
     valueCodeableConcept: EnumCRDCHObservationValueCodeableConcept
   }
 
 type ObservationSet
   {
-    id: Entity!
+    id: CrdchString!
     category: EnumCRDCHObservationSetCategory!
     focus: [Entity]
     subject: Subject
@@ -254,33 +254,33 @@ type ObservationSet
 
 type Organization
   {
-    id: Entity!
+    id: CrdchString!
     identifier: [Identifier]
-    name: Entity
-    alias: Entity
-    organizationType: Entity
+    name: CrdchString
+    alias: CrdchString
+    organizationType: CrdchString
   }
 
 type Quantity
   {
-    valueDecimal: Entity
+    valueDecimal: CrdchDecimal
     valueCodeableConcept: EnumCRDCHQuantityValueCodeableConcept
     unit: EnumCRDCHQuantityUnit
   }
 
 type ResearchProject
   {
-    id: Entity
+    id: CrdchString
     identifier: [Identifier]
-    name: Entity
-    nameShortened: Entity
-    description: Entity
-    descriptionShortened: Entity
-    sponsor: [Entity]
+    name: CrdchString
+    nameShortened: CrdchString
+    description: CrdchString
+    descriptionShortened: CrdchString
+    sponsor: [CrdchString]
     dateStarted: TimePoint
     dateEnded: TimePoint
     primaryAnatomicSite: [BodySite]
-    url: [Entity]
+    url: [CrdchString]
     partOf: [ResearchProject]
     researchProjectType: EnumCRDCHResearchProjectResearchProjectType!
     associatedTimepoint: [TimePoint]
@@ -288,9 +288,9 @@ type ResearchProject
 
 type ResearchSubject
   {
-    id: Entity!
+    id: CrdchString!
     identifier: [Identifier]
-    description: Entity
+    description: CrdchString
     memberOfResearchProject: ResearchProject
     ageAtEnrollment: Quantity
     primaryDiagnosisCondition: EnumCRDCHResearchSubjectPrimaryDiagnosisCondition
@@ -304,9 +304,9 @@ type ResearchSubject
 
 type Specimen
   {
-    id: Entity
+    id: CrdchString
     identifier: [Identifier]
-    description: Entity
+    description: CrdchString
     specimenType: EnumCRDCHSpecimenSpecimenType
     analyteType: EnumCRDCHSpecimenAnalyteType
     associatedProject: ResearchProject
@@ -328,11 +328,11 @@ type Specimen
     generalTissueMorphology: EnumCRDCHSpecimenGeneralTissueMorphology
     specificTissueMorphology: EnumCRDCHSpecimenSpecificTissueMorphology
     preinvasiveTissueMorphology: EnumCRDCHSpecimenPreinvasiveTissueMorphology
-    morphologyPathologicallyConfirmed: Entity
+    morphologyPathologicallyConfirmed: CrdchBoolean
     morphologyAssessorRole: EnumCRDCHSpecimenMorphologyAssessorRole
     morphologyAssessmentMethod: EnumCRDCHSpecimenMorphologyAssessmentMethod
     degreeOfDysplasia: EnumCRDCHSpecimenDegreeOfDysplasia
-    dysplasiaFraction: Entity
+    dysplasiaFraction: CrdchString
     relatedDocument: [Document]
     sectionLocation: EnumCRDCHSpecimenSectionLocation
     derivedProduct: [BiologicProduct]
@@ -341,10 +341,10 @@ type Specimen
 
 type SpecimenContainer
   {
-    id: Entity
+    id: CrdchString
     identifier: [Identifier]
     containerType: EnumCRDCHSpecimenContainerContainerType
-    containerNumber: Entity
+    containerNumber: CrdchString
     additive: [Substance]
     parentContainer: SpecimenContainer
   }
@@ -362,7 +362,7 @@ type SpecimenCreationActivity
     quantityCollected: Quantity
     executionTimeObservation: [ExecutionTimeObservation]
     executionConditionObservation: [ExecutionConditionObservation]
-    specimenOrder: Entity
+    specimenOrder: CrdchInteger
   }
 
 type SpecimenProcessingActivity
@@ -380,7 +380,7 @@ type SpecimenProcessingActivity
 
 type SpecimenQualityObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHSpecimenQualityObservationCategory
     observationType: EnumCRDCHSpecimenQualityObservationObservationType!
     methodType: [EnumCRDCHSpecimenQualityObservationMethodType]
@@ -392,7 +392,7 @@ type SpecimenQualityObservation
 
 type SpecimenQuantityObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHSpecimenQuantityObservationCategory
     observationType: EnumCRDCHSpecimenQuantityObservationObservationType!
     methodType: [EnumCRDCHSpecimenQuantityObservationMethodType]
@@ -416,7 +416,7 @@ type SpecimenTransportActivity
   {
     dateStarted: TimePoint
     dateEnded: TimePoint
-    duration: [Entity]
+    duration: [CrdchString]
     performedBy: Organization
     transportOrigin: Organization
     transportDestination: Organization
@@ -425,17 +425,17 @@ type SpecimenTransportActivity
 
 type Subject
   {
-    id: Entity!
+    id: CrdchString!
     identifier: [Identifier]
     species: EnumCRDCHSubjectSpecies
     breed: EnumCRDCHSubjectBreed
     sex: EnumCRDCHSubjectSex
     ethnicity: EnumCRDCHSubjectEthnicity
     race: [EnumCRDCHSubjectRace]
-    yearOfBirth: Entity
+    yearOfBirth: CrdchInteger
     vitalStatus: EnumCRDCHSubjectVitalStatus
     ageAtDeath: Quantity
-    yearOfDeath: Entity
+    yearOfDeath: CrdchInteger
     causeOfDeath: EnumCRDCHSubjectCauseOfDeath
   }
 
@@ -454,8 +454,8 @@ type TimePeriod
 
 type TimePoint
   {
-    id: Entity
-    dateTime: Entity
+    id: CrdchString
+    dateTime: CrdchDateTime
     indexTimePoint: TimePoint
     offsetFromIndex: Quantity
     eventType: [EnumCRDCHTimePointEventType]
@@ -463,20 +463,20 @@ type TimePoint
 
 type TobaccoExposureObservation
   {
-    id: Entity
+    id: CrdchString
     category: EnumCRDCHTobaccoExposureObservationCategory
     observationType: EnumCRDCHTobaccoExposureObservationObservationType!
     methodType: EnumCRDCHTobaccoExposureObservationMethodType
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueInteger: Entity
+    valueInteger: CrdchInteger
     valueCodeableConcept: EnumCRDCHTobaccoExposureObservationValueCodeableConcept
   }
 
 type Treatment
   {
-    id: Entity
+    id: CrdchString
     identifier: [Identifier]
     treatmentForDiagnosis: [Diagnosis]
     concurrentTreatment: [Treatment]
@@ -487,7 +487,7 @@ type Treatment
     treatmentEndReason: [EnumCRDCHTreatmentTreatmentEndReason]
     regimen: EnumCRDCHTreatmentRegimen
     therapeuticAgent: Substance
-    numberOfCycles: Entity
+    numberOfCycles: CrdchInteger
     treatmentFrequency: EnumCRDCHTreatmentTreatmentFrequency
     treatmentAnatomicSite: BodySite
     treatmentIntent: EnumCRDCHTreatmentTreatmentIntent

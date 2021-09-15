@@ -1,5 +1,5 @@
 {
-   "$id": "https://example.org/crdch_model",
+   "$id": "https://example.org/crdch",
    "$schema": "http://json-schema.org/draft-07/schema#",
    "additionalProperties": true,
    "definitions": {
@@ -16,8 +16,8 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationMethodType",
@@ -35,13 +35,13 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
-            "valueInteger": {
-               "$ref": "#/definitions/Entity",
-               "description": "The result of the observation, encoded as an integer."
+            "value_integer": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
             }
          },
          "required": [
@@ -55,19 +55,19 @@
          "description": "A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.",
          "properties": {
             "description": {
-               "$ref": "#/definitions/Entity",
-               "description": "A free text field to capture additional info/explanation about the model system"
+               "description": "A free text field to capture additional info/explanation about the model system",
+               "type": "string"
             },
             "growth_rate": {
                "description": "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its rate of growth.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "type": "string"
                },
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -79,7 +79,7 @@
             "passage_number": {
                "description": "When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "type": "integer"
                },
                "type": "array"
             },
@@ -116,7 +116,7 @@
       },
       "CancerGradeObservation": {
          "additionalProperties": false,
-         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer grade observation",
+         "description": "A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer grade observation",
          "properties": {
             "category": {
                "$ref": "#/definitions/EnumCRDCHCancerGradeObservationCategory",
@@ -127,8 +127,8 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "$ref": "#/definitions/EnumCRDCHCancerGradeObservationMethodType",
@@ -142,14 +142,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHCancerGradeObservationValueCodeableConcept",
                "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)"
             }
          },
          "required": [
             "observation_type",
-            "valueCodeableConcept"
+            "value_codeable_concept"
          ],
          "title": "CancerGradeObservation",
          "type": "object"
@@ -170,8 +170,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
@@ -202,7 +202,7 @@
       },
       "CancerStageObservation": {
          "additionalProperties": false,
-         "description": "A data structure with key (observation_type) and value (valueCodeableConcept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
+         "description": "A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
          "properties": {
             "category": {
                "$ref": "#/definitions/EnumCRDCHCancerStageObservationCategory",
@@ -213,8 +213,8 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "$ref": "#/definitions/EnumCRDCHCancerStageObservationMethodType",
@@ -232,18 +232,18 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHCancerStageObservationValueCodeableConcept",
                "description": "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept."
             },
-            "valueEntity": {
+            "value_entity": {
                "$ref": "#/definitions/Entity",
                "description": "The value of an observation"
             }
          },
          "required": [
             "observation_type",
-            "valueCodeableConcept"
+            "value_codeable_concept"
          ],
          "title": "CancerStageObservation",
          "type": "object"
@@ -264,8 +264,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
@@ -306,8 +306,8 @@
                "type": "array"
             },
             "text": {
-               "$ref": "#/definitions/Entity",
-               "description": "A human language representation of the concept represented by the Coding."
+               "description": "A human language representation of the concept represented by the Coding.",
+               "type": "string"
             }
          },
          "required": [],
@@ -319,24 +319,24 @@
          "description": "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.",
          "properties": {
             "code": {
-               "$ref": "#/definitions/Entity",
-               "description": "The symbol/value of the code, as defined by the code system."
+               "description": "The symbol/value of the code, as defined by the code system.",
+               "type": "string"
             },
             "label": {
-               "$ref": "#/definitions/Entity",
-               "description": "A human-readable name for the code, as defined by the code system."
+               "description": "A human-readable name for the code, as defined by the code system.",
+               "type": "string"
             },
             "system": {
-               "$ref": "#/definitions/Entity",
-               "description": "The code system where the code is defined."
+               "description": "The code system where the code is defined.",
+               "type": "string"
             },
             "systemURL": {
-               "$ref": "#/definitions/Entity",
-               "description": "A URL where the code system can be found."
+               "description": "A URL where the code system can be found.",
+               "type": "string"
             },
             "systemVersion": {
-               "$ref": "#/definitions/Entity",
-               "description": "The version of the code system."
+               "description": "The version of the code system.",
+               "type": "string"
             }
          },
          "required": [
@@ -370,8 +370,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -436,8 +436,8 @@
                "type": "array"
             },
             "year_at_diagnosis": {
-               "$ref": "#/definitions/Entity",
-               "description": "Numeric value to represent the year of an individual's diagnosis."
+               "description": "Numeric value to represent the year of an individual's diagnosis.",
+               "type": "integer"
             }
          },
          "required": [],
@@ -460,8 +460,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
@@ -482,14 +482,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueQuantity": {
+            "value_quantity": {
                "$ref": "#/definitions/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
          "required": [
             "observation_type",
-            "valueQuantity"
+            "value_quantity"
          ],
          "title": "DimensionalObservation",
          "type": "object"
@@ -510,8 +510,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
@@ -545,8 +545,8 @@
          "description": "A collection of information intented to be understood together as a whole, and codified in human-readable form.",
          "properties": {
             "description": {
-               "$ref": "#/definitions/Entity",
-               "description": "A free text description or summary of the report."
+               "description": "A free text description or summary of the report.",
+               "type": "string"
             },
             "document_type": {
                "$ref": "#/definitions/EnumCRDCHDocumentDocumentType",
@@ -557,8 +557,8 @@
                "description": "The entity that the report is primarily about"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -570,7 +570,7 @@
             "url": {
                "description": "A URL/web address where the document can be accessed.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "type": "string"
                },
                "type": "array"
             }
@@ -611,18 +611,8 @@
          "type": "string"
       },
       "EnumCRDCHAlcoholExposureObservationValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H AlcoholExposureObservation valueCodeableConcept",
-         "enum": [
-            "Unknown",
-            "Heavy Drinker",
-            "Drinker",
-            "Occasional Drinker",
-            "Not Reported",
-            "Lifelong Non-Drinker",
-            "Non-Drinker",
-            "No",
-            "Yes"
-         ],
+         "description": "Autogenerated Enumeration for CRDC-H AlcoholExposureObservation value_codeable_concept",
+         "enum": [],
          "title": "EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
          "type": "string"
       },
@@ -1327,40 +1317,8 @@
          "type": "string"
       },
       "EnumCRDCHCancerGradeObservationValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H CancerGradeObservation valueCodeableConcept",
-         "enum": [
-            "Pattern 1",
-            "Pattern 4",
-            "Pattern 5",
-            "Pattern 3",
-            "Pattern 2",
-            "Not Reported",
-            "Unknown",
-            "Low Grade (G1)",
-            "High Grade (G2)",
-            "Low Grade",
-            "GX",
-            "G1",
-            "High Grade",
-            "G2",
-            "G3",
-            "G4",
-            "Intermediate Grade",
-            "GB",
-            "not reported",
-            "High Grade Dysplasia",
-            "Indefinite for Dysplasia",
-            "Low Grade Dysplasia",
-            "Negative/ No Dysplasia",
-            "Group 1",
-            "Group 3",
-            "Group 5",
-            "Group 4",
-            "Group 2",
-            "Differentiating",
-            "Undifferentiated",
-            "Poorly Differentiated"
-         ],
+         "description": "Autogenerated Enumeration for CRDC-H CancerGradeObservation value_codeable_concept",
+         "enum": [],
          "title": "EnumCRDCHCancerGradeObservationValueCodeableConcept",
          "type": "string"
       },
@@ -1430,160 +1388,8 @@
          "type": "string"
       },
       "EnumCRDCHCancerStageObservationValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H CancerStageObservation valueCodeableConcept",
-         "enum": [
-            "N2",
-            "N3",
-            "N0 (i-)",
-            "N3b",
-            "NX",
-            "N1bIII",
-            "N1bII",
-            "N0 (mol+)",
-            "N1c",
-            "N1b",
-            "N1bIV",
-            "N1",
-            "N4",
-            "N2b",
-            "N0 (mol-)",
-            "N0",
-            "N3a",
-            "N1a",
-            "N2c",
-            "N0 (i+)",
-            "N2a",
-            "N1mi",
-            "Unknown",
-            "Not Reported",
-            "N1bI",
-            "N3c",
-            "Yes",
-            "No",
-            "Not Allowed To Collect",
-            "Stage IVB",
-            "Stage II",
-            "Stage IIA",
-            "Stage 0",
-            "Stage IIID",
-            "Stage IV",
-            "Stage IIIA",
-            "Stage III",
-            "Stage IVC",
-            "Stage Tis",
-            "Stage IVA",
-            "Stage IS",
-            "Stage IA2",
-            "Stage IB",
-            "Stage 0a",
-            "Stage IIIB",
-            "Stage IIC",
-            "Stage IC",
-            "Stage IB2",
-            "Stage IIIC",
-            "Stage IIA1",
-            "Stage IB1",
-            "Stage IIIC1",
-            "Stage IA",
-            "Stage IA3",
-            "Stage IIA2",
-            "Stage IIB",
-            "Stage IIIC2",
-            "Stage I",
-            "Stage X",
-            "Stage 0is",
-            "Stage IA1",
-            "Ta",
-            "T3",
-            "T2b",
-            "T2a2",
-            "T1a",
-            "T3d",
-            "T4",
-            "T4a",
-            "Tis",
-            "T3a",
-            "T2c",
-            "T1b2",
-            "T0",
-            "T2a",
-            "T1mi",
-            "T4b",
-            "T1a1",
-            "T1b1",
-            "TX",
-            "T2d",
-            "T4d",
-            "T2a1",
-            "Tis (LCIS)",
-            "T2",
-            "Tis (DCIS)",
-            "T4e",
-            "T3c",
-            "T1",
-            "T1a2",
-            "T3b",
-            "T4c",
-            "T1b",
-            "Tis (Paget's)",
-            "T1c",
-            "M1d",
-            "M1a",
-            "M1",
-            "MX",
-            "M1c",
-            "cM0 (i+)",
-            "M2",
-            "M0",
-            "M1b",
-            "Stage 4S",
-            "Stage 3",
-            "Stage 4",
-            "Stage 2A",
-            "Stage 1",
-            "Stage 2B",
-            "II",
-            "III",
-            "I",
-            "4",
-            "2",
-            "1",
-            "3",
-            "Stage IVb",
-            "Stage IVa",
-            "Stage IIa",
-            "Stage IIb",
-            "No Metastasis (M0)",
-            "Regional or Distant Metastasis (M1)",
-            "Stage II Cervix",
-            "Stage IB Cervix",
-            "Stage IIC1",
-            "Stage IIA Cervix",
-            "3rd",
-            "2nd",
-            "5th",
-            "8th",
-            "4th",
-            "6th",
-            "1st",
-            "7th",
-            "Extracompartmental (T2)",
-            "Intracompartmental (T1)",
-            "Good Prognosis",
-            "Poor Prognosis",
-            "Intermediate Prognosis",
-            "L1",
-            "Ms",
-            "M",
-            "L2",
-            "Stage IC2",
-            "Stage IC1",
-            "Stage IIIA1",
-            "Stage IIIAii",
-            "Stage IC3",
-            "Stage IIIAi",
-            "Stage IIIA2"
-         ],
+         "description": "Autogenerated Enumeration for CRDC-H CancerStageObservation value_codeable_concept",
+         "enum": [],
          "title": "EnumCRDCHCancerStageObservationValueCodeableConcept",
          "type": "string"
       },
@@ -5489,71 +5295,9 @@
          "type": "string"
       },
       "EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation valueCodeableConcept",
-         "enum": [
-            "Work-related smoke, plumbing",
-            "Grilling smoke",
-            "Indoor stove or fireplace smoke, wood burning",
-            "Accidental building fire smoke",
-            "Smoke exposure, NOS",
-            "Accidental forest fire smoke",
-            "Cooking-related smoke, NOS",
-            "Work-related smoke, military",
-            "Fire smoke, NOS",
-            "Wood burning smoke, NOS",
-            "Work-related smoke, generators",
-            "Marijuana smoke",
-            "Electronic cigarette smoke, NOS",
-            "Work-related smoke, fire fighting",
-            "Burning tree smoke",
-            "Factory smokestack smoke",
-            "Work-related smoke, plastics factory",
-            "Field burning smoke",
-            "Accidental vehicle fire smoke",
-            "Work-related smoke, foundry",
-            "Gas burning smoke, propane",
-            "Furnace or boiler smoke",
-            "Waste burning smoke",
-            "No Smoke Exposure",
-            "Coal smoke, NOS",
-            "Volcanic smoke",
-            "Oil burning smoke, Kerosene",
-            "Accidental fire smoke, grass",
-            "Electrical fire smoke",
-            "Work-related smoke, paint baking",
-            "Unknown",
-            "Tobacco smoke, cigarettes",
-            "Accidental fire smoke, NOS",
-            "Recreational fire smoke",
-            "Grease fire smoke",
-            "Hashish smoke",
-            "Smokehouse smoke",
-            "Indoor stove or fireplace smoke, coal burning",
-            "Work-related smoke, soldering/welding",
-            "Tobacco smoke, cigar",
-            "Work-related smoke, artificial smoke machines",
-            "Aircraft smoke",
-            "Environmental tobacco smoke",
-            "Tobacco smoke, pipe",
-            "Indoor stove or fireplace smoke, NOS",
-            "Wood burning smoke, factory",
-            "Oil burning smoke, NOS",
-            "Work-related smoke, NOS",
-            "Machine smoke",
-            "Not Reported",
-            "No",
-            "Yes",
-            "Tobacco smoke, NOS"
-         ],
+         "description": "Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation value_codeable_concept",
+         "enum": [],
          "title": "EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
-         "type": "string"
-      },
-      "EnumCRDCHExecutionConditionObservation": {
-         "description": "Types of observations about the environmental conditions under which specific aspects of an activity were performed.",
-         "enum": [
-            "ischemic_temperature"
-         ],
-         "title": "EnumCRDCHExecutionConditionObservation",
          "type": "string"
       },
       "EnumCRDCHExecutionConditionObservationCategory": {
@@ -5569,25 +5313,17 @@
          "type": "string"
       },
       "EnumCRDCHExecutionConditionObservationObservationType": {
-         "description": "Autogenerated Enumeration for CRDC-H ExecutionConditionObservation observation_type",
-         "enum": [],
+         "description": "Types of observations about the environmental conditions under which specific aspects of an activity were performed.",
+         "enum": [
+            "ischemic_temperature"
+         ],
          "title": "EnumCRDCHExecutionConditionObservationObservationType",
          "type": "string"
       },
       "EnumCRDCHExecutionConditionObservationValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H ExecutionConditionObservation valueCodeableConcept",
+         "description": "Autogenerated Enumeration for CRDC-H ExecutionConditionObservation value_codeable_concept",
          "enum": [],
          "title": "EnumCRDCHExecutionConditionObservationValueCodeableConcept",
-         "type": "string"
-      },
-      "EnumCRDCHExecutionTimeObservation": {
-         "description": "An observation about the duration of specific aspects / parts of an activity.",
-         "enum": [
-            "time_between_excision_and_freezing",
-            "time_between_clamping_and_freezing",
-            "ischemic_time"
-         ],
-         "title": "EnumCRDCHExecutionTimeObservation",
          "type": "string"
       },
       "EnumCRDCHExecutionTimeObservationCategory": {
@@ -5603,8 +5339,12 @@
          "type": "string"
       },
       "EnumCRDCHExecutionTimeObservationObservationType": {
-         "description": "Autogenerated Enumeration for CRDC-H ExecutionTimeObservation observation_type",
-         "enum": [],
+         "description": "An observation about the duration of specific aspects / parts of an activity.",
+         "enum": [
+            "time_between_excision_and_freezing",
+            "time_between_clamping_and_freezing",
+            "ischemic_time"
+         ],
          "title": "EnumCRDCHExecutionTimeObservationObservationType",
          "type": "string"
       },
@@ -5696,25 +5436,24 @@
          "type": "string"
       },
       "EnumCRDCHObservationValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H Observation valueCodeableConcept",
+         "description": "Autogenerated Enumeration for CRDC-H Observation value_codeable_concept",
          "enum": [],
          "title": "EnumCRDCHObservationValueCodeableConcept",
          "type": "string"
       },
       "EnumCRDCHQuantityUnit": {
-         "description": "Autogenerated Enumeration for CRDC-H Quantity unit",
-         "enum": [],
+         "description": "The unit for a value",
+         "enum": [
+            "milligrams",
+            "days",
+            "minutes"
+         ],
          "title": "EnumCRDCHQuantityUnit",
          "type": "string"
       },
       "EnumCRDCHQuantityValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H Quantity valueCodeableConcept",
-         "enum": [
-            "Not Reported",
-            "Distal (>2cm)",
-            "Unknown",
-            "Adjacent (< or = 2cm)"
-         ],
+         "description": "Autogenerated Enumeration for CRDC-H Quantity value_codeable_concept",
+         "enum": [],
          "title": "EnumCRDCHQuantityValueCodeableConcept",
          "type": "string"
       },
@@ -11020,43 +10759,6 @@
          "type": "string"
       },
       "EnumCRDCHTobaccoExposureObservationObservationType": {
-         "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation observation_type",
-         "enum": [],
-         "title": "EnumCRDCHTobaccoExposureObservationObservationType",
-         "type": "string"
-      },
-      "EnumCRDCHTobaccoExposureObservationValueCodeableConcept": {
-         "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation valueCodeableConcept",
-         "enum": [
-            "Some days",
-            "Every day",
-            "Unknown",
-            "After 60 Minutes",
-            "Within 5 Minutes",
-            "6-30 Minutes",
-            "31-60 Minutes",
-            "Electronic Cigarette",
-            "Smokeless Tobacco",
-            "Other",
-            "Cigar",
-            "Cigarette",
-            "Pipe",
-            "Not Reported",
-            "1",
-            "7",
-            "2",
-            "3",
-            "5",
-            "4",
-            "Yes",
-            "No",
-            "6",
-            "Cigarettes"
-         ],
-         "title": "EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
-         "type": "string"
-      },
-      "EnumCRDCHTobbaccoExposureObservationObservationType": {
          "description": "Types of observations about a Subject's exposure to or use of tobacco.",
          "enum": [
             "cigarettes_per_day",
@@ -11070,7 +10772,13 @@
             "tobacco_smoking_status",
             "type_of_tobacco_used"
          ],
-         "title": "EnumCRDCHTobbaccoExposureObservationObservationType",
+         "title": "EnumCRDCHTobaccoExposureObservationObservationType",
+         "type": "string"
+      },
+      "EnumCRDCHTobaccoExposureObservationValueCodeableConcept": {
+         "description": "Autogenerated Enumeration for CRDC-H TobaccoExposureObservation value_codeable_concept",
+         "enum": [],
+         "title": "EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
          "type": "string"
       },
       "EnumCRDCHTreatmentRegimen": {
@@ -11245,8 +10953,8 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationMethodType",
@@ -11264,14 +10972,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
          "required": [
             "observation_type",
-            "valueCodeableConcept"
+            "value_codeable_concept"
          ],
          "title": "EnvironmentalExposureObservation",
          "type": "object"
@@ -11289,8 +10997,8 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationMethodType",
@@ -11308,14 +11016,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
          "required": [
             "observation_type",
-            "valueCodeableConcept"
+            "value_codeable_concept"
          ],
          "title": "ExecutionConditionObservation",
          "type": "object"
@@ -11333,8 +11041,8 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "$ref": "#/definitions/EnumCRDCHExecutionTimeObservationMethodType",
@@ -11352,14 +11060,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueQuantity": {
+            "value_quantity": {
                "$ref": "#/definitions/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
          "required": [
             "observation_type",
-            "valueQuantity"
+            "value_quantity"
          ],
          "title": "ExecutionTimeObservation",
          "type": "object"
@@ -11383,8 +11091,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11427,8 +11135,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
@@ -11449,14 +11157,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueQuantity": {
+            "value_quantity": {
                "$ref": "#/definitions/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
          "required": [
             "observation_type",
-            "valueQuantity"
+            "value_quantity"
          ],
          "title": "HistologicalCompositionObservation",
          "type": "object"
@@ -11477,8 +11185,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
@@ -11515,16 +11223,16 @@
          "description": "An Identifier is associated with a unique object or entity within a given system.",
          "properties": {
             "system": {
-               "$ref": "#/definitions/Entity",
-               "description": "The system or namespace that defines the identifier."
+               "description": "The system or namespace that defines the identifier.",
+               "type": "string"
             },
             "type": {
                "$ref": "#/definitions/EnumCRDCHIdentifierType",
                "description": "A code that defines the type of the identifier."
             },
             "value": {
-               "$ref": "#/definitions/Entity",
-               "description": "The value of the identifier, as defined by the system."
+               "description": "The value of the identifier, as defined by the system.",
+               "type": "string"
             }
          },
          "required": [
@@ -11549,8 +11257,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
@@ -11571,37 +11279,38 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueBoolean": {
-               "$ref": "#/definitions/Entity",
-               "description": "The result of the observation, encoded as a boolean."
+            "value_boolean": {
+               "description": "The result of the observation, encoded as a boolean.",
+               "type": "boolean"
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
-            "valueDateTime": {
-               "$ref": "#/definitions/Entity",
-               "description": "The result of the observation, encoded as a dateTime."
+            "value_date_time": {
+               "description": "The result of the observation, encoded as a dateTime.",
+               "format": "date-time",
+               "type": "string"
             },
-            "valueDecimal": {
-               "$ref": "#/definitions/Entity",
-               "description": "The result of the observation, encoded as a decimal."
+            "value_decimal": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "number"
             },
-            "valueEntity": {
+            "value_entity": {
                "$ref": "#/definitions/Entity",
                "description": "The value of an observation"
             },
-            "valueInteger": {
-               "$ref": "#/definitions/Entity",
-               "description": "The result of the observation, encoded as a decimal."
+            "value_integer": {
+               "description": "The result of the observation, encoded as a decimal.",
+               "type": "number"
             },
-            "valueQuantity": {
+            "value_quantity": {
                "$ref": "#/definitions/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             },
-            "valueString": {
-               "$ref": "#/definitions/Entity",
-               "description": "The result of the observation, encoded as a free-text string."
+            "value_string": {
+               "description": "The result of the observation, encoded as a free-text string.",
+               "type": "string"
             }
          },
          "required": [
@@ -11626,8 +11335,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
@@ -11664,12 +11373,12 @@
          "description": "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university",
          "properties": {
             "alias": {
-               "$ref": "#/definitions/Entity",
-               "description": "A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')"
+               "description": "A secondary name for the organization such as a short name or abbreviation (e.g. 'NCI')",
+               "type": "string"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11679,12 +11388,12 @@
                "type": "array"
             },
             "name": {
-               "$ref": "#/definitions/Entity",
-               "description": "The full legal name by which the organization is known (e.g. 'National Cancer Institute')"
+               "description": "The full legal name by which the organization is known (e.g. 'National Cancer Institute')",
+               "type": "string"
             },
             "organization_type": {
-               "$ref": "#/definitions/Entity",
-               "description": "The type of the organization (e.g. 'Cancer Genome Characterization Center')"
+               "description": "The type of the organization (e.g. 'Cancer Genome Characterization Center')",
+               "type": "string"
             }
          },
          "required": [
@@ -11701,13 +11410,13 @@
                "$ref": "#/definitions/EnumCRDCHQuantityUnit",
                "description": "A coded or free text (in the .text field) representation of the unit."
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHQuantityValueCodeableConcept",
                "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")"
             },
-            "valueDecimal": {
-               "$ref": "#/definitions/Entity",
-               "description": "An amount, in the given units (if specified)"
+            "value_decimal": {
+               "description": "An amount, in the given units (if specified)",
+               "type": "number"
             }
          },
          "required": [],
@@ -11734,16 +11443,16 @@
                "description": "The date when the research project began."
             },
             "description": {
-               "$ref": "#/definitions/Entity",
-               "description": "An unabridged description of a research program, project, or study."
+               "description": "An unabridged description of a research program, project, or study.",
+               "type": "string"
             },
             "description_shortened": {
-               "$ref": "#/definitions/Entity",
-               "description": "An abbreviated description of a research program, project, or study."
+               "description": "An abbreviated description of a research program, project, or study.",
+               "type": "string"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11753,12 +11462,12 @@
                "type": "array"
             },
             "name": {
-               "$ref": "#/definitions/Entity",
-               "description": "An unabridged name of a research program, project, or study."
+               "description": "An unabridged name of a research program, project, or study.",
+               "type": "string"
             },
             "name_shortened": {
-               "$ref": "#/definitions/Entity",
-               "description": "An abbreviated name of a research program, project, or study."
+               "description": "An abbreviated name of a research program, project, or study.",
+               "type": "string"
             },
             "part_of": {
                "description": "A reference to a parent ResearchProject (e.g. a link to the overarching CPTAC ResearchProject from a substudy of CPTAC)",
@@ -11781,14 +11490,14 @@
             "sponsor": {
                "description": "An entity that is responsible for the initiation, management, and/or financing of a research project.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "type": "string"
                },
                "type": "array"
             },
             "url": {
                "description": "A URL address for a resource that provides information about a research program, project, or study.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "type": "string"
                },
                "type": "array"
             }
@@ -11819,12 +11528,12 @@
                "type": "array"
             },
             "description": {
-               "$ref": "#/definitions/Entity",
-               "description": "A free text field to capture additional info/explanation about the research subject."
+               "description": "A free text field to capture additional info/explanation about the research subject.",
+               "type": "string"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11908,8 +11617,8 @@
                "type": "array"
             },
             "description": {
-               "$ref": "#/definitions/Entity",
-               "description": "A free text field to capture additional information or explanation about the specimen."
+               "description": "A free text field to capture additional information or explanation about the specimen.",
+               "type": "string"
             },
             "dimensional_measures": {
                "$ref": "#/definitions/DimensionalObservationSet",
@@ -11920,8 +11629,8 @@
                "description": "The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)"
             },
             "dysplasia_fraction": {
-               "$ref": "#/definitions/Entity",
-               "description": "Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces."
+               "description": "Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.",
+               "type": "string"
             },
             "general_tissue_morphology": {
                "$ref": "#/definitions/EnumCRDCHSpecimenGeneralTissueMorphology",
@@ -11935,8 +11644,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -11954,8 +11663,8 @@
                "description": "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen"
             },
             "morphology_pathologically_confirmed": {
-               "$ref": "#/definitions/Entity",
-               "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review."
+               "description": "A flag indicating whether the histologic assessment of specific morphology was confirmed by pathologist review.",
+               "type": "boolean"
             },
             "parent_specimen": {
                "description": "An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).",
@@ -12051,16 +11760,16 @@
                "type": "array"
             },
             "container_number": {
-               "$ref": "#/definitions/Entity",
-               "description": "Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)"
+               "description": "Informal number by which the container is referenced  or identified (e.g. a slide number, or a well number in a plate)",
+               "type": "string"
             },
             "container_type": {
                "$ref": "#/definitions/EnumCRDCHSpecimenContainerContainerType",
                "description": "The kind of the container."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -12136,8 +11845,8 @@
                "description": "The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)"
             },
             "specimen_order": {
-               "$ref": "#/definitions/Entity",
-               "description": "A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen."
+               "description": "A numeric value that represents the sequential order of this creation activity relative to those producing other specimens from the same source material or parent specimen.",
+               "type": "integer"
             }
          },
          "required": [],
@@ -12217,8 +11926,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
@@ -12239,14 +11948,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueQuantity": {
+            "value_quantity": {
                "$ref": "#/definitions/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
          "required": [
             "observation_type",
-            "valueQuantity"
+            "value_quantity"
          ],
          "title": "SpecimenQualityObservation",
          "type": "object"
@@ -12267,8 +11976,8 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
@@ -12289,14 +11998,14 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueQuantity": {
+            "value_quantity": {
                "$ref": "#/definitions/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
          "required": [
             "observation_type",
-            "valueQuantity"
+            "value_quantity"
          ],
          "title": "SpecimenQuantityObservation",
          "type": "object"
@@ -12352,7 +12061,7 @@
             "duration": {
                "description": "The length of time over which the activity was performed.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "type": "string"
                },
                "type": "array"
             },
@@ -12401,8 +12110,8 @@
                "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -12431,12 +12140,12 @@
                "description": "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown."
             },
             "year_of_birth": {
-               "$ref": "#/definitions/Entity",
-               "description": "Numeric value to represent the calendar year in which an individual was born."
+               "description": "Numeric value to represent the calendar year in which an individual was born.",
+               "type": "integer"
             },
             "year_of_death": {
-               "$ref": "#/definitions/Entity",
-               "description": "Numeric value to represent the calendar year in which an individual died."
+               "description": "Numeric value to represent the calendar year in which an individual died.",
+               "type": "integer"
             }
          },
          "required": [
@@ -12473,11 +12182,11 @@
          "additionalProperties": false,
          "description": "A period of time between a start and end time point.",
          "properties": {
-            "periodEnd_end": {
+            "period_end_end": {
                "$ref": "#/definitions/TimePoint",
                "description": "When a period of time ended."
             },
-            "periodStart_start": {
+            "period_start_start": {
                "$ref": "#/definitions/TimePoint",
                "description": "When a period of time started."
             }
@@ -12490,11 +12199,12 @@
          "additionalProperties": false,
          "description": "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.",
          "properties": {
-            "dateTime": {
-               "$ref": "#/definitions/Entity",
-               "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date."
+            "date_time": {
+               "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date.",
+               "format": "date-time",
+               "type": "string"
             },
-            "eventType": {
+            "event_type": {
                "description": "An event that occurred at the point in time specified by this TimePoint.",
                "items": {
                   "$ref": "#/definitions/EnumCRDCHTimePointEventType"
@@ -12502,14 +12212,14 @@
                "type": "array"
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
-            "indexTimePoint": {
+            "index_time_point": {
                "$ref": "#/definitions/TimePoint",
                "description": "Another TimePoint from which this point is offset."
             },
-            "offsetFromIndex": {
+            "offset_from_index": {
                "$ref": "#/definitions/Quantity",
                "description": "A quantity of time that, together with the index date or event, can be used to derive a specific timepoint."
             }
@@ -12531,8 +12241,8 @@
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "method_type": {
                "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationMethodType",
@@ -12550,13 +12260,13 @@
                "$ref": "#/definitions/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
-            "valueCodeableConcept": {
+            "value_codeable_concept": {
                "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
-            "valueInteger": {
-               "$ref": "#/definitions/Entity",
-               "description": "The result of the observation, encoded as an integer."
+            "value_integer": {
+               "description": "The result of the observation, encoded as an integer.",
+               "type": "integer"
             }
          },
          "required": [
@@ -12585,8 +12295,8 @@
                "description": "The timepoint at which the treatment started."
             },
             "id": {
-               "$ref": "#/definitions/Entity",
-               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system."
+               "description": "The 'logical' identifier of the entity within the system of record.  The simple value of this attribute stands for an identifier of this data object within the system, it can be used as a reference from other objects within the same system (i.e. primary and foreign keys), and it should be unique per type of object. The same data object copied to a different system will likely have a different \"id\" in the new system since \"id\" values are system specific and do not represent persistent business identifiers. Business identifiers are assigned outside the information system and are captured in the \"identifier\" field. The \"id\" field is more likely to be a serially or randomly generated value that is assigned to the data object as it is created in a system.",
+               "type": "string"
             },
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
@@ -12596,8 +12306,8 @@
                "type": "array"
             },
             "number_of_cycles": {
-               "$ref": "#/definitions/Entity",
-               "description": "The number of treatment cycles the subject received."
+               "description": "The number of treatment cycles the subject received.",
+               "type": "integer"
             },
             "regimen": {
                "$ref": "#/definitions/EnumCRDCHTreatmentRegimen",
