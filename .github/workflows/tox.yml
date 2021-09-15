@@ -54,4 +54,4 @@ jobs:
       #             run tests with tox
       #----------------------------------------------
       - name: Run tox tests
-        run: pipenv run tox
+        run: pipenv run tox4
