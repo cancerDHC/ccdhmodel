@@ -11,7 +11,7 @@ Model documentation in Markdown can also be generated for this repository, and i
 ### Automated generation of YAML
 
 The CRDC-H model is currently in development on [a Google Sheet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/).
-This repository contains a program in the [`./generators/google-sheets`](./generators/google-sheets) directory,
+This repository contains a program in the [`./vendor/sheet2linkml/README.md`](./vendor/sheet2linkml/README.md) directory,
 called `sheet2linkml`, which can read the Google Sheet using the Google Drive API and generate a LinkML representation
 of the model.
 
