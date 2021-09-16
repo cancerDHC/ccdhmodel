@@ -1,5 +1,5 @@
 # Auto generated from crdch_model.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-09-07 17:13
+# Generation date: 2021-09-16 17:54
 # Schema: CRDC-H
 #
 # id: https://example.org/crdch
@@ -485,9 +485,11 @@ class Coding(Entity):
 
     code: Union[str, CrdchString] = None
     system: Union[str, CrdchString] = None
-    systemURL: Optional[Union[str, CrdchString]] = None
-    systemVersion: Optional[Union[str, CrdchString]] = None
     label: Optional[Union[str, CrdchString]] = None
+    system_version: Optional[Union[str, CrdchString]] = None
+    value_set: Optional[Union[str, CrdchString]] = None
+    value_set_version: Optional[Union[str, CrdchString]] = None
+    tag: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.code):
@@ -500,14 +502,21 @@ class Coding(Entity):
         if not isinstance(self.system, CrdchString):
             self.system = CrdchString(self.system)
 
-        if self.systemURL is not None and not isinstance(self.systemURL, CrdchString):
-            self.systemURL = CrdchString(self.systemURL)
-
-        if self.systemVersion is not None and not isinstance(self.systemVersion, CrdchString):
-            self.systemVersion = CrdchString(self.systemVersion)
-
         if self.label is not None and not isinstance(self.label, CrdchString):
             self.label = CrdchString(self.label)
+
+        if self.system_version is not None and not isinstance(self.system_version, CrdchString):
+            self.system_version = CrdchString(self.system_version)
+
+        if self.value_set is not None and not isinstance(self.value_set, CrdchString):
+            self.value_set = CrdchString(self.value_set)
+
+        if self.value_set_version is not None and not isinstance(self.value_set_version, CrdchString):
+            self.value_set_version = CrdchString(self.value_set_version)
+
+        if not isinstance(self.tag, list):
+            self.tag = [self.tag] if self.tag is not None else []
+        self.tag = [v if isinstance(v, CrdchString) else CrdchString(v) for v in self.tag]
 
         super().__post_init__(**kwargs)
 
@@ -529,7 +538,7 @@ class Diagnosis(Entity):
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     age_at_diagnosis: Optional[Union[dict, "Quantity"]] = None
-    year_at_diagnosis: Optional[Union[int, CrdchInteger]] = None
+    diagnosis_date: Optional[Union[dict, "TimePoint"]] = None
     condition: Optional[Union[str, "EnumCRDCHDiagnosisCondition"]] = None
     primary_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
     metastatic_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
@@ -555,8 +564,8 @@ class Diagnosis(Entity):
         if self.age_at_diagnosis is not None and not isinstance(self.age_at_diagnosis, Quantity):
             self.age_at_diagnosis = Quantity(**as_dict(self.age_at_diagnosis))
 
-        if self.year_at_diagnosis is not None and not isinstance(self.year_at_diagnosis, CrdchInteger):
-            self.year_at_diagnosis = CrdchInteger(self.year_at_diagnosis)
+        if self.diagnosis_date is not None and not isinstance(self.diagnosis_date, TimePoint):
+            self.diagnosis_date = TimePoint(**as_dict(self.diagnosis_date))
 
         if self.condition is not None and not isinstance(self.condition, EnumCRDCHDiagnosisCondition):
             self.condition = EnumCRDCHDiagnosisCondition(self.condition)
@@ -1477,8 +1486,8 @@ class Specimen(Entity):
     quality_measure: Optional[Union[Union[dict, "SpecimenQualityObservation"], List[Union[dict, "SpecimenQualityObservation"]]]] = empty_list()
     cellular_composition_type: Optional[Union[str, "EnumCRDCHSpecimenCellularCompositionType"]] = None
     histological_composition_measures: Optional[Union[Union[dict, HistologicalCompositionObservationSet], List[Union[dict, HistologicalCompositionObservationSet]]]] = empty_list()
-    general_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenGeneralTissueMorphology"]] = None
-    specific_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenSpecificTissueMorphology"]] = None
+    general_tissue_pathology: Optional[Union[str, "EnumCRDCHSpecimenGeneralTissuePathology"]] = None
+    specific_tissue_pathology: Optional[Union[str, "EnumCRDCHSpecimenSpecificTissuePathology"]] = None
     preinvasive_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenPreinvasiveTissueMorphology"]] = None
     morphology_pathologically_confirmed: Optional[Union[bool, CrdchBoolean]] = None
     morphology_assessor_role: Optional[Union[str, "EnumCRDCHSpecimenMorphologyAssessorRole"]] = None
@@ -1554,11 +1563,11 @@ class Specimen(Entity):
 
         self._normalize_inlined_as_list(slot_name="histological_composition_measures", slot_type=HistologicalCompositionObservationSet, key_name="id", keyed=False)
 
-        if self.general_tissue_morphology is not None and not isinstance(self.general_tissue_morphology, EnumCRDCHSpecimenGeneralTissueMorphology):
-            self.general_tissue_morphology = EnumCRDCHSpecimenGeneralTissueMorphology(self.general_tissue_morphology)
+        if self.general_tissue_pathology is not None and not isinstance(self.general_tissue_pathology, EnumCRDCHSpecimenGeneralTissuePathology):
+            self.general_tissue_pathology = EnumCRDCHSpecimenGeneralTissuePathology(self.general_tissue_pathology)
 
-        if self.specific_tissue_morphology is not None and not isinstance(self.specific_tissue_morphology, EnumCRDCHSpecimenSpecificTissueMorphology):
-            self.specific_tissue_morphology = EnumCRDCHSpecimenSpecificTissueMorphology(self.specific_tissue_morphology)
+        if self.specific_tissue_pathology is not None and not isinstance(self.specific_tissue_pathology, EnumCRDCHSpecimenSpecificTissuePathology):
+            self.specific_tissue_pathology = EnumCRDCHSpecimenSpecificTissuePathology(self.specific_tissue_pathology)
 
         if self.preinvasive_tissue_morphology is not None and not isinstance(self.preinvasive_tissue_morphology, EnumCRDCHSpecimenPreinvasiveTissueMorphology):
             self.preinvasive_tissue_morphology = EnumCRDCHSpecimenPreinvasiveTissueMorphology(self.preinvasive_tissue_morphology)
@@ -2060,8 +2069,9 @@ class Substance(Entity):
 @dataclass
 class TimePoint(Entity):
     """
-    A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or
-    specification in terms of offset from a defined index.
+    A structured representation of a single point in time that allows direct/explicit declaration as a dateTime,
+    specification in terms of offset from a defined index, or description of an event type as a proxy for the time
+    point when it occurred.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2273,7 +2283,7 @@ class EnumCRDCHAlcoholExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHAlcoholExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:31.431109+00:00",
+        code_set_version="2021-09-16T21:49:36.489920+00:00",
     )
 
 class EnumCRDCHAlcoholExposureObservationObservationType(EnumDefinitionImpl):
@@ -2302,7 +2312,7 @@ class EnumCRDCHAlcoholExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHAlcoholExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:32.116226+00:00",
+        code_set_version="2021-09-16T21:49:37.311998+00:00",
     )
 
 class EnumCRDCHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -2313,7 +2323,7 @@ class EnumCRDCHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl
         name="EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:32.219779+00:00",
+        code_set_version="2021-09-16T21:49:37.417707+00:00",
     )
 
 class EnumCRDCHBodySiteSite(EnumDefinitionImpl):
@@ -2633,7 +2643,7 @@ class EnumCRDCHBodySiteSite(EnumDefinitionImpl):
         name="EnumCRDCHBodySiteSite",
         description="Autogenerated Enumeration for CRDC-H BodySite site",
         code_set=None,
-        code_set_version="2021-09-07T21:08:32.335724+00:00",
+        code_set_version="2021-09-16T21:49:37.530258+00:00",
     )
 
     @classmethod
@@ -3657,7 +3667,7 @@ class EnumCRDCHBodySiteQualifier(EnumDefinitionImpl):
         name="EnumCRDCHBodySiteQualifier",
         description="Autogenerated Enumeration for CRDC-H BodySite qualifier",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.353553+00:00",
+        code_set_version="2021-09-16T21:49:38.574042+00:00",
     )
 
     @classmethod
@@ -3673,7 +3683,7 @@ class EnumCRDCHBiologicProductProductType(EnumDefinitionImpl):
         name="EnumCRDCHBiologicProductProductType",
         description="Autogenerated Enumeration for CRDC-H BiologicProduct product_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.482548+00:00",
+        code_set_version="2021-09-16T21:49:38.696389+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationCategory(EnumDefinitionImpl):
@@ -3684,7 +3694,7 @@ class EnumCRDCHCancerGradeObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.589612+00:00",
+        code_set_version="2021-09-16T21:49:38.807272+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationObservationType(EnumDefinitionImpl):
@@ -3716,7 +3726,7 @@ class EnumCRDCHCancerGradeObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.813864+00:00",
+        code_set_version="2021-09-16T21:49:39.035241+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -3727,7 +3737,7 @@ class EnumCRDCHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.923946+00:00",
+        code_set_version="2021-09-16T21:49:39.145945+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationSetCategory(EnumDefinitionImpl):
@@ -3738,7 +3748,7 @@ class EnumCRDCHCancerGradeObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.033726+00:00",
+        code_set_version="2021-09-16T21:49:39.256624+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationSetMethodType(EnumDefinitionImpl):
@@ -3770,7 +3780,7 @@ class EnumCRDCHCancerStageObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.257170+00:00",
+        code_set_version="2021-09-16T21:49:39.478741+00:00",
     )
 
 class EnumCRDCHCancerStageObservationObservationType(EnumDefinitionImpl):
@@ -3832,7 +3842,7 @@ class EnumCRDCHCancerStageObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.478121+00:00",
+        code_set_version="2021-09-16T21:49:39.700585+00:00",
     )
 
 class EnumCRDCHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -3843,7 +3853,7 @@ class EnumCRDCHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.590527+00:00",
+        code_set_version="2021-09-16T21:49:39.816423+00:00",
     )
 
 class EnumCRDCHCancerStageObservationSetCategory(EnumDefinitionImpl):
@@ -3854,7 +3864,7 @@ class EnumCRDCHCancerStageObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.702334+00:00",
+        code_set_version="2021-09-16T21:49:39.919163+00:00",
     )
 
 class EnumCRDCHCancerStageObservationSetMethodType(EnumDefinitionImpl):
@@ -4116,7 +4126,7 @@ class EnumCRDCHDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H Diagnosis condition",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.924503+00:00",
+        code_set_version="2021-09-16T21:49:40.144659+00:00",
     )
 
     @classmethod
@@ -9077,7 +9087,7 @@ class EnumCRDCHDiagnosisMorphology(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisMorphology",
         description="Autogenerated Enumeration for CRDC-H Diagnosis morphology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:37.859828+00:00",
+        code_set_version="2021-09-16T21:49:43.208427+00:00",
     )
 
     @classmethod
@@ -11387,7 +11397,7 @@ class EnumCRDCHDiagnosisDiseaseStatus(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisDiseaseStatus",
         description="Autogenerated Enumeration for CRDC-H Diagnosis disease_status",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.251148+00:00",
+        code_set_version="2021-09-16T21:49:44.530513+00:00",
     )
 
     @classmethod
@@ -11436,7 +11446,7 @@ class EnumCRDCHDiagnosisMethodOfDiagnosis(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisMethodOfDiagnosis",
         description="Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.373622+00:00",
+        code_set_version="2021-09-16T21:49:44.657940+00:00",
     )
 
     @classmethod
@@ -11494,7 +11504,7 @@ class EnumCRDCHDimensionalObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.516352+00:00",
+        code_set_version="2021-09-16T21:49:44.803090+00:00",
     )
 
 class EnumCRDCHDimensionalObservationObservationType(EnumDefinitionImpl):
@@ -11527,7 +11537,7 @@ class EnumCRDCHDimensionalObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.730507+00:00",
+        code_set_version="2021-09-16T21:49:45.020572+00:00",
     )
 
 class EnumCRDCHDimensionalObservationSetCategory(EnumDefinitionImpl):
@@ -11538,7 +11548,7 @@ class EnumCRDCHDimensionalObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.834340+00:00",
+        code_set_version="2021-09-16T21:49:45.133245+00:00",
     )
 
 class EnumCRDCHDimensionalObservationSetMethodType(EnumDefinitionImpl):
@@ -11549,7 +11559,7 @@ class EnumCRDCHDimensionalObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.940391+00:00",
+        code_set_version="2021-09-16T21:49:45.244782+00:00",
     )
 
 class EnumCRDCHDocumentDocumentType(EnumDefinitionImpl):
@@ -11578,7 +11588,7 @@ class EnumCRDCHEnvironmentalExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHEnvironmentalExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.164775+00:00",
+        code_set_version="2021-09-16T21:49:45.462653+00:00",
     )
 
 class EnumCRDCHEnvironmentalExposureObservationObservationType(EnumDefinitionImpl):
@@ -11609,7 +11619,7 @@ class EnumCRDCHEnvironmentalExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHEnvironmentalExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.378679+00:00",
+        code_set_version="2021-09-16T21:49:45.687597+00:00",
     )
 
 class EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -11620,7 +11630,7 @@ class EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(EnumDefiniti
         name="EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.480235+00:00",
+        code_set_version="2021-09-16T21:49:45.799416+00:00",
     )
 
 class EnumCRDCHExecutionConditionObservationCategory(EnumDefinitionImpl):
@@ -11631,7 +11641,7 @@ class EnumCRDCHExecutionConditionObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHExecutionConditionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.583103+00:00",
+        code_set_version="2021-09-16T21:49:45.921056+00:00",
     )
 
 class EnumCRDCHExecutionConditionObservationObservationType(EnumDefinitionImpl):
@@ -11655,7 +11665,7 @@ class EnumCRDCHExecutionConditionObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHExecutionConditionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.798174+00:00",
+        code_set_version="2021-09-16T21:49:46.139594+00:00",
     )
 
 class EnumCRDCHExecutionConditionObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -11666,7 +11676,7 @@ class EnumCRDCHExecutionConditionObservationValueCodeableConcept(EnumDefinitionI
         name="EnumCRDCHExecutionConditionObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.903686+00:00",
+        code_set_version="2021-09-16T21:49:46.250423+00:00",
     )
 
 class EnumCRDCHExecutionTimeObservationCategory(EnumDefinitionImpl):
@@ -11677,7 +11687,7 @@ class EnumCRDCHExecutionTimeObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHExecutionTimeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.012389+00:00",
+        code_set_version="2021-09-16T21:49:46.360696+00:00",
     )
 
 class EnumCRDCHExecutionTimeObservationObservationType(EnumDefinitionImpl):
@@ -11704,7 +11714,7 @@ class EnumCRDCHExecutionTimeObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHExecutionTimeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.223744+00:00",
+        code_set_version="2021-09-16T21:49:46.587773+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
@@ -11715,7 +11725,7 @@ class EnumCRDCHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHHistologicalCompositionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.326028+00:00",
+        code_set_version="2021-09-16T21:49:46.697870+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationObservationType(EnumDefinitionImpl):
@@ -11777,7 +11787,7 @@ class EnumCRDCHHistologicalCompositionObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHHistologicalCompositionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.548147+00:00",
+        code_set_version="2021-09-16T21:49:46.920129+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl):
@@ -11788,7 +11798,7 @@ class EnumCRDCHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl)
         name="EnumCRDCHHistologicalCompositionObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.650910+00:00",
+        code_set_version="2021-09-16T21:49:47.041756+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationSetMethodType(EnumDefinitionImpl):
@@ -11799,7 +11809,7 @@ class EnumCRDCHHistologicalCompositionObservationSetMethodType(EnumDefinitionImp
         name="EnumCRDCHHistologicalCompositionObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.751341+00:00",
+        code_set_version="2021-09-16T21:49:47.154248+00:00",
     )
 
 class EnumCRDCHIdentifierType(EnumDefinitionImpl):
@@ -11810,7 +11820,7 @@ class EnumCRDCHIdentifierType(EnumDefinitionImpl):
         name="EnumCRDCHIdentifierType",
         description="Autogenerated Enumeration for CRDC-H Identifier type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.852956+00:00",
+        code_set_version="2021-09-16T21:49:47.263791+00:00",
     )
 
 class EnumCRDCHObservationCategory(EnumDefinitionImpl):
@@ -11821,7 +11831,7 @@ class EnumCRDCHObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHObservationCategory",
         description="Autogenerated Enumeration for CRDC-H Observation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.965970+00:00",
+        code_set_version="2021-09-16T21:49:47.364459+00:00",
     )
 
 class EnumCRDCHObservationObservationType(EnumDefinitionImpl):
@@ -11832,7 +11842,7 @@ class EnumCRDCHObservationObservationType(EnumDefinitionImpl):
         name="EnumCRDCHObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H Observation observation_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.074790+00:00",
+        code_set_version="2021-09-16T21:49:47.463096+00:00",
     )
 
 class EnumCRDCHObservationMethodType(EnumDefinitionImpl):
@@ -11843,7 +11853,7 @@ class EnumCRDCHObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H Observation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.175220+00:00",
+        code_set_version="2021-09-16T21:49:47.563058+00:00",
     )
 
 class EnumCRDCHObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -11854,7 +11864,7 @@ class EnumCRDCHObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Observation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.276728+00:00",
+        code_set_version="2021-09-16T21:49:47.662542+00:00",
     )
 
 class EnumCRDCHObservationSetCategory(EnumDefinitionImpl):
@@ -11865,7 +11875,7 @@ class EnumCRDCHObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H ObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.379903+00:00",
+        code_set_version="2021-09-16T21:49:47.760835+00:00",
     )
 
 class EnumCRDCHObservationSetMethodType(EnumDefinitionImpl):
@@ -11876,7 +11886,7 @@ class EnumCRDCHObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCRDCHObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H ObservationSet method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.480631+00:00",
+        code_set_version="2021-09-16T21:49:47.861133+00:00",
     )
 
 class EnumCRDCHQuantityValueCodeableConcept(EnumDefinitionImpl):
@@ -11887,7 +11897,7 @@ class EnumCRDCHQuantityValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHQuantityValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Quantity value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.587568+00:00",
+        code_set_version="2021-09-16T21:49:47.958884+00:00",
     )
 
 class EnumCRDCHQuantityUnit(EnumDefinitionImpl):
@@ -11948,7 +11958,7 @@ class EnumCRDCHResearchSubjectPrimaryDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCRDCHResearchSubjectPrimaryDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.904084+00:00",
+        code_set_version="2021-09-16T21:49:48.270054+00:00",
     )
 
     @classmethod
@@ -12221,7 +12231,7 @@ class EnumCRDCHResearchSubjectIndexTimepoint(EnumDefinitionImpl):
         name="EnumCRDCHResearchSubjectIndexTimepoint",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.139943+00:00",
+        code_set_version="2021-09-16T21:49:48.520690+00:00",
     )
 
     @classmethod
@@ -12261,8 +12271,8 @@ class EnumCRDCHSpecimenSpecimenType(EnumDefinitionImpl):
 
     @classmethod
     def _addvals(cls):
-        setattr(cls, "initial sample",
-                PermissibleValue(text="initial sample",
+        setattr(cls, "Fresh Specimen",
+                PermissibleValue(text="Fresh Specimen",
                                  description="A specimen representing the material that was directly collected from a subject (i.e. not generated through portioning, aliquoting, or analyte extraction from an existing specimen).") )
 
 class EnumCRDCHSpecimenAnalyteType(EnumDefinitionImpl):
@@ -12298,7 +12308,7 @@ class EnumCRDCHSpecimenAnalyteType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenAnalyteType",
         description="Autogenerated Enumeration for CRDC-H Specimen analyte_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.371740+00:00",
+        code_set_version="2021-09-16T21:49:48.753301+00:00",
     )
 
     @classmethod
@@ -12349,7 +12359,7 @@ class EnumCRDCHSpecimenSourceMaterialType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenSourceMaterialType",
         description="Autogenerated Enumeration for CRDC-H Specimen source_material_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.526142+00:00",
+        code_set_version="2021-09-16T21:49:48.890971+00:00",
     )
 
     @classmethod
@@ -12535,7 +12545,7 @@ class EnumCRDCHSpecimenTumorStatusAtCollection(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenTumorStatusAtCollection",
         description="Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.745325+00:00",
+        code_set_version="2021-09-16T21:49:49.080717+00:00",
     )
 
     @classmethod
@@ -12573,7 +12583,7 @@ class EnumCRDCHSpecimenCellularCompositionType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCellularCompositionType",
         description="Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.878758+00:00",
+        code_set_version="2021-09-16T21:49:49.213118+00:00",
     )
 
     @classmethod
@@ -12645,148 +12655,27 @@ class EnumCRDCHSpecimenCellularCompositionType(EnumDefinitionImpl):
         setattr(cls, "Not Allowed To Collect",
                 PermissibleValue(text="Not Allowed To Collect") )
 
-class EnumCRDCHSpecimenGeneralTissueMorphology(EnumDefinitionImpl):
+class EnumCRDCHSpecimenGeneralTissuePathology(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology
+    Autogenerated Enumeration for CRDC-H Specimen general_tissue_pathology
     """
-    Peritumoral = PermissibleValue(text="Peritumoral",
-                                             description="Peritumoral")
-    Abnormal = PermissibleValue(text="Abnormal",
-                                       description="Abnormal")
-    Normal = PermissibleValue(text="Normal",
-                                   description="Normal")
-    Unknown = PermissibleValue(text="Unknown",
-                                     description="Unknown")
-    Tumor = PermissibleValue(text="Tumor",
-                                 description="Malignant Neoplasm")
-
     _defn = EnumDefinition(
-        name="EnumCRDCHSpecimenGeneralTissueMorphology",
-        description="Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
+        name="EnumCRDCHSpecimenGeneralTissuePathology",
+        description="Autogenerated Enumeration for CRDC-H Specimen general_tissue_pathology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.026728+00:00",
+        code_set_version="2021-09-16T21:49:49.380359+00:00",
     )
 
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "Not Allowed To Collect",
-                PermissibleValue(text="Not Allowed To Collect") )
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported") )
-
-class EnumCRDCHSpecimenSpecificTissueMorphology(EnumDefinitionImpl):
+class EnumCRDCHSpecimenSpecificTissuePathology(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology
+    Autogenerated Enumeration for CRDC-H Specimen specific_tissue_pathology
     """
-    Rhabdomyosarcoma = PermissibleValue(text="Rhabdomyosarcoma")
-
     _defn = EnumDefinition(
-        name="EnumCRDCHSpecimenSpecificTissueMorphology",
-        description="Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
+        name="EnumCRDCHSpecimenSpecificTissuePathology",
+        description="Autogenerated Enumeration for CRDC-H Specimen specific_tissue_pathology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.143833+00:00",
+        code_set_version="2021-09-16T21:49:49.494860+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "61",
-                PermissibleValue(text="61") )
-        setattr(cls, "70",
-                PermissibleValue(text="70") )
-        setattr(cls, "30",
-                PermissibleValue(text="30") )
-        setattr(cls, "63",
-                PermissibleValue(text="63") )
-        setattr(cls, "71",
-                PermissibleValue(text="71") )
-        setattr(cls, "51",
-                PermissibleValue(text="51") )
-        setattr(cls, "80",
-                PermissibleValue(text="80") )
-        setattr(cls, "02",
-                PermissibleValue(text="02") )
-        setattr(cls, "65",
-                PermissibleValue(text="65") )
-        setattr(cls, "04",
-                PermissibleValue(text="04") )
-        setattr(cls, "60",
-                PermissibleValue(text="60") )
-        setattr(cls, "03",
-                PermissibleValue(text="03") )
-        setattr(cls, "50",
-                PermissibleValue(text="50") )
-        setattr(cls, "52",
-                PermissibleValue(text="52") )
-        setattr(cls, "15",
-                PermissibleValue(text="15") )
-        setattr(cls, "10",
-                PermissibleValue(text="10") )
-        setattr(cls, "00",
-                PermissibleValue(text="00") )
-        setattr(cls, "01",
-                PermissibleValue(text="01") )
-        setattr(cls, "21",
-                PermissibleValue(text="21") )
-        setattr(cls, "20",
-                PermissibleValue(text="20") )
-        setattr(cls, "62",
-                PermissibleValue(text="62") )
-        setattr(cls, "40",
-                PermissibleValue(text="40") )
-        setattr(cls, "64",
-                PermissibleValue(text="64") )
-        setattr(cls, "81",
-                PermissibleValue(text="81") )
-        setattr(cls, "41",
-                PermissibleValue(text="41") )
-        setattr(cls, "Rhabdoid tumor (kidney) (RT)",
-                PermissibleValue(text="Rhabdoid tumor (kidney) (RT)") )
-        setattr(cls, "Acute myeloid leukemia (AML)",
-                PermissibleValue(text="Acute myeloid leukemia (AML)") )
-        setattr(cls, "Anal Cancer (all types)",
-                PermissibleValue(text="Anal Cancer (all types)") )
-        setattr(cls, "Non cancerous tissue",
-                PermissibleValue(text="Non cancerous tissue") )
-        setattr(cls, "CNS, low grade glioma (LGG)",
-                PermissibleValue(text="CNS, low grade glioma (LGG)") )
-        setattr(cls, "Lung Cancer (all types)",
-                PermissibleValue(text="Lung Cancer (all types)") )
-        setattr(cls, "CNS, ependymoma",
-                PermissibleValue(text="CNS, ependymoma") )
-        setattr(cls, "Induction Failure AML (AML-IF)",
-                PermissibleValue(text="Induction Failure AML (AML-IF)") )
-        setattr(cls, "Soft tissue sarcoma, non-rhabdomyosarcoma",
-                PermissibleValue(text="Soft tissue sarcoma, non-rhabdomyosarcoma") )
-        setattr(cls, "NHL, Burkitt lymphoma (BL)",
-                PermissibleValue(text="NHL, Burkitt lymphoma (BL)") )
-        setattr(cls, "Neuroblastoma (NBL)",
-                PermissibleValue(text="Neuroblastoma (NBL)") )
-        setattr(cls, "Diffuse Large B-Cell Lymphoma (DLBCL)",
-                PermissibleValue(text="Diffuse Large B-Cell Lymphoma (DLBCL)") )
-        setattr(cls, "Acute lymphoblastic leukemia (ALL)",
-                PermissibleValue(text="Acute lymphoblastic leukemia (ALL)") )
-        setattr(cls, "CNS, rhabdoid tumor",
-                PermissibleValue(text="CNS, rhabdoid tumor") )
-        setattr(cls, "CNS, medulloblastoma",
-                PermissibleValue(text="CNS, medulloblastoma") )
-        setattr(cls, "Cervical Cancer (all types)",
-                PermissibleValue(text="Cervical Cancer (all types)") )
-        setattr(cls, "NHL, anaplastic large cell lymphoma",
-                PermissibleValue(text="NHL, anaplastic large cell lymphoma") )
-        setattr(cls, "Clear cell sarcoma of the kidney (CCSK)",
-                PermissibleValue(text="Clear cell sarcoma of the kidney (CCSK)") )
-        setattr(cls, "CNS, glioblastoma (GBM)",
-                PermissibleValue(text="CNS, glioblastoma (GBM)") )
-        setattr(cls, "Acute Leukemia of Ambiguous Lineage (ALAL)",
-                PermissibleValue(text="Acute Leukemia of Ambiguous Lineage (ALAL)") )
-        setattr(cls, "CNS, other",
-                PermissibleValue(text="CNS, other") )
-        setattr(cls, "Ewing sarcoma",
-                PermissibleValue(text="Ewing sarcoma") )
-        setattr(cls, "Osteosarcoma (OS)",
-                PermissibleValue(text="Osteosarcoma (OS)") )
-        setattr(cls, "Wilms tumor (WT)",
-                PermissibleValue(text="Wilms tumor (WT)") )
 
 class EnumCRDCHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
     """
@@ -12796,7 +12685,7 @@ class EnumCRDCHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenPreinvasiveTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.301214+00:00",
+        code_set_version="2021-09-16T21:49:49.607830+00:00",
     )
 
 class EnumCRDCHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
@@ -12807,7 +12696,7 @@ class EnumCRDCHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenMorphologyAssessorRole",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessor_role",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.410467+00:00",
+        code_set_version="2021-09-16T21:49:49.912759+00:00",
     )
 
 class EnumCRDCHSpecimenMorphologyAssessmentMethod(EnumDefinitionImpl):
@@ -12818,7 +12707,7 @@ class EnumCRDCHSpecimenMorphologyAssessmentMethod(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenMorphologyAssessmentMethod",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessment_method",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.524474+00:00",
+        code_set_version="2021-09-16T21:49:50.236173+00:00",
     )
 
 class EnumCRDCHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
@@ -12829,7 +12718,7 @@ class EnumCRDCHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenDegreeOfDysplasia",
         description="Autogenerated Enumeration for CRDC-H Specimen degree_of_dysplasia",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.636509+00:00",
+        code_set_version="2021-09-16T21:49:50.523131+00:00",
     )
 
 class EnumCRDCHSpecimenSectionLocation(EnumDefinitionImpl):
@@ -12856,7 +12745,7 @@ class EnumCRDCHSpecimenContainerContainerType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenContainerContainerType",
         description="Autogenerated Enumeration for CRDC-H SpecimenContainer container_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.851513+00:00",
+        code_set_version="2021-09-16T21:49:51.182025+00:00",
     )
 
 class EnumCRDCHSpecimenCreationActivityActivityType(EnumDefinitionImpl):
@@ -12916,7 +12805,7 @@ class EnumCRDCHSpecimenCreationActivityCollectionMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCreationActivityCollectionMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.084419+00:00",
+        code_set_version="2021-09-16T21:49:51.955969+00:00",
     )
 
     @classmethod
@@ -13082,7 +12971,7 @@ class EnumCRDCHSpecimenCreationActivityDerivationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCreationActivityDerivationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.317644+00:00",
+        code_set_version="2021-09-16T21:49:52.358192+00:00",
     )
 
 class EnumCRDCHSpecimenQualityObservationCategory(EnumDefinitionImpl):
@@ -13093,7 +12982,7 @@ class EnumCRDCHSpecimenQualityObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQualityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQualityObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.423104+00:00",
+        code_set_version="2021-09-16T21:49:52.841235+00:00",
     )
 
 class EnumCRDCHSpecimenQualityObservationObservationType(EnumDefinitionImpl):
@@ -13140,7 +13029,7 @@ class EnumCRDCHSpecimenQuantityObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQuantityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.741776+00:00",
+        code_set_version="2021-09-16T21:49:53.684414+00:00",
     )
 
 class EnumCRDCHSpecimenQuantityObservationObservationType(EnumDefinitionImpl):
@@ -13168,7 +13057,7 @@ class EnumCRDCHSpecimenQuantityObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQuantityObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.958852+00:00",
+        code_set_version="2021-09-16T21:49:53.900052+00:00",
     )
 
 class EnumCRDCHSpecimenProcessingActivityActivityType(EnumDefinitionImpl):
@@ -13205,8 +13094,8 @@ class EnumCRDCHSpecimenProcessingActivityMethodType(EnumDefinitionImpl):
 
     @classmethod
     def _addvals(cls):
-        setattr(cls, "-80",
-                PermissibleValue(text="-80",
+        setattr(cls, "Minues 80 Degrees Celsius Freezer",
+                PermissibleValue(text="Minues 80 Degrees Celsius Freezer",
                                  description="Freezing at -80 degrees celcius") )
         setattr(cls, "-20",
                 PermissibleValue(text="-20",
@@ -13220,7 +13109,7 @@ class EnumCRDCHSpecimenStorageActivityMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenStorageActivityMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.367201+00:00",
+        code_set_version="2021-09-16T21:49:54.228963+00:00",
     )
 
 class EnumCRDCHSubjectSpecies(EnumDefinitionImpl):
@@ -13348,7 +13237,7 @@ class EnumCRDCHSubjectSex(EnumDefinitionImpl):
         name="EnumCRDCHSubjectSex",
         description="Autogenerated Enumeration for CRDC-H Subject sex",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.687007+00:00",
+        code_set_version="2021-09-16T21:49:54.542209+00:00",
     )
 
     @classmethod
@@ -13368,7 +13257,7 @@ class EnumCRDCHSubjectEthnicity(EnumDefinitionImpl):
         name="EnumCRDCHSubjectEthnicity",
         description="Autogenerated Enumeration for CRDC-H Subject ethnicity",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.793549+00:00",
+        code_set_version="2021-09-16T21:49:54.646843+00:00",
     )
 
     @classmethod
@@ -13397,7 +13286,7 @@ class EnumCRDCHSubjectRace(EnumDefinitionImpl):
         name="EnumCRDCHSubjectRace",
         description="Autogenerated Enumeration for CRDC-H Subject race",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.900411+00:00",
+        code_set_version="2021-09-16T21:49:54.761435+00:00",
     )
 
     @classmethod
@@ -13428,7 +13317,7 @@ class EnumCRDCHSubjectVitalStatus(EnumDefinitionImpl):
         name="EnumCRDCHSubjectVitalStatus",
         description="Autogenerated Enumeration for CRDC-H Subject vital_status",
         code_set=None,
-        code_set_version="2021-09-07T21:08:47.016668+00:00",
+        code_set_version="2021-09-16T21:49:54.879433+00:00",
     )
 
     @classmethod
@@ -13452,7 +13341,7 @@ class EnumCRDCHSubjectCauseOfDeath(EnumDefinitionImpl):
         name="EnumCRDCHSubjectCauseOfDeath",
         description="Autogenerated Enumeration for CRDC-H Subject cause_of_death",
         code_set=None,
-        code_set_version="2021-09-07T21:08:47.200658+00:00",
+        code_set_version="2021-09-16T21:49:54.989771+00:00",
     )
 
     @classmethod
@@ -14839,7 +14728,7 @@ class EnumCRDCHSubstanceSubstanceType(EnumDefinitionImpl):
         name="EnumCRDCHSubstanceSubstanceType",
         description="Autogenerated Enumeration for CRDC-H Substance substance_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:47.325429+00:00",
+        code_set_version="2021-09-16T21:49:55.109323+00:00",
     )
 
     @classmethod
@@ -21097,7 +20986,7 @@ class EnumCRDCHSubstanceRole(EnumDefinitionImpl):
         name="EnumCRDCHSubstanceRole",
         description="Autogenerated Enumeration for CRDC-H Substance role",
         code_set=None,
-        code_set_version="2021-09-07T21:08:51.803327+00:00",
+        code_set_version="2021-09-16T21:49:59.552481+00:00",
     )
 
 class EnumCRDCHTimePointEventType(EnumDefinitionImpl):
@@ -21108,7 +20997,7 @@ class EnumCRDCHTimePointEventType(EnumDefinitionImpl):
         name="EnumCRDCHTimePointEventType",
         description="Autogenerated Enumeration for CRDC-H TimePoint event_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:51.912452+00:00",
+        code_set_version="2021-09-16T21:49:59.664833+00:00",
     )
 
 class EnumCRDCHTobaccoExposureObservationCategory(EnumDefinitionImpl):
@@ -21119,7 +21008,7 @@ class EnumCRDCHTobaccoExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHTobaccoExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.028296+00:00",
+        code_set_version="2021-09-16T21:49:59.773141+00:00",
     )
 
 class EnumCRDCHTobaccoExposureObservationObservationType(EnumDefinitionImpl):
@@ -21160,7 +21049,7 @@ class EnumCRDCHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHTobaccoExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.252674+00:00",
+        code_set_version="2021-09-16T21:49:59.996722+00:00",
     )
 
 class EnumCRDCHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -21171,7 +21060,7 @@ class EnumCRDCHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl
         name="EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.366000+00:00",
+        code_set_version="2021-09-16T21:50:00.103991+00:00",
     )
 
 class EnumCRDCHTreatmentTreatmentType(EnumDefinitionImpl):
@@ -21197,7 +21086,7 @@ class EnumCRDCHTreatmentTreatmentType(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentType",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.474538+00:00",
+        code_set_version="2021-09-16T21:50:00.213820+00:00",
     )
 
     @classmethod
@@ -21325,7 +21214,7 @@ class EnumCRDCHTreatmentTreatmentEndReason(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentEndReason",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.640041+00:00",
+        code_set_version="2021-09-16T21:50:00.381055+00:00",
     )
 
     @classmethod
@@ -21347,7 +21236,7 @@ class EnumCRDCHTreatmentRegimen(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentRegimen",
         description="Autogenerated Enumeration for CRDC-H Treatment regimen",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.744041+00:00",
+        code_set_version="2021-09-16T21:50:00.497916+00:00",
     )
 
 class EnumCRDCHTreatmentTreatmentFrequency(EnumDefinitionImpl):
@@ -21360,7 +21249,7 @@ class EnumCRDCHTreatmentTreatmentFrequency(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentFrequency",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_frequency",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.844226+00:00",
+        code_set_version="2021-09-16T21:50:00.605331+00:00",
     )
 
     @classmethod
@@ -21406,7 +21295,7 @@ class EnumCRDCHTreatmentTreatmentIntent(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentIntent",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_intent",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.952346+00:00",
+        code_set_version="2021-09-16T21:50:00.725168+00:00",
     )
 
     @classmethod
@@ -21433,7 +21322,7 @@ class EnumCRDCHTreatmentTreatmentEffect(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentEffect",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_effect",
         code_set=None,
-        code_set_version="2021-09-07T21:08:53.061098+00:00",
+        code_set_version="2021-09-16T21:50:00.852181+00:00",
     )
 
     @classmethod
@@ -21461,7 +21350,7 @@ class EnumCRDCHTreatmentTreatmentOutcome(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentOutcome",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_outcome",
         code_set=None,
-        code_set_version="2021-09-07T21:08:53.170913+00:00",
+        code_set_version="2021-09-16T21:50:00.974004+00:00",
     )
 
     @classmethod
