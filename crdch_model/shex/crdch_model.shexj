@@ -813,17 +813,31 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/system_url",
+                        "predicate": "https://example.org/crdch/system_version",
                         "valueExpr": "https://example.org/crdch/CrdchString",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/system_version",
+                        "predicate": "https://example.org/crdch/value_set",
                         "valueExpr": "https://example.org/crdch/CrdchString",
                         "min": 0,
                         "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/crdch/value_set_version",
+                        "valueExpr": "https://example.org/crdch/CrdchString",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/crdch/tag",
+                        "valueExpr": "https://example.org/crdch/CrdchString",
+                        "min": 0,
+                        "max": -1
                      }
                   ]
                },
@@ -2743,15 +2757,15 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/general_tissue_morphology",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenGeneralTissueMorphology",
+                        "predicate": "https://example.org/crdch/general_tissue_pathology",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenGeneralTissuePathology",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/specific_tissue_morphology",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenSpecificTissueMorphology",
+                        "predicate": "https://example.org/crdch/specific_tissue_pathology",
+                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenSpecificTissuePathology",
                         "min": 0,
                         "max": 1
                      },

@@ -84,8 +84,10 @@ type Coding
     code: CrdchString!
     label: CrdchString
     system: CrdchString!
-    systemUrl: CrdchString
     systemVersion: CrdchString
+    valueSet: CrdchString
+    valueSetVersion: CrdchString
+    tag: [CrdchString]
   }
 
 type Diagnosis
@@ -325,8 +327,8 @@ type Specimen
     qualityMeasure: [SpecimenQualityObservation]
     cellularCompositionType: EnumCRDCHSpecimenCellularCompositionType
     histologicalCompositionMeasures: [HistologicalCompositionObservationSet]
-    generalTissueMorphology: EnumCRDCHSpecimenGeneralTissueMorphology
-    specificTissueMorphology: EnumCRDCHSpecimenSpecificTissueMorphology
+    generalTissuePathology: EnumCRDCHSpecimenGeneralTissuePathology
+    specificTissuePathology: EnumCRDCHSpecimenSpecificTissuePathology
     preinvasiveTissueMorphology: EnumCRDCHSpecimenPreinvasiveTissueMorphology
     morphologyPathologicallyConfirmed: CrdchBoolean
     morphologyAssessorRole: EnumCRDCHSpecimenMorphologyAssessorRole
