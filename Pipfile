@@ -21,6 +21,7 @@ pyyaml = "*"            # For reading and writing YAML files.
 # Packages needed for testing.
 pytest = "~=6.2.4"
 tox = "*"
+typing_extensions = "*" # This is a tox prereq for Python 3.7, but not installed by Pipenv.
 twine = "*" # should this go in make-venv/Pipfile ?
 
 # Packages needed by sheet2linkml.
