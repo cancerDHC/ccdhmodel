@@ -163,10 +163,12 @@ linkml:Nodeidentifier NONLITERAL
     (  $<Coding_tes> (  &<Entity_tes> ;
           rdf:type [ <Entity> ] ? ;
           <code> @<CrdchString> ;
+          <label> @<CrdchString> ? ;
           <system> @<CrdchString> ;
-          <systemURL> @<CrdchString> ? ;
-          <systemVersion> @<CrdchString> ? ;
-          <label> @<CrdchString> ?
+          <system_version> @<CrdchString> ? ;
+          <value_set> @<CrdchString> ? ;
+          <value_set_version> @<CrdchString> ? ;
+          <tag> @<CrdchString> *
        ) ;
        rdf:type [ <Coding> ] ?
     )
@@ -179,7 +181,7 @@ linkml:Nodeidentifier NONLITERAL
           <identifier> @<Identifier> * ;
           <subject> @<Subject> ? ;
           <age_at_diagnosis> @<Quantity> ? ;
-          <year_at_diagnosis> @<CrdchInteger> ? ;
+          <diagnosis_date> @<TimePoint> ? ;
           <condition> @<EnumCRDCHDiagnosisCondition> ? ;
           <primary_site> @<BodySite> * ;
           <metastatic_site> @<BodySite> * ;
@@ -490,8 +492,8 @@ linkml:Nodeidentifier NONLITERAL
           <quality_measure> @<SpecimenQualityObservation> * ;
           <cellular_composition_type> @<EnumCRDCHSpecimenCellularCompositionType> ? ;
           <histological_composition_measures> @<HistologicalCompositionObservationSet> * ;
-          <general_tissue_morphology> @<EnumCRDCHSpecimenGeneralTissueMorphology> ? ;
-          <specific_tissue_morphology> @<EnumCRDCHSpecimenSpecificTissueMorphology> ? ;
+          <general_tissue_pathology> @<EnumCRDCHSpecimenGeneralTissuePathology> ? ;
+          <specific_tissue_pathology> @<EnumCRDCHSpecimenSpecificTissuePathology> ? ;
           <preinvasive_tissue_morphology> @<EnumCRDCHSpecimenPreinvasiveTissueMorphology> ? ;
           <morphology_pathologically_confirmed> @<CrdchBoolean> ? ;
           <morphology_assessor_role> @<EnumCRDCHSpecimenMorphologyAssessorRole> ? ;
