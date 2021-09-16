@@ -1,7 +1,8 @@
 import json
 import os.path
 import unittest
-from assertpy import assert_that
+from assertpy import assert_that, fail
+import jsonschema
 
 MODEL_PATH = 'crdch_model'
 
@@ -19,4 +20,8 @@ class ValidateArtifacts(unittest.TestCase):
             json_schema = json.load(f)
             assert_that(json_schema).is_not_empty()
 
+            try:
+                jsonschema.Draft7Validator.check_schema(json_schema)
+            except jsonschema.exceptions.SchemaError as e:
+                fail(f'JSON Schema {json_schema_file_path} is not valid: {e}')
 
