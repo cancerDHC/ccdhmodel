@@ -407,13 +407,6 @@ class Attribute:
             examples = [Example(value=example) for example in examples]
 
         attribute_range = self.range
-        # For CodeableConcepts, we currently replace it with an enumeration.
-        # In future versions, we will instead constrain the CodeableConcept's codes in some way.
-        if self.terminology_service and attribute_range == "CodeableConcept":
-            # Logically, we should be able to set `attribute_range` to the EnumDefinition.
-            # But LinkML doesn't support that yet. So instead, we'll refer to the enum definition
-            # here and enter it elsewhere in the YAML file.
-            attribute_range = Enum.fix_enum_name(self.full_name)
 
         slot: SlotDefinition = SlotDefinition(
             name=data.get(EntityWorksheet.COL_ATTRIBUTE_NAME) or "",
