@@ -306,9 +306,9 @@
                 
                 
                 <h1 id="class-cancergradeobservation">Class: CancerGradeObservation</h1>
-<p>A data structure with key (observation_type) and value (value_enum) attributes that represents a single cancer grade observation</p>
+<p>A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer grade observation</p>
 <p>URI: <a href="https://example.org/crdch/CancerGradeObservation">crdch:CancerGradeObservation</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Entity],[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerGradeObservation_category%20%3F;observation_type:enum_CRDCH_CancerGradeObservation_observation_type;method_type:enum_CRDCH_CancerGradeObservation_method_type%20%3F;value_enum:enum_CRDCH_CancerGradeObservation_value_enum],[Entity]&lt;focus%200..1-++[CancerGradeObservation],[CancerGradeObservationSet]++-%20observations%200..*&gt;[CancerGradeObservation],[Entity]^-[CancerGradeObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Entity],[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerGradeObservation_category%20%3F;observation_type:enum_CRDCH_CancerGradeObservation_observation_type;method_type:enum_CRDCH_CancerGradeObservation_method_type%20%3F;value_enum:enum_CRDCH_CancerGradeObservation_value_enum],[Entity]&lt;focus%200..1-++[CancerGradeObservation],[CancerGradeObservationSet]++-%20observations%200..*&gt;[CancerGradeObservation],[Entity]^-[CancerGradeObservation]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Entity],[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerGradeObservation_category%20%3F;observation_type:enum_CRDCH_CancerGradeObservation_observation_type;method_type:enum_CRDCH_CancerGradeObservation_method_type%20%3F;value_codeable_concept:enum_CRDCH_CancerGradeObservation_value_codeable_concept],[Entity]&lt;focus%200..1-++[CancerGradeObservation],[CancerGradeObservationSet]++-%20observations%200..*&gt;[CancerGradeObservation],[Entity]^-[CancerGradeObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Entity],[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerGradeObservation_category%20%3F;observation_type:enum_CRDCH_CancerGradeObservation_observation_type;method_type:enum_CRDCH_CancerGradeObservation_method_type%20%3F;value_codeable_concept:enum_CRDCH_CancerGradeObservation_value_codeable_concept],[Entity]&lt;focus%200..1-++[CancerGradeObservation],[CancerGradeObservationSet]++-%20observations%200..*&gt;[CancerGradeObservation],[Entity]^-[CancerGradeObservation]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -351,9 +351,9 @@
 <li>Range: <a href="../Subject/">Subject</a></li>
 </ul>
 </li>
-<li><a href="../cancerGradeObservation__value_enum/">value_enum</a>  <sub>1..1</sub><ul>
+<li><a href="../cancerGradeObservation__value_codeable_concept/">value_codeable_concept</a>  <sub>1..1</sub><ul>
 <li>Description: The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)</li>
-<li>Range: <a href="../enum_CRDCH_CancerGradeObservation_value_enum/">enum_CRDCH_CancerGradeObservation_value_enum</a></li>
+<li>Range: <a href="../enum_CRDCH_CancerGradeObservation_value_codeable_concept/">enum_CRDCH_CancerGradeObservation_value_codeable_concept</a></li>
 </ul>
 </li>
 </ul>

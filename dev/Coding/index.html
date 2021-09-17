@@ -308,7 +308,7 @@
                 <h1 id="class-coding">Class: Coding</h1>
 <p>A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system.</p>
 <p>URI: <a href="https://example.org/crdch/Coding">crdch:Coding</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept]++-%20coding%200..*&gt;[Coding&#124;code:crdch_string;system:crdch_string;systemURL:crdch_string%20%3F;systemVersion:crdch_string%20%3F;label:crdch_string%20%3F],[Entity]^-[Coding],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept]++-%20coding%200..*&gt;[Coding&#124;code:crdch_string;system:crdch_string;systemURL:crdch_string%20%3F;systemVersion:crdch_string%20%3F;label:crdch_string%20%3F],[Entity]^-[Coding],[CodeableConcept]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept]++-%20coding%200..*&gt;[Coding&#124;code:crdch_string;label:crdch_string%20%3F;system:crdch_string;system_version:crdch_string%20%3F;value_set:crdch_string%20%3F;value_set_version:crdch_string%20%3F;tag:crdch_string%20*],[Entity]^-[Coding],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Entity],[CodeableConcept]++-%20coding%200..*&gt;[Coding&#124;code:crdch_string;label:crdch_string%20%3F;system:crdch_string;system_version:crdch_string%20%3F;value_set:crdch_string%20%3F;value_set_version:crdch_string%20%3F;tag:crdch_string%20*],[Entity]^-[Coding],[CodeableConcept]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -325,23 +325,33 @@
 <li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
+<li><a href="../coding__label/">label</a>  <sub>0..1</sub><ul>
+<li>Description: A human-readable name for the code, as defined by the code system.</li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
+</ul>
+</li>
 <li><a href="../coding__system/">system</a>  <sub>1..1</sub><ul>
-<li>Description: The code system where the code is defined.</li>
+<li>Description: The URL of the code system where the code is defined.</li>
 <li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
-<li><a href="../coding__systemURL/">systemURL</a>  <sub>0..1</sub><ul>
-<li>Description: A URL where the code system can be found.</li>
-<li>Range: <a href="../CrdchString/">CrdchString</a></li>
-</ul>
-</li>
-<li><a href="../coding__systemVersion/">systemVersion</a>  <sub>0..1</sub><ul>
+<li><a href="../coding__system_version/">system_version</a>  <sub>0..1</sub><ul>
 <li>Description: The version of the code system.</li>
 <li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>
-<li><a href="../coding__label/">label</a>  <sub>0..1</sub><ul>
-<li>Description: A human-readable name for the code, as defined by the code system.</li>
+<li><a href="../coding__value_set/">value_set</a>  <sub>0..1</sub><ul>
+<li>Description: The identifier of the enumeration / value set that the code is a part of in the context of this element</li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
+</ul>
+</li>
+<li><a href="../coding__value_set_version/">value_set_version</a>  <sub>0..1</sub><ul>
+<li>Description: The version of the enuemration / value set the code is pulled from</li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
+</ul>
+</li>
+<li><a href="../coding__tag/">tag</a>  <sub>0..*</sub><ul>
+<li>Description: original value  |  harmonized value  |</li>
 <li>Range: <a href="../CrdchString/">CrdchString</a></li>
 </ul>
 </li>

@@ -2,2532 +2,2542 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/AlcoholExposureObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/BiologicProduct/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/BodySite/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Boolean/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CancerGradeObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CancerGradeObservationSet/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CancerStageObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CancerStageObservationSet/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CodeableConcept/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Coding/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CrdchBoolean/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CrdchCode/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CrdchCurie/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CrdchDateTime/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CrdchDecimal/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CrdchInteger/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/CrdchString/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Date/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Datetime/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Decimal/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/DimensionalObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/DimensionalObservationSet/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Document/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Double/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Entity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/EnvironmentalExposureObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/ExecutionConditionObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/ExecutionTimeObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Exposure/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Float/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/HistologicalCompositionObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/HistologicalCompositionObservationSet/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Integer/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Ncname/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Nodeidentifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Objectidentifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Observation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/ObservationSet/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Organization/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/ResearchProject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/ResearchSubject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Specimen/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/SpecimenContainer/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/SpecimenCreationActivity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/SpecimenProcessingActivity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/SpecimenQualityObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/SpecimenQuantityObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/SpecimenStorageActivity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/SpecimenTransportActivity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/String/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Substance/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Time/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/TimePeriod/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/TimePoint/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/TobaccoExposureObservation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Treatment/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Uri/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/Uriorcurie/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/alcoholExposureObservation__value_integer/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/biologicProduct__description/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/biologicProduct__growth_rate/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/biologicProduct__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/biologicProduct__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/biologicProduct__passage_number/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/biologicProduct__product_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/bodySite__qualifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/bodySite__site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservationSet__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservationSet__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservationSet__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservationSet__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservationSet__observations/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservationSet__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservationSet__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerGradeObservation__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservationSet__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservationSet__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservationSet__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservationSet__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservationSet__observations/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservationSet__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservationSet__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__value_entity/</loc>
-         <lastmod>2021-09-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/cancerStageObservation__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/codeableConcept__coding/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/codeableConcept__text/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__code/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__label/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__system/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__systemURL/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__system_version/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__systemVersion/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__tag/</loc>
+         <lastmod>2021-09-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__value_set/</loc>
+         <lastmod>2021-09-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/coding__value_set_version/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/credits/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/data-migration/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__age_at_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__condition/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__diagnosis_date/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__disease_status/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__grade/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__metastatic_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__method_of_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__primary_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__primary_tumor_dimensional_measures/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__prior_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__related_specimen/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__stage/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__supporting_observation/</loc>
-         <lastmod>2021-09-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/diagnosis__year_at_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservationSet__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservationSet__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservationSet__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservationSet__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservationSet__observations/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservationSet__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservationSet__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/dimensionalObservation__value_quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/document__description/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/document__document_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/document__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/document__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/document__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/document__url/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_AlcoholExposureObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_AlcoholExposureObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_AlcoholExposureObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_AlcoholExposureObservation_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_AlcoholExposureObservation_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_BiologicProduct_product_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_BodySite_qualifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_BodySite_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerGradeObservationSet_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerGradeObservationSet_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerGradeObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerGradeObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerGradeObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerGradeObservation_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerGradeObservation_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerStageObservationSet_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerStageObservationSet_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerStageObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerStageObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerStageObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerStageObservation_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_CancerStageObservation_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Diagnosis_condition/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Diagnosis_disease_status/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Diagnosis_method_of_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Diagnosis_morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_DimensionalObservationSet_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_DimensionalObservationSet_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_DimensionalObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_DimensionalObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_DimensionalObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Document_document_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_EnvironmentalExposureObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_EnvironmentalExposureObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_EnvironmentalExposureObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_EnvironmentalExposureObservation_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_EnvironmentalExposureObservation_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionConditionObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionConditionObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionConditionObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionConditionObservation_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionConditionObservation_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionTimeObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionTimeObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ExecutionTimeObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_HistologicalCompositionObservationSet_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_HistologicalCompositionObservationSet_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_HistologicalCompositionObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_HistologicalCompositionObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_HistologicalCompositionObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Identifier_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ObservationSet_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ObservationSet_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Observation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Observation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Observation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Observation_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Observation_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Quantity_unit/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Quantity_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Quantity_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ResearchProject_primary_anatomic_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ResearchProject_research_project_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ResearchSubject_index_timepoint/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_ResearchSubject_primary_diagnosis_condition/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenContainer_container_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenCreationActivity_activity_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenCreationActivity_collection_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenCreationActivity_derivation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenProcessingActivity_activity_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenProcessingActivity_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenQualityObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenQualityObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenQualityObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenQuantityObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenQuantityObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenQuantityObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_SpecimenStorageActivity_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_analyte_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_cellular_composition_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_degree_of_dysplasia/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_general_tissue_morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_general_tissue_pathology/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_morphology_assessment_method/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_morphology_assessor_role/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_preinvasive_tissue_morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_section_location/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_source_material_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_specific_tissue_morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_specific_tissue_pathology/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_specimen_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Specimen_tumor_status_at_collection/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Subject_breed/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Subject_cause_of_death/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Subject_ethnicity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Subject_race/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Subject_sex/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Subject_species/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Subject_vital_status/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Substance__role/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Substance_role/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Substance_substance_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_TimePoint_eventType/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_TimePoint_event_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_TobaccoExposureObservation_category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_TobaccoExposureObservation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_TobaccoExposureObservation_observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_TobaccoExposureObservation_value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_TobaccoExposureObservation_value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Treatment_regimen/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Treatment_treatment_effect/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Treatment_treatment_end_reason/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Treatment_treatment_frequency/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Treatment_treatment_intent/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Treatment_treatment_outcome/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/enum_CRDCH_Treatment_treatment_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/environmentalExposureObservation__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionConditionObservation__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/executionTimeObservation__value_quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/exposure__alcohol_exposure/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/exposure__environmental_exposure/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/exposure__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/exposure__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/exposure__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/exposure__tobacco_exposure/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservationSet__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservationSet__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservationSet__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservationSet__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservationSet__observations/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservationSet__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservationSet__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/histologicalCompositionObservation__value_quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/home/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/identifier__system/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/identifier__type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/identifier__value/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/mappings/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observationSet__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observationSet__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observationSet__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observationSet__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observationSet__observations/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observationSet__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observationSet__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_boolean/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_date_time/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_decimal/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_entity/</loc>
-         <lastmod>2021-09-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_integer/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/observation__value_string/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/organization__alias/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/organization__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/organization__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/organization__name/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/organization__organization_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/quantity__unit/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/quantity__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/quantity__value_decimal/</loc>
-         <lastmod>2021-09-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/quantity__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__associated_timepoint/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__date_ended/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__date_started/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__description/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__description_shortened/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__name/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__name_shortened/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__part_of/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__primary_anatomic_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__research_project_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__sponsor/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchProject__url/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__age_at_enrollment/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__associated_subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__comorbid_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__description/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__index_timepoint/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__member_of_research_project/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__originating_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__primary_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__primary_diagnosis_condition/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/researchSubject__primary_diagnosis_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenContainer__additive/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenContainer__container_number/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenContainer__container_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenContainer__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenContainer__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenContainer__parent_container/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__activity_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__additive/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__collection_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__collection_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__date_ended/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__date_started/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__derivation_method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__execution_condition_observation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__execution_time_observation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__quantity_collected/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenCreationActivity__specimen_order/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__activity_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__additive/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__date_ended/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__date_started/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__duration/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__execution_condition_observation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__execution_time_observation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenProcessingActivity__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQualityObservation__value_quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenQuantityObservation__value_quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenStorageActivity__container/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenStorageActivity__date_ended/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenStorageActivity__date_started/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenStorageActivity__duration/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenStorageActivity__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenStorageActivity__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenTransportActivity__date_ended/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenTransportActivity__date_started/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenTransportActivity__duration/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenTransportActivity__execution_condition_observation/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenTransportActivity__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenTransportActivity__transport_destination/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimenTransportActivity__transport_origin/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__analyte_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__associated_project/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__cellular_composition_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__contained_in/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__creation_activity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__data_provider/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__degree_of_dysplasia/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__derived_product/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__description/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__dimensional_measures/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__distance_from_paired_specimen/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__dysplasia_fraction/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__general_tissue_morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__general_tissue_pathology/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__histological_composition_measures/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__morphology_assessment_method/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__morphology_assessor_role/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__morphology_pathologically_confirmed/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__parent_specimen/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__preinvasive_tissue_morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__processing_activity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__quality_measure/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__quantity_measure/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__related_document/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__section_location/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__source_material_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__source_subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__specific_tissue_morphology/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__specific_tissue_pathology/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__specimen_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__storage_activity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__transport_activity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/specimen__tumor_status_at_collection/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__age_at_death/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__breed/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__cause_of_death/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__ethnicity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__race/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__sex/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__species/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__vital_status/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__year_of_birth/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/subject__year_of_death/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/substance__role/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/substance__substance_quantity/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/substance__substance_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/timePeriod__period_end_end/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/timePeriod__period_start_start/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/timePoint__date_time/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/timePoint__event_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/timePoint__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/timePoint__index_time_point/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/timePoint__offset_from_index/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__category/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__focus/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__method_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__observation_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__performed_by/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__value_enum/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__value_codeable_concept/</loc>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/tobaccoExposureObservation__value_integer/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__concurrent_treatment/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__date_ended/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__date_started/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__id/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__identifier/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__number_of_cycles/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__regimen/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__subject/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__therapeutic_agent/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_anatomic_site/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_effect/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_end_reason/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_for_diagnosis/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_frequency/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_intent/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_outcome/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cancerdhc.github.io/ccdhmodel/dev/treatment__treatment_type/</loc>
-         <lastmod>2021-09-10</lastmod>
+         <lastmod>2021-09-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
