@@ -308,7 +308,7 @@
                 <h1 id="class-cancerstageobservation">Class: CancerStageObservation</h1>
 <p>A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.</p>
 <p>URI: <a href="https://example.org/crdch/CancerStageObservation">crdch:CancerStageObservation</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CancerStageObservationSet],[Entity]&lt;value_entity%200..1-++[CancerStageObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerStageObservation_category%20%3F;observation_type:enum_CRDCH_CancerStageObservation_observation_type;method_type:enum_CRDCH_CancerStageObservation_method_type%20%3F;value_codeable_concept:enum_CRDCH_CancerStageObservation_value_codeable_concept],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CancerStageObservationSet],[Entity]&lt;value_entity%200..1-++[CancerStageObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerStageObservation_category%20%3F;observation_type:enum_CRDCH_CancerStageObservation_observation_type;method_type:enum_CRDCH_CancerStageObservation_method_type%20%3F;value_codeable_concept:enum_CRDCH_CancerStageObservation_value_codeable_concept],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CodeableConcept],[CancerStageObservationSet],[CodeableConcept]&lt;value_codeable_concept%201..1-++[CancerStageObservation&#124;id:crdch_string%20%3F],[Entity]&lt;value_entity%200..1-++[CancerStageObservation],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CodeableConcept]&lt;method_type%200..1-++[CancerStageObservation],[CodeableConcept]&lt;observation_type%201..1-++[CancerStageObservation],[CodeableConcept]&lt;category%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CodeableConcept],[CancerStageObservationSet],[CodeableConcept]&lt;value_codeable_concept%201..1-++[CancerStageObservation&#124;id:crdch_string%20%3F],[Entity]&lt;value_entity%200..1-++[CancerStageObservation],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CodeableConcept]&lt;method_type%200..1-++[CancerStageObservation],[CodeableConcept]&lt;observation_type%201..1-++[CancerStageObservation],[CodeableConcept]&lt;category%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -327,18 +327,18 @@
 </li>
 <li><a href="../cancerStageObservation__category/">category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
-<li>Range: <a href="../enum_CRDCH_CancerStageObservation_category/">enum_CRDCH_CancerStageObservation_category</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../cancerStageObservation__observation_type/">observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')</li>
-<li>Range: <a href="../enum_CRDCH_CancerStageObservation_observation_type/">enum_CRDCH_CancerStageObservation_observation_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: Overall, Tumor (T), Node (N), Metastasis (M), Clinical Overall, Clinical Tumor (T), Clinical Node (N), Clinical Metastasis (M), Pathological Overall, Pathological Tumor (T), Pathological Node (N), Pathological Metastasis (M), Ann Arbor Modifier</li>
 </ul>
 </li>
 <li><a href="../cancerStageObservation__method_type/">method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method used in generating the Observation result.</li>
-<li>Range: <a href="../enum_CRDCH_CancerStageObservation_method_type/">enum_CRDCH_CancerStageObservation_method_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../cancerStageObservation__focus/">focus</a>  <sub>0..1</sub><ul>
@@ -363,7 +363,7 @@
 </li>
 <li><a href="../cancerStageObservation__value_codeable_concept/">value_codeable_concept</a>  <sub>1..1</sub><ul>
 <li>Description: The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept.</li>
-<li>Range: <a href="../enum_CRDCH_CancerStageObservation_value_codeable_concept/">enum_CRDCH_CancerStageObservation_value_codeable_concept</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: M0, M1, M1a, N0, N0 (i+), N0 (i-)</li>
 </ul>
 </li>

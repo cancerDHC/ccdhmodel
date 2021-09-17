@@ -308,7 +308,7 @@
                 <h1 id="class-environmentalexposureobservation">Class: EnvironmentalExposureObservation</h1>
 <p>A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation.</p>
 <p>URI: <a href="https://example.org/crdch/EnvironmentalExposureObservation">crdch:EnvironmentalExposureObservation</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[Organization]&lt;performed_by%200..1-++[EnvironmentalExposureObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_EnvironmentalExposureObservation_category%20%3F;observation_type:enum_CRDCH_EnvironmentalExposureObservation_observation_type;method_type:enum_CRDCH_EnvironmentalExposureObservation_method_type%20%3F;value_codeable_concept:enum_CRDCH_EnvironmentalExposureObservation_value_codeable_concept],[Subject]&lt;subject%200..1-++[EnvironmentalExposureObservation],[Entity]&lt;focus%200..1-++[EnvironmentalExposureObservation],[Exposure]++-%20environmental_exposure%200..*&gt;[EnvironmentalExposureObservation],[Entity]^-[EnvironmentalExposureObservation],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[Organization]&lt;performed_by%200..1-++[EnvironmentalExposureObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_EnvironmentalExposureObservation_category%20%3F;observation_type:enum_CRDCH_EnvironmentalExposureObservation_observation_type;method_type:enum_CRDCH_EnvironmentalExposureObservation_method_type%20%3F;value_codeable_concept:enum_CRDCH_EnvironmentalExposureObservation_value_codeable_concept],[Subject]&lt;subject%200..1-++[EnvironmentalExposureObservation],[Entity]&lt;focus%200..1-++[EnvironmentalExposureObservation],[Exposure]++-%20environmental_exposure%200..*&gt;[EnvironmentalExposureObservation],[Entity]^-[EnvironmentalExposureObservation],[Entity]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[CodeableConcept]&lt;value_codeable_concept%201..1-++[EnvironmentalExposureObservation&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[EnvironmentalExposureObservation],[Subject]&lt;subject%200..1-++[EnvironmentalExposureObservation],[Entity]&lt;focus%200..1-++[EnvironmentalExposureObservation],[CodeableConcept]&lt;method_type%200..1-++[EnvironmentalExposureObservation],[CodeableConcept]&lt;observation_type%201..1-++[EnvironmentalExposureObservation],[CodeableConcept]&lt;category%200..1-++[EnvironmentalExposureObservation],[Exposure]++-%20environmental_exposure%200..*&gt;[EnvironmentalExposureObservation],[Entity]^-[EnvironmentalExposureObservation],[Entity],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Exposure],[CodeableConcept]&lt;value_codeable_concept%201..1-++[EnvironmentalExposureObservation&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[EnvironmentalExposureObservation],[Subject]&lt;subject%200..1-++[EnvironmentalExposureObservation],[Entity]&lt;focus%200..1-++[EnvironmentalExposureObservation],[CodeableConcept]&lt;method_type%200..1-++[EnvironmentalExposureObservation],[CodeableConcept]&lt;observation_type%201..1-++[EnvironmentalExposureObservation],[CodeableConcept]&lt;category%200..1-++[EnvironmentalExposureObservation],[Exposure]++-%20environmental_exposure%200..*&gt;[EnvironmentalExposureObservation],[Entity]^-[EnvironmentalExposureObservation],[Entity],[CodeableConcept]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -327,18 +327,18 @@
 </li>
 <li><a href="../environmentalExposureObservation__category/">category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
-<li>Range: <a href="../enum_CRDCH_EnvironmentalExposureObservation_category/">enum_CRDCH_EnvironmentalExposureObservation_category</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../environmentalExposureObservation__observation_type/">observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
-<li>Range: <a href="../enum_CRDCH_EnvironmentalExposureObservation_observation_type/">enum_CRDCH_EnvironmentalExposureObservation_observation_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: asbestos_exposure, coal_dust_exposure, radon_exposure, respirable_crystalline_silica_exposure, type_of_smoke_exposure</li>
 </ul>
 </li>
 <li><a href="../environmentalExposureObservation__method_type/">method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method used in generating the Observation result.</li>
-<li>Range: <a href="../enum_CRDCH_EnvironmentalExposureObservation_method_type/">enum_CRDCH_EnvironmentalExposureObservation_method_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../environmentalExposureObservation__focus/">focus</a>  <sub>0..1</sub><ul>
@@ -358,7 +358,7 @@
 </li>
 <li><a href="../environmentalExposureObservation__value_codeable_concept/">value_codeable_concept</a>  <sub>1..1</sub><ul>
 <li>Description: The result of the observation, encoded as a CodeableConcept.</li>
-<li>Range: <a href="../enum_CRDCH_EnvironmentalExposureObservation_value_codeable_concept/">enum_CRDCH_EnvironmentalExposureObservation_value_codeable_concept</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 </ul>

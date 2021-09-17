@@ -308,7 +308,7 @@
                 <h1 id="class-substance">Class: Substance</h1>
 <p>A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application.</p>
 <p>URI: <a href="https://example.org/crdch/Substance">crdch:Substance</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Quantity]&lt;substance_quantity%200..1-++[Substance&#124;substance_type:enum_CRDCH_Substance_substance_type%20%3F;role:enum_CRDCH_Substance_role%20*],[SpecimenContainer]++-%20additive%200..*&gt;[Substance],[SpecimenCreationActivity]++-%20additive%200..*&gt;[Substance],[SpecimenProcessingActivity]++-%20additive%200..*&gt;[Substance],[Treatment]++-%20therapeutic_agent%200..1&gt;[Substance],[Entity]^-[Substance],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Quantity]&lt;substance_quantity%200..1-++[Substance&#124;substance_type:enum_CRDCH_Substance_substance_type%20%3F;role:enum_CRDCH_Substance_role%20*],[SpecimenContainer]++-%20additive%200..*&gt;[Substance],[SpecimenCreationActivity]++-%20additive%200..*&gt;[Substance],[SpecimenProcessingActivity]++-%20additive%200..*&gt;[Substance],[Treatment]++-%20therapeutic_agent%200..1&gt;[Substance],[Entity]^-[Substance],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity],[Entity]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Quantity]&lt;substance_quantity%200..1-++[Substance],[CodeableConcept]&lt;role%200..*-++[Substance],[CodeableConcept]&lt;substance_type%200..1-++[Substance],[SpecimenContainer]++-%20additive%200..*&gt;[Substance],[SpecimenCreationActivity]++-%20additive%200..*&gt;[Substance],[SpecimenProcessingActivity]++-%20additive%200..*&gt;[Substance],[Treatment]++-%20therapeutic_agent%200..1&gt;[Substance],[Entity]^-[Substance],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity],[Entity],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[Quantity]&lt;substance_quantity%200..1-++[Substance],[CodeableConcept]&lt;role%200..*-++[Substance],[CodeableConcept]&lt;substance_type%200..1-++[Substance],[SpecimenContainer]++-%20additive%200..*&gt;[Substance],[SpecimenCreationActivity]++-%20additive%200..*&gt;[Substance],[SpecimenProcessingActivity]++-%20additive%200..*&gt;[Substance],[Treatment]++-%20therapeutic_agent%200..1&gt;[Substance],[Entity]^-[Substance],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Quantity],[Entity],[CodeableConcept]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -325,13 +325,13 @@
 <ul>
 <li><a href="../substance__substance_type/">substance_type</a>  <sub>0..1</sub><ul>
 <li>Description: The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds.</li>
-<li>Range: <a href="../enum_CRDCH_Substance_substance_type/">enum_CRDCH_Substance_substance_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: toluene, formalin, DMEM</li>
 </ul>
 </li>
 <li><a href="../substance__role/">role</a>  <sub>0..*</sub><ul>
 <li>Description: A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)</li>
-<li>Range: <a href="../enum_CRDCH_Substance_role/">enum_CRDCH_Substance_role</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: lysis buffer, fixative, mounting medium, collection media</li>
 </ul>
 </li>

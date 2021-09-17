@@ -308,7 +308,7 @@
                 <h1 id="class-cancergradeobservationset">Class: CancerGradeObservationSet</h1>
 <p>A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</p>
 <p>URI: <a href="https://example.org/crdch/CancerGradeObservationSet">crdch:CancerGradeObservationSet</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[Diagnosis],[CancerGradeObservation]&lt;observations%200..*-++[CancerGradeObservationSet&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerGradeObservationSet_category%20%3F;method_type:enum_CRDCH_CancerGradeObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservationSet],[Entity]&lt;focus%200..*-++[CancerGradeObservationSet],[Diagnosis]++-%20grade%200..*&gt;[CancerGradeObservationSet],[Entity]^-[CancerGradeObservationSet],[CancerGradeObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[Diagnosis],[CancerGradeObservation]&lt;observations%200..*-++[CancerGradeObservationSet&#124;id:crdch_string%20%3F;category:enum_CRDCH_CancerGradeObservationSet_category%20%3F;method_type:enum_CRDCH_CancerGradeObservationSet_method_type%20*],[Organization]&lt;performed_by%200..1-++[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservationSet],[Entity]&lt;focus%200..*-++[CancerGradeObservationSet],[Diagnosis]++-%20grade%200..*&gt;[CancerGradeObservationSet],[Entity]^-[CancerGradeObservationSet],[CancerGradeObservation]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[Diagnosis],[CodeableConcept],[CancerGradeObservation]&lt;observations%200..*-++[CancerGradeObservationSet&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[CancerGradeObservationSet],[CodeableConcept]&lt;method_type%200..*-++[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservationSet],[Entity]&lt;focus%200..*-++[CancerGradeObservationSet],[CodeableConcept]&lt;category%200..1-++[CancerGradeObservationSet],[Diagnosis]++-%20grade%200..*&gt;[CancerGradeObservationSet],[Entity]^-[CancerGradeObservationSet],[CancerGradeObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[Diagnosis],[CodeableConcept],[CancerGradeObservation]&lt;observations%200..*-++[CancerGradeObservationSet&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[CancerGradeObservationSet],[CodeableConcept]&lt;method_type%200..*-++[CancerGradeObservationSet],[Subject]&lt;subject%200..1-++[CancerGradeObservationSet],[Entity]&lt;focus%200..*-++[CancerGradeObservationSet],[CodeableConcept]&lt;category%200..1-++[CancerGradeObservationSet],[Diagnosis]++-%20grade%200..*&gt;[CancerGradeObservationSet],[Entity]^-[CancerGradeObservationSet],[CancerGradeObservation]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -327,7 +327,7 @@
 </li>
 <li><a href="../cancerGradeObservationSet__category/">category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation set described</li>
-<li>Range: <a href="../enum_CRDCH_CancerGradeObservationSet_category/">enum_CRDCH_CancerGradeObservationSet_category</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../cancerGradeObservationSet__focus/">focus</a>  <sub>0..*</sub><ul>
@@ -342,7 +342,7 @@
 </li>
 <li><a href="../cancerGradeObservationSet__method_type/">method_type</a>  <sub>0..*</sub><ul>
 <li>Description: The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)</li>
-<li>Range: <a href="../enum_CRDCH_CancerGradeObservationSet_method_type/">enum_CRDCH_CancerGradeObservationSet_method_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: Gleason, INPC, Unspecified grading system</li>
 </ul>
 </li>

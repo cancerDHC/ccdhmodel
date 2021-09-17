@@ -308,7 +308,7 @@
                 <h1 id="class-diagnosis">Class: Diagnosis</h1>
 <p>A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.</p>
 <p>URI: <a href="https://example.org/crdch/Diagnosis">crdch:Diagnosis</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[TimePoint],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;id:crdch_string%20%3F;condition:enum_CRDCH_Diagnosis_condition%20%3F;morphology:enum_CRDCH_Diagnosis_morphology%20%3F;disease_status:enum_CRDCH_Diagnosis_disease_status%20%3F;method_of_diagnosis:enum_CRDCH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[TimePoint]&lt;diagnosis_date%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[TimePoint],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;id:crdch_string%20%3F;condition:enum_CRDCH_Diagnosis_condition%20%3F;morphology:enum_CRDCH_Diagnosis_morphology%20%3F;disease_status:enum_CRDCH_Diagnosis_disease_status%20%3F;method_of_diagnosis:enum_CRDCH_Diagnosis_method_of_diagnosis%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[TimePoint]&lt;diagnosis_date%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[TimePoint],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;id:crdch_string%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[CodeableConcept]&lt;method_of_diagnosis%200..1-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CodeableConcept]&lt;disease_status%200..1-++[Diagnosis],[CodeableConcept]&lt;morphology%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[CodeableConcept]&lt;condition%200..1-++[Diagnosis],[TimePoint]&lt;diagnosis_date%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CodeableConcept],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[TimePoint],[Subject],[Specimen],[ResearchSubject],[Quantity],[Observation],[Identifier],[Entity],[DimensionalObservationSet],[Observation]&lt;supporting_observation%200..*-++[Diagnosis&#124;id:crdch_string%20%3F],[DimensionalObservationSet]&lt;primary_tumor_dimensional_measures%200..1-++[Diagnosis],[Specimen]&lt;related_specimen%200..*-++[Diagnosis],[CodeableConcept]&lt;method_of_diagnosis%200..1-++[Diagnosis],[Diagnosis]&lt;prior_diagnosis%200..1-++[Diagnosis],[CodeableConcept]&lt;disease_status%200..1-++[Diagnosis],[CodeableConcept]&lt;morphology%200..1-++[Diagnosis],[CancerGradeObservationSet]&lt;grade%200..*-++[Diagnosis],[CancerStageObservationSet]&lt;stage%200..*-++[Diagnosis],[BodySite]&lt;metastatic_site%200..*-++[Diagnosis],[BodySite]&lt;primary_site%200..*-++[Diagnosis],[CodeableConcept]&lt;condition%200..1-++[Diagnosis],[TimePoint]&lt;diagnosis_date%200..1-++[Diagnosis],[Quantity]&lt;age_at_diagnosis%200..1-++[Diagnosis],[Subject]&lt;subject%200..1-++[Diagnosis],[Identifier]&lt;identifier%200..*-++[Diagnosis],[ResearchSubject]++-%20comorbid_diagnosis%200..*&gt;[Diagnosis],[ResearchSubject]++-%20primary_diagnosis%200..*&gt;[Diagnosis],[Treatment]++-%20treatment_for_diagnosis%200..*&gt;[Diagnosis],[Entity]^-[Diagnosis],[CodeableConcept],[CancerStageObservationSet],[CancerGradeObservationSet],[BodySite]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -350,7 +350,7 @@
 </li>
 <li><a href="../diagnosis__condition/">condition</a>  <sub>0..1</sub><ul>
 <li>Description: Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)</li>
-<li>Range: <a href="../enum_CRDCH_Diagnosis_condition/">enum_CRDCH_Diagnosis_condition</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../diagnosis__primary_site/">primary_site</a>  <sub>0..*</sub><ul>
@@ -375,13 +375,13 @@
 </li>
 <li><a href="../diagnosis__morphology/">morphology</a>  <sub>0..1</sub><ul>
 <li>Description: Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms.</li>
-<li>Range: <a href="../enum_CRDCH_Diagnosis_morphology/">enum_CRDCH_Diagnosis_morphology</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: 8001/3, 8002/3, 8003/3, 8004/3, 8005/3</li>
 </ul>
 </li>
 <li><a href="../diagnosis__disease_status/">disease_status</a>  <sub>0..1</sub><ul>
 <li>Description: A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)</li>
-<li>Range: <a href="../enum_CRDCH_Diagnosis_disease_status/">enum_CRDCH_Diagnosis_disease_status</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: Initial Diagnosis, Progressive Disease, Recurrent Disease, Residual Disease, Unknown, Not Reported</li>
 </ul>
 </li>
@@ -392,7 +392,7 @@
 </li>
 <li><a href="../diagnosis__method_of_diagnosis/">method_of_diagnosis</a>  <sub>0..1</sub><ul>
 <li>Description: The method used to confirm the patients malignant diagnosis</li>
-<li>Range: <a href="../enum_CRDCH_Diagnosis_method_of_diagnosis/">enum_CRDCH_Diagnosis_method_of_diagnosis</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: Autopsy, Biopsy, Blood Draw, Bone Marrow Aspirate, Core Biopsy, ..</li>
 </ul>
 </li>

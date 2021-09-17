@@ -308,7 +308,7 @@
                 <h1 id="class-specimencontainer">Class: SpecimenContainer</h1>
 <p>A vessel in which a specimen is held or to which it is attached - for storage or as a substrate for growth (e.g. a cell culture dish) or analysis (e.g. a microscope slide or 96-well plate)</p>
 <p>URI: <a href="https://example.org/crdch/SpecimenContainer">crdch:SpecimenContainer</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenStorageActivity],[SpecimenContainer]&lt;parent_container%200..1-++[SpecimenContainer&#124;id:crdch_string%20%3F;container_type:enum_CRDCH_SpecimenContainer_container_type%20%3F;container_number:crdch_string%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[Specimen],[Identifier],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenStorageActivity],[SpecimenContainer]&lt;parent_container%200..1-++[SpecimenContainer&#124;id:crdch_string%20%3F;container_type:enum_CRDCH_SpecimenContainer_container_type%20%3F;container_number:crdch_string%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[Specimen],[Identifier],[Entity]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenStorageActivity],[SpecimenContainer]&lt;parent_container%200..1-++[SpecimenContainer&#124;id:crdch_string%20%3F;container_number:crdch_string%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[CodeableConcept]&lt;container_type%200..1-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[Specimen],[Identifier],[Entity],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Substance],[SpecimenStorageActivity],[SpecimenContainer]&lt;parent_container%200..1-++[SpecimenContainer&#124;id:crdch_string%20%3F;container_number:crdch_string%20%3F],[Substance]&lt;additive%200..*-++[SpecimenContainer],[CodeableConcept]&lt;container_type%200..1-++[SpecimenContainer],[Identifier]&lt;identifier%200..*-++[SpecimenContainer],[SpecimenStorageActivity]++-%20container%200..*&gt;[SpecimenContainer],[Specimen]++-%20contained_in%200..1&gt;[SpecimenContainer],[Entity]^-[SpecimenContainer],[Specimen],[Identifier],[Entity],[CodeableConcept]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -334,7 +334,7 @@
 </li>
 <li><a href="../specimenContainer__container_type/">container_type</a>  <sub>0..1</sub><ul>
 <li>Description: The kind of the container.</li>
-<li>Range: <a href="../enum_CRDCH_SpecimenContainer_container_type/">enum_CRDCH_SpecimenContainer_container_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 <li>Examples: Capillary blood collection tube, Sputum specimen container, Cell culture flask, Glass slide</li>
 </ul>
 </li>

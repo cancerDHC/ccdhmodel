@@ -308,7 +308,7 @@
                 <h1 id="class-document">Class: Document</h1>
 <p>A collection of information intented to be understood together as a whole, and codified in human-readable form.</p>
 <p>URI: <a href="https://example.org/crdch/Document">crdch:Document</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:crdch_string%20%3F;document_type:enum_CRDCH_Document_document_type%20%3F;description:crdch_string%20%3F;url:crdch_string%20*],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document%200..*&gt;[Document],[Entity]^-[Document]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:crdch_string%20%3F;document_type:enum_CRDCH_Document_document_type%20%3F;description:crdch_string%20%3F;url:crdch_string%20*],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document%200..*&gt;[Document],[Entity]^-[Document]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:crdch_string%20%3F;description:crdch_string%20%3F;url:crdch_string%20*],[CodeableConcept]&lt;document_type%200..1-++[Document],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document%200..*&gt;[Document],[Entity]^-[Document],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Specimen],[Identifier],[Entity],[Entity]&lt;focus%200..1-++[Document&#124;id:crdch_string%20%3F;description:crdch_string%20%3F;url:crdch_string%20*],[CodeableConcept]&lt;document_type%200..1-++[Document],[Identifier]&lt;identifier%200..*-++[Document],[Specimen]++-%20related_document%200..*&gt;[Document],[Entity]^-[Document],[CodeableConcept]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -332,7 +332,7 @@
 </li>
 <li><a href="../document__document_type/">document_type</a>  <sub>0..1</sub><ul>
 <li>Description: The high-level type of the document (e.g.  'publication', 'pathology report')</li>
-<li>Range: <a href="../enum_CRDCH_Document_document_type/">enum_CRDCH_Document_document_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../document__description/">description</a>  <sub>0..1</sub><ul>

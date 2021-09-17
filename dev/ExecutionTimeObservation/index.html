@@ -309,7 +309,7 @@
 <p>A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.</p>
 <p>Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.</p>
 <p>URI: <a href="https://example.org/crdch/ExecutionTimeObservation">crdch:ExecutionTimeObservation</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Organization],[Quantity]&lt;value_quantity%201..1-++[ExecutionTimeObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_ExecutionTimeObservation_category%20%3F;observation_type:enum_CRDCH_ExecutionTimeObservation_observation_type;method_type:enum_CRDCH_ExecutionTimeObservation_method_type%20%3F],[Organization]&lt;performed_by%200..1-++[ExecutionTimeObservation],[Subject]&lt;subject%200..1-++[ExecutionTimeObservation],[Entity]&lt;focus%200..1-++[ExecutionTimeObservation],[SpecimenCreationActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[SpecimenProcessingActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[Entity]^-[ExecutionTimeObservation],[Entity]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Organization],[Quantity]&lt;value_quantity%201..1-++[ExecutionTimeObservation&#124;id:crdch_string%20%3F;category:enum_CRDCH_ExecutionTimeObservation_category%20%3F;observation_type:enum_CRDCH_ExecutionTimeObservation_observation_type;method_type:enum_CRDCH_ExecutionTimeObservation_method_type%20%3F],[Organization]&lt;performed_by%200..1-++[ExecutionTimeObservation],[Subject]&lt;subject%200..1-++[ExecutionTimeObservation],[Entity]&lt;focus%200..1-++[ExecutionTimeObservation],[SpecimenCreationActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[SpecimenProcessingActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[Entity]^-[ExecutionTimeObservation],[Entity]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Organization],[Quantity]&lt;value_quantity%201..1-++[ExecutionTimeObservation&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[ExecutionTimeObservation],[Subject]&lt;subject%200..1-++[ExecutionTimeObservation],[Entity]&lt;focus%200..1-++[ExecutionTimeObservation],[CodeableConcept]&lt;method_type%200..1-++[ExecutionTimeObservation],[CodeableConcept]&lt;observation_type%201..1-++[ExecutionTimeObservation],[CodeableConcept]&lt;category%200..1-++[ExecutionTimeObservation],[SpecimenCreationActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[SpecimenProcessingActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[Entity]^-[ExecutionTimeObservation],[Entity],[CodeableConcept]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[SpecimenProcessingActivity],[SpecimenCreationActivity],[Quantity],[Organization],[Quantity]&lt;value_quantity%201..1-++[ExecutionTimeObservation&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[ExecutionTimeObservation],[Subject]&lt;subject%200..1-++[ExecutionTimeObservation],[Entity]&lt;focus%200..1-++[ExecutionTimeObservation],[CodeableConcept]&lt;method_type%200..1-++[ExecutionTimeObservation],[CodeableConcept]&lt;observation_type%201..1-++[ExecutionTimeObservation],[CodeableConcept]&lt;category%200..1-++[ExecutionTimeObservation],[SpecimenCreationActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[SpecimenProcessingActivity]++-%20execution_time_observation%200..*&gt;[ExecutionTimeObservation],[Entity]^-[ExecutionTimeObservation],[Entity],[CodeableConcept]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
@@ -329,17 +329,17 @@
 </li>
 <li><a href="../executionTimeObservation__category/">category</a>  <sub>0..1</sub><ul>
 <li>Description: The general category of observation described</li>
-<li>Range: <a href="../enum_CRDCH_ExecutionTimeObservation_category/">enum_CRDCH_ExecutionTimeObservation_category</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../executionTimeObservation__observation_type/">observation_type</a>  <sub>1..1</sub><ul>
 <li>Description: The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc..</li>
-<li>Range: <a href="../enum_CRDCH_ExecutionTimeObservation_observation_type/">enum_CRDCH_ExecutionTimeObservation_observation_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../executionTimeObservation__method_type/">method_type</a>  <sub>0..1</sub><ul>
 <li>Description: A type of method used in generating the Observation result.</li>
-<li>Range: <a href="../enum_CRDCH_ExecutionTimeObservation_method_type/">enum_CRDCH_ExecutionTimeObservation_method_type</a></li>
+<li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
 </ul>
 </li>
 <li><a href="../executionTimeObservation__focus/">focus</a>  <sub>0..1</sub><ul>
