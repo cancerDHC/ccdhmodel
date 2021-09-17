@@ -45,7 +45,7 @@ SpecimenTransportActivity,,An activity through which a specimen is transported b
 Subject,,Demographics and other administrative information about an individual or animal receiving care or other health-related services.
 Substance,,"A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application."
 TimePeriod,,A period of time between a start and end time point.
-TimePoint,,"A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index."
+TimePoint,,"A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, specification in terms of offset from a defined index, or description of an event type as a proxy for the time point when it occurred."
 TobaccoExposureObservation,,"A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation."
 Treatment,,Represent medication administration or other treatment types.
 
