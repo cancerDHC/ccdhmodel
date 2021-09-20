@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.1]
+
+* Model changes
+  * Renamed `ccdh` to `crdch` in the model.
+  * Separated CodeableConcepts from the enums upon which they are based.
+  * Updated terminologies to the latest from the Terminology Server.
+  * Minor changes made during the CCDH Pilot (August to September 2021).
 * LinkML representation
   * Updated repo based on the [linkml model template](https://github.com/linkml/linkml-model-template).
     * Some LinkML model template files, like `MakeConfig` hav been moved into `from_template`. Note that `MakeConfig`
@@ -43,7 +50,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Includes the new version of the Google Sheet to LinkML generator
   built by @gaurav.
 
-[Unreleased]: https://github.com/cancerDHC/ccdhmodel/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/cancerDHC/ccdhmodel/compare/v1.1...HEAD
+[v1.1]: https://github.com/cancerDHC/ccdhmodel/compare/v1.0.1...v1.1
 [v1.0.1]: https://github.com/cancerDHC/ccdhmodel/compare/v1.0...v1.0.1
 [v1.0]: https://github.com/cancerDHC/ccdhmodel/compare/v0.2...v1.0
 [v0.2]: https://github.com/cancerDHC/ccdhmodel/compare/v0.1...v0.2
