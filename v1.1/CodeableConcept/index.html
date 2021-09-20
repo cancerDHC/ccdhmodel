@@ -1,0 +1,502 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/v1.1/CodeableConcept/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Class: CodeableConcept - CRDC-H Model in LinkML documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-codeableconcept" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CRDC-H Model in LinkML documentation" class="md-header__button md-logo" aria-label="CRDC-H Model in LinkML documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CRDC-H Model in LinkML documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class: CodeableConcept
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CRDC-H Model in LinkML documentation" class="md-nav__button md-logo" aria-label="CRDC-H Model in LinkML documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    CRDC-H Model in LinkML documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-migration/" class="md-nav__link">
+        Data Migration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parents" class="md-nav__link">
+    Parents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenced-by-class" class="md-nav__link">
+    Referenced by class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#own" class="md-nav__link">
+    Own
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-properties" class="md-nav__link">
+    Other properties
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="class-codeableconcept">Class: CodeableConcept</h1>
+<p>A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text.</p>
+<p>URI: <code>crdch:CodeableConcept</code></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[TobaccoExposureObservation],[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Quantity],[ObservationSet],[Observation],[Identifier],[HistologicalCompositionObservationSet],[HistologicalCompositionObservation],[ExecutionTimeObservation],[ExecutionConditionObservation],[EnvironmentalExposureObservation],[Entity],[Document],[DimensionalObservationSet],[DimensionalObservation],[Diagnosis],[Coding],[Coding]&lt;coding%200..*-++[CodeableConcept&#124;text:crdch_string%20%3F],[AlcoholExposureObservation]++-%20category%200..1&gt;[CodeableConcept],[AlcoholExposureObservation]++-%20method_type%200..1&gt;[CodeableConcept],[AlcoholExposureObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[AlcoholExposureObservation]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[BiologicProduct]++-%20product_type%200..1&gt;[CodeableConcept],[BodySite]++-%20qualifier%200..*&gt;[CodeableConcept],[BodySite]++-%20site%201..1&gt;[CodeableConcept],[CancerGradeObservationSet]++-%20category%200..1&gt;[CodeableConcept],[CancerGradeObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[CancerGradeObservation]++-%20category%200..1&gt;[CodeableConcept],[CancerGradeObservation]++-%20method_type%200..1&gt;[CodeableConcept],[CancerGradeObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[CancerGradeObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[CancerStageObservationSet]++-%20category%200..1&gt;[CodeableConcept],[CancerStageObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[CancerStageObservation]++-%20category%200..1&gt;[CodeableConcept],[CancerStageObservation]++-%20method_type%200..1&gt;[CodeableConcept],[CancerStageObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[CancerStageObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[Diagnosis]++-%20condition%200..1&gt;[CodeableConcept],[Diagnosis]++-%20disease_status%200..1&gt;[CodeableConcept],[Diagnosis]++-%20method_of_diagnosis%200..1&gt;[CodeableConcept],[Diagnosis]++-%20morphology%200..1&gt;[CodeableConcept],[DimensionalObservationSet]++-%20category%200..1&gt;[CodeableConcept],[DimensionalObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[DimensionalObservation]++-%20category%200..1&gt;[CodeableConcept],[DimensionalObservation]++-%20method_type%200..*&gt;[CodeableConcept],[DimensionalObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[Document]++-%20document_type%200..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20category%200..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20method_type%200..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20category%200..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20method_type%200..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[ExecutionTimeObservation]++-%20category%200..1&gt;[CodeableConcept],[ExecutionTimeObservation]++-%20method_type%200..1&gt;[CodeableConcept],[ExecutionTimeObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[HistologicalCompositionObservationSet]++-%20category%201..1&gt;[CodeableConcept],[HistologicalCompositionObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[HistologicalCompositionObservation]++-%20category%200..1&gt;[CodeableConcept],[HistologicalCompositionObservation]++-%20method_type%200..*&gt;[CodeableConcept],[HistologicalCompositionObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[Identifier]++-%20type%200..1&gt;[CodeableConcept],[ObservationSet]++-%20category%201..1&gt;[CodeableConcept],[ObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[Observation]++-%20category%200..1&gt;[CodeableConcept],[Observation]++-%20method_type%200..*&gt;[CodeableConcept],[Observation]++-%20observation_type%201..1&gt;[CodeableConcept],[Observation]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[Quantity]++-%20unit%200..1&gt;[CodeableConcept],[Quantity]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[ResearchProject]++-%20research_project_type%201..1&gt;[CodeableConcept],[ResearchSubject]++-%20index_timepoint%200..1&gt;[CodeableConcept],[ResearchSubject]++-%20primary_diagnosis_condition%200..1&gt;[CodeableConcept],[SpecimenContainer]++-%20container_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20activity_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20collection_method_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20derivation_method_type%200..1&gt;[CodeableConcept],[SpecimenProcessingActivity]++-%20activity_type%200..1&gt;[CodeableConcept],[SpecimenProcessingActivity]++-%20method_type%200..1&gt;[CodeableConcept],[SpecimenQualityObservation]++-%20category%200..1&gt;[CodeableConcept],[SpecimenQualityObservation]++-%20method_type%200..*&gt;[CodeableConcept],[SpecimenQualityObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[SpecimenQuantityObservation]++-%20category%200..1&gt;[CodeableConcept],[SpecimenQuantityObservation]++-%20method_type%200..*&gt;[CodeableConcept],[SpecimenQuantityObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[SpecimenStorageActivity]++-%20method_type%200..1&gt;[CodeableConcept],[Specimen]++-%20analyte_type%200..1&gt;[CodeableConcept],[Specimen]++-%20cellular_composition_type%200..1&gt;[CodeableConcept],[Specimen]++-%20degree_of_dysplasia%200..1&gt;[CodeableConcept],[Specimen]++-%20general_tissue_pathology%200..1&gt;[CodeableConcept],[Specimen]++-%20morphology_assessment_method%200..1&gt;[CodeableConcept],[Specimen]++-%20morphology_assessor_role%200..1&gt;[CodeableConcept],[Specimen]++-%20preinvasive_tissue_morphology%200..1&gt;[CodeableConcept],[Specimen]++-%20section_location%200..1&gt;[CodeableConcept],[Specimen]++-%20source_material_type%200..1&gt;[CodeableConcept],[Specimen]++-%20specific_tissue_pathology%200..1&gt;[CodeableConcept],[Specimen]++-%20specimen_type%200..1&gt;[CodeableConcept],[Specimen]++-%20tumor_status_at_collection%200..1&gt;[CodeableConcept],[Subject]++-%20breed%200..1&gt;[CodeableConcept],[Subject]++-%20cause_of_death%200..1&gt;[CodeableConcept],[Subject]++-%20ethnicity%200..1&gt;[CodeableConcept],[Subject]++-%20race%200..*&gt;[CodeableConcept],[Subject]++-%20sex%200..1&gt;[CodeableConcept],[Subject]++-%20species%200..1&gt;[CodeableConcept],[Subject]++-%20vital_status%200..1&gt;[CodeableConcept],[Substance]++-%20role%200..*&gt;[CodeableConcept],[Substance]++-%20substance_type%200..1&gt;[CodeableConcept],[TimePoint]++-%20event_type%200..*&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20category%200..1&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20method_type%200..1&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[Treatment]++-%20regimen%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_effect%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_end_reason%200..*&gt;[CodeableConcept],[Treatment]++-%20treatment_frequency%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_intent%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_outcome%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_type%200..1&gt;[CodeableConcept],[Entity]^-[CodeableConcept],[CancerStageObservationSet],[CancerStageObservation],[CancerGradeObservationSet],[CancerGradeObservation],[BodySite],[BiologicProduct],[AlcoholExposureObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Treatment],[TobaccoExposureObservation],[TimePoint],[Substance],[Subject],[SpecimenStorageActivity],[SpecimenQuantityObservation],[SpecimenQualityObservation],[SpecimenProcessingActivity],[SpecimenCreationActivity],[SpecimenContainer],[Specimen],[ResearchSubject],[ResearchProject],[Quantity],[ObservationSet],[Observation],[Identifier],[HistologicalCompositionObservationSet],[HistologicalCompositionObservation],[ExecutionTimeObservation],[ExecutionConditionObservation],[EnvironmentalExposureObservation],[Entity],[Document],[DimensionalObservationSet],[DimensionalObservation],[Diagnosis],[Coding],[Coding]&lt;coding%200..*-++[CodeableConcept&#124;text:crdch_string%20%3F],[AlcoholExposureObservation]++-%20category%200..1&gt;[CodeableConcept],[AlcoholExposureObservation]++-%20method_type%200..1&gt;[CodeableConcept],[AlcoholExposureObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[AlcoholExposureObservation]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[BiologicProduct]++-%20product_type%200..1&gt;[CodeableConcept],[BodySite]++-%20qualifier%200..*&gt;[CodeableConcept],[BodySite]++-%20site%201..1&gt;[CodeableConcept],[CancerGradeObservationSet]++-%20category%200..1&gt;[CodeableConcept],[CancerGradeObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[CancerGradeObservation]++-%20category%200..1&gt;[CodeableConcept],[CancerGradeObservation]++-%20method_type%200..1&gt;[CodeableConcept],[CancerGradeObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[CancerGradeObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[CancerStageObservationSet]++-%20category%200..1&gt;[CodeableConcept],[CancerStageObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[CancerStageObservation]++-%20category%200..1&gt;[CodeableConcept],[CancerStageObservation]++-%20method_type%200..1&gt;[CodeableConcept],[CancerStageObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[CancerStageObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[Diagnosis]++-%20condition%200..1&gt;[CodeableConcept],[Diagnosis]++-%20disease_status%200..1&gt;[CodeableConcept],[Diagnosis]++-%20method_of_diagnosis%200..1&gt;[CodeableConcept],[Diagnosis]++-%20morphology%200..1&gt;[CodeableConcept],[DimensionalObservationSet]++-%20category%200..1&gt;[CodeableConcept],[DimensionalObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[DimensionalObservation]++-%20category%200..1&gt;[CodeableConcept],[DimensionalObservation]++-%20method_type%200..*&gt;[CodeableConcept],[DimensionalObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[Document]++-%20document_type%200..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20category%200..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20method_type%200..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[EnvironmentalExposureObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20category%200..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20method_type%200..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[ExecutionConditionObservation]++-%20value_codeable_concept%201..1&gt;[CodeableConcept],[ExecutionTimeObservation]++-%20category%200..1&gt;[CodeableConcept],[ExecutionTimeObservation]++-%20method_type%200..1&gt;[CodeableConcept],[ExecutionTimeObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[HistologicalCompositionObservationSet]++-%20category%201..1&gt;[CodeableConcept],[HistologicalCompositionObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[HistologicalCompositionObservation]++-%20category%200..1&gt;[CodeableConcept],[HistologicalCompositionObservation]++-%20method_type%200..*&gt;[CodeableConcept],[HistologicalCompositionObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[Identifier]++-%20type%200..1&gt;[CodeableConcept],[ObservationSet]++-%20category%201..1&gt;[CodeableConcept],[ObservationSet]++-%20method_type%200..*&gt;[CodeableConcept],[Observation]++-%20category%200..1&gt;[CodeableConcept],[Observation]++-%20method_type%200..*&gt;[CodeableConcept],[Observation]++-%20observation_type%201..1&gt;[CodeableConcept],[Observation]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[Quantity]++-%20unit%200..1&gt;[CodeableConcept],[Quantity]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[ResearchProject]++-%20research_project_type%201..1&gt;[CodeableConcept],[ResearchSubject]++-%20index_timepoint%200..1&gt;[CodeableConcept],[ResearchSubject]++-%20primary_diagnosis_condition%200..1&gt;[CodeableConcept],[SpecimenContainer]++-%20container_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20activity_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20collection_method_type%200..1&gt;[CodeableConcept],[SpecimenCreationActivity]++-%20derivation_method_type%200..1&gt;[CodeableConcept],[SpecimenProcessingActivity]++-%20activity_type%200..1&gt;[CodeableConcept],[SpecimenProcessingActivity]++-%20method_type%200..1&gt;[CodeableConcept],[SpecimenQualityObservation]++-%20category%200..1&gt;[CodeableConcept],[SpecimenQualityObservation]++-%20method_type%200..*&gt;[CodeableConcept],[SpecimenQualityObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[SpecimenQuantityObservation]++-%20category%200..1&gt;[CodeableConcept],[SpecimenQuantityObservation]++-%20method_type%200..*&gt;[CodeableConcept],[SpecimenQuantityObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[SpecimenStorageActivity]++-%20method_type%200..1&gt;[CodeableConcept],[Specimen]++-%20analyte_type%200..1&gt;[CodeableConcept],[Specimen]++-%20cellular_composition_type%200..1&gt;[CodeableConcept],[Specimen]++-%20degree_of_dysplasia%200..1&gt;[CodeableConcept],[Specimen]++-%20general_tissue_pathology%200..1&gt;[CodeableConcept],[Specimen]++-%20morphology_assessment_method%200..1&gt;[CodeableConcept],[Specimen]++-%20morphology_assessor_role%200..1&gt;[CodeableConcept],[Specimen]++-%20preinvasive_tissue_morphology%200..1&gt;[CodeableConcept],[Specimen]++-%20section_location%200..1&gt;[CodeableConcept],[Specimen]++-%20source_material_type%200..1&gt;[CodeableConcept],[Specimen]++-%20specific_tissue_pathology%200..1&gt;[CodeableConcept],[Specimen]++-%20specimen_type%200..1&gt;[CodeableConcept],[Specimen]++-%20tumor_status_at_collection%200..1&gt;[CodeableConcept],[Subject]++-%20breed%200..1&gt;[CodeableConcept],[Subject]++-%20cause_of_death%200..1&gt;[CodeableConcept],[Subject]++-%20ethnicity%200..1&gt;[CodeableConcept],[Subject]++-%20race%200..*&gt;[CodeableConcept],[Subject]++-%20sex%200..1&gt;[CodeableConcept],[Subject]++-%20species%200..1&gt;[CodeableConcept],[Subject]++-%20vital_status%200..1&gt;[CodeableConcept],[Substance]++-%20role%200..*&gt;[CodeableConcept],[Substance]++-%20substance_type%200..1&gt;[CodeableConcept],[TimePoint]++-%20event_type%200..*&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20category%200..1&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20method_type%200..1&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20observation_type%201..1&gt;[CodeableConcept],[TobaccoExposureObservation]++-%20value_codeable_concept%200..1&gt;[CodeableConcept],[Treatment]++-%20regimen%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_effect%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_end_reason%200..*&gt;[CodeableConcept],[Treatment]++-%20treatment_frequency%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_intent%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_outcome%200..1&gt;[CodeableConcept],[Treatment]++-%20treatment_type%200..1&gt;[CodeableConcept],[Entity]^-[CodeableConcept],[CancerStageObservationSet],[CancerStageObservation],[CancerGradeObservationSet],[CancerGradeObservation],[BodySite],[BiologicProduct],[AlcoholExposureObservation]" /></a></p>
+<h2 id="parents">Parents</h2>
+<ul>
+<li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
+</ul>
+<h2 id="referenced-by-class">Referenced by class</h2>
+<ul>
+<li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../AlcoholExposureObservation/">AlcoholExposureObservation</a></strong> ➞<em><a href="../alcoholExposureObservation__value_codeable_concept/">value_codeable_concept</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../BiologicProduct/">BiologicProduct</a></strong> ➞<em><a href="../biologicProduct__product_type/">product_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../BodySite/">BodySite</a></strong> ➞<em><a href="../bodySite__qualifier/">qualifier</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../BodySite/">BodySite</a></strong> ➞<em><a href="../bodySite__site/">site</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerGradeObservationSet/">CancerGradeObservationSet</a></strong> ➞<em><a href="../cancerGradeObservationSet__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerGradeObservationSet/">CancerGradeObservationSet</a></strong> ➞<em><a href="../cancerGradeObservationSet__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerGradeObservation/">CancerGradeObservation</a></strong> ➞<em><a href="../cancerGradeObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerGradeObservation/">CancerGradeObservation</a></strong> ➞<em><a href="../cancerGradeObservation__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerGradeObservation/">CancerGradeObservation</a></strong> ➞<em><a href="../cancerGradeObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerGradeObservation/">CancerGradeObservation</a></strong> ➞<em><a href="../cancerGradeObservation__value_codeable_concept/">value_codeable_concept</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerStageObservationSet/">CancerStageObservationSet</a></strong> ➞<em><a href="../cancerStageObservationSet__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerStageObservationSet/">CancerStageObservationSet</a></strong> ➞<em><a href="../cancerStageObservationSet__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerStageObservation/">CancerStageObservation</a></strong> ➞<em><a href="../cancerStageObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerStageObservation/">CancerStageObservation</a></strong> ➞<em><a href="../cancerStageObservation__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerStageObservation/">CancerStageObservation</a></strong> ➞<em><a href="../cancerStageObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../CancerStageObservation/">CancerStageObservation</a></strong> ➞<em><a href="../cancerStageObservation__value_codeable_concept/">value_codeable_concept</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__condition/">condition</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__disease_status/">disease_status</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__method_of_diagnosis/">method_of_diagnosis</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Diagnosis/">Diagnosis</a></strong> ➞<em><a href="../diagnosis__morphology/">morphology</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../DimensionalObservationSet/">DimensionalObservationSet</a></strong> ➞<em><a href="../dimensionalObservationSet__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../DimensionalObservationSet/">DimensionalObservationSet</a></strong> ➞<em><a href="../dimensionalObservationSet__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../DimensionalObservation/">DimensionalObservation</a></strong> ➞<em><a href="../dimensionalObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../DimensionalObservation/">DimensionalObservation</a></strong> ➞<em><a href="../dimensionalObservation__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../DimensionalObservation/">DimensionalObservation</a></strong> ➞<em><a href="../dimensionalObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Document/">Document</a></strong> ➞<em><a href="../document__document_type/">document_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../EnvironmentalExposureObservation/">EnvironmentalExposureObservation</a></strong> ➞<em><a href="../environmentalExposureObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../EnvironmentalExposureObservation/">EnvironmentalExposureObservation</a></strong> ➞<em><a href="../environmentalExposureObservation__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../EnvironmentalExposureObservation/">EnvironmentalExposureObservation</a></strong> ➞<em><a href="../environmentalExposureObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../EnvironmentalExposureObservation/">EnvironmentalExposureObservation</a></strong> ➞<em><a href="../environmentalExposureObservation__value_codeable_concept/">value_codeable_concept</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></strong> ➞<em><a href="../executionConditionObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></strong> ➞<em><a href="../executionConditionObservation__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></strong> ➞<em><a href="../executionConditionObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ExecutionConditionObservation/">ExecutionConditionObservation</a></strong> ➞<em><a href="../executionConditionObservation__value_codeable_concept/">value_codeable_concept</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></strong> ➞<em><a href="../executionTimeObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></strong> ➞<em><a href="../executionTimeObservation__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ExecutionTimeObservation/">ExecutionTimeObservation</a></strong> ➞<em><a href="../executionTimeObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../HistologicalCompositionObservationSet/">HistologicalCompositionObservationSet</a></strong> ➞<em><a href="../histologicalCompositionObservationSet__category/">category</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../HistologicalCompositionObservationSet/">HistologicalCompositionObservationSet</a></strong> ➞<em><a href="../histologicalCompositionObservationSet__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../HistologicalCompositionObservation/">HistologicalCompositionObservation</a></strong> ➞<em><a href="../histologicalCompositionObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../HistologicalCompositionObservation/">HistologicalCompositionObservation</a></strong> ➞<em><a href="../histologicalCompositionObservation__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../HistologicalCompositionObservation/">HistologicalCompositionObservation</a></strong> ➞<em><a href="../histologicalCompositionObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Identifier/">Identifier</a></strong> ➞<em><a href="../identifier__type/">type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ObservationSet/">ObservationSet</a></strong> ➞<em><a href="../observationSet__category/">category</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ObservationSet/">ObservationSet</a></strong> ➞<em><a href="../observationSet__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Observation/">Observation</a></strong> ➞<em><a href="../observation__value_codeable_concept/">value_codeable_concept</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Quantity/">Quantity</a></strong> ➞<em><a href="../quantity__unit/">unit</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Quantity/">Quantity</a></strong> ➞<em><a href="../quantity__value_codeable_concept/">value_codeable_concept</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ResearchProject/">ResearchProject</a></strong> ➞<em><a href="../researchProject__research_project_type/">research_project_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__index_timepoint/">index_timepoint</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../ResearchSubject/">ResearchSubject</a></strong> ➞<em><a href="../researchSubject__primary_diagnosis_condition/">primary_diagnosis_condition</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenContainer/">SpecimenContainer</a></strong> ➞<em><a href="../specimenContainer__container_type/">container_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__activity_type/">activity_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__collection_method_type/">collection_method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenCreationActivity/">SpecimenCreationActivity</a></strong> ➞<em><a href="../specimenCreationActivity__derivation_method_type/">derivation_method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__activity_type/">activity_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenProcessingActivity/">SpecimenProcessingActivity</a></strong> ➞<em><a href="../specimenProcessingActivity__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenQualityObservation/">SpecimenQualityObservation</a></strong> ➞<em><a href="../specimenQualityObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__method_type/">method_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenQuantityObservation/">SpecimenQuantityObservation</a></strong> ➞<em><a href="../specimenQuantityObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../SpecimenStorageActivity/">SpecimenStorageActivity</a></strong> ➞<em><a href="../specimenStorageActivity__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__analyte_type/">analyte_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__cellular_composition_type/">cellular_composition_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__degree_of_dysplasia/">degree_of_dysplasia</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__general_tissue_pathology/">general_tissue_pathology</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__morphology_assessment_method/">morphology_assessment_method</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__morphology_assessor_role/">morphology_assessor_role</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__preinvasive_tissue_morphology/">preinvasive_tissue_morphology</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__section_location/">section_location</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__source_material_type/">source_material_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__specific_tissue_pathology/">specific_tissue_pathology</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__specimen_type/">specimen_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Specimen/">Specimen</a></strong> ➞<em><a href="../specimen__tumor_status_at_collection/">tumor_status_at_collection</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__breed/">breed</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__cause_of_death/">cause_of_death</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__ethnicity/">ethnicity</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__race/">race</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__sex/">sex</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__species/">species</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Subject/">Subject</a></strong> ➞<em><a href="../subject__vital_status/">vital_status</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Substance/">Substance</a></strong> ➞<em><a href="../substance__role/">role</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Substance/">Substance</a></strong> ➞<em><a href="../substance__substance_type/">substance_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../TimePoint/">TimePoint</a></strong> ➞<em><a href="../timePoint__event_type/">event_type</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__category/">category</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__method_type/">method_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__observation_type/">observation_type</a></em>  <sub>1..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../TobaccoExposureObservation/">TobaccoExposureObservation</a></strong> ➞<em><a href="../tobaccoExposureObservation__value_codeable_concept/">value_codeable_concept</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__regimen/">regimen</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_effect/">treatment_effect</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_end_reason/">treatment_end_reason</a></em>  <sub>0..*</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_frequency/">treatment_frequency</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_intent/">treatment_intent</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_outcome/">treatment_outcome</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+<li><strong><a href="../Treatment/">Treatment</a></strong> ➞<em><a href="../treatment__treatment_type/">treatment_type</a></em>  <sub>0..1</sub>  <strong><a href="./">CodeableConcept</a></strong></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../codeableConcept__coding/">coding</a>  <sub>0..*</sub><ul>
+<li>Description: A reference to a code defined by a terminology system</li>
+<li>Range: <a href="../Coding/">Coding</a></li>
+</ul>
+</li>
+<li><a href="../codeableConcept__text/">text</a>  <sub>0..1</sub><ul>
+<li>Description: A human language representation of the concept represented by the Coding.</li>
+<li>Range: <a href="../CrdchString/">CrdchString</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="other-properties">Other properties</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comments:</strong></td>
+<td></td>
+<td>More than one code may be used in CodeableConcept. The concept may be coded multiple times in different code systems (or even multiple times in the same code systems, where multiple forms are possible). Each Coding is a representation of the concept as described above and may have slightly different granularity due to the differences in the definitions of the underlying codes. There is no meaning associated with the ordering of Coding within a CodeableConcept. A typical use of CodeableConcept is to send the local code that the concept was coded with, and also one or more translations to publicly defined code systems such as LOINC or SNOMED CT.</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>
