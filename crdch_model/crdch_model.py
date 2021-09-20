@@ -1,5 +1,5 @@
 # Auto generated from crdch_model.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-09-07 17:13
+# Generation date: 2021-09-17 17:03
 # Schema: CRDC-H
 #
 # id: https://example.org/crdch
@@ -127,30 +127,30 @@ class AlcoholExposureObservation(Entity):
     class_name: ClassVar[str] = "AlcoholExposureObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.AlcoholExposureObservation
 
-    observation_type: Union[str, "EnumCRDCHAlcoholExposureObservationObservationType"] = None
+    observation_type: Union[dict, "CodeableConcept"] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHAlcoholExposureObservationCategory"]] = None
-    method_type: Optional[Union[str, "EnumCRDCHAlcoholExposureObservationMethodType"]] = None
+    category: Optional[Union[dict, "CodeableConcept"]] = None
+    method_type: Optional[Union[dict, "CodeableConcept"]] = None
     focus: Optional[Union[dict, "Entity"]] = None
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
     value_integer: Optional[Union[int, CrdchInteger]] = None
-    value_codeable_concept: Optional[Union[str, "EnumCRDCHAlcoholExposureObservationValueCodeableConcept"]] = None
+    value_codeable_concept: Optional[Union[dict, "CodeableConcept"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHAlcoholExposureObservationObservationType):
-            self.observation_type = EnumCRDCHAlcoholExposureObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHAlcoholExposureObservationCategory):
-            self.category = EnumCRDCHAlcoholExposureObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHAlcoholExposureObservationMethodType):
-            self.method_type = EnumCRDCHAlcoholExposureObservationMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
@@ -164,8 +164,8 @@ class AlcoholExposureObservation(Entity):
         if self.value_integer is not None and not isinstance(self.value_integer, CrdchInteger):
             self.value_integer = CrdchInteger(self.value_integer)
 
-        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHAlcoholExposureObservationValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHAlcoholExposureObservationValueCodeableConcept(self.value_codeable_concept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
         super().__post_init__(**kwargs)
 
@@ -184,18 +184,18 @@ class BodySite(Entity):
     class_name: ClassVar[str] = "BodySite"
     class_model_uri: ClassVar[URIRef] = CRDCH.BodySite
 
-    site: Union[str, "EnumCRDCHBodySiteSite"] = None
-    qualifier: Optional[Union[Union[str, "EnumCRDCHBodySiteQualifier"], List[Union[str, "EnumCRDCHBodySiteQualifier"]]]] = empty_list()
+    site: Union[dict, "CodeableConcept"] = None
+    qualifier: Optional[Union[Union[dict, "CodeableConcept"], List[Union[dict, "CodeableConcept"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.site):
             self.MissingRequiredField("site")
-        if not isinstance(self.site, EnumCRDCHBodySiteSite):
-            self.site = EnumCRDCHBodySiteSite(self.site)
+        if not isinstance(self.site, CodeableConcept):
+            self.site = CodeableConcept(**as_dict(self.site))
 
         if not isinstance(self.qualifier, list):
             self.qualifier = [self.qualifier] if self.qualifier is not None else []
-        self.qualifier = [v if isinstance(v, EnumCRDCHBodySiteQualifier) else EnumCRDCHBodySiteQualifier(v) for v in self.qualifier]
+        self.qualifier = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.qualifier]
 
         super().__post_init__(**kwargs)
 
@@ -216,7 +216,7 @@ class BiologicProduct(Entity):
     id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
     description: Optional[Union[str, CrdchString]] = None
-    product_type: Optional[Union[str, "EnumCRDCHBiologicProductProductType"]] = None
+    product_type: Optional[Union[dict, "CodeableConcept"]] = None
     passage_number: Optional[Union[Union[int, CrdchInteger], List[Union[int, CrdchInteger]]]] = empty_list()
     growth_rate: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
 
@@ -229,8 +229,8 @@ class BiologicProduct(Entity):
         if self.description is not None and not isinstance(self.description, CrdchString):
             self.description = CrdchString(self.description)
 
-        if self.product_type is not None and not isinstance(self.product_type, EnumCRDCHBiologicProductProductType):
-            self.product_type = EnumCRDCHBiologicProductProductType(self.product_type)
+        if self.product_type is not None and not isinstance(self.product_type, CodeableConcept):
+            self.product_type = CodeableConcept(**as_dict(self.product_type))
 
         if not isinstance(self.passage_number, list):
             self.passage_number = [self.passage_number] if self.passage_number is not None else []
@@ -256,33 +256,33 @@ class CancerGradeObservation(Entity):
     class_name: ClassVar[str] = "CancerGradeObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerGradeObservation
 
-    observation_type: Union[str, "EnumCRDCHCancerGradeObservationObservationType"] = None
-    value_codeable_concept: Union[str, "EnumCRDCHCancerGradeObservationValueCodeableConcept"] = None
+    observation_type: Union[dict, "CodeableConcept"] = None
+    value_codeable_concept: Union[dict, "CodeableConcept"] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHCancerGradeObservationCategory"]] = None
-    method_type: Optional[Union[str, "EnumCRDCHCancerGradeObservationMethodType"]] = None
+    category: Optional[Union[dict, "CodeableConcept"]] = None
+    method_type: Optional[Union[dict, "CodeableConcept"]] = None
     focus: Optional[Union[dict, "Entity"]] = None
     subject: Optional[Union[dict, "Subject"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHCancerGradeObservationObservationType):
-            self.observation_type = EnumCRDCHCancerGradeObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_codeable_concept):
             self.MissingRequiredField("value_codeable_concept")
-        if not isinstance(self.value_codeable_concept, EnumCRDCHCancerGradeObservationValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHCancerGradeObservationValueCodeableConcept(self.value_codeable_concept)
+        if not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHCancerGradeObservationCategory):
-            self.category = EnumCRDCHCancerGradeObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHCancerGradeObservationMethodType):
-            self.method_type = EnumCRDCHCancerGradeObservationMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
@@ -307,10 +307,10 @@ class CancerGradeObservationSet(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerGradeObservationSet
 
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHCancerGradeObservationSetCategory"]] = None
+    category: Optional[Union[dict, "CodeableConcept"]] = None
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHCancerGradeObservationSetMethodType"], List[Union[str, "EnumCRDCHCancerGradeObservationSetMethodType"]]]] = empty_list()
+    method_type: Optional[Union[Union[dict, "CodeableConcept"], List[Union[dict, "CodeableConcept"]]]] = empty_list()
     performed_by: Optional[Union[dict, "Organization"]] = None
     observations: Optional[Union[Union[dict, CancerGradeObservation], List[Union[dict, CancerGradeObservation]]]] = empty_list()
 
@@ -318,8 +318,8 @@ class CancerGradeObservationSet(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHCancerGradeObservationSetCategory):
-            self.category = EnumCRDCHCancerGradeObservationSetCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -330,7 +330,7 @@ class CancerGradeObservationSet(Entity):
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHCancerGradeObservationSetMethodType) else EnumCRDCHCancerGradeObservationSetMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
@@ -353,11 +353,11 @@ class CancerStageObservation(Entity):
     class_name: ClassVar[str] = "CancerStageObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerStageObservation
 
-    observation_type: Union[str, "EnumCRDCHCancerStageObservationObservationType"] = None
-    value_codeable_concept: Union[str, "EnumCRDCHCancerStageObservationValueCodeableConcept"] = None
+    observation_type: Union[dict, "CodeableConcept"] = None
+    value_codeable_concept: Union[dict, "CodeableConcept"] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHCancerStageObservationCategory"]] = None
-    method_type: Optional[Union[str, "EnumCRDCHCancerStageObservationMethodType"]] = None
+    category: Optional[Union[dict, "CodeableConcept"]] = None
+    method_type: Optional[Union[dict, "CodeableConcept"]] = None
     focus: Optional[Union[dict, "Entity"]] = None
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
@@ -366,22 +366,22 @@ class CancerStageObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHCancerStageObservationObservationType):
-            self.observation_type = EnumCRDCHCancerStageObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_codeable_concept):
             self.MissingRequiredField("value_codeable_concept")
-        if not isinstance(self.value_codeable_concept, EnumCRDCHCancerStageObservationValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHCancerStageObservationValueCodeableConcept(self.value_codeable_concept)
+        if not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHCancerStageObservationCategory):
-            self.category = EnumCRDCHCancerStageObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHCancerStageObservationMethodType):
-            self.method_type = EnumCRDCHCancerStageObservationMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
@@ -412,10 +412,10 @@ class CancerStageObservationSet(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.CancerStageObservationSet
 
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHCancerStageObservationSetCategory"]] = None
+    category: Optional[Union[dict, "CodeableConcept"]] = None
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHCancerStageObservationSetMethodType"], List[Union[str, "EnumCRDCHCancerStageObservationSetMethodType"]]]] = empty_list()
+    method_type: Optional[Union[Union[dict, "CodeableConcept"], List[Union[dict, "CodeableConcept"]]]] = empty_list()
     performed_by: Optional[Union[dict, "Organization"]] = None
     observations: Optional[Union[Union[dict, CancerStageObservation], List[Union[dict, CancerStageObservation]]]] = empty_list()
 
@@ -423,8 +423,8 @@ class CancerStageObservationSet(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHCancerStageObservationSetCategory):
-            self.category = EnumCRDCHCancerStageObservationSetCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -435,7 +435,7 @@ class CancerStageObservationSet(Entity):
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHCancerStageObservationSetMethodType) else EnumCRDCHCancerStageObservationSetMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
@@ -485,9 +485,11 @@ class Coding(Entity):
 
     code: Union[str, CrdchString] = None
     system: Union[str, CrdchString] = None
-    systemURL: Optional[Union[str, CrdchString]] = None
-    systemVersion: Optional[Union[str, CrdchString]] = None
     label: Optional[Union[str, CrdchString]] = None
+    system_version: Optional[Union[str, CrdchString]] = None
+    value_set: Optional[Union[str, CrdchString]] = None
+    value_set_version: Optional[Union[str, CrdchString]] = None
+    tag: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.code):
@@ -500,14 +502,21 @@ class Coding(Entity):
         if not isinstance(self.system, CrdchString):
             self.system = CrdchString(self.system)
 
-        if self.systemURL is not None and not isinstance(self.systemURL, CrdchString):
-            self.systemURL = CrdchString(self.systemURL)
-
-        if self.systemVersion is not None and not isinstance(self.systemVersion, CrdchString):
-            self.systemVersion = CrdchString(self.systemVersion)
-
         if self.label is not None and not isinstance(self.label, CrdchString):
             self.label = CrdchString(self.label)
+
+        if self.system_version is not None and not isinstance(self.system_version, CrdchString):
+            self.system_version = CrdchString(self.system_version)
+
+        if self.value_set is not None and not isinstance(self.value_set, CrdchString):
+            self.value_set = CrdchString(self.value_set)
+
+        if self.value_set_version is not None and not isinstance(self.value_set_version, CrdchString):
+            self.value_set_version = CrdchString(self.value_set_version)
+
+        if not isinstance(self.tag, list):
+            self.tag = [self.tag] if self.tag is not None else []
+        self.tag = [v if isinstance(v, CrdchString) else CrdchString(v) for v in self.tag]
 
         super().__post_init__(**kwargs)
 
@@ -529,16 +538,16 @@ class Diagnosis(Entity):
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     age_at_diagnosis: Optional[Union[dict, "Quantity"]] = None
-    year_at_diagnosis: Optional[Union[int, CrdchInteger]] = None
-    condition: Optional[Union[str, "EnumCRDCHDiagnosisCondition"]] = None
+    diagnosis_date: Optional[Union[dict, "TimePoint"]] = None
+    condition: Optional[Union[dict, CodeableConcept]] = None
     primary_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
     metastatic_site: Optional[Union[Union[dict, BodySite], List[Union[dict, BodySite]]]] = empty_list()
     stage: Optional[Union[Union[dict, CancerStageObservationSet], List[Union[dict, CancerStageObservationSet]]]] = empty_list()
     grade: Optional[Union[Union[dict, CancerGradeObservationSet], List[Union[dict, CancerGradeObservationSet]]]] = empty_list()
-    morphology: Optional[Union[str, "EnumCRDCHDiagnosisMorphology"]] = None
-    disease_status: Optional[Union[str, "EnumCRDCHDiagnosisDiseaseStatus"]] = None
+    morphology: Optional[Union[dict, CodeableConcept]] = None
+    disease_status: Optional[Union[dict, CodeableConcept]] = None
     prior_diagnosis: Optional[Union[dict, "Diagnosis"]] = None
-    method_of_diagnosis: Optional[Union[str, "EnumCRDCHDiagnosisMethodOfDiagnosis"]] = None
+    method_of_diagnosis: Optional[Union[dict, CodeableConcept]] = None
     related_specimen: Optional[Union[Union[dict, "Specimen"], List[Union[dict, "Specimen"]]]] = empty_list()
     primary_tumor_dimensional_measures: Optional[Union[dict, "DimensionalObservationSet"]] = None
     supporting_observation: Optional[Union[Union[dict, "Observation"], List[Union[dict, "Observation"]]]] = empty_list()
@@ -555,11 +564,11 @@ class Diagnosis(Entity):
         if self.age_at_diagnosis is not None and not isinstance(self.age_at_diagnosis, Quantity):
             self.age_at_diagnosis = Quantity(**as_dict(self.age_at_diagnosis))
 
-        if self.year_at_diagnosis is not None and not isinstance(self.year_at_diagnosis, CrdchInteger):
-            self.year_at_diagnosis = CrdchInteger(self.year_at_diagnosis)
+        if self.diagnosis_date is not None and not isinstance(self.diagnosis_date, TimePoint):
+            self.diagnosis_date = TimePoint(**as_dict(self.diagnosis_date))
 
-        if self.condition is not None and not isinstance(self.condition, EnumCRDCHDiagnosisCondition):
-            self.condition = EnumCRDCHDiagnosisCondition(self.condition)
+        if self.condition is not None and not isinstance(self.condition, CodeableConcept):
+            self.condition = CodeableConcept(**as_dict(self.condition))
 
         self._normalize_inlined_as_list(slot_name="primary_site", slot_type=BodySite, key_name="site", keyed=False)
 
@@ -573,17 +582,17 @@ class Diagnosis(Entity):
             self.grade = [self.grade] if self.grade is not None else []
         self.grade = [v if isinstance(v, CancerGradeObservationSet) else CancerGradeObservationSet(**as_dict(v)) for v in self.grade]
 
-        if self.morphology is not None and not isinstance(self.morphology, EnumCRDCHDiagnosisMorphology):
-            self.morphology = EnumCRDCHDiagnosisMorphology(self.morphology)
+        if self.morphology is not None and not isinstance(self.morphology, CodeableConcept):
+            self.morphology = CodeableConcept(**as_dict(self.morphology))
 
-        if self.disease_status is not None and not isinstance(self.disease_status, EnumCRDCHDiagnosisDiseaseStatus):
-            self.disease_status = EnumCRDCHDiagnosisDiseaseStatus(self.disease_status)
+        if self.disease_status is not None and not isinstance(self.disease_status, CodeableConcept):
+            self.disease_status = CodeableConcept(**as_dict(self.disease_status))
 
         if self.prior_diagnosis is not None and not isinstance(self.prior_diagnosis, Diagnosis):
             self.prior_diagnosis = Diagnosis(**as_dict(self.prior_diagnosis))
 
-        if self.method_of_diagnosis is not None and not isinstance(self.method_of_diagnosis, EnumCRDCHDiagnosisMethodOfDiagnosis):
-            self.method_of_diagnosis = EnumCRDCHDiagnosisMethodOfDiagnosis(self.method_of_diagnosis)
+        if self.method_of_diagnosis is not None and not isinstance(self.method_of_diagnosis, CodeableConcept):
+            self.method_of_diagnosis = CodeableConcept(**as_dict(self.method_of_diagnosis))
 
         if not isinstance(self.related_specimen, list):
             self.related_specimen = [self.related_specimen] if self.related_specimen is not None else []
@@ -610,11 +619,11 @@ class DimensionalObservation(Entity):
     class_name: ClassVar[str] = "DimensionalObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.DimensionalObservation
 
-    observation_type: Union[str, "EnumCRDCHDimensionalObservationObservationType"] = None
+    observation_type: Union[dict, CodeableConcept] = None
     value_quantity: Union[dict, "Quantity"] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHDimensionalObservationCategory"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHDimensionalObservationMethodType"], List[Union[str, "EnumCRDCHDimensionalObservationMethodType"]]]] = empty_list()
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
@@ -622,8 +631,8 @@ class DimensionalObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHDimensionalObservationObservationType):
-            self.observation_type = EnumCRDCHDimensionalObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_quantity):
             self.MissingRequiredField("value_quantity")
@@ -633,12 +642,12 @@ class DimensionalObservation(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHDimensionalObservationCategory):
-            self.category = EnumCRDCHDimensionalObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHDimensionalObservationMethodType) else EnumCRDCHDimensionalObservationMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -666,10 +675,10 @@ class DimensionalObservationSet(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.DimensionalObservationSet
 
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHDimensionalObservationSetCategory"]] = None
+    category: Optional[Union[dict, CodeableConcept]] = None
     focus: Optional[Union[Union[dict, "Entity"], List[Union[dict, "Entity"]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHDimensionalObservationSetMethodType"], List[Union[str, "EnumCRDCHDimensionalObservationSetMethodType"]]]] = empty_list()
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     performed_by: Optional[Union[dict, "Organization"]] = None
     observations: Optional[Union[Union[dict, DimensionalObservation], List[Union[dict, DimensionalObservation]]]] = empty_list()
 
@@ -677,8 +686,8 @@ class DimensionalObservationSet(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHDimensionalObservationSetCategory):
-            self.category = EnumCRDCHDimensionalObservationSetCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -689,7 +698,7 @@ class DimensionalObservationSet(Entity):
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHDimensionalObservationSetMethodType) else EnumCRDCHDimensionalObservationSetMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
@@ -713,7 +722,7 @@ class Document(Entity):
 
     id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, "Identifier"], List[Union[dict, "Identifier"]]]] = empty_list()
-    document_type: Optional[Union[str, "EnumCRDCHDocumentDocumentType"]] = None
+    document_type: Optional[Union[dict, CodeableConcept]] = None
     description: Optional[Union[str, CrdchString]] = None
     focus: Optional[Union[dict, "Entity"]] = None
     url: Optional[Union[Union[str, CrdchString], List[Union[str, CrdchString]]]] = empty_list()
@@ -724,8 +733,8 @@ class Document(Entity):
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.document_type is not None and not isinstance(self.document_type, EnumCRDCHDocumentDocumentType):
-            self.document_type = EnumCRDCHDocumentDocumentType(self.document_type)
+        if self.document_type is not None and not isinstance(self.document_type, CodeableConcept):
+            self.document_type = CodeableConcept(**as_dict(self.document_type))
 
         if self.description is not None and not isinstance(self.description, CrdchString):
             self.description = CrdchString(self.description)
@@ -753,11 +762,11 @@ class EnvironmentalExposureObservation(Entity):
     class_name: ClassVar[str] = "EnvironmentalExposureObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.EnvironmentalExposureObservation
 
-    observation_type: Union[str, "EnumCRDCHEnvironmentalExposureObservationObservationType"] = None
-    value_codeable_concept: Union[str, "EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept"] = None
+    observation_type: Union[dict, CodeableConcept] = None
+    value_codeable_concept: Union[dict, CodeableConcept] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHEnvironmentalExposureObservationCategory"]] = None
-    method_type: Optional[Union[str, "EnumCRDCHEnvironmentalExposureObservationMethodType"]] = None
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[dict, CodeableConcept]] = None
     focus: Optional[Union[dict, Entity]] = None
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
@@ -765,22 +774,22 @@ class EnvironmentalExposureObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHEnvironmentalExposureObservationObservationType):
-            self.observation_type = EnumCRDCHEnvironmentalExposureObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_codeable_concept):
             self.MissingRequiredField("value_codeable_concept")
-        if not isinstance(self.value_codeable_concept, EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(self.value_codeable_concept)
+        if not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHEnvironmentalExposureObservationCategory):
-            self.category = EnumCRDCHEnvironmentalExposureObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHEnvironmentalExposureObservationMethodType):
-            self.method_type = EnumCRDCHEnvironmentalExposureObservationMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
@@ -810,11 +819,11 @@ class ExecutionConditionObservation(Entity):
     class_name: ClassVar[str] = "ExecutionConditionObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.ExecutionConditionObservation
 
-    observation_type: Union[str, "EnumCRDCHExecutionConditionObservationObservationType"] = None
-    value_codeable_concept: Union[str, "EnumCRDCHExecutionConditionObservationValueCodeableConcept"] = None
+    observation_type: Union[dict, CodeableConcept] = None
+    value_codeable_concept: Union[dict, CodeableConcept] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHExecutionConditionObservationCategory"]] = None
-    method_type: Optional[Union[str, "EnumCRDCHExecutionConditionObservationMethodType"]] = None
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[dict, CodeableConcept]] = None
     focus: Optional[Union[dict, Entity]] = None
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
@@ -822,22 +831,22 @@ class ExecutionConditionObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHExecutionConditionObservationObservationType):
-            self.observation_type = EnumCRDCHExecutionConditionObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_codeable_concept):
             self.MissingRequiredField("value_codeable_concept")
-        if not isinstance(self.value_codeable_concept, EnumCRDCHExecutionConditionObservationValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHExecutionConditionObservationValueCodeableConcept(self.value_codeable_concept)
+        if not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHExecutionConditionObservationCategory):
-            self.category = EnumCRDCHExecutionConditionObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHExecutionConditionObservationMethodType):
-            self.method_type = EnumCRDCHExecutionConditionObservationMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
@@ -867,11 +876,11 @@ class ExecutionTimeObservation(Entity):
     class_name: ClassVar[str] = "ExecutionTimeObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.ExecutionTimeObservation
 
-    observation_type: Union[str, "EnumCRDCHExecutionTimeObservationObservationType"] = None
+    observation_type: Union[dict, CodeableConcept] = None
     value_quantity: Union[dict, "Quantity"] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHExecutionTimeObservationCategory"]] = None
-    method_type: Optional[Union[str, "EnumCRDCHExecutionTimeObservationMethodType"]] = None
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[dict, CodeableConcept]] = None
     focus: Optional[Union[dict, Entity]] = None
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
@@ -879,8 +888,8 @@ class ExecutionTimeObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHExecutionTimeObservationObservationType):
-            self.observation_type = EnumCRDCHExecutionTimeObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_quantity):
             self.MissingRequiredField("value_quantity")
@@ -890,11 +899,11 @@ class ExecutionTimeObservation(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHExecutionTimeObservationCategory):
-            self.category = EnumCRDCHExecutionTimeObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHExecutionTimeObservationMethodType):
-            self.method_type = EnumCRDCHExecutionTimeObservationMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
@@ -962,11 +971,11 @@ class HistologicalCompositionObservation(Entity):
     class_name: ClassVar[str] = "HistologicalCompositionObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.HistologicalCompositionObservation
 
-    observation_type: Union[str, "EnumCRDCHHistologicalCompositionObservationObservationType"] = None
+    observation_type: Union[dict, CodeableConcept] = None
     value_quantity: Union[dict, "Quantity"] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHHistologicalCompositionObservationCategory"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHHistologicalCompositionObservationMethodType"], List[Union[str, "EnumCRDCHHistologicalCompositionObservationMethodType"]]]] = empty_list()
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
@@ -974,8 +983,8 @@ class HistologicalCompositionObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHHistologicalCompositionObservationObservationType):
-            self.observation_type = EnumCRDCHHistologicalCompositionObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_quantity):
             self.MissingRequiredField("value_quantity")
@@ -985,12 +994,12 @@ class HistologicalCompositionObservation(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHHistologicalCompositionObservationCategory):
-            self.category = EnumCRDCHHistologicalCompositionObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHHistologicalCompositionObservationMethodType) else EnumCRDCHHistologicalCompositionObservationMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -1020,10 +1029,10 @@ class HistologicalCompositionObservationSet(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.HistologicalCompositionObservationSet
 
     id: Union[str, CrdchString] = None
-    category: Union[str, "EnumCRDCHHistologicalCompositionObservationSetCategory"] = None
+    category: Union[dict, CodeableConcept] = None
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHHistologicalCompositionObservationSetMethodType"], List[Union[str, "EnumCRDCHHistologicalCompositionObservationSetMethodType"]]]] = empty_list()
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     performed_by: Optional[Union[dict, "Organization"]] = None
     observations: Optional[Union[Union[dict, HistologicalCompositionObservation], List[Union[dict, HistologicalCompositionObservation]]]] = empty_list()
 
@@ -1035,8 +1044,8 @@ class HistologicalCompositionObservationSet(Entity):
 
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        if not isinstance(self.category, EnumCRDCHHistologicalCompositionObservationSetCategory):
-            self.category = EnumCRDCHHistologicalCompositionObservationSetCategory(self.category)
+        if not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -1047,7 +1056,7 @@ class HistologicalCompositionObservationSet(Entity):
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHHistologicalCompositionObservationSetMethodType) else EnumCRDCHHistologicalCompositionObservationSetMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
@@ -1071,7 +1080,7 @@ class Identifier(Entity):
 
     value: Union[str, CrdchString] = None
     system: Optional[Union[str, CrdchString]] = None
-    type: Optional[Union[str, "EnumCRDCHIdentifierType"]] = None
+    type: Optional[Union[dict, CodeableConcept]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.value):
@@ -1082,8 +1091,8 @@ class Identifier(Entity):
         if self.system is not None and not isinstance(self.system, CrdchString):
             self.system = CrdchString(self.system)
 
-        if self.type is not None and not isinstance(self.type, EnumCRDCHIdentifierType):
-            self.type = EnumCRDCHIdentifierType(self.type)
+        if self.type is not None and not isinstance(self.type, CodeableConcept):
+            self.type = CodeableConcept(**as_dict(self.type))
 
         super().__post_init__(**kwargs)
 
@@ -1101,10 +1110,10 @@ class Observation(Entity):
     class_name: ClassVar[str] = "Observation"
     class_model_uri: ClassVar[URIRef] = CRDCH.Observation
 
-    observation_type: Union[str, "EnumCRDCHObservationObservationType"] = None
+    observation_type: Union[dict, CodeableConcept] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHObservationCategory"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHObservationMethodType"], List[Union[str, "EnumCRDCHObservationMethodType"]]]] = empty_list()
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, "Organization"]] = None
@@ -1115,23 +1124,23 @@ class Observation(Entity):
     value_boolean: Optional[Union[bool, CrdchBoolean]] = None
     value_date_time: Optional[Union[str, CrdchDateTime]] = None
     value_quantity: Optional[Union[dict, "Quantity"]] = None
-    value_codeable_concept: Optional[Union[str, "EnumCRDCHObservationValueCodeableConcept"]] = None
+    value_codeable_concept: Optional[Union[dict, CodeableConcept]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHObservationObservationType):
-            self.observation_type = EnumCRDCHObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHObservationCategory):
-            self.category = EnumCRDCHObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHObservationMethodType) else EnumCRDCHObservationMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -1164,8 +1173,8 @@ class Observation(Entity):
         if self.value_quantity is not None and not isinstance(self.value_quantity, Quantity):
             self.value_quantity = Quantity(**as_dict(self.value_quantity))
 
-        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHObservationValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHObservationValueCodeableConcept(self.value_codeable_concept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
         super().__post_init__(**kwargs)
 
@@ -1184,10 +1193,10 @@ class ObservationSet(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.ObservationSet
 
     id: Union[str, CrdchString] = None
-    category: Union[str, "EnumCRDCHObservationSetCategory"] = None
+    category: Union[dict, CodeableConcept] = None
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHObservationSetMethodType"], List[Union[str, "EnumCRDCHObservationSetMethodType"]]]] = empty_list()
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     performed_by: Optional[Union[dict, "Organization"]] = None
     observations: Optional[Union[Union[dict, Observation], List[Union[dict, Observation]]]] = empty_list()
 
@@ -1199,8 +1208,8 @@ class ObservationSet(Entity):
 
         if self._is_empty(self.category):
             self.MissingRequiredField("category")
-        if not isinstance(self.category, EnumCRDCHObservationSetCategory):
-            self.category = EnumCRDCHObservationSetCategory(self.category)
+        if not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -1211,7 +1220,7 @@ class ObservationSet(Entity):
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHObservationSetMethodType) else EnumCRDCHObservationSetMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
@@ -1274,18 +1283,18 @@ class Quantity(Entity):
     class_model_uri: ClassVar[URIRef] = CRDCH.Quantity
 
     value_decimal: Optional[Union[Decimal, CrdchDecimal]] = None
-    value_codeable_concept: Optional[Union[str, "EnumCRDCHQuantityValueCodeableConcept"]] = None
-    unit: Optional[Union[str, "EnumCRDCHQuantityUnit"]] = None
+    value_codeable_concept: Optional[Union[dict, CodeableConcept]] = None
+    unit: Optional[Union[dict, CodeableConcept]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.value_decimal is not None and not isinstance(self.value_decimal, CrdchDecimal):
             self.value_decimal = CrdchDecimal(self.value_decimal)
 
-        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHQuantityValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHQuantityValueCodeableConcept(self.value_codeable_concept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
-        if self.unit is not None and not isinstance(self.unit, EnumCRDCHQuantityUnit):
-            self.unit = EnumCRDCHQuantityUnit(self.unit)
+        if self.unit is not None and not isinstance(self.unit, CodeableConcept):
+            self.unit = CodeableConcept(**as_dict(self.unit))
 
         super().__post_init__(**kwargs)
 
@@ -1307,7 +1316,7 @@ class ResearchProject(Entity):
     class_name: ClassVar[str] = "ResearchProject"
     class_model_uri: ClassVar[URIRef] = CRDCH.ResearchProject
 
-    research_project_type: Union[str, "EnumCRDCHResearchProjectResearchProjectType"] = None
+    research_project_type: Union[dict, CodeableConcept] = None
     id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
     name: Optional[Union[str, CrdchString]] = None
@@ -1325,8 +1334,8 @@ class ResearchProject(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.research_project_type):
             self.MissingRequiredField("research_project_type")
-        if not isinstance(self.research_project_type, EnumCRDCHResearchProjectResearchProjectType):
-            self.research_project_type = EnumCRDCHResearchProjectResearchProjectType(self.research_project_type)
+        if not isinstance(self.research_project_type, CodeableConcept):
+            self.research_project_type = CodeableConcept(**as_dict(self.research_project_type))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
@@ -1391,11 +1400,11 @@ class ResearchSubject(Entity):
     description: Optional[Union[str, CrdchString]] = None
     member_of_research_project: Optional[Union[dict, ResearchProject]] = None
     age_at_enrollment: Optional[Union[dict, Quantity]] = None
-    primary_diagnosis_condition: Optional[Union[str, "EnumCRDCHResearchSubjectPrimaryDiagnosisCondition"]] = None
+    primary_diagnosis_condition: Optional[Union[dict, CodeableConcept]] = None
     primary_diagnosis_site: Optional[Union[dict, BodySite]] = None
     primary_diagnosis: Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]] = empty_list()
     comorbid_diagnosis: Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]] = empty_list()
-    index_timepoint: Optional[Union[str, "EnumCRDCHResearchSubjectIndexTimepoint"]] = None
+    index_timepoint: Optional[Union[dict, CodeableConcept]] = None
     originating_site: Optional[Union[dict, Organization]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1420,8 +1429,8 @@ class ResearchSubject(Entity):
         if self.age_at_enrollment is not None and not isinstance(self.age_at_enrollment, Quantity):
             self.age_at_enrollment = Quantity(**as_dict(self.age_at_enrollment))
 
-        if self.primary_diagnosis_condition is not None and not isinstance(self.primary_diagnosis_condition, EnumCRDCHResearchSubjectPrimaryDiagnosisCondition):
-            self.primary_diagnosis_condition = EnumCRDCHResearchSubjectPrimaryDiagnosisCondition(self.primary_diagnosis_condition)
+        if self.primary_diagnosis_condition is not None and not isinstance(self.primary_diagnosis_condition, CodeableConcept):
+            self.primary_diagnosis_condition = CodeableConcept(**as_dict(self.primary_diagnosis_condition))
 
         if self.primary_diagnosis_site is not None and not isinstance(self.primary_diagnosis_site, BodySite):
             self.primary_diagnosis_site = BodySite(**as_dict(self.primary_diagnosis_site))
@@ -1434,8 +1443,8 @@ class ResearchSubject(Entity):
             self.comorbid_diagnosis = [self.comorbid_diagnosis] if self.comorbid_diagnosis is not None else []
         self.comorbid_diagnosis = [v if isinstance(v, Diagnosis) else Diagnosis(**as_dict(v)) for v in self.comorbid_diagnosis]
 
-        if self.index_timepoint is not None and not isinstance(self.index_timepoint, EnumCRDCHResearchSubjectIndexTimepoint):
-            self.index_timepoint = EnumCRDCHResearchSubjectIndexTimepoint(self.index_timepoint)
+        if self.index_timepoint is not None and not isinstance(self.index_timepoint, CodeableConcept):
+            self.index_timepoint = CodeableConcept(**as_dict(self.index_timepoint))
 
         if self.originating_site is not None and not isinstance(self.originating_site, Organization):
             self.originating_site = Organization(**as_dict(self.originating_site))
@@ -1459,14 +1468,14 @@ class Specimen(Entity):
     id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
     description: Optional[Union[str, CrdchString]] = None
-    specimen_type: Optional[Union[str, "EnumCRDCHSpecimenSpecimenType"]] = None
-    analyte_type: Optional[Union[str, "EnumCRDCHSpecimenAnalyteType"]] = None
+    specimen_type: Optional[Union[dict, CodeableConcept]] = None
+    analyte_type: Optional[Union[dict, CodeableConcept]] = None
     associated_project: Optional[Union[dict, ResearchProject]] = None
     data_provider: Optional[Union[dict, Organization]] = None
-    source_material_type: Optional[Union[str, "EnumCRDCHSpecimenSourceMaterialType"]] = None
+    source_material_type: Optional[Union[dict, CodeableConcept]] = None
     parent_specimen: Optional[Union[Union[dict, "Specimen"], List[Union[dict, "Specimen"]]]] = empty_list()
     source_subject: Optional[Union[dict, "Subject"]] = None
-    tumor_status_at_collection: Optional[Union[str, "EnumCRDCHSpecimenTumorStatusAtCollection"]] = None
+    tumor_status_at_collection: Optional[Union[dict, CodeableConcept]] = None
     creation_activity: Optional[Union[dict, "SpecimenCreationActivity"]] = None
     processing_activity: Optional[Union[Union[dict, "SpecimenProcessingActivity"], List[Union[dict, "SpecimenProcessingActivity"]]]] = empty_list()
     storage_activity: Optional[Union[Union[dict, "SpecimenStorageActivity"], List[Union[dict, "SpecimenStorageActivity"]]]] = empty_list()
@@ -1475,18 +1484,18 @@ class Specimen(Entity):
     dimensional_measures: Optional[Union[dict, DimensionalObservationSet]] = None
     quantity_measure: Optional[Union[Union[dict, "SpecimenQuantityObservation"], List[Union[dict, "SpecimenQuantityObservation"]]]] = empty_list()
     quality_measure: Optional[Union[Union[dict, "SpecimenQualityObservation"], List[Union[dict, "SpecimenQualityObservation"]]]] = empty_list()
-    cellular_composition_type: Optional[Union[str, "EnumCRDCHSpecimenCellularCompositionType"]] = None
+    cellular_composition_type: Optional[Union[dict, CodeableConcept]] = None
     histological_composition_measures: Optional[Union[Union[dict, HistologicalCompositionObservationSet], List[Union[dict, HistologicalCompositionObservationSet]]]] = empty_list()
-    general_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenGeneralTissueMorphology"]] = None
-    specific_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenSpecificTissueMorphology"]] = None
-    preinvasive_tissue_morphology: Optional[Union[str, "EnumCRDCHSpecimenPreinvasiveTissueMorphology"]] = None
+    general_tissue_pathology: Optional[Union[dict, CodeableConcept]] = None
+    specific_tissue_pathology: Optional[Union[dict, CodeableConcept]] = None
+    preinvasive_tissue_morphology: Optional[Union[dict, CodeableConcept]] = None
     morphology_pathologically_confirmed: Optional[Union[bool, CrdchBoolean]] = None
-    morphology_assessor_role: Optional[Union[str, "EnumCRDCHSpecimenMorphologyAssessorRole"]] = None
-    morphology_assessment_method: Optional[Union[str, "EnumCRDCHSpecimenMorphologyAssessmentMethod"]] = None
-    degree_of_dysplasia: Optional[Union[str, "EnumCRDCHSpecimenDegreeOfDysplasia"]] = None
+    morphology_assessor_role: Optional[Union[dict, CodeableConcept]] = None
+    morphology_assessment_method: Optional[Union[dict, CodeableConcept]] = None
+    degree_of_dysplasia: Optional[Union[dict, CodeableConcept]] = None
     dysplasia_fraction: Optional[Union[str, CrdchString]] = None
     related_document: Optional[Union[Union[dict, Document], List[Union[dict, Document]]]] = empty_list()
-    section_location: Optional[Union[str, "EnumCRDCHSpecimenSectionLocation"]] = None
+    section_location: Optional[Union[dict, CodeableConcept]] = None
     derived_product: Optional[Union[Union[dict, BiologicProduct], List[Union[dict, BiologicProduct]]]] = empty_list()
     distance_from_paired_specimen: Optional[Union[dict, Quantity]] = None
 
@@ -1499,11 +1508,11 @@ class Specimen(Entity):
         if self.description is not None and not isinstance(self.description, CrdchString):
             self.description = CrdchString(self.description)
 
-        if self.specimen_type is not None and not isinstance(self.specimen_type, EnumCRDCHSpecimenSpecimenType):
-            self.specimen_type = EnumCRDCHSpecimenSpecimenType(self.specimen_type)
+        if self.specimen_type is not None and not isinstance(self.specimen_type, CodeableConcept):
+            self.specimen_type = CodeableConcept(**as_dict(self.specimen_type))
 
-        if self.analyte_type is not None and not isinstance(self.analyte_type, EnumCRDCHSpecimenAnalyteType):
-            self.analyte_type = EnumCRDCHSpecimenAnalyteType(self.analyte_type)
+        if self.analyte_type is not None and not isinstance(self.analyte_type, CodeableConcept):
+            self.analyte_type = CodeableConcept(**as_dict(self.analyte_type))
 
         if self.associated_project is not None and not isinstance(self.associated_project, ResearchProject):
             self.associated_project = ResearchProject(**as_dict(self.associated_project))
@@ -1511,8 +1520,8 @@ class Specimen(Entity):
         if self.data_provider is not None and not isinstance(self.data_provider, Organization):
             self.data_provider = Organization(**as_dict(self.data_provider))
 
-        if self.source_material_type is not None and not isinstance(self.source_material_type, EnumCRDCHSpecimenSourceMaterialType):
-            self.source_material_type = EnumCRDCHSpecimenSourceMaterialType(self.source_material_type)
+        if self.source_material_type is not None and not isinstance(self.source_material_type, CodeableConcept):
+            self.source_material_type = CodeableConcept(**as_dict(self.source_material_type))
 
         if not isinstance(self.parent_specimen, list):
             self.parent_specimen = [self.parent_specimen] if self.parent_specimen is not None else []
@@ -1521,8 +1530,8 @@ class Specimen(Entity):
         if self.source_subject is not None and not isinstance(self.source_subject, Subject):
             self.source_subject = Subject(**as_dict(self.source_subject))
 
-        if self.tumor_status_at_collection is not None and not isinstance(self.tumor_status_at_collection, EnumCRDCHSpecimenTumorStatusAtCollection):
-            self.tumor_status_at_collection = EnumCRDCHSpecimenTumorStatusAtCollection(self.tumor_status_at_collection)
+        if self.tumor_status_at_collection is not None and not isinstance(self.tumor_status_at_collection, CodeableConcept):
+            self.tumor_status_at_collection = CodeableConcept(**as_dict(self.tumor_status_at_collection))
 
         if self.creation_activity is not None and not isinstance(self.creation_activity, SpecimenCreationActivity):
             self.creation_activity = SpecimenCreationActivity(**as_dict(self.creation_activity))
@@ -1549,31 +1558,31 @@ class Specimen(Entity):
 
         self._normalize_inlined_as_list(slot_name="quality_measure", slot_type=SpecimenQualityObservation, key_name="observation_type", keyed=False)
 
-        if self.cellular_composition_type is not None and not isinstance(self.cellular_composition_type, EnumCRDCHSpecimenCellularCompositionType):
-            self.cellular_composition_type = EnumCRDCHSpecimenCellularCompositionType(self.cellular_composition_type)
+        if self.cellular_composition_type is not None and not isinstance(self.cellular_composition_type, CodeableConcept):
+            self.cellular_composition_type = CodeableConcept(**as_dict(self.cellular_composition_type))
 
         self._normalize_inlined_as_list(slot_name="histological_composition_measures", slot_type=HistologicalCompositionObservationSet, key_name="id", keyed=False)
 
-        if self.general_tissue_morphology is not None and not isinstance(self.general_tissue_morphology, EnumCRDCHSpecimenGeneralTissueMorphology):
-            self.general_tissue_morphology = EnumCRDCHSpecimenGeneralTissueMorphology(self.general_tissue_morphology)
+        if self.general_tissue_pathology is not None and not isinstance(self.general_tissue_pathology, CodeableConcept):
+            self.general_tissue_pathology = CodeableConcept(**as_dict(self.general_tissue_pathology))
 
-        if self.specific_tissue_morphology is not None and not isinstance(self.specific_tissue_morphology, EnumCRDCHSpecimenSpecificTissueMorphology):
-            self.specific_tissue_morphology = EnumCRDCHSpecimenSpecificTissueMorphology(self.specific_tissue_morphology)
+        if self.specific_tissue_pathology is not None and not isinstance(self.specific_tissue_pathology, CodeableConcept):
+            self.specific_tissue_pathology = CodeableConcept(**as_dict(self.specific_tissue_pathology))
 
-        if self.preinvasive_tissue_morphology is not None and not isinstance(self.preinvasive_tissue_morphology, EnumCRDCHSpecimenPreinvasiveTissueMorphology):
-            self.preinvasive_tissue_morphology = EnumCRDCHSpecimenPreinvasiveTissueMorphology(self.preinvasive_tissue_morphology)
+        if self.preinvasive_tissue_morphology is not None and not isinstance(self.preinvasive_tissue_morphology, CodeableConcept):
+            self.preinvasive_tissue_morphology = CodeableConcept(**as_dict(self.preinvasive_tissue_morphology))
 
         if self.morphology_pathologically_confirmed is not None and not isinstance(self.morphology_pathologically_confirmed, CrdchBoolean):
             self.morphology_pathologically_confirmed = CrdchBoolean(self.morphology_pathologically_confirmed)
 
-        if self.morphology_assessor_role is not None and not isinstance(self.morphology_assessor_role, EnumCRDCHSpecimenMorphologyAssessorRole):
-            self.morphology_assessor_role = EnumCRDCHSpecimenMorphologyAssessorRole(self.morphology_assessor_role)
+        if self.morphology_assessor_role is not None and not isinstance(self.morphology_assessor_role, CodeableConcept):
+            self.morphology_assessor_role = CodeableConcept(**as_dict(self.morphology_assessor_role))
 
-        if self.morphology_assessment_method is not None and not isinstance(self.morphology_assessment_method, EnumCRDCHSpecimenMorphologyAssessmentMethod):
-            self.morphology_assessment_method = EnumCRDCHSpecimenMorphologyAssessmentMethod(self.morphology_assessment_method)
+        if self.morphology_assessment_method is not None and not isinstance(self.morphology_assessment_method, CodeableConcept):
+            self.morphology_assessment_method = CodeableConcept(**as_dict(self.morphology_assessment_method))
 
-        if self.degree_of_dysplasia is not None and not isinstance(self.degree_of_dysplasia, EnumCRDCHSpecimenDegreeOfDysplasia):
-            self.degree_of_dysplasia = EnumCRDCHSpecimenDegreeOfDysplasia(self.degree_of_dysplasia)
+        if self.degree_of_dysplasia is not None and not isinstance(self.degree_of_dysplasia, CodeableConcept):
+            self.degree_of_dysplasia = CodeableConcept(**as_dict(self.degree_of_dysplasia))
 
         if self.dysplasia_fraction is not None and not isinstance(self.dysplasia_fraction, CrdchString):
             self.dysplasia_fraction = CrdchString(self.dysplasia_fraction)
@@ -1582,8 +1591,8 @@ class Specimen(Entity):
             self.related_document = [self.related_document] if self.related_document is not None else []
         self.related_document = [v if isinstance(v, Document) else Document(**as_dict(v)) for v in self.related_document]
 
-        if self.section_location is not None and not isinstance(self.section_location, EnumCRDCHSpecimenSectionLocation):
-            self.section_location = EnumCRDCHSpecimenSectionLocation(self.section_location)
+        if self.section_location is not None and not isinstance(self.section_location, CodeableConcept):
+            self.section_location = CodeableConcept(**as_dict(self.section_location))
 
         if not isinstance(self.derived_product, list):
             self.derived_product = [self.derived_product] if self.derived_product is not None else []
@@ -1610,7 +1619,7 @@ class SpecimenContainer(Entity):
 
     id: Optional[Union[str, CrdchString]] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
-    container_type: Optional[Union[str, "EnumCRDCHSpecimenContainerContainerType"]] = None
+    container_type: Optional[Union[dict, CodeableConcept]] = None
     container_number: Optional[Union[str, CrdchString]] = None
     additive: Optional[Union[Union[dict, "Substance"], List[Union[dict, "Substance"]]]] = empty_list()
     parent_container: Optional[Union[dict, "SpecimenContainer"]] = None
@@ -1621,8 +1630,8 @@ class SpecimenContainer(Entity):
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.container_type is not None and not isinstance(self.container_type, EnumCRDCHSpecimenContainerContainerType):
-            self.container_type = EnumCRDCHSpecimenContainerContainerType(self.container_type)
+        if self.container_type is not None and not isinstance(self.container_type, CodeableConcept):
+            self.container_type = CodeableConcept(**as_dict(self.container_type))
 
         if self.container_number is not None and not isinstance(self.container_number, CrdchString):
             self.container_number = CrdchString(self.container_number)
@@ -1650,12 +1659,12 @@ class SpecimenCreationActivity(Entity):
     class_name: ClassVar[str] = "SpecimenCreationActivity"
     class_model_uri: ClassVar[URIRef] = CRDCH.SpecimenCreationActivity
 
-    activity_type: Optional[Union[str, "EnumCRDCHSpecimenCreationActivityActivityType"]] = None
+    activity_type: Optional[Union[dict, CodeableConcept]] = None
     date_started: Optional[Union[dict, "TimePoint"]] = None
     date_ended: Optional[Union[dict, "TimePoint"]] = None
     performed_by: Optional[Union[dict, Organization]] = None
-    collection_method_type: Optional[Union[str, "EnumCRDCHSpecimenCreationActivityCollectionMethodType"]] = None
-    derivation_method_type: Optional[Union[str, "EnumCRDCHSpecimenCreationActivityDerivationMethodType"]] = None
+    collection_method_type: Optional[Union[dict, CodeableConcept]] = None
+    derivation_method_type: Optional[Union[dict, CodeableConcept]] = None
     additive: Optional[Union[Union[dict, "Substance"], List[Union[dict, "Substance"]]]] = empty_list()
     collection_site: Optional[Union[dict, BodySite]] = None
     quantity_collected: Optional[Union[dict, Quantity]] = None
@@ -1664,8 +1673,8 @@ class SpecimenCreationActivity(Entity):
     specimen_order: Optional[Union[int, CrdchInteger]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.activity_type is not None and not isinstance(self.activity_type, EnumCRDCHSpecimenCreationActivityActivityType):
-            self.activity_type = EnumCRDCHSpecimenCreationActivityActivityType(self.activity_type)
+        if self.activity_type is not None and not isinstance(self.activity_type, CodeableConcept):
+            self.activity_type = CodeableConcept(**as_dict(self.activity_type))
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
             self.date_started = TimePoint(**as_dict(self.date_started))
@@ -1676,11 +1685,11 @@ class SpecimenCreationActivity(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
 
-        if self.collection_method_type is not None and not isinstance(self.collection_method_type, EnumCRDCHSpecimenCreationActivityCollectionMethodType):
-            self.collection_method_type = EnumCRDCHSpecimenCreationActivityCollectionMethodType(self.collection_method_type)
+        if self.collection_method_type is not None and not isinstance(self.collection_method_type, CodeableConcept):
+            self.collection_method_type = CodeableConcept(**as_dict(self.collection_method_type))
 
-        if self.derivation_method_type is not None and not isinstance(self.derivation_method_type, EnumCRDCHSpecimenCreationActivityDerivationMethodType):
-            self.derivation_method_type = EnumCRDCHSpecimenCreationActivityDerivationMethodType(self.derivation_method_type)
+        if self.derivation_method_type is not None and not isinstance(self.derivation_method_type, CodeableConcept):
+            self.derivation_method_type = CodeableConcept(**as_dict(self.derivation_method_type))
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
@@ -1715,11 +1724,11 @@ class SpecimenQualityObservation(Entity):
     class_name: ClassVar[str] = "SpecimenQualityObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.SpecimenQualityObservation
 
-    observation_type: Union[str, "EnumCRDCHSpecimenQualityObservationObservationType"] = None
+    observation_type: Union[dict, CodeableConcept] = None
     value_quantity: Union[dict, Quantity] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHSpecimenQualityObservationCategory"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHSpecimenQualityObservationMethodType"], List[Union[str, "EnumCRDCHSpecimenQualityObservationMethodType"]]]] = empty_list()
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, Organization]] = None
@@ -1727,8 +1736,8 @@ class SpecimenQualityObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHSpecimenQualityObservationObservationType):
-            self.observation_type = EnumCRDCHSpecimenQualityObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_quantity):
             self.MissingRequiredField("value_quantity")
@@ -1738,12 +1747,12 @@ class SpecimenQualityObservation(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHSpecimenQualityObservationCategory):
-            self.category = EnumCRDCHSpecimenQualityObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHSpecimenQualityObservationMethodType) else EnumCRDCHSpecimenQualityObservationMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -1771,11 +1780,11 @@ class SpecimenQuantityObservation(Entity):
     class_name: ClassVar[str] = "SpecimenQuantityObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.SpecimenQuantityObservation
 
-    observation_type: Union[str, "EnumCRDCHSpecimenQuantityObservationObservationType"] = None
+    observation_type: Union[dict, CodeableConcept] = None
     value_quantity: Union[dict, Quantity] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHSpecimenQuantityObservationCategory"]] = None
-    method_type: Optional[Union[Union[str, "EnumCRDCHSpecimenQuantityObservationMethodType"], List[Union[str, "EnumCRDCHSpecimenQuantityObservationMethodType"]]]] = empty_list()
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     focus: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     subject: Optional[Union[dict, "Subject"]] = None
     performed_by: Optional[Union[dict, Organization]] = None
@@ -1783,8 +1792,8 @@ class SpecimenQuantityObservation(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHSpecimenQuantityObservationObservationType):
-            self.observation_type = EnumCRDCHSpecimenQuantityObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self._is_empty(self.value_quantity):
             self.MissingRequiredField("value_quantity")
@@ -1794,12 +1803,12 @@ class SpecimenQuantityObservation(Entity):
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHSpecimenQuantityObservationCategory):
-            self.category = EnumCRDCHSpecimenQuantityObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
         if not isinstance(self.method_type, list):
             self.method_type = [self.method_type] if self.method_type is not None else []
-        self.method_type = [v if isinstance(v, EnumCRDCHSpecimenQuantityObservationMethodType) else EnumCRDCHSpecimenQuantityObservationMethodType(v) for v in self.method_type]
+        self.method_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.method_type]
 
         if not isinstance(self.focus, list):
             self.focus = [self.focus] if self.focus is not None else []
@@ -1828,19 +1837,19 @@ class SpecimenProcessingActivity(Entity):
     class_name: ClassVar[str] = "SpecimenProcessingActivity"
     class_model_uri: ClassVar[URIRef] = CRDCH.SpecimenProcessingActivity
 
-    activity_type: Optional[Union[str, "EnumCRDCHSpecimenProcessingActivityActivityType"]] = None
+    activity_type: Optional[Union[dict, CodeableConcept]] = None
     date_started: Optional[Union[dict, "TimePoint"]] = None
     date_ended: Optional[Union[dict, "TimePoint"]] = None
     duration: Optional[Union[Union[dict, Quantity], List[Union[dict, Quantity]]]] = empty_list()
     performed_by: Optional[Union[dict, Organization]] = None
-    method_type: Optional[Union[str, "EnumCRDCHSpecimenProcessingActivityMethodType"]] = None
+    method_type: Optional[Union[dict, CodeableConcept]] = None
     additive: Optional[Union[Union[dict, "Substance"], List[Union[dict, "Substance"]]]] = empty_list()
     execution_time_observation: Optional[Union[Union[dict, ExecutionTimeObservation], List[Union[dict, ExecutionTimeObservation]]]] = empty_list()
     execution_condition_observation: Optional[Union[Union[dict, ExecutionConditionObservation], List[Union[dict, ExecutionConditionObservation]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.activity_type is not None and not isinstance(self.activity_type, EnumCRDCHSpecimenProcessingActivityActivityType):
-            self.activity_type = EnumCRDCHSpecimenProcessingActivityActivityType(self.activity_type)
+        if self.activity_type is not None and not isinstance(self.activity_type, CodeableConcept):
+            self.activity_type = CodeableConcept(**as_dict(self.activity_type))
 
         if self.date_started is not None and not isinstance(self.date_started, TimePoint):
             self.date_started = TimePoint(**as_dict(self.date_started))
@@ -1855,8 +1864,8 @@ class SpecimenProcessingActivity(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHSpecimenProcessingActivityMethodType):
-            self.method_type = EnumCRDCHSpecimenProcessingActivityMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if not isinstance(self.additive, list):
             self.additive = [self.additive] if self.additive is not None else []
@@ -1887,7 +1896,7 @@ class SpecimenStorageActivity(Entity):
     date_ended: Optional[Union[dict, "TimePoint"]] = None
     duration: Optional[Union[dict, Quantity]] = None
     performed_by: Optional[Union[dict, Organization]] = None
-    method_type: Optional[Union[str, "EnumCRDCHSpecimenStorageActivityMethodType"]] = None
+    method_type: Optional[Union[dict, CodeableConcept]] = None
     container: Optional[Union[Union[dict, SpecimenContainer], List[Union[dict, SpecimenContainer]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1903,8 +1912,8 @@ class SpecimenStorageActivity(Entity):
         if self.performed_by is not None and not isinstance(self.performed_by, Organization):
             self.performed_by = Organization(**as_dict(self.performed_by))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHSpecimenStorageActivityMethodType):
-            self.method_type = EnumCRDCHSpecimenStorageActivityMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if not isinstance(self.container, list):
             self.container = [self.container] if self.container is not None else []
@@ -1973,16 +1982,16 @@ class Subject(Entity):
 
     id: Union[str, CrdchString] = None
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
-    species: Optional[Union[str, "EnumCRDCHSubjectSpecies"]] = None
-    breed: Optional[Union[str, "EnumCRDCHSubjectBreed"]] = None
-    sex: Optional[Union[str, "EnumCRDCHSubjectSex"]] = None
-    ethnicity: Optional[Union[str, "EnumCRDCHSubjectEthnicity"]] = None
-    race: Optional[Union[Union[str, "EnumCRDCHSubjectRace"], List[Union[str, "EnumCRDCHSubjectRace"]]]] = empty_list()
+    species: Optional[Union[dict, CodeableConcept]] = None
+    breed: Optional[Union[dict, CodeableConcept]] = None
+    sex: Optional[Union[dict, CodeableConcept]] = None
+    ethnicity: Optional[Union[dict, CodeableConcept]] = None
+    race: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     year_of_birth: Optional[Union[int, CrdchInteger]] = None
-    vital_status: Optional[Union[str, "EnumCRDCHSubjectVitalStatus"]] = None
+    vital_status: Optional[Union[dict, CodeableConcept]] = None
     age_at_death: Optional[Union[dict, Quantity]] = None
     year_of_death: Optional[Union[int, CrdchInteger]] = None
-    cause_of_death: Optional[Union[str, "EnumCRDCHSubjectCauseOfDeath"]] = None
+    cause_of_death: Optional[Union[dict, CodeableConcept]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -1992,27 +2001,27 @@ class Subject(Entity):
 
         self._normalize_inlined_as_list(slot_name="identifier", slot_type=Identifier, key_name="value", keyed=False)
 
-        if self.species is not None and not isinstance(self.species, EnumCRDCHSubjectSpecies):
-            self.species = EnumCRDCHSubjectSpecies(self.species)
+        if self.species is not None and not isinstance(self.species, CodeableConcept):
+            self.species = CodeableConcept(**as_dict(self.species))
 
-        if self.breed is not None and not isinstance(self.breed, EnumCRDCHSubjectBreed):
-            self.breed = EnumCRDCHSubjectBreed(self.breed)
+        if self.breed is not None and not isinstance(self.breed, CodeableConcept):
+            self.breed = CodeableConcept(**as_dict(self.breed))
 
-        if self.sex is not None and not isinstance(self.sex, EnumCRDCHSubjectSex):
-            self.sex = EnumCRDCHSubjectSex(self.sex)
+        if self.sex is not None and not isinstance(self.sex, CodeableConcept):
+            self.sex = CodeableConcept(**as_dict(self.sex))
 
-        if self.ethnicity is not None and not isinstance(self.ethnicity, EnumCRDCHSubjectEthnicity):
-            self.ethnicity = EnumCRDCHSubjectEthnicity(self.ethnicity)
+        if self.ethnicity is not None and not isinstance(self.ethnicity, CodeableConcept):
+            self.ethnicity = CodeableConcept(**as_dict(self.ethnicity))
 
         if not isinstance(self.race, list):
             self.race = [self.race] if self.race is not None else []
-        self.race = [v if isinstance(v, EnumCRDCHSubjectRace) else EnumCRDCHSubjectRace(v) for v in self.race]
+        self.race = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.race]
 
         if self.year_of_birth is not None and not isinstance(self.year_of_birth, CrdchInteger):
             self.year_of_birth = CrdchInteger(self.year_of_birth)
 
-        if self.vital_status is not None and not isinstance(self.vital_status, EnumCRDCHSubjectVitalStatus):
-            self.vital_status = EnumCRDCHSubjectVitalStatus(self.vital_status)
+        if self.vital_status is not None and not isinstance(self.vital_status, CodeableConcept):
+            self.vital_status = CodeableConcept(**as_dict(self.vital_status))
 
         if self.age_at_death is not None and not isinstance(self.age_at_death, Quantity):
             self.age_at_death = Quantity(**as_dict(self.age_at_death))
@@ -2020,8 +2029,8 @@ class Subject(Entity):
         if self.year_of_death is not None and not isinstance(self.year_of_death, CrdchInteger):
             self.year_of_death = CrdchInteger(self.year_of_death)
 
-        if self.cause_of_death is not None and not isinstance(self.cause_of_death, EnumCRDCHSubjectCauseOfDeath):
-            self.cause_of_death = EnumCRDCHSubjectCauseOfDeath(self.cause_of_death)
+        if self.cause_of_death is not None and not isinstance(self.cause_of_death, CodeableConcept):
+            self.cause_of_death = CodeableConcept(**as_dict(self.cause_of_death))
 
         super().__post_init__(**kwargs)
 
@@ -2039,17 +2048,17 @@ class Substance(Entity):
     class_name: ClassVar[str] = "Substance"
     class_model_uri: ClassVar[URIRef] = CRDCH.Substance
 
-    substance_type: Optional[Union[str, "EnumCRDCHSubstanceSubstanceType"]] = None
-    role: Optional[Union[Union[str, "EnumCRDCHSubstanceRole"], List[Union[str, "EnumCRDCHSubstanceRole"]]]] = empty_list()
+    substance_type: Optional[Union[dict, CodeableConcept]] = None
+    role: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
     substance_quantity: Optional[Union[dict, Quantity]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.substance_type is not None and not isinstance(self.substance_type, EnumCRDCHSubstanceSubstanceType):
-            self.substance_type = EnumCRDCHSubstanceSubstanceType(self.substance_type)
+        if self.substance_type is not None and not isinstance(self.substance_type, CodeableConcept):
+            self.substance_type = CodeableConcept(**as_dict(self.substance_type))
 
         if not isinstance(self.role, list):
             self.role = [self.role] if self.role is not None else []
-        self.role = [v if isinstance(v, EnumCRDCHSubstanceRole) else EnumCRDCHSubstanceRole(v) for v in self.role]
+        self.role = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.role]
 
         if self.substance_quantity is not None and not isinstance(self.substance_quantity, Quantity):
             self.substance_quantity = Quantity(**as_dict(self.substance_quantity))
@@ -2060,8 +2069,9 @@ class Substance(Entity):
 @dataclass
 class TimePoint(Entity):
     """
-    A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or
-    specification in terms of offset from a defined index.
+    A structured representation of a single point in time that allows direct/explicit declaration as a dateTime,
+    specification in terms of offset from a defined index, or description of an event type as a proxy for the time
+    point when it occurred.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2074,7 +2084,7 @@ class TimePoint(Entity):
     date_time: Optional[Union[str, CrdchDateTime]] = None
     index_time_point: Optional[Union[dict, "TimePoint"]] = None
     offset_from_index: Optional[Union[dict, Quantity]] = None
-    event_type: Optional[Union[Union[str, "EnumCRDCHTimePointEventType"], List[Union[str, "EnumCRDCHTimePointEventType"]]]] = empty_list()
+    event_type: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is not None and not isinstance(self.id, CrdchString):
@@ -2091,7 +2101,7 @@ class TimePoint(Entity):
 
         if not isinstance(self.event_type, list):
             self.event_type = [self.event_type] if self.event_type is not None else []
-        self.event_type = [v if isinstance(v, EnumCRDCHTimePointEventType) else EnumCRDCHTimePointEventType(v) for v in self.event_type]
+        self.event_type = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.event_type]
 
         super().__post_init__(**kwargs)
 
@@ -2134,30 +2144,30 @@ class TobaccoExposureObservation(Entity):
     class_name: ClassVar[str] = "TobaccoExposureObservation"
     class_model_uri: ClassVar[URIRef] = CRDCH.TobaccoExposureObservation
 
-    observation_type: Union[str, "EnumCRDCHTobaccoExposureObservationObservationType"] = None
+    observation_type: Union[dict, CodeableConcept] = None
     id: Optional[Union[str, CrdchString]] = None
-    category: Optional[Union[str, "EnumCRDCHTobaccoExposureObservationCategory"]] = None
-    method_type: Optional[Union[str, "EnumCRDCHTobaccoExposureObservationMethodType"]] = None
+    category: Optional[Union[dict, CodeableConcept]] = None
+    method_type: Optional[Union[dict, CodeableConcept]] = None
     focus: Optional[Union[dict, Entity]] = None
     subject: Optional[Union[dict, Subject]] = None
     performed_by: Optional[Union[dict, Organization]] = None
     value_integer: Optional[Union[int, CrdchInteger]] = None
-    value_codeable_concept: Optional[Union[str, "EnumCRDCHTobaccoExposureObservationValueCodeableConcept"]] = None
+    value_codeable_concept: Optional[Union[dict, CodeableConcept]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.observation_type):
             self.MissingRequiredField("observation_type")
-        if not isinstance(self.observation_type, EnumCRDCHTobaccoExposureObservationObservationType):
-            self.observation_type = EnumCRDCHTobaccoExposureObservationObservationType(self.observation_type)
+        if not isinstance(self.observation_type, CodeableConcept):
+            self.observation_type = CodeableConcept(**as_dict(self.observation_type))
 
         if self.id is not None and not isinstance(self.id, CrdchString):
             self.id = CrdchString(self.id)
 
-        if self.category is not None and not isinstance(self.category, EnumCRDCHTobaccoExposureObservationCategory):
-            self.category = EnumCRDCHTobaccoExposureObservationCategory(self.category)
+        if self.category is not None and not isinstance(self.category, CodeableConcept):
+            self.category = CodeableConcept(**as_dict(self.category))
 
-        if self.method_type is not None and not isinstance(self.method_type, EnumCRDCHTobaccoExposureObservationMethodType):
-            self.method_type = EnumCRDCHTobaccoExposureObservationMethodType(self.method_type)
+        if self.method_type is not None and not isinstance(self.method_type, CodeableConcept):
+            self.method_type = CodeableConcept(**as_dict(self.method_type))
 
         if self.focus is not None and not isinstance(self.focus, Entity):
             self.focus = Entity()
@@ -2171,8 +2181,8 @@ class TobaccoExposureObservation(Entity):
         if self.value_integer is not None and not isinstance(self.value_integer, CrdchInteger):
             self.value_integer = CrdchInteger(self.value_integer)
 
-        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, EnumCRDCHTobaccoExposureObservationValueCodeableConcept):
-            self.value_codeable_concept = EnumCRDCHTobaccoExposureObservationValueCodeableConcept(self.value_codeable_concept)
+        if self.value_codeable_concept is not None and not isinstance(self.value_codeable_concept, CodeableConcept):
+            self.value_codeable_concept = CodeableConcept(**as_dict(self.value_codeable_concept))
 
         super().__post_init__(**kwargs)
 
@@ -2193,19 +2203,19 @@ class Treatment(Entity):
     identifier: Optional[Union[Union[dict, Identifier], List[Union[dict, Identifier]]]] = empty_list()
     treatment_for_diagnosis: Optional[Union[Union[dict, Diagnosis], List[Union[dict, Diagnosis]]]] = empty_list()
     concurrent_treatment: Optional[Union[Union[dict, "Treatment"], List[Union[dict, "Treatment"]]]] = empty_list()
-    treatment_type: Optional[Union[str, "EnumCRDCHTreatmentTreatmentType"]] = None
+    treatment_type: Optional[Union[dict, CodeableConcept]] = None
     subject: Optional[Union[dict, Subject]] = None
     date_started: Optional[Union[dict, TimePoint]] = None
     date_ended: Optional[Union[dict, TimePoint]] = None
-    treatment_end_reason: Optional[Union[Union[str, "EnumCRDCHTreatmentTreatmentEndReason"], List[Union[str, "EnumCRDCHTreatmentTreatmentEndReason"]]]] = empty_list()
-    regimen: Optional[Union[str, "EnumCRDCHTreatmentRegimen"]] = None
+    treatment_end_reason: Optional[Union[Union[dict, CodeableConcept], List[Union[dict, CodeableConcept]]]] = empty_list()
+    regimen: Optional[Union[dict, CodeableConcept]] = None
     therapeutic_agent: Optional[Union[dict, Substance]] = None
     number_of_cycles: Optional[Union[int, CrdchInteger]] = None
-    treatment_frequency: Optional[Union[str, "EnumCRDCHTreatmentTreatmentFrequency"]] = None
+    treatment_frequency: Optional[Union[dict, CodeableConcept]] = None
     treatment_anatomic_site: Optional[Union[dict, BodySite]] = None
-    treatment_intent: Optional[Union[str, "EnumCRDCHTreatmentTreatmentIntent"]] = None
-    treatment_effect: Optional[Union[str, "EnumCRDCHTreatmentTreatmentEffect"]] = None
-    treatment_outcome: Optional[Union[str, "EnumCRDCHTreatmentTreatmentOutcome"]] = None
+    treatment_intent: Optional[Union[dict, CodeableConcept]] = None
+    treatment_effect: Optional[Union[dict, CodeableConcept]] = None
+    treatment_outcome: Optional[Union[dict, CodeableConcept]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.id is not None and not isinstance(self.id, CrdchString):
@@ -2221,8 +2231,8 @@ class Treatment(Entity):
             self.concurrent_treatment = [self.concurrent_treatment] if self.concurrent_treatment is not None else []
         self.concurrent_treatment = [v if isinstance(v, Treatment) else Treatment(**as_dict(v)) for v in self.concurrent_treatment]
 
-        if self.treatment_type is not None and not isinstance(self.treatment_type, EnumCRDCHTreatmentTreatmentType):
-            self.treatment_type = EnumCRDCHTreatmentTreatmentType(self.treatment_type)
+        if self.treatment_type is not None and not isinstance(self.treatment_type, CodeableConcept):
+            self.treatment_type = CodeableConcept(**as_dict(self.treatment_type))
 
         if self.subject is not None and not isinstance(self.subject, Subject):
             self.subject = Subject(**as_dict(self.subject))
@@ -2235,10 +2245,10 @@ class Treatment(Entity):
 
         if not isinstance(self.treatment_end_reason, list):
             self.treatment_end_reason = [self.treatment_end_reason] if self.treatment_end_reason is not None else []
-        self.treatment_end_reason = [v if isinstance(v, EnumCRDCHTreatmentTreatmentEndReason) else EnumCRDCHTreatmentTreatmentEndReason(v) for v in self.treatment_end_reason]
+        self.treatment_end_reason = [v if isinstance(v, CodeableConcept) else CodeableConcept(**as_dict(v)) for v in self.treatment_end_reason]
 
-        if self.regimen is not None and not isinstance(self.regimen, EnumCRDCHTreatmentRegimen):
-            self.regimen = EnumCRDCHTreatmentRegimen(self.regimen)
+        if self.regimen is not None and not isinstance(self.regimen, CodeableConcept):
+            self.regimen = CodeableConcept(**as_dict(self.regimen))
 
         if self.therapeutic_agent is not None and not isinstance(self.therapeutic_agent, Substance):
             self.therapeutic_agent = Substance(**as_dict(self.therapeutic_agent))
@@ -2246,20 +2256,20 @@ class Treatment(Entity):
         if self.number_of_cycles is not None and not isinstance(self.number_of_cycles, CrdchInteger):
             self.number_of_cycles = CrdchInteger(self.number_of_cycles)
 
-        if self.treatment_frequency is not None and not isinstance(self.treatment_frequency, EnumCRDCHTreatmentTreatmentFrequency):
-            self.treatment_frequency = EnumCRDCHTreatmentTreatmentFrequency(self.treatment_frequency)
+        if self.treatment_frequency is not None and not isinstance(self.treatment_frequency, CodeableConcept):
+            self.treatment_frequency = CodeableConcept(**as_dict(self.treatment_frequency))
 
         if self.treatment_anatomic_site is not None and not isinstance(self.treatment_anatomic_site, BodySite):
             self.treatment_anatomic_site = BodySite(**as_dict(self.treatment_anatomic_site))
 
-        if self.treatment_intent is not None and not isinstance(self.treatment_intent, EnumCRDCHTreatmentTreatmentIntent):
-            self.treatment_intent = EnumCRDCHTreatmentTreatmentIntent(self.treatment_intent)
+        if self.treatment_intent is not None and not isinstance(self.treatment_intent, CodeableConcept):
+            self.treatment_intent = CodeableConcept(**as_dict(self.treatment_intent))
 
-        if self.treatment_effect is not None and not isinstance(self.treatment_effect, EnumCRDCHTreatmentTreatmentEffect):
-            self.treatment_effect = EnumCRDCHTreatmentTreatmentEffect(self.treatment_effect)
+        if self.treatment_effect is not None and not isinstance(self.treatment_effect, CodeableConcept):
+            self.treatment_effect = CodeableConcept(**as_dict(self.treatment_effect))
 
-        if self.treatment_outcome is not None and not isinstance(self.treatment_outcome, EnumCRDCHTreatmentTreatmentOutcome):
-            self.treatment_outcome = EnumCRDCHTreatmentTreatmentOutcome(self.treatment_outcome)
+        if self.treatment_outcome is not None and not isinstance(self.treatment_outcome, CodeableConcept):
+            self.treatment_outcome = CodeableConcept(**as_dict(self.treatment_outcome))
 
         super().__post_init__(**kwargs)
 
@@ -2273,7 +2283,7 @@ class EnumCRDCHAlcoholExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHAlcoholExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:31.431109+00:00",
+        code_set_version="2021-09-17T21:00:01.954391+00:00",
     )
 
 class EnumCRDCHAlcoholExposureObservationObservationType(EnumDefinitionImpl):
@@ -2302,7 +2312,7 @@ class EnumCRDCHAlcoholExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHAlcoholExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:32.116226+00:00",
+        code_set_version="2021-09-17T21:00:02.396028+00:00",
     )
 
 class EnumCRDCHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -2313,7 +2323,7 @@ class EnumCRDCHAlcoholExposureObservationValueCodeableConcept(EnumDefinitionImpl
         name="EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H AlcoholExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:32.219779+00:00",
+        code_set_version="2021-09-17T21:00:02.639054+00:00",
     )
 
 class EnumCRDCHBodySiteSite(EnumDefinitionImpl):
@@ -2633,7 +2643,7 @@ class EnumCRDCHBodySiteSite(EnumDefinitionImpl):
         name="EnumCRDCHBodySiteSite",
         description="Autogenerated Enumeration for CRDC-H BodySite site",
         code_set=None,
-        code_set_version="2021-09-07T21:08:32.335724+00:00",
+        code_set_version="2021-09-17T21:00:02.853783+00:00",
     )
 
     @classmethod
@@ -3657,7 +3667,7 @@ class EnumCRDCHBodySiteQualifier(EnumDefinitionImpl):
         name="EnumCRDCHBodySiteQualifier",
         description="Autogenerated Enumeration for CRDC-H BodySite qualifier",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.353553+00:00",
+        code_set_version="2021-09-17T21:00:03.998678+00:00",
     )
 
     @classmethod
@@ -3673,7 +3683,7 @@ class EnumCRDCHBiologicProductProductType(EnumDefinitionImpl):
         name="EnumCRDCHBiologicProductProductType",
         description="Autogenerated Enumeration for CRDC-H BiologicProduct product_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.482548+00:00",
+        code_set_version="2021-09-17T21:00:04.652126+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationCategory(EnumDefinitionImpl):
@@ -3684,7 +3694,7 @@ class EnumCRDCHCancerGradeObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.589612+00:00",
+        code_set_version="2021-09-17T21:00:05.340352+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationObservationType(EnumDefinitionImpl):
@@ -3716,7 +3726,7 @@ class EnumCRDCHCancerGradeObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.813864+00:00",
+        code_set_version="2021-09-17T21:00:06.577419+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -3727,7 +3737,7 @@ class EnumCRDCHCancerGradeObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:33.923946+00:00",
+        code_set_version="2021-09-17T21:00:07.276556+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationSetCategory(EnumDefinitionImpl):
@@ -3738,7 +3748,7 @@ class EnumCRDCHCancerGradeObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerGradeObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerGradeObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.033726+00:00",
+        code_set_version="2021-09-17T21:00:07.464287+00:00",
     )
 
 class EnumCRDCHCancerGradeObservationSetMethodType(EnumDefinitionImpl):
@@ -3770,7 +3780,7 @@ class EnumCRDCHCancerStageObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.257170+00:00",
+        code_set_version="2021-09-17T21:00:07.842908+00:00",
     )
 
 class EnumCRDCHCancerStageObservationObservationType(EnumDefinitionImpl):
@@ -3832,7 +3842,7 @@ class EnumCRDCHCancerStageObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.478121+00:00",
+        code_set_version="2021-09-17T21:00:08.172788+00:00",
     )
 
 class EnumCRDCHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -3843,7 +3853,7 @@ class EnumCRDCHCancerStageObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.590527+00:00",
+        code_set_version="2021-09-17T21:00:08.367266+00:00",
     )
 
 class EnumCRDCHCancerStageObservationSetCategory(EnumDefinitionImpl):
@@ -3854,7 +3864,7 @@ class EnumCRDCHCancerStageObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHCancerStageObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H CancerStageObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.702334+00:00",
+        code_set_version="2021-09-17T21:00:08.538233+00:00",
     )
 
 class EnumCRDCHCancerStageObservationSetMethodType(EnumDefinitionImpl):
@@ -4116,7 +4126,7 @@ class EnumCRDCHDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H Diagnosis condition",
         code_set=None,
-        code_set_version="2021-09-07T21:08:34.924503+00:00",
+        code_set_version="2021-09-17T21:00:08.923057+00:00",
     )
 
     @classmethod
@@ -9077,7 +9087,7 @@ class EnumCRDCHDiagnosisMorphology(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisMorphology",
         description="Autogenerated Enumeration for CRDC-H Diagnosis morphology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:37.859828+00:00",
+        code_set_version="2021-09-17T21:00:12.469774+00:00",
     )
 
     @classmethod
@@ -11387,7 +11397,7 @@ class EnumCRDCHDiagnosisDiseaseStatus(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisDiseaseStatus",
         description="Autogenerated Enumeration for CRDC-H Diagnosis disease_status",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.251148+00:00",
+        code_set_version="2021-09-17T21:00:13.956153+00:00",
     )
 
     @classmethod
@@ -11436,7 +11446,7 @@ class EnumCRDCHDiagnosisMethodOfDiagnosis(EnumDefinitionImpl):
         name="EnumCRDCHDiagnosisMethodOfDiagnosis",
         description="Autogenerated Enumeration for CRDC-H Diagnosis method_of_diagnosis",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.373622+00:00",
+        code_set_version="2021-09-17T21:00:14.184406+00:00",
     )
 
     @classmethod
@@ -11494,7 +11504,7 @@ class EnumCRDCHDimensionalObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.516352+00:00",
+        code_set_version="2021-09-17T21:00:14.416282+00:00",
     )
 
 class EnumCRDCHDimensionalObservationObservationType(EnumDefinitionImpl):
@@ -11527,7 +11537,7 @@ class EnumCRDCHDimensionalObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.730507+00:00",
+        code_set_version="2021-09-17T21:00:15.200743+00:00",
     )
 
 class EnumCRDCHDimensionalObservationSetCategory(EnumDefinitionImpl):
@@ -11538,7 +11548,7 @@ class EnumCRDCHDimensionalObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.834340+00:00",
+        code_set_version="2021-09-17T21:00:15.412136+00:00",
     )
 
 class EnumCRDCHDimensionalObservationSetMethodType(EnumDefinitionImpl):
@@ -11549,7 +11559,7 @@ class EnumCRDCHDimensionalObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCRDCHDimensionalObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H DimensionalObservationSet method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:39.940391+00:00",
+        code_set_version="2021-09-17T21:00:15.618252+00:00",
     )
 
 class EnumCRDCHDocumentDocumentType(EnumDefinitionImpl):
@@ -11578,7 +11588,7 @@ class EnumCRDCHEnvironmentalExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHEnvironmentalExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.164775+00:00",
+        code_set_version="2021-09-17T21:00:16.155204+00:00",
     )
 
 class EnumCRDCHEnvironmentalExposureObservationObservationType(EnumDefinitionImpl):
@@ -11609,7 +11619,7 @@ class EnumCRDCHEnvironmentalExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHEnvironmentalExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.378679+00:00",
+        code_set_version="2021-09-17T21:00:16.680627+00:00",
     )
 
 class EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -11620,7 +11630,7 @@ class EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept(EnumDefiniti
         name="EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H EnvironmentalExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.480235+00:00",
+        code_set_version="2021-09-17T21:00:16.922153+00:00",
     )
 
 class EnumCRDCHExecutionConditionObservationCategory(EnumDefinitionImpl):
@@ -11631,7 +11641,7 @@ class EnumCRDCHExecutionConditionObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHExecutionConditionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.583103+00:00",
+        code_set_version="2021-09-17T21:00:17.133865+00:00",
     )
 
 class EnumCRDCHExecutionConditionObservationObservationType(EnumDefinitionImpl):
@@ -11655,7 +11665,7 @@ class EnumCRDCHExecutionConditionObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHExecutionConditionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.798174+00:00",
+        code_set_version="2021-09-17T21:00:17.539286+00:00",
     )
 
 class EnumCRDCHExecutionConditionObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -11666,7 +11676,7 @@ class EnumCRDCHExecutionConditionObservationValueCodeableConcept(EnumDefinitionI
         name="EnumCRDCHExecutionConditionObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H ExecutionConditionObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:40.903686+00:00",
+        code_set_version="2021-09-17T21:00:17.758322+00:00",
     )
 
 class EnumCRDCHExecutionTimeObservationCategory(EnumDefinitionImpl):
@@ -11677,7 +11687,7 @@ class EnumCRDCHExecutionTimeObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHExecutionTimeObservationCategory",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.012389+00:00",
+        code_set_version="2021-09-17T21:00:18.020517+00:00",
     )
 
 class EnumCRDCHExecutionTimeObservationObservationType(EnumDefinitionImpl):
@@ -11704,7 +11714,7 @@ class EnumCRDCHExecutionTimeObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHExecutionTimeObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H ExecutionTimeObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.223744+00:00",
+        code_set_version="2021-09-17T21:00:18.404431+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
@@ -11715,7 +11725,7 @@ class EnumCRDCHHistologicalCompositionObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHHistologicalCompositionObservationCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.326028+00:00",
+        code_set_version="2021-09-17T21:00:18.613746+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationObservationType(EnumDefinitionImpl):
@@ -11777,7 +11787,7 @@ class EnumCRDCHHistologicalCompositionObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHHistologicalCompositionObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.548147+00:00",
+        code_set_version="2021-09-17T21:00:19.061251+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl):
@@ -11788,7 +11798,7 @@ class EnumCRDCHHistologicalCompositionObservationSetCategory(EnumDefinitionImpl)
         name="EnumCRDCHHistologicalCompositionObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.650910+00:00",
+        code_set_version="2021-09-17T21:00:19.288813+00:00",
     )
 
 class EnumCRDCHHistologicalCompositionObservationSetMethodType(EnumDefinitionImpl):
@@ -11799,7 +11809,7 @@ class EnumCRDCHHistologicalCompositionObservationSetMethodType(EnumDefinitionImp
         name="EnumCRDCHHistologicalCompositionObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H HistologicalCompositionObservationSet method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.751341+00:00",
+        code_set_version="2021-09-17T21:00:19.535245+00:00",
     )
 
 class EnumCRDCHIdentifierType(EnumDefinitionImpl):
@@ -11810,7 +11820,7 @@ class EnumCRDCHIdentifierType(EnumDefinitionImpl):
         name="EnumCRDCHIdentifierType",
         description="Autogenerated Enumeration for CRDC-H Identifier type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.852956+00:00",
+        code_set_version="2021-09-17T21:00:19.734682+00:00",
     )
 
 class EnumCRDCHObservationCategory(EnumDefinitionImpl):
@@ -11821,7 +11831,7 @@ class EnumCRDCHObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHObservationCategory",
         description="Autogenerated Enumeration for CRDC-H Observation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:41.965970+00:00",
+        code_set_version="2021-09-17T21:00:19.945405+00:00",
     )
 
 class EnumCRDCHObservationObservationType(EnumDefinitionImpl):
@@ -11832,7 +11842,7 @@ class EnumCRDCHObservationObservationType(EnumDefinitionImpl):
         name="EnumCRDCHObservationObservationType",
         description="Autogenerated Enumeration for CRDC-H Observation observation_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.074790+00:00",
+        code_set_version="2021-09-17T21:00:20.165349+00:00",
     )
 
 class EnumCRDCHObservationMethodType(EnumDefinitionImpl):
@@ -11843,7 +11853,7 @@ class EnumCRDCHObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H Observation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.175220+00:00",
+        code_set_version="2021-09-17T21:00:20.361587+00:00",
     )
 
 class EnumCRDCHObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -11854,7 +11864,7 @@ class EnumCRDCHObservationValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Observation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.276728+00:00",
+        code_set_version="2021-09-17T21:00:20.572001+00:00",
     )
 
 class EnumCRDCHObservationSetCategory(EnumDefinitionImpl):
@@ -11865,7 +11875,7 @@ class EnumCRDCHObservationSetCategory(EnumDefinitionImpl):
         name="EnumCRDCHObservationSetCategory",
         description="Autogenerated Enumeration for CRDC-H ObservationSet category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.379903+00:00",
+        code_set_version="2021-09-17T21:00:20.758687+00:00",
     )
 
 class EnumCRDCHObservationSetMethodType(EnumDefinitionImpl):
@@ -11876,7 +11886,7 @@ class EnumCRDCHObservationSetMethodType(EnumDefinitionImpl):
         name="EnumCRDCHObservationSetMethodType",
         description="Autogenerated Enumeration for CRDC-H ObservationSet method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.480631+00:00",
+        code_set_version="2021-09-17T21:00:21.090886+00:00",
     )
 
 class EnumCRDCHQuantityValueCodeableConcept(EnumDefinitionImpl):
@@ -11887,7 +11897,7 @@ class EnumCRDCHQuantityValueCodeableConcept(EnumDefinitionImpl):
         name="EnumCRDCHQuantityValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H Quantity value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.587568+00:00",
+        code_set_version="2021-09-17T21:00:21.341080+00:00",
     )
 
 class EnumCRDCHQuantityUnit(EnumDefinitionImpl):
@@ -11948,7 +11958,7 @@ class EnumCRDCHResearchSubjectPrimaryDiagnosisCondition(EnumDefinitionImpl):
         name="EnumCRDCHResearchSubjectPrimaryDiagnosisCondition",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject primary_diagnosis_condition",
         code_set=None,
-        code_set_version="2021-09-07T21:08:42.904084+00:00",
+        code_set_version="2021-09-17T21:00:21.924635+00:00",
     )
 
     @classmethod
@@ -12221,7 +12231,7 @@ class EnumCRDCHResearchSubjectIndexTimepoint(EnumDefinitionImpl):
         name="EnumCRDCHResearchSubjectIndexTimepoint",
         description="Autogenerated Enumeration for CRDC-H ResearchSubject index_timepoint",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.139943+00:00",
+        code_set_version="2021-09-17T21:00:22.220774+00:00",
     )
 
     @classmethod
@@ -12261,8 +12271,8 @@ class EnumCRDCHSpecimenSpecimenType(EnumDefinitionImpl):
 
     @classmethod
     def _addvals(cls):
-        setattr(cls, "initial sample",
-                PermissibleValue(text="initial sample",
+        setattr(cls, "Fresh Specimen",
+                PermissibleValue(text="Fresh Specimen",
                                  description="A specimen representing the material that was directly collected from a subject (i.e. not generated through portioning, aliquoting, or analyte extraction from an existing specimen).") )
 
 class EnumCRDCHSpecimenAnalyteType(EnumDefinitionImpl):
@@ -12298,7 +12308,7 @@ class EnumCRDCHSpecimenAnalyteType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenAnalyteType",
         description="Autogenerated Enumeration for CRDC-H Specimen analyte_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.371740+00:00",
+        code_set_version="2021-09-17T21:00:22.611307+00:00",
     )
 
     @classmethod
@@ -12349,7 +12359,7 @@ class EnumCRDCHSpecimenSourceMaterialType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenSourceMaterialType",
         description="Autogenerated Enumeration for CRDC-H Specimen source_material_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.526142+00:00",
+        code_set_version="2021-09-17T21:00:22.851353+00:00",
     )
 
     @classmethod
@@ -12535,7 +12545,7 @@ class EnumCRDCHSpecimenTumorStatusAtCollection(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenTumorStatusAtCollection",
         description="Autogenerated Enumeration for CRDC-H Specimen tumor_status_at_collection",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.745325+00:00",
+        code_set_version="2021-09-17T21:00:23.123703+00:00",
     )
 
     @classmethod
@@ -12573,7 +12583,7 @@ class EnumCRDCHSpecimenCellularCompositionType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCellularCompositionType",
         description="Autogenerated Enumeration for CRDC-H Specimen cellular_composition_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:43.878758+00:00",
+        code_set_version="2021-09-17T21:00:23.326626+00:00",
     )
 
     @classmethod
@@ -12645,148 +12655,27 @@ class EnumCRDCHSpecimenCellularCompositionType(EnumDefinitionImpl):
         setattr(cls, "Not Allowed To Collect",
                 PermissibleValue(text="Not Allowed To Collect") )
 
-class EnumCRDCHSpecimenGeneralTissueMorphology(EnumDefinitionImpl):
+class EnumCRDCHSpecimenGeneralTissuePathology(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology
+    Autogenerated Enumeration for CRDC-H Specimen general_tissue_pathology
     """
-    Peritumoral = PermissibleValue(text="Peritumoral",
-                                             description="Peritumoral")
-    Abnormal = PermissibleValue(text="Abnormal",
-                                       description="Abnormal")
-    Normal = PermissibleValue(text="Normal",
-                                   description="Normal")
-    Unknown = PermissibleValue(text="Unknown",
-                                     description="Unknown")
-    Tumor = PermissibleValue(text="Tumor",
-                                 description="Malignant Neoplasm")
-
     _defn = EnumDefinition(
-        name="EnumCRDCHSpecimenGeneralTissueMorphology",
-        description="Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
+        name="EnumCRDCHSpecimenGeneralTissuePathology",
+        description="Autogenerated Enumeration for CRDC-H Specimen general_tissue_pathology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.026728+00:00",
+        code_set_version="2021-09-17T21:00:23.589119+00:00",
     )
 
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "Not Allowed To Collect",
-                PermissibleValue(text="Not Allowed To Collect") )
-        setattr(cls, "Not Reported",
-                PermissibleValue(text="Not Reported") )
-
-class EnumCRDCHSpecimenSpecificTissueMorphology(EnumDefinitionImpl):
+class EnumCRDCHSpecimenSpecificTissuePathology(EnumDefinitionImpl):
     """
-    Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology
+    Autogenerated Enumeration for CRDC-H Specimen specific_tissue_pathology
     """
-    Rhabdomyosarcoma = PermissibleValue(text="Rhabdomyosarcoma")
-
     _defn = EnumDefinition(
-        name="EnumCRDCHSpecimenSpecificTissueMorphology",
-        description="Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
+        name="EnumCRDCHSpecimenSpecificTissuePathology",
+        description="Autogenerated Enumeration for CRDC-H Specimen specific_tissue_pathology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.143833+00:00",
+        code_set_version="2021-09-17T21:00:23.766985+00:00",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "61",
-                PermissibleValue(text="61") )
-        setattr(cls, "70",
-                PermissibleValue(text="70") )
-        setattr(cls, "30",
-                PermissibleValue(text="30") )
-        setattr(cls, "63",
-                PermissibleValue(text="63") )
-        setattr(cls, "71",
-                PermissibleValue(text="71") )
-        setattr(cls, "51",
-                PermissibleValue(text="51") )
-        setattr(cls, "80",
-                PermissibleValue(text="80") )
-        setattr(cls, "02",
-                PermissibleValue(text="02") )
-        setattr(cls, "65",
-                PermissibleValue(text="65") )
-        setattr(cls, "04",
-                PermissibleValue(text="04") )
-        setattr(cls, "60",
-                PermissibleValue(text="60") )
-        setattr(cls, "03",
-                PermissibleValue(text="03") )
-        setattr(cls, "50",
-                PermissibleValue(text="50") )
-        setattr(cls, "52",
-                PermissibleValue(text="52") )
-        setattr(cls, "15",
-                PermissibleValue(text="15") )
-        setattr(cls, "10",
-                PermissibleValue(text="10") )
-        setattr(cls, "00",
-                PermissibleValue(text="00") )
-        setattr(cls, "01",
-                PermissibleValue(text="01") )
-        setattr(cls, "21",
-                PermissibleValue(text="21") )
-        setattr(cls, "20",
-                PermissibleValue(text="20") )
-        setattr(cls, "62",
-                PermissibleValue(text="62") )
-        setattr(cls, "40",
-                PermissibleValue(text="40") )
-        setattr(cls, "64",
-                PermissibleValue(text="64") )
-        setattr(cls, "81",
-                PermissibleValue(text="81") )
-        setattr(cls, "41",
-                PermissibleValue(text="41") )
-        setattr(cls, "Rhabdoid tumor (kidney) (RT)",
-                PermissibleValue(text="Rhabdoid tumor (kidney) (RT)") )
-        setattr(cls, "Acute myeloid leukemia (AML)",
-                PermissibleValue(text="Acute myeloid leukemia (AML)") )
-        setattr(cls, "Anal Cancer (all types)",
-                PermissibleValue(text="Anal Cancer (all types)") )
-        setattr(cls, "Non cancerous tissue",
-                PermissibleValue(text="Non cancerous tissue") )
-        setattr(cls, "CNS, low grade glioma (LGG)",
-                PermissibleValue(text="CNS, low grade glioma (LGG)") )
-        setattr(cls, "Lung Cancer (all types)",
-                PermissibleValue(text="Lung Cancer (all types)") )
-        setattr(cls, "CNS, ependymoma",
-                PermissibleValue(text="CNS, ependymoma") )
-        setattr(cls, "Induction Failure AML (AML-IF)",
-                PermissibleValue(text="Induction Failure AML (AML-IF)") )
-        setattr(cls, "Soft tissue sarcoma, non-rhabdomyosarcoma",
-                PermissibleValue(text="Soft tissue sarcoma, non-rhabdomyosarcoma") )
-        setattr(cls, "NHL, Burkitt lymphoma (BL)",
-                PermissibleValue(text="NHL, Burkitt lymphoma (BL)") )
-        setattr(cls, "Neuroblastoma (NBL)",
-                PermissibleValue(text="Neuroblastoma (NBL)") )
-        setattr(cls, "Diffuse Large B-Cell Lymphoma (DLBCL)",
-                PermissibleValue(text="Diffuse Large B-Cell Lymphoma (DLBCL)") )
-        setattr(cls, "Acute lymphoblastic leukemia (ALL)",
-                PermissibleValue(text="Acute lymphoblastic leukemia (ALL)") )
-        setattr(cls, "CNS, rhabdoid tumor",
-                PermissibleValue(text="CNS, rhabdoid tumor") )
-        setattr(cls, "CNS, medulloblastoma",
-                PermissibleValue(text="CNS, medulloblastoma") )
-        setattr(cls, "Cervical Cancer (all types)",
-                PermissibleValue(text="Cervical Cancer (all types)") )
-        setattr(cls, "NHL, anaplastic large cell lymphoma",
-                PermissibleValue(text="NHL, anaplastic large cell lymphoma") )
-        setattr(cls, "Clear cell sarcoma of the kidney (CCSK)",
-                PermissibleValue(text="Clear cell sarcoma of the kidney (CCSK)") )
-        setattr(cls, "CNS, glioblastoma (GBM)",
-                PermissibleValue(text="CNS, glioblastoma (GBM)") )
-        setattr(cls, "Acute Leukemia of Ambiguous Lineage (ALAL)",
-                PermissibleValue(text="Acute Leukemia of Ambiguous Lineage (ALAL)") )
-        setattr(cls, "CNS, other",
-                PermissibleValue(text="CNS, other") )
-        setattr(cls, "Ewing sarcoma",
-                PermissibleValue(text="Ewing sarcoma") )
-        setattr(cls, "Osteosarcoma (OS)",
-                PermissibleValue(text="Osteosarcoma (OS)") )
-        setattr(cls, "Wilms tumor (WT)",
-                PermissibleValue(text="Wilms tumor (WT)") )
 
 class EnumCRDCHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
     """
@@ -12796,7 +12685,7 @@ class EnumCRDCHSpecimenPreinvasiveTissueMorphology(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenPreinvasiveTissueMorphology",
         description="Autogenerated Enumeration for CRDC-H Specimen preinvasive_tissue_morphology",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.301214+00:00",
+        code_set_version="2021-09-17T21:00:23.961050+00:00",
     )
 
 class EnumCRDCHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
@@ -12807,7 +12696,7 @@ class EnumCRDCHSpecimenMorphologyAssessorRole(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenMorphologyAssessorRole",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessor_role",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.410467+00:00",
+        code_set_version="2021-09-17T21:00:24.184181+00:00",
     )
 
 class EnumCRDCHSpecimenMorphologyAssessmentMethod(EnumDefinitionImpl):
@@ -12818,7 +12707,7 @@ class EnumCRDCHSpecimenMorphologyAssessmentMethod(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenMorphologyAssessmentMethod",
         description="Autogenerated Enumeration for CRDC-H Specimen morphology_assessment_method",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.524474+00:00",
+        code_set_version="2021-09-17T21:00:24.451593+00:00",
     )
 
 class EnumCRDCHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
@@ -12829,7 +12718,7 @@ class EnumCRDCHSpecimenDegreeOfDysplasia(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenDegreeOfDysplasia",
         description="Autogenerated Enumeration for CRDC-H Specimen degree_of_dysplasia",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.636509+00:00",
+        code_set_version="2021-09-17T21:00:24.764866+00:00",
     )
 
 class EnumCRDCHSpecimenSectionLocation(EnumDefinitionImpl):
@@ -12856,7 +12745,7 @@ class EnumCRDCHSpecimenContainerContainerType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenContainerContainerType",
         description="Autogenerated Enumeration for CRDC-H SpecimenContainer container_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:44.851513+00:00",
+        code_set_version="2021-09-17T21:00:25.206798+00:00",
     )
 
 class EnumCRDCHSpecimenCreationActivityActivityType(EnumDefinitionImpl):
@@ -12916,7 +12805,7 @@ class EnumCRDCHSpecimenCreationActivityCollectionMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCreationActivityCollectionMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity collection_method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.084419+00:00",
+        code_set_version="2021-09-17T21:00:25.775116+00:00",
     )
 
     @classmethod
@@ -13082,7 +12971,7 @@ class EnumCRDCHSpecimenCreationActivityDerivationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenCreationActivityDerivationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenCreationActivity derivation_method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.317644+00:00",
+        code_set_version="2021-09-17T21:00:26.138409+00:00",
     )
 
 class EnumCRDCHSpecimenQualityObservationCategory(EnumDefinitionImpl):
@@ -13093,7 +12982,7 @@ class EnumCRDCHSpecimenQualityObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQualityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQualityObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.423104+00:00",
+        code_set_version="2021-09-17T21:00:26.323635+00:00",
     )
 
 class EnumCRDCHSpecimenQualityObservationObservationType(EnumDefinitionImpl):
@@ -13140,7 +13029,7 @@ class EnumCRDCHSpecimenQuantityObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQuantityObservationCategory",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.741776+00:00",
+        code_set_version="2021-09-17T21:00:27.040572+00:00",
     )
 
 class EnumCRDCHSpecimenQuantityObservationObservationType(EnumDefinitionImpl):
@@ -13168,7 +13057,7 @@ class EnumCRDCHSpecimenQuantityObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenQuantityObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenQuantityObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:45.958852+00:00",
+        code_set_version="2021-09-17T21:00:27.423037+00:00",
     )
 
 class EnumCRDCHSpecimenProcessingActivityActivityType(EnumDefinitionImpl):
@@ -13205,8 +13094,8 @@ class EnumCRDCHSpecimenProcessingActivityMethodType(EnumDefinitionImpl):
 
     @classmethod
     def _addvals(cls):
-        setattr(cls, "-80",
-                PermissibleValue(text="-80",
+        setattr(cls, "Minues 80 Degrees Celsius Freezer",
+                PermissibleValue(text="Minues 80 Degrees Celsius Freezer",
                                  description="Freezing at -80 degrees celcius") )
         setattr(cls, "-20",
                 PermissibleValue(text="-20",
@@ -13220,7 +13109,7 @@ class EnumCRDCHSpecimenStorageActivityMethodType(EnumDefinitionImpl):
         name="EnumCRDCHSpecimenStorageActivityMethodType",
         description="Autogenerated Enumeration for CRDC-H SpecimenStorageActivity method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.367201+00:00",
+        code_set_version="2021-09-17T21:00:28.078186+00:00",
     )
 
 class EnumCRDCHSubjectSpecies(EnumDefinitionImpl):
@@ -13348,7 +13237,7 @@ class EnumCRDCHSubjectSex(EnumDefinitionImpl):
         name="EnumCRDCHSubjectSex",
         description="Autogenerated Enumeration for CRDC-H Subject sex",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.687007+00:00",
+        code_set_version="2021-09-17T21:00:28.730342+00:00",
     )
 
     @classmethod
@@ -13368,7 +13257,7 @@ class EnumCRDCHSubjectEthnicity(EnumDefinitionImpl):
         name="EnumCRDCHSubjectEthnicity",
         description="Autogenerated Enumeration for CRDC-H Subject ethnicity",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.793549+00:00",
+        code_set_version="2021-09-17T21:00:29.008836+00:00",
     )
 
     @classmethod
@@ -13397,7 +13286,7 @@ class EnumCRDCHSubjectRace(EnumDefinitionImpl):
         name="EnumCRDCHSubjectRace",
         description="Autogenerated Enumeration for CRDC-H Subject race",
         code_set=None,
-        code_set_version="2021-09-07T21:08:46.900411+00:00",
+        code_set_version="2021-09-17T21:00:29.232571+00:00",
     )
 
     @classmethod
@@ -13428,7 +13317,7 @@ class EnumCRDCHSubjectVitalStatus(EnumDefinitionImpl):
         name="EnumCRDCHSubjectVitalStatus",
         description="Autogenerated Enumeration for CRDC-H Subject vital_status",
         code_set=None,
-        code_set_version="2021-09-07T21:08:47.016668+00:00",
+        code_set_version="2021-09-17T21:00:29.485811+00:00",
     )
 
     @classmethod
@@ -13452,7 +13341,7 @@ class EnumCRDCHSubjectCauseOfDeath(EnumDefinitionImpl):
         name="EnumCRDCHSubjectCauseOfDeath",
         description="Autogenerated Enumeration for CRDC-H Subject cause_of_death",
         code_set=None,
-        code_set_version="2021-09-07T21:08:47.200658+00:00",
+        code_set_version="2021-09-17T21:00:29.788039+00:00",
     )
 
     @classmethod
@@ -14839,7 +14728,7 @@ class EnumCRDCHSubstanceSubstanceType(EnumDefinitionImpl):
         name="EnumCRDCHSubstanceSubstanceType",
         description="Autogenerated Enumeration for CRDC-H Substance substance_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:47.325429+00:00",
+        code_set_version="2021-09-17T21:00:30.003059+00:00",
     )
 
     @classmethod
@@ -21097,7 +20986,7 @@ class EnumCRDCHSubstanceRole(EnumDefinitionImpl):
         name="EnumCRDCHSubstanceRole",
         description="Autogenerated Enumeration for CRDC-H Substance role",
         code_set=None,
-        code_set_version="2021-09-07T21:08:51.803327+00:00",
+        code_set_version="2021-09-17T21:00:35.096510+00:00",
     )
 
 class EnumCRDCHTimePointEventType(EnumDefinitionImpl):
@@ -21108,7 +20997,7 @@ class EnumCRDCHTimePointEventType(EnumDefinitionImpl):
         name="EnumCRDCHTimePointEventType",
         description="Autogenerated Enumeration for CRDC-H TimePoint event_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:51.912452+00:00",
+        code_set_version="2021-09-17T21:00:35.279616+00:00",
     )
 
 class EnumCRDCHTobaccoExposureObservationCategory(EnumDefinitionImpl):
@@ -21119,7 +21008,7 @@ class EnumCRDCHTobaccoExposureObservationCategory(EnumDefinitionImpl):
         name="EnumCRDCHTobaccoExposureObservationCategory",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation category",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.028296+00:00",
+        code_set_version="2021-09-17T21:00:35.494348+00:00",
     )
 
 class EnumCRDCHTobaccoExposureObservationObservationType(EnumDefinitionImpl):
@@ -21160,7 +21049,7 @@ class EnumCRDCHTobaccoExposureObservationMethodType(EnumDefinitionImpl):
         name="EnumCRDCHTobaccoExposureObservationMethodType",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation method_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.252674+00:00",
+        code_set_version="2021-09-17T21:00:35.885329+00:00",
     )
 
 class EnumCRDCHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl):
@@ -21171,7 +21060,7 @@ class EnumCRDCHTobaccoExposureObservationValueCodeableConcept(EnumDefinitionImpl
         name="EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
         description="Autogenerated Enumeration for CRDC-H TobaccoExposureObservation value_codeable_concept",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.366000+00:00",
+        code_set_version="2021-09-17T21:00:36.094339+00:00",
     )
 
 class EnumCRDCHTreatmentTreatmentType(EnumDefinitionImpl):
@@ -21197,7 +21086,7 @@ class EnumCRDCHTreatmentTreatmentType(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentType",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_type",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.474538+00:00",
+        code_set_version="2021-09-17T21:00:36.315742+00:00",
     )
 
     @classmethod
@@ -21325,7 +21214,7 @@ class EnumCRDCHTreatmentTreatmentEndReason(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentEndReason",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_end_reason",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.640041+00:00",
+        code_set_version="2021-09-17T21:00:36.614837+00:00",
     )
 
     @classmethod
@@ -21347,7 +21236,7 @@ class EnumCRDCHTreatmentRegimen(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentRegimen",
         description="Autogenerated Enumeration for CRDC-H Treatment regimen",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.744041+00:00",
+        code_set_version="2021-09-17T21:00:36.805278+00:00",
     )
 
 class EnumCRDCHTreatmentTreatmentFrequency(EnumDefinitionImpl):
@@ -21360,7 +21249,7 @@ class EnumCRDCHTreatmentTreatmentFrequency(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentFrequency",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_frequency",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.844226+00:00",
+        code_set_version="2021-09-17T21:00:37.000022+00:00",
     )
 
     @classmethod
@@ -21406,7 +21295,7 @@ class EnumCRDCHTreatmentTreatmentIntent(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentIntent",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_intent",
         code_set=None,
-        code_set_version="2021-09-07T21:08:52.952346+00:00",
+        code_set_version="2021-09-17T21:00:37.261968+00:00",
     )
 
     @classmethod
@@ -21433,7 +21322,7 @@ class EnumCRDCHTreatmentTreatmentEffect(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentEffect",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_effect",
         code_set=None,
-        code_set_version="2021-09-07T21:08:53.061098+00:00",
+        code_set_version="2021-09-17T21:00:37.490755+00:00",
     )
 
     @classmethod
@@ -21461,7 +21350,7 @@ class EnumCRDCHTreatmentTreatmentOutcome(EnumDefinitionImpl):
         name="EnumCRDCHTreatmentTreatmentOutcome",
         description="Autogenerated Enumeration for CRDC-H Treatment treatment_outcome",
         code_set=None,
-        code_set_version="2021-09-07T21:08:53.170913+00:00",
+        code_set_version="2021-09-17T21:00:37.767727+00:00",
     )
 
     @classmethod

@@ -1,18 +1,15 @@
 {
-   "$id": "https://example.org/crdch",
-   "$schema": "http://json-schema.org/draft-07/schema#",
-   "additionalProperties": true,
-   "definitions": {
+   "$defs": {
       "AlcoholExposureObservation": {
          "additionalProperties": false,
          "description": "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
@@ -20,23 +17,23 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of alcohol exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "value_integer": {
@@ -72,7 +69,7 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
@@ -84,7 +81,7 @@
                "type": "array"
             },
             "product_type": {
-               "$ref": "#/definitions/EnumCRDCHBiologicProductProductType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)"
             }
          },
@@ -99,12 +96,12 @@
             "qualifier": {
                "description": "A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHBodySiteQualifier"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "site": {
-               "$ref": "#/definitions/EnumCRDCHBodySiteSite",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A term describing any site in the body."
             }
          },
@@ -119,11 +116,11 @@
          "description": "A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer grade observation",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
@@ -131,19 +128,19 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)"
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The value from the grade classification system that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)"
             }
          },
@@ -159,13 +156,13 @@
          "description": "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHCancerGradeObservationSetCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation set described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -176,23 +173,23 @@
             "method_type": {
                "description": "The cancer grade classification system being used to classify the cancer (e.g. INPC, Gleason, etc.)",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHCancerGradeObservationSetMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observations": {
                "description": "A set of one or more more atomic observations about the cancer grade that classifies the cancer (e.g. Poorly differentiated, differentiated, etc.)",
                "items": {
-                  "$ref": "#/definitions/CancerGradeObservation"
+                  "$ref": "#/$defs/CancerGradeObservation"
                },
                "type": "array"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             }
          },
@@ -205,11 +202,11 @@
          "description": "A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHCancerStageObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
@@ -217,27 +214,27 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHCancerStageObservationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHCancerStageObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The type of cancer staging component being represented (e.g. 'Clinical Metastasis (M)')"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHCancerStageObservationValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept."
             },
             "value_entity": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The value of an observation"
             }
          },
@@ -253,13 +250,13 @@
          "description": "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHCancerStageObservationSetCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation set described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -270,23 +267,23 @@
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set, in this case, the particular staging system being used to classify the cancer.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHCancerStageObservationSetMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observations": {
                "description": "A set of one or more more atomic observations about the cancer stage",
                "items": {
-                  "$ref": "#/definitions/CancerStageObservation"
+                  "$ref": "#/$defs/CancerStageObservation"
                },
                "type": "array"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             }
          },
@@ -301,7 +298,7 @@
             "coding": {
                "description": "A reference to a code defined by a terminology system",
                "items": {
-                  "$ref": "#/definitions/Coding"
+                  "$ref": "#/$defs/Coding"
                },
                "type": "array"
             },
@@ -327,15 +324,26 @@
                "type": "string"
             },
             "system": {
-               "description": "The code system where the code is defined.",
+               "description": "The URL of the code system where the code is defined.",
                "type": "string"
             },
-            "systemURL": {
-               "description": "A URL where the code system can be found.",
-               "type": "string"
-            },
-            "systemVersion": {
+            "system_version": {
                "description": "The version of the code system.",
+               "type": "string"
+            },
+            "tag": {
+               "description": "original value  |  harmonized value  |",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "value_set": {
+               "description": "The identifier of the enumeration / value set that the code is a part of in the context of this element",
+               "type": "string"
+            },
+            "value_set_version": {
+               "description": "The version of the enuemration / value set the code is pulled from",
                "type": "string"
             }
          },
@@ -351,21 +359,25 @@
          "description": "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions.",
          "properties": {
             "age_at_diagnosis": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The age in days of the individual at the time of diagnosis"
             },
             "condition": {
-               "$ref": "#/definitions/EnumCRDCHDiagnosisCondition",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "Code that captures the condition being diagnosed (e.g. ICD-O, ICD-10, SNOMED, etc.)"
             },
+            "diagnosis_date": {
+               "$ref": "#/$defs/TimePoint",
+               "description": "When the diagnosis was made."
+            },
             "disease_status": {
-               "$ref": "#/definitions/EnumCRDCHDiagnosisDiseaseStatus",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A term that refers to the nature and/or clinical outcome of a disease (e.g., primary disease, metastatic disease, recurrent disease, etc.)"
             },
             "grade": {
                "description": "The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems.",
                "items": {
-                  "$ref": "#/definitions/CancerGradeObservationSet"
+                  "$ref": "#/$defs/CancerGradeObservationSet"
                },
                "type": "array"
             },
@@ -376,68 +388,64 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
             "metastatic_site": {
                "description": "The anatomical location(s) of metastatic disease",
                "items": {
-                  "$ref": "#/definitions/BodySite"
+                  "$ref": "#/$defs/BodySite"
                },
                "type": "array"
             },
             "method_of_diagnosis": {
-               "$ref": "#/definitions/EnumCRDCHDiagnosisMethodOfDiagnosis",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The method used to confirm the patients malignant diagnosis"
             },
             "morphology": {
-               "$ref": "#/definitions/EnumCRDCHDiagnosisMorphology",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "Code that represents the histology of the disease using the third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries for coding the site (topography) and the histology (morphology) of neoplasms."
             },
             "primary_site": {
                "description": "The anatomical location of the primary condition",
                "items": {
-                  "$ref": "#/definitions/BodySite"
+                  "$ref": "#/$defs/BodySite"
                },
                "type": "array"
             },
             "primary_tumor_dimensional_measures": {
-               "$ref": "#/definitions/DimensionalObservationSet",
+               "$ref": "#/$defs/DimensionalObservationSet",
                "description": "Observations about the current physical dimensions of the primary tumor."
             },
             "prior_diagnosis": {
-               "$ref": "#/definitions/Diagnosis",
+               "$ref": "#/$defs/Diagnosis",
                "description": "A reference to a prior cancer diagnosis.  In the case of relapse/recurrent disease, this attribute may be populated with a reference to the initial diagnosis."
             },
             "related_specimen": {
                "description": "The specimen from which this diagnosis is made",
                "items": {
-                  "$ref": "#/definitions/Specimen"
+                  "$ref": "#/$defs/Specimen"
                },
                "type": "array"
             },
             "stage": {
                "description": "The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether lymph nodes contain cancer, and whether the cancer has spread from the original site to other parts of the body.",
                "items": {
-                  "$ref": "#/definitions/CancerStageObservationSet"
+                  "$ref": "#/$defs/CancerStageObservationSet"
                },
                "type": "array"
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The subject of this diagnosis."
             },
             "supporting_observation": {
                "description": "One or more observations that capture information relevant to this condition or diagnosis.",
                "items": {
-                  "$ref": "#/definitions/Observation"
+                  "$ref": "#/$defs/Observation"
                },
                "type": "array"
-            },
-            "year_at_diagnosis": {
-               "description": "Numeric value to represent the year of an individual's diagnosis.",
-               "type": "integer"
             }
          },
          "required": [],
@@ -449,13 +457,13 @@
          "description": "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHDimensionalObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -466,24 +474,24 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHDimensionalObservationMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHDimensionalObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_quantity": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
@@ -499,13 +507,13 @@
          "description": "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHDimensionalObservationSetCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation set described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -516,23 +524,23 @@
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHDimensionalObservationSetMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observations": {
                "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
                "items": {
-                  "$ref": "#/definitions/DimensionalObservation"
+                  "$ref": "#/$defs/DimensionalObservation"
                },
                "type": "array"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             }
          },
@@ -549,11 +557,11 @@
                "type": "string"
             },
             "document_type": {
-               "$ref": "#/definitions/EnumCRDCHDocumentDocumentType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The high-level type of the document (e.g.  'publication', 'pathology report')"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity that the report is primarily about"
             },
             "id": {
@@ -563,7 +571,7 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
@@ -5817,18 +5825,10 @@
          "title": "EnumCRDCHSpecimenDegreeOfDysplasia",
          "type": "string"
       },
-      "EnumCRDCHSpecimenGeneralTissueMorphology": {
-         "description": "Autogenerated Enumeration for CRDC-H Specimen general_tissue_morphology",
-         "enum": [
-            "Peritumoral",
-            "Abnormal",
-            "Normal",
-            "Not Allowed To Collect",
-            "Unknown",
-            "Tumor",
-            "Not Reported"
-         ],
-         "title": "EnumCRDCHSpecimenGeneralTissueMorphology",
+      "EnumCRDCHSpecimenGeneralTissuePathology": {
+         "description": "Autogenerated Enumeration for CRDC-H Specimen general_tissue_pathology",
+         "enum": [],
+         "title": "EnumCRDCHSpecimenGeneralTissuePathology",
          "type": "string"
       },
       "EnumCRDCHSpecimenMorphologyAssessmentMethod": {
@@ -5863,7 +5863,7 @@
       "EnumCRDCHSpecimenProcessingActivityMethodType": {
          "description": "A type of method used to process a specimen (e.g. freezing, fixing, treating, preserving, labeling, etc.).",
          "enum": [
-            "-80",
+            "Minues 80 Degrees Celsius Freezer",
             "-20",
             "LN2",
             "isopentane"
@@ -6018,67 +6018,16 @@
          "title": "EnumCRDCHSpecimenSourceMaterialType",
          "type": "string"
       },
-      "EnumCRDCHSpecimenSpecificTissueMorphology": {
-         "description": "Autogenerated Enumeration for CRDC-H Specimen specific_tissue_morphology",
-         "enum": [
-            "61",
-            "70",
-            "30",
-            "63",
-            "71",
-            "51",
-            "80",
-            "02",
-            "65",
-            "04",
-            "60",
-            "03",
-            "50",
-            "52",
-            "15",
-            "10",
-            "00",
-            "01",
-            "21",
-            "20",
-            "62",
-            "40",
-            "64",
-            "81",
-            "41",
-            "Rhabdoid tumor (kidney) (RT)",
-            "Acute myeloid leukemia (AML)",
-            "Anal Cancer (all types)",
-            "Non cancerous tissue",
-            "CNS, low grade glioma (LGG)",
-            "Lung Cancer (all types)",
-            "CNS, ependymoma",
-            "Rhabdomyosarcoma",
-            "Induction Failure AML (AML-IF)",
-            "Soft tissue sarcoma, non-rhabdomyosarcoma",
-            "NHL, Burkitt lymphoma (BL)",
-            "Neuroblastoma (NBL)",
-            "Diffuse Large B-Cell Lymphoma (DLBCL)",
-            "Acute lymphoblastic leukemia (ALL)",
-            "CNS, rhabdoid tumor",
-            "CNS, medulloblastoma",
-            "Cervical Cancer (all types)",
-            "NHL, anaplastic large cell lymphoma",
-            "Clear cell sarcoma of the kidney (CCSK)",
-            "CNS, glioblastoma (GBM)",
-            "Acute Leukemia of Ambiguous Lineage (ALAL)",
-            "CNS, other",
-            "Ewing sarcoma",
-            "Osteosarcoma (OS)",
-            "Wilms tumor (WT)"
-         ],
-         "title": "EnumCRDCHSpecimenSpecificTissueMorphology",
+      "EnumCRDCHSpecimenSpecificTissuePathology": {
+         "description": "Autogenerated Enumeration for CRDC-H Specimen specific_tissue_pathology",
+         "enum": [],
+         "title": "EnumCRDCHSpecimenSpecificTissuePathology",
          "type": "string"
       },
       "EnumCRDCHSpecimenSpecimenType": {
          "description": "A high-level type of specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).",
          "enum": [
-            "initial sample",
+            "Fresh Specimen",
             "portion",
             "aliquot",
             "analyte",
@@ -10945,11 +10894,11 @@
          "description": "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
@@ -10957,23 +10906,23 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
@@ -10989,11 +10938,11 @@
          "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
@@ -11001,23 +10950,23 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHExecutionConditionObservationValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             }
          },
@@ -11033,11 +10982,11 @@
          "description": "A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.\n\nInformation describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHExecutionTimeObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
@@ -11045,23 +10994,23 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHExecutionTimeObservationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHExecutionTimeObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of environmental exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_quantity": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
@@ -11079,14 +11028,14 @@
             "alcohol_exposure": {
                "description": "Observations about an individual's exposure to alcohol.",
                "items": {
-                  "$ref": "#/definitions/AlcoholExposureObservation"
+                  "$ref": "#/$defs/AlcoholExposureObservation"
                },
                "type": "array"
             },
             "environmental_exposure": {
                "description": "Observations about an individual's exposure to environmental substances that may impact clinical outcomes.",
                "items": {
-                  "$ref": "#/definitions/EnvironmentalExposureObservation"
+                  "$ref": "#/$defs/EnvironmentalExposureObservation"
                },
                "type": "array"
             },
@@ -11097,18 +11046,18 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "A reference to the Subject that is the subject of this Exposure"
             },
             "tobacco_exposure": {
                "description": "Observations about an individual's exposure to tobacco.",
                "items": {
-                  "$ref": "#/definitions/TobaccoExposureObservation"
+                  "$ref": "#/$defs/TobaccoExposureObservation"
                },
                "type": "array"
             }
@@ -11124,13 +11073,13 @@
          "description": "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype).",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -11141,24 +11090,24 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_quantity": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
@@ -11174,13 +11123,13 @@
          "description": "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationSetCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation set described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -11191,23 +11140,23 @@
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHHistologicalCompositionObservationSetMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observations": {
                "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
                "items": {
-                  "$ref": "#/definitions/HistologicalCompositionObservation"
+                  "$ref": "#/$defs/HistologicalCompositionObservation"
                },
                "type": "array"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             }
          },
@@ -11227,7 +11176,7 @@
                "type": "string"
             },
             "type": {
-               "$ref": "#/definitions/EnumCRDCHIdentifierType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A code that defines the type of the identifier."
             },
             "value": {
@@ -11246,13 +11195,13 @@
          "description": "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -11263,20 +11212,20 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHObservationMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_boolean": {
@@ -11284,7 +11233,7 @@
                "type": "boolean"
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHObservationValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "value_date_time": {
@@ -11297,7 +11246,7 @@
                "type": "number"
             },
             "value_entity": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The value of an observation"
             },
             "value_integer": {
@@ -11305,7 +11254,7 @@
                "type": "number"
             },
             "value_quantity": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             },
             "value_string": {
@@ -11324,13 +11273,13 @@
          "description": "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHObservationSetCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation set described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -11341,23 +11290,23 @@
             "method_type": {
                "description": "A type of method used in generating each of the Observations bundled in the set.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHObservationSetMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observations": {
                "description": "A set of one or more more atomic observations that are conceptually or logically related - e.g. two components of some compound measurement (e.g. the systolic and diastolic components of a blood pressure measurement), or a panel of related measurements run and interpreted together on the same subject/specimen (e.g. a blood panel, or separate dimensional measurements of a specimen).",
                "items": {
-                  "$ref": "#/definitions/Observation"
+                  "$ref": "#/$defs/Observation"
                },
                "type": "array"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             }
          },
@@ -11383,7 +11332,7 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
@@ -11407,11 +11356,11 @@
          "description": "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit.",
          "properties": {
             "unit": {
-               "$ref": "#/definitions/EnumCRDCHQuantityUnit",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A coded or free text (in the .text field) representation of the unit."
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHQuantityValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A coded value representing a quantity (e.g. \"Adjacent (< or = 2cm)\")"
             },
             "value_decimal": {
@@ -11430,16 +11379,16 @@
             "associated_timepoint": {
                "description": "A collection of timepoint observations that are relevant to research projects (e.g. date of IACUC approval, date of IRB approval, date of embargo end, etc.)",
                "items": {
-                  "$ref": "#/definitions/TimePoint"
+                  "$ref": "#/$defs/TimePoint"
                },
                "type": "array"
             },
             "date_ended": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the research project ended."
             },
             "date_started": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the research project began."
             },
             "description": {
@@ -11457,7 +11406,7 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
@@ -11472,19 +11421,19 @@
             "part_of": {
                "description": "A reference to a parent ResearchProject (e.g. a link to the overarching CPTAC ResearchProject from a substudy of CPTAC)",
                "items": {
-                  "$ref": "#/definitions/ResearchProject"
+                  "$ref": "#/$defs/ResearchProject"
                },
                "type": "array"
             },
             "primary_anatomic_site": {
                "description": "The text term used to describe the general location of the malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).  In the context of ResearchProject, this attribute captures the anatomic sites of research interest.",
                "items": {
-                  "$ref": "#/definitions/BodySite"
+                  "$ref": "#/$defs/BodySite"
                },
                "type": "array"
             },
             "research_project_type": {
-               "$ref": "#/definitions/EnumCRDCHResearchProjectResearchProjectType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The 'type' of ResearchProject represented (e.g. a broad-based Program like 'CPTAC' or a more focused Project like 'CPTAC PDAC Discovery Study')"
             },
             "sponsor": {
@@ -11513,17 +11462,17 @@
          "description": "A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, \nor a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject\u2019s privacy.",
          "properties": {
             "age_at_enrollment": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The age in days when the Subject enrolled on the ResearchProject"
             },
             "associated_subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "A reference to the Subject that is this ResearchSubject"
             },
             "comorbid_diagnosis": {
                "description": "One or more diagnosis instance that are comorbid with the primary_diagnosis that qualified a subject for inclusion on a ResearchProject",
                "items": {
-                  "$ref": "#/definitions/Diagnosis"
+                  "$ref": "#/$defs/Diagnosis"
                },
                "type": "array"
             },
@@ -11538,35 +11487,35 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
             "index_timepoint": {
-               "$ref": "#/definitions/EnumCRDCHResearchSubjectIndexTimepoint",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The text term used to describe the reference or anchor date used for date obfuscation, where a single date is obscured by creating one or more date ranges in relation to this date."
             },
             "member_of_research_project": {
-               "$ref": "#/definitions/ResearchProject",
+               "$ref": "#/$defs/ResearchProject",
                "description": "A reference to the Study(s) of which this ResearchSubject is a member"
             },
             "originating_site": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The Organization at which a subject was enrolled on a ResearchProject."
             },
             "primary_diagnosis": {
                "description": "The diagnosis instance that qualified a subject for inclusion on a ResearchProject",
                "items": {
-                  "$ref": "#/definitions/Diagnosis"
+                  "$ref": "#/$defs/Diagnosis"
                },
                "type": "array"
             },
             "primary_diagnosis_condition": {
-               "$ref": "#/definitions/EnumCRDCHResearchSubjectPrimaryDiagnosisCondition",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The text term used to describe the type of malignant disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O).   This attribute represents the disease that qualified the subject for inclusion on the ResearchProject"
             },
             "primary_diagnosis_site": {
-               "$ref": "#/definitions/BodySite",
+               "$ref": "#/$defs/BodySite",
                "description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.  This attribute represents the primary site of disease that qualified the subject for inclusion on the ResearchProject."
             }
          },
@@ -11582,37 +11531,37 @@
          "description": "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation.",
          "properties": {
             "analyte_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenAnalyteType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "For specimens of type 'analyte' (or an 'aliquot' derived from an analyte), this is the category of chemcial the analyte of interest represents (e.g. DNA, RNA)"
             },
             "associated_project": {
-               "$ref": "#/definitions/ResearchProject",
+               "$ref": "#/$defs/ResearchProject",
                "description": "The Project associated with the specimen."
             },
             "cellular_composition_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenCellularCompositionType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A term describing the type of cell or cellular material comprising a specimen."
             },
             "contained_in": {
-               "$ref": "#/definitions/SpecimenContainer",
+               "$ref": "#/$defs/SpecimenContainer",
                "description": "A physical container in which a specimen is presently held or attached -  as storage for future use,  a substrate for growth (e.g. a cell culture dish), or a vessel to enable analysis (e.g. a microscope slide or 96-well plate)"
             },
             "creation_activity": {
-               "$ref": "#/definitions/SpecimenCreationActivity",
+               "$ref": "#/$defs/SpecimenCreationActivity",
                "description": "The activity through which a specimen was created, by removing material from an biological subject, or deriving material from an existing specimen."
             },
             "data_provider": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization (e.g.a laboratory, processing center, or research site) that provided data associated with a specimen."
             },
             "degree_of_dysplasia": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenDegreeOfDysplasia",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A term describing the nature/extent of abnormal cells  that are not cancer, as observed upon microscopic assessment of a specimen. Records the degree of dysplasia for the cyst or lesion under consideration."
             },
             "derived_product": {
                "description": "A 'living' biologically active product that was derived from the specimen (e.g. a cell culture, tissue culture, or organoid)",
                "items": {
-                  "$ref": "#/definitions/BiologicProduct"
+                  "$ref": "#/$defs/BiologicProduct"
                },
                "type": "array"
             },
@@ -11621,25 +11570,25 @@
                "type": "string"
             },
             "dimensional_measures": {
-               "$ref": "#/definitions/DimensionalObservationSet",
+               "$ref": "#/$defs/DimensionalObservationSet",
                "description": "Observations about the current physical dimensions of an object (e.g. length, width, area)."
             },
             "distance_from_paired_specimen": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The observed distance in the body of the specimen from a 'paired specimen' at the time of collection. (e.g. the distance between the in vivo location of a tumor tissue specimen and its paired normal specimen)"
             },
             "dysplasia_fraction": {
                "description": "Resulting value to represent the number of pieces of dysplasia divided by the total number of pieces.",
                "type": "string"
             },
-            "general_tissue_morphology": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenGeneralTissueMorphology",
+            "general_tissue_pathology": {
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The high-level kind of tissue collected when generating a specimen, based on its disease status or proximity to tumor tissue (e.g. is it normal, abnormal, tumor, tumor-adjacent)."
             },
             "histological_composition_measures": {
                "description": "A set of one or more observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype.",
                "items": {
-                  "$ref": "#/definitions/HistologicalCompositionObservationSet"
+                  "$ref": "#/$defs/HistologicalCompositionObservationSet"
                },
                "type": "array"
             },
@@ -11650,16 +11599,16 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
             "morphology_assessment_method": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenMorphologyAssessmentMethod",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general method used to assess a specimens specific tissue morphology"
             },
             "morphology_assessor_role": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenMorphologyAssessorRole",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A term describing the role of the person who histologically assessed the specific tissue morphology of a specimen"
             },
             "morphology_pathologically_confirmed": {
@@ -11669,79 +11618,79 @@
             "parent_specimen": {
                "description": "An existing specimen from which the specimen of interest was directly derived (i.e its immediate parent specimen).",
                "items": {
-                  "$ref": "#/definitions/Specimen"
+                  "$ref": "#/$defs/Specimen"
                },
                "type": "array"
             },
             "preinvasive_tissue_morphology": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenPreinvasiveTissueMorphology",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A term describing the specific pathology exhibited by pre-invasive tissue comprising a specimen."
             },
             "processing_activity": {
                "description": "An activity that modifies the physical structure, composition, or state of a specimen.",
                "items": {
-                  "$ref": "#/definitions/SpecimenProcessingActivity"
+                  "$ref": "#/$defs/SpecimenProcessingActivity"
                },
                "type": "array"
             },
             "quality_measure": {
                "description": "An observation about characteristics of a specimen that are indicative of its quality or suitability for use.",
                "items": {
-                  "$ref": "#/definitions/SpecimenQualityObservation"
+                  "$ref": "#/$defs/SpecimenQualityObservation"
                },
                "type": "array"
             },
             "quantity_measure": {
                "description": "An observation related to the present quantity of a specimen - e.g. its weight, volume, or analyte concentration.",
                "items": {
-                  "$ref": "#/definitions/SpecimenQuantityObservation"
+                  "$ref": "#/$defs/SpecimenQuantityObservation"
                },
                "type": "array"
             },
             "related_document": {
                "description": "A reference to an external document that is about or related to the specimen (e.g. a publication related to the study it is a part of, pathology report containing additional details about it, protocol describing how it was collected)",
                "items": {
-                  "$ref": "#/definitions/Document"
+                  "$ref": "#/$defs/Document"
                },
                "type": "array"
             },
             "section_location": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenSectionLocation",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The location in a parent specimen from which a section/portion was excised (e.g. top, middle, bottom)"
             },
             "source_material_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenSourceMaterialType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general kind of material from which the specimen was derived."
             },
             "source_subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "A specific Subject from which the specimen was directly or indirectly derived."
             },
-            "specific_tissue_morphology": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenSpecificTissueMorphology",
+            "specific_tissue_pathology": {
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A term describing the specific pathology exhibited by the tissue comprising a specimen."
             },
             "specimen_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenSpecimenType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source)."
             },
             "storage_activity": {
                "description": "An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.",
                "items": {
-                  "$ref": "#/definitions/SpecimenStorageActivity"
+                  "$ref": "#/$defs/SpecimenStorageActivity"
                },
                "type": "array"
             },
             "transport_activity": {
                "description": "An activity through which the specimen is transported between locations.",
                "items": {
-                  "$ref": "#/definitions/SpecimenTransportActivity"
+                  "$ref": "#/$defs/SpecimenTransportActivity"
                },
                "type": "array"
             },
             "tumor_status_at_collection": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenTumorStatusAtCollection",
-               "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc)."
+               "$ref": "#/$defs/CodeableConcept",
+               "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).  \n\n**CodeableConcept Binding:**  This property has a Range of CodeableConcept. One of the Codings in this CodeableConcept instance should be populated with values from [enum_CRDCH_Specimen_tumor_status_at_collection](enum_CRDCH_Specimen_tumor_status_at_collection.md)"
             }
          },
          "required": [],
@@ -11755,7 +11704,7 @@
             "additive": {
                "description": "A material substance added to the container (typically to support the primary contained object - e.g. culture media to support cell growth)",
                "items": {
-                  "$ref": "#/definitions/Substance"
+                  "$ref": "#/$defs/Substance"
                },
                "type": "array"
             },
@@ -11764,7 +11713,7 @@
                "type": "string"
             },
             "container_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenContainerContainerType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The kind of the container."
             },
             "id": {
@@ -11774,12 +11723,12 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
             "parent_container": {
-               "$ref": "#/definitions/SpecimenContainer",
+               "$ref": "#/$defs/SpecimenContainer",
                "description": "A larger container of which this container is a part (e.g. the complete 96-well plate of which a single well is a part)"
             }
          },
@@ -11792,56 +11741,56 @@
          "description": "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting).",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenCreationActivityActivityType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The high-level type of creation activity."
             },
             "additive": {
                "description": "A type of material or reagent used applied as input when creating a specimen.",
                "items": {
-                  "$ref": "#/definitions/Substance"
+                  "$ref": "#/$defs/Substance"
                },
                "type": "array"
             },
             "collection_method_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenCreationActivityCollectionMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The type of method applied in collecting a sample from its original source."
             },
             "collection_site": {
-               "$ref": "#/definitions/BodySite",
+               "$ref": "#/$defs/BodySite",
                "description": "The anatomic site from which a specimen was collected."
             },
             "date_ended": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity ended (in this case, a specimen creation event)."
             },
             "date_started": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity began (in this case, a specimen creation event)."
             },
             "derivation_method_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenCreationActivityDerivationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The type of method applied to derive a new specimen from an existing one."
             },
             "execution_condition_observation": {
                "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
                "items": {
-                  "$ref": "#/definitions/ExecutionConditionObservation"
+                  "$ref": "#/$defs/ExecutionConditionObservation"
                },
                "type": "array"
             },
             "execution_time_observation": {
                "description": "Information describing how long certain parts on an activity took to complete.",
                "items": {
-                  "$ref": "#/definitions/ExecutionTimeObservation"
+                  "$ref": "#/$defs/ExecutionTimeObservation"
                },
                "type": "array"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the activity."
             },
             "quantity_collected": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The quantity of material in the specimen as originally collected from its original source material (prior to downstream portioning or processing)"
             },
             "specimen_order": {
@@ -11858,51 +11807,51 @@
          "description": "An activity that modifies the physical structure, composition, or state of a specimen. Unlike SpecimenCreation, SpecimenProcessing activities do not result in the generation of new entities - they take a single specimen as input, and output that same specimen.",
          "properties": {
             "activity_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenProcessingActivityActivityType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The high-level type of processing activity"
             },
             "additive": {
                "description": "A type of material or reagent used as input when processing the specimen",
                "items": {
-                  "$ref": "#/definitions/Substance"
+                  "$ref": "#/$defs/Substance"
                },
                "type": "array"
             },
             "date_ended": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity began (in this case, a specimen processing event)."
             },
             "date_started": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity began (in this case, a specimen processing event)."
             },
             "duration": {
                "description": "The length of time over which the activity was performed.",
                "items": {
-                  "$ref": "#/definitions/Quantity"
+                  "$ref": "#/$defs/Quantity"
                },
                "type": "array"
             },
             "execution_condition_observation": {
                "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
                "items": {
-                  "$ref": "#/definitions/ExecutionConditionObservation"
+                  "$ref": "#/$defs/ExecutionConditionObservation"
                },
                "type": "array"
             },
             "execution_time_observation": {
                "description": "Information describing how long certain parts on an activity took to complete.",
                "items": {
-                  "$ref": "#/definitions/ExecutionTimeObservation"
+                  "$ref": "#/$defs/ExecutionTimeObservation"
                },
                "type": "array"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenProcessingActivityMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A specific type of method or procedure performed to process the specimen"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the activity."
             }
          },
@@ -11915,13 +11864,13 @@
          "description": "A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenQualityObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -11932,24 +11881,24 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHSpecimenQualityObservationMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenQualityObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_quantity": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
@@ -11965,13 +11914,13 @@
          "description": "A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenQuantityObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
                "description": "The entity or entities directly observed/measured in generating an observation result.",
                "items": {
-                  "$ref": "#/definitions/Entity"
+                  "$ref": "#/$defs/Entity"
                },
                "type": "array"
             },
@@ -11982,24 +11931,24 @@
             "method_type": {
                "description": "A type of method used in generating the Observation result.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHSpecimenQuantityObservationMethodType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenQuantityObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_quantity": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The result of the observation, encoded as a free-text Quantity."
             }
          },
@@ -12017,28 +11966,28 @@
             "container": {
                "description": "A container in which the specimen is held or affixed during its storage.",
                "items": {
-                  "$ref": "#/definitions/SpecimenContainer"
+                  "$ref": "#/$defs/SpecimenContainer"
                },
                "type": "array"
             },
             "date_ended": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity ended (in this case, a storage event)."
             },
             "date_started": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity began (in this case, a storage event)."
             },
             "duration": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The length of time over which the activity was performed."
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHSpecimenStorageActivityMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A specific type of method or procedure performed to store the specimen"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the activity."
             }
          },
@@ -12051,11 +12000,11 @@
          "description": "An activity through which a specimen is transported between locations or organizations.",
          "properties": {
             "date_ended": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity ended (in this case, a transport event)."
             },
             "date_started": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The date when the activity began (in this case, a transport event)."
             },
             "duration": {
@@ -12068,20 +12017,20 @@
             "execution_condition_observation": {
                "description": "Information describing the environmental conditions in which an activity, or a specific part of an activity, was performed.",
                "items": {
-                  "$ref": "#/definitions/ExecutionConditionObservation"
+                  "$ref": "#/$defs/ExecutionConditionObservation"
                },
                "type": "array"
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the activity."
             },
             "transport_destination": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "An organization (facility, site, lab, etc) to which the specimen is delivered as a result of the activity."
             },
             "transport_origin": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "An organization (facility, site, lab, etc) from which the specimen was transported as a result of the activity."
             }
          },
@@ -12094,19 +12043,19 @@
          "description": "Demographics and other administrative information about an individual or animal receiving care or other health-related services.",
          "properties": {
             "age_at_death": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The age of an individual at the time of death, expressed in days since birth"
             },
             "breed": {
-               "$ref": "#/definitions/EnumCRDCHSubjectBreed",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species."
             },
             "cause_of_death": {
-               "$ref": "#/definitions/EnumCRDCHSubjectCauseOfDeath",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "Coded value indicating the circumstance or condition that results in the death of the subject."
             },
             "ethnicity": {
-               "$ref": "#/definitions/EnumCRDCHSubjectEthnicity",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau"
             },
             "id": {
@@ -12116,27 +12065,27 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
             "race": {
                "description": "An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHSubjectRace"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "sex": {
-               "$ref": "#/definitions/EnumCRDCHSubjectSex",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic (internal and external), chromosomal, and hormonal characteristics."
             },
             "species": {
-               "$ref": "#/definitions/EnumCRDCHSubjectSpecies",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The scientific binomial name for the species of the subject (e.g. Homo sapiens, Mus musculus, etc.)"
             },
             "vital_status": {
-               "$ref": "#/definitions/EnumCRDCHSubjectVitalStatus",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "Coded value indicating the state or condition of being living or deceased; also includes the case where the vital status is unknown."
             },
             "year_of_birth": {
@@ -12161,16 +12110,16 @@
             "role": {
                "description": "A role played by the substance in a particular application (e.g. the role of a lysis buffer when applied in a specimen creation activity, or the role of fixative when applied in specimen processing)",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHSubstanceRole"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "substance_quantity": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "The quantity of substance this instance stands for."
             },
             "substance_type": {
-               "$ref": "#/definitions/EnumCRDCHSubstanceSubstanceType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of the substance - at as granular a level as possible. May be a specific chemical compound, or the name of a formulation/preparation made up of many compounds."
             }
          },
@@ -12183,11 +12132,11 @@
          "description": "A period of time between a start and end time point.",
          "properties": {
             "period_end_end": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "When a period of time ended."
             },
             "period_start_start": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "When a period of time started."
             }
          },
@@ -12197,7 +12146,7 @@
       },
       "TimePoint": {
          "additionalProperties": false,
-         "description": "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, or specification in terms of offset from a defined index.",
+         "description": "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, specification in terms of offset from a defined index, or description of an event type as a proxy for the time point when it occurred.",
          "properties": {
             "date_time": {
                "description": "An explicitly specified timepoint described in terms of a date and optionally a time on that date.",
@@ -12207,7 +12156,7 @@
             "event_type": {
                "description": "An event that occurred at the point in time specified by this TimePoint.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHTimePointEventType"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
@@ -12216,11 +12165,11 @@
                "type": "string"
             },
             "index_time_point": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "Another TimePoint from which this point is offset."
             },
             "offset_from_index": {
-               "$ref": "#/definitions/Quantity",
+               "$ref": "#/$defs/Quantity",
                "description": "A quantity of time that, together with the index date or event, can be used to derive a specific timepoint."
             }
          },
@@ -12233,11 +12182,11 @@
          "description": "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation.",
          "properties": {
             "category": {
-               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationCategory",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The general category of observation described"
             },
             "focus": {
-               "$ref": "#/definitions/Entity",
+               "$ref": "#/$defs/Entity",
                "description": "The entity or entities directly observed/measured in generating an observation result."
             },
             "id": {
@@ -12245,23 +12194,23 @@
                "type": "string"
             },
             "method_type": {
-               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationMethodType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "A type of method used in generating the Observation result."
             },
             "observation_type": {
-               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationObservationType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The specific type of tobacco exposure observation made - i.e. the feature or characteristic that was observed, measured, estimated, etc.."
             },
             "performed_by": {
-               "$ref": "#/definitions/Organization",
+               "$ref": "#/$defs/Organization",
                "description": "The organization or group that performed the observation activity."
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest."
             },
             "value_codeable_concept": {
-               "$ref": "#/definitions/EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The result of the observation, encoded as a CodeableConcept."
             },
             "value_integer": {
@@ -12282,16 +12231,16 @@
             "concurrent_treatment": {
                "description": "Treatment instance(s) that are concurrent with this treatment.",
                "items": {
-                  "$ref": "#/definitions/Treatment"
+                  "$ref": "#/$defs/Treatment"
                },
                "type": "array"
             },
             "date_ended": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The timepoint at which the treatment ended."
             },
             "date_started": {
-               "$ref": "#/definitions/TimePoint",
+               "$ref": "#/$defs/TimePoint",
                "description": "The timepoint at which the treatment started."
             },
             "id": {
@@ -12301,7 +12250,7 @@
             "identifier": {
                "description": "A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows \"identifier\" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.",
                "items": {
-                  "$ref": "#/definitions/Identifier"
+                  "$ref": "#/$defs/Identifier"
                },
                "type": "array"
             },
@@ -12310,53 +12259,53 @@
                "type": "integer"
             },
             "regimen": {
-               "$ref": "#/definitions/EnumCRDCHTreatmentRegimen",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The regimen or line of therapy"
             },
             "subject": {
-               "$ref": "#/definitions/Subject",
+               "$ref": "#/$defs/Subject",
                "description": "The subject (person, animal, model system) to which the treatment was administered."
             },
             "therapeutic_agent": {
-               "$ref": "#/definitions/Substance",
+               "$ref": "#/$defs/Substance",
                "description": "One or more therapeutic agents that are administered as part of this treatment."
             },
             "treatment_anatomic_site": {
-               "$ref": "#/definitions/BodySite",
+               "$ref": "#/$defs/BodySite",
                "description": "The anatomical site that the treatment targets."
             },
             "treatment_effect": {
-               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentEffect",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The effect of a treatment on the diagnosis or tumor."
             },
             "treatment_end_reason": {
                "description": "The reason the treatment ended.",
                "items": {
-                  "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentEndReason"
+                  "$ref": "#/$defs/CodeableConcept"
                },
                "type": "array"
             },
             "treatment_for_diagnosis": {
                "description": "The diagnosis for which this treatment is intended.",
                "items": {
-                  "$ref": "#/definitions/Diagnosis"
+                  "$ref": "#/$defs/Diagnosis"
                },
                "type": "array"
             },
             "treatment_frequency": {
-               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentFrequency",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The frequency of using the substance described by this instance."
             },
             "treatment_intent": {
-               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentIntent",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The medical intent of the treatment."
             },
             "treatment_outcome": {
-               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentOutcome",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The final outcome of the treatment."
             },
             "treatment_type": {
-               "$ref": "#/definitions/EnumCRDCHTreatmentTreatmentType",
+               "$ref": "#/$defs/CodeableConcept",
                "description": "The type of treatment administered, which may include medication/therapeutics or other procedures."
             }
          },
@@ -12365,6 +12314,9 @@
          "type": "object"
       }
    },
+   "$id": "https://example.org/crdch",
+   "$schema": "http://json-schema.org/draft-07/schema#",
+   "additionalProperties": true,
    "properties": {},
    "title": "CRDC-H",
    "type": "object"
