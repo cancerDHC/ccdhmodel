@@ -1,0 +1,12 @@
+# can't be a list
+#   use observation set
+# misspellings in text are tolerated, as are bogus uris in coding.system
+#   coding.system validationa s string instead of URI is a known bug
+# can enums goin any of these slots?
+#   look at values from
+# learn more about attributes vs slots
+[
+	{ "observation_type": { "text": "cigarettes_per_dayZZZ", "coding": "marksterms:cpd" }},
+	{ "observation_type": { "text": "cigarettes_per_day" }}
+]
+
