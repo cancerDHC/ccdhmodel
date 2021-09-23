@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Model changes
   * Renamed `ccdh` to `crdch` in the model.
   * Separated CodeableConcepts from the enums upon which they are based.
+    * Specifically, each CodeableConcept now uses the LinkML `values_from` field to store a reference to the enum
+      from which terms are expected to be used. See [PR #115](https://github.com/cancerDHC/ccdhmodel/pull/115) for
+      details.
   * Updated terminologies to the latest from the Terminology Server.
   * Minor changes made during the CCDH Pilot (August to September 2021).
 * LinkML representation
