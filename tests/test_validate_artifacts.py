@@ -24,12 +24,8 @@ class ValidateArtifacts(unittest.TestCase):
 
             assert_that(json_schema).is_not_empty()
 
-            # Idea from https://github.com/Julian/jsonschema/issues/348#issuecomment-647418176
-            class SaferDraft202012Validator(jsonschema.Draft202012Validator):
-                META_SCHEMA = {**jsonschema.Draft202012Validator.META_SCHEMA, "additionalProperties": False}
-
             try:
-                SaferDraft202012Validator.check_schema(json_schema)
+                jsonschema.Draft202012Validator.check_schema(json_schema)
             except jsonschema.exceptions.SchemaError as e:
                 fail(f'JSON Schema {json_schema_file_path} is not a valid JSON Schema: {e}')
 
