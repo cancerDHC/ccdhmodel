@@ -309,7 +309,7 @@ docserve: gen-docs
 
 # Generate LinkML schema from Google Sheet data model using sheet2linkml.
 generate-model: install install-dev
-	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) sheet2linkml --output model/schema/crdch_model.yaml --logging-config ./logging.ini
+	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) sheet2linkml --output linkml_model/schema/crdch_model.yaml --logging-config ./logging.ini
 
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
 # Deploy changes to the `dev` version on the gh-pages branch.
