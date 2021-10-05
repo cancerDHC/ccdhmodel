@@ -8,6 +8,11 @@ packages = [
   { include = "crdch_model", from = "crdch_model" }
 ]
 
+[tool.poetry.urls]
+"Center for Cancer Data Harmonization" = "https://ccdh.cancer.gov"
+"CCDH Model" = "https://cancerdhc.github.io/ccdhmodel/"
+"Bug Tracker" = "https://github.com/cancerDHC/ccdhmodel/issues"
+
 [tool.poetry.dependencies]
 python = ">=3.7"
 linkml-runtime = "^1.1.2"
