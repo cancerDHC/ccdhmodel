@@ -10,6 +10,11 @@ license = "MIT"
 packages = [
   { include = "crdch_model.py", from = "crdch_model" }
 ]
+include = [
+  "README.md",
+  "model/*",
+  "crdch_model/*"
+]
 
 [tool.poetry.urls]
 "Center for Cancer Data Harmonization" = "https://ccdh.cancer.gov"
