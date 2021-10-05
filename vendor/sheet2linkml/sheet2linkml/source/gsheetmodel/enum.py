@@ -209,10 +209,21 @@ class Enum(ModelElement):
         self.mappings.set_mappings_on_element(enum)
 
         # Now generate LinkML for all of the values.
-        enum.permissible_values = {
+        pv_values = {
             str(enum_value.name): enum_value.as_linkml(root_uri)
             for enum_value in self.values
         }
+
+        # If we have no permissible values, then define a single PV named "null"
+        # (see https://github.com/cancerDHC/ccdhmodel/issues/85 for details)
+        if len(pv_values) == 0:
+            pv_values = {
+                'NULL': PermissibleValue(
+                    text='NULL'
+                )
+            }
+
+        enum.permissible_values = pv_values
 
         return enum
 
