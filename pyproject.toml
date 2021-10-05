@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "crdch-model"
+version = "1.1.1"
+description = "CRDC-H model in LinkML, developed by the Center for Cancer Data Harmonization (CCDH). This Python package contains the dataclasses necessary to build and operate over data objects according to the CRDC-H model."
+authors = ["Gaurav Vaidya <gaurav@ggvaidya.com>"]
+license = "MIT"
+packages = [
+  { include = "crdch_model", from = "crdch_model" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+linkml-runtime = "^1.1.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
