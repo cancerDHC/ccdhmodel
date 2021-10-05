@@ -8,7 +8,7 @@ authors = [
 ]
 license = "MIT"
 packages = [
-  { include = "crdch_model", from = "crdch_model" }
+  { include = "crdch_model.py", from = "crdch_model" }
 ]
 
 [tool.poetry.urls]
