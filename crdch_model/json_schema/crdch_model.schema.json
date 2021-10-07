@@ -11690,7 +11690,7 @@
             },
             "tumor_status_at_collection": {
                "$ref": "#/$defs/CodeableConcept",
-               "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).  \n\n**CodeableConcept Binding:**  This property has a Range of CodeableConcept. One of the Codings in this CodeableConcept instance should be populated with values from [enum_CRDCH_Specimen_tumor_status_at_collection](enum_CRDCH_Specimen_tumor_status_at_collection.md)"
+               "description": "The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc)."
             }
          },
          "required": [],
