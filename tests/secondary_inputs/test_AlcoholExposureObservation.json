@@ -1,0 +1,9 @@
+{
+  "observation_type": {
+    "text": "cigarettes_per_day",
+    "coding": {
+      "code": "marksterms:cpd",
+      "system": "not a real uri"
+    }
+  }
+}
