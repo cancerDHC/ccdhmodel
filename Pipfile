@@ -19,6 +19,11 @@ rdflib-pyld-compat = "*" # resinstating after removal by migration to linkml mod
 mike = "*"
 mkdocs-material = "*"
 
+# 1.0.1 is avaialble but won't install on my linux workstation via pip or pipenv
+sheet2linkml = "==1.0.0"
+python-dotenv = "*"
+
+
 [dev-packages]
 pyyaml = "*"            # For reading and writing YAML files.
 

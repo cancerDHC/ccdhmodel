@@ -312,6 +312,11 @@ docserve: gen-docs
 generate-model: install install-dev
 	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) python vendor/sheet2linkml/sheet2linkml.py --output model/schema/crdch_model.yaml
 
+# --logging-config ~/path/to/logging.ini
+model/schema/crdch_model.yaml: install install-dev
+	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) sheet2linkml --output $@
+
+
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
 # Deploy changes to the `dev` version on the gh-pages branch.
 # Note that this is not dependent on stage-docs, since you
