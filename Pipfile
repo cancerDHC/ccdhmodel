@@ -47,3 +47,4 @@ twine = "*" # should this go in make-venv/Pipfile ?
 allow_prereleases = true # added by migration to linkml model template
 
 [requires]
+python_version = "3.9"
