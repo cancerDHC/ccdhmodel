@@ -7,15 +7,6 @@ assignees: ''
 
 ---
 
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: bug
-assignees: ''
-
----
-
 **Describe the bug**
 A clear and concise description of what the bug is.
 
@@ -33,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (if applicable, please complete the following information):**
- - OS: [e.g. iOS]
+ - OS: [e.g. MacOS 14, Windows 10, Ubuntu 20.4]
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
 
