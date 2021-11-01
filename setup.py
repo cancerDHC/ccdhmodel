@@ -10,5 +10,5 @@ if sys.version_info < (3, 7, 0):
     sys.exit(1)
 
 setup(
-    version = '1.1'
+    version = '1.1.2'
 )
