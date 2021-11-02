@@ -12,7 +12,7 @@ linkml = {editable = true, ref = "ccdh-dev", git = "https://github.com/cancerDHC
 linkml-runtime = {editable = true, git = "https://github.com/linkml/linkml-runtime.git"}
 pyparsing = "<=2.4.7"
 rdflib-pyld-compat = "*" # resinstating after removal by migration to linkml model template
-sheet2linkml = ">=1.0.1"  # used for converting spreadsheet data model to LinkML schema
+sheet2linkml = ">=1.1.0"  # used for converting spreadsheet data model to LinkML schema
 
 [dev-packages]
 pyyaml = "*"            # For reading and writing YAML files.
