@@ -61,7 +61,7 @@ A pull request must be reviewed by **at least one other project member** to get 
     cd ccdhmodel  # change directory to ccdhmodel
     git checkout main  # switch to main branch of ccdhmodel
     poetry build # build source and wheel archives
-    pip install dist/ccdhmodel-x.y.z-py3-none-any.whl  # install wheel file
+    pip install dist/crdchmodel-x.y.z-py3-none-any.whl  # install wheel file
     ```
 
     **note**: x.y.z is the version number listed on pyproject.toml.
@@ -72,7 +72,7 @@ A pull request must be reviewed by **at least one other project member** to get 
     # make changes to any files or modules
     pip uninstall ccdhmodel  # uninstall package
     poetry build
-    pip install dist/ccdhmodel-x.y.z-py3-none-any.whl  # install wheel file
+    pip install dist/crdchmodel-x.y.z-py3-none-any.whl  # install wheel file
     ```
 
 * If you want to generate LinkML artifacts, follow the instruction on [Generation of LinkML artifacts](https://github.com/cancerDHC/ccdhmodel#generation-of-linkml-artifacts).
