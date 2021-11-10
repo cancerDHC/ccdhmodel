@@ -30,8 +30,7 @@ jobs:
       #          install pipenv
       #----------------------------------------------
       - name: Install pipenv
-        run: |
-          dschep/install-pipenv-action@v1
+        uses: dschep/install-pipenv-action@v1
 
       #----------------------------------------------
       #       load cached pipenv if cache exists
