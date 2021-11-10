@@ -21,10 +21,18 @@ Scan through our [existing issues](https://github.com/cancerDHC/ccdhmodel/issues
 ### Create a branch
 
 We follow the [gitflow](https://nvie.com/posts/a-successful-git-branching-model/) workflow for branching practice and naming convention.
-(Discussions on branching model/practice are ongoing.)
+(Discussions on branching model and branching practice are ongoing.)
 
 * The repo holds two main branches with an infinite lifetime: `master` and `develop`
-* The supporting branches we only use are feature and bugfix branches. You can name your branch anything except `master` and `develop`. You can add a short descriptor of the task, and/or an issue ID to the name of the branch.
+* The supporting branches we may use are:
+  * Feature branches
+  * Release branches
+  * Hotfix branches
+* Naming convention of the branches
+  * Feature branches: You can name your branch anything except `master` and `develop`. You can add a short descriptor of the task, and/or an issue ID to the name of the branch.
+  * Release branches: release-*
+  * Hotfix branches: hotfix-*
+* It is recommended to use the [GitFlow Git extension](https://github.com/nvie/gitflow) to implement the gitflow branching model locally.
 
 ### Pull Request
 
@@ -81,6 +89,6 @@ A pull request must be reviewed by **at least one other project member** to get 
 
 The code which you intend to commit and merge into this repository should be conformant with the standards adopted by the [black](https://black.readthedocs.io/en/stable/index.html) code formatter. In order to format your code with `black`, run the following command:
 
-    ```shell
-    poetry run black ~/path/to/directory
-    ```
+```shell
+poetry run black ~/path/to/directory
+```
