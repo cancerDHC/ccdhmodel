@@ -29,15 +29,15 @@ jobs:
       #----------------------------------------------
       #          install pipenv
       #----------------------------------------------
-      - name: Install dependencies
+      - name: Install pipenv
         run: |
-          python -m pip install --upgrade pipenv
+          dschep/install-pipenv-action@v1
 
       #----------------------------------------------
       #       load cached pipenv if cache exists
       #----------------------------------------------
       - name: Load cached venv
-        id: cached-poetry-dependencies
+        id: cached-pipenv-dependencies
         uses: actions/cache@v2
         with:
           path: ~/.local/share/virtualenvs
