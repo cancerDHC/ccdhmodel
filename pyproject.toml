@@ -49,6 +49,8 @@ linkml-runtime = {git = "https://github.com/linkml/linkml-runtime", rev = "main"
 [tool.poetry.dev-dependencies]
 tox = "^3.24.4"
 linkml = {git = "https://github.com/cancerDHC/linkml.git", rev = "ccdh-dev"}
+mkdocs-material = "^7.3.6"
+mike = "^1.1.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
