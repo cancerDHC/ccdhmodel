@@ -23,7 +23,7 @@ Scan through our [existing issues](https://github.com/cancerDHC/ccdhmodel/issues
 We follow the [gitflow](https://nvie.com/posts/a-successful-git-branching-model/) workflow for branching practice and naming convention.
 (Discussions on branching model and branching practice are ongoing.)
 
-* The repo holds two main branches with an infinite lifetime: `master` and `develop`
+* The repo holds two main branches with an infinite lifetime: `main` and `develop`
 * The supporting branches we may use are:
   * Feature branches
   * Release branches
