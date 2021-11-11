@@ -50,7 +50,7 @@ A pull request must be reviewed by **at least one other project member** to get 
 * You can add `unittest` tests to the repo as well.
 * We may ask for changes to be made before a PR can be merged, either using suggested changes or pull request comments. You can make any other changes and commit them in your branch.
 * As you update your PR and apply changes, mark each conversation as resolved.
-* If you run into any merge issues, checkout this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues.
+* If you run into any merge issues, checkout this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues. Please also don't hesitate to ask other project members for help!
 
 ## Development environment setup
 
