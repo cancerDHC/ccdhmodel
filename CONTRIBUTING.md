@@ -1,6 +1,6 @@
 # How to contribute
 
-The following is a guideline for contributing to this repository.
+The following is a set of guidelines for contributing to the CRDCH model repository.
 
 ## Create a new issue
 
