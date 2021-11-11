@@ -40,7 +40,7 @@ When you're finished with the changes on your code, create a [pull request](http
 
 * PRs for feature branches should always merge into `develop`, while PRs for release and hotfix branches should always merge into `main`, unless there are good reasons to merge them into another branch.
 * Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
-
+* Major changes, especially new features, should be documented in the CHANGELOG file in the PR so we can keep track of which version each change was incorporated into.
 ### Code Review
 
 A pull request must be reviewed by **at least one other project member** to get merged quickly.
