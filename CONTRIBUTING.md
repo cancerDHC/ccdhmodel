@@ -54,6 +54,32 @@ A pull request must be reviewed by **at least one other project member** to get 
 
 ## Development environment setup
 
+This section describes how to set up the development environment needed to make the CRDCH artifacts from the CRDCH schema in YAML that is included with this repository.
+
+You will need to install Python 3.7+, Make and Poetry in order to build the artifacts in this repository. One-time installation commands for Poetry are available for [macOS/Linux/Bash on Windows](https://github.com/python-poetry/poetry#osx--linux--bashonwindows-install-instructions) and for [Windows PowerShell](https://github.com/python-poetry/poetry#windows-powershell-install-instructions).
+
+For most development tasks, you should be able to close this repository using:
+    ```shell
+    git clone https://github.com/cancerDHC/ccdhmodel.git
+    ```
+
+And then building all artifacts by using the included Makefile:
+    ```shell
+    make
+    ```
+
+You can run the included unit tests by running:
+    ```shell
+    make test
+    ```
+
+You can publish the code to PyPI by running:
+    ```shell
+    poetry publish
+    ```
+
+Detailed instructions on setting up the development environment without using the Makefile are provided below.
+
 1. Install package dependencies.
    1. Install poetry if necessary. One-time installation commands are available for [osx/linux/bash on windows](https://github.com/python-poetry/poetry#osx--linux--bashonwindows-install-instructions) and for [windows powershell](https://github.com/python-poetry/poetry#windows-powershell-install-instructions).
 2. Clone the ccdhmodel package repository.
