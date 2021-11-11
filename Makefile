@@ -79,7 +79,7 @@ gen: $(patsubst %,gen-%,$(TGTS))
 clean:
 	rm -rf target/
 	rm -rf docs/
-	poetry --remove-untracked
+	poetry install --remove-untracked
 .PHONY: clean
 
 
