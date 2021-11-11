@@ -38,7 +38,7 @@ We follow the [gitflow](https://nvie.com/posts/a-successful-git-branching-model/
 
 When you're finished with the changes on your code, create a [pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests), also known as a PR.
 
-* You need to make a PR into the same branch that you created a sub branch from. Typically `main` or `develop`, unless you are proposing a modification to a feature branch or a bugfix branch.
+* PRs for feature branches should always merge into `develop`, while PRs for release and hotfix branches should always merge into `main`, unless there are good reasons to merge them into another branch.
 * Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
 
 ### Code Review
