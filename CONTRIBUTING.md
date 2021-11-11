@@ -14,7 +14,7 @@ If you report an issue using predefined issue forms, each form automatically tag
 
 Scan through our [existing issues](https://github.com/cancerDHC/ccdhmodel/issues) to find one that interests you.
 
-* The issues can be self-assigned and/or assigned by any members of the team.
+* The issues can be self-assigned and/or assigned by any members of the team. Please do not start work on an assigned issue without checking with the assignee, who might be already working on the issue, and please unassign yourself if you can no longer work on that issue.
 * The issues we should tackle first are listed on 'standing reference' section of the Tools team meeting notes.
 * The issues we priotize each quarter can be found at [Milestones](https://github.com/cancerDHC/ccdhmodel/milestones) page. The issues are categorized in next release of the CRDCH model, improvement of model generation, model testing, and model documentation, and future goals.
 
