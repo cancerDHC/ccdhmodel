@@ -43,7 +43,7 @@ classifiers = [
 "Bug Tracker" = "https://github.com/cancerDHC/ccdhmodel/issues"
 
 [tool.poetry.dependencies]
-python = ">=3.7"
+python = ">=3.7,<4.0"
 linkml-runtime = {git = "https://github.com/linkml/linkml-runtime", rev = "main"}
 
 [tool.poetry.dev-dependencies]
