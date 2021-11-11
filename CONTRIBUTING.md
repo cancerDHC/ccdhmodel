@@ -29,7 +29,7 @@ We follow the [gitflow](https://nvie.com/posts/a-successful-git-branching-model/
   * Release branches
   * Hotfix branches
 * Naming convention of the branches
-  * Feature branches: You can name your branch anything except `master` and `develop`. You can add a short descriptor of the task, and/or an issue ID to the name of the branch.
+  * Feature branches: You can name your branch anything except `main` and `develop`. You can add a short descriptor of the task, and/or an issue ID to the name of the branch.
   * Release branches: release-*
   * Hotfix branches: hotfix-*
 * It is recommended to use the [GitFlow Git extension](https://github.com/nvie/gitflow) to implement the gitflow branching model locally.
