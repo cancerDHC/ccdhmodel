@@ -43,7 +43,7 @@ jobs:
           key: ${{ runner.os }}-python-${{ matrix.python-version }}-poetry-${{ hashFiles('**/poetry.lock') }}
 
       #----------------------------------------------
-      #             run tests with tox
+      #       run tests
       #----------------------------------------------
-      - name: Run tox tests
-        run: poetry run tox
+      - name: Run tests
+        run: make test
