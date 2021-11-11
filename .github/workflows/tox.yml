@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9, 3.10]
 
     steps:
 
@@ -27,30 +27,23 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       #----------------------------------------------
-      #          install pipenv
+      #          install poetry
       #----------------------------------------------
-      - name: Install pipenv
-        uses: dschep/install-pipenv-action@v1
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
 
       #----------------------------------------------
-      #       load cached pipenv if cache exists
+      #       load cached poetry installation
       #----------------------------------------------
       - name: Load cached venv
-        id: cached-pipenv-dependencies
+        id: cached-poetry-dependencies
         uses: actions/cache@v2
         with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-python-${{ matrix.python-version }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
-
-      #----------------------------------------------
-      # install dependencies if cache does not exist
-      #----------------------------------------------
-      - name: Install dependencies
-        if: steps.cache-pipenv.outputs.cache-hit != 'true'
-        run: pipenv install --python ${{ matrix.python-version }} --deploy --dev
+          path: ~/.local
+          key: ${{ runner.os }}-python-${{ matrix.python-version }}-poetry-${{ hashFiles('**/poetry.lock') }}
 
       #----------------------------------------------
       #             run tests with tox
       #----------------------------------------------
       - name: Run tox tests
-        run: pipenv run tox4
+        run: poetry run tox
