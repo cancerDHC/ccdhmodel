@@ -2,11 +2,11 @@
 
 The following is a set of guidelines for contributing to the CRDCH model repository.
 
-## Development environment setup
+## Development Environment Setup
 
 This section describes how to set up the development environment needed to make the CRDCH artifacts from the CRDCH schema in YAML that is included with this repository.
 
-You will need to install Python 3.7+, Make and Poetry in order to build the artifacts in this repository. One-time installation commands for Poetry are available for [macOS/Linux/Bash on Windows](https://github.com/python-poetry/poetry#osx--linux--bashonwindows-install-instructions) and for [Windows PowerShell](https://github.com/python-poetry/poetry#windows-powershell-install-instructions).
+You will need to install `Python 3.7+`, `Make` and `Poetry` in order to build the artifacts in this repository. One-time installation commands for Poetry are available for [macOS/Linux/Bash on Windows](https://github.com/python-poetry/poetry#osx--linux--bashonwindows-install-instructions) and for [Windows PowerShell](https://github.com/python-poetry/poetry#windows-powershell-install-instructions).
 
 For most development tasks, you should be able to clone this repository using:
 
@@ -32,10 +32,10 @@ You can publish the code to PyPI by running:
 poetry publish
 ```
 
-Detailed instructions on setting up the development environment without using the Makefile are provided below.
+Detailed instructions on setting up the development environment without using the `Makefile` are provided below.
 
 1. Install package dependencies.
-   1. Install poetry if necessary. One-time installation commands are available for [osx/linux/bash on windows](https://github.com/python-poetry/poetry#osx--linux--bashonwindows-install-instructions) and for [windows powershell](https://github.com/python-poetry/poetry#windows-powershell-install-instructions).
+   1. Install poetry if necessary. One-time installation commands are available for [macOS/Linux/Bash on Windows](https://github.com/python-poetry/poetry#osx--linux--bashonwindows-install-instructions) and for [Windows Powershell](https://github.com/python-poetry/poetry#windows-powershell-install-instructions).
 2. Clone the ccdhmodel package repository.
 
     ```shell
@@ -54,7 +54,7 @@ Detailed instructions on setting up the development environment without using th
 
     **note**: x.y.z is the version number listed on pyproject.toml.
 
-5. To test new changes made to any of the modules within sheet2linkml, do the following:
+5. To test new changes made to any of the modules within ccdhmodel, do the following:
 
     ```shell
     # make changes to any files or modules
@@ -65,7 +65,7 @@ Detailed instructions on setting up the development environment without using th
 
 * If you want to generate LinkML artifacts, follow the instruction on [Generation of LinkML artifacts](https://github.com/cancerDHC/ccdhmodel#generation-of-linkml-artifacts).
 
-## Format code with `black`
+### Format Code with `black`
 
 The code which you intend to commit and merge into this repository should be conformant with the standards adopted by the [black](https://black.readthedocs.io/en/stable/index.html) code formatter. In order to format your code with `black`, run the following command:
 
@@ -73,15 +73,15 @@ The code which you intend to commit and merge into this repository should be con
 poetry run black ~/path/to/directory
 ```
 
-## Create a new issue
+## Create a New Issue
 
 If you spot a problem with the code or documents; want to report bugs; or want to suggest enhancements, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments). If a related issue doesn't exist, you can open a new issue using an [issue form](https://github.com/cancerDHC/ccdhmodel/issues/new/choose). You can choose either "Bug report" or "Feature request." If your issue doesn't fall under either categories, please use "Open an blank issue" to report your problem.
 
-### How to use labels?
+### How to Use Labels?
 
 If you report an issue using predefined issue forms, each form automatically tags a label for you. You can also add tags manually. You can find the list of labels currently being used in this repository at [labels](https://github.com/cancerDHC/ccdhmodel/labels) page.
 
-## Solve an issue
+## Solve an Issue
 
 Scan through our [existing issues](https://github.com/cancerDHC/ccdhmodel/issues) to find one that interests you.
 
@@ -89,7 +89,7 @@ Scan through our [existing issues](https://github.com/cancerDHC/ccdhmodel/issues
 * The issues we should tackle first are listed on 'standing reference' section of the Tools team meeting notes.
 * Issues we are currently working on are grouped using [Milestones](https://github.com/cancerDHC/ccdhmodel/milestones). Milestones group thematically related issues that are due to be completed by a particular date.
 
-### Create a branch
+### Create a Branch
 
 We follow the [gitflow](https://nvie.com/posts/a-successful-git-branching-model/) workflow for branching practice and naming convention.
 (Discussions on branching model and branching practice are ongoing.)
@@ -110,12 +110,12 @@ We follow the [gitflow](https://nvie.com/posts/a-successful-git-branching-model/
 When you're finished with the changes on your code, create a [pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests), also known as a PR.
 
 * PRs for feature branches should always merge into `develop`, while PRs for release and hotfix branches should always merge into `main`, unless there are good reasons to merge them into another branch.
-* Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
+* Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one. A good way to do this is by writing `closes #[issue number]` somewhere in the PR description.
 * Major changes, especially new features, should be documented in the CHANGELOG file in the PR so we can keep track of which version each change was incorporated into.
 
 ### Code Review
 
-A pull request must be reviewed by **at least one other project member** to get merged quickly.
+A pull request must be reviewed by **at least one other project member** before it is merged.
 
 > A CCDH engineer must review and accept your pull request. A code review (which happens with both the contributor and the reviewer present) is required for contributing.
 
