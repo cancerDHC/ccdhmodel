@@ -298,7 +298,7 @@ target/sqlddl/%.sql: $(SCHEMA_DIR)/%.yaml tdir-sqlddl install
 
 # Generate the model. We use sheet2linkml to do this.
 generate-model: install
-	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) python vendor/sheet2linkml/sheet2linkml.py --output model/schema/crdch_model.yaml
+	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) sheet2linkml --output model/schema/crdch_model.yaml
 
 
 #################
