@@ -598,13 +598,6 @@
                      },
                      {
                         "type": "TripleConstraint",
-                        "predicate": "https://example.org/crdch/value_entity",
-                        "valueExpr": "https://example.org/crdch/Entity",
-                        "min": 0,
-                        "max": 1
-                     },
-                     {
-                        "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
                         "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
@@ -4071,6 +4064,13 @@
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/treatment_outcome",
                         "valueExpr": "https://example.org/crdch/CodeableConcept",
+                        "min": 0,
+                        "max": 1
+                     },
+                     {
+                        "type": "TripleConstraint",
+                        "predicate": "https://example.org/crdch/treatment_dose",
+                        "valueExpr": "https://example.org/crdch/Quantity",
                         "min": 0,
                         "max": 1
                      }

@@ -127,7 +127,6 @@ linkml:Nodeidentifier NONLITERAL
           <focus> @<Entity> ? ;
           <subject> @<Subject> ? ;
           <performed_by> @<Organization> ? ;
-          <value_entity> @<Entity> ? ;
           <value_codeable_concept> @<CodeableConcept>
        ) ;
        rdf:type [ <CancerStageObservation> ] ?
@@ -711,7 +710,8 @@ linkml:Nodeidentifier NONLITERAL
           <treatment_anatomic_site> @<BodySite> ? ;
           <treatment_intent> @<CodeableConcept> ? ;
           <treatment_effect> @<CodeableConcept> ? ;
-          <treatment_outcome> @<CodeableConcept> ?
+          <treatment_outcome> @<CodeableConcept> ? ;
+          <treatment_dose> @<Quantity> ?
        ) ;
        rdf:type [ <Treatment> ] ?
     )
