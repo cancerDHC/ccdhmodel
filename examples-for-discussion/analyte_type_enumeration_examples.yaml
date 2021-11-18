@@ -108,5 +108,60 @@
 
 # Approach 5:  Separate Provenance OBject (TO DO: Chris M?)
 
+This combines:
+
+ 1. A simple enum model for direct representation of the harmonized value
+ 2. A provenance object for recording both original values/codes plus any information regarding transform
+
+Instance data for analyte:
+
+```yaml
+identifiers:
+  - tcga:TCGA-2G-AAGW-01A-11D
+  - gdc:d64cba64-7eba-4a09-887d-bfc401edd138
+analyte_type: DNA
+was_generated_by:
+  ## inlining for illustrative purposes
+  ## this could get its own ID and be referenced by ID.
+  ##
+  ## the specific details are not so important here
+  description: ...
+  started_at_time: ...
+  inputs:
+    - source: tcga:TCGA-2G-AAGW-01A-11D
+      field: analyte_type
+      value:
+        - id: NCIt:C449
+          name: DNA
+          version: ....
+    - source: gdc:d64cba64-7eba-4a09-887d-bfc401edd138
+      value:
+        - id: gdc:DNA
+          name: DNA
+          version: ....
+```
+
+Schema:
+
+```yaml
+enums:
+  analyte_enum:
+    permissible_values:
+      DNA:
+        meaning: ncit:C449
+        description: ....
+      RNA: ...
+```
+
+ - Note that when the json/yaml object is interpreted with the schema, the RDF value for analyte_type is the NCIT IRI
+ - the provenance object is just an exemplar and the details are not important to illustrate the general approach
+    - if we like, we don't need to inline, the provenance object could get its own ID and be referenced by ID
+    - if not inlined, then it could optionally be retrieved by a different service, the same service, etc. These architecture details outside the scope of the model
+    - the provenance object can be as broad, deep, detailed, extensible as we like. Not shown but we could have:
+       - the "agent" making the change
+       - time of ETL transformation
+       - link to any mappings used
+       - etc
+
 
 

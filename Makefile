@@ -325,5 +325,3 @@ pypi:
 	rm -f dist/*
 	$(RUN) python setup.py sdist bdist_wheel
 	$(RUN) twine upload dist/*
-	git commit -am 'post twine push'
-	git push --tags
