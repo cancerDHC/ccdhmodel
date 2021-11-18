@@ -2,7 +2,7 @@ name: CRDC-H
 notes:
 - Derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)
 id: https://example.org/crdch
-version: v1.1-58-g7fe70d69-dirty
+version: v1.1-61-gdec2c077
 imports:
 - linkml:types
 license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -8402,4 +8402,4 @@ classes:
         multivalued: false
         range: Quantity
         required: false
-generation_date: '2021-11-12T07:02:59.891713+00:00'
+generation_date: '2021-11-18T06:39:31.985761+00:00'
