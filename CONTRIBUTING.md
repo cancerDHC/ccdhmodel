@@ -123,8 +123,6 @@ When you're finished with the changes on your code, create a [pull request](http
 
 A pull request must be reviewed by **at least one other project member** before it is merged.
 
-> A CCDH engineer must review and accept your pull request. A code review (which happens with both the contributor and the reviewer present) is required for contributing.
-
 * You can add `unittest` tests to the repo as well.
 * We may ask for changes to be made before a PR can be merged, either using suggested changes or pull request comments. You can make any other changes and commit them in your branch.
 * As you update your PR and apply changes, mark each conversation as resolved.
