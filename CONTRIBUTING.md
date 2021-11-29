@@ -26,6 +26,12 @@ You can run the included unit tests by running:
 make test
 ```
 
+You can regenerate the model by using:
+
+```shell
+make generate-model
+```
+
 You can publish the code to PyPI by running:
 
 ```shell
