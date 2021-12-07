@@ -22,12 +22,10 @@ would like to use the latest, in-development version of the schema as described 
 use the [sheet2linkml](https://github.com/cancerDHC/sheet2linkml) package to regenerate this schema to regenerate this
 file by running `make generate-model`.
 
-In order to read a Google Sheet, sheet2linkml will need access to the Google Drive API. You will need to first
-[enable the Google Drive API](https://developers.google.com/drive/api/v3/enable-drive-api), and then
-[create and download the client credentials](https://www.iperiusbackup.net/en/how-to-enable-google-drive-api-and-get-client-credentials/)
-from the [Google API Console](https://console.developers.google.com/). Save the file as `google_api_credentials.json` in
-the root directory of this project. [Detailed instructions and screenshots](https://pygsheets.readthedocs.io/en/stable/authorization.html)
-are also available from the [`pygsheets` documentation](https://pygsheets.readthedocs.io/), which is the package
-sheet2linkml uses to access Google Sheets. The first time you run `make generate-model`, you will see a browser page
-asking you to log in. Follow the instructions. The script will download a token and store it locally. You will not need to
-log in on repeated invocations.
+In order to read a Google Sheet, sheet2linkml will need access to the [Google Sheets API](https://developers.google.com/sheets/api)
+in the [Google Developers Console](https://console.developers.google.com/).
+[Detailed instructions and screenshots](https://pygsheets.readthedocs.io/en/stable/authorization.html) are available from
+the [`pygsheets` documentation](https://pygsheets.readthedocs.io/), which is the package sheet2linkml uses to access
+Google Sheets. Save the file as `google_api_credentials.json` in the root directory of this project. The first time you
+run `make generate-model`, you will see a browser page asking you to log in. Follow the instructions. The script will
+download a token and store it locally. You will not need to log in when rerunning this command.
