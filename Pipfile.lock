@@ -256,12 +256,12 @@
         "linkml": {
             "editable": true,
             "git": "https://github.com/cancerDHC/linkml.git",
-            "ref": "3087b914a2760a3b90ac858dd21151c8c8fa8f2f"
+            "ref": "81971c694f464c1b80693481a2e4fea7e4f95ba4"
         },
         "linkml-runtime": {
             "editable": true,
             "git": "https://github.com/linkml/linkml-runtime.git",
-            "ref": "21ee840532efc05e1184ff1a5f6aabe99bd4af47"
+            "ref": "bbf4187479c4eba1860828a5a472e57f174a47e9"
         },
         "lxml": {
             "hashes": [

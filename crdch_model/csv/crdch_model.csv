@@ -1,7 +1,7 @@
 id,mappings,description
 AlcoholExposureObservation,,"A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation."
 BiologicProduct,,"A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."
-BodySite,,"A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device."
+BodySite,,"A site in the body of an organism, typically described in terms of an anatomical concept and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include non-canonical sites, such as an implanted medical device."
 CancerGradeObservation,,A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer grade observation
 CancerGradeObservationSet,,"A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)."
 CancerStageObservation,,"A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging."
