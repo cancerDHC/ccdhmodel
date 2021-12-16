@@ -12,12 +12,12 @@
     rdfs:label "CRDC-H" ;
     IAO:0000700 crdch:Entity ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
-    pav:version "v1.1-68-g5b5f819c" ;
+    pav:version "v1.1-77-gfb63fbee" ;
     skos:editorialNote "Derived from [CDM_Dictionary_v1 (Active)](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4)" ;
-    linkml:generation_date "2021-12-16T12:08:24" ;
+    linkml:generation_date "2021-12-16T13:07:47" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "crdch_model.yaml" ;
-    linkml:source_file_date "2021-12-16T12:05:38" ;
+    linkml:source_file_date "2021-12-16T13:05:34" ;
     linkml:source_file_size 1090462 .
 
 crdch:CrdchCode a owl:Class,
@@ -38,11 +38,15 @@ crdch:ObservationSet a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
             owl:allValuesFrom crdch:Observation ;
             owl:onProperty crdch:observations ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Entity ;
             owl:onProperty crdch:focus ],
@@ -51,17 +55,13 @@ crdch:ObservationSet a owl:Class,
             owl:onClass crdch:Organization ;
             owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Subject ;
             owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ;
+            owl:qualifiedCardinality 1 ],
         crdch:Entity ;
     skos:definition "A structured object to hold related data items about an entity, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [ObservationSet in sheet ObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1243450201)" ;
@@ -82,6 +82,18 @@ crdch:CancerGradeObservation a owl:Class,
             owl:onProperty crdch:value_codeable_concept ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Entity ;
             owl:onProperty crdch:focus ],
@@ -91,20 +103,8 @@ crdch:CancerGradeObservation a owl:Class,
             owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
         crdch:Entity ;
     skos:definition "A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer grade observation" ;
     skos:editorialNote "Derived from [CancerGradeObservation in sheet CancerGradeObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1099484640)" .
@@ -114,28 +114,20 @@ crdch:CancerStageObservation a owl:Class,
     rdfs:label "CancerStageObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
         [ a owl:Restriction ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Entity ;
             owl:onProperty crdch:focus ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
@@ -144,6 +136,14 @@ crdch:CancerStageObservation a owl:Class,
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:value_codeable_concept ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
         crdch:Entity ;
     skos:definition "A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging." ;
     skos:editorialNote "Derived from [CancerStageObservation in sheet CancerStageObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1189722404)" .
@@ -152,6 +152,17 @@ crdch:DimensionalObservation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DimensionalObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onClass crdch:Quantity ;
             owl:onProperty crdch:value_quantity ;
             owl:qualifiedCardinality 1 ],
@@ -160,27 +171,16 @@ crdch:DimensionalObservation a owl:Class,
             owl:onClass crdch:Subject ;
             owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Entity ;
             owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
         crdch:Entity ;
     skos:definition "A structured object that describes a single data item about the physical dimensions  of an entity (e.g. length width, area), as generated through a point-in-time observation or measurement." ;
     skos:editorialNote "Derived from [DimensionalObservation in sheet DimensionalObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1045447308)" ;
@@ -191,16 +191,16 @@ crdch:HistologicalCompositionObservation a owl:Class,
     rdfs:label "HistologicalCompositionObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:value_quantity ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Entity ;
             owl:onProperty crdch:focus ],
@@ -209,15 +209,15 @@ crdch:HistologicalCompositionObservation a owl:Class,
             owl:onProperty crdch:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:value_quantity ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:observation_type ;
             owl:qualifiedCardinality 1 ],
         crdch:Entity ;
     skos:definition "An observation about characteristics of a specimen at a microscopic level - typically related to its cellular or tissue composition. (e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype)." ;
@@ -1576,28 +1576,16 @@ crdch:AlcoholExposureObservation a owl:Class,
     rdfs:label "AlcoholExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchInteger ;
-            owl:onProperty crdch:value_integer ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:category ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Entity ;
             owl:onProperty crdch:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchInteger ;
+            owl:onProperty crdch:value_integer ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
@@ -1610,6 +1598,18 @@ crdch:AlcoholExposureObservation a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
         crdch:Entity ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [AlcoholExposureObservation in sheet AlcoholExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1894439514)" .
@@ -1622,13 +1622,6 @@ crdch:CancerGradeObservationSet a owl:Class,
             owl:onClass crdch:Organization ;
             owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CancerGradeObservation ;
-            owl:onProperty crdch:observations ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:category ],
@@ -1637,11 +1630,18 @@ crdch:CancerGradeObservationSet a owl:Class,
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Entity ;
-            owl:onProperty crdch:focus ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:CodeableConcept ;
             owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Entity ;
+            owl:onProperty crdch:focus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CancerGradeObservation ;
+            owl:onProperty crdch:observations ],
         crdch:Entity ;
     skos:definition "A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.)." ;
     skos:editorialNote "Derived from [CancerGradeObservationSet in sheet CancerGradeObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1025765903)" .
@@ -1651,8 +1651,12 @@ crdch:CancerStageObservationSet a owl:Class,
     rdfs:label "CancerStageObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Entity ;
             owl:onProperty crdch:focus ],
@@ -1661,19 +1665,15 @@ crdch:CancerStageObservationSet a owl:Class,
             owl:onProperty crdch:observations ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
             owl:allValuesFrom crdch:CodeableConcept ;
             owl:onProperty crdch:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
         crdch:Entity ;
     skos:definition "A structured object to hold related data items about the staging of cancer (e.g. overall, T, N, and M components of a Cancer Staging observation)." ;
     skos:editorialNote "Derived from [CancerStageObservationSet in sheet CancerStageObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1668576212)" .
@@ -1683,36 +1683,36 @@ crdch:EnvironmentalExposureObservation a owl:Class,
     rdfs:label "EnvironmentalExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Subject ;
             owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:value_codeable_concept ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Entity ;
-            owl:onProperty crdch:focus ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
+            owl:onProperty crdch:value_codeable_concept ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:observation_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Entity ;
+            owl:onProperty crdch:focus ],
         crdch:Entity ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to an environmental factor, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [EnvironmentalExposureObservation in sheet EnvironmentalExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=274611680)" .
@@ -1722,12 +1722,20 @@ crdch:ExecutionTimeObservation a owl:Class,
     rdfs:label "ExecutionTimeObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Entity ;
-            owl:onProperty crdch:focus ],
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Entity ;
+            owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
             owl:onClass crdch:Quantity ;
             owl:onProperty crdch:value_quantity ;
@@ -1738,16 +1746,8 @@ crdch:ExecutionTimeObservation a owl:Class,
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
@@ -1762,30 +1762,30 @@ crdch:HistologicalCompositionObservationSet a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "HistologicalCompositionObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:HistologicalCompositionObservation ;
-            owl:onProperty crdch:observations ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:CodeableConcept ;
             owl:onProperty crdch:method_type ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Organization ;
             owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:allValuesFrom crdch:Entity ;
             owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
+            owl:allValuesFrom crdch:HistologicalCompositionObservation ;
+            owl:onProperty crdch:observations ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ;
+            owl:qualifiedCardinality 1 ],
         crdch:Entity ;
     skos:definition "A set of one or more discrete observations that quantify the relative or absolute composition of a specimen at cellular level - e.g. how many cells in the specimen are of a given type, or exhibit a particular cellular phenotype." ;
     skos:editorialNote "Derived from [HistologicalCompositionObservationSet in sheet HistologicalCompositionObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=815777747)" ;
@@ -1795,20 +1795,27 @@ crdch:SpecimenProcessingActivity a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenProcessingActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Quantity ;
-            owl:onProperty crdch:duration ],
+            owl:allValuesFrom crdch:ExecutionTimeObservation ;
+            owl:onProperty crdch:execution_time_observation ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Organization ;
             owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Quantity ;
+            owl:onProperty crdch:duration ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
             owl:onProperty crdch:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:activity_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
@@ -1816,13 +1823,6 @@ crdch:SpecimenProcessingActivity a owl:Class,
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Substance ;
             owl:onProperty crdch:additive ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:ExecutionTimeObservation ;
-            owl:onProperty crdch:execution_time_observation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:activity_type ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:ExecutionConditionObservation ;
             owl:onProperty crdch:execution_condition_observation ],
@@ -1835,20 +1835,9 @@ crdch:SpecimenQualityObservation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenQualityObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Entity ;
-            owl:onProperty crdch:focus ],
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:value_quantity ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:CodeableConcept ;
             owl:onProperty crdch:method_type ],
@@ -1861,9 +1850,20 @@ crdch:SpecimenQualityObservation a owl:Class,
             owl:onClass crdch:Organization ;
             owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:value_quantity ;
-            owl:qualifiedCardinality 1 ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Entity ;
+            owl:onProperty crdch:focus ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         crdch:Entity ;
     skos:definition "A structured object that describes a characteristic of a specimen indicative of its quality or suitability for use, as generated through a point-in-time observation or measurement." ;
     skos:editorialNote "Derived from [SpecimenQualityObservation in sheet SpecimenQualityObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=97281875)" .
@@ -1872,24 +1872,12 @@ crdch:SpecimenQuantityObservation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenQuantityObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:value_quantity ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:observation_type ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom crdch:Entity ;
+            owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Subject ;
@@ -1899,8 +1887,20 @@ crdch:SpecimenQuantityObservation a owl:Class,
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:category ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Entity ;
-            owl:onProperty crdch:focus ],
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:value_quantity ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:observation_type ;
+            owl:qualifiedCardinality 1 ],
         crdch:Entity ;
     skos:definition "A structured object that describes a single data item about the quantity of an entity, as generated through a point-in-time observation or measurement." ;
     skos:editorialNote "Derived from [SpecimenQuantityObservation in sheet SpecimenQuantityObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=9917708)" ;
@@ -1912,11 +1912,11 @@ crdch:TimePeriod a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:period_end_end ],
+            owl:onProperty crdch:period_start_start ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:period_start_start ],
+            owl:onProperty crdch:period_end_end ],
         crdch:Entity ;
     skos:definition "A period of time between a start and end time point." ;
     skos:editorialNote "Derived from [TimePeriod in sheet TimePeriod](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1590126992)" .
@@ -1926,24 +1926,16 @@ crdch:TobaccoExposureObservation a owl:Class,
     rdfs:label "TobaccoExposureObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:observation_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:value_codeable_concept ],
+            owl:onClass crdch:Entity ;
+            owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Subject ;
             owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Organization ;
@@ -1951,15 +1943,23 @@ crdch:TobaccoExposureObservation a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:observation_type ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Entity ;
-            owl:onProperty crdch:focus ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchInteger ;
             owl:onProperty crdch:value_integer ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:value_codeable_concept ],
         crdch:Entity ;
     skos:definition "A structured object that describes a single data item about an individual's exposure to tobacco, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [TobaccoExposureObservation in sheet TobaccoExposureObservation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1464668175)" .
@@ -1998,22 +1998,22 @@ crdch:Document a owl:Class,
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CrdchString ;
-            owl:onProperty crdch:url ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:document_type ],
+            owl:onClass crdch:Entity ;
+            owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Identifier ;
             owl:onProperty crdch:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Entity ;
-            owl:onProperty crdch:focus ],
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:document_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CrdchString ;
+            owl:onProperty crdch:url ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:description ],
         crdch:Entity ;
     skos:definition "A collection of information intented to be understood together as a whole, and codified in human-readable form." ;
     skos:editorialNote "Derived from [Document in sheet Document](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=809861603)" .
@@ -2022,13 +2022,9 @@ crdch:ExecutionConditionObservation a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ExecutionConditionObservation" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:value_codeable_concept ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Entity ;
-            owl:onProperty crdch:focus ],
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Organization ;
@@ -2036,7 +2032,15 @@ crdch:ExecutionConditionObservation a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
+            owl:onProperty crdch:method_type ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:value_codeable_concept ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Entity ;
+            owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Subject ;
@@ -2049,10 +2053,6 @@ crdch:ExecutionConditionObservation a owl:Class,
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:observation_type ;
             owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
         crdch:Entity ;
     skos:definition """A structured object that describes how long certain parts on an activity took to complete, as determined through a point-in-time observation or measurement.
 
@@ -2063,25 +2063,25 @@ crdch:Exposure a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Exposure" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom crdch:EnvironmentalExposureObservation ;
-            owl:onProperty crdch:environmental_exposure ],
+            owl:allValuesFrom crdch:AlcoholExposureObservation ;
+            owl:onProperty crdch:alcohol_exposure ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Identifier ;
             owl:onProperty crdch:identifier ],
         [ a owl:Restriction ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ;
-            owl:qualifiedCardinality 1 ],
+            owl:allValuesFrom crdch:EnvironmentalExposureObservation ;
+            owl:onProperty crdch:environmental_exposure ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:TobaccoExposureObservation ;
             owl:onProperty crdch:tobacco_exposure ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:AlcoholExposureObservation ;
-            owl:onProperty crdch:alcohol_exposure ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Subject ;
             owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ;
+            owl:qualifiedCardinality 1 ],
         crdch:Entity ;
     skos:definition "Contact between an agent and a target. A state of contact or close proximity to a medicinal product, chemical, pathogen, radioisotope or other substance." ;
     skos:editorialNote "Derived from [Exposure in sheet Exposure](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1402410931)" .
@@ -2090,16 +2090,8 @@ crdch:SpecimenStorageActivity a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenStorageActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:date_started ],
-        [ a owl:Restriction ;
             owl:allValuesFrom crdch:SpecimenContainer ;
             owl:onProperty crdch:container ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
@@ -2110,8 +2102,16 @@ crdch:SpecimenStorageActivity a owl:Class,
             owl:onProperty crdch:performed_by ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:TimePoint ;
+            owl:onProperty crdch:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Quantity ;
             owl:onProperty crdch:duration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:method_type ],
         crdch:Entity ;
     skos:definition """An activity in which a specimen is stored or maintained in a particular location, container, or state. Unlike 'processing' activities, storage does not alter the 
 intrinsic physical nature of a specimen.""" ;
@@ -2149,12 +2149,16 @@ crdch:DimensionalObservationSet a owl:Class,
     rdfs:label "DimensionalObservationSet" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Organization ;
             owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:DimensionalObservation ;
             owl:onProperty crdch:observations ],
@@ -2163,15 +2167,11 @@ crdch:DimensionalObservationSet a owl:Class,
             owl:onProperty crdch:focus ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:CodeableConcept ;
             owl:onProperty crdch:method_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
         crdch:Entity ;
     skos:definition "A set of one or more discrete observations about the physical dimensions of an object (e.g. length, width, area)." ;
     skos:editorialNote "Derived from [DimensionalObservationSet in sheet DimensionalObservationSet](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1118507095)" .
@@ -2181,30 +2181,30 @@ crdch:SpecimenTransportActivity a owl:Class,
     rdfs:label "SpecimenTransportActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:transport_destination ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:ExecutionConditionObservation ;
-            owl:onProperty crdch:execution_condition_observation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
             owl:onProperty crdch:date_started ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:transport_origin ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
             owl:onProperty crdch:date_ended ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:transport_destination ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:ExecutionConditionObservation ;
+            owl:onProperty crdch:execution_condition_observation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
             owl:allValuesFrom crdch:CrdchString ;
             owl:onProperty crdch:duration ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:transport_origin ],
         crdch:Entity ;
     skos:definition "An activity through which a specimen is transported between locations or organizations." ;
     skos:editorialNote "Derived from [SpecimenTransportActivity in sheet SpecimenTransportActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=359352096)" ;
@@ -2214,26 +2214,26 @@ crdch:BiologicProduct a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "BiologicProduct" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CrdchInteger ;
+            owl:onProperty crdch:passage_number ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Identifier ;
+            owl:onProperty crdch:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:product_type ],
+        [ a owl:Restriction ;
             owl:allValuesFrom crdch:CrdchString ;
             owl:onProperty crdch:growth_rate ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:product_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:description ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CrdchInteger ;
-            owl:onProperty crdch:passage_number ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Identifier ;
-            owl:onProperty crdch:identifier ],
         crdch:Entity ;
     skos:definition "A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro." ;
     skos:editorialNote "Derived from [BiologicProduct in sheet BiologicProduct](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1097989080)" .
@@ -2258,43 +2258,43 @@ crdch:Observation a owl:Class,
     rdfs:label "Observation" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:value_codeable_concept ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:category ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
+            owl:onProperty crdch:value_string ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchBoolean ;
-            owl:onProperty crdch:value_boolean ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:value_quantity ],
+            owl:onClass crdch:Entity ;
+            owl:onProperty crdch:value_entity ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:CodeableConcept ;
             owl:onProperty crdch:method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Entity ;
-            owl:onProperty crdch:value_entity ],
+            owl:onClass crdch:CrdchDecimal ;
+            owl:onProperty crdch:value_decimal ],
         [ a owl:Restriction ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:observation_type ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:value_string ],
+            owl:onClass crdch:CrdchDateTime ;
+            owl:onProperty crdch:value_date_time ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchDecimal ;
-            owl:onProperty crdch:value_decimal ],
+            owl:onClass crdch:CrdchBoolean ;
+            owl:onProperty crdch:value_boolean ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:value_codeable_concept ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Entity ;
             owl:onProperty crdch:focus ],
@@ -2304,16 +2304,16 @@ crdch:Observation a owl:Class,
             owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchDateTime ;
-            owl:onProperty crdch:value_date_time ],
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:value_quantity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchDecimal ;
             owl:onProperty crdch:value_integer ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:category ],
         crdch:Entity ;
     skos:definition "A structured object that describes a single data item about an entity, as generated through a point-in-time observation, measurement, or interpretation." ;
     skos:editorialNote "Derived from [Observation in sheet Observation](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=550424063)" ;
@@ -2323,38 +2323,12 @@ crdch:SpecimenCreationActivity a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "SpecimenCreationActivity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:BodySite ;
-            owl:onProperty crdch:collection_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:performed_by ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:quantity_collected ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:date_started ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:ExecutionTimeObservation ;
-            owl:onProperty crdch:execution_time_observation ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:activity_type ],
-        [ a owl:Restriction ;
             owl:allValuesFrom crdch:Substance ;
             owl:onProperty crdch:additive ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:ExecutionConditionObservation ;
-            owl:onProperty crdch:execution_condition_observation ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:derivation_method_type ],
+            owl:onProperty crdch:collection_method_type ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
@@ -2365,8 +2339,34 @@ crdch:SpecimenCreationActivity a owl:Class,
             owl:onProperty crdch:specimen_order ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:BodySite ;
+            owl:onProperty crdch:collection_site ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:ExecutionConditionObservation ;
+            owl:onProperty crdch:execution_condition_observation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:TimePoint ;
+            owl:onProperty crdch:date_started ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:collection_method_type ],
+            owl:onProperty crdch:activity_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:ExecutionTimeObservation ;
+            owl:onProperty crdch:execution_time_observation ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:quantity_collected ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:derivation_method_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:performed_by ],
         crdch:Entity ;
     skos:definition "The process of creating a specimen. This may occur through observing and/or collecting material from an biological source or natural setting, or through derivation from an existing specimen (e.g. via portioning or aliquoting)." ;
     skos:editorialNote "Derived from [SpecimenCreationActivity in sheet SpecimenCreationActivity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=693792130)" ;
@@ -2380,10 +2380,6 @@ crdch:Coding a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Coding" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:value_set ],
-        [ a owl:Restriction ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:system ;
             owl:qualifiedCardinality 1 ],
@@ -2392,20 +2388,24 @@ crdch:Coding a owl:Class,
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:value_set_version ],
         [ a owl:Restriction ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:code ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:system_version ],
-        [ a owl:Restriction ;
             owl:allValuesFrom crdch:CrdchString ;
             owl:onProperty crdch:tag ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:system_version ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:value_set ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:label ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:code ;
+            owl:qualifiedCardinality 1 ],
         crdch:Entity ;
     skos:definition "A structured representation of a coded/enumerated data value, that includes additional metadata about the code and code system." ;
     skos:editorialNote "Derived from [Coding in sheet Coding](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1218588936)" .
@@ -2418,12 +2418,12 @@ crdch:Substance a owl:Class,
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:substance_type ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CodeableConcept ;
-            owl:onProperty crdch:role ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Quantity ;
             owl:onProperty crdch:substance_quantity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CodeableConcept ;
+            owl:onProperty crdch:role ],
         crdch:Entity ;
     skos:definition "A type of material substance, or instance thereof,  as used in a particular application. May include information about the role the substance played in a particular application." ;
     skos:editorialNote "Derived from [Substance in sheet Substance](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=385534272)" .
@@ -2436,26 +2436,8 @@ crdch:ResearchSubject a owl:Class,
     rdfs:label "ResearchSubject" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:age_at_enrollment ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Diagnosis ;
-            owl:onProperty crdch:comorbid_diagnosis ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Identifier ;
-            owl:onProperty crdch:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:originating_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:primary_diagnosis_condition ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:associated_subject ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
@@ -2465,12 +2447,16 @@ crdch:ResearchSubject a owl:Class,
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:index_timepoint ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Diagnosis ;
-            owl:onProperty crdch:primary_diagnosis ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:ResearchProject ;
             owl:onProperty crdch:member_of_research_project ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Diagnosis ;
+            owl:onProperty crdch:comorbid_diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:originating_site ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:BodySite ;
@@ -2479,6 +2465,20 @@ crdch:ResearchSubject a owl:Class,
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ;
             owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Identifier ;
+            owl:onProperty crdch:identifier ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:associated_subject ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:age_at_enrollment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Diagnosis ;
+            owl:onProperty crdch:primary_diagnosis ],
         crdch:Entity ;
     skos:definition """A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, 
 or a tissue sample. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.""" ;
@@ -2489,19 +2489,19 @@ crdch:SpecimenContainer a owl:Class,
     rdfs:label "SpecimenContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:SpecimenContainer ;
+            owl:onProperty crdch:parent_container ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Substance ;
+            owl:onProperty crdch:additive ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:container_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:SpecimenContainer ;
-            owl:onProperty crdch:parent_container ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Substance ;
-            owl:onProperty crdch:additive ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
@@ -2530,10 +2530,6 @@ crdch:Identifier a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Identifier" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:system ],
-        [ a owl:Restriction ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:value ;
             owl:qualifiedCardinality 1 ],
@@ -2541,6 +2537,10 @@ crdch:Identifier a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:system ],
         crdch:Entity ;
     skos:definition "An Identifier is associated with a unique object or entity within a given system." ;
     skos:editorialNote "Derived from [Identifier in sheet Identifier](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1307792462)" ;
@@ -2550,25 +2550,8 @@ crdch:ResearchProject a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ResearchProject" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CrdchString ;
-            owl:onProperty crdch:url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CrdchString ;
-            owl:onProperty crdch:sponsor ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:name ],
-        [ a owl:Restriction ;
             owl:allValuesFrom crdch:ResearchProject ;
             owl:onProperty crdch:part_of ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:BodySite ;
-            owl:onProperty crdch:primary_anatomic_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:date_ended ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Identifier ;
             owl:onProperty crdch:identifier ],
@@ -2581,24 +2564,41 @@ crdch:ResearchProject a owl:Class,
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:description_shortened ],
         [ a owl:Restriction ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:research_project_type ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CrdchString ;
+            owl:onProperty crdch:url ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:description ],
+            owl:onProperty crdch:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:BodySite ;
+            owl:onProperty crdch:primary_anatomic_site ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:TimePoint ;
+            owl:onProperty crdch:date_ended ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:TimePoint ;
+            owl:onProperty crdch:date_started ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:TimePoint ;
+            owl:onProperty crdch:associated_timepoint ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CrdchString ;
+            owl:onProperty crdch:sponsor ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:research_project_type ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:TimePoint ;
-            owl:onProperty crdch:associated_timepoint ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:date_started ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:description ],
         crdch:Entity ;
     skos:definition """A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. 
 This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional 
@@ -2623,66 +2623,12 @@ crdch:Treatment a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Treatment" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:treatment_type ],
-        [ a owl:Restriction ;
             owl:allValuesFrom crdch:Diagnosis ;
             owl:onProperty crdch:treatment_for_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:date_ended ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Substance ;
-            owl:onProperty crdch:therapeutic_agent ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:treatment_frequency ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:regimen ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:treatment_dose ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:treatment_intent ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Identifier ;
-            owl:onProperty crdch:identifier ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:TimePoint ;
             owl:onProperty crdch:date_started ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:treatment_outcome ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Treatment ;
-            owl:onProperty crdch:concurrent_treatment ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:treatment_effect ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchInteger ;
-            owl:onProperty crdch:number_of_cycles ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:CodeableConcept ;
             owl:onProperty crdch:treatment_end_reason ],
@@ -2690,6 +2636,60 @@ crdch:Treatment a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:BodySite ;
             owl:onProperty crdch:treatment_anatomic_site ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Treatment ;
+            owl:onProperty crdch:concurrent_treatment ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:treatment_intent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:TimePoint ;
+            owl:onProperty crdch:date_ended ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:treatment_effect ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:treatment_dose ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Substance ;
+            owl:onProperty crdch:therapeutic_agent ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:treatment_frequency ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Identifier ;
+            owl:onProperty crdch:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:regimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:treatment_outcome ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:treatment_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchInteger ;
+            owl:onProperty crdch:number_of_cycles ],
         crdch:Entity ;
     skos:definition "Represent medication administration or other treatment types." ;
     skos:editorialNote "Derived from [Treatment in sheet Treatment](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=2111784779)" ;
@@ -2714,66 +2714,66 @@ crdch:Diagnosis a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Diagnosis" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CancerGradeObservationSet ;
-            owl:onProperty crdch:grade ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CancerStageObservationSet ;
-            owl:onProperty crdch:stage ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:condition ],
+            owl:onProperty crdch:disease_status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CancerGradeObservationSet ;
+            owl:onProperty crdch:grade ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Observation ;
             owl:onProperty crdch:supporting_observation ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:disease_status ],
+            owl:onProperty crdch:condition ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:age_at_diagnosis ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:morphology ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:BodySite ;
+            owl:onProperty crdch:primary_site ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Diagnosis ;
             owl:onProperty crdch:prior_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ],
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:subject ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:diagnosis_date ],
+            owl:allValuesFrom crdch:Identifier ;
+            owl:onProperty crdch:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:method_of_diagnosis ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:subject ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:BodySite ;
-            owl:onProperty crdch:primary_site ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:morphology ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Specimen ;
-            owl:onProperty crdch:related_specimen ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:DimensionalObservationSet ;
             owl:onProperty crdch:primary_tumor_dimensional_measures ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:TimePoint ;
+            owl:onProperty crdch:diagnosis_date ],
+        [ a owl:Restriction ;
             owl:allValuesFrom crdch:BodySite ;
             owl:onProperty crdch:metastatic_site ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:age_at_diagnosis ],
+            owl:allValuesFrom crdch:Specimen ;
+            owl:onProperty crdch:related_specimen ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Identifier ;
-            owl:onProperty crdch:identifier ],
+            owl:allValuesFrom crdch:CancerStageObservationSet ;
+            owl:onProperty crdch:stage ],
         crdch:Entity ;
     skos:definition "A collection of characteristics that describe an abnormal condition of the body as assessed at a point in time. May be used to capture information about neoplastic and non-neoplastic conditions." ;
     skos:editorialNote "Derived from [Diagnosis in sheet Diagnosis](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1015759209)" .
@@ -2784,15 +2784,15 @@ crdch:Quantity a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:unit ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:value_codeable_concept ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchDecimal ;
             owl:onProperty crdch:value_decimal ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:unit ],
         crdch:Entity ;
     skos:definition "A structured object to represent an amount of something (e.g., weight, mass, length, duration of time) - including a value and unit." ;
     skos:editorialNote "Derived from [Quantity in sheet Quantity](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1941950611)" ;
@@ -2806,20 +2806,20 @@ crdch:TimePoint a owl:Class,
             owl:onClass crdch:CrdchDateTime ;
             owl:onProperty crdch:date_time ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CodeableConcept ;
-            owl:onProperty crdch:event_type ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:TimePoint ;
+            owl:onProperty crdch:index_time_point ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CodeableConcept ;
+            owl:onProperty crdch:event_type ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Quantity ;
             owl:onProperty crdch:offset_from_index ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:TimePoint ;
-            owl:onProperty crdch:index_time_point ],
         crdch:Entity ;
     skos:definition "A structured representation of a single point in time that allows direct/explicit declaration as a dateTime, specification in terms of offset from a defined index, or description of an event type as a proxy for the time point when it occurred." ;
     skos:editorialNote "Derived from [TimePoint in sheet TimePoint](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=300932847)" ;
@@ -2832,12 +2832,16 @@ crdch:Organization a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Organization" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Identifier ;
-            owl:onProperty crdch:identifier ],
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:organization_type ],
+            owl:onProperty crdch:alias ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Identifier ;
+            owl:onProperty crdch:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
@@ -2845,11 +2849,7 @@ crdch:Organization a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:alias ],
-        [ a owl:Restriction ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ;
-            owl:qualifiedCardinality 1 ],
+            owl:onProperty crdch:organization_type ],
         crdch:Entity ;
     skos:definition "A grouping of people or organizations with a common purpose such as a data coordinating center, an university, or an institute within a university" ;
     skos:editorialNote "Derived from [Organization in sheet Organization](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1477577710)" .
@@ -2859,45 +2859,57 @@ crdch:Specimen a owl:Class,
     rdfs:label "Specimen" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:description ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:cellular_composition_type ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:SpecimenQuantityObservation ;
-            owl:onProperty crdch:quantity_measure ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:SpecimenTransportActivity ;
-            owl:onProperty crdch:transport_activity ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:HistologicalCompositionObservationSet ;
-            owl:onProperty crdch:histological_composition_measures ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:SpecimenQualityObservation ;
-            owl:onProperty crdch:quality_measure ],
+            owl:onProperty crdch:general_tissue_pathology ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:ResearchProject ;
             owl:onProperty crdch:associated_project ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Subject ;
-            owl:onProperty crdch:source_subject ],
+            owl:onClass crdch:CrdchBoolean ;
+            owl:onProperty crdch:morphology_pathologically_confirmed ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:morphology_assessment_method ],
+            owl:onProperty crdch:specimen_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:cellular_composition_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:HistologicalCompositionObservationSet ;
+            owl:onProperty crdch:histological_composition_measures ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Specimen ;
             owl:onProperty crdch:parent_specimen ],
         [ a owl:Restriction ;
+            owl:allValuesFrom crdch:SpecimenStorageActivity ;
+            owl:onProperty crdch:storage_activity ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchBoolean ;
-            owl:onProperty crdch:morphology_pathologically_confirmed ],
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:specific_tissue_pathology ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Identifier ;
-            owl:onProperty crdch:identifier ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:degree_of_dysplasia ],
         [ a owl:Restriction ;
-            owl:allValuesFrom crdch:BiologicProduct ;
-            owl:onProperty crdch:derived_product ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:source_material_type ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:SpecimenContainer ;
+            owl:onProperty crdch:contained_in ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:dysplasia_fraction ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
@@ -2908,27 +2920,40 @@ crdch:Specimen a owl:Class,
             owl:onProperty crdch:tumor_status_at_collection ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:specimen_type ],
+            owl:onClass crdch:Organization ;
+            owl:onProperty crdch:data_provider ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:dysplasia_fraction ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:SpecimenContainer ;
-            owl:onProperty crdch:contained_in ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:description ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:section_location ],
+            owl:allValuesFrom crdch:SpecimenQualityObservation ;
+            owl:onProperty crdch:quality_measure ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:SpecimenProcessingActivity ;
             owl:onProperty crdch:processing_activity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Document ;
+            owl:onProperty crdch:related_document ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Quantity ;
+            owl:onProperty crdch:distance_from_paired_specimen ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:Subject ;
+            owl:onProperty crdch:source_subject ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:DimensionalObservationSet ;
+            owl:onProperty crdch:dimensional_measures ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:morphology_assessment_method ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Identifier ;
+            owl:onProperty crdch:identifier ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:SpecimenCreationActivity ;
+            owl:onProperty crdch:creation_activity ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
@@ -2938,47 +2963,22 @@ crdch:Specimen a owl:Class,
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:morphology_assessor_role ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:degree_of_dysplasia ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Quantity ;
-            owl:onProperty crdch:distance_from_paired_specimen ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:general_tissue_pathology ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:Organization ;
-            owl:onProperty crdch:data_provider ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:SpecimenCreationActivity ;
-            owl:onProperty crdch:creation_activity ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Document ;
-            owl:onProperty crdch:related_document ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:source_material_type ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:DimensionalObservationSet ;
-            owl:onProperty crdch:dimensional_measures ],
+            owl:allValuesFrom crdch:BiologicProduct ;
+            owl:onProperty crdch:derived_product ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:id ],
         [ a owl:Restriction ;
+            owl:allValuesFrom crdch:SpecimenQuantityObservation ;
+            owl:onProperty crdch:quantity_measure ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:SpecimenTransportActivity ;
+            owl:onProperty crdch:transport_activity ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:specific_tissue_pathology ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:SpecimenStorageActivity ;
-            owl:onProperty crdch:storage_activity ],
+            owl:onProperty crdch:section_location ],
         crdch:Entity ;
     skos:definition "Any material taken as a sample from a biological entity (living or dead), or from a physical object or the environment. Specimens are usually collected as an example of their kind, often for use in some investigation." ;
     skos:editorialNote "Derived from [Specimen in sheet Specimen](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1439310281)" ;
@@ -2988,21 +2988,16 @@ crdch:Subject a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Subject" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass crdch:CrdchString ;
-            owl:onProperty crdch:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CrdchInteger ;
-            owl:onProperty crdch:year_of_death ],
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:species ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:CodeableConcept ;
+            owl:onProperty crdch:race ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:cause_of_death ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:vital_status ],
+            owl:onProperty crdch:sex ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchInteger ;
@@ -3010,29 +3005,34 @@ crdch:Subject a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:species ],
+            owl:onProperty crdch:ethnicity ],
         [ a owl:Restriction ;
             owl:allValuesFrom crdch:Identifier ;
             owl:onProperty crdch:identifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:sex ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass crdch:CodeableConcept ;
-            owl:onProperty crdch:ethnicity ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom crdch:CodeableConcept ;
-            owl:onProperty crdch:race ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:Quantity ;
             owl:onProperty crdch:age_at_death ],
+        [ a owl:Restriction ;
+            owl:onClass crdch:CrdchString ;
+            owl:onProperty crdch:id ;
+            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CodeableConcept ;
             owl:onProperty crdch:breed ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:cause_of_death ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CrdchInteger ;
+            owl:onProperty crdch:year_of_death ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass crdch:CodeableConcept ;
+            owl:onProperty crdch:vital_status ],
         crdch:Entity ;
     skos:definition "Demographics and other administrative information about an individual or animal receiving care or other health-related services." ;
     skos:editorialNote "Derived from [Subject in sheet Subject](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1651956379)" .
@@ -3058,12 +3058,12 @@ crdch:CodeableConcept a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "CodeableConcept" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom crdch:Coding ;
-            owl:onProperty crdch:coding ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass crdch:CrdchString ;
             owl:onProperty crdch:text ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom crdch:Coding ;
+            owl:onProperty crdch:coding ],
         crdch:Entity ;
     skos:definition "A representation of a concept that may be defined by or mapped to one or more codes in code systems (terminologies, ontologies, dictionaries, code sets, etc) - but may also be defined by the provision of text." ;
     skos:editorialNote "Derived from [CodeableConcept in sheet CodeableConcept](https://docs.google.com/spreadsheets/d/1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4/edit#gid=1820375300)" ;
