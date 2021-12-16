@@ -24,12 +24,6 @@ tox = "*"
 typing_extensions = "*" # This is a tox prereq for Python 3.7, but not installed by Pipenv.
 twine = "*" # should this go in make-venv/Pipfile ?
 
-# Packages needed by sheet2linkml.
-black = "==v21.5b1"     # Used for code linting.
-requests = "*"          # For making HTTP requests.
-pygsheets = "*"         # For accessing Google Sheets.
-python-dotenv = "*"     # For reading .env files.
-
 # Packages needed for building and publishing documentation.
 mike = "*"
 mkdocs-material = "*"
