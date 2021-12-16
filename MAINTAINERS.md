@@ -194,8 +194,7 @@ Once the documentation has been generated in `docs/`, use mike to
 publish a new version:
 
 ```
-$ pip install mike # Only needed the first time.
-$ mike deploy v0.2 latest -p
+$ poetry run mike deploy v0.2 latest -p
 ```
 
 Note that the `-p` option causes mike to push the documentation to
