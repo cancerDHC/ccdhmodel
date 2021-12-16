@@ -1,3 +1,6 @@
+The currently activated Python version 3.10.1 is not supported by the project (>=3.7.1,<3.10).
+Trying to find and use a compatible version. 
+Using python3 (3.9.6)
 id,mappings,description
 AlcoholExposureObservation,,"A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation."
 BiologicProduct,,"A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro."

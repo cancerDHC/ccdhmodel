@@ -1,3 +1,6 @@
+The currently activated Python version 3.10.1 is not supported by the project (>=3.7.1,<3.10).
+Trying to find and use a compatible version. 
+Using python3 (3.9.6)
 {
    "type": "Schema",
    "@context": [
@@ -145,21 +148,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHAlcoholExposureObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHAlcoholExposureObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHAlcoholExposureObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -194,7 +197,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHAlcoholExposureObservationValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      }
@@ -261,7 +264,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/product_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHBiologicProductProductType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -321,14 +324,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/site",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHBodySiteSite",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/qualifier",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHBodySiteQualifier",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      }
@@ -381,21 +384,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -416,7 +419,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      }
@@ -469,7 +472,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationSetCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -490,7 +493,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerGradeObservationSetMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -557,21 +560,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -599,7 +602,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      }
@@ -652,7 +655,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationSetCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -673,7 +676,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHCancerStageObservationSetMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -909,7 +912,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/condition",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDiagnosisCondition",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -944,14 +947,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/morphology",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDiagnosisMorphology",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/disease_status",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDiagnosisDiseaseStatus",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -965,7 +968,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_of_diagnosis",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDiagnosisMethodOfDiagnosis",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -1039,21 +1042,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDimensionalObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDimensionalObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDimensionalObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -1134,7 +1137,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDimensionalObservationSetCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -1155,7 +1158,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDimensionalObservationSetMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -1229,7 +1232,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/document_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHDocumentDocumentType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -1376,21 +1379,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHEnvironmentalExposureObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHEnvironmentalExposureObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHEnvironmentalExposureObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -1418,7 +1421,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHEnvironmentalExposureObservationValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      }
@@ -1471,21 +1474,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionConditionObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionConditionObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionConditionObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -1513,7 +1516,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionConditionObservationValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      }
@@ -1566,21 +1569,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionTimeObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionTimeObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHExecutionTimeObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -1742,21 +1745,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHHistologicalCompositionObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHHistologicalCompositionObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHHistologicalCompositionObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -1837,7 +1840,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHHistologicalCompositionObservationSetCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
@@ -1858,7 +1861,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHHistologicalCompositionObservationSetMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -1932,7 +1935,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHIdentifierType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      }
@@ -1985,21 +1988,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -2076,7 +2079,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      }
@@ -2129,7 +2132,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationSetCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
@@ -2150,7 +2153,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHObservationSetMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -2291,14 +2294,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHQuantityValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/unit",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHQuantityUnit",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      }
@@ -2428,7 +2431,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/research_project_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHResearchProjectResearchProjectType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
@@ -2516,7 +2519,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/primary_diagnosis_condition",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHResearchSubjectPrimaryDiagnosisCondition",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2544,7 +2547,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/index_timepoint",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHResearchSubjectIndexTimepoint",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2625,14 +2628,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/specimen_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenSpecimenType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/analyte_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenAnalyteType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2653,7 +2656,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/source_material_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenSourceMaterialType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2674,7 +2677,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/tumor_status_at_collection",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenTumorStatusAtCollection",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2737,7 +2740,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/cellular_composition_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenCellularCompositionType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2751,21 +2754,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/general_tissue_pathology",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenGeneralTissuePathology",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/specific_tissue_pathology",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenSpecificTissuePathology",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/preinvasive_tissue_morphology",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenPreinvasiveTissueMorphology",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2779,21 +2782,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/morphology_assessor_role",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenMorphologyAssessorRole",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/morphology_assessment_method",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenMorphologyAssessmentMethod",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/degree_of_dysplasia",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenDegreeOfDysplasia",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2814,7 +2817,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/section_location",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenSectionLocation",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2888,7 +2891,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/container_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenContainerContainerType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2955,7 +2958,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/activity_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenCreationActivityActivityType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -2983,14 +2986,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/collection_method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenCreationActivityCollectionMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/derivation_method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenCreationActivityDerivationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -3078,7 +3081,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/activity_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenProcessingActivityActivityType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -3113,7 +3116,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenProcessingActivityMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -3187,21 +3190,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenQualityObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenQualityObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenQualityObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -3282,21 +3285,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenQuantityObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenQuantityObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenQuantityObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -3398,7 +3401,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSpecimenStorageActivityMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -3553,35 +3556,35 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/species",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubjectSpecies",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/breed",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubjectBreed",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/sex",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubjectSex",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/ethnicity",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubjectEthnicity",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/race",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubjectRace",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -3595,7 +3598,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/vital_status",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubjectVitalStatus",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -3616,7 +3619,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/cause_of_death",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubjectCauseOfDeath",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      }
@@ -3662,14 +3665,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/substance_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubstanceSubstanceType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/role",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHSubstanceRole",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
@@ -3803,7 +3806,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/event_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTimePointEventType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      }
@@ -3856,21 +3859,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/category",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTobaccoExposureObservationCategory",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/observation_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTobaccoExposureObservationObservationType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 1,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/method_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTobaccoExposureObservationMethodType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -3905,7 +3908,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/value_codeable_concept",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTobaccoExposureObservationValueCodeableConcept",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      }
@@ -3979,7 +3982,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/treatment_type",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTreatmentTreatmentType",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -4007,14 +4010,14 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/treatment_end_reason",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTreatmentTreatmentEndReason",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": -1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/regimen",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTreatmentRegimen",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -4035,7 +4038,7 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/treatment_frequency",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTreatmentTreatmentFrequency",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
@@ -4049,21 +4052,21 @@
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/treatment_intent",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTreatmentTreatmentIntent",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/treatment_effect",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTreatmentTreatmentEffect",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
                      {
                         "type": "TripleConstraint",
                         "predicate": "https://example.org/crdch/treatment_outcome",
-                        "valueExpr": "https://example.org/crdch/EnumCRDCHTreatmentTreatmentOutcome",
+                        "valueExpr": "https://example.org/crdch/CodeableConcept",
                         "min": 0,
                         "max": 1
                      },
