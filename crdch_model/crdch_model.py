@@ -1,6 +1,3 @@
-The currently activated Python version 3.10.1 is not supported by the project (>=3.7.1,<3.10).
-Trying to find and use a compatible version. 
-Using python3 (3.9.6)
 # Auto generated from crdch_model.yaml by pythongen.py version: 0.9.0
 # Generation date: 2021-12-16T12:08:40
 # Schema: CRDC-H
