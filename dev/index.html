@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
@@ -76,7 +76,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="CRDC-H Model in LinkML documentation" class="md-header__button md-logo" aria-label="CRDC-H Model in LinkML documentation" data-md-component="logo">
       
@@ -142,11 +144,14 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -215,6 +220,8 @@
       </a>
       
         
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -340,6 +347,8 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -434,7 +443,7 @@
 <li><a href="Entity/">Entity</a> - Any resource that has its own identifier<ul>
 <li><a href="AlcoholExposureObservation/">AlcoholExposureObservation</a> - A structured object that describes a single data item about an individual's exposure to alcohol, as generated through a point-in-time observation, measurement, or interpretation.</li>
 <li><a href="BiologicProduct/">BiologicProduct</a> - A living organism, or a metabolically active biological system such as a cell culture, tissue culture, or organoid that is maintained or propagated in vitro.</li>
-<li><a href="BodySite/">BodySite</a> - A site in the body of an organism, typically described in terms of an anatomical location and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include 'non-anatomic' sites, such as the location of an implanted medical device.</li>
+<li><a href="BodySite/">BodySite</a> - A site in the body of an organism, typically described in terms of an anatomical concept and optional qualifiers (e.g. left/right, upper/lower). But body sites as defined here may include non-canonical sites, such as an implanted medical device.</li>
 <li><a href="CancerGradeObservation/">CancerGradeObservation</a> - A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer grade observation</li>
 <li><a href="CancerGradeObservationSet/">CancerGradeObservationSet</a> - A structured object to hold related data items about the grade of cancer (e.g. overall, primary gleason, secondary gleason, etc.).</li>
 <li><a href="CancerStageObservation/">CancerStageObservation</a> - A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.</li>
@@ -493,7 +502,7 @@
 <li><a href="biologicProduct__identifier/">identifier</a> - A 'business' identifier or accession number for the entity, typically as provided by an external system or authority, that are globally unique and persist across implementing systems. Also, since these identifiers are created outside the information system through a specific business process, the Identifier type has additional attributes to capture this additional metadata so the actual identifier values are qualified by the context that created those values. This additional context allows "identifier" instances to be transmitted as business data across systems while still being able to trace them back to the system of origin.</li>
 <li><a href="biologicProduct__passage_number/">passage_number</a> - When the specimen an actively growing model system, such as a cell or tissue culture, this property captures its passage number.</li>
 <li><a href="biologicProduct__product_type/">product_type</a> - The high level type of model system (e.g. cell line, cell culture, tissue culture, organoid)</li>
-<li><a href="bodySite__qualifier/">qualifier</a> - A qualifier that further refines or specifies the location of the body site (e.g. to indicate laterality, upper v. lower, containment, etc).</li>
+<li><a href="bodySite__qualifier/">qualifier</a> - A qualifier that further refines or specifies the location of the body site - e.g. to indicate laterality, upper v. lower, containment in some other anatomical structure (e.g. 'blood' contained in the 'hepatic vein')</li>
 <li><a href="bodySite__site/">site</a> - A term describing any site in the body.</li>
 <li><a href="cancerGradeObservationSet__category/">category</a> - The general category of observation set described</li>
 <li><a href="cancerGradeObservationSet__focus/">focus</a> - The entity or entities directly observed/measured in generating an observation result.</li>
@@ -524,7 +533,6 @@
 <li><a href="cancerStageObservation__performed_by/">performed_by</a> - The organization or group that performed the observation activity.</li>
 <li><a href="cancerStageObservation__subject/">subject</a> - The patient that the observation is about (if not the direct focus).  e.g. observations are often made on specimens derived from a patient, or other entities related to a patient, that ultimately tell us something about the patient of interest.</li>
 <li><a href="cancerStageObservation__value_codeable_concept/">value_codeable_concept</a> - The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept.</li>
-<li><a href="cancerStageObservation__value_entity/">value_entity</a> - The value of an observation</li>
 <li><a href="codeableConcept__coding/">coding</a> - A reference to a code defined by a terminology system</li>
 <li><a href="codeableConcept__text/">text</a> - A human language representation of the concept represented by the Coding.</li>
 <li><a href="coding__code/">code</a> - The symbol/value of the code, as defined by the code system.</li>
@@ -764,7 +772,7 @@
 <li><a href="specimen__specimen_type/">specimen_type</a> - The high-level type of the specimen, based on its derivation provenance (i.e. how far removed it is from the original sample extracted from a source).</li>
 <li><a href="specimen__storage_activity/">storage_activity</a> - An activity that results in the storage or maintenance of a specimen in a particular location, container, or state.</li>
 <li><a href="specimen__transport_activity/">transport_activity</a> - An activity through which the specimen is transported between locations.</li>
-<li><a href="specimen__tumor_status_at_collection/">tumor_status_at_collection</a> - The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).  </li>
+<li><a href="specimen__tumor_status_at_collection/">tumor_status_at_collection</a> - The status of the tumor at the time the specimen was collected (e.g. if it was primary, recurrent, metastatic, etc).</li>
 <li><a href="subject__age_at_death/">age_at_death</a> - The age of an individual at the time of death, expressed in days since birth</li>
 <li><a href="subject__breed/">breed</a> - A label given to a group of animals homogeneous in appearance and other characteristics that distinguish it from other animals of the same species.</li>
 <li><a href="subject__cause_of_death/">cause_of_death</a> - Coded value indicating the circumstance or condition that results in the death of the subject.</li>
@@ -808,6 +816,7 @@ start</a> - When a period of time started.</li>
 <li><a href="treatment__subject/">subject</a> - The subject (person, animal, model system) to which the treatment was administered.</li>
 <li><a href="treatment__therapeutic_agent/">therapeutic_agent</a> - One or more therapeutic agents that are administered as part of this treatment.</li>
 <li><a href="treatment__treatment_anatomic_site/">treatment_anatomic_site</a> - The anatomical site that the treatment targets.</li>
+<li><a href="treatment__treatment_dose/">treatment_dose</a> - The amount of the treatment given.</li>
 <li><a href="treatment__treatment_effect/">treatment_effect</a> - The effect of a treatment on the diagnosis or tumor.</li>
 <li><a href="treatment__treatment_end_reason/">treatment_end_reason</a> - The reason the treatment ended.</li>
 <li><a href="treatment__treatment_for_diagnosis/">treatment_for_diagnosis</a> - The diagnosis for which this treatment is intended.</li>
@@ -1022,10 +1031,12 @@ start</a> - When a period of time started.</li>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -1037,10 +1048,10 @@ start</a> - When a period of time started.</li>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
       
     
   </body>

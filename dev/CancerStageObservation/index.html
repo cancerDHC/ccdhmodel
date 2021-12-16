@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://cancerdhc.github.io/ccdhmodel/dev/CancerStageObservation/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -76,7 +76,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="CRDC-H Model in LinkML documentation" class="md-header__button md-logo" aria-label="CRDC-H Model in LinkML documentation" data-md-component="logo">
       
@@ -142,11 +144,14 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -245,6 +250,8 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -267,7 +274,7 @@
       
         <li class="md-nav__item">
   <a href="#referenced-by-class" class="md-nav__link">
-    Referenced by class
+    Referenced by Class
   </a>
   
 </li>
@@ -308,12 +315,12 @@
                 <h1 id="class-cancerstageobservation">Class: CancerStageObservation</h1>
 <p>A data structure with key (observation_type) and value (value_codeable_concept) attributes that represents a single cancer staging observation, such as the Clinical Metastasis (M) component of a clinical TNM staging.</p>
 <p>URI: <code>crdch:CancerStageObservation</code></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CodeableConcept],[CancerStageObservationSet],[CodeableConcept]&lt;value_codeable_concept%201..1-++[CancerStageObservation&#124;id:crdch_string%20%3F],[Entity]&lt;value_entity%200..1-++[CancerStageObservation],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CodeableConcept]&lt;method_type%200..1-++[CancerStageObservation],[CodeableConcept]&lt;observation_type%201..1-++[CancerStageObservation],[CodeableConcept]&lt;category%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CodeableConcept],[CancerStageObservationSet],[CodeableConcept]&lt;value_codeable_concept%201..1-++[CancerStageObservation&#124;id:crdch_string%20%3F],[Entity]&lt;value_entity%200..1-++[CancerStageObservation],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CodeableConcept]&lt;method_type%200..1-++[CancerStageObservation],[CodeableConcept]&lt;observation_type%201..1-++[CancerStageObservation],[CodeableConcept]&lt;category%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]" /></a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CodeableConcept],[CancerStageObservationSet],[CodeableConcept]&lt;value_codeable_concept%201..1-++[CancerStageObservation&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CodeableConcept]&lt;method_type%200..1-++[CancerStageObservation],[CodeableConcept]&lt;observation_type%201..1-++[CancerStageObservation],[CodeableConcept]&lt;category%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Subject],[Organization],[Entity],[CodeableConcept],[CancerStageObservationSet],[CodeableConcept]&lt;value_codeable_concept%201..1-++[CancerStageObservation&#124;id:crdch_string%20%3F],[Organization]&lt;performed_by%200..1-++[CancerStageObservation],[Subject]&lt;subject%200..1-++[CancerStageObservation],[Entity]&lt;focus%200..1-++[CancerStageObservation],[CodeableConcept]&lt;method_type%200..1-++[CancerStageObservation],[CodeableConcept]&lt;observation_type%201..1-++[CancerStageObservation],[CodeableConcept]&lt;category%200..1-++[CancerStageObservation],[CancerStageObservationSet]++-%20observations%200..*&gt;[CancerStageObservation],[Entity]^-[CancerStageObservation]" /></a></p>
 <h2 id="parents">Parents</h2>
 <ul>
 <li>is_a: <a href="../Entity/">Entity</a> - Any resource that has its own identifier</li>
 </ul>
-<h2 id="referenced-by-class">Referenced by class</h2>
+<h2 id="referenced-by-class">Referenced by Class</h2>
 <ul>
 <li><strong><a href="../CancerStageObservationSet/">CancerStageObservationSet</a></strong> ➞<em><a href="../cancerStageObservationSet__observations/">observations</a></em>  <sub>0..*</sub>  <strong><a href="./">CancerStageObservation</a></strong></li>
 </ul>
@@ -356,11 +363,6 @@
 <li>Range: <a href="../Organization/">Organization</a></li>
 </ul>
 </li>
-<li><a href="../cancerStageObservation__value_entity/">value_entity</a>  <sub>0..1</sub><ul>
-<li>Description: The value of an observation</li>
-<li>Range: <a href="../Entity/">Entity</a></li>
-</ul>
-</li>
 <li><a href="../cancerStageObservation__value_codeable_concept/">value_codeable_concept</a>  <sub>1..1</sub><ul>
 <li>Description: The value for a cancer staging component being represented (e.g. 'M1'), encoded as a CodeableConcept.</li>
 <li>Range: <a href="../CodeableConcept/">CodeableConcept</a></li>
@@ -388,10 +390,12 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -403,10 +407,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
       
     
   </body>
