@@ -63,12 +63,6 @@ test: install
 	PYTHONPATH=crdch_model poetry run python -m unittest
 
 # ---------------------------------------
-# Test runner with tox
-# ---------------------------------------
-test-tox:
-	pipenv run tox4
-
-# ---------------------------------------
 # GEN: run generator for each target
 # ---------------------------------------
 gen: $(patsubst %,gen-%,$(TGTS))
