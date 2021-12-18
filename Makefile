@@ -63,10 +63,12 @@ test: install
 	PYTHONPATH=crdch_model poetry run python -m unittest
 
 # ---------------------------------------
-# Test runner with tox
+# Test code style using Black
 # ---------------------------------------
-test-tox:
-	pipenv run tox4
+
+test-code-style:
+	# Check all Python files in the test files.
+	poetry run black tests/ --check --verbose
 
 # ---------------------------------------
 # GEN: run generator for each target

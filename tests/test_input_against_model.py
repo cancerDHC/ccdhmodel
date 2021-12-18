@@ -7,13 +7,15 @@ from crdch_model import BodySite, Diagnosis
 
 CWD = os.path.abspath(os.path.dirname(__file__))
 
-INPUT_DIR = os.path.join(CWD, 'input')
+INPUT_DIR = os.path.join(CWD, "input")
 
 
 class InputFileTestCase(unittest.TestCase):
-    """ Test the input files against the model"""
+    """Test the input files against the model"""
+
     def test_input_files(self):
-        """ Iterate over the input directory loading any test files """
+        """Iterate over the input directory loading any test files"""
+
         def gen_detail(total: int, passed: int, typ: str) -> str:
             return f"{total} {typ} files tested - {total-passed} failures"
 
@@ -27,22 +29,22 @@ class InputFileTestCase(unittest.TestCase):
                 print(full_fname)
                 nread += 1
                 try:
-                    if fname.endswith('.yaml'):
+                    if fname.endswith(".yaml"):
                         nyaml += 1
                         # o: BodySite = yaml_loader.load(full_fname, BodySite)
                         o: Diagnosis = yaml_loader.load(full_fname, Diagnosis)
                         pyaml += 1
-                    elif fname.endswith('.json'):
+                    elif fname.endswith(".json"):
                         njson += 1
                         # o: BodySite = json_loader.load(full_fname, BodySite)
                         o: Diagnosis = json_loader.load(full_fname, Diagnosis)
                         pjson += 1
-                    elif fname.endswith('.ttl'):
+                    elif fname.endswith(".ttl"):
                         nttl += 1
                         # o: BodySite = rdf_loader.load(full_fname, BodySite)
                         o: Diagnosis = rdf_loader.load(full_fname, Diagnosis)
                         pttl += 1
-                    elif fname.endswith('.md'):
+                    elif fname.endswith(".md"):
                         pass
                     else:
                         nunk += 1
@@ -63,5 +65,5 @@ class InputFileTestCase(unittest.TestCase):
         self.assertEqual(0, nfailures)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

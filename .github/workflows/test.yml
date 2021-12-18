@@ -47,3 +47,10 @@ jobs:
       #----------------------------------------------
       - name: Run tests
         run: make test
+
+      #----------------------------------------------
+      # check formatting
+      #----------------------------------------------
+      - name: Code style with black
+        run: |
+           make test-code-style
