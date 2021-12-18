@@ -47,3 +47,12 @@ jobs:
       #----------------------------------------------
       - name: Run tests
         run: make test
+
+      #----------------------------------------------
+      # check formatting
+      #----------------------------------------------
+      - name: Code style with black
+        run: |
+           # run black in check mode
+           # if files are not formatted correctly, the build will not go through
+           poetry run black . --check --verbose
