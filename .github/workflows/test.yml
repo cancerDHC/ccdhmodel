@@ -53,6 +53,4 @@ jobs:
       #----------------------------------------------
       - name: Code style with black
         run: |
-           # run black in check mode
-           # if files are not formatted correctly, the build will not go through
-           poetry run black . --check --verbose
+           make test-code-style

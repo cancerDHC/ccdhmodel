@@ -63,6 +63,14 @@ test: install
 	PYTHONPATH=crdch_model poetry run python -m unittest
 
 # ---------------------------------------
+# Test code style using Black
+# ---------------------------------------
+
+test-code-style:
+	# Check all Python files in the test files.
+	poetry run black tests/ --check --verbose
+
+# ---------------------------------------
 # GEN: run generator for each target
 # ---------------------------------------
 gen: $(patsubst %,gen-%,$(TGTS))
