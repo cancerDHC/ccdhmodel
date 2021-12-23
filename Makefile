@@ -317,8 +317,11 @@ docserve: gen-docs
 gh-deploy: install
 	$(RUN) mike deploy dev -p
 
-#### MAM 20210729
+########
+# PYPI #
+########
+
+# This target can be used to publish this package to PyPI.
 pypi:
-	rm -f dist/*
-	$(RUN) python setup.py sdist bdist_wheel
-	$(RUN) twine upload dist/*
+	poetry build
+	poetry publish
