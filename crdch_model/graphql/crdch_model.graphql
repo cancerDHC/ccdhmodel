@@ -58,7 +58,6 @@ type CancerStageObservation
     focus: Entity
     subject: Subject
     performedBy: Organization
-    valueEntity: Entity
     valueCodeableConcept: CodeableConcept!
   }
 
@@ -495,6 +494,7 @@ type Treatment
     treatmentIntent: CodeableConcept
     treatmentEffect: CodeableConcept
     treatmentOutcome: CodeableConcept
+    treatmentDose: Quantity
   }
 
 

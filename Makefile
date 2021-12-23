@@ -35,14 +35,7 @@ PKG_T_SCHEMA = $(PKG_T_MODEL)/schema
 # MAM 20210806
 PKG_T_CSV = $(PKG_DIR)/csv
 
-# Global generation options
-# PIPENV_IGNORE_INSTALLED: This setting prevents installed Python
-# 	packages from being imported, ensuring that every required
-# 	package has been installed solely from the Pipfile.
-# 	(see https://pipenv-fork.readthedocs.io/en/latest/advanced.html#working-with-platform-provided-python-components for details)
-#
-ENV = PIPENV_IGNORE_INSTALLED=1
-RUN = $(ENV) pipenv run
+RUN = poetry run
 GEN_OPTS = --log_level WARNING
 CDM_GOOGLE_SHEET_ID=1oWS7cao-fgz2MKWtyr8h2dEL9unX__0bJrWKv6mQmM4
 
@@ -55,22 +48,19 @@ all: install gen
 # We don't want to pollute the python environment with linkml tool specific packages.
 # For this reason, use Pipfile (which generates a Pipfile.lock file).
 # ---------------------------------------
-install: 
-	pipenv install
+install:
+	poetry install
 
-# Install dev packages as well as core packages.
-install-dev:
-	pipenv install --dev
-
+# To uninstall the virtual environment, we need to get the path from poetry.
+# I'm nervous about passing that path directly to `rm -rf`, so instead let's just tell the users where it is for now.
 uninstall:
-	pipenv --rm
+	echo Please delete the current environment: $(shell poetry env info --path)
 
 # ---------------------------------------
 # Test runner
 # ---------------------------------------
-test:
-	pipenv install --dev
-	pipenv run python -m unittest
+test: install
+	PYTHONPATH=crdch_model poetry run python -m unittest
 
 # ---------------------------------------
 # Test runner with tox
@@ -89,7 +79,7 @@ gen: $(patsubst %,gen-%,$(TGTS))
 clean:
 	rm -rf target/
 	rm -rf docs/
-	pipenv clean
+	poetry install --remove-untracked
 .PHONY: clean
 
 
@@ -302,15 +292,22 @@ $(PKG_T_SQLDDL)/%.sql: target/sqlddl/%.sql
 target/sqlddl/%.sql: $(SCHEMA_DIR)/%.yaml tdir-sqlddl install
 	$(RUN) gen-sqlddl $(GEN_OPTS) $< > $@
 
+####################
+# MODEL GENERATION #
+####################
+
+# Generate the model. We use sheet2linkml to do this.
+generate-model: install
+	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) sheet2linkml --output model/schema/crdch_model.yaml
+
+
+#################
+# DOCUMENTATION #
+#################
+
 # test docs locally.
 docserve: gen-docs
 	$(RUN) mkdocs serve
-
-
-# Regenerate from Google Sheets. Note that this uses a *separate* Pipenv in the
-# generators/google-sheets directory, so we have to run pipenv install on it separately.
-generate-model: install install-dev
-	CDM_GOOGLE_SHEET_ID=$(CDM_GOOGLE_SHEET_ID) $(RUN) python vendor/sheet2linkml/sheet2linkml.py --output model/schema/crdch_model.yaml
 
 # MAM 20210806 not sure how this fits into the linkml model template's doc building/publsihing approach
 # Deploy changes to the `dev` version on the gh-pages branch.
@@ -320,8 +317,11 @@ generate-model: install install-dev
 gh-deploy: install
 	$(RUN) mike deploy dev -p
 
-#### MAM 20210729
+########
+# PYPI #
+########
+
+# This target can be used to publish this package to PyPI.
 pypi:
-	rm -f dist/*
-	$(RUN) python setup.py sdist bdist_wheel
-	$(RUN) twine upload dist/*
+	poetry build
+	poetry publish

@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "crdch-model"
+version = "1.2"
+description = "CRDC-H model in LinkML, developed by the Center for Cancer Data Harmonization (CCDH). This Python package contains the dataclasses necessary to build and operate over data objects according to the CRDC-H model."
+readme = "CRDCH_MODEL.md"
+authors = [
+  "Mark A. Miller <MAM@lbl.gov>",
+  "Gaurav Vaidya <gaurav@ggvaidya.com>"
+]
+license = "MIT"
+packages = [
+  { include = "crdch_model.py", from = "crdch_model" }
+]
+include = [
+  "README.md",
+  "model/*",
+  "crdch_model/*"
+]
+keywords = [
+  'linkml',
+  'crdc',
+  'cancer',
+  'biomedical data'
+]
+classifiers = [
+  'Topic :: Scientific/Engineering :: Bio-Informatics',
+  'Intended Audience :: Healthcare Industry',
+  'Development Status :: 4 - Beta',
+  'Intended Audience :: Developers',
+  'Intended Audience :: Science/Research',
+  'Intended Audience :: Information Technology',
+  'License :: OSI Approved :: MIT License',
+  'Programming Language :: Python :: 3 :: Only',
+  'Programming Language :: Python :: 3.7',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9'
+]
+
+[tool.poetry.urls]
+"CCDH Website" = "https://ccdh.cancer.gov"
+"CCDH Model" = "https://cancerdhc.github.io/ccdhmodel/"
+"GitHub Repository" = "https://github.com/cancerDHC/ccdhmodel/"
+"Bug Tracker" = "https://github.com/cancerDHC/ccdhmodel/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.7.1,<3.10" # Because of https://github.com/linkml/linkml/issues/508
+linkml-runtime = "^1.1.12"
+
+[tool.poetry.dev-dependencies]
+tox = "^3.24.4"
+linkml = {git = "https://github.com/cancerDHC/linkml.git", rev = "ccdh-dev"}
+mkdocs-material = "^7.3.6"
+mike = "^1.1.2"
+sheet2linkml = "^1.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
