@@ -34,7 +34,8 @@ You can publish this package to PyPI by running:
 $ make pypi
 ```
 
-This will run `poetry build` (to build the project into )
+This will run `poetry build` (to build the project into the `./dist` directory)
+and `poetry publish` (to publish it to PyPI).
 
 ### Cleanup options
 
