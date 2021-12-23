@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "crdch-model"
-version = "1.1.6"
+version = "1.2"
 description = "CRDC-H model in LinkML, developed by the Center for Cancer Data Harmonization (CCDH). This Python package contains the dataclasses necessary to build and operate over data objects according to the CRDC-H model."
 readme = "CRDCH_MODEL.md"
 authors = [
