@@ -543,34 +543,28 @@ resolved_reference = "a1b81c7bbedfdee659c7c2e99810b08f18ee4fa6"
 
 [[package]]
 name = "linkml-runtime"
-version = "1.1.10"
+version = "1.1.12"
 description = "Runtime environment for LinkML, the Linked open data modeling language"
 category = "main"
 optional = false
-python-versions = "^3.7.1"
-develop = false
+python-versions = ">=3.7.1,<4.0.0"
 
 [package.dependencies]
 click = "*"
 deprecated = "*"
 hbreader = "*"
 json-flattener = ">=0.1.7"
-jsonasobj2 = "==1.*,>=1.0.0,>=1.0.4"
+jsonasobj2 = ">=1.0.4,<2.0.0"
 jsonschema = ">=3.2.0"
 prefixcommons = "*"
 pyldmod = "*"
-pyyaml = "==5.*,>=5.1.0"
-rdflib = "==5.*,>=5.0.0"
-rdflib-jsonld = "<=0.6.1,>=0.5.0"
+pyyaml = ">=5.1.0,<6.0.0"
+rdflib = ">=5.0.0"
+rdflib-jsonld = "0.6.1"
 rdflib-pyldmod-compat = "*"
+rdflib-shim = "*"
 requests = "*"
-shexjsg = "==0.*,>=0.7.0"
-
-[package.source]
-type = "git"
-url = "https://github.com/linkml/linkml-runtime"
-reference = "main"
-resolved_reference = "325131a6d8a90a8e56c2f4527e858f7e5a5461ba"
+shexjsg = ">=0.7.0,<1.0.0"
 
 [[package]]
 name = "linkml-runtime-api"
@@ -1155,6 +1149,18 @@ rdflib = ">=4.2.0"
 testfixtures = "*"
 
 [[package]]
+name = "rdflib-shim"
+version = "1.0.3"
+description = "Shim for rdflib 5 and 6 incompatibilities"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+rdflib = ">=5.0.0"
+rdflib-jsonld = "0.6.1"
+
+[[package]]
 name = "requests"
 version = "2.26.0"
 description = "Python HTTP for Humans."
@@ -1590,7 +1596,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<3.10" # Because of https://github.com/linkml/linkml/issues/508
-content-hash = "55b7dd0078f1b477fb8e9fd45a9a320a65c9c079bc212cbb458431cff7304cc7"
+content-hash = "7d14e132c3446226a3fe8ee36f166afbdd9bcf9b134724931243418227a9cc9c"
 
 [metadata.files]
 alabaster = [
@@ -1813,7 +1819,10 @@ jsonschema = [
     {file = "jsonschema-4.3.0.tar.gz", hash = "sha256:cb7f57b40f870409d7571844d0623f66d8078c90a9c255d9a4d4314b5ec3fc7c"},
 ]
 linkml = []
-linkml-runtime = []
+linkml-runtime = [
+    {file = "linkml_runtime-1.1.12-py3-none-any.whl", hash = "sha256:38046f068d495facc279d28f52a903c822e5413425d256fb1fc475f0abbc50da"},
+    {file = "linkml_runtime-1.1.12.tar.gz", hash = "sha256:699b26f67aa0a9f93f34fd8ef2ea3416385f67b7c2e33b1e1c3e0d1eba2e0718"},
+]
 linkml-runtime-api = [
     {file = "linkml_runtime_api-0.0.4-py3-none-any.whl", hash = "sha256:b18541410dabedfe61bb90ad2830e794c72417a4451563a2a02c486783df2ef4"},
     {file = "linkml_runtime_api-0.0.4.tar.gz", hash = "sha256:fb619e0e10a878502051eb316af431bd81849dc1966a926ee09c83b90ba24e59"},
@@ -2282,6 +2291,10 @@ rdflib-jsonld = [
 rdflib-pyldmod-compat = [
     {file = "rdflib-pyldmod-compat-0.1.2.tar.gz", hash = "sha256:bfba0064d8b2584afdbef5d54bac3ac1dd4c13b64aaeba7a43812c2f35ca13c6"},
     {file = "rdflib_pyldmod_compat-0.1.2-py3-none-any.whl", hash = "sha256:68aa05d4f4d8f46241e0c37e631b4747f18a356d8accc5bae204350d2f314196"},
+]
+rdflib-shim = [
+    {file = "rdflib_shim-1.0.3-py3-none-any.whl", hash = "sha256:7a853e7750ef1e9bf4e35dea27d54e02d4ed087de5a9e0c329c4a6d82d647081"},
+    {file = "rdflib_shim-1.0.3.tar.gz", hash = "sha256:d955d11e2986aab42b6830ca56ac6bc9c893abd1d049a161c6de2f1b99d4fc0d"},
 ]
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},
