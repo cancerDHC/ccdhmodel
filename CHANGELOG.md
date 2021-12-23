@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+* _Add new changes here._
+
+## [v1.2] - 2021-12-23
 * LinkML representation
   * Switched from setup.py to Poetry as the package and environment manager.
   * Removed local sheet2linkml and moved to [a separate repo](https://github.com/cancerDHC/sheet2linkml/).
@@ -56,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Includes the new version of the Google Sheet to LinkML generator
   built by @gaurav.
 
-[Unreleased]: https://github.com/cancerDHC/ccdhmodel/compare/v1.1...HEAD
+[Unreleased]: https://github.com/cancerDHC/ccdhmodel/compare/v1.2...HEAD
+[v1.2]: https://github.com/cancerDHC/ccdhmodel/compare/v1.1...v1.2
 [v1.1]: https://github.com/cancerDHC/ccdhmodel/compare/v1.0.1...v1.1
 [v1.0.1]: https://github.com/cancerDHC/ccdhmodel/compare/v1.0...v1.0.1
 [v1.0]: https://github.com/cancerDHC/ccdhmodel/compare/v0.2...v1.0
