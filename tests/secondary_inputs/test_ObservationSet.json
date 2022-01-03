@@ -1,0 +1,21 @@
+{
+  "id": "123",
+  "category": {
+    "coding": {
+      "code": "example:123",
+      "system": "http://example.com"
+    },
+    "text": "tobacco exposure observations"
+  },
+  "observations": [
+    {
+      "observation_type": {
+        "text": "cigarettes_per_day",
+        "coding": {
+          "code": "marksterms:cpd",
+          "system": "not a real uri"
+        }
+      }
+    }
+  ]
+}

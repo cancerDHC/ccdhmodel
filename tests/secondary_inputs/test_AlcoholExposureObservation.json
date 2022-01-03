@@ -1,0 +1,11 @@
+{
+  "id": "a1b2c3",
+  "value_integer": 6,
+  "observation_type": {
+    "text": "alcohol_drinks_per_day",
+    "coding": {
+      "code": "marksterms:dpd",
+      "system": "http://example.com/broken_uris_ok/"
+    }
+  }
+}
