@@ -231,7 +231,8 @@ $(PKG_T_OWL)/%.owl.ttl: target/owl/%.owl.ttl
 	mkdir -p $(PKG_T_OWL)
 	cp $< $@
 target/owl/%.owl.ttl: $(SCHEMA_DIR)/%.yaml tdir-owl install
-	$(RUN) gen-owl $(GEN_OPTS) $< > $@
+	echo Deactivated because of https://github.com/cancerDHC/ccdhmodel/issues/64
+	echo $(RUN) gen-owl $(GEN_OPTS) $< > $@
 
 # ---------------------------------------
 # JSON-LD Context
