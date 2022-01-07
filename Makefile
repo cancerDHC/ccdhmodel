@@ -152,8 +152,11 @@ docs/index.md: target/docs/index.md install
 	# mkdocs.yml moves from the target/docs to the docs directory
 	$(RUN) mkdocs build
 
+# Note that we use our fork of markdowngen.py
+# You can see the original markdowngen.py at https://github.com/linkml/linkml/blob/0f59fc520014d81e470dab6994561dbd0bb3d508/linkml/generators/markdowngen.py
+# and its subsequent versions.
 target/docs/index.md: $(SCHEMA_DIR)/$(SCHEMA_NAME).yaml tdir-docs install
-	$(RUN) gen-markdown $(GEN_OPTS) --mergeimports --notypesdir --warnonexist --dir target/docs $<
+	$(RUN) python generators/markdowngen.py $(GEN_OPTS) --mergeimports --notypesdir --warnonexist --dir target/docs $<
 
 # ---------------------------------------
 # YAML source
