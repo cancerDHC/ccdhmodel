@@ -2,7 +2,7 @@
 name = "alabaster"
 version = "0.7.12"
 description = "A configurable sidebar-enabled Sphinx theme"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -18,7 +18,7 @@ python-versions = "*"
 name = "argparse"
 version = "1.4.0"
 description = "Python command-line parsing library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -40,7 +40,7 @@ tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>
 name = "babel"
 version = "2.9.1"
 description = "Internationalization utilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -82,7 +82,7 @@ python-versions = "*"
 name = "cfgraph"
 version = "0.2.1"
 description = "rdflib collections flattening graph"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -112,7 +112,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "colorama"
 version = "0.4.4"
 description = "Cross-platform colored terminal text."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -120,7 +120,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "decorator"
 version = "5.1.0"
 description = "Decorators for Humans"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -150,7 +150,7 @@ python-versions = "*"
 name = "docutils"
 version = "0.17.1"
 description = "Docutils -- Python Documentation Utilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -158,7 +158,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "et-xmlfile"
 version = "1.1.0"
 description = "An implementation of lxml.xmlfile for the standard library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -295,7 +295,7 @@ grpc = ["grpcio (>=1.0.0)"]
 name = "graphviz"
 version = "0.19.1"
 description = "Simple Python interface for Graphviz"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -308,7 +308,7 @@ test = ["pytest (>=6)", "pytest-mock (>=3)", "mock (>=4)", "pytest-cov", "covera
 name = "greenlet"
 version = "1.1.2"
 description = "Lightweight in-process concurrent programming"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
 
@@ -346,7 +346,7 @@ python-versions = ">=3.5"
 name = "imagesize"
 version = "1.3.0"
 description = "Getting image size from png/jpeg/jpeg2000/gif file"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -397,7 +397,7 @@ six = "*"
 name = "jinja2"
 version = "3.0.3"
 description = "A very fast and expressive template engine."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -445,7 +445,7 @@ hbreader = "*"
 name = "jsonpatch"
 version = "1.32"
 description = "Apply JSON-Patches (RFC 6902)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -456,7 +456,7 @@ jsonpointer = ">=1.9"
 name = "jsonpath-ng"
 version = "1.5.3"
 description = "A final implementation of JSONPath for Python that aims to be standard compliant, including arithmetic and binary comparison operators and providing clear AST for metaprogramming."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -469,7 +469,7 @@ six = "*"
 name = "jsonpointer"
 version = "2.2"
 description = "Identify specific nodes in a JSON document (RFC 6901)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -494,12 +494,11 @@ format_nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-
 
 [[package]]
 name = "linkml"
-version = "0.0.8.dev730"
+version = "1.1.16"
 description = "Linked Open Data Modeling Language"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
-develop = false
 
 [package.dependencies]
 argparse = ">=1.4.0"
@@ -510,7 +509,7 @@ isodate = ">=0.6.0"
 jinja2 = "*"
 jsonasobj2 = ">=1.0.3,<2.0"
 jsonschema = ">=3.0.1"
-linkml-runtime = ">=1.1.3,<1.1.4 || >1.1.4"
+linkml-runtime = ">=1.1.12"
 linkml-runtime-api = "*"
 myst-parser = "*"
 openpyxl = "*"
@@ -525,21 +524,16 @@ pyshex = ">=0.7.20"
 pyshexc = ">=0.8.3"
 python-dateutil = "*"
 pyyaml = ">=5.1,<6.0"
-rdflib = ">=5.0,<6.0"
-rdflib-jsonld = ">=0.5.0,<=0.6.1"
+rdflib = ">=5.0.0"
+rdflib-jsonld = "0.6.1"
 rdflib-pyldmod-compat = ">=0.1.2c"
+rdflib-shim = "*"
 requests = ">=2.22"
 sphinx = "*"
 sphinx-click = "*"
 sphinx-rtd-theme = "*"
 sqlalchemy = "*"
 watchdog = ">=0.9.0"
-
-[package.source]
-type = "git"
-url = "https://github.com/cancerDHC/linkml.git"
-reference = "ccdh-dev"
-resolved_reference = "a1b81c7bbedfdee659c7c2e99810b08f18ee4fa6"
 
 [[package]]
 name = "linkml-runtime"
@@ -570,7 +564,7 @@ shexjsg = ">=0.7.0,<1.0.0"
 name = "linkml-runtime-api"
 version = "0.0.4"
 description = "LinkML Runtime Environment API"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -613,7 +607,7 @@ testing = ["coverage", "pyyaml"]
 name = "markdown-it-py"
 version = "2.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 
@@ -635,7 +629,7 @@ testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
 name = "markupsafe"
 version = "2.0.1"
 description = "Safely add untrusted strings to HTML/XML markup."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -643,7 +637,7 @@ python-versions = ">=3.6"
 name = "mdit-py-plugins"
 version = "0.3.0"
 description = "Collection of plugins for markdown-it-py"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.6"
 
@@ -659,7 +653,7 @@ testing = ["coverage", "pytest (>=3.6,<4)", "pytest-cov", "pytest-regressions"]
 name = "mdurl"
 version = "0.1.0"
 description = "Markdown URL utilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -740,7 +734,7 @@ python-versions = ">=3.6"
 name = "myst-parser"
 version = "0.16.1"
 description = "An extended commonmark compliant parser, with bridges to docutils & sphinx."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -762,7 +756,7 @@ testing = ["beautifulsoup4", "coverage", "docutils (>=0.17.0,<0.18.0)", "pytest 
 name = "numpy"
 version = "1.21.4"
 description = "NumPy is the fundamental package for array computing with Python."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7,<3.11"
 
@@ -783,7 +777,7 @@ signedtoken = ["cryptography (>=3.0.0,<4)", "pyjwt (>=2.0.0,<3)"]
 name = "openpyxl"
 version = "3.0.9"
 description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -794,7 +788,7 @@ et-xmlfile = "*"
 name = "packaging"
 version = "21.3"
 description = "Core utilities for Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -805,7 +799,7 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 name = "pandas"
 version = "1.3.5"
 description = "Powerful data structures for data analysis, time series, and statistics"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7.1"
 
@@ -825,7 +819,7 @@ test = ["hypothesis (>=3.58)", "pytest (>=6.0)", "pytest-xdist"]
 name = "parse"
 version = "1.19.0"
 description = "parse() is the opposite of format()"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -860,7 +854,7 @@ testing = ["pytest", "pytest-benchmark"]
 name = "ply"
 version = "3.11"
 description = "Python Lex & Yacc"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -883,7 +877,7 @@ test = ["pytest"]
 name = "prologterms"
 version = "0.0.6"
 description = "A simple python library for generating prolog terms"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -926,7 +920,7 @@ pyasn1 = ">=0.4.6,<0.5.0"
 name = "pydantic"
 version = "1.8.2"
 description = "Data validation and settings management using python 3.6 type hinting"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6.1"
 
@@ -941,7 +935,7 @@ email = ["email-validator (>=1.0.3)"]
 name = "pygments"
 version = "2.10.0"
 description = "Pygments is a syntax highlighting package written in Python."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1025,7 +1019,7 @@ python-versions = ">=3.6"
 name = "pyshex"
 version = "0.7.20"
 description = "Python ShEx Implementation"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1044,7 +1038,7 @@ urllib3 = "*"
 name = "pyshexc"
 version = "0.8.3"
 description = "PyShExC - Python ShEx compiler"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -1060,7 +1054,7 @@ shexjsg = ">=0.7.1"
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
@@ -1082,7 +1076,7 @@ cli = ["click (>=5.0)"]
 name = "pytz"
 version = "2021.3"
 description = "World timezone definitions, modern and historical"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1208,7 +1202,7 @@ pyasn1 = ">=0.1.3"
 name = "ruamel.yaml"
 version = "0.17.17"
 description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3"
 
@@ -1223,7 +1217,7 @@ jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
 name = "ruamel.yaml.clib"
 version = "0.2.6"
 description = "C version of reader, parser and emitter for ruamel.yaml derived from libyaml"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1265,7 +1259,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "snowballstemmer"
 version = "2.2.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1273,7 +1267,7 @@ python-versions = "*"
 name = "sparqlslurper"
 version = "0.4.1"
 description = "SPARQL Slurper for rdflib"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1285,7 +1279,7 @@ sparqlwrapper = ">=1.8.2"
 name = "sparqlwrapper"
 version = "1.8.5"
 description = "SPARQL Endpoint interface to Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -1299,7 +1293,7 @@ keepalive = ["keepalive (>=0.5)"]
 name = "sphinx"
 version = "4.3.1"
 description = "Python documentation generator"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1330,7 +1324,7 @@ test = ["pytest", "pytest-cov", "html5lib", "cython", "typed-ast"]
 name = "sphinx-click"
 version = "3.0.2"
 description = "Sphinx extension that automatically documents click applications"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1343,7 +1337,7 @@ sphinx = ">=2.0"
 name = "sphinx-rtd-theme"
 version = "1.0.0"
 description = "Read the Docs theme for Sphinx"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
 
@@ -1358,7 +1352,7 @@ dev = ["transifex-client", "sphinxcontrib-httpdomain", "bump2version"]
 name = "sphinxcontrib-applehelp"
 version = "1.0.2"
 description = "sphinxcontrib-applehelp is a sphinx extension which outputs Apple help books"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1370,7 +1364,7 @@ test = ["pytest"]
 name = "sphinxcontrib-devhelp"
 version = "1.0.2"
 description = "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp document."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1382,7 +1376,7 @@ test = ["pytest"]
 name = "sphinxcontrib-htmlhelp"
 version = "2.0.0"
 description = "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1394,7 +1388,7 @@ test = ["pytest", "html5lib"]
 name = "sphinxcontrib-jsmath"
 version = "1.0.1"
 description = "A sphinx extension which renders display math in HTML via JavaScript"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1405,7 +1399,7 @@ test = ["pytest", "flake8", "mypy"]
 name = "sphinxcontrib-qthelp"
 version = "1.0.3"
 description = "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp document."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1417,7 +1411,7 @@ test = ["pytest"]
 name = "sphinxcontrib-serializinghtml"
 version = "1.1.5"
 description = "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle)."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1429,7 +1423,7 @@ test = ["pytest"]
 name = "sqlalchemy"
 version = "1.4.28"
 description = "Database Abstraction Library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
 
@@ -1566,7 +1560,7 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 name = "watchdog"
 version = "2.1.6"
 description = "Filesystem events monitoring"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1596,7 +1590,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<3.10" # Because of https://github.com/linkml/linkml/issues/508
-content-hash = "7d14e132c3446226a3fe8ee36f166afbdd9bcf9b134724931243418227a9cc9c"
+content-hash = "78b2aed0200342c8a3ffef02988b65e880b7bba8a0636b414550da6c7a5a3faa"
 
 [metadata.files]
 alabaster = [
@@ -1818,7 +1812,10 @@ jsonschema = [
     {file = "jsonschema-4.3.0-py3-none-any.whl", hash = "sha256:ab7069946a3ad2037e79a5cdc8d0e9a74cd00721d426d75c5d69a6707c778218"},
     {file = "jsonschema-4.3.0.tar.gz", hash = "sha256:cb7f57b40f870409d7571844d0623f66d8078c90a9c255d9a4d4314b5ec3fc7c"},
 ]
-linkml = []
+linkml = [
+    {file = "linkml-1.1.16-py3-none-any.whl", hash = "sha256:4d870645964c5df429b60c027c4658d1b35d1b1d1dc6c1e6bd6caa691fef558a"},
+    {file = "linkml-1.1.16.tar.gz", hash = "sha256:5afda05fa3d7b49a8cbaf8bc4587c0a6957f1c4d21adb713bcf0a5a55967713b"},
+]
 linkml-runtime = [
     {file = "linkml_runtime-1.1.12-py3-none-any.whl", hash = "sha256:38046f068d495facc279d28f52a903c822e5413425d256fb1fc475f0abbc50da"},
     {file = "linkml_runtime-1.1.12.tar.gz", hash = "sha256:699b26f67aa0a9f93f34fd8ef2ea3416385f67b7c2e33b1e1c3e0d1eba2e0718"},
