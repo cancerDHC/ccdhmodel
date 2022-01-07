@@ -66,7 +66,7 @@ test: install
 # Test runner with tox
 # ---------------------------------------
 test-tox:
-	pipenv run tox4
+	$(RUN) tox
 
 # ---------------------------------------
 # GEN: run generator for each target
