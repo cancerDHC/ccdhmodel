@@ -66,7 +66,7 @@ test: install
 # Test runner with tox
 # ---------------------------------------
 test-tox:
-	$(RUN) run tox4
+	$(RUN) tox4
 
 # ---------------------------------------
 # GEN: run generator for each target
