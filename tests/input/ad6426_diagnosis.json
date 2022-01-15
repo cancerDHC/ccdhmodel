@@ -1,0 +1,66 @@
+    {
+      "id": "5d2d67d1-4611-4a18-9a66-89823aaa8e3c",
+      "identifier": [
+        {
+          "value": "AD6426_diagnosis",
+          "system": "GDC-submitter-id"
+        }
+      ],
+      "condition": {
+        "coding": [
+          {
+            "code": "Adenocarcinoma, NOS",
+            "system": "GDC"
+          }
+        ],
+        "text": "Adenocarcinoma, NOS"
+      },
+      "metastatic_site": [
+        {
+          "site": {
+            "coding": [
+              {
+                "code": "Nasopharynx",
+                "system": "GDC"
+              }
+            ],
+            "text": "Nasopharynx"
+          }
+        }
+      ],
+      "stage": [
+        {
+          "observations": [
+            {
+              "observation_type": {
+                "coding": [
+                  {
+                    "code": "Overall",
+                    "system": "GDC"
+                  }
+                ],
+                "text": "Overall"
+              },
+              "value_codeable_concept": {
+                "coding": [
+                  {
+                    "code": "Not Reported",
+                    "system": "GDC"
+                  }
+                ],
+                "text": "not reported"
+              }
+            }
+          ]
+        }
+      ],
+      "morphology": {
+        "coding": [
+          {
+            "code": "8140/3",
+            "system": "GDC"
+          }
+        ],
+        "text": "8140/3"
+      }
+    }
